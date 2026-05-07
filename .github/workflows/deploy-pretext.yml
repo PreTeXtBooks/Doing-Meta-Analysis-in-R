@@ -1,0 +1,74 @@
+name: Deploy PreTeXt Book
+
+on:
+  # Trigger on pushes to main branch
+  push:
+    branches:
+      - main
+  # Allow manual trigger from Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, do not cancel in-progress deployments
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      
+      - name: Install PreTeXt CLI
+        run: |
+          pip install pretext
+          
+      - name: Install ImageMagick for image conversion
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+      
+      - name: Copy and convert images for PreTeXt
+        run: |
+          python3 copy_images.py
+          
+      - name: Build PreTeXt book (HTML)
+        run: |
+          cd pretext
+          pretext build web
+          # Verify build succeeded by checking if output exists
+          if [ ! -d "output/web" ]; then
+            echo "Build failed: output/web directory not created"
+            exit 1
+          fi
+          
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'pretext/output/web'
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

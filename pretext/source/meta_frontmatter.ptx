@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<frontmatter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="meta-front">
+  <bibinfo>
+    <author>
+      <personname>NAME</personname>
+      <website>
+      </website>
+    </author>
+    <author>
+      <personname>NAME</personname>
+      <website>
+      </website>
+    </author>
+    <date>
+      <today/>
+    </date>
+  </bibinfo>
+
+  <titlepage>
+    <titlepage-items/>
+  </titlepage>
+
+  <abstract>
+    <p>
+      ABSTRACT
+    </p>
+  </abstract>
+</frontmatter>

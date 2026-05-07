@@ -1,0 +1,40 @@
+name: Test PreTeXt Book Build
+
+on:
+  # Run on pull requests targeting main to verify the book builds
+  pull_request:
+    branches:
+      - main
+
+# Cancel in-progress runs for the same PR when new commits are pushed
+concurrency:
+  group: pr-build-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  test-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install PreTeXt CLI
+        run: |
+          pip install -r pretext/requirements.txt
+
+      - name: Build PreTeXt book (HTML)
+        run: |
+          cd pretext
+          pretext build web
+          # Verify build succeeded by checking if output exists
+          if [ ! -d "output/web" ]; then
+            echo "Build failed: output/web directory not created"
+            exit 1
+          fi
+          echo "Build succeeded: output/web directory exists"
