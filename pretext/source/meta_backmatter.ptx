@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <backmatter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="meta-back">
+  <xi:include href="./bm_citing_this_guide.ptx" />
+  <references xml:id="references">
+    <title>References</title>
+  </references>
   <index>
     <title>Index</title>
     <index-list/>
