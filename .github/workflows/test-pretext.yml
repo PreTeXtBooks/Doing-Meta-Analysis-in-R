@@ -1,10 +1,10 @@
 name: Test PreTeXt Book Build
 
 on:
-  # Run on pull requests targeting main to verify the book builds
+  # Run on pull requests targeting master to verify the book builds
   pull_request:
     branches:
-      - main
+      - master
 
 # Cancel in-progress runs for the same PR when new commits are pushed
 concurrency:
