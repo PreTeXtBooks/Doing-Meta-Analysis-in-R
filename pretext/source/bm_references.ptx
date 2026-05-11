@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<chapter xml:id="references">
+<references xml:id="references">
   <title>References</title>
   <program language="rmd">
     <input><![CDATA[
@@ -16,4 +16,4 @@ p { margin-top: 0; margin-bottom: 20px; }
 <br></br>
 ]]></input>
   </program>
-</chapter>
+</references>
