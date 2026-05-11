@@ -1,46 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <chapter xml:id="ch-effect-size-calculation-conversion" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Effect Size Calculation &amp; Conversion</title>
-  <program language="rmd">
-    <input><![CDATA[
-# Effect Size Calculation & Conversion {#es-calc}
 
----
+  <introduction>
+    <figure>
+      <image source="_figs/effect_size_calculation.jpg"/>
+    </figure>
+    <p>
+      <idx><h>meta Package</h></idx>
+    </p>
+    <p>
+      A problem meta-analysts frequently face is that suitable "raw" effect size data cannot be extracted from all included studies. Most functions in the <alert>{meta}</alert> package, such as <c>metacont</c> (Chapter <xref ref="pooling-smd"/>) or <c>metabin</c> (Chapter <xref ref="pooling-or-rr"/>), can only be used when complete raw effect size data is available. 
+    </p>
+    <p>
+      In practice, this often leads to difficulties. Some published articles, particularly older ones, do not report results in a way that allows to extract the needed (raw) effect size data. It is not uncommon to find that a study reports the results of a <m>t</m>-test, one-way ANOVA, or <m>\chi^2</m>-test, but not the group-wise mean and standard deviation, or the number of events in the study conditions, that we need for our meta-analysis. 
+    </p>
+    <p>
+      <idx><h>esc Package</h></idx>
+    </p>
+    <p>
+      The good news is that we can sometimes <alert>convert</alert> reported information into the desired effect size format. This makes it possible to include affected studies in a meta-analysis with <alert>pre-calculated</alert> data (Chapter <xref ref="pre-calculated-es"/>) using <c>metagen</c>. For example, we can convert the results of a two-sample <m>t</m>-test to a standardized mean difference and its standard error, and then use <c>metagen</c> to perform a meta-analysis of pre-calculated SMDs. The <alert>{esc}</alert> package  provides several helpful functions which allow us to perform such conversions directly in <em>R</em>.
+    </p>
+  </introduction>
 
-<img src="_figs/effect_size_calculation.jpg" />
+  <section xml:id="mean-standard-error">
+    <title>Mean &amp; Standard Error</title>
 
-<br></br>
-
-\index{meta Package}
-
-A problem meta-analysts frequently face is that suitable "raw" effect size data cannot be extracted from all included studies. Most functions in the **{meta}** package, such as `metacont` (Chapter \@ref(pooling-smd)) or `metabin` (Chapter \@ref(pooling-or-rr)), can only be used when complete raw effect size data is available. 
-
-In practice, this often leads to difficulties. Some published articles, particularly older ones, do not report results in a way that allows to extract the needed (raw) effect size data. It is not uncommon to find that a study reports the results of a $t$-test, one-way ANOVA, or $\chi^2$-test, but not the group-wise mean and standard deviation, or the number of events in the study conditions, that we need for our meta-analysis. 
-
-\index{esc Package}
-
-The good news is that we can sometimes **convert** reported information into the desired effect size format. This makes it possible to include affected studies in a meta-analysis with **pre-calculated** data (Chapter \@ref(pre-calculated-es)) using `metagen`. For example, we can convert the results of a two-sample $t$-test to a standardized mean difference and its standard error, and then use `metagen` to perform a meta-analysis of pre-calculated SMDs. The **{esc}** package [@esc] provides several helpful functions which allow us to perform such conversions directly in _R_.
-
-<br></br>
-
-## Mean & Standard Error
-
----
-
-\index{Mean, Arithmetic}
-\index{Standardized Mean Difference}
-\index{Hedges' \textit{g}}
-
-When calculating SMDs or Hedges' $g$ from the mean and **standard error**, we can make use of the fact that the standard deviation of a mean is defined as its standard error, with the square root of the sample size "factored out" [@thalheimer2002calculate]:
-
-\begin{equation}
-\text{SD} =\text{SE}\sqrt{n}
-(\#eq:esc1)
-\end{equation}
-
-We can calculate the SMD or Hedges' $g$ using the `esc_mean_se` function. Here is an example:
-
-```{r}
+    <p>
+      <idx><h>Mean, Arithmetic</h></idx> <idx><h>Standardized Mean Difference</h></idx> <idx><h>Hedges' \textit{g}</h></idx>
+    </p>
+    <p>
+      When calculating SMDs or Hedges' <m>g</m> from the mean and <alert>standard error</alert>, we can make use of the fact that the standard deviation of a mean is defined as its standard error, with the square root of the sample size "factored out" :
+    </p>
+    <p>
+      \begin{equation} \text{SD} =\text{SE}\sqrt{n} (#eq:esc1) \end{equation}
+    </p>
+    <p>
+      We can calculate the SMD or Hedges' <m>g</m> using the <c>esc_mean_se</c> function. Here is an example:
+    </p>
+    <program language="r">
+      <input>
 library(esc)
 
 esc_mean_se(grp1m = 8.5,   # mean of group 1
@@ -50,19 +49,21 @@ esc_mean_se(grp1m = 8.5,   # mean of group 1
             grp2se = 1.8,  # standard error of group 2
             grp2n = 60,    # sample in group 2
             es.type = "d") # convert to SMD; use "g" for Hedges' g
-```
+      </input>
+    </program>
+  </section>
 
-<br></br>
+  <section xml:id="regression-coefficients">
+    <title>Regression Coefficients</title>
 
-## Regression Coefficients
-
----
-
-It is possible to calculate SMDs, Hedges' $g$ or a correlation $r$ from standardized or unstandardized regression coefficients [@lipsey2001practical, Appendix B]. For unstandardized coefficients, we can use the `esc_B` function in **{esc}**. Here is an example:
-
-\index{Correlation}
-
-```{r}
+    <p>
+      It is possible to calculate SMDs, Hedges' <m>g</m> or a correlation <m>r</m> from standardized or unstandardized regression coefficients . For unstandardized coefficients, we can use the <c>esc_B</c> function in <alert>{esc}</alert>. Here is an example:
+    </p>
+    <p>
+      <idx><h>Correlation</h></idx>
+    </p>
+    <program language="r">
+      <input>
 library(esc)
 
 esc_B(b = 3.3,       # unstandardized regression coefficient
@@ -70,19 +71,19 @@ esc_B(b = 3.3,       # unstandardized regression coefficient
       grp1n = 100,   # sample size of the first group
       grp2n = 150,   # sample size of the second group
       es.type = "d") # convert to SMD; use "g" for Hedges' g
-```
-
-\vspace{2mm}
-
-```{r, eval=F}
+      </input>
+    </program>
+    <program language="r">
+      <input>
 esc_B(b = 2.9,       # unstandardized regression coefficient
       sdy = 4,       # standard deviation of the predicted variable y
       grp1n = 50,    # sample size of the first group
       grp2n = 50,    # sample size of the second group
       es.type = "r") # convert to correlation
-```
-
-```
+      </input>
+    </program>
+    <program language="r">
+      <input>
 ## Effect Size Calculation for Meta Analysis
 ## 
 ##      Conversion: unstandardized regression coefficient 
@@ -96,29 +97,31 @@ esc_B(b = 2.9,       # unstandardized regression coefficient
 ##      Fisher's z:   0.3782
 ##       Lower CIz:   0.1761
 ##       Upper CIz:   0.5803
-```
-
-\vspace{2mm}
-
-Standardized regression coefficients can be transformed using `esc_beta`.
-
-```{r}
+      </input>
+    </program>
+    <p>
+      Standardized regression coefficients can be transformed using <c>esc_beta</c>.
+    </p>
+    <program language="r">
+      <input>
 esc_beta(beta = 0.32,   # standardized regression coefficient
          sdy = 5,       # standard deviation of the predicted variable y
          grp1n = 100,   # sample size of the first group
          grp2n = 150,   # sample size of the second group
          es.type = "d") # convert to SMD; use "g" for Hedges' g
-```
-
-```{r, eval= F}
+      </input>
+    </program>
+    <program language="r">
+      <input>
 esc_beta(beta = 0.37,   # standardized regression coefficient
          sdy = 4,       # standard deviation of predicted variable y
          grp1n = 50,    # sample size of the first group
          grp2n = 50,    # sample size of the second group
          es.type = "r") # convert to correlation
-```
-
-```
+      </input>
+    </program>
+    <program language="r">
+      <input>
 ## Effect Size Calculation for Meta Analysis
 ## 
 ##      Conversion: standardized regression coefficient 
@@ -132,149 +135,166 @@ esc_beta(beta = 0.37,   # standardized regression coefficient
 ##      Fisher's z:   0.3847
 ##       Lower CIz:   0.1823
 ##       Upper CIz:   0.5871
-```
+      </input>
+    </program>
+    <p>
+      Please note that using regression coefficients in meta-analysis can be tricky, because we assume that the the same model has been used in all studies. This is particularly problematic if coefficients are extracted from multiple regression models, because studies may have controlled for different co-variates in their models, which means that the <m>b</m> values are not directly comparable.
+    </p>
+  </section>
 
-Please note that using regression coefficients in meta-analysis can be tricky, because we assume that the the same model has been used in all studies. This is particularly problematic if coefficients are extracted from multiple regression models, because studies may have controlled for different co-variates in their models, which means that the $b$ values are not directly comparable.
+  <section xml:id="convert-corr">
+    <title>Correlations</title>
 
-<br></br>
-
-## Correlations {#convert-corr}
-
----
-
-\index{Correlation}
-\index{Correlation, Point-Biserial}
-
-For **equally** sized groups ($n_1=n_2$), we can use the following formula to derive the SMD from the **point-biserial** correlation [@lipsey2001practical, chapter 3].
-
-\begin{equation}
-r_{pb} = \frac{\text{SMD}}{\sqrt{\text{SMD}^2+4}} ~~~~~~~~
-\text{SMD}=\frac{2r_{pb}}{\sqrt{1-r^2_{pb}}} (\#eq:esc2)
-\end{equation}
-
-A different formula has to be used for **unequally** sized groups [@aaron1998equating]:
-
-\begin{align}
-r_{pb} &= \frac{\text{SMD}}{\sqrt{\text{SMD}^2+\dfrac{(N^2-2N)}{n_1n_2}}} \notag \\
-\text{SMD} &= \dfrac{r_{pb}}{\sqrt{(1-r^2)\left(\frac{n_1}{N}\times\left(1-\frac{n_1}{N}\right)\right)}} (\#eq:esc3)
-\end{align}
-
-To convert $r_{pb}$ to an SMD or Hedges’ $g$, we can use the `esc_rpb` function.
-
-```{r}
+    <p>
+      <idx><h>Correlation</h></idx> <idx><h>Correlation, Point-Biserial</h></idx>
+    </p>
+    <p>
+      For <alert>equally</alert> sized groups (<m>n_1=n_2</m>), we can use the following formula to derive the SMD from the <alert>point-biserial</alert> correlation .
+    </p>
+    <p>
+      \begin{equation} r<em>{pb} = \frac{\text{SMD}}{\sqrt{\text{SMD}^2+4}} ~~~~~~~~ \text{SMD}=\frac{2r</em>{pb}}{\sqrt{1-r^2_{pb}}} (#eq:esc2) \end{equation}
+    </p>
+    <p>
+      A different formula has to be used for <alert>unequally</alert> sized groups :
+    </p>
+    <p>
+      \begin{align} r<em>{pb} &amp;= \frac{\text{SMD}}{\sqrt{\text{SMD}^2+\dfrac{(N^2-2N)}{n</em>1n<em>2}}} \notag \ \text{SMD} &amp;= \dfrac{r</em>{pb}}{\sqrt{(1-r^2)\left(\frac{n<em>1}{N}\times\left(1-\frac{n</em>1}{N}\right)\right)}} (#eq:esc3) \end{align}
+    </p>
+    <p>
+      To convert <m>r_{pb}</m> to an SMD or Hedges’ <m>g</m>, we can use the <c>esc_rpb</c> function.
+    </p>
+    <program language="r">
+      <input>
 library(esc)
 
 esc_rpb(r = 0.25,      # point-biserial correlation
         grp1n = 99,    # sample size of group 1
         grp2n = 120,   # sample size of group 2
         es.type = "d") # convert to SMD; use "g" for Hedges' g
-```
+      </input>
+    </program>
+  </section>
 
-<br></br>
+  <section xml:id="one-way-anovas">
+    <title>One-Way ANOVAs</title>
 
-## One-Way ANOVAs
-
----
-
-\index{Analysis of Variance}
-
-We can also derive the SMD from the $F$-value of a one-way ANOVA with **two** groups. Such ANOVAs can be identified by looking at the **degrees of freedom**. In a one-way ANOVA with two groups, the degrees of freedom should always start with 1 (e.g. $F_{\text{1,147}}$=5.31). 
-
-The formula used for the transformation looks like this [based on @rosnow1996computing; @rosnow2000contrasts; see @thalheimer2002calculate]:
-
-\begin{equation}
-\text{SMD} = \sqrt{  F\left(\frac{n_1+n_2}{n_1 n_2}\right)\left(\frac{n_1+n_2}{n_1+n_2-2}\right)}
-(\#eq:esc4)
-\end{equation}
-
-To calculate the SMD or Hedges' $g$ from $F$-values, we can use the `esc_f` function. Here is an example:
-
-```{r}
+    <p>
+      <idx><h>Analysis of Variance</h></idx>
+    </p>
+    <p>
+      We can also derive the SMD from the <m>F</m>-value of a one-way ANOVA with <alert>two</alert> groups. Such ANOVAs can be identified by looking at the <alert>degrees of freedom</alert>. In a one-way ANOVA with two groups, the degrees of freedom should always start with 1 (e.g. <m>F_{\text{1,147}}</m>=5.31). 
+    </p>
+    <p>
+      The formula used for the transformation looks like this [based on @rosnow1996computing; @rosnow2000contrasts; see @thalheimer2002calculate]:
+    </p>
+    <p>
+      \begin{equation} \text{SMD} = \sqrt{  F\left(\frac{n<em>1+n</em>2}{n<em>1 n</em>2}\right)\left(\frac{n<em>1+n</em>2}{n<em>1+n</em>2-2}\right)} (#eq:esc4) \end{equation}
+    </p>
+    <p>
+      To calculate the SMD or Hedges' <m>g</m> from <m>F</m>-values, we can use the <c>esc_f</c> function. Here is an example:
+    </p>
+    <program language="r">
+      <input>
 esc_f(f = 5.04,      # F value of the one-way anova
       grp1n = 519,   # sample size of group 1 
       grp2n = 528,   # sample size of group 2
       es.type = "g") # convert to Hedges' g; use "d" for SMD
-```
+      </input>
+    </program>
+  </section>
 
-<br></br>
+  <section xml:id="two-sample-tests">
+    <title>Two-Sample <m>t</m>-Tests</title>
 
-## Two-Sample $t$-Tests
-
----
-
-\index{Standardized Mean Difference}
-
-An effect size expressed as a standardized mean difference can also be derived from an **independent** two-sample $t$-test value, using the following formula [@rosnow2000contrasts; @thalheimer2002calculate]:
-
-\begin{equation}
-\text{SMD} = \frac {t(n_1+n_2)}{\sqrt{(n_1+n_2-2)(n_1n_2)}}
-(\#eq:esc5)
-\end{equation}
-
-In _R_, we can calculate the SMD or Hedges' `g` from a $t$-value using the `esc_t` function. Here is an example:
-
-```{r}
+    <p>
+      <idx><h>Standardized Mean Difference</h></idx>
+    </p>
+    <p>
+      An effect size expressed as a standardized mean difference can also be derived from an <alert>independent</alert> two-sample <m>t</m>-test value, using the following formula :
+    </p>
+    <p>
+      \begin{equation} \text{SMD} = \frac {t(n<em>1+n</em>2)}{\sqrt{(n<em>1+n</em>2-2)(n<em>1n</em>2)}} (#eq:esc5) \end{equation}
+    </p>
+    <p>
+      In <em>R</em>, we can calculate the SMD or Hedges' <c>g</c> from a <m>t</m>-value using the <c>esc_t</c> function. Here is an example:
+    </p>
+    <program language="r">
+      <input>
 esc_t(t = 3.3,     # t-value 
       grp1n = 100, # sample size of group1
       grp2n = 150, # sample size of group 2
       es.type="d") # convert to SMD; use "g" for Hedges' g
-```
+      </input>
+    </program>
+  </section>
 
-<br></br>
+  <section xml:id="values">
+    <title><m>p</m>-Values</title>
 
-## $p$-Values
-
----
-
-\index{P-Value}
-
-At times, studies only report the effect size (e.g. a value of Cohen's $d$), the $p$-value of that effect, and nothing more. Yet, to pool results in a meta-analysis, we need a measure of the **precision** of the effect size, preferably the standard error.
-
-In such cases, we must estimate the standard error from the $p$-value of the effect size. This is possible for effect sizes based on **differences** (i.e. SMDs), or **ratios** (i.e. risk or odds ratios), using the formulas by Altman and Bland [-@altman2011obtain]. These formulas are implemented in the `se.from.p` function in _R_. 
-
-\index{dmetar Package}
-
-```{block, type='boxdmetar'}
-**The "se.from.p" Function**
-
-\vspace{4mm}
-
-The `se.from.p` function is included in the **{dmetar}**  package. Once **{dmetar}** is installed and loaded on your computer, the function is ready to be used. If you did **not** install **{dmetar}**, follow these instructions:
-
-1. Access the source code of the function [online](https://raw.githubusercontent.com/MathiasHarrer/dmetar/master/R/SE_from_p.R). 
-2. Let _R_ "learn" the function by copying and pasting the source code in its entirety into the console (bottom left pane of R Studio), and then hit "Enter".
-
-```
-
-
-Assuming a study with $N=$ 71 participants, reporting an effect size of $d=$ 0.71 for which $p=$ 0.013, we can calculate the standard error like this:
-
-```{r, eval=F}
+    <p>
+      <idx><h>P-Value</h></idx>
+    </p>
+    <p>
+      At times, studies only report the effect size (e.g. a value of Cohen's <m>d</m>), the <m>p</m>-value of that effect, and nothing more. Yet, to pool results in a meta-analysis, we need a measure of the <alert>precision</alert> of the effect size, preferably the standard error.
+    </p>
+    <p>
+      In such cases, we must estimate the standard error from the <m>p</m>-value of the effect size. This is possible for effect sizes based on <alert>differences</alert> (i.e. SMDs), or <alert>ratios</alert> (i.e. risk or odds ratios), using the formulas by Altman and Bland . These formulas are implemented in the <c>se.from.p</c> function in <em>R</em>. 
+    </p>
+    <p>
+      <idx><h>dmetar Package</h></idx>
+    </p>
+    <note>
+      <p>
+        <alert>The "se.from.p" Function</alert>
+      </p>
+      <p>
+        The <c>se.from.p</c> function is included in the <alert>{dmetar}</alert>  package. Once <alert>{dmetar}</alert> is installed and loaded on your computer, the function is ready to be used. If you did <alert>not</alert> install <alert>{dmetar}</alert>, follow these instructions:
+      </p>
+      <ol>
+        <li>
+          <p>
+            Access the source code of the function <url href="https://raw.githubusercontent.com/MathiasHarrer/dmetar/master/R/SE_from_p.R">online</url>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <em>R</em> "learn" the function by copying and pasting the source code in its entirety into the console (bottom left pane of R Studio), and then hit "Enter".
+          </p>
+        </li>
+      </ol>
+    </note>
+    <p>
+      Assuming a study with <m>N=</m> 71 participants, reporting an effect size of <m>d=</m> 0.71 for which <m>p=</m> 0.013, we can calculate the standard error like this:
+    </p>
+    <program language="r">
+      <input>
 library(dmetar)
 
 se.from.p(0.71,
           p = 0.013,
           N = 71,
           effect.size.type = "difference")
-```
-
-```
+      </input>
+    </program>
+    <program language="r">
+      <input>
 ##   EffectSize StandardError StandardDeviation  LLCI  ULCI
 ## 1       0.71         0.286             2.410 0.149 1.270
-```
-
-\vspace{2mm}
-
-For a study with $N=$ 200 participants reporting an effect size of OR = 0.91 with $p=$ 0.38, the standard error is calculated this way:
-
-```{r, message=F, warning=F, eval=F}
+      </input>
+    </program>
+    <p>
+      For a study with <m>N=</m> 200 participants reporting an effect size of OR = 0.91 with <m>p=</m> 0.38, the standard error is calculated this way:
+    </p>
+    <program language="r">
+      <input>
 library(magrittr) # for pipe
 
 se.from.p(0.91, p = 0.38, N = 200,
-          effect.size.type = "ratio") %>% t()
-```
-
-```
+          effect.size.type = "ratio") %&gt;% t()
+      </input>
+    </program>
+    <program language="r">
+      <input>
 ##                        [,1]
 ## logEffectSize        -0.094
 ## logStandardError      0.105
@@ -284,166 +304,189 @@ se.from.p(0.91, p = 0.38, N = 200,
 ## EffectSize            0.910
 ## LLCI                  0.739
 ## ULCI                  1.120
-```
+      </input>
+    </program>
+    <p>
+      When <c>effect.size.type = "ratio"</c>, the function automatically also calculates the <alert>log-transformed</alert> effect size and standard error, which are needed to use the  <c>metagen</c> function (Chapter <xref ref="pre-calculated-es"/>).
+    </p>
+  </section>
 
-When `effect.size.type = "ratio"`, the function automatically also calculates the **log-transformed** effect size and standard error, which are needed to use the  `metagen` function (Chapter \@ref(pre-calculated-es)).
+  <section xml:id="tests">
+    <title><m>\chi^2</m> Tests</title>
 
-<br></br>
-
-## $\chi^2$ Tests
-
----
-
-\index{Odds Ratio}
-
-To convert a $\chi^2$ statistic to an odds ratio, the `esc_chisq` function can be used (assuming that d.f. = 1; e.g. $\chi^2_1$ = 8.7). Here is an example:
-
-```{r}
+    <p>
+      <idx><h>Odds Ratio</h></idx>
+    </p>
+    <p>
+      To convert a <m>\chi^2</m> statistic to an odds ratio, the <c>esc_chisq</c> function can be used (assuming that d.f. = 1; e.g. <m>\chi^2_1</m> = 8.7). Here is an example:
+    </p>
+    <program language="r">
+      <input>
 esc_chisq(chisq = 7.9,        # chi-squared value
           totaln = 100,       # total sample size
           es.type = "cox.or") # convert to odds ratio
-```
+      </input>
+    </program>
+  </section>
 
-<br></br>
+  <section xml:id="nnt">
+    <title>Number Needed To Treat</title>
 
-## Number Needed To Treat {#nnt}
-
----
-
-\index{Number Needed To Treat}
-
-Effect sizes such as Cohen's $d$ or Hedges’ $g$ are often difficult to interpret from a practical standpoint. Imagine that we found an intervention effect of $g=$ 0.35 in our meta-analysis. How can we communicate what such an effect **means** to patients, public officials, medical professionals, or other stakeholders? 
-
-To make it easier for others to understand the results, meta-analyses also often report the **number needed to treat** (NNT). This measure is most commonly used in medical research. It signifies how many additional patients must receive the treatment under study to **prevent** one additional **negative event** (e.g. relapse) or **achieve** one additional **positive** event (e.g. symptom remission, response). If NNT = 3, for example, we can say that three individuals must receive the treatment to avoid one additional relapse case; or that three patients must be treated to achieve one additional case of reliable symptom remission, depending on the research question.
-
-When we are dealing with binary effect size data, calculation of NNTs is relatively easy. The formula looks like this:
-
-\begin{equation}
-\text{NNT} = (p_{e_{\text{treat}}}-p_{e_{\text{control}}})^{-1}
-(\#eq:esc6)
-\end{equation}
-
-In this formula, $p_{e_{\text{treat}}}$ and $p_{e_{\text{control}}}$ are the proportions of participants who experienced the event in the treatment and control group, respectively. These proportions are identical to the "risks" used to calculate the risk ratio (Chapter \@ref(rr)), and also known as the **experimental group event rate** (EER) and **control group event rate** (CER). Given its formula, the NTT can also be described as the inverse of the (absolute) risk difference.
-
-Converting standardized mean differences or Hedges' $g$ to a NNT is more complicated. There are two commonly used methods:
-
-\index{Area Under The Curve (AUC)}
-
-* The method by **Kraemer and Kupfer** [-@kraemer2006size], which calculates the NNT from an **area under the curve** (AUC), defined as the probability that a patient in the treatment group has an outcome preferable to the one in the control group. This method allows to calculate the NNT directly from an SMD or $g$ without any extra information.
-
-* The method by **Furukawa and Leucht** calculates NNT values from SMDs using the CER, or a reasonable estimate thereof. Furukawa's method has been shown to be superior in estimating the true NNT value compared to the Kraemer & Kupfer method [@furukawa2011obtain]. If we can make reasonable estimates of the CER, Furukawa's method should therefore always be preferred. 
-
-When we use risk or odds ratios as effect size measures, NNTs can be calculated directly from **{meta}** objects using the `nnt` function. After running our meta-analysis using `metabin` (Chapter \@ref(pooling-or-rr)), we only have to plug the results into the `nnt` function. Here is an example:
-
-```{r}
+    <p>
+      <idx><h>Number Needed To Treat</h></idx>
+    </p>
+    <p>
+      Effect sizes such as Cohen's <m>d</m> or Hedges’ <m>g</m> are often difficult to interpret from a practical standpoint. Imagine that we found an intervention effect of <m>g=</m> 0.35 in our meta-analysis. How can we communicate what such an effect <alert>means</alert> to patients, public officials, medical professionals, or other stakeholders? 
+    </p>
+    <p>
+      To make it easier for others to understand the results, meta-analyses also often report the <alert>number needed to treat</alert> (NNT). This measure is most commonly used in medical research. It signifies how many additional patients must receive the treatment under study to <alert>prevent</alert> one additional <alert>negative event</alert> (e.g. relapse) or <alert>achieve</alert> one additional <alert>positive</alert> event (e.g. symptom remission, response). If NNT = 3, for example, we can say that three individuals must receive the treatment to avoid one additional relapse case; or that three patients must be treated to achieve one additional case of reliable symptom remission, depending on the research question.
+    </p>
+    <p>
+      When we are dealing with binary effect size data, calculation of NNTs is relatively easy. The formula looks like this:
+    </p>
+    <p>
+      \begin{equation} \text{NNT} = (p<em>{e</em>{\text{treat}}}-p<em>{e</em>{\text{control}}})^{-1} (#eq:esc6) \end{equation}
+    </p>
+    <p>
+      In this formula, <m>p_{e_{\text{treat}}}</m> and <m>p_{e_{\text{control}}}</m> are the proportions of participants who experienced the event in the treatment and control group, respectively. These proportions are identical to the "risks" used to calculate the risk ratio (Chapter <xref ref="rr"/>), and also known as the <alert>experimental group event rate</alert> (EER) and <alert>control group event rate</alert> (CER). Given its formula, the NTT can also be described as the inverse of the (absolute) risk difference.
+    </p>
+    <p>
+      Converting standardized mean differences or Hedges' <m>g</m> to a NNT is more complicated. There are two commonly used methods:
+    </p>
+    <p>
+      <idx><h>Area Under The Curve (AUC)</h></idx>
+    </p>
+    <ul>
+      <li>
+        <p>
+          The method by <alert>Kraemer and Kupfer</alert> , which calculates the NNT from an <alert>area under the curve</alert> (AUC), defined as the probability that a patient in the treatment group has an outcome preferable to the one in the control group. This method allows to calculate the NNT directly from an SMD or <m>g</m> without any extra information.
+        </p>
+      </li>
+      <li>
+        <p>
+          The method by <alert>Furukawa and Leucht</alert> calculates NNT values from SMDs using the CER, or a reasonable estimate thereof. Furukawa's method has been shown to be superior in estimating the true NNT value compared to the Kraemer &amp; Kupfer method . If we can make reasonable estimates of the CER, Furukawa's method should therefore always be preferred.
+        </p>
+      </li>
+    </ul>
+    <p>
+      When we use risk or odds ratios as effect size measures, NNTs can be calculated directly from <alert>{meta}</alert> objects using the <c>nnt</c> function. After running our meta-analysis using <c>metabin</c> (Chapter <xref ref="pooling-or-rr"/>), we only have to plug the results into the <c>nnt</c> function. Here is an example:
+    </p>
+    <program language="r">
+      <input>
 library(meta)
 data(Olkin1995)
 
 # Run meta-analysis with binary effect size data
-m.b <- metabin(ev.exp, n.exp, ev.cont, n.cont, 
+m.b &lt;- metabin(ev.exp, n.exp, ev.cont, n.cont, 
                data = Olkin1995,
                sm = "RR")
 nnt(m.b)
-```
-
-\vspace{2mm}
-
-The `nnt` function provides the number needed to treat for different assumed CERs. The three lines show the result for the minimum, mean, and maximum CER in our data set. The mean CER estimate is the "typical" NNT that is usually reported. 
-
-It is also possible to use `nnt` with `metagen` models, as long as the summary measure `sm` is either `"RR"` or `"OR"`. For such models, we also need to specify the assumed CER in the `p.c` argument in `nnt`. Here is an example using the `m.gen_bin` meta-analysis object we created in Chapter \@ref(m-gen-bin):
-
-```{r, echo=F}
-load("data/m.gen_bin.rda")
-m.gen_bin$print.subgroup.name = FALSE
-
-```
-
-
-```{r}
+      </input>
+    </program>
+    <p>
+      The <c>nnt</c> function provides the number needed to treat for different assumed CERs. The three lines show the result for the minimum, mean, and maximum CER in our data set. The mean CER estimate is the "typical" NNT that is usually reported. 
+    </p>
+    <p>
+      It is also possible to use <c>nnt</c> with <c>metagen</c> models, as long as the summary measure <c>sm</c> is either <c>"RR"</c> or <c>"OR"</c>. For such models, we also need to specify the assumed CER in the <c>p.c</c> argument in <c>nnt</c>. Here is an example using the <c>m.gen_bin</c> meta-analysis object we created in Chapter <xref ref="m-gen-bin"/>:
+    </p>
+    <program language="r">
+      <input>
 # Also show fixed-effect model results
-m.gen_bin <- update(m.gen_bin, fixed = TRUE)
+m.gen_bin &lt;- update(m.gen_bin, fixed = TRUE)
 
 nnt(m.gen_bin, 
     p.c = 0.1) # Use a CER of 0.1
-```
-
-\vspace{4mm}
-
-\index{dmetar Package}
-
-Standardized mean differences or Hedges' $g$ can be converted to the NNT using the `NNT` function in **{dmetar}**.
-
-```{block, type='boxdmetar'}
-**The "NNT" Function**
-
-\vspace{4mm}
-
-If you did **not** install **{dmetar}**, follow these instructions:
-
-\vspace{2mm}
-
-1. Access the source code of the `NNT` function [online](https://raw.githubusercontent.com/MathiasHarrer/dmetar/master/R/NNT.R). 
-2. Let _R_ "learn" the function by copying and pasting the source code in its entirety into the console (bottom left pane of R Studio), and then hit "Enter".
-
-```
-
-
-To use the Kraemer & Kupfer method, we only have to provide the `NNT` function with an effect size (SMD or $g$). Furukawa's method is automatically used as soon as a `CER` value is supplied.
-
-```{r}
+      </input>
+    </program>
+    <p>
+      <idx><h>dmetar Package</h></idx>
+    </p>
+    <p>
+      Standardized mean differences or Hedges' <m>g</m> can be converted to the NNT using the <c>NNT</c> function in <alert>{dmetar}</alert>.
+    </p>
+    <note>
+      <p>
+        <alert>The "NNT" Function</alert>
+      </p>
+      <p>
+        If you did <alert>not</alert> install <alert>{dmetar}</alert>, follow these instructions:
+      </p>
+      <ol>
+        <li>
+          <p>
+            Access the source code of the <c>NNT</c> function <url href="https://raw.githubusercontent.com/MathiasHarrer/dmetar/master/R/NNT.R">online</url>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <em>R</em> "learn" the function by copying and pasting the source code in its entirety into the console (bottom left pane of R Studio), and then hit "Enter".
+          </p>
+        </li>
+      </ol>
+    </note>
+    <p>
+      To use the Kraemer &amp; Kupfer method, we only have to provide the <c>NNT</c> function with an effect size (SMD or <m>g</m>). Furukawa's method is automatically used as soon as a <c>CER</c> value is supplied.
+    </p>
+    <program language="r">
+      <input>
 NNT(d = 0.245)
 
 NNT(d = 0.245, CER = 0.35)
-```
+      </input>
+    </program>
+    <note>
+      <p>
+        <alert>A Number to be Treated with Care: Criticism of the NNT</alert>
+      </p>
+      <p>
+        While common, usage of NNTs to communicate the results of clinical trials is not uncontroversial. Criticisms include that lay people often misunderstand it [despite purportedly being an "intuitive" alternative to other effect size measures, @christensen2006number]; and that researchers often calculate NNTs incorrectly . 
+      </p>
+      <p>
+        Furthermore, it is not possible to calculate reliable standard errors (and confidence intervals) of NNTs, which means that they can not be used in meta-analyses . It is only possible to convert results to the NNT after pooling has been conducted using another effect size measure.
+      </p>
+    </note>
+  </section>
 
+  <section xml:id="pool-groups">
+    <title>Multi-Arm Studies</title>
 
-```{block, type='boximportant'}
-**A Number to be Treated with Care: Criticism of the NNT**
-
-\vspace{2mm}
-
-While common, usage of NNTs to communicate the results of clinical trials is not uncontroversial. Criticisms include that lay people often misunderstand it [despite purportedly being an "intuitive" alternative to other effect size measures, @christensen2006number]; and that researchers often calculate NNTs incorrectly [@mendes2017number]. 
-
-\vspace{2mm}
-
-Furthermore, it is not possible to calculate reliable standard errors (and confidence intervals) of NNTs, which means that they can not be used in meta-analyses [@hutton2010misleading]. It is only possible to convert results to the NNT after pooling has been conducted using another effect size measure.
-
-```
-
-<br></br>
-
-## Multi-Arm Studies {#pool-groups}
-
----
-
-\index{Unit-of-Analysis Problem}
-
-To avoid unit-of-analysis errors (Chapter \@ref(unit-of-analysis)), it is sometimes necessary to pool the mean and standard deviation of two or more trial arms before calculating a (standardized) mean difference. To pool continuous effect size data of two groups, we can use these equations:
-
-\begin{align}
-n_{\text{pooled}} &= n_1 + n_2  \\
-m_{\text{pooled}} &= \frac{n_1m_1+n_2m_2}{n_1+n_2} \\
-SD_{\text{pooled}} &= \sqrt{\frac{(n_1-1)SD^{2}_{1}+ (n_2-1)SD^{2}_{2}+\frac{n_1n_2}{n_1+n_2}(m^{2}_1+m^{2}_2-2m_1m_2)} {n_1+n_2-1}}
-\end{align}
-
-We can apply this formula in _R_ using the `pool.groups` function.
-
-```{block, type='boxdmetar'}
-**The "pool.groups" Function**
-
-\vspace{4mm}
-
-The `pool.groups` function is included in the **{dmetar}**  package. Once **{dmetar}** is installed and loaded on your computer, the function is ready to be used. If you did **not** install **{dmetar}**, follow these instructions:
-
-1. Access the source code of the function [online](https://raw.githubusercontent.com/MathiasHarrer/dmetar/master/R/pool.groups.R). 
-2. Let _R_ "learn" the function by copying and pasting the source code in its entirety into the console (bottom left pane of R Studio), and then hit "Enter".
-
-```
-
-
-Here is an example:
-
-```{r}
+    <p>
+      <idx><h>Unit-of-Analysis Problem</h></idx>
+    </p>
+    <p>
+      To avoid unit-of-analysis errors (Chapter <xref ref="unit-of-analysis"/>), it is sometimes necessary to pool the mean and standard deviation of two or more trial arms before calculating a (standardized) mean difference. To pool continuous effect size data of two groups, we can use these equations:
+    </p>
+    <p>
+      \begin{align} n<em>{\text{pooled}} &amp;= n</em>1 + n<em>2  \ m</em>{\text{pooled}} &amp;= \frac{n<em>1m</em>1+n<em>2m</em>2}{n<em>1+n</em>2} \ SD<em>{\text{pooled}} &amp;= \sqrt{\frac{(n</em>1-1)SD^{2}<em>{1}+ (n</em>2-1)SD^{2}<em>{2}+\frac{n</em>1n<em>2}{n</em>1+n<em>2}(m^{2}</em>1+m^{2}<em>2-2m</em>1m<em>2)} {n</em>1+n_2-1}} \end{align}
+    </p>
+    <p>
+      We can apply this formula in <em>R</em> using the <c>pool.groups</c> function.
+    </p>
+    <note>
+      <p>
+        <alert>The "pool.groups" Function</alert>
+      </p>
+      <p>
+        The <c>pool.groups</c> function is included in the <alert>{dmetar}</alert>  package. Once <alert>{dmetar}</alert> is installed and loaded on your computer, the function is ready to be used. If you did <alert>not</alert> install <alert>{dmetar}</alert>, follow these instructions:
+      </p>
+      <ol>
+        <li>
+          <p>
+            Access the source code of the function <url href="https://raw.githubusercontent.com/MathiasHarrer/dmetar/master/R/pool.groups.R">online</url>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <em>R</em> "learn" the function by copying and pasting the source code in its entirety into the console (bottom left pane of R Studio), and then hit "Enter".
+          </p>
+        </li>
+      </ol>
+    </note>
+    <p>
+      Here is an example:
+    </p>
+    <program language="r">
+      <input>
 library(dmetar)
 
 pool.groups(n1 = 50,   # sample size group 1
@@ -452,57 +495,54 @@ pool.groups(n1 = 50,   # sample size group 1
             m2 = 4,    # mean group 2
             sd1 = 3,   # sd group 1
             sd2 = 3.8) # sd group2 
-```
+      </input>
+    </program>
+  </section>
 
+  <section xml:id="aggregate-es">
+    <title>Aggregation of Effect Sizes</title>
 
-<br></br>
-
-## Aggregation of Effect Sizes {#aggregate-es}
-
----
-
-The `aggregate` function in **{metafor}** can be used to aggregate several dependent, **pre-calculated effect sizes** into one estimate, for example because they are part of the same study or cluster. This is a way to avoid the **unit-of-analysis error** (see Chapter \@ref(unit-of-analysis)), but requires us to assume a value for the within-study correlation, which is typically unknown. Another (and often preferable) way to deal with effect size dependencies are (correlated) hierarchical models, which are illustrated in Chapter \@ref(multilevel-ma). 
-
-In this example, we aggregate effect sizes of the `Chernobyl` data set (see Chapter \@ref(multilevel-R)), so that each study only provides one effect size:
-
-```{r, eval=F}
+    <p>
+      The <c>aggregate</c> function in <alert>{metafor}</alert> can be used to aggregate several dependent, <alert>pre-calculated effect sizes</alert> into one estimate, for example because they are part of the same study or cluster. This is a way to avoid the <alert>unit-of-analysis error</alert> (see Chapter <xref ref="unit-of-analysis"/>), but requires us to assume a value for the within-study correlation, which is typically unknown. Another (and often preferable) way to deal with effect size dependencies are (correlated) hierarchical models, which are illustrated in Chapter <xref ref="multilevel-ma"/>. 
+    </p>
+    <p>
+      In this example, we aggregate effect sizes of the <c>Chernobyl</c> data set (see Chapter <xref ref="multilevel-R"/>), so that each study only provides one effect size:
+    </p>
+    <program language="r">
+      <input>
 library(metafor)
 library(dmetar)
 data("Chernobyl")
 
 # Convert 'Chernobyl' data to 'escalc' object
-Chernobyl <- escalc(yi = z,           # Effect size
+Chernobyl &lt;- escalc(yi = z,           # Effect size
                     sei = se.z,       # Standard error
                     data = Chernobyl)
 
 # Aggregate effect sizes on study level
 # We assume a correlation of rho=0.6
-Chernobyl.agg <- aggregate(Chernobyl, 
+Chernobyl.agg &lt;- aggregate(Chernobyl, 
                            cluster = author,
                            rho = 0.6)
 
 # Show aggregated results
 Chernobyl.agg[,c("author", "yi", "vi")]
-
-```
-
-```
+      </input>
+    </program>
+    <program language="r">
+      <input>
 ##                       author     yi     vi 
-## 1 Aghajanyan & Suskov (2009) 0.2415 0.0079 
+## 1 Aghajanyan &amp; Suskov (2009) 0.2415 0.0079 
 ## 2     Alexanin et al. (2010) 1.3659 0.0012 
 ## 3             Bochkov (1993) 0.2081 0.0014 
 ## 4      Dubrova et al. (1996) 0.3068 0.0132 
 ## 5      Dubrova et al. (1997) 0.4453 0.0110
 ## [...]
-```
+      </input>
+    </program>
+    <p>
+      Please note that <c>aggregate</c> returns the aggregated effect sizes <c>yi</c> as well as their <em>variance</em> <c>vi</c>, the square root of which is the standard error.
+    </p>
+  </section>
 
-Please note that `aggregate` returns the aggregated effect sizes `yi` as well as their *variance* `vi`, the square root of which is the standard error.
-
-
-$$\tag*{$\blacksquare$}$$
-
-
-
-    ]]></input>
-  </program>
 </chapter>
