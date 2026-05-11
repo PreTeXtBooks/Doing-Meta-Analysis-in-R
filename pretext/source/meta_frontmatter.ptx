@@ -2,13 +2,27 @@
 <frontmatter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="meta-front">
   <bibinfo>
     <author>
-      <personname>NAME</personname>
+      <personname>Mathias Harrer</personname>
       <website>
+        <url href="https://www.mharrer.dev"/>
       </website>
     </author>
     <author>
-      <personname>NAME</personname>
+      <personname>Pim Cuijpers</personname>
       <website>
+        <url href="https://www.pimcuijpers.com/blog/"/>
+      </website>
+    </author>
+    <author>
+      <personname>Toshi A. Furukawa</personname>
+      <website>
+        <url href="http://ebmh.med.kyoto-u.ac.jp/professor.html"/>
+      </website>
+    </author>
+    <author>
+      <personname>David D. Ebert</personname>
+      <website>
+        <url href="https://www.protectlab.org/en/author/prof.-dr.-david-daniel-ebert/"/>
       </website>
     </author>
     <date>
@@ -22,7 +36,11 @@
 
   <abstract>
     <p>
-      ABSTRACT
+      This guide provides a practical introduction to conducting meta-analyses in R, from foundational concepts to advanced methods.
     </p>
   </abstract>
+
+  <xi:include href="./fm_preface.ptx" />
+  <xi:include href="./fm_about_authors.ptx" />
+  <xi:include href="./fm_welcome.ptx" />
 </frontmatter>
