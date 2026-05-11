@@ -2176,6 +2176,7 @@ $$\tag*{$\blacksquare$}$$
 * **Selection models** are a very versatile method and can be used to model different publication bias processes. However, they only provide valid results when the assumed model is adequate, and often require a very large number of studies. A very simple selection model, the three-parameter model, can also be used for smaller data sets.
 
 * No publication bias method consistently outperforms all the others. It is therefore advisable to always apply **several** techniques, and interpret the corrected effect size cautiously. Thorough searches for unpublished evidence mitigate the risk of publication bias in a much better way than current statistical approaches. 
+
     ]]></input>
   </program>
 </chapter>

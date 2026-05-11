@@ -876,6 +876,7 @@ $$\tag*{$\blacksquare$}$$
 * In contrast to a conventional meta-analysis, three-level models estimate two heterogeneity variances: the random-effects variance **within** clusters, and the **between**-cluster heterogeneity variance.
 
 * It is also possible to test categorical or continuous predictors using a three-level model. This results in a three-level mixed-effects model. 
+
     ]]></input>
   </program>
 </chapter>

@@ -332,6 +332,7 @@ $$\tag*{$\blacksquare$}$$
 * It is also possible to add other kinds of information to a forest plot, for example the quality rating that each study received.
 
 * Forest plots can only display results assuming a fixed significance threshold, usually $p<$ 0.05. To visualize how results change for varying significance thresholds, drapery plots can be generated in addition.
+
     ]]></input>
   </program>
 </chapter>
