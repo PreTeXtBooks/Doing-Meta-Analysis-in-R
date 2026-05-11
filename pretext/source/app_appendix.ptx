@@ -12,7 +12,7 @@
 ---
 
 
-## Chapter 1: Introduction (see Chapter \@ref(intro)) {#qanda1}
+## Chapter 1: Introduction (see [Chapter 1](#intro)) {#qanda1}
 
 ---
 
@@ -46,7 +46,7 @@ A study can fulfill all study quality criteria that are considered important in 
 
 <br></br>
 
-## Chapter 2: Discovering R (see Chapter \@ref(discovering-R)) {#qanda2}
+## Chapter 2: Discovering R (see [Chapter 2](#discovering-R)) {#qanda2}
 
 ---
 
@@ -94,7 +94,7 @@ data %>%
 
 <br></br>
 
-## Chapter 3: Effect Sizes (see Chapter \@ref(effects)) {#qanda3}
+## Chapter 3: Effect Sizes (see [Chapter 3](#effects)) {#qanda3}
 
 ---
 
@@ -132,7 +132,7 @@ When effect sizes in our data set are correlated (for example because they are p
 
 <br></br>
 
-## Chapter 4: Pooling Effect Sizes (see Chapter \@ref(pooling-es)) {#qanda4}
+## Chapter 4: Pooling Effect Sizes (see [Chapter 4](#pooling-es)) {#qanda4}
 
 ---
 
@@ -166,7 +166,7 @@ Proportions. It is also possible to use them for other binary outcome measures, 
 
 <br></br>
 
-## Chapter 5: Between-Study Heterogeneity (see Chapter \@ref(heterogeneity)) {#qanda5}
+## Chapter 5: Between-Study Heterogeneity (see [Chapter 5](#heterogeneity)) {#qanda5}
 
 ---
 
@@ -196,7 +196,7 @@ GOSH plots can be used to explore patterns of heterogeneity in our data, and whi
 
 <br></br>
 
-## Chapter 6: Forest Plots (see Chapter \@ref(forest)) {#qanda6}
+## Chapter 6: Forest Plots (see [Chapter 6](#forest)) {#qanda6}
 
 ---
 
@@ -214,7 +214,7 @@ Forest plots can only show the confidence intervals of effects assuming a fixed 
 
 <br></br>
 
-## Chapter 7: Subgroup Analyses (see Chapter \@ref(subgroup)) {#qanda7}
+## Chapter 7: Subgroup Analyses (see [Chapter 7](#subgroup)) {#qanda7}
 
 ---
 
@@ -240,7 +240,7 @@ The finding is based a subgroup variable that has been created using aggregated 
 
 <br></br>
 
-## Chapter 8: Meta-Regression (see Chapter \@ref(metareg)) {#qanda8}
+## Chapter 8: Meta-Regression (see [Chapter 8](#metareg)) {#qanda8}
 
 ---
 
@@ -274,7 +274,7 @@ We can conduct a permutation test or use multi-model inference.
 
 <br></br>
 
-## Chapter 9: Publication Bias (see Chapter \@ref(pub-bias)) {#qanda9}
+## Chapter 9: Publication Bias (see [Chapter 9](#pub-bias)) {#qanda9}
 
 ---
 
@@ -308,7 +308,7 @@ No publication bias method consistently outperforms all the others. Therefore, i
 
 <br></br>
 
-## Chapter 10: "Multilevel" Meta-Analysis (see Chapter \@ref(multilevel-ma)) {#qanda10}
+## Chapter 10: "Multilevel" Meta-Analysis (see [Chapter 10](#multilevel-ma)) {#qanda10}
 
 ---
 
@@ -334,7 +334,7 @@ By integrating a fixed-effect term to the model formula.
 
 <br></br>
 
-## Chapter 11: Structural Equation Modeling Meta-Analysis (see Chapter \@ref(sem)) {#qanda11}
+## Chapter 11: Structural Equation Modeling Meta-Analysis (see [Chapter 11](#sem)) {#qanda11}
 
 ---
 
@@ -360,7 +360,7 @@ No. Frequently, there is more than one model that fits the data well.
 
 <br></br>
 
-## Chapter 12: Network Meta-Analysis (see Chapter \@ref(netwma)) {#qanda12}
+## Chapter 12: Network Meta-Analysis (see [Chapter 12](#netwma)) {#qanda12}
 
 ---
 
@@ -394,7 +394,7 @@ That the effect estimates of different treatments often overlap. This means that
 
 <br></br>
 
-## Chapter 13: Bayesian Meta-Analysis (see Chapter \@ref(bayesian-ma)) {#qanda13}
+## Chapter 13: Bayesian Meta-Analysis (see [Chapter 13](#bayesian-ma)) {#qanda13}
 
 ---
 
