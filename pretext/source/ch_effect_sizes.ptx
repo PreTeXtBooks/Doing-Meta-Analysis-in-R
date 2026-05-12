@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<chapter xml:id="ch-effect-sizes" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="effects" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Effect Sizes</title>
 
   <introduction>
@@ -103,18 +103,18 @@
       This is what our code looks like:
     </p>
     <program language="r">
-      <input>
+      <code>
 set.seed(123)
 sample &lt;- rnorm(n = 50, mean = 10, sd = 2)
-      </input>
+      </code>
     </program>
     <p>
       Now, we can calculate the mean of our sample.
     </p>
     <program language="r">
-      <input>
+      <code>
 mean(sample)
-      </input>
+      </code>
     </program>
     <p>
       <idx><h>Central Limit Theorem</h></idx>
@@ -123,7 +123,7 @@ mean(sample)
       We see that the mean is <m>\bar{x} =</m> 10.07, which is already very close to the true value in our population. The sampling distribution can now be created by repeating what we did here--taking a random sample and calculating its mean--<alert>countless times</alert>. To simulate this process for you, we conducted the steps from before 1000 times. 
     </p>
     <p>
-      The histogram in Figure <xref ref="fig:samplingdist"/> displays the results. We can see that the means of the samples closely resemble a normal distribution with a mean of 10. If we were to draw even more samples, the distribution of the means would get even closer to a normal distribution. This idea is expressed in one of the most fundamental tenets of statistics, the <alert>central limit theorem</alert> .
+      The histogram in Figure <xref provisional="fig:samplingdist"/> displays the results. We can see that the means of the samples closely resemble a normal distribution with a mean of 10. If we were to draw even more samples, the distribution of the means would get even closer to a normal distribution. This idea is expressed in one of the most fundamental tenets of statistics, the <alert>central limit theorem</alert> .
     </p>
     <p>
       The standard error is defined as the standard deviation of this sampling distribution. Therefore, we calculated the standard deviation of the 1000 simulated means to get an approximation of the standard error. The result is <m>SE =</m> 0.267. 
@@ -138,9 +138,9 @@ mean(sample)
       It defines the standard error as the standard deviation of our sample <m>s</m>, divided by the square root of the sample size <m>n</m>. Using this formula, we can easily calculate the standard error of our <c>sample</c> object from before using <em>R</em>. Remember that the size of our random sample was <m>n =</m> 50.
     </p>
     <program language="r">
-      <input>
+      <code>
 sd(sample)/sqrt(50)
-      </input>
+      </code>
     </program>
     <p>
       If we compare this value to the one we found in our simulation of the sampling distribution, we see that they are nearly identical. Using the formula, we could quite accurately estimate the standard error using only the sample we have at hand. 
@@ -152,7 +152,7 @@ sd(sample)/sqrt(50)
       To exemplify this relationship, we conducted another simulation. Again, we used the <c>rnorm</c> function, and assumed a true population mean of <m>\mu =</m> 10 and that <m>\sigma =</m> 2. But this time, we varied the sample size, from <m>n =</m> 2 to <m>n =</m> 500. For each simulation, we calculated both the mean, and the standard error using formula 3.2. 
     </p>
     <p>
-      Figure <xref ref="fig:simulse"/> shows the results. We can see that the means look like a <alert>funnel</alert>: as the sample size increases, the mean estimates become more and more precise, and converge towards 10. This increase in precision is represented by the standard error: with increasing sample size, the standard error becomes smaller and smaller.
+      Figure <xref provisional="fig:simulse"/> shows the results. We can see that the means look like a <alert>funnel</alert>: as the sample size increases, the mean estimates become more and more precise, and converge towards 10. This increase in precision is represented by the standard error: with increasing sample size, the standard error becomes smaller and smaller.
     </p>
     <p>
       We have now explored the quintessential elements we need to conduct a meta-analysis: an (1) observed effect size or outcome measure, and (2) its precision, expressed as the standard error. If these two types of information can be calculated from a published study, it is usually also possible to perform a meta-analytic synthesis (see Chapter <xref ref="pooling-es"/>).
@@ -202,7 +202,7 @@ sd(sample)/sqrt(50)
         As we have seen before, the mean and its standard error are easy to calculate in <em>R</em>.
       </p>
       <program language="r">
-        <input>
+        <code>
 # Set seed of 123 for reproducibility 
 # and take a random sample (n=50).
 set.seed(123)
@@ -213,7 +213,7 @@ mean(sample)
 
 # Calculate the standard error
 sd(sample)/sqrt(50)
-        </input>
+        </code>
       </program>
       <p>
         To conduct a meta-analysis of means, our data set should at least contain the following columns:
@@ -259,7 +259,7 @@ sd(sample)/sqrt(50)
         We can calculate the proportion and its standard error in <em>R</em> using this code:
       </p>
       <program language="r">
-        <input>
+        <code>
 # We define the following values for k and n:
 k &lt;- 25
 n &lt;- 125
@@ -270,7 +270,7 @@ p
 
 # Calculate the standard error
 sqrt((p*(1-p))/n)
-        </input>
+        </code>
       </program>
       <p>
         <idx><h>Odds</h></idx> <idx><h>Logit-Transformation</h></idx> <idx><h>Logarithm, Natural</h></idx>
@@ -279,7 +279,7 @@ sqrt((p*(1-p))/n)
         The fact that the range of proportions is restricted between 0 and 1 can be problematic . When <m>p</m> is close to 0 or close to 1, the standard error is artificially compressed, which leads us to overestimate the precision of the proportion estimate. 
       </p>
       <p>
-        This has something to do with the sampling distribution. When values of <m>p</m> are very low or very high, the sampling distribution will not be approximately normal like in Figure <xref ref="fig:samplingdist"/>. The distribution will be <alert>right-skewed</alert> or <alert>left-skewed</alert> because it is impossible for a random sample to have a calculated proportion outside the 0-1 range. 
+        This has something to do with the sampling distribution. When values of <m>p</m> are very low or very high, the sampling distribution will not be approximately normal like in Figure <xref provisional="fig:samplingdist"/>. The distribution will be <alert>right-skewed</alert> or <alert>left-skewed</alert> because it is impossible for a random sample to have a calculated proportion outside the 0-1 range. 
       </p>
       <p>
         To avoid this, proportions are commonly <alert>logit</alert>-transformed before they are pooled. A logit-transformation first involves calculating the <alert>odds</alert> (see Chapter <xref ref="or"/>). Odds are defined as the proportion of participants which fall into a specific category, divided by the proportion of units which do not fall into that category. 
@@ -288,7 +288,7 @@ sqrt((p*(1-p))/n)
         The natural logarithm function <m>\log_e</m> is then used to transform the odds into a format where <m>p=</m> 0.5 equals a value of 0, and where there is no range restriction. This ensures that the sampling distribution is approximately normal and that standard errors are not biased. 
       </p>
       <p>
-        The calculation of logit-transformed proportions and their standard errors can be done using these formulas <fn>To transform a logit-proportion back to the original scale, we can use the following formula: <m>p=\frac{\exp(p_{\text{logit}})}{1+\exp(p_{\text{logit}})}</m>, where <m>\exp</m> is the <alert>exponential function</alert>, implemented via <c>exp</c> in <em>R</em> (see Chapter <xref ref="ppoolbin"/>).</fn>:
+        The calculation of logit-transformed proportions and their standard errors can be done using these formulas <fn>To transform a logit-proportion back to the original scale, we can use the following formula: <m>p=\frac{\exp(p_{\text{logit}})}{1+\exp(p_{\text{logit}})}</m>, where <m>\exp</m> is the <alert>exponential function</alert>, implemented via <c>exp</c> in <em>R</em> (see Chapter <xref provisional="ppoolbin"/>).</fn>:
       </p>
       <p>
         \begin{equation} p<em>{\text{logit}} = \log</em>{e} \left(\frac{p}{1-p}\right) (#eq:es7) \end{equation}
@@ -385,7 +385,7 @@ sqrt((p*(1-p))/n)
           We can also calculate <m>r_{xy}</m> and <m>z</m> directly in <em>R</em>, using the <c>cor</c> and <c>log</c> function. 
         </p>
         <program language="r">
-          <input>
+          <code>
 # Simulate two continuous variables x and y
 set.seed(12345)
 x &lt;- rnorm(20, 50, 10)
@@ -398,7 +398,7 @@ r
 # Calculate Fisher's z
 z &lt;- 0.5*log((1+r)/(1-r))
 z
-          </input>
+          </code>
         </program>
         <p>
           Thankfully, we do not have to perform Fisher's <m>z</m> transformation manually when conducting a meta-analysis of correlations in <em>R</em>. The only columns we need in our data set are:
@@ -490,7 +490,7 @@ z
           Time to provide an example on how we can calculate a mean difference and its standard error in <em>R</em>. As a first step, we will be simulating some data. We only do this here so that we have plausible values to work with. In a real meta-analysis, the mean of <c>x1</c> and <c>x2</c> as well as their standard deviations <c>s1</c> and <c>s2</c> are something that we can hopefully extract from the published paper, same as the group sample sizes <c>n1</c> and <c>n2</c>. So you do not have to worry about this first part too much.
         </p>
         <program language="r">
-          <input>
+          <code>
 # Generate two random variables with different population means
 set.seed(123)
 x1 &lt;- rnorm(n = 20, mean = 10, sd = 3)
@@ -501,25 +501,25 @@ s1 &lt;- sd(x1)
 s2 &lt;- sd(x2)
 n1 &lt;- 20
 n2 &lt;- 20
-          </input>
+          </code>
         </program>
         <p>
           With this data at hand, we can proceed to the core part, in which we calculate the mean difference and its standard error using the formulae we showed before:
         </p>
         <program language="r">
-          <input>
+          <code>
 # Calculate the mean difference
 MD &lt;- mean(x1) - mean(x2)
 MD
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## [1] -4.421357
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 # Calculate s_pooled
 s_pooled &lt;- sqrt(
   (((n1-1)*s1^2) + ((n2-1)*s2^2))/
@@ -529,12 +529,12 @@ s_pooled &lt;- sqrt(
 # Calculate the standard error
 se &lt;- s_pooled*sqrt((1/n1)+(1/n2))
 se
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## [1] 0.8577262
-          </input>
+          </code>
         </program>
         <p>
           It is usually not necessary to do these calculations <alert>manually</alert> like we did here. For a meta-analysis of mean differences, we only have to prepare the following columns in our data set:
@@ -592,7 +592,7 @@ se
           Where <m>s_{\text{pooled}}</m> is calculated using the same formula (3.16) we already covered in Chapter <xref ref="b-group-md"/>. Standardized mean differences are much more often used in meta-analyses than unstandardized mean differences. This is because <m>\text{SMD}_{\text{between}}</m> can be compared between studies, even if those studies did not measure the outcome of interest using the same instruments. 
         </p>
         <p>
-          The standardization has the effect that <m>\text{SMD}_{\text{between}}=</m> 1 always means that the two groups means are one sample standard deviation away from each other (see Figure <xref ref="fig:smd"/>); <m>\text{SMD}_{\text{between}}=</m> 2 then represents a difference of 2 standard deviations, and so forth<fn>Kristoffer Magnusson developed a great interactive tool visualizing the distribution of two groups for varying values of the standardized mean difference. The tool can be found online: https://www.rpsychologist.com/d3/cohend/</fn>. 
+          The standardization has the effect that <m>\text{SMD}_{\text{between}}=</m> 1 always means that the two groups means are one sample standard deviation away from each other (see Figure <xref provisional="fig:smd"/>); <m>\text{SMD}_{\text{between}}=</m> 2 then represents a difference of 2 standard deviations, and so forth<fn>Kristoffer Magnusson developed a great interactive tool visualizing the distribution of two groups for varying values of the standardized mean difference. The tool can be found online: https://www.rpsychologist.com/d3/cohend/</fn>. 
         </p>
         <p>
           The standardization makes it much easier to evaluate the magnitude of the mean difference. Standardized mean differences are often interpreted using the conventions by Cohen :
@@ -636,7 +636,7 @@ se
           There are several functions in <em>R</em> which allow us to calculate <m>\text{SMD}_{\text{between}}</m>/Cohen's <m>d</m> in one step. Here, we use the <c>esc_mean_sd</c> function, which is part of the <alert>{esc}</alert> package . We have not used this package before, so it is necessary to install it first (see Chapter <xref ref="packages"/>).
         </p>
         <program language="r">
-          <input>
+          <code>
 # Load esc package
 library(esc)
 
@@ -653,17 +653,17 @@ grp2n &lt;- 100  # n of group2
 esc_mean_sd(grp1m = grp1m, grp2m = grp2m, 
             grp1sd = grp1sd, grp2sd = grp2sd, 
             grp1n = grp1n, grp2n = grp2n)
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## Effect Size Calculation for Meta Analysis
 ## 
 ##      Conversion: mean and sd to effect size d
 ##     Effect Size:  -1.0000
 ##  Standard Error:   0.1500
 ##            [...]
-          </input>
+          </code>
         </program>
         <p>
           In the output, there are two things to mention. First, we see that the calculated standardized mean difference is exactly 1. This makes sense because the difference between the two means we defined is equal to the (pooled) standard deviation. 
@@ -783,7 +783,7 @@ esc_mean_sd(grp1m = grp1m, grp2m = grp2m,
           The within-group standardized mean difference (also known as the within-group Cohen's <m>d</m>) can be calculated like this in <em>R</em>:
         </p>
         <program language="r">
-          <input>
+          <code>
 # Define example data needed for effect size calculation
 x1 &lt;- 20    # mean at t1
 x2 &lt;- 30    # mean at t2
@@ -804,7 +804,7 @@ smd_within
 se_within &lt;- sqrt(((2*(1-r))/n) + 
               (smd_within^2/(2*n)))
 se_within
-          </input>
+          </code>
         </program>
         <p>
           Meta-analyses of within-group (standardized) mean differences can only be performed in <em>R</em> using <alert>pre-calculated effect sizes</alert> (see Chapter <xref ref="es-formats-different"/>). The following columns are required in our data set:
@@ -909,7 +909,7 @@ se_within
           We can calculate the (log-)risk ratio in <em>R</em> like this:
         </p>
         <program language="r">
-          <input>
+          <code>
 # Define data
 a &lt;- 46         # events in the treatment group
 c &lt;- 77         # events in the control group
@@ -930,7 +930,7 @@ log_rr
 
 se_log_rr &lt;- sqrt((1/a) + (1/c) - (1/n_treat) - (1/n_contr))
 se_log_rr
-          </input>
+          </code>
         </program>
         <p>
           <idx><h>Zero Cell Problem</h></idx> <idx><h>Continuity Correction</h></idx> <idx><h>Mantel-Haenszel Method</h></idx>
@@ -942,7 +942,7 @@ se_log_rr
           This issue is often dealt with using a <alert>continuity correction</alert>. The most common continuity correction method is to add an increment of 0.5 in all cells that are zero . When the sample sizes of the control group and treatment group are very uneven, we can also use the <alert>treatment arm continuity correction</alert> . 
         </p>
         <p>
-          However, there is evidence that such corrections can lead to biased results . The (fixed-effect) <alert>Mantel-Haenszel</alert> method, a meta-analytic pooling technique we will discover in Chapter <xref ref="mantel-haenszel"/>, can handle zero cells <alert>without</alert> correction, unless they exist in <alert>every study</alert> in our meta-analysis. It may therefore be advisable to avoid continuity corrections unless the latter scenario applies. 
+          However, there is evidence that such corrections can lead to biased results . The (fixed-effect) <alert>Mantel-Haenszel</alert> method, a meta-analytic pooling technique we will discover in Chapter <xref provisional="mantel-haenszel"/>, can handle zero cells <alert>without</alert> correction, unless they exist in <alert>every study</alert> in our meta-analysis. It may therefore be advisable to avoid continuity corrections unless the latter scenario applies. 
         </p>
         <p>
           A special form of the <alert>zero cell</alert> problem are <alert>double-zero studies</alert>. These are studies in which both <m>a</m> and <m>c</m> are zero. Intuitively, one might think that the results of such studies simply mean that the risk in the intervention and control group are similar, and that RR = 1. 
@@ -993,7 +993,7 @@ se_log_rr
           Like the risk ratio (Chapter <xref ref="rr"/>), <alert>odds ratios</alert> can also be calculated when we have binary outcome data of two groups. In the previous chapter on proportions (Chapter <xref ref="props"/>), we already defined the odds as the number of cases which fall into a specific category, divided by the number of units which do not fall into that category. 
         </p>
         <p>
-          Using the notation in Table <xref ref="tab:twobytwo"/>, the formula for the odds in the treatment and control group looks like this:
+          Using the notation in Table <xref provisional="tab:twobytwo"/>, the formula for the odds in the treatment and control group looks like this:
         </p>
         <p>
           \begin{equation} \text{Odds}_{\text{treat}} = \frac{a}{b} (#eq:es28) \end{equation}
@@ -1020,7 +1020,7 @@ se_log_rr
           \begin{equation} \log \text{OR}  = \log_{e}(\text{OR}) (#eq:es31) \end{equation}
         </p>
         <p>
-          The standard error of the log-odds ratio can be calculated using this formula (we use the notation in Table <xref ref="tab:twobytwo"/>):
+          The standard error of the log-odds ratio can be calculated using this formula (we use the notation in Table <xref provisional="tab:twobytwo"/>):
         </p>
         <p>
           \begin{equation} SE_{\log \text{OR}}  = \sqrt{\frac{1}{a}+\frac{1}{b}+\frac{1}{c}+\frac{1}{d}} (#eq:es32) \end{equation}
@@ -1029,7 +1029,7 @@ se_log_rr
           The <c>esc_2x2</c> function in the <alert>{esc}</alert> package provides an easy way to calculate the (log) odds ratio in <em>R</em>.
         </p>
         <program language="r">
-          <input>
+          <code>
 library(esc)
 
 # Define data
@@ -1047,7 +1047,7 @@ esc_2x2(grp1yes = grp1yes, grp1no = grp1no,
 esc_2x2(grp1yes = grp1yes, grp1no = grp1no,
               grp2yes = grp2yes, grp2no = grp2no,
               es.type = "logit")
-          </input>
+          </code>
         </program>
         <p>
           <idx><h>Zero Cell Problem</h></idx> <idx><h>Risk Ratio</h></idx>
@@ -1112,7 +1112,7 @@ esc_2x2(grp1yes = grp1yes, grp1no = grp1no,
         The person-time expresses the total time in which participants in a study were at risk of having an event. To calculate the person-time, we sum up the time at risk (expressed as days, weeks, or years) of all study subjects. However, the time at risk differs from person to person. 
       </p>
       <p>
-        To exemplify this, imagine we are conducting a study with 6 participants. The study lasts for exactly 10 years. After each year, we interview the participants to examine if they experienced the event of interest. Whenever we observe that the event has occurred, the study ends for the affected participant, and we do not examine her or him until the study ends. The results of our study are visualized in Figure <xref ref="fig:incidence"/>.
+        To exemplify this, imagine we are conducting a study with 6 participants. The study lasts for exactly 10 years. After each year, we interview the participants to examine if they experienced the event of interest. Whenever we observe that the event has occurred, the study ends for the affected participant, and we do not examine her or him until the study ends. The results of our study are visualized in Figure <xref provisional="fig:incidence"/>.
       </p>
       <p>
         <idx><h>Survival Analysis</h></idx> <idx><h>Odds Ratio</h></idx> <idx><h>Censoring</h></idx> <idx><h>Person-Time</h></idx>
@@ -1170,7 +1170,7 @@ esc_2x2(grp1yes = grp1yes, grp1no = grp1no,
         We can calculate the (log-)incidence ratio and the standard error in <em>R</em> like this:
       </p>
       <program language="r">
-        <input>
+        <code>
 # Define Data
 e_treat &lt;- 28    # Number of events in the treatment group
 e_contr &lt;- 28    # Number of events in the control group
@@ -1186,7 +1186,7 @@ log_irr &lt;- log(irr)
 
 # Calculate standard error
 se_log_irr &lt;- sqrt((1/e_treat)+(1/e_contr))
-        </input>
+        </code>
       </program>
       <p>
         In this example, we simulated a case in which the number of events <m>E_{\text{treat}}</m> and <m>E_{\text{control}}</m> is exactly equal, but where the treatment group has a longer person-time at risk. This time difference is accounted for when we calculate IRRs. Therefore, the result we get is not 1, but IRR <m>\approx</m> 0.79, indicating that the incidence rate is smaller in the treatment group. 
@@ -1195,7 +1195,7 @@ se_log_irr &lt;- sqrt((1/e_treat)+(1/e_contr))
         Incidence rate ratios are commonly used in epidemiology and prevention research. They can be used when participants are followed for a longer period of time, and when there are regular assessments in between. In practice, however, there is one caveat we should consider when calculating IRRs as part of a meta-analysis: it is important that the incidence data reported in the included articles is fine-grained enough. Sometimes, papers only report the total number of events during the entire study period and not the number of events recorded at each assessment point in between. It is also possible that no interim assessments were made to begin with. 
       </p>
       <p>
-        In our example above (see Figure <xref ref="fig:incidence"/>), we simply took the <alert>midpoint</alert> between the last "event-free" assessment point and the assessment point in which the event was recorded to estimate the time at risk of a participant. It is important to keep in mind that this is only a <alert>best guess</alert> of when the event happened exactly. Even when taking the midpoint, our estimates can still be off by about half a year in our example. 
+        In our example above (see Figure <xref provisional="fig:incidence"/>), we simply took the <alert>midpoint</alert> between the last "event-free" assessment point and the assessment point in which the event was recorded to estimate the time at risk of a participant. It is important to keep in mind that this is only a <alert>best guess</alert> of when the event happened exactly. Even when taking the midpoint, our estimates can still be off by about half a year in our example. 
       </p>
       <p>
         Our estimate of the person-time will be best if the time between assessment points is as small as possible. If assessment intervals in a study are too coarse depends on the context of the meta-analysis, but it is always advisable to conduct sensitivity analyses . 
@@ -1312,7 +1312,7 @@ se_log_irr &lt;- sqrt((1/e_treat)+(1/e_contr))
         In this formula, <m>n</m> represents the total sample size of the study. We can easily convert unstandardized SMDs/Cohen's <m>d</m> to Hedges' <m>g</m> using the <c>hedges_g</c> function in the <alert>{esc}</alert> package.
       </p>
       <program language="r">
-        <input>
+        <code>
 # Load esc package
 library(esc)
 
@@ -1323,10 +1323,10 @@ n &lt;- 30
 # Convert to Hedges g
 g &lt;- hedges_g(SMD, n)
 g
-        </input>
+        </code>
       </program>
       <p>
-        As we can see in the output, Hedges' <m>g</m> is smaller than the uncorrected SMD. Hedges' <m>g</m> can never be larger than the uncorrected SMD, and the difference between the two metrics is larger when the sample size is smaller (see Figure <xref ref="fig:dtog"/>).
+        As we can see in the output, Hedges' <m>g</m> is smaller than the uncorrected SMD. Hedges' <m>g</m> can never be larger than the uncorrected SMD, and the difference between the two metrics is larger when the sample size is smaller (see Figure <xref provisional="fig:dtog"/>).
       </p>
       <p>
         It is important to note that the terms SMD and Hedges' <m>g</m> are sometimes used interchangeably in research reports. When a study reports results as the SMD, it is, therefore, relevant to check if the authors indeed refer to the uncorrected standardized mean difference, or if the small-sample bias correction has been applied (meaning that Hedges' <m>g</m> was used). 
@@ -1391,7 +1391,7 @@ g
         Let us try out the correction procedure in an example using <em>R</em>.
       </p>
       <program language="r">
-        <input>
+        <code>
 # Define uncorrected correlation and SMD with their standard error
 r_xy &lt;- 0.34
 se_r_xy &lt;- 0.09
@@ -1415,7 +1415,7 @@ r_xy_c
 
 se_c &lt;- se_r_xy/(sqrt(r_xx)*sqrt(r_yy))
 se_c
-        </input>
+        </code>
       </program>
       <p>
         Take a close look at the results in this example. We see that due to the correction, the correlation and SMD are larger than the initial uncorrected value. However, we also see that the standard errors increase. This result is intended; we correct the standard error so that it also incorporates the measurement error we assume for our data.
@@ -1483,7 +1483,7 @@ se_c
         After the correlation or SMD has been corrected, it is possible to apply other common transformations, such as converting <m>{r_{xy}}_c</m> to Fisher's <m>z</m> (Chapter <xref ref="pearson-cors"/>) or <m>\text{SMD}_c</m> to Hedges' <m>g</m> (see Chapter <xref ref="hedges-g"/>). Let us now try out the correction using <em>R</em>.
       </p>
       <program language="r">
-        <input>
+        <code>
 # Define correlation to correct
 r_xy &lt;- 0.34
 se_r_xy &lt;- 0.09
@@ -1502,7 +1502,7 @@ r_xy_c
 # Correct the standard error
 se_r_xy_c &lt;- (r_xy_c/r_xy)*se_r_xy
 se_r_xy_c
-        </input>
+        </code>
       </program>
       <p>
         Like other Hunter and Schmidt adjustments, corrections of range restriction are more commonly found in some research areas than in others. When we decide to apply a correction for range restriction, it is important that the correction is performed for <alert>all</alert> effect sizes in our meta-analysis. It is technically possible to correct for range restriction in every meta-analysis, but often, this is not necessary. 
@@ -1634,7 +1634,7 @@ se_r_xy_c
 
   </section>
 
-  <section xml:id="questions-answers">
+  <section xml:id="effects-questions-answers">
     <title>Questions &amp; Answers</title>
 
     <exercise>
@@ -1689,7 +1689,7 @@ se_r_xy_c
     </exercise>
   </section>
 
-  <section xml:id="summary">
+  <section xml:id="effects-summary">
     <title>Summary</title>
 
     <ul>

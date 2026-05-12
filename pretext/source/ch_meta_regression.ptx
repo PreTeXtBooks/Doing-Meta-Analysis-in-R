@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<chapter xml:id="ch-meta-regression" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="metareg" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Meta-Regression</title>
 
   <introduction>
@@ -122,7 +122,7 @@
         To the intercept, the term <m>\beta x_k</m> is added. This part produces a <alert>regression slope</alert>: the continuous variable <m>x</m> is multiplied with the <alert>regression weight</alert> <m>\beta</m>, thus lowering or elevating the predicted effect for different values of the covariate. 
       </p>
       <p>
-        The aim of the meta-regression model is to find values of <m>\theta</m> and <m>\beta</m> which minimize the difference between the <alert>predicted</alert> effect size, and the <alert>true</alert> effect size of studies (see Figure <xref ref="fig:subgroups3"/>).
+        The aim of the meta-regression model is to find values of <m>\theta</m> and <m>\beta</m> which minimize the difference between the <alert>predicted</alert> effect size, and the <alert>true</alert> effect size of studies (see Figure <xref provisional="fig:subgroups3"/>).
       </p>
       <p>
         Looking closely at the meta-regression formula, we see that it contains two types of terms. Some terms include a subscript <m>k</m>, while others do not. A subscript <m>k</m> indicates that a value <alert>varies</alert> from study to study. When a term does not include a subscript <m>k</m>, this means that it stays the same for all studies.
@@ -200,31 +200,31 @@
       In this example, we will use our <c>m.gen</c> meta-analysis object again, which is based on the <c>ThirdWave</c> data set (see Chapter <xref ref="pre-calculated-es"/>). Using meta-regression, we want to examine if the <alert>publication year</alert> of a study can be used to predict its effect size. By default, the <c>ThirdWave</c> data set does not contain a variable in which the publication year is stored, so we have to create a new <c>numeric</c> variable which contains this information. We simply concatenate the publication years of all studies, in the same order in which they appear in the <c>ThirdWave</c> data set. We save this variable under the name <c>year</c><fn>The publication years we use in this example are made up, and only used for illustration purposes.</fn>.
     </p>
     <program language="r">
-      <input>
+      <code>
 
 year &lt;- c(2014, 1998, 2010, 1999, 2005, 2014, 
           2019, 2010, 1982, 2020, 1978, 2001,
           2018, 2002, 2009, 2011, 2011, 2013)
-      </input>
+      </code>
     </program>
     <p>
       Now, we have all the information we need to run a meta-regression. In the <c>metareg</c> function, we specify the name of our meta-analysis object <c>m.gen</c> as the first argument, and the name of our predictor, <c>year</c>, as the second argument. We give the results the name <c>m.gen.reg</c>.
     </p>
     <program language="r">
-      <input>
+      <code>
 m.gen.reg &lt;- metareg(m.gen, ~year)
-      </input>
+      </code>
     </program>
     <p>
       Now, let us have a look at the results:
     </p>
     <program language="r">
-      <input>
+      <code>
 m.gen.reg
-      </input>
+      </code>
     </program>
     <program language="r">
-      <input>
+      <code>
 ## Mixed-Effects Model (k = 18; tau^2 estimator: REML)
 ## 
 ## tau^2 (estimated amount of residual heterogeneity):     0.019 (SE = 0.023)
@@ -247,7 +247,7 @@ m.gen.reg
 ## 
 ## ---
 ## Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-      </input>
+      </code>
     </program>
     <p>
       <idx><h>I$^2$, Higgins \&amp; Thompson's</h></idx>
@@ -286,9 +286,9 @@ m.gen.reg
       To produce a bubble plot, we only have to plug our meta-regression object into the <c>bubble</c> function. Because we also want study labels to be displayed, we set <c>studlab</c> to <c>TRUE</c>. 
     </p>
     <program language="r">
-      <input>
+      <code>
 bubble(m.gen.reg, studlab = TRUE)
-      </input>
+      </code>
     </program>
     <p>
       <idx><h>Risk of Bias</h></idx>
@@ -297,12 +297,12 @@ bubble(m.gen.reg, studlab = TRUE)
       For the sake of completeness, we can also try to repeat our subgroup analysis from the previous chapter (Chapter <xref ref="subgroup-R"/>), but this time within a meta-regression framework. This means that we use the risk of bias assessment as a categorical predictor. Since the variable <c>RiskOfBias</c> is already included in the <c>ThirdWave</c> data set, we do not have to save this information in an additional object. It suffices to simply run the <c>metareg</c> function again, but this time, we use <c>RiskOfBias</c> as the second function argument.
     </p>
     <program language="r">
-      <input>
+      <code>
 metareg(m.gen, RiskOfBias)
-      </input>
+      </code>
     </program>
     <program language="r">
-      <input>
+      <code>
 ## [...]
 ## R^2 (amount of heterogeneity accounted for):            15.66%
 ## 
@@ -318,7 +318,7 @@ metareg(m.gen, RiskOfBias)
 ## intrcpt           0.76  0.15   5.00  0.0001   0.44  1.09  *** 
 ## RiskOfBiaslow    -0.29  0.18  -1.58  0.1329  -0.69  0.10      
 ## [...]
-      </input>
+      </code>
     </program>
     <p>
       In the output, we see that the value of <m>R^2_*</m>, with 15.66%, is considerably smaller than the one of <c>year</c>. Consistent with our previous results, we see that the risk of bias variable is not a significant effect size predictor (<m>p</m> = 0.13). 
@@ -549,9 +549,9 @@ metareg(m.gen, RiskOfBias)
         After all this input, it is high time that we start fitting our first multiple meta-regression using <em>R</em>. The following examples will be the first ones in which we will not use the <alert>{meta}</alert> package. Instead, we will have a look at <alert>{metafor}</alert> . This package provides a vast array of advanced functionality for meta-analysis, along with a great documentation<fn>In fact, to conduct a meta-regression, <alert>{meta}</alert> functions also use the <alert>{metafor}</alert> package internally.</fn>. So, to begin, make sure you have <alert>{metafor}</alert> installed, and loaded from the library.
       </p>
       <program language="r">
-        <input>
+        <code>
 library(metafor)
-        </input>
+        </code>
       </program>
       <p>
         In our hands-on illustration, we will use the <c>MVRegressionData</c> data set. This is a "toy" data set, which we simulated for illustrative purposes.
@@ -571,13 +571,13 @@ library(metafor)
         First, let us have a look at the structure of the data frame:
       </p>
       <program language="r">
-        <input>
+        <code>
 library(tidyverse)
 library(dmetar)
 data(MVRegressionData)
 
 glimpse(MVRegressionData)
-        </input>
+        </code>
       </program>
       <p>
         We see that there are six variables in our data set. The <c>yi</c> and <c>sei</c> columns store the effect size and standard error of a particular study. These columns correspond with the <c>TE</c> and <c>seTE</c> columns we used before. We have named the variables this way because this is the standard notation that <alert>{metafor}</alert> uses: <c>yi</c> represents the observed effect size <m>y_i</m> we want to predict in our (meta-)regression, while <c>sei</c> represents <m>SE_i</m>, the standard error of study <m>i</m>. 
@@ -598,9 +598,9 @@ glimpse(MVRegressionData)
           As we mentioned before, we have to check for multi-collinearity of our predictors to make sure that the meta-regression coefficient estimates are robust. A quick way to check for high correlations is to calculate a <alert>intercorrelation matrix</alert> for all continuous variables. This can be done using the <c>cor</c> function:
         </p>
         <program language="r">
-          <input>
+          <code>
 MVRegressionData[,c("reputation", "quality", "pubyear")] %&gt;% cor()
-          </input>
+          </code>
         </program>
         <p>
           <idx><h>PerformanceAnalytics Package</h></idx>
@@ -609,12 +609,12 @@ MVRegressionData[,c("reputation", "quality", "pubyear")] %&gt;% cor()
           The <alert>{PerformanceAnalytics}</alert> package  contains a function called <c>chart.Correlation</c>, which we can use to visualize the correlation matrix. We have to install the <c>PerformanceAnalytics</c> package first, and then use this code:
         </p>
         <program language="r">
-          <input>
+          <code>
 library(PerformanceAnalytics)
 
 MVRegressionData[,c("reputation", "quality", "pubyear")] %&gt;% 
   chart.Correlation()
-          </input>
+          </code>
         </program>
         <p>
           We see that our variables are indeed correlated, but probably not to a degree that would warrant excluding one of them.
@@ -672,7 +672,7 @@ MVRegressionData[,c("reputation", "quality", "pubyear")] %&gt;%
           First, let us perform a meta-regression using only <c>quality</c> as a predictor. We save the results into an object called <c>m.qual</c>, and then inspect the output.
         </p>
         <program language="r">
-          <input>
+          <code>
 m.qual &lt;- rma(yi = yi,
               sei = sei,
               data = MVRegressionData,
@@ -681,10 +681,10 @@ m.qual &lt;- rma(yi = yi,
               test = "knha")
 
 m.qual
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## Mixed-Effects Model (k = 36; tau^2 estimator: ML)
 ## 
 ## tau^2 (estimated amount of residual heterogeneity):     0.066 (SE = 0.023)
@@ -707,7 +707,7 @@ m.qual
 ## 
 ## ---
 ## Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-          </input>
+          </code>
         </program>
         <p>
           In the output, we can inspect the results for our predictor <c>quality</c> under <c>Model Results</c>. We see that the regression weight is not significant (<m>p=</m> 0.069), although it is significant on a trend level (<m>p&lt;</m> 0.1). In total, our model explains <m>R^2_*=</m> 7.37% of the heterogeneity. 
@@ -716,7 +716,7 @@ m.qual
           Now, let us see what happens when we include <c>reputation</c> as a predictor. We add <c>+ reputation</c> to our input to <c>mods</c> and this time, we save the output as <c>m.qual.rep</c>.
         </p>
         <program language="r">
-          <input>
+          <code>
 m.qual.rep &lt;- rma(yi = yi, 
                   sei = sei, 
                   data = MVRegressionData, 
@@ -725,10 +725,10 @@ m.qual.rep &lt;- rma(yi = yi,
                   test = "knha")
 
 m.qual.rep
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## Mixed-Effects Model (k = 36; tau^2 estimator: ML)
 ## 
 ## tau^2 (estimated amount of residual heterogeneity):     0.0238 (SE = 0.01)
@@ -752,7 +752,7 @@ m.qual.rep
 ## 
 ## ---
 ## Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-          </input>
+          </code>
         </program>
         <p>
           We see that now, a new line appears in the <c>Model Results</c> section, displaying the results for our <c>reputation</c> predictor. The model estimated the regression weight to be 0.034, which is highly significant (<m>p</m> &lt; 0.001). 
@@ -767,16 +767,16 @@ m.qual.rep
           But does our second model indeed provide a better fit than our first one? To assess this, we can use the <c>anova</c> function, providing it with the two models we want to compare. Note that this is only feasible because we fitted both mixed-effects models using maximum likelihood (<c>"ML"</c>) instead of restricted maximum likelihood (<c>"REML"</c>).
         </p>
         <program language="r">
-          <input>
+          <code>
 anova(m.qual, m.qual.rep)
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ##         df   AIC   BIC  AICc logLik   LRT   pval    QE tau^2    R^2 
 ## Full     4 19.86 26.19 21.15  -5.93              58.30  0.03          
 ## Reduced  3 36.98 41.73 37.73 -15.49 19.11 &lt;.0001 88.61  0.06 48.32% 
-          </input>
+          </code>
         </program>
         <p>
           This function performs a model test and provides us with several statistics to assess if <c>m.qual.rep</c> has a better fit than <c>m.qual</c>. We compare our full model, <c>m.qual.rep</c>, which includes both <c>quality</c> and <c>reputation</c>, with the reduced model, which only includes <c>quality</c>.
@@ -811,7 +811,7 @@ anova(m.qual, m.qual.rep)
           To facilitate the interpretation, we add factor labels to the <c>continent</c> variable in <c>MVRegressionData</c> before running the model. 
         </p>
         <program language="r">
-          <input>
+          <code>
 # Add factor labels to 'continent'
 # 0 = Europe
 # 1 = North America
@@ -826,10 +826,10 @@ m.qual.rep.int &lt;- rma(yi = yi,
                       test = "knha")
 
 m.qual.rep.int
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## Mixed-Effects Model (k = 36; tau^2 estimator: REML)
 ## 
 ## tau^2 (estimated amount of residual heterogeneity):     0 (SE = 0.01)
@@ -853,7 +853,7 @@ m.qual.rep.int
 ## pubyear:continent          0.63  0.12  4.97  &lt;.0001   0.37  0.89  *** 
 ##    North America
 ## [...]
-          </input>
+          </code>
         </program>
         <p>
           The last line, <c>pubyear:continentNorth America</c>, contains the coefficient for our interaction term. Note that <alert>{metafor}</alert> automatically includes not only the interaction term, but also both <c>pubyear</c> and <c>continent</c> as "normal" lower-order predictors (as one should do). 
@@ -897,12 +897,12 @@ m.qual.rep.int
           To perform a permutation test on our meta-regression model, we can use <alert>{metafor}</alert>'s in-built <c>permutest</c> function. As an example, we recalculate the results of the <c>m.qual.rep</c> model we fitted before. We only have to provide the <c>permutest</c> function with the <c>rma</c> object. Be aware that the permutation test is computationally expensive, especially for large data sets. This means that the function might need some time to run.
         </p>
         <program language="r">
-          <input>
+          <code>
 permutest(m.qual.rep)
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## Test of Moderators (coefficients 2:3):
 ## F(df1 = 2, df2 = 33) = 12.7844, p-val* = 0.0010
 ## 
@@ -915,7 +915,7 @@ permutest(m.qual.rep)
 ## 
 ## ---
 ## Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-          </input>
+          </code>
         </program>
         <p>
           We again see our familiar output including the results for all predictors. Looking at the <c>pval*</c> column, we see that our <m>p</m>-value for the reputation predictor has decreased from <m>p</m> &lt; 0.001 to <m>p_*</m> = 0.001. This, however, is still highly significant, indicating that the effect of the predictor is robust. 
@@ -1019,17 +1019,17 @@ permutest(m.qual.rep)
           Now, let us perform multi-model inference using all predictors in the <c>MVRegressionData</c> data set, but <alert>without</alert> interactions. Be aware that running the <c>multimodel.inference</c> function can take some time, especially if the number of predictors is large.
         </p>
         <program language="r">
-          <input>
+          <code>
 multimodel.inference(TE = "yi", 
                      seTE = "sei",
                      data = MVRegressionData,
                      predictors = c("pubyear", "quality", 
                                     "reputation", "continent"),
                      interaction = FALSE)
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## Multimodel Inference: Final Results
 ## --------------------------
 ##  - Number of fitted models: 16
@@ -1068,7 +1068,7 @@ multimodel.inference(TE = "yi",
 ## 2  continent  0.9621839
 ## 3 reputation  0.9428750
 ## 4    quality  0.4432826
-          </input>
+          </code>
         </program>
         <me>~</me>
         <p>
@@ -1119,7 +1119,7 @@ multimodel.inference(TE = "yi",
 
   </section>
 
-  <section xml:id="questions-answers">
+  <section xml:id="metareg-questions-answers">
     <title>Questions &amp; Answers</title>
 
     <note>
@@ -1169,7 +1169,7 @@ multimodel.inference(TE = "yi",
     </note>
   </section>
 
-  <section xml:id="summary">
+  <section xml:id="metareg-summary">
     <title>Summary</title>
 
     <ul>

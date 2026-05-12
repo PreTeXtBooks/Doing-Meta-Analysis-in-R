@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<chapter xml:id="ch-risk-of-bias-plots" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="risk-of-bias-plots" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Risk of Bias Plots</title>
 
   <introduction>
@@ -47,9 +47,9 @@
         Assuming that you have already installed the <alert>{dmetar}</alert> package (see Chapter <xref ref="dmetar"/>), load the <alert>{robvis}</alert> package using:
       </p>
       <program language="r">
-        <input>
+        <code>
 library(robvis)
-        </input>
+        </code>
       </program>
     </subsection>
 
@@ -121,9 +121,9 @@ library(robvis)
         Once you have saved the table you created in Excel to the working directory as a comma-separated-file (e.g. “robdata.csv”), you can either read the file into <em>R</em> programmatically using the command below or via the “import assistant” method as described in Chapter <xref ref="data-prep-R"/>.
       </p>
       <program language="r">
-        <input>
+        <code>
 my_rob_data &lt;- read.csv("robdata.csv", header = TRUE)
-        </input>
+        </code>
       </program>
     </subsection>
 
@@ -187,9 +187,9 @@ my_rob_data &lt;- read.csv("robdata.csv", header = TRUE)
         You can explore these data sets using the <c>glimpse</c> function (see Chapter <xref ref="class-conversion"/>). For example, once you have loaded the package using <c>library(robvis)</c>, viewing the ROBINS-I example data set can be achieved by running the following command:
       </p>
       <program language="r">
-        <input>
+        <code>
 glimpse(data_robins)
-        </input>
+        </code>
       </program>
       <p>
         These example data sets are used to create the plots presented through the remainder of this guide.
@@ -201,7 +201,7 @@ glimpse(data_robins)
   <section xml:id="summary-plots">
     <title>Summary Plots</title>
 
-    <subsection xml:id="basics">
+    <subsection xml:id="risk-of-bias-plots-basics">
       <title>Basics</title>
 
       <p>
@@ -211,14 +211,14 @@ glimpse(data_robins)
         To get started, a simple weighted summary bar plot using the ROB2 example data set (<c>data_rob2</c>) is created by running the following code:
       </p>
       <program language="r">
-        <input>
+        <code>
 rob_summary(data = data_rob2, 
             tool = "ROB2")
-        </input>
+        </code>
       </program>
     </subsection>
 
-    <subsection xml:id="modifying-the-plot">
+    <subsection xml:id="risk-of-bias-plots-modifying-the-plot">
       <title>Modifying the Plot</title>
 
       <p>
@@ -259,23 +259,23 @@ rob_summary(data = data_rob2,
       <p>
         Examples of the functionality of each argument are described below.
       </p>
-      <subsubsection xml:id="tool">
+      <subsubsection xml:id="risk-of-bias-plots-tool">
         <title>Tool</title>
 
         <p>
           An argument to define the tool template you wish to use. In the example above, the ROB2 template is used. The two other primary templates - the ROBINS-I and QUADAS-2 templates - are demonstrated below:
         </p>
         <program language="r">
-          <input>
+          <code>
 rob_summary(data = data_robins, 
             tool = "ROBINS-I")
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 rob_summary(data = data_quadas, 
             tool = "QUADAS-2")
-          </input>
+          </code>
         </program>
       </subsubsection>
 
@@ -286,11 +286,11 @@ rob_summary(data = data_quadas,
           By default, an additional bar representing the overall risk of bias judgments is not included in the plot. If you would like to include this, set <c>overall = TRUE</c>. For example:
         </p>
         <program language="r">
-          <input>
+          <code>
 rob_summary(data = data_rob2, 
             tool = "ROB2", 
             overall = TRUE)
-          </input>
+          </code>
         </program>
       </subsubsection>
 
@@ -304,21 +304,21 @@ rob_summary(data = data_rob2,
           You can turn off this option by setting <c>weighted = FALSE</c> to create an unweighted bar plot. For example, compare the following two plots:
         </p>
         <program language="r">
-          <input>
+          <code>
 rob_summary(data = data_rob2, 
             tool = "ROB2")
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 rob_summary(data = data_rob2, 
             tool = "ROB2",
             weighted = FALSE)
-          </input>
+          </code>
         </program>
       </subsubsection>
 
-      <subsubsection xml:id="colour-scheme">
+      <subsubsection xml:id="risk-of-bias-plots-colour-scheme">
         <title>Colour Scheme</title>
 
         <note>
@@ -333,21 +333,21 @@ rob_summary(data = data_rob2,
           The <c>colour</c> argument of both plotting functions allows users to select from two predefined colour schemes, <c>"cochrane"</c> (default) or <c>"colourblind"</c>, or to define their own palette by providing a vector of <alert>hex codes</alert>. For example, to use the predefined <c>"colourblind"</c> palette:
         </p>
         <program language="r">
-          <input>
+          <code>
 rob_summary(data = data_rob2, 
             tool = "ROB2", 
             colour = "colourblind")
-          </input>
+          </code>
         </program>
         <p>
           And to define your own colour scheme:
         </p>
         <program language="r">
-          <input>
+          <code>
 rob_summary(data = data_rob2, 
             tool = "ROB2", 
             colour = c("#f442c8","#bef441","#000000"))
-          </input>
+          </code>
         </program>
         <p>
           When defining your own colour scheme, you must ensure that the number of discrete judgments (e.g. “Low”, “Moderate”, “High”, “Critical”) and the number of colours specified are the same. Additionally, colours must be specified in order of ascending risk-of-bias (e.g. “Low” to “Critical”), with the first hex corresponding to “Low” risk of bias.
@@ -364,21 +364,21 @@ rob_summary(data = data_rob2,
     <p>
       Frequently, researchers will want to present the risk of bias in each domain for each study assessed. The resulting plots are commonly called traffic light plots, and can be produced with <alert>{robvis}</alert> via the <c>rob_traffic_light</c> function.
     </p>
-    <subsection xml:id="basics">
+    <subsection xml:id="risk-of-bias-plots-basics-2">
       <title>Basics</title>
 
       <p>
         To get started, a traffic light plot using the ROB2 example dataset (<c>data_rob2</c>) is created by running the following code:
       </p>
       <program language="r">
-        <input>
+        <code>
 rob_traffic_light(data = data_rob2, 
                   tool = "ROB2")
-        </input>
+        </code>
       </program>
     </subsection>
 
-    <subsection xml:id="modifying-the-plot">
+    <subsection xml:id="risk-of-bias-plots-modifying-the-plot-2">
       <title>Modifying the Plot</title>
 
       <p>
@@ -411,27 +411,27 @@ rob_traffic_light(data = data_rob2,
           </p>
         </li>
       </ul>
-      <subsubsection xml:id="tool">
+      <subsubsection xml:id="risk-of-bias-plots-tool-2">
         <title>Tool</title>
 
         <p>
           An argument to define the tool template you wish to use. The ROB2 template is demonstrated and the two other primary templates - the ROBINS-I and QUADAS-2 templates - are displayed below:
         </p>
         <program language="r">
-          <input>
+          <code>
 rob_traffic_light(data = data_robins, 
                   tool = "ROBINS-I")
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 rob_traffic_light(data = data_quadas, 
                   tool = "QUADAS-2")
-          </input>
+          </code>
         </program>
       </subsubsection>
 
-      <subsubsection xml:id="colour-scheme">
+      <subsubsection xml:id="risk-of-bias-plots-colour-scheme-2">
         <title>Colour Scheme</title>
 
         <note>
@@ -449,21 +449,21 @@ rob_traffic_light(data = data_quadas,
           For example, to use the predefined <c>"colourblind"</c> palette:
         </p>
         <program language="r">
-          <input>
+          <code>
 rob_traffic_light(data = data_rob2, 
                   tool = "ROB2", 
                   colour = "colourblind")
-          </input>
+          </code>
         </program>
         <p>
           And to define your own colour scheme:
         </p>
         <program language="r">
-          <input>
+          <code>
 rob_traffic_light(data = data_rob2, 
                   tool = "ROB2", 
                   colour = c("#f442c8","#bef441","#000000"))
-          </input>
+          </code>
         </program>
         <p>
           When defining your own colour scheme, you must ensure that the number of discrete judgments (e.g. “Low”, “Moderate”, “High”, “Critical”) and the number of colours specified are the same. Additionally, colours must be specified in order of ascending risk-of-bias (e.g. “Low” to “Critical”), with the first hex corresponding to “Low” risk of bias.
@@ -477,7 +477,7 @@ rob_traffic_light(data = data_rob2,
           Occasionally, when a large number of risk of bias assessment have been performed, the resulting traffic light plot may be too long to be useful. Users can address this by modifying the <c>psize</c> argument of the <c>rob_traffic_light</c> function to a smaller number (default is <c>20</c>). For example:
         </p>
         <program language="r">
-          <input>
+          <code>
 # Create bigger dataset (18 studies)
 new_rob2_data &lt;- rbind(data_rob2, data_rob2)
 new_rob2_data$Study &lt;- paste("Study", seq(1:length(new_rob2_data$Study))) 
@@ -486,7 +486,7 @@ new_rob2_data$Study &lt;- paste("Study", seq(1:length(new_rob2_data$Study)))
 rob_traffic_light(data = new_rob2_data, 
                   tool = "ROB2", 
                   psize = 8)
-          </input>
+          </code>
         </program>
       </subsubsection>
 
@@ -532,7 +532,7 @@ rob_traffic_light(data = new_rob2_data,
         As an example, suppose we change the name of the “Random.sequence.generation” column to “This is a test”. In the <c>rob_summary</c> figure, the title of the first bar is changed, while in the <c>rob_traffic_light</c> figure, the caption is updated to reflect this change.
       </p>
       <program language="r">
-        <input>
+        <code>
 # Create copy of the data_rob1 dataset 
 new_rob1_data &lt;- data_rob1
 
@@ -541,14 +541,14 @@ colnames(new_rob1_data)[2] &lt;- "This is a test"
 
 # Create the summary barplot
 rob_summary(data = new_rob1_data, tool = "ROB1")
-        </input>
+        </code>
       </program>
       <program language="r">
-        <input>
+        <code>
 # Create the traffic light plot
 rob_traffic_light(data = new_rob1_data, 
                   tool = "ROB1")
-        </input>
+        </code>
       </program>
     </subsection>
 
@@ -564,9 +564,9 @@ rob_traffic_light(data = new_rob1_data,
         Both <alert>{robvis}</alert> functions (<c>rob_summary</c> and <c>rob_traffic_light</c>) produce a <c>ggplot</c> object, and so can be customized and saved using functions from the <alert>{ggplot2}</alert> package. Use the following code to load this package:
       </p>
       <program language="r">
-        <input>
+        <code>
 library(ggplot2)
-        </input>
+        </code>
       </program>
     </subsection>
 
@@ -577,11 +577,11 @@ library(ggplot2)
         There are a range of post-production modifications you can make to you plots using <alert>{ggplot2}</alert> functions. A useful example is adding a title to the plot:
       </p>
       <program language="r">
-        <input>
+        <code>
 # Make sure you have the ggplot2 package installed and loaded
 rob_summary(data_rob2, "ROB2") +
   ggtitle("Your custom title")
-        </input>
+        </code>
       </program>
     </subsection>
 
@@ -595,7 +595,7 @@ rob_summary(data_rob2, "ROB2") +
         When saving the summary bar plot, we recommend using the following code, with the default height and width values.
       </p>
       <program language="r">
-        <input>
+        <code>
 # Create your plot, and assign it to an object
 rob_barplot &lt;- rob_summary(data_rob2, "ROB2")
 
@@ -605,7 +605,7 @@ ggsave(plot = rob_barplot,        # Plot object to save
        width = 8,                 # Width of image (recommended)
        height = 2.41,             # Height of image (recommended)
        dpi = 1000)                # Resolution of image
-        </input>
+        </code>
       </program>
       <p>
         When saving the traffic light plots, the approach is the same. However, there are no recommended values for the <c>width</c> and <c>height</c> parameters, as the best values for these parameters will vary from plot to plot as the number and names of included studies change.
@@ -622,14 +622,14 @@ ggsave(plot = rob_barplot,        # Plot object to save
         For example, to save the bar plot created above (<c>rob_barplot</c>) as a PDF:
       </p>
       <program language="r">
-        <input>
+        <code>
 # Save your plot
 ggsave(plot = rob_barplot,                  
        filename = "robplot2.pdf", # File extension now ".pdf"
        width = 8,                           
        height = 2.41,                       
        dpi = 1000)
-        </input>
+        </code>
       </program>
     </subsection>
 

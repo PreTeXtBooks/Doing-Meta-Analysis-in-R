@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<chapter xml:id="ch-multilevel-meta-analysis" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="multilevel-ma" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>"Multilevel" Meta-Analysis</title>
 
   <introduction>
@@ -45,7 +45,7 @@
       The second one, <m>\zeta_k</m>, represents the between-study heterogeneity. This heterogeneity is caused by the fact that the true effect size of some study <m>k</m> is again only part of an overarching <alert>distribution of true effect sizes</alert>. This distribution is from where the individual true effect size <m>\theta_k</m> was drawn. Therefore, our aim in the random-effects model is to estimate the mean of the distribution of true effect sizes, denoted with <m>\mu</m>.
     </p>
     <p>
-      The two error terms <m>\epsilon_k</m> and <m>\zeta_k</m> correspond with the two levels in our meta-analysis data: the "participant" level (level 1) and the "study" level (level 2). Figure <xref ref="fig:multilevel1"/> below symbolizes this structure. 
+      The two error terms <m>\epsilon_k</m> and <m>\zeta_k</m> correspond with the two levels in our meta-analysis data: the "participant" level (level 1) and the "study" level (level 2). Figure <xref provisional="fig:multilevel1"/> below symbolizes this structure. 
     </p>
     <p>
       At the lowest level (level 1) we have the participants (or patients, specimens, etc., depending on the research field). These participants are part of larger units: the studies included in our meta-analysis. This overlying layer of studies constitutes our second level. 
@@ -57,7 +57,7 @@
       <idx><h>Random-Effects Model</h></idx>
     </p>
     <p>
-      Let us go back to the random-effects model formula in equation <xref ref="eq:mlm1"/>. Implicitly, this formula already describes the multilevel structure of our meta-analysis data. To make this more obvious, we have to split the equation into two formulas, where each corresponds to one of the two levels. If we do this, we get the following result: 
+      Let us go back to the random-effects model formula in equation <xref provisional="eq:mlm1"/>. Implicitly, this formula already describes the multilevel structure of our meta-analysis data. To make this more obvious, we have to split the equation into two formulas, where each corresponds to one of the two levels. If we do this, we get the following result: 
     </p>
     <p>
       <alert>Level 1 (participants) model:</alert>
@@ -152,9 +152,9 @@
       As mentioned before, we need the <alert>{metafor}</alert> package to fit three-level meta-analysis models. Therefore, we need to load it from our library first.
     </p>
     <program language="r">
-      <input>
+      <code>
 library(metafor)
-      </input>
+      </code>
     </program>
     <p>
       In our hands-on example, we will use the <c>Chernobyl</c> data set. This data set is loosely based on a real meta-analysis which examined the correlation between ionizing radiation ("nuclear fallout") and mutation rates in humans, caused by the devastating <url href="https://www.britannica.com/event/Chernobyl-disaster">1986 Chernobyl reactor disaster</url> . 
@@ -174,22 +174,22 @@ library(metafor)
       </p>
     </note>
     <program language="r">
-      <input>
+      <code>
 # Load data set from 'dmetar'
 library(dmetar)
 data("Chernobyl")
-      </input>
+      </code>
     </program>
     <p>
       To see the general structure of the data, we can use the <c>head</c> function. This prints the first six rows of the data frame that we just loaded into our global environment.
     </p>
     <program language="r">
-      <input>
+      <code>
 head(Chernobyl)
-      </input>
+      </code>
     </program>
     <program language="r">
-      <input>
+      <code>
 ##                       author  cor   n    z se.z var.z radiation es.id
 ## 1 Aghajanyan &amp; Suskov (2009) 0.20  91 0.20 0.10  0.01       low  id_1
 ## 2 Aghajanyan &amp; Suskov (2009) 0.26  91 0.27 0.10  0.01       low  id_2
@@ -197,7 +197,7 @@ head(Chernobyl)
 ## 4 Aghajanyan &amp; Suskov (2009) 0.26  92 0.27 0.10  0.01       low  id_4
 ## 5     Alexanin et al. (2010) 0.93 559 1.67 0.04  0.00       low  id_5
 ## 6     Alexanin et al. (2010) 0.44 559 0.47 0.04  0.00       low  id_6
-      </input>
+      </code>
     </program>
     <p>
       <idx><h>Fisher's \textit{z}</h></idx>
@@ -211,7 +211,7 @@ head(Chernobyl)
     <p>
       Looking at this structure, it is quite obvious that effect sizes in our data set are not independent. They follow a nested structure, where various effect sizes are nested in one study. Thus, it might be a good idea to fit a three-level meta-analysis in order to adequately model these dependencies in our data.
     </p>
-    <subsection xml:id="model-fitting">
+    <subsection xml:id="multilevel-ma-model-fitting">
       <title>Model Fitting</title>
 
       <p>
@@ -262,7 +262,7 @@ head(Chernobyl)
         In our example, we assume that individual effect sizes (level 2; defined by <c>es.id</c>) are nested within studies (level 3; defined by <c>author</c>). This results in the following formula: <c>~ 1 | author/es.id</c>. The complete <c>rma.mv</c> function call looks like this:
       </p>
       <program language="r">
-        <input>
+        <code>
 full.model &lt;- rma.mv(yi = z, 
                      V = var.z, 
                      slab = author,
@@ -270,18 +270,18 @@ full.model &lt;- rma.mv(yi = z,
                      random = ~ 1 | author/es.id, 
                      test = "t", 
                      method = "REML")
-        </input>
+        </code>
       </program>
       <p>
         We gave the output the name <c>full.model</c>. To print an overview of the results, we can use the <c>summary</c> function.
       </p>
       <program language="r">
-        <input>
+        <code>
 summary(full.model)
-        </input>
+        </code>
       </program>
       <program language="r">
-        <input>
+        <code>
 ## Multivariate Meta-Analysis Model (k = 33; method: REML)
 ## [...]   
 ## Variance Components:
@@ -298,7 +298,7 @@ summary(full.model)
 ## estimate      se    tval    pval   ci.lb   ci.ub 
 ##   0.5231  0.1341  3.9008  0.0005  0.2500  0.7963  *** 
 ## [...]
-        </input>
+        </code>
       </program>
       <p>
         First, have a look at the <c>Variance Components</c>. Here, we see the random-effects variances calculated for each level of our model. The first one, <c>sigma^2.1</c>, shows the level 3 <alert>between-cluster</alert> variance. In our example, this is equivalent to the between-study heterogeneity variance <m>\tau^2</m> in a conventional meta-analysis (since clusters represent studies in our model). 
@@ -313,10 +313,10 @@ summary(full.model)
         Under <c>Model Results</c>, we see the estimate of our pooled effect, which is <m>z=</m> 0.52 (95%CI: 0.25--0.80). To facilitate the interpretation, it is advisable to transform the effect back to a normal correlation. This can be done using the <c>convert_z2r</c> function in the <alert>{esc}</alert> package:
       </p>
       <program language="r">
-        <input>
+        <code>
 library(esc)
 convert_z2r(0.52)
-        </input>
+        </code>
       </program>
       <p>
         We see that this leads to a correlation of approximately <m>r \approx</m> 0.48. This can be considered large. There seems to be a substantial association between mutation rates and exposure to radiation from Chernobyl. 
@@ -367,10 +367,10 @@ convert_z2r(0.52)
         The <c>var.comp</c> function only needs a fitted <c>rma.mv</c> model as input. We save the output in <c>i2</c> and then use the <c>summary</c> function to print the results. 
       </p>
       <program language="r">
-        <input>
+        <code>
 i2 &lt;- var.comp(full.model)
 summary(i2)
-        </input>
+        </code>
       </program>
       <p>
         In the output, we see the percentage of total variance attributable to each of the three levels. The sampling error variance on level 1 is very small, making up only roughly 1%. The value of <m>I^2_{\text{Level 2}}</m>, the amount of heterogeneity variance within clusters, is much higher, totaling roughly 40%. The largest share, however, falls to level 3. Between-cluster (here: between-study) heterogeneity makes up <m>I^2_{\text{Level 3}}=</m> 59% of the total variation in our data. 
@@ -382,9 +382,9 @@ summary(i2)
         It is also possible to visualize this distribution of the total variance. We only have to plug the  <c>var.comp</c> output into the <c>plot</c> function. 
       </p>
       <program language="r">
-        <input>
+        <code>
 plot(i2)
-        </input>
+        </code>
       </program>
     </subsection>
 
@@ -404,7 +404,7 @@ plot(i2)
         In our example, it makes sense to check if nesting individual effect sizes in studies has improved our model. Thus, we fit a model in which the level 3 variance, representing the between-study heterogeneity, is set to zero. This is equal to fitting a simple random-effects model in which we assume that all effect sizes are independent (which we know they are not). Since level 3 is held constant at zero, the input for <c>sigma2</c> is <c>c(0, NA)</c>. This results in the following call to <c>rma.mv</c>, the output of which we save under the name <c>l3.removed</c>.
       </p>
       <program language="r">
-        <input>
+        <code>
 l3.removed &lt;- rma.mv(yi = z, 
                      V = var.z, 
                      slab = author,
@@ -415,10 +415,10 @@ l3.removed &lt;- rma.mv(yi = z,
                      sigma2 =  c(0, NA))
 
 summary(l3.removed)
-        </input>
+        </code>
       </program>
       <program language="r">
-        <input>
+        <code>
 ## [...]
 ## Variance Components:
 ## 
@@ -434,7 +434,7 @@ summary(l3.removed)
 ## estimate      se    tval    pval   ci.lb   ci.ub 
 ##   0.5985  0.1051  5.6938  &lt;.0001  0.3844  0.8126  *** 
 ## [...]
-        </input>
+        </code>
       </program>
       <p>
         <idx><h>Analysis of Variance</h></idx>
@@ -443,16 +443,16 @@ summary(l3.removed)
         In the output, we see that <c>sigma^2.1</c> has been set to zero--just as intended. The overall effect has also changed. But is this result better than the one of the three-level model? To assess this, we can use the <c>anova</c> function to compare both models.
       </p>
       <program language="r">
-        <input>
+        <code>
 anova(full.model, l3.removed)
-        </input>
+        </code>
       </program>
       <program language="r">
-        <input>
+        <code>
 ##         df   AIC   BIC  AICc logLik   LRT   pval      QE 
 ## Full     3 48.24 52.64 49.10 -21.12              4195.82 
 ## Reduced  2 62.34 65.27 62.76 -29.17 16.10 &lt;.0001 4195.82
-        </input>
+        </code>
       </program>
       <p>
         We see that the <c>Full</c> (three-level) model, compared to the <c>Reduced</c> one with two levels, does indeed show a better fit. The Akaike (AIC) and Bayesian Information Criterion (BIC) are lower for this model, which indicates favorable performance. The likelihood ratio test (<c>LRT</c>) comparing both models is significant (<m>\chi^2_1=</m> 16.1, <m>p&lt;</m> 0.001), and thus points in the same direction. 
@@ -495,7 +495,7 @@ anova(full.model, l3.removed)
       In our <c>Chernobyl</c> example, we want to check if correlations differ depending on the overall amount of radiation in the studied sample (low, medium, or high). This information is provided in the <c>radiation</c> column in our data set. We can fit a three-level moderator model using this code:
     </p>
     <program language="r">
-      <input>
+      <code>
 mod.model &lt;- rma.mv(yi = z, V = var.z, 
                     slab = author, data = Chernobyl,
                     random = ~ 1 | author/es.id, 
@@ -503,10 +503,10 @@ mod.model &lt;- rma.mv(yi = z, V = var.z,
                     mods = ~ radiation)
 
 summary(mod.model)
-      </input>
+      </code>
     </program>
     <program language="r">
-      <input>
+      <code>
 ## [...]
 ## Test of Moderators (coefficients 2:3):
 ## F(df1 = 2, df2 = 28) = 0.4512, p-val = 0.6414
@@ -517,7 +517,7 @@ summary(mod.model)
 ## radiationlow       -0.19  0.40  -0.48  0.63  -1.03  0.63    
 ## radiationmedium     0.20  0.54   0.37  0.70  -0.90  1.31    
 ## [...]
-      </input>
+      </code>
     </program>
     <p>
       The first important output is the <c>Test of Moderators</c>. We see that <m>F_{2, 28}=</m> 0.45, with <m>p=</m> 0.64. This means that there is no significant difference between the subgroups. 
@@ -647,9 +647,9 @@ summary(mod.model)
         It is now time to fit our first correlated and hierarchical effects model with <em>R</em>, while employing robust variance estimation to guard our model against misspecification. Like before, we can use the <c>rma.mv</c> function in <alert>{metafor}</alert> to run our model. This time, we also need some additional functions provided by the <alert>{clubSandwich}</alert> package . Therefore, make sure to install the package, and then load it from your library.
       </p>
       <program language="r">
-        <input>
+        <code>
 library(clubSandwich)
-        </input>
+        </code>
       </program>
       <p>
         As mentioned above, the CHE model assumes that effect sizes within studies or clusters are <alert>correlated</alert>; and that this correlation is identical within and across studies. 
@@ -658,10 +658,10 @@ library(clubSandwich)
         Thus, we have to <alert>define a correlation coefficient</alert> to be used within our model. For our <c>Chernobyl</c> data, let us assume that the correlation is large, so that <m>\rho</m>=0.6. This is no more than a guess, and it is highly recommended to run <alert>several sensitivity analyses</alert> for varying values of <m>\rho</m>.
       </p>
       <program language="r">
-        <input>
+        <code>
 # constant sampling correlation assumption
 rho &lt;- 0.6
-        </input>
+        </code>
       </program>
       <p>
         Now, using this correlation, we can calculate an assumed variance-covariance matrix for each of our studies. We do this using the <c>impute_covariance_matrix</c> function in <alert>{clubSandwich}</alert>:
@@ -684,13 +684,13 @@ rho &lt;- 0.6
         </li>
       </ul>
       <program language="r">
-        <input>
+        <code>
 # constant sampling correlation working model
 V &lt;- with(Chernobyl, 
           impute_covariance_matrix(vi = var.z,
                                    cluster = author,
                                    r = rho))
-        </input>
+        </code>
       </program>
       <p>
         Using the prepared variance-covariance matrices in <c>V</c>, we can now fit our <c>rma.mv</c> model. Let us say that we want to analyze the same meta-regression model as in Chapter <xref ref="three-level-subgroup"/>, in which <c>radiation</c> was used as a covariate. 
@@ -702,47 +702,47 @@ V &lt;- with(Chernobyl,
         Only the the <c>random</c> and <c>data</c> arguments stay the same. We save the results under the name <c>che.model</c>.
       </p>
       <program language="r">
-        <input>
+        <code>
 che.model &lt;- rma.mv(z ~ 1 + radiation,
                     V = V,
                     random = ~ 1 | author/es.id,
                     data = Chernobyl,
                     sparse = TRUE)
-        </input>
+        </code>
       </program>
       <p>
         To calculate the <alert>confidence intervals</alert> of our meta-regression coefficients, we can use the <c>conf_int</c> function in <alert>{clubSandwich}</alert>. We only have to provide the fitted model, and specify the <alert>small-sample adjustment</alert> to be used under <c>vcov</c>. As recommended, we use the <c>"CR2"</c> adjustment (see Chapter <xref ref="sandwich"/>).
       </p>
       <program language="r">
-        <input>
+        <code>
 conf_int(che.model, 
          vcov = "CR2")
-        </input>
+        </code>
       </program>
       <program language="r">
-        <input>
+        <code>
 ##            Coef. Estimate    SE d.f. Lower 95% CI Upper 95% CI
 ##          intrcpt    0.584 0.578 1.00        -6.76         7.93
 ##     radiationlow   -0.190 0.605 1.60        -3.52         3.14
 ##  radiationmedium    0.207 0.603 1.98        -2.41         2.83
-        </input>
+        </code>
       </program>
       <p>
         We see that the point estimates under <c>Estimate</c> are similar to the ones we obtained in Chapter <xref ref="three-level-subgroup"/>. The estimated standard errors and confidence intervals, however, are much larger. It is also possible to <alert>calculate the</alert> <m>p</m><alert>-values</alert> of the regression weights using the <c>coef_test</c> function:
       </p>
       <program language="r">
-        <input>
+        <code>
 coef_test(che.model, 
           vcov = "CR2")
-        </input>
+        </code>
       </program>
       <program language="r">
-        <input>
+        <code>
 ##            Coef. Estimate    SE t-stat d.f. (Satt) p-val (Satt) Sig.
 ##          intrcpt    0.584 0.578  1.010        1.00        0.497     
 ##     radiationlow   -0.190 0.605 -0.315        1.60        0.789     
 ##  radiationmedium    0.207 0.603  0.344        1.98        0.764 
-        </input>
+        </code>
       </program>
       <p>
         We see that none of the coefficients are significant when robust variance estimation is used<fn>By default, the <c>cont_int</c> and <c>coef_test</c> functions use the <alert>Satterthwaite-corrected</alert> degrees of freedom . It is recommended to keep this default setting.</fn>. 
@@ -827,7 +827,7 @@ coef_test(che.model,
       To test multiple-contrast hypotheses using the bootstrap, we can use the <alert>{wildmeta}</alert> package . This package needs to be installed and loaded from the library for our next example. Furthermore, using functions of the <alert>{tidyverse}</alert>, we generate a new variable in our <c>Chernobyl</c> data set, in which we save the year of each study.
     </p>
     <program language="r">
-      <input>
+      <code>
 # Make sure {wildmeta} and {tidyverse} is loaded
 library(wildmeta)
 library(tidyverse)
@@ -835,54 +835,54 @@ library(tidyverse)
 # Add year as extra variable
 Chernobyl$year &lt;- str_extract(Chernobyl$author, 
                               "[0-9]{4}") %&gt;% as.numeric()
-      </input>
+      </code>
     </program>
     <p>
       Next, we use this variable as a <alert>new predictor</alert> in our <c>rma.mv</c> meta-regression model. We simply add <c>year</c> to the formula in the first argument, while applying the <c>scale</c> function to center and scale the covariate. There is also another thing we do in the formula: we change the <c>1</c> of the intercept to a <c>0</c>. This means that there is no intercept, and that predictions of <c>year</c> are <alert>stratified</alert> by different levels of radiation<fn>This change has an impact on the way the different levels of <c>radiation</c> are <alert>presented</alert>: we do not get regression weights with one level serving as the reference group, but three separate pooled effect size estimates, one for each level.</fn>. We save the result as <c>che.model.bs</c>.
     </p>
     <program language="r">
-      <input>
+      <code>
 che.model.bs &lt;- rma.mv(z ~ 0 + radiation + scale(year),
                        V = V,
                        random = ~ 1 | author/es.id,
                        data = Chernobyl,
                        sparse = TRUE)
-      </input>
+      </code>
     </program>
     <p>
       Before we start bootstrapping, we need to define a <alert>linear contrast</alert> for the test we want to conduct. Let us say that we want to test the <alert>overall moderation effect</alert> of our <c>radiation</c> variable. To do this, we have to use the <c>constrain_equal</c> function in <alert>{clubSandwich}</alert> to create a constraint matrix for out test. The null hypothesis is that effects are equal among all three levels of our <c>radiation</c> variable, so we set the <c>constraints</c> argument to <c>1:3</c>. Furthermore, we specify the <c>coefs</c> argument by providing the coefficients of the model we just fitted. We save the results as <c>rad.constraints</c>.
     </p>
     <program language="r">
-      <input>
+      <code>
 rad.constraints &lt;- constrain_equal(constraints = 1:3,
                                    coefs = coef(che.model.bs))
 rad.constraints
-      </input>
+      </code>
     </program>
     <program language="r">
-      <input>
+      <code>
 ##      [,1] [,2] [,3] [,4]
 ## [1,]   -1    1    0    0
 ## [2,]   -1    0    1    0
-      </input>
+      </code>
     </program>
     <p>
       We can now calculate the bootstrap <m>p</m>-value of the multiple-contrast hypothesis, using the <c>Wald_test_cwb</c> function in <alert>{wildmeta}</alert>. We have to specify our fitted full model, our constraint matrix, the type of small-sample adjustment we want to use, as well as <c>R</c>, the number of bootstrap replications. It is recommended to use a <alert>high number of replications</alert> (e.g. 1000 or more), since this improves our power. In our example, we use 2000 replications, and save the results as <c>cw.boot</c>. Please note that, depending on the number of iterations, this process can <alert>take several minutes to finish</alert>.
     </p>
     <program language="r">
-      <input>
+      <code>
 cw.boot &lt;- Wald_test_cwb(full_model = che.model.bs,
                          constraints = rad.constraints,
                          adjust = "CR2",
                          R = 2000)
 cw.boot
-      </input>
+      </code>
     </program>
     <program language="r">
-      <input>
+      <code>
 ##           Test Adjustment CR_type Statistic    R  p_val
 ## 1 CWB Adjusted        CR2     CR0   Naive-F 2000 0.3595
-      </input>
+      </code>
     </program>
     <p>
       We see that the <m>p</m>-value of our test of moderation is 0.36, which is <alert>not significant</alert>. We had a similar finding in our previous moderator analysis of the radiation strength in Chapter <xref ref="three-level-subgroup"/>.
@@ -891,18 +891,18 @@ cw.boot
       Using the <c>plot</c> function, we can also visualize the <alert>density of the test statistics</alert> across all bootstrap replications. 
     </p>
     <program language="r">
-      <input>
+      <code>
 plot(cw.boot, 
      fill = "lightblue", 
      alpha = 0.5)
-      </input>
+      </code>
     </program>
     <p>
       \qed
     </p>
   </section>
 
-  <section xml:id="questions-answers">
+  <section xml:id="multilevel-ma-questions-answers">
     <title>Questions &amp; Answers</title>
 
     <exercise>
@@ -942,7 +942,7 @@ plot(cw.boot,
     </exercise>
   </section>
 
-  <section xml:id="summary">
+  <section xml:id="multilevel-ma-summary">
     <title>Summary</title>
 
     <ul>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<chapter xml:id="ch-pooling-effect-sizes" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="pooling-es" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Pooling Effect Sizes</title>
 
   <introduction>
@@ -101,7 +101,7 @@
         Although we do not know the true overall effect size of our studies, we can exploit this relationship to arrive at the best possible estimate of the true overall effect, <m>\hat\theta</m>. We know that a smaller standard error corresponds with a smaller sampling error; therefore, studies with a small standard error should be better estimators of the true overall effect than studies with a large standard error.
       </p>
       <p>
-        We can illustrate this with a simulation. Using the <c>rnorm</c> function we already used before, we simulated a selection of studies in which the true overall effect is <m>\theta = 0</m>. We took several samples but varied the sample size so that the standard error differs between the "observed" effects. The results of the simulation can be found in Figure <xref ref="fig:funnel1"/>. 
+        We can illustrate this with a simulation. Using the <c>rnorm</c> function we already used before, we simulated a selection of studies in which the true overall effect is <m>\theta = 0</m>. We took several samples but varied the sample size so that the standard error differs between the "observed" effects. The results of the simulation can be found in Figure <xref provisional="fig:funnel1"/>. 
       </p>
       <p>
         The results of the simulation show an interesting pattern. We see that effect sizes with a small sampling error are tightly packed around the true effect size <m>\theta = 0</m>. As the standard error on the y-axis<fn>We log-transformed the standard error before plotting so that the pattern can be more easily seen.</fn> increases, the <alert>dispersion</alert> of effect sizes becomes larger and larger, and the observed effects deviate more and more from the true effect. 
@@ -163,7 +163,7 @@
         Since the release of <em>R</em> version 4.2.1, we additionally have to plug our call to <c>esc_mean_sd</c> into the <c>pmap_dfr</c> function so that a standardized mean difference is calculated for each row in our data set:
       </p>
       <program language="r">
-        <input>
+        <code>
 # Load dmetar, esc and tidyverse (for pipe)
 library(dmetar)
 library(esc)
@@ -192,10 +192,10 @@ SP_calc &lt;- pmap_dfr(SuicidePrevention,
 # Let us catch a glimpse of the data
 # The data set contains Hedges' g ("es") and standard error ("se")
 glimpse(SP_calc)
-        </input>
+        </code>
       </program>
       <program language="r">
-        <input>
+        <code>
 ## Rows: 9
 ## Columns: 9
 ## $ study       &lt;chr&gt; "Berry et al.", "DeVries et …
@@ -207,25 +207,25 @@ glimpse(SP_calc)
 ## $ ci.lo       &lt;dbl&gt; -0.4314686, -0.9400826, -0.6…
 ## $ ci.hi       &lt;dbl&gt; 0.145879624, -0.275335960, 0…
 ## $ measure     &lt;chr&gt; "g", "g", "g", "g", "g", "g"…
-        </input>
+        </code>
       </program>
       <p>
         Next, we use these results to apply the formula of the fixed-effect model:
       </p>
       <program language="r">
-        <input>
+        <code>
 # Calculate the inverse variance-weights for each study
 SP_calc$w &lt;- 1/SP_calc$se^2
 
 # Then, we use the weights to calculate the pooled effect
 pooled_effect &lt;- sum(SP_calc$w*SP_calc$es)/sum(SP_calc$w)
 pooled_effect
-        </input>
+        </code>
       </program>
       <program language="r">
-        <input>
+        <code>
 ## [1] -0.2311121
-        </input>
+        </code>
       </program>
       <p>
         The results of our calculations reveal that the pooled effect size, assuming a fixed-effect model, is <m>g \approx</m> -0.23.
@@ -295,7 +295,7 @@ pooled_effect
         \begin{equation} \hat\theta<em>k = \mu + \zeta</em>k + \epsilon_k (#eq:pes6) \end{equation}
       </p>
       <p>
-        This formula makes it clear that our observed effect size deviates from the pooled effect <m>\mu</m> because of two error terms, <m>\zeta_k</m> and <m>\epsilon_k</m>. This relationship is visualized in Figure <xref ref="fig:random"/>. 
+        This formula makes it clear that our observed effect size deviates from the pooled effect <m>\mu</m> because of two error terms, <m>\zeta_k</m> and <m>\epsilon_k</m>. This relationship is visualized in Figure <xref provisional="fig:random"/>. 
       </p>
       <p>
         <idx><h>Exchangeability Assumption</h></idx>
@@ -492,7 +492,7 @@ pooled_effect
       Time to put what we learned into practice. In the rest of this chapter, we will explore how we can run meta-analyses of different effect sizes directly in <em>R</em>. The <alert>{meta}</alert> package we will use to do this has a special structure. It contains several meta-analysis functions which are each focused on one type of effect size data. There is a set of parameters which can be specified in the same way across all of these functions; for example if we want to apply a fixed- or random-effects model, or which <m>\tau^2</m> estimator should be used. Apart from that, there are <alert>function-specific</alert> arguments which allow us to tweak details of our meta-analysis that are only relevant for a specific type of data. 
     </p>
     <p>
-      Figure <xref ref="fig:metaflow"/> provides an overview of <alert>{meta}</alert>'s structure. To determine which function to use, we first have to clarify what kind of effect size data we want to synthesize. The most fundamental distinction is the one between <alert>raw</alert> and <alert>pre-calculated</alert> effect size data. We speak of "raw" data when we have all the necessary information needed to calculate the desired effect size stored in our data frame but have not yet calculated the actual effect size. The <c>SuicidePrevention</c> data set we used earlier contains raw data: the mean, standard deviation and sample size of two groups, which is needed to calculate the standardized mean difference. 
+      Figure <xref provisional="fig:metaflow"/> provides an overview of <alert>{meta}</alert>'s structure. To determine which function to use, we first have to clarify what kind of effect size data we want to synthesize. The most fundamental distinction is the one between <alert>raw</alert> and <alert>pre-calculated</alert> effect size data. We speak of "raw" data when we have all the necessary information needed to calculate the desired effect size stored in our data frame but have not yet calculated the actual effect size. The <c>SuicidePrevention</c> data set we used earlier contains raw data: the mean, standard deviation and sample size of two groups, which is needed to calculate the standardized mean difference. 
     </p>
     <p>
       We call effect size data "pre-calculated", on the other hand, when they already contain the final effect size of each study, as well as the standard error. If we want to use a corrected version of an effect metric (such as Hedges' <m>g</m>, Chapter <xref ref="hedges-g"/>), it is necessary that this correction has already been applied to pre-calculated effect size data before we start the pooling. 
@@ -610,14 +610,14 @@ pooled_effect
         </p>
       </note>
       <program language="r">
-        <input>
+        <code>
 library(tidyverse) # needed for 'glimpse'
 library(dmetar)
 library(meta)
 
 data(ThirdWave)
 glimpse(ThirdWave)
-        </input>
+        </code>
       </program>
       <p>
         We see that the data set has eight columns, the most important of which are <c>Author</c>, <c>TE</c> and <c>seTE</c>. The <c>TE</c> column contains the <m>g</m> value of each study, and <c>seTE</c> is the standard error of <m>g</m>. The other columns represent variables describing the subgroup categories that each study falls into. These variables are not relevant for now.
@@ -650,7 +650,7 @@ glimpse(ThirdWave)
         This gives us all the information we need to set up our first call to <c>metagen</c>. We will store the results of the function in an object called <c>m.gen</c>.
       </p>
       <program language="r">
-        <input>
+        <code>
 m.gen &lt;- metagen(TE = TE,
                  seTE = seTE,
                  studlab = Author,
@@ -661,18 +661,18 @@ m.gen &lt;- metagen(TE = TE,
                  method.tau = "REML",
                  method.random.ci = "HK",
                  title = "Third Wave Psychotherapies")
-        </input>
+        </code>
       </program>
       <p>
         Our <c>m.gen</c> object now contains all the meta-analysis results. An easy way to get an overview is to use the <c>summary</c> function<fn>In older versions of <alert>{meta}</alert> (before version 5.0-0), this overview can be printed without using <c>summary</c>. Simply call your newly created meta-analysis object directly in the <em>R</em> console.</fn>.
       </p>
       <program language="r">
-        <input>
+        <code>
 summary(m.gen)
-        </input>
+        </code>
       </program>
       <program language="r">
-        <input>
+        <code>
 ## Review:     Third Wave Psychotherapies
 ##                       SMD            95%-CI %W(random)
 ## Call et al.        0.7091 [ 0.1979; 1.2203]        5.0
@@ -712,7 +712,7 @@ summary(m.gen)
 ## - Restricted maximum-likelihood estimator for tau^2
 ## - Q-profile method for confidence interval of tau^2 and tau
 ## - Hartung-Knapp adjustment for random effects model
-        </input>
+        </code>
       </program>
       <p>
         Here we go, the results of our first meta-analysis using <em>R</em>. There is a lot to unpack, so let us go through the output step by step.
@@ -751,9 +751,9 @@ summary(m.gen)
         We can also access information stored in <c>m.gen</c> directly. Plenty of objects are stored by default in the meta-analysis results produced by <alert>{meta}</alert>, and a look into the "value" section of the documentation reveals what they mean. We can use the <c>$</c> operator to print specific results of our analyses. The pooled effect, for example, is stored as <c>TE.random</c>.
       </p>
       <program language="r">
-        <input>
+        <code>
 m.gen$TE.random
-        </input>
+        </code>
       </program>
       <p>
         <idx><h>Fixed-Effect Model</h></idx>
@@ -762,9 +762,9 @@ m.gen$TE.random
         Even when we specify <c>fixed = FALSE</c>, <alert>{meta}</alert>'s functions always also calculate results for the fixed-effect model internally. Thus, we can also access the pooled effect assuming a fixed-effect model.
       </p>
       <program language="r">
-        <input>
+        <code>
 m.gen$TE.fixed
-        </input>
+        </code>
       </program>
       <p>
         We see that this estimate deviates considerably from the random-effects model result.
@@ -773,7 +773,7 @@ m.gen$TE.fixed
         When we want to adapt some details of our analyses, the <c>update</c> function can be helpful. This function needs the <alert>{meta}</alert> object as input, and the argument we want to change. Let us say that we want to check if results differ substantially if we use the Paule-Mandel instead of the restricted maximum likelihood estimator. We can do that using this code:
       </p>
       <program language="r">
-        <input>
+        <code>
 m.gen_update &lt;- update(m.gen, method.tau = "PM")
 
 # Get pooled effect
@@ -781,7 +781,7 @@ m.gen_update$TE.random
 
 # Get tau^2 estimate
 m.gen_update$tau2
-        </input>
+        </code>
       </program>
       <p>
         We see that while the pooled effect does not differ much, the Paule-Mandel estimator gives us a somewhat larger approximation of <m>\tau^2</m>.
@@ -790,9 +790,9 @@ m.gen_update$tau2
         Lastly, it is always helpful to save the results for later. Objects generated by <alert>{meta}</alert> can easily be saved as <em>.rda</em> (<em>R</em> data) files, using the <c>save</c> function.
       </p>
       <program language="r">
-        <input>
+        <code>
 save(m.gen, file = "path/to/my/meta-analysis.rda") # example path
-        </input>
+        </code>
       </program>
     </subsection>
 
@@ -852,7 +852,7 @@ save(m.gen, file = "path/to/my/meta-analysis.rda") # example path
         Overall, our code looks like this:
       </p>
       <program language="r">
-        <input>
+        <code>
 # Make sure meta and dmetar are already loaded
 library(meta)
 library(dmetar)
@@ -877,15 +877,15 @@ m.cont &lt;- metacont(n.e = n.e,
                    method.tau = "REML",
                    method.random.ci = "HK",
                    title = "Suicide Prevention")
-        </input>
+        </code>
       </program>
       <p>
         Let us see what the results are:
       </p>
       <program language="r">
-        <input>
+        <code>
 summary(m.cont)
-        </input>
+        </code>
       </program>
       <p>
         Looking at the output and comparing it to the one we received in Chapter <xref ref="pre-calculated-es"/>, we already see one of <alert>{meta}</alert>'s greatest assets. Although <c>metagen</c> and <c>metacont</c> are different functions requiring different data types, the structure of the output looks nearly identical. This makes interpreting the results quite easy. We see that the pooled effect according to the random-effects model is <m>g=</m> -0.23, with the 95% confidence interval ranging from -0.09 to -0.37. The effect is significant (<m>p=</m> 0.006). 
@@ -919,9 +919,7 @@ summary(m.cont)
         <p>
           However, this approach is suboptimal for binary outcome data . When we are dealing with <alert>sparse</alert> data, meaning that the number of events or the total sample size of a study is small, the calculated standard error may not be a good estimator of the precision of the binary effect size.
         </p>
-        <p>
-          ##### The Mantel-Haenszel Method {#mantel-haenszel}
-        </p>
+        
         <p>
           <idx><h>Mantel-Haenszel Method</h></idx>
         </p>
@@ -1008,9 +1006,7 @@ summary(m.cont)
             It is also important to keep in mind that these alternative methods are primarily relevant for the <alert>fixed-effect model</alert>. Pooled estimates using the random-effects model will still essentially be based on the (generic) inverse-variance method. For example, even if the Mantel-Haenszel method is specified in <c>metabin</c>, the pooled effect is still derived using the same weighting approach we discussed in Chapter <xref ref="tau-estimators"/>. For the Peto method, the inverse-variance approach will be applied using the variance of the Peto log-odds ratio. 
           </p>
         </note>
-        <p>
-          ##### Pooling Binary Effect Sizes in <em>R</em> {#ppoolbin}
-        </p>
+        
         <p>
           There are eight important function-specific arguments in <c>metabin</c>:
         </p>
@@ -1074,14 +1070,14 @@ summary(m.cont)
           Let us have a look at the data set first:
         </p>
         <program language="r">
-          <input>
+          <code>
 library(dmetar)
 library(tidyverse)
 library(meta)
 
 data(DepressionMortality)
 glimpse(DepressionMortality)
-          </input>
+          </code>
         </program>
         <p>
           <idx><h>Paule-Mandel Estimator</h></idx> <idx><h>Mantel-Haenszel Method</h></idx>
@@ -1096,7 +1092,7 @@ glimpse(DepressionMortality)
           The data set contains no zero cells, so we do not have to worry about continuity correction, and can use the exact Mantel-Haenszel method right away. We save the meta-analysis results in an object called <c>m.bin</c>.
         </p>
         <program language="r">
-          <input>
+          <code>
 m.bin &lt;- metabin(event.e = event.e, 
                  n.e = n.e,
                  event.c = event.c,
@@ -1112,10 +1108,10 @@ m.bin &lt;- metabin(event.e = event.e,
                  method.random.ci = "HK",
                  title = "Depression and Mortality")
 summary(m.bin)
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## Review:     Depression and Mortality
 ## 
 ##                           RR            95%-CI %W(common) %W(random)
@@ -1160,7 +1156,7 @@ summary(m.bin)
 ## - Paule-Mandel estimator for tau^2
 ## - Q-Profile method for confidence interval of tau^2 and tau
 ## - Hartung-Knapp adjustment for random effects model (df = 17)
-          </input>
+          </code>
         </program>
         <p>
           We see that the pooled effect size, based on the random-effects model, is RR <m>=</m> 2.02. The pooled effect is significant (<m>p&lt;</m> 0.001), and indicates that suffering from depression doubles the mortality risk. We see that our estimate of the between-study heterogeneity variance is <m>\tau^2 \approx</m> 0.19. The effect using the fixed-effect model is RR <m>=</m> 2.06, which is very similar to the random-effects model.
@@ -1172,9 +1168,9 @@ summary(m.bin)
           As announced above, let us have a look if the method used to estimate <m>\tau^2</m> has an impact on the results. Using the <c>update</c> function, we re-run the analysis, but use the restricted maximum likelihood estimator this time.
         </p>
         <program language="r">
-          <input>
+          <code>
 m.bin_update &lt;- update(m.bin, method.tau = "REML")
-          </input>
+          </code>
         </program>
         <p>
           <idx><h>Exponentiation</h></idx>
@@ -1186,17 +1182,17 @@ m.bin_update &lt;- update(m.bin, method.tau = "REML")
           To retransform log-transformed effect sizes, we have to <alert>exponentiate</alert> the value. Exponentiation can be seen as the "antagonist" of log-transforming data, and can be performed in <em>R</em> using the <c>exp</c> function<fn>Generally speaking, exponentiation is an operation including two variables <m>b</m> and <m>x</m>. When <m>x</m> is exponentiated, we raise <m>b</m> (the base) to the power of <m>x</m> (the exponent): <m>b^x</m>. Most commonly, <m>b</m> is defined as Euler's number <m>e \approx</m> 2.718). Using <m>e^x</m> creates an <alert>exponential function</alert> <m>\exp(x)</m>, which can be used to reconvert some log-transformed value <m>x</m> back to its original scale. This operation is also known as <alert>"taking the anti-log"</alert>.</fn>. Let us put this into practice.
         </p>
         <program language="r">
-          <input>
+          <code>
 exp(m.bin_update$TE.random)
-          </input>
+          </code>
         </program>
         <p>
           We see that the pooled effect using the restricted maximum likelihood estimator is virtually identical. Now, let us see the estimate of <m>\tau^2</m>:
         </p>
         <program language="r">
-          <input>
+          <code>
 m.bin_update$tau2
-          </input>
+          </code>
         </program>
         <p>
           This value deviates somewhat, but not to a degree that should make us worry about the validity of our initial results.
@@ -1205,13 +1201,13 @@ m.bin_update$tau2
           Our call to <c>metabin</c> would have looked exactly the same if we had decided to pool odds ratios. The only thing we need to change is the <c>sm</c> argument, which has to be set to <c>"OR"</c>. Instead of writing down the entire function call one more time, we can use the <c>update</c> function again to calculate the pooled OR.
         </p>
         <program language="r">
-          <input>
+          <code>
 m.bin_or &lt;- update(m.bin, sm = "OR")
 m.bin_or
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## Review:     Depression and Mortality
 ##
 ## [...]
@@ -1236,14 +1232,12 @@ m.bin_or
 ## - Paule-Mandel estimator for tau^2
 ## - Q-Profile method for confidence interval of tau^2 and tau
 ## - Hartung-Knapp adjustment for random effects model (df = 17)
-          </input>
+          </code>
         </program>
         <p>
           In the output, we see that the pooled effect using odds ratios is OR = 2.29. 
         </p>
-        <p>
-          ##### Pooling Pre-Calculated Binary Effect Sizes {#m-gen-bin}
-        </p>
+        
         <p>
           It is sometimes not possible to extract the raw effect size data needed to calculate risk or odds ratios in each study. For example, a primary study may report an odds ratio, but not the data on which this effect size is based on. If the authors do not provide us with the original data, this may require us to perform a meta-analysis based on pre-calculated effect size data. As we learned, the function we can use to do this is <c>metagen</c>. 
         </p>
@@ -1254,10 +1248,10 @@ m.bin_or
           Using the <c>DepressionMortality</c> data set, let us simulate that we are dealing with a pre-calculated effect size meta-analysis. We can extract the <c>TE</c> and <c>seTE</c> object in <c>m.bin</c> to get the effect size and standard error of each study. We save this information in our <c>DepressionMortality</c> data set.
         </p>
         <program language="r">
-          <input>
+          <code>
 DepressionMortality$TE &lt;- m.bin$TE
 DepressionMortality$seTE &lt;- m.bin$seTE
-          </input>
+          </code>
         </program>
         <p>
           <idx><h>Logarithm, Natural</h></idx>
@@ -1266,7 +1260,7 @@ DepressionMortality$seTE &lt;- m.bin$seTE
           Now, imagine that there is one effect for which we know the lower and upper bound of the confidence interval, but not the standard error. To simulate such a scenario, we will (1) define the standard error of study 7 (Murphy et al., 1987) as missing (i.e. set its value to <c>NA</c>), (2) define two new empty columns, <c>lower</c> and <c>upper</c>, in our data set, and (3) fill <c>lower</c> and <c>upper</c> with the log-transformed "reported" confidence interval in study 7.
         </p>
         <program language="r">
-          <input>
+          <code>
 # Set seTE of study 7 to NA
 DepressionMortality$seTE[7] &lt;- NA
 
@@ -1278,18 +1272,18 @@ DepressionMortality[,"upper"] &lt;- NA
 # As always, binary effect sizes need to be log-transformed
 DepressionMortality$lower[7] &lt;- log(1.26)
 DepressionMortality$upper[7] &lt;- log(2.46)
-          </input>
+          </code>
         </program>
         <p>
           Now let us have a look at the data we just created.
         </p>
         <program language="r">
-          <input>
+          <code>
 DepressionMortality[,c("author", "TE", "seTE", "lower", "upper")]
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ##                   author      TE    seTE  lower  upper
 ## 1    Aaroma et al., 1994  0.7418 0.20217     NA     NA
 ## 2     Black et al., 1998  0.5603 0.14659     NA     NA
@@ -1300,7 +1294,7 @@ DepressionMortality[,c("author", "TE", "seTE", "lower", "upper")]
 ## 7    Murphy et al., 1987  0.5675      NA 0.2311 0.9001
 ## 8   Penninx et al., 1999  0.3816 0.22842     NA     NA
 ## [...]
-          </input>
+          </code>
         </program>
         <p>
           It is not uncommon to find data sets like this one in practice. It may be possible to calculate the log-risk ratio for most studies, but for a few other ones, the only information we often have is the (log-transformed) risk ratio and its confidence interval.
@@ -1309,7 +1303,7 @@ DepressionMortality[,c("author", "TE", "seTE", "lower", "upper")]
           Fortunately, <c>metagen</c> allows us to pool even such data. We only have to provide the name of the columns containing the lower and upper bound of the confidence interval to the <c>lower</c> and <c>upper</c> argument. The <c>metagen</c> function will then use this information to weight the effects when the standard error is not available. Our function call looks like this:
         </p>
         <program language="r">
-          <input>
+          <code>
 m.gen_bin &lt;- metagen(TE = TE,
                      seTE = seTE,
                      lower = lower,
@@ -1323,10 +1317,10 @@ m.gen_bin &lt;- metagen(TE = TE,
                      title = "Depression Mortality (Pre-calculated)")
 
 summary(m.gen_bin)
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## Review:     Depression Mortality (Pre-calculated)
 ##
 ## [...]
@@ -1341,7 +1335,7 @@ summary(m.gen_bin)
 ##  I^2 = 77.2% [64.3%; 85.4%]; H = 2.09 [1.67; 2.62]
 ## 
 ## [...]
-          </input>
+          </code>
         </program>
         <p>
           In the output, we see that all <m>K=</m> 18 studies could be combined in the meta-analysis, meaning that <c>metagen</c> used the information in <c>lower</c> and <c>upper</c> provided for study 7. The output also shows that the results using the inverse variance method are nearly identical to the ones we obtained before, using the raw outcome data.
@@ -1415,7 +1409,7 @@ summary(m.gen_bin)
           As always, let us first have a glimpse at the data:
         </p>
         <program language="r">
-          <input>
+          <code>
 library(dmetar)
 library(tidyverse)
 library(meta)
@@ -1423,7 +1417,7 @@ library(meta)
 data(EatingDisorderPrevention)
 
 glimpse(EatingDisorderPrevention)
-          </input>
+          </code>
         </program>
         <p>
           <idx><h>Mantel-Haenszel Method</h></idx> <idx><h>Paule-Mandel Estimator</h></idx>
@@ -1432,7 +1426,7 @@ glimpse(EatingDisorderPrevention)
           We use <c>metainc</c> to pool the effect size data, with the incidence rate ratio as the effect size metric. The Mantel-Haenszel method is used, and we employ the Paule-Mandel estimator to calculate the between-study heterogeneity variance.
         </p>
         <program language="r">
-          <input>
+          <code>
 m.inc &lt;- metainc(event.e = event.e, 
                  time.e = time.e,
                  event.c = event.c,
@@ -1448,7 +1442,7 @@ m.inc &lt;- metainc(event.e = event.e,
                  title = "Eating Disorder Prevention")
 
 summary(m.inc)
-          </input>
+          </code>
         </program>
         <p>
           We see that the pooled effect using the random-effects model is IRR = 0.62. This effect is significant (<m>p=</m> 0.04), albeit being somewhat closer to the conventional significance threshold than in the previous examples. Based on the pooled effect, we can say that the preventive interventions reduced the incidence of eating disorders within one year by 38%. Lastly, we see that the estimate of the heterogeneity variance <m>\tau^2</m> is zero.
@@ -1499,14 +1493,14 @@ summary(m.inc)
         Let us have a look at the data:
       </p>
       <program language="r">
-        <input>
+        <code>
 library(dmetar)
 library(tidyverse)
 library(meta)
 
 data(HealthWellbeing)
 glimpse(HealthWellbeing)
-        </input>
+        </code>
       </program>
       <p>
         <idx><h>Restricted Maximum Likelihood Estimator</h></idx>
@@ -1515,7 +1509,7 @@ glimpse(HealthWellbeing)
         We expect considerable between-study heterogeneity in this meta-analysis, so a random-effects model is employed. The restricted maximum likelihood estimator is used for <m>\tau^2</m>. 
       </p>
       <program language="r">
-        <input>
+        <code>
 m.cor &lt;- metacor(cor = cor, 
                  n = n,
                  studlab = author,
@@ -1526,10 +1520,10 @@ m.cor &lt;- metacor(cor = cor,
                  method.random.ci = "HK",
                  title = "Health and Wellbeing")
 summary(m.cor)
-        </input>
+        </code>
       </program>
       <program language="r">
-        <input>
+        <code>
 ## Review:     Health and Wellbeing
 ##                        COR           95%-CI %W(random)
 ## An, 2008            0.6200 [0.4964; 0.7189]        2.8
@@ -1560,7 +1554,7 @@ summary(m.cor)
 ## - Q-profile method for confidence interval of tau^2 and tau
 ## - Hartung-Knapp adjustment for random effects model
 ## - Fisher's z transformation of correlations
-        </input>
+        </code>
       </program>
       <p>
         We see that the pooled association between health and well-being is <m>r=</m> 0.36, and that this effect is significant (<m>p&lt;</m> 0.001). Using Cohen's convention, this can be considered a moderate-sized correlation. 
@@ -1619,7 +1613,7 @@ summary(m.cor)
         </p>
       </note>
       <program language="r">
-        <input>
+        <code>
 library(dmetar)
 library(tidyverse)
 library(meta)
@@ -1627,13 +1621,13 @@ data(BdiScores)
 
 # We only need the first four columns
 glimpse(BdiScores[,1:4])
-        </input>
+        </code>
       </program>
       <p>
         Our goal is to calculate the overall mean depression score based on this collection of studies. We will use a random-effects model and the restricted maximum-likelihood estimator to pool the raw means in our data set. We save the results in an object called <c>m.mean</c>. 
       </p>
       <program language="r">
-        <input>
+        <code>
 m.mean &lt;- metamean(n = n,
                    mean = mean,
                    sd = sd,
@@ -1646,7 +1640,7 @@ m.mean &lt;- metamean(n = n,
                    method.random.ci = "HK",
                    title = "BDI-II Scores")
 summary(m.mean)
-        </input>
+        </code>
       </program>
       <p>
         The pooled mean assuming a random-effects model is <m>m</m> = 31.12. We also see that the between-study heterogeneity variance <m>\tau^2</m> in this meta-analysis is significantly greater than zero.
@@ -1743,20 +1737,20 @@ summary(m.mean)
         Let us load the data set and have a look at it:
       </p>
       <program language="r">
-        <input>
+        <code>
 library(dmetar)
 library(meta)
 library(tidyverse)
 
 data(OpioidMisuse)
 glimpse(OpioidMisuse)
-        </input>
+        </code>
       </program>
       <p>
         We pool the prevalence data using a GLMM and logit-transformed proportions.
       </p>
       <program language="r">
-        <input>
+        <code>
 m.prop &lt;- metaprop(event = event,
                    n = n,
                    studlab = author,
@@ -1768,10 +1762,10 @@ m.prop &lt;- metaprop(event = event,
                    method.random.ci = "HK",
                    title = "Opioid Misuse")
 summary(m.prop)
-        </input>
+        </code>
       </program>
       <program language="r">
-        <input>
+        <code>
 ## Review:     Opioid Misuse
 ##                proportion           95%-CI
 ## Becker, 2008       0.1002 [0.0962; 0.1042]
@@ -1803,7 +1797,7 @@ summary(m.prop)
 ## - Hartung-Knapp adjustment for random effects model
 ## - Logit transformation
 ## - Clopper-Pearson confidence interval for individual studies
-        </input>
+        </code>
       </program>
       <p>
         In the output, we see that the pooled 12-month prevalence of prescription opioid misuse in the selected studies is 9.4%, with the confidence interval ranging from 8.36 to 10.66%. 
@@ -1815,7 +1809,7 @@ summary(m.prop)
 
   </section>
 
-  <section xml:id="questions-answers">
+  <section xml:id="pooling-es-questions-answers">
     <title>Questions &amp; Answers</title>
 
     <exercise>
@@ -1865,7 +1859,7 @@ summary(m.prop)
     </exercise>
   </section>
 
-  <section xml:id="summary">
+  <section xml:id="pooling-es-summary">
     <title>Summary</title>
 
     <ul>

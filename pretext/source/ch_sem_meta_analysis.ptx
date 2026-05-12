@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<chapter xml:id="ch-sem-meta-analysis" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="sem" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Structural Equation Modeling Meta-Analysis</title>
 
   <introduction>
@@ -44,13 +44,13 @@
     <p>
       SEM analysis is somewhat different to "conventional" statistical hypothesis tests (such as <m>t</m>-tests, for example). Usually, statistical tests involve testing against a <alert>null hypothesis</alert>, such as <m>H_0: \mu_1 = \mu_2</m> (where <m>\mu_1</m> and <m>\mu_2</m> are the means of two groups). In such a test, the researcher "aims" to <alert>reject</alert> the null hypothesis, since this allows to conclude that the two groups differ. Yet in SEM, a specific structural model is proposed beforehand, and the researcher instead "aims" to <alert>accept</alert> this model if the goodness of fit is sufficient .
     </p>
-    <subsection xml:id="model-specification">
+    <subsection xml:id="sem-model-specification">
       <title>Model Specification</title>
 
       <p>
         Typically, SEM are specified and represented mathematically through a series of <alert>matrices</alert>. You can think of a matrix as a simple table containing rows and columns, much like a <c>data.frame</c> object in <em>R</em> (in fact, most data frames can be easily converted to a matrix using the <c>as.matrix</c> function). Visually, SEM can be represented as <alert>path diagrams</alert>. Such path diagrams are usually very intuitive, and straightforward in their interpretation. Thus, we will start by specifying a SEM <alert>visually</alert> first, and then move on to the matrix notation.
       </p>
-      <subsubsection xml:id="path-diagrams">
+      <subsubsection xml:id="sem-path-diagrams">
         <title>Path Diagrams</title>
 
         <p>
@@ -207,9 +207,9 @@
       It is of note that multivariate meta-analysis can also be performed outside a SEM framework . Here, however, we will to show you how to perform them from a SEM perspective. In this and the following examples, we will work with <alert>{metaSEM}</alert>, a magnificent package for meta-analytic SEM developed by Mike Cheung . As always, we first have to install the <alert>{metaSEM}</alert> package and load it from your library.
     </p>
     <program language="r">
-      <input>
+      <code>
 library(metaSEM)
-      </input>
+      </code>
     </program>
     <p>
       <idx><h>dmetar Package</h></idx>
@@ -221,7 +221,7 @@ library(metaSEM)
       To proceed, we therefore have to create a new data frame first, in which data for both outcomes is included. First, we define a vector containing the effects on anxiety (expressed as Hedges' <m>g</m>) as reported in each study, as well as their standard error. We also need to define a vector which contains the <alert>covariance</alert> between stress and anxiety reported in each study. One study did not assess anxiety outcomes, so we use <c>NA</c> in the three vectors to indicate that the information is missing.
     </p>
     <program language="r">
-      <input>
+      <code>
 # Define vector with effects on anxiety (Hedges g)
 Anxiety &lt;- c(0.224,0.389,0.913,0.255,0.615,-0.021,0.201, 
              0.665,0.373,1.118,0.158,0.252,0.142,NA, 
@@ -236,13 +236,13 @@ Anxiety_SE &lt;- c(0.193,0.194,0.314,0.165,0.270,0.233,0.159,
 Covariance &lt;- c(0.023,0.028,0.065,0.008,0.018,0.032,0.026, 
                 0.046,0.020,0.063,0.017,0.043,0.037,NA, 
                 0.079,0.046,0.040,0.041)
-      </input>
+      </code>
     </program>
     <p>
       Then, we use this data along with information from <c>ThirdWave</c> to create a new data frame called <c>ThirdWaveMV</c>. In this data set, we include the effect size <alert>variances</alert> <c>Stress_var</c> and <c>Anxiety_var</c>, which can be obtained by squaring the standard error. 
     </p>
     <program language="r">
-      <input>
+      <code>
 ThirdWaveMV &lt;- data.frame(Author = ThirdWave$Author,
                           Stress = ThirdWave$TE,
                           Stress_var = ThirdWave$seTE^2,
@@ -251,10 +251,10 @@ ThirdWaveMV &lt;- data.frame(Author = ThirdWave$Author,
                           Covariance = Covariance)
 
 format(head(ThirdWaveMV), digits = 2)
-      </input>
+      </code>
     </program>
     <program language="r">
-      <input>
+      <code>
 ##            Author Stress Stress_var Anxiety Anxiety_var Covariance
 ## 1     Call et al.   0.71      0.068   0.224       0.037      0.023
 ## 2 Cavanagh et al.   0.35      0.039   0.389       0.038      0.028
@@ -262,7 +262,7 @@ format(head(ThirdWaveMV), digits = 2)
 ## 4  de Vibe et al.   0.18      0.014   0.255       0.027      0.008
 ## 5  Frazier et al.   0.42      0.021   0.615       0.073      0.018
 ## 6  Frogeli et al.   0.63      0.038  -0.021       0.054      0.032
-      </input>
+      </code>
     </program>
     <p>
       As we can see, the new data set contains the effect sizes for both stress and anxiety, along with the respective sampling variances. The <c>Covariance</c> column stores the covariance between stress and anxiety as measured in each study.
@@ -280,11 +280,11 @@ format(head(ThirdWaveMV), digits = 2)
       Using our example data and assuming <m>r_{\text{S,A}} \approx</m> 0.6, this formula can implemented in <em>R</em> like so:
     </p>
     <program language="r">
-      <input>
+      <code>
 # We use the square root of the variance since SE = sqrt(var)
 cov.est &lt;- with(ThirdWaveMV, 
                 sqrt(Stress_var) * sqrt(Anxiety_var) * 0.6)
-      </input>
+      </code>
     </program>
     <p>
       Please note that, when we calculate covariances this way, the choice of the assumed correlation can have a profound impact on the results. Therefore, it is highly advised to (1) always report the assumed correlation coefficient, and (2) conduct sensitivity analyses, where we inspect how results change depending on the correlation we choose. 
@@ -319,16 +319,16 @@ cov.est &lt;- with(ThirdWaveMV,
         The resulting <c>m.mv</c> object can be inspected using <c>summary</c>.
       </p>
       <program language="r">
-        <input>
+        <code>
 m.mv &lt;- meta(y = cbind(Stress, Anxiety), 
              v = cbind(Stress_var, Covariance, Anxiety_var),
              data = ThirdWaveMV)
 
 summary(m.mv)
-        </input>
+        </code>
       </program>
       <program language="r">
-        <input>
+        <code>
 ## [...]
 ## Coefficients:
 ##            Estimate Std.Error lbound ubound z value Pr(&gt;|z|)    
@@ -350,7 +350,7 @@ summary(m.mv)
 ## [...]
 ## OpenMx status1: 0 ("0" or "1": The optimization is considered fine.
 ## Other values may indicate problems.)
-        </input>
+        </code>
       </program>
     </subsection>
 
@@ -367,9 +367,9 @@ summary(m.mv)
         The <c>OpenMx status</c> for our model is <c>0</c>, which indicates that the maximum likelihood estimation worked fine. If the status would have been anything other than 0 or 1, it would have been necessary to rerun the model, using this code:
       </p>
       <program language="r">
-        <input>
+        <code>
 rerun(m.mv)
-        </input>
+        </code>
       </program>
       <p>
         In the output, the two pooled effect sizes are shown as <c>Intercept1</c> and <c>Intercept2</c>. The effect sizes are numbered in the order in which we inserted them into our call to <c>meta</c>. We can see that the pooled effect sizes are <m>g_{\text{Stress}}</m> = 0.57 and <m>g_{\text{Anxiety}}</m> = 0.41. Both effect sizes are significant. Under <c>Heterogeneity indices</c>, we can also see the values of <m>I^2</m>, which are <m>I^2_{\text{Stress}}</m> = 62% and <m>I^2_{\text{Anxiety}}</m> = 53%, indicating substantial between-study heterogeneity in both outcomes. 
@@ -378,15 +378,15 @@ rerun(m.mv)
         The direct estimates of the between-study heterogeneity variance <m>\tau^2</m> are also provided. We see that there are not only two estimates, but three. To understand what this means, we can extract the "random" values from the <c>m.mv</c> object.
       </p>
       <program language="r">
-        <input>
+        <code>
 tau.coefs &lt;- coef(m.mv, select = "random")
-        </input>
+        </code>
       </program>
       <p>
         Then, we use the <c>vec2symMat</c> function to create a matrix of the coefficients. We give the matrix rows and columns the names of our variables: <c>Stress</c> and <c>Anxiety</c>.
       </p>
       <program language="r">
-        <input>
+        <code>
 # Create matrix
 tc.mat &lt;- vec2symMat(tau.coefs)
 
@@ -395,15 +395,15 @@ dimnames(tc.mat)[[1]] &lt;- dimnames(tc.mat)[[2]] &lt;- c("Stress",
                                                     "Anxiety")
 
 tc.mat
-        </input>
+        </code>
       </program>
       <p>
         We now understand better what the three <m>\tau^2</m> values mean: they represent the between-study variance (heterogeneity) in the diagonal of the matrix. In the other two fields, the matrix shows the estimated covariance between stress and anxiety. Given that the covariance is just an unstandardized version of a correlation, we can transform these values into correlations using the <c>cov2cor</c> function.
       </p>
       <program language="r">
-        <input>
+        <code>
 cov2cor(tc.mat)
-        </input>
+        </code>
       </program>
       <p>
         We see that, quite logically, the correlations in the diagonal elements of the matrix are 1. The correlation between effects on stress and anxiety is <m>r_{\text{S,A}}</m> = 0.45. This is an interesting finding: it shows that there is a positive association between a treatment's effect on perceived stress and its effect on anxiety. We can say that treatments which have high effects on stress seem to have higher effects on anxiety too.
@@ -415,23 +415,23 @@ cov2cor(tc.mat)
         It is of note that the confidence intervals presented in the summary of <c>m.mv</c> are Wald-type intervals (see Chapter <xref ref="knapp-hartung"/>). Such Wald-type intervals can sometimes be inaccurate, especially in small samples . It may thus be valuable to construct confidence intervals in another way, by using <alert>likelihood-based</alert> confidence intervals. We can get these CIs by re-running the <c>meta</c> function and additionally specifying <c>intervals.type = "LB"</c>. 
       </p>
       <program language="r">
-        <input>
+        <code>
 m.mv &lt;- meta(y = cbind(Stress, Anxiety), 
              v = cbind(Stress_var, Covariance, Anxiety_var),
              data = ThirdWaveMV,
              intervals.type = "LB")
-        </input>
+        </code>
       </program>
       <p>
         We have already seen that the output for our m.mv contains non-zero estimates of the between-study heterogeneity <m>\tau^2</m>. We can therefore conclude that the model we just fitted is a random-effects model. The <c>meta</c> function uses a random-effects model automatically. Considering the <m>I^2</m> values in our output, we can conclude that this is indeed adequate. However, if we want to fit a fixed-effect model anyway, we can do so by re-running the analysis, and adding the parameter <c>RE.constraints = matrix(0, nrow=2, ncol=2)</c>. This creates a matrix of 0s which constrains all <m>\tau^2</m> values to zero:
       </p>
       <program language="r">
-        <input>
+        <code>
 m.mv &lt;- meta(y = cbind(Stress, Anxiety), 
              v = cbind(Stress_var, Covariance, Anxiety_var),
              data = ThirdWaveMV,
              RE.constraints = matrix(0, nrow=2, ncol=2))
-        </input>
+        </code>
       </program>
     </subsection>
 
@@ -442,7 +442,7 @@ m.mv &lt;- meta(y = cbind(Stress, Anxiety),
         To plot the multivariate meta-analysis model, we can use the <c>plot</c> function. We also make some additional specifications to change the appearance of the plot. If you want to see all styling options, you can paste <c>?metaSEM::plot.meta</c> into the console and then hit Enter.
       </p>
       <program language="r">
-        <input>
+        <code>
 plot(m.mv, 
      axis.labels = c("Perceived Stress", "Anxiety"), 
      randeff.ellipse.col = "#014d64",
@@ -451,7 +451,7 @@ plot(m.mv,
      univariate.polygon.col = "gray40",
      estimate.ellipse.col = "gray40",
      estimate.col = "firebrick")
-        </input>
+        </code>
       </program>
       <p>
         Let us go through what we see. The plot has two axes: an x-axis displaying the effects on stress, and a y-axis, which displays the effects on anxiety. We also see the pooled effect and its 95% confidence interval for both outcomes, symbolized by the black diamond. 
@@ -490,7 +490,7 @@ plot(m.mv,
     <p>
       The proposed structure represented as a graphical model looks like this<fn>Please note that the labels in the path diagram are somewhat "idiosyncratic" to make identifying the relevant components of the model easier later on.</fn>:
     </p>
-    <subsection xml:id="data-preparation">
+    <subsection xml:id="sem-data-preparation">
       <title>Data Preparation</title>
 
       <p>
@@ -508,34 +508,34 @@ plot(m.mv,
         </p>
       </note>
       <program language="r">
-        <input>
+        <code>
 data(SleepProblems)
 names(SleepProblems)
-        </input>
+        </code>
       </program>
       <p>
         We see that the list contains two elements, our actual <c>data</c> and <c>n</c>, the sample size of each study. The <c>data</c> object is itself a <c>list</c>, so we can also get the names of its contents using the <c>names</c> function. 
       </p>
       <program language="r">
-        <input>
+        <code>
 names(SleepProblems$data)
-        </input>
+        </code>
       </program>
       <program language="r">
-        <input>
+        <code>
 ## [1] "Coleman et al. (2003)"  "Salazar et al. (2008)" 
 ## [3] "Newman et al. (2016)"   "Delacruz et al. (2009)"
 ## [5] "Wyatt et al. (2002)"    "Pacheco et al. (2016)"
 ## [...]
-        </input>
+        </code>
       </program>
       <p>
         It is also possible to display specific elements in <c>data</c> using the <c>$</c> operator.
       </p>
       <program language="r">
-        <input>
+        <code>
 SleepProblems$data$`Coleman et al. (2003)`
-        </input>
+        </code>
       </program>
       <p>
         The <c>data</c> list contains 11 elements, one for each of the 11 included studies. A closer look at the Coleman et al. (2003) study reveals that the data are stored as correlation matrices with five variables. Each row and column in the matrix corresponds with one of the sleep complaint symptoms assessed by our questionnaire. 
@@ -547,7 +547,7 @@ SleepProblems$data$`Coleman et al. (2003)`
         Before we proceed, let us quickly show how you can construct such a list yourself. Let us assume that we have extracted correlation matrices of two studies, which we imported as data frames into <em>R</em>. Assuming that these data frames are called <c>df1</c> and <c>df2</c>, we can use the following "recipe" to create a <c>list</c> object that is suitable for further analysis.
       </p>
       <program language="r">
-        <input>
+        <code>
 # Convert both data.frames to matrices
 mat1 &lt;- as.matrix(df1)
 mat2 &lt;- as.matrix(df2)
@@ -566,11 +566,11 @@ n &lt;- c(205, # N of study 1
 
 # Bind matrices and sample size together
 cfa.data &lt;- list(data, n)
-        </input>
+        </code>
       </program>
     </subsection>
 
-    <subsection xml:id="model-specification">
+    <subsection xml:id="sem-model-specification-2">
       <title>Model Specification</title>
 
       <p>
@@ -608,17 +608,17 @@ cfa.data &lt;- list(data, n)
           In our example, we assume a random-effects model, and use <c>RE.type = "Diag"</c>. I will save the model as <c>cfa1</c>, and then call the <c>summary</c> function to retrieve the output. 
         </p>
         <program language="r">
-          <input>
+          <code>
 cfa1 &lt;- tssem1(SleepProblems$data, 
                SleepProblems$n, 
                method="REM",
                RE.type = "Diag")
 
 summary(cfa1)
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 [...]
 Coefficients:
            Estimate Std.Error lbound  ubound z value Pr(&gt;|z|)    
@@ -662,13 +662,13 @@ Intercept10: I2 (Q statistic)   0.6486
 [...]
 OpenMx status1: 0 ("0" or "1": The optimization is considered fine.
 Other values may indicate problems.)
-          </input>
+          </code>
         </program>
         <p>
           A look at the <c>OpenMx status</c> confirms that the model estimates are trustworthy. To make the results more easily digestible, we can extract the fixed effects (our estimated pooled correlations) using the <c>coef</c> function. We then make a symmetrical matrix out of the coefficients using <c>vec2symMat</c>, and add the dimension names for easier interpretation.
         </p>
         <program language="r">
-          <input>
+          <code>
 # Extract the fixed coefficients (correlations)
 fixed.coefs &lt;- coef(cfa1, "fixed")
 
@@ -683,7 +683,7 @@ dimnames(fc.mat)[[2]] &lt;- c("Quality", "Latency",
 
 # Print correlation matrix (3 digits)
 round(fc.mat, 3)
-          </input>
+          </code>
         </program>
         <p>
           We can now see the pooled correlation matrix for our variables. Looking back at the model output, we also see that all correlation coefficients are significant (<m>p&lt;</m> 0.05), except one: the correlation between sleep quality and daytime dysfunction was not significant. From the perspective of our assumed model, this makes sense, because we expect these variables to load on different factors. We also see that the <m>I^2</m> values of the different estimates are very large (65-93%).  
@@ -697,7 +697,7 @@ round(fc.mat, 3)
           After pooling the correlation matrices, it is now time to determine if our proposed factor model fits the data well. To specify our model, we have to use the RAM formulation this time, and specify the <m>\boldsymbol{A}</m>, <m>\boldsymbol{S}</m> and <m>\boldsymbol{F}</m> matrices. To fill the fields in each of these matrices, it is often best to construct an empty matrix first. Structure-wise, all matrices we define do not only contain the observed variables but also the assumed latent variables, <c>f_Insomnia</c> and <c>f_Lassitude</c>. Here is how we can create a zero matrix as a starting point:
         </p>
         <program language="r">
-          <input>
+          <code>
 # Create vector of column/row names
 dims &lt;- c("Quality", "Latency", "Efficiency", 
           "DTDysf", "HypSomnia", "f_Insomnia", "f_Lassitude")
@@ -708,10 +708,10 @@ mat &lt;- matrix(rep(0, 7*7), nrow = 7, ncol = 7)
 # Label the rows and columns
 dimnames(mat)[[1]] &lt;- dimnames(mat)[[2]] &lt;- dims
 mat
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ##             Qlty Ltncy Effcncy DTDysf HypSmn f_Insmn f_Lsstd
 ## Quality        0     0       0      0      0       0       0
 ## Latency        0     0       0      0      0       0       0
@@ -720,7 +720,7 @@ mat
 ## HypSomnia      0     0       0      0      0       0       0
 ## f_Insomnia     0     0       0      0      0       0       0
 ## f_Lassitude    0     0       0      0      0       0       0
-          </input>
+          </code>
         </program>
         <p>
           <m>\boldsymbol{A}</m> <alert>Matrix</alert>
@@ -735,7 +735,7 @@ mat
           In our example, we use a starting value of 0.3 for all estimated arrows, and label the fields according to the path diagram we presented before. 
         </p>
         <program language="r">
-          <input>
+          <code>
 A &lt;- matrix(c(0, 0, 0, 0, 0, "0.3*Ins_Q", 0          ,
               0, 0, 0, 0, 0, "0.3*Ins_L", 0          ,
               0, 0, 0, 0, 0, "0.3*Ins_E", 0          ,
@@ -747,15 +747,15 @@ A &lt;- matrix(c(0, 0, 0, 0, 0, "0.3*Ins_Q", 0          ,
 
 # Label columns and rows
 dimnames(A)[[1]] &lt;- dimnames(A)[[2]] &lt;- dims
-          </input>
+          </code>
         </program>
         <p>
           The last step is to plug the <m>\boldsymbol{A}</m> matrix into the <c>as.mxMatrix</c> function to make it usable for the stage 2 model.
         </p>
         <program language="r">
-          <input>
+          <code>
 A &lt;- as.mxMatrix(A)
-          </input>
+          </code>
         </program>
         <p>
           <m>\boldsymbol{S}</m> <alert>Matrix</alert>
@@ -764,7 +764,7 @@ A &lt;- as.mxMatrix(A)
           In the <m>\boldsymbol{S}</m> matrix, we specify the variances we want to estimate. In our example, these are the variances of all observed variables, as well as the correlation between our two latent factors. First, we set the correlation of our latent factors with themselves to 1. Furthermore, we use a starting value of 0.2 for the variances in the observed variables, and 0.3 for the correlations. All of this can be specified using this code:
         </p>
         <program language="r">
-          <input>
+          <code>
 # Make a diagonal matrix for the variances
 Vars &lt;- Diag(c("0.2*var_Q", "0.2*var_L", 
                "0.2*var_E", "0.2*var_D", "0.2*var_H"))
@@ -779,15 +779,15 @@ S &lt;- bdiagMat(list(Vars, Cors))
 
 # Label columns and rows
 dimnames(S)[[1]] &lt;- dimnames(S)[[2]] &lt;- dims
-          </input>
+          </code>
         </program>
         <p>
           And again, we transform the matrix using <c>as.mxMatrix</c>.
         </p>
         <program language="r">
-          <input>
+          <code>
 S &lt;- as.mxMatrix(S)
-          </input>
+          </code>
         </program>
         <p>
           <m>\boldsymbol{F}</m> <alert>Matrix</alert>
@@ -796,7 +796,7 @@ S &lt;- as.mxMatrix(S)
           The <m>\boldsymbol{F}</m> matrix, lastly, is easy to specify. In the diagonal elements of observed variables, we fill in 1. Everywhere else, we use 0. Furthermore, we only select the rows of the matrix in which at least on element is not zero (i.e. the last two rows are dropped since they only contain zeros).
         </p>
         <program language="r">
-          <input>
+          <code>
 # Construct diagonal matrix
 F &lt;- Diag(c(1, 1, 1, 1, 1, 0, 0))
 
@@ -808,30 +808,30 @@ dimnames(F)[[1]] &lt;- dims[1:5]
 dimnames(F)[[2]] &lt;- dims
 
 F &lt;- as.mxMatrix(F)
-          </input>
+          </code>
         </program>
       </subsubsection>
 
     </subsection>
 
-    <subsection xml:id="model-fitting">
+    <subsection xml:id="sem-model-fitting">
       <title>Model Fitting</title>
 
       <p>
         Now, it is time to fit our proposed model to the pooled data. To do this, we use the <c>tssem2</c> function. We only have to provide the stage 1 model <c>cfa1</c>, the three matrices, and specify <c>diag.constraints=FALSE</c> (because we are not fitting a mediation model). We save the resulting object as <c>cfa2</c> and then access it using <c>summary</c>.
       </p>
       <program language="r">
-        <input>
+        <code>
 cfa2 &lt;- tssem2(cfa1, 
                Amatrix = A, 
                Smatrix = S, 
                Fmatrix = F, 
                diag.constraints = FALSE)
 summary(cfa2)
-        </input>
+        </code>
       </program>
       <program language="r">
-        <input>
+        <code>
 ## [...]
 ## Coefficients:
 ##            Estimate Std.Error lbound ubound z value Pr(&gt;|z|)    
@@ -857,7 +857,7 @@ summary(cfa2)
 ## [...]
 ## OpenMx status1: 0 ("0" or "1": The optimization is considered fine.
 ## Other values indicate problems.)
-        </input>
+        </code>
       </program>
       <p>
         We see that the <c>OpenMx status</c> is <c>0</c>, meaning that the optimization worked fine. In the output, we are provided with estimates for the paths between the two latent factors and the observed symptoms, such as 0.69 for Lassitude <m>\rightarrow</m> Daytime Dysfunction (<c>Las_D</c>). We also see that, according to the model, there is a significant correlation between the two latent factors: <m>r_{\text{Ins,Las}}</m> = 0.33. 
@@ -884,7 +884,7 @@ summary(cfa2)
       </note>
     </subsection>
 
-    <subsection xml:id="path-diagrams">
+    <subsection xml:id="sem-path-diagrams-2">
       <title>Path Diagrams</title>
 
       <p>
@@ -894,23 +894,23 @@ summary(cfa2)
         After the model has been fitted, <alert>{metaSEM}</alert> makes it quite easy for us to visualize it graphically. However, to draw a path diagram, we first have to install and load the <alert>{semPlot}</alert> package .
       </p>
       <program language="r">
-        <input>
+        <code>
 library(semPlot)
-        </input>
+        </code>
       </program>
       <p>
         To plot the model, we have to convert it into a format that <alert>{semPlot}</alert> can use. This can be done using the <c>meta2semPlot</c> function.
       </p>
       <program language="r">
-        <input>
+        <code>
 cfa.plot &lt;- meta2semPlot(cfa2)
-        </input>
+        </code>
       </program>
       <p>
         We can then use the <c>semPaths</c> function in <alert>{semPlot}</alert> to generate the graph. This function has many parameters, which can be accessed by typing <c>?semPaths</c> into the console, and then hitting Enter. Here is our code, and the resulting plot:
       </p>
       <program language="r">
-        <input>
+        <code>
 # Create Plot labels (left to right, bottom to top)
 labels &lt;- c("Sleep\nQuality",
             "Sleep\nLatency",
@@ -927,7 +927,7 @@ semPaths(cfa.plot,
          sizeMan = 10, 
          sizeLat = 10, 
          edge.label.cex = 1)
-        </input>
+        </code>
       </program>
       <note>
         <p>
@@ -944,7 +944,7 @@ semPaths(cfa.plot,
 
   </section>
 
-  <section xml:id="questions-answers">
+  <section xml:id="sem-questions-answers">
     <title>Questions &amp; Answers</title>
 
     <exercise>
@@ -984,7 +984,7 @@ semPaths(cfa.plot,
     </exercise>
   </section>
 
-  <section xml:id="summary">
+  <section xml:id="sem-summary">
     <title>Summary</title>
 
     <ul>

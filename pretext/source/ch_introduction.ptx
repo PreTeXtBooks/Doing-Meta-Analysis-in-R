@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<chapter xml:id="ch-introduction" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="intro" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Introduction</title>
 
   <introduction>
@@ -13,7 +13,7 @@
       At least by the numbers alone, this sentiment may be justified. Never in history did we have access to more evidence in the form of published research articles than we do today. Petabytes of research findings are produced every day all around the world. In biomedicine alone, more than one million peer-reviewed articles are published each year . 
     </p>
     <p>
-      The amount of published research findings is also increasing almost exponentially. The number of articles indexed for each year in one of the largest bibliographical databases, <url href="pubmed.ncbi.nlm.nih.gov/"><alert>PubMed</alert></url>, symbolizes this in an exemplary fashion. Until the middle of the 20th century, only a few hundred research articles are listed for each year. These numbers rise substantially for the following decades, and since the beginning of the 21st century, they skyrocket (see Figure <xref ref="fig:pubmed"/>).
+      The amount of published research findings is also increasing almost exponentially. The number of articles indexed for each year in one of the largest bibliographical databases, <url href="pubmed.ncbi.nlm.nih.gov/"><alert>PubMed</alert></url>, symbolizes this in an exemplary fashion. Until the middle of the 20th century, only a few hundred research articles are listed for each year. These numbers rise substantially for the following decades, and since the beginning of the 21st century, they skyrocket (see Figure <xref provisional="fig:pubmed"/>).
     </p>
     <p>
       In principle, this development should make us enthusiastic about the prospects of science. If science is cumulative, more published research equals more evidence. This should allow us to build more powerful theories, and to dismantle fallacies of the past. 
@@ -90,7 +90,7 @@
       <idx><h>Standardized Mean Difference</h></idx> <idx><h>Random-Effects Model</h></idx> <idx><h>History of Meta-Analysis</h></idx>
     </p>
     <p>
-      The name "meta-analysis" and the beginning of its rise to prominence, however, can be traced back to a scholarly dispute raging in the mid-20th century. In 1952, the famous British psychologist Hans Jürgen Eysenck (Figure <xref ref="fig:eysenck"/>) published an article in which he claimed that psychotherapy (in that time, this largely meant Freudian psychoanalysis) was ineffective. If patients get better during therapy, it is because their situation would have improved anyway due to factors that have nothing to do with the therapy. Even worse, Eysenck claimed, psychotherapy would often hinder patients from getting better. 
+      The name "meta-analysis" and the beginning of its rise to prominence, however, can be traced back to a scholarly dispute raging in the mid-20th century. In 1952, the famous British psychologist Hans Jürgen Eysenck (Figure <xref provisional="fig:eysenck"/>) published an article in which he claimed that psychotherapy (in that time, this largely meant Freudian psychoanalysis) was ineffective. If patients get better during therapy, it is because their situation would have improved anyway due to factors that have nothing to do with the therapy. Even worse, Eysenck claimed, psychotherapy would often hinder patients from getting better. 
     </p>
     <p>
       The reputation of psychotherapy took a big hit, and it did not recover until the late 1970s. During that time, Gene V. Glass developed a technique he termed "meta-analysis", which allowed to pool <alert>Standardized Mean Differences</alert><fn>i.e., the difference in means between two groups, for example an intervention and control group, expressed in the units of the pooled standard deviation of both groups (see Chapter <xref ref="s-md"/>).</fn> across studies. The first extensive application of his technique was in an article published in the <alert>American Psychologist</alert>, written by Mary L. Smith and Glass himself . In this large study, results from 375 studies with more than 4000 participants were combined in a meta-analysis. 
@@ -452,7 +452,7 @@
         </li>
         <li>
           <p>
-            <alert>Forward search</alert>. A forward search can be seen as the opposite of screening the references of previous primary studies and reviews. It means to take a study that is relevant for the meta-analysis as basis, and then search for other articles that have cited this study since it has been published. This can be done quite easily on the Internet. You simply have to find the online entry of the study; usually, it is on the website of the journal in which it has been published. Most journal websites today have a functionality to display articles that have cited a study. Alternatively, you can also search for the study on <alert>Google Scholar</alert> (see Table <xref ref="tab:bibdatabases"/>). Google Scholar can display citing research for every entry.
+            <alert>Forward search</alert>. A forward search can be seen as the opposite of screening the references of previous primary studies and reviews. It means to take a study that is relevant for the meta-analysis as basis, and then search for other articles that have cited this study since it has been published. This can be done quite easily on the Internet. You simply have to find the online entry of the study; usually, it is on the website of the journal in which it has been published. Most journal websites today have a functionality to display articles that have cited a study. Alternatively, you can also search for the study on <alert>Google Scholar</alert> (see Table <xref provisional="tab:bibdatabases"/>). Google Scholar can display citing research for every entry.
           </p>
         </li>
         <li>
@@ -462,7 +462,7 @@
         </li>
       </ul>
       <p>
-        The methods we described above can be seen as rather fine-grained strategies. They are ways to search in places where it is very likely that a relevant article will be listed. The disadvantage is that these approaches will unlikely uncover all evidence that is really out there. It is therefore advisable to also use <alert>electronic bibliographic databases</alert> for one's search. An overview of important databases can be found in Table <xref ref="tab:bibdatabases"/>.  
+        The methods we described above can be seen as rather fine-grained strategies. They are ways to search in places where it is very likely that a relevant article will be listed. The disadvantage is that these approaches will unlikely uncover all evidence that is really out there. It is therefore advisable to also use <alert>electronic bibliographic databases</alert> for one's search. An overview of important databases can be found in Table <xref provisional="tab:bibdatabases"/>.  
       </p>
       <p>
         One should always conduct a search in several databases, not just one. Many bibliographical databases contain an immense number of entries. Nevertheless, it is common to find that the overlap in the results of databases is smaller than anticipated. You can select the databases you want to search based on their subject-specific focus. If your meta-analysis focuses on health-related outcomes, for example, you should at least search PubMed and CENTRAL. 
@@ -637,7 +637,7 @@
 
   </section>
 
-  <section xml:id="questions-answers">
+  <section xml:id="intro-questions-answers">
     <title>Questions &amp; Answers</title>
 
     <exercise>
@@ -687,7 +687,7 @@
     </exercise>
   </section>
 
-  <section xml:id="summary">
+  <section xml:id="intro-summary">
     <title>Summary</title>
 
     <ul>

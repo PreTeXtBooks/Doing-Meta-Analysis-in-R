@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<chapter xml:id="ch-subgroup-analyses" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="subgroup" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Subgroup Analyses</title>
 
   <introduction>
@@ -110,7 +110,7 @@
         Borenstein and colleagues  argue that all of this may seem a little confusing to us because the word "fixed" can mean different things in statistics. In conventional meta-analyses, the term "fixed effect" is used synonymously with "common effect". In the context of subgroup analyses, however, we speak of "fixed effects" to underline that they are "not random". They are not simply random manifestations of an over-arching distribution, to which we aim to generalize, but the <alert>real</alert> and <alert>only</alert> categories into which a variable can fall. 
       </p>
       <p>
-        Figure <xref ref="fig:subgroups"/> visualizes the fixed-effects (plural) model, assuming that studies within subgroups follow the random-effects model.
+        Figure <xref provisional="fig:subgroups"/> visualizes the fixed-effects (plural) model, assuming that studies within subgroups follow the random-effects model.
       </p>
       <note>
         <p>
@@ -285,10 +285,10 @@
       Let us have a look at this column first. In our code, we use the <c>head</c> function so that only the first few rows of the data set are shown.
     </p>
     <program language="r">
-      <input>
+      <code>
 # Show first entries of study name and 'RiskOfBias' column
 head(ThirdWave[,c("Author", "RiskOfBias")])
-      </input>
+      </code>
     </program>
     <p>
       We see that every study in our data set has a label specifying its risk of bias assessment. When we calculated the meta-analysis using <c>metagen</c>, this information was saved internally in the <c>m.gen</c> object. To conduct a subgroup analysis, we can therefore use the <c>update</c> function, provide it with the <c>m.gen</c> object, and use the <c>subgroup</c> argument to specify which column in our data set contains the subgroup labels. 
@@ -303,14 +303,14 @@ head(ThirdWave[,c("Author", "RiskOfBias")])
       Therefore, the resulting code looks like this:
     </p>
     <program language="r">
-      <input>
+      <code>
 update(m.gen, 
        subgroup = RiskOfBias, 
        tau.common = FALSE)
-      </input>
+      </code>
     </program>
     <program language="r">
-      <input>
+      <code>
 ## Review:     Third Wave Psychotherapies
 ## 
 ## Number of studies combined: k = 18
@@ -342,7 +342,7 @@ update(m.gen,
 ## - Q-Profile method for confidence interval of tau^2 and tau
 ## - Hartung-Knapp (HK) adjustment for random effects model (df = 17)
 ## - Prediction interval based on t-distribution (df = 16)
-      </input>
+      </code>
     </program>
     <p>
       In the output, we see a new section called <c>Results for subgroups</c>. This part of the output shows the pooled effect size separately for each subgroup. We see that there are <m>k=</m> 7 studies with a high risk of bias, and 11 with a low risk of bias. The estimated between-study heterogeneity differs considerably, with <m>I^2=</m> 77% in high risk of bias studies, but only 26% in studies with a low risk.
@@ -357,12 +357,12 @@ update(m.gen,
       We can also check the results if were to assume a <alert>common</alert> <m>\tau^2</m> estimate in both subgroups. We only have to set <c>tau.common</c> to <c>TRUE</c>.
     </p>
     <program language="r">
-      <input>
+      <code>
 update(m.gen, subgroup = RiskOfBias, tau.common = TRUE)
-      </input>
+      </code>
     </program>
     <program language="r">
-      <input>
+      <code>
 ## [...]
 ##                     k    SMD           95%-CI  tau^2    tau     Q   I^2
 ## RiskOfBias = high   7 0.7691 [0.2533; 1.2848] 0.0691 0.2630 25.89 76.8%
@@ -378,7 +378,7 @@ update(m.gen, subgroup = RiskOfBias, tau.common = TRUE)
 ## - Restricted maximum-likelihood estimator for tau^2
 ##   (assuming common tau^2 in subgroups)
 ## [...]
-      </input>
+      </code>
     </program>
     <p>
       In the output, we see that the estimated between-study heterogeneity variance is <m>\tau^2=</m> 0.069, and identical in both subgroups. We are presented with two <m>Q</m>-tests: one <alert>between</alert> groups (the actual subgroup test), and another for the <alert>within-subgroup</alert> heterogeneity. 
@@ -410,7 +410,7 @@ update(m.gen, subgroup = RiskOfBias, tau.common = TRUE)
     </note>
   </section>
 
-  <section xml:id="questions-answers">
+  <section xml:id="subgroup-questions-answers">
     <title>Questions &amp; Answers</title>
 
     <exercise>
@@ -450,7 +450,7 @@ update(m.gen, subgroup = RiskOfBias, tau.common = TRUE)
     </exercise>
   </section>
 
-  <section xml:id="summary">
+  <section xml:id="subgroup-summary">
     <title>Summary</title>
 
     <ul>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<chapter xml:id="ch-effect-size-calculation-conversion" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="es-calc" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Effect Size Calculation &amp; Conversion</title>
 
   <introduction>
@@ -39,7 +39,7 @@
       We can calculate the SMD or Hedges' <m>g</m> using the <c>esc_mean_se</c> function. Here is an example:
     </p>
     <program language="r">
-      <input>
+      <code>
 library(esc)
 
 esc_mean_se(grp1m = 8.5,   # mean of group 1
@@ -49,7 +49,7 @@ esc_mean_se(grp1m = 8.5,   # mean of group 1
             grp2se = 1.8,  # standard error of group 2
             grp2n = 60,    # sample in group 2
             es.type = "d") # convert to SMD; use "g" for Hedges' g
-      </input>
+      </code>
     </program>
   </section>
 
@@ -63,7 +63,7 @@ esc_mean_se(grp1m = 8.5,   # mean of group 1
       <idx><h>Correlation</h></idx>
     </p>
     <program language="r">
-      <input>
+      <code>
 library(esc)
 
 esc_B(b = 3.3,       # unstandardized regression coefficient
@@ -71,19 +71,19 @@ esc_B(b = 3.3,       # unstandardized regression coefficient
       grp1n = 100,   # sample size of the first group
       grp2n = 150,   # sample size of the second group
       es.type = "d") # convert to SMD; use "g" for Hedges' g
-      </input>
+      </code>
     </program>
     <program language="r">
-      <input>
+      <code>
 esc_B(b = 2.9,       # unstandardized regression coefficient
       sdy = 4,       # standard deviation of the predicted variable y
       grp1n = 50,    # sample size of the first group
       grp2n = 50,    # sample size of the second group
       es.type = "r") # convert to correlation
-      </input>
+      </code>
     </program>
     <program language="r">
-      <input>
+      <code>
 ## Effect Size Calculation for Meta Analysis
 ## 
 ##      Conversion: unstandardized regression coefficient 
@@ -97,31 +97,31 @@ esc_B(b = 2.9,       # unstandardized regression coefficient
 ##      Fisher's z:   0.3782
 ##       Lower CIz:   0.1761
 ##       Upper CIz:   0.5803
-      </input>
+      </code>
     </program>
     <p>
       Standardized regression coefficients can be transformed using <c>esc_beta</c>.
     </p>
     <program language="r">
-      <input>
+      <code>
 esc_beta(beta = 0.32,   # standardized regression coefficient
          sdy = 5,       # standard deviation of the predicted variable y
          grp1n = 100,   # sample size of the first group
          grp2n = 150,   # sample size of the second group
          es.type = "d") # convert to SMD; use "g" for Hedges' g
-      </input>
+      </code>
     </program>
     <program language="r">
-      <input>
+      <code>
 esc_beta(beta = 0.37,   # standardized regression coefficient
          sdy = 4,       # standard deviation of predicted variable y
          grp1n = 50,    # sample size of the first group
          grp2n = 50,    # sample size of the second group
          es.type = "r") # convert to correlation
-      </input>
+      </code>
     </program>
     <program language="r">
-      <input>
+      <code>
 ## Effect Size Calculation for Meta Analysis
 ## 
 ##      Conversion: standardized regression coefficient 
@@ -135,7 +135,7 @@ esc_beta(beta = 0.37,   # standardized regression coefficient
 ##      Fisher's z:   0.3847
 ##       Lower CIz:   0.1823
 ##       Upper CIz:   0.5871
-      </input>
+      </code>
     </program>
     <p>
       Please note that using regression coefficients in meta-analysis can be tricky, because we assume that the the same model has been used in all studies. This is particularly problematic if coefficients are extracted from multiple regression models, because studies may have controlled for different co-variates in their models, which means that the <m>b</m> values are not directly comparable.
@@ -164,14 +164,14 @@ esc_beta(beta = 0.37,   # standardized regression coefficient
       To convert <m>r_{pb}</m> to an SMD or Hedges’ <m>g</m>, we can use the <c>esc_rpb</c> function.
     </p>
     <program language="r">
-      <input>
+      <code>
 library(esc)
 
 esc_rpb(r = 0.25,      # point-biserial correlation
         grp1n = 99,    # sample size of group 1
         grp2n = 120,   # sample size of group 2
         es.type = "d") # convert to SMD; use "g" for Hedges' g
-      </input>
+      </code>
     </program>
   </section>
 
@@ -194,12 +194,12 @@ esc_rpb(r = 0.25,      # point-biserial correlation
       To calculate the SMD or Hedges' <m>g</m> from <m>F</m>-values, we can use the <c>esc_f</c> function. Here is an example:
     </p>
     <program language="r">
-      <input>
+      <code>
 esc_f(f = 5.04,      # F value of the one-way anova
       grp1n = 519,   # sample size of group 1 
       grp2n = 528,   # sample size of group 2
       es.type = "g") # convert to Hedges' g; use "d" for SMD
-      </input>
+      </code>
     </program>
   </section>
 
@@ -219,12 +219,12 @@ esc_f(f = 5.04,      # F value of the one-way anova
       In <em>R</em>, we can calculate the SMD or Hedges' <c>g</c> from a <m>t</m>-value using the <c>esc_t</c> function. Here is an example:
     </p>
     <program language="r">
-      <input>
+      <code>
 esc_t(t = 3.3,     # t-value 
       grp1n = 100, # sample size of group1
       grp2n = 150, # sample size of group 2
       es.type="d") # convert to SMD; use "g" for Hedges' g
-      </input>
+      </code>
     </program>
   </section>
 
@@ -267,34 +267,34 @@ esc_t(t = 3.3,     # t-value
       Assuming a study with <m>N=</m> 71 participants, reporting an effect size of <m>d=</m> 0.71 for which <m>p=</m> 0.013, we can calculate the standard error like this:
     </p>
     <program language="r">
-      <input>
+      <code>
 library(dmetar)
 
 se.from.p(0.71,
           p = 0.013,
           N = 71,
           effect.size.type = "difference")
-      </input>
+      </code>
     </program>
     <program language="r">
-      <input>
+      <code>
 ##   EffectSize StandardError StandardDeviation  LLCI  ULCI
 ## 1       0.71         0.286             2.410 0.149 1.270
-      </input>
+      </code>
     </program>
     <p>
       For a study with <m>N=</m> 200 participants reporting an effect size of OR = 0.91 with <m>p=</m> 0.38, the standard error is calculated this way:
     </p>
     <program language="r">
-      <input>
+      <code>
 library(magrittr) # for pipe
 
 se.from.p(0.91, p = 0.38, N = 200,
           effect.size.type = "ratio") %&gt;% t()
-      </input>
+      </code>
     </program>
     <program language="r">
-      <input>
+      <code>
 ##                        [,1]
 ## logEffectSize        -0.094
 ## logStandardError      0.105
@@ -304,7 +304,7 @@ se.from.p(0.91, p = 0.38, N = 200,
 ## EffectSize            0.910
 ## LLCI                  0.739
 ## ULCI                  1.120
-      </input>
+      </code>
     </program>
     <p>
       When <c>effect.size.type = "ratio"</c>, the function automatically also calculates the <alert>log-transformed</alert> effect size and standard error, which are needed to use the  <c>metagen</c> function (Chapter <xref ref="pre-calculated-es"/>).
@@ -321,11 +321,11 @@ se.from.p(0.91, p = 0.38, N = 200,
       To convert a <m>\chi^2</m> statistic to an odds ratio, the <c>esc_chisq</c> function can be used (assuming that d.f. = 1; e.g. <m>\chi^2_1</m> = 8.7). Here is an example:
     </p>
     <program language="r">
-      <input>
+      <code>
 esc_chisq(chisq = 7.9,        # chi-squared value
           totaln = 100,       # total sample size
           es.type = "cox.or") # convert to odds ratio
-      </input>
+      </code>
     </program>
   </section>
 
@@ -372,7 +372,7 @@ esc_chisq(chisq = 7.9,        # chi-squared value
       When we use risk or odds ratios as effect size measures, NNTs can be calculated directly from <alert>{meta}</alert> objects using the <c>nnt</c> function. After running our meta-analysis using <c>metabin</c> (Chapter <xref ref="pooling-or-rr"/>), we only have to plug the results into the <c>nnt</c> function. Here is an example:
     </p>
     <program language="r">
-      <input>
+      <code>
 library(meta)
 data(Olkin1995)
 
@@ -381,22 +381,22 @@ m.b &lt;- metabin(ev.exp, n.exp, ev.cont, n.cont,
                data = Olkin1995,
                sm = "RR")
 nnt(m.b)
-      </input>
+      </code>
     </program>
     <p>
       The <c>nnt</c> function provides the number needed to treat for different assumed CERs. The three lines show the result for the minimum, mean, and maximum CER in our data set. The mean CER estimate is the "typical" NNT that is usually reported. 
     </p>
     <p>
-      It is also possible to use <c>nnt</c> with <c>metagen</c> models, as long as the summary measure <c>sm</c> is either <c>"RR"</c> or <c>"OR"</c>. For such models, we also need to specify the assumed CER in the <c>p.c</c> argument in <c>nnt</c>. Here is an example using the <c>m.gen_bin</c> meta-analysis object we created in Chapter <xref ref="m-gen-bin"/>:
+      It is also possible to use <c>nnt</c> with <c>metagen</c> models, as long as the summary measure <c>sm</c> is either <c>"RR"</c> or <c>"OR"</c>. For such models, we also need to specify the assumed CER in the <c>p.c</c> argument in <c>nnt</c>. Here is an example using the <c>m.gen_bin</c> meta-analysis object we created in Chapter <xref provisional="m-gen-bin"/>:
     </p>
     <program language="r">
-      <input>
+      <code>
 # Also show fixed-effect model results
 m.gen_bin &lt;- update(m.gen_bin, fixed = TRUE)
 
 nnt(m.gen_bin, 
     p.c = 0.1) # Use a CER of 0.1
-      </input>
+      </code>
     </program>
     <p>
       <idx><h>dmetar Package</h></idx>
@@ -428,11 +428,11 @@ nnt(m.gen_bin,
       To use the Kraemer &amp; Kupfer method, we only have to provide the <c>NNT</c> function with an effect size (SMD or <m>g</m>). Furukawa's method is automatically used as soon as a <c>CER</c> value is supplied.
     </p>
     <program language="r">
-      <input>
+      <code>
 NNT(d = 0.245)
 
 NNT(d = 0.245, CER = 0.35)
-      </input>
+      </code>
     </program>
     <note>
       <p>
@@ -486,7 +486,7 @@ NNT(d = 0.245, CER = 0.35)
       Here is an example:
     </p>
     <program language="r">
-      <input>
+      <code>
 library(dmetar)
 
 pool.groups(n1 = 50,   # sample size group 1
@@ -495,7 +495,7 @@ pool.groups(n1 = 50,   # sample size group 1
             m2 = 4,    # mean group 2
             sd1 = 3,   # sd group 1
             sd2 = 3.8) # sd group2 
-      </input>
+      </code>
     </program>
   </section>
 
@@ -509,7 +509,7 @@ pool.groups(n1 = 50,   # sample size group 1
       In this example, we aggregate effect sizes of the <c>Chernobyl</c> data set (see Chapter <xref ref="multilevel-R"/>), so that each study only provides one effect size:
     </p>
     <program language="r">
-      <input>
+      <code>
 library(metafor)
 library(dmetar)
 data("Chernobyl")
@@ -527,10 +527,10 @@ Chernobyl.agg &lt;- aggregate(Chernobyl,
 
 # Show aggregated results
 Chernobyl.agg[,c("author", "yi", "vi")]
-      </input>
+      </code>
     </program>
     <program language="r">
-      <input>
+      <code>
 ##                       author     yi     vi 
 ## 1 Aghajanyan &amp; Suskov (2009) 0.2415 0.0079 
 ## 2     Alexanin et al. (2010) 1.3659 0.0012 
@@ -538,7 +538,7 @@ Chernobyl.agg[,c("author", "yi", "vi")]
 ## 4      Dubrova et al. (1996) 0.3068 0.0132 
 ## 5      Dubrova et al. (1997) 0.4453 0.0110
 ## [...]
-      </input>
+      </code>
     </program>
     <p>
       Please note that <c>aggregate</c> returns the aggregated effect sizes <c>yi</c> as well as their <em>variance</em> <c>vi</c>, the square root of which is the standard error.

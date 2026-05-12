@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<chapter xml:id="ch-network-meta-analysis" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="netwma" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Network Meta-Analysis</title>
 
   <introduction>
@@ -107,7 +107,7 @@
         <idx><h>Consistency</h></idx> <idx><h>Transitivity Assumption</h></idx>
       </p>
       <p>
-        There is yet another issue. Equation <xref ref="eq:networkes"/> from before, which allows us to estimate indirect evidence from direct comparisons, only holds if a crucial pre-requisite is met: the assumption of <alert>transitivity</alert>. From a statistical standpoint, this assumption translates to network <alert>consistency</alert> . In the following, we explain what both of these terms mean, and why they are important.
+        There is yet another issue. Equation <xref provisional="eq:networkes"/> from before, which allows us to estimate indirect evidence from direct comparisons, only holds if a crucial pre-requisite is met: the assumption of <alert>transitivity</alert>. From a statistical standpoint, this assumption translates to network <alert>consistency</alert> . In the following, we explain what both of these terms mean, and why they are important.
       </p>
     </subsection>
 
@@ -130,7 +130,7 @@
         The requirement we just mentioned is derived from the <alert>transitivity</alert> assumption of network meta-analyses. There is disagreement in the literature about whether this is an assumption unique to network meta-analysis, or simply an extension of the assumptions in conventional pairwise meta-analysis. The disagreement may also be partly caused by an inconsistent usage of terms in the literature . 
       </p>
       <p>
-        The core tenet of the transitivity assumption is that we can combine direct evidence (e.g. from comparisons A <m>−</m> B and C <m>−</m> B) to create indirect evidence about a related comparison (e.g. A <m>−</m> C), as we have done before using formula <xref ref="eq:networkes"/> .
+        The core tenet of the transitivity assumption is that we can combine direct evidence (e.g. from comparisons A <m>−</m> B and C <m>−</m> B) to create indirect evidence about a related comparison (e.g. A <m>−</m> C), as we have done before using formula <xref provisional="eq:networkes"/> .
       </p>
       <p>
         <idx><h>Exchangeability Assumption</h></idx>
@@ -292,11 +292,11 @@
         After all this input, it is time for a hands-on example. In the following, we will use <alert>{netmeta}</alert> to conduct our own network meta-analysis. As always, we first install the package and then load it from the library.
       </p>
       <program language="r">
-        <input>
+        <code>
 library(netmeta)
-        </input>
+        </code>
       </program>
-      <subsubsection xml:id="data-preparation">
+      <subsubsection xml:id="netwma-data-preparation">
         <title>Data Preparation</title>
 
         <p>
@@ -320,12 +320,12 @@ library(netmeta)
           Let us have a look at the data.
         </p>
         <program language="r">
-          <input>
+          <code>
 library(dmetar)
 data(TherapyFormats)
 
 head(TherapyFormats[1:5])
-          </input>
+          </code>
         </program>
         <ul>
           <li>
@@ -345,12 +345,12 @@ head(TherapyFormats[1:5])
           </li>
         </ul>
         <program language="r">
-          <input>
+          <code>
 as.matrix(table(TherapyFormats$author))
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## [...]
 ## Bengston, 2004              1
 ## Blevins, 2003               1
@@ -358,7 +358,7 @@ as.matrix(table(TherapyFormats$author))
 ## Bonertz, 2015               1
 ## Breiman, 2001               3
 ## [...]
-          </input>
+          </code>
         </program>
         <p>
           Our <c>TherapyFormats</c> data set only contains one multi-arm study, the one by Breiman. This study, as we see, contains three comparisons, while all other studies only contain one. 
@@ -368,7 +368,7 @@ as.matrix(table(TherapyFormats$author))
         </p>
       </subsubsection>
 
-      <subsubsection xml:id="model-fitting">
+      <subsubsection xml:id="netwma-model-fitting">
         <title>Model Fitting</title>
 
         <p>
@@ -445,7 +445,7 @@ as.matrix(table(TherapyFormats$author))
           We save the results of our first network meta-analysis under the name <c>m.netmeta</c>. As reference group, we use the "care as usual" (<c>"cau"</c>) condition. For now, let us assume that a fixed-effect model is appropriate. This gives the following code:
         </p>
         <program language="r">
-          <input>
+          <code>
 m.netmeta &lt;- netmeta(TE = TE,
                      seTE = seTE,
                      treat1 = treat1,
@@ -459,10 +459,10 @@ m.netmeta &lt;- netmeta(TE = TE,
                      details.chkmultiarm = TRUE,
                      sep.trts = " vs ")
 summary(m.netmeta)
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## Original data (with adjusted standard errors for multi-arm studies):
 ## 
 ##                    treat1 treat2    TE seTE seTE.adj narms multiarm
@@ -519,7 +519,7 @@ summary(m.netmeta)
 ## Total           1696.84  177 &lt; 0.0001
 ## Within designs  1595.02  165 &lt; 0.0001
 ## Between designs  101.83   12 &lt; 0.0001
-          </input>
+          </code>
         </program>
         <p>
           There is plenty to see in this output, so let us go through it step by step. The first thing we see are the calculated effect sizes for each comparison. The asterisk signifies our multi-arm study, for which the standard error has been corrected (to account for effect size dependency). Below that, we see an overview of the number of treatment arms in each included study. 
@@ -540,12 +540,12 @@ summary(m.netmeta)
           This is yet another sign that the random-effects model may be indicated. To further corroborate this, we can calculate the total inconsistency based on the <alert>full design-by-treatment interaction random-effects model</alert> . To do this, we only have to plug the <c>m.netmeta</c> object into the <c>decomp.design</c> function.
         </p>
         <program language="r">
-          <input>
+          <code>
 decomp.design(m.netmeta)
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## Q statistics to assess homogeneity / consistency
 ##  [...]
 ## Design-specific decomposition of within-designs Q statistic
@@ -571,7 +571,7 @@ decomp.design(m.netmeta)
 ## 
 ##                    Q df p-value tau.within tau2.within
 ## Between designs 3.82 12  0.9865     0.5403      0.2919
-          </input>
+          </code>
         </program>
         <p>
           <idx><h>Cochran's \textit{Q}</h></idx>
@@ -600,13 +600,13 @@ decomp.design(m.netmeta)
           As a first step, we feed the function with our fitted model <c>m.netmeta</c>. Since we used the shortened labels in our model, we should replace them with the long version (stored in <c>treat1.long</c> and <c>treat2.long</c>) in the plot. This can be achieved using the <c>labels</c> argument, where we have to provide the full names of all treatments. The treatment labels should be in the same order as the ones stored in <c>m.netmeta$trts</c>. 
         </p>
         <program language="r">
-          <input>
+          <code>
 # Show treatment order (shortened labels)
 m.netmeta$trts
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 # Replace with full name (see treat1.long and treat2.long)
 long.labels &lt;- c("Care As Usual", "Group", 
                  "Guided Self-Help", 
@@ -616,7 +616,7 @@ long.labels &lt;- c("Care As Usual", "Group",
 
 netgraph(m.netmeta, 
          labels = long.labels)
-          </input>
+          </code>
         </program>
         <p>
           This network graph transports several kinds of information. First, we see the overall structure of comparisons in our network. This allows us to better understand which treatments were compared to each other in the original data. 
@@ -628,10 +628,10 @@ netgraph(m.netmeta,
           The <c>netgraph</c> function also allows to plot a <alert>3D graph</alert>, which can be helpful to get a better grasp of complex network structures. The function requires the <alert>{rgl}</alert> package to be installed and loaded. To produce a 3D graph, we only have to set the <c>dim</c> argument to <c>"3d"</c>.
         </p>
         <program language="r">
-          <input>
+          <code>
 library(rgl)
 netgraph(m.netmeta, dim = "3d")
-          </input>
+          </code>
         </program>
         <p>
           ##### Visualizing Direct and Indirect Evidence
@@ -671,12 +671,12 @@ netgraph(m.netmeta, dim = "3d")
           The function provides us with a plot showing the percentage of direct and indirect evidence used for each estimated comparison. The only thing the <c>direct.evidence.plot</c> function requires as input is our fitted network meta-analysis model <c>m.netmeta</c>.
         </p>
         <program language="r">
-          <input>
+          <code>
 library(dmetar)
 
 d.evidence &lt;- direct.evidence.plot(m.netmeta)
 plot(d.evidence)
-          </input>
+          </code>
         </program>
         <p>
           <idx><h>Mean Path Length</h></idx> <idx><h>Minimal Parallelism</h></idx>
@@ -691,26 +691,26 @@ plot(d.evidence)
           Next, we can have a look at the estimates of our network for all possible treatment comparisons. To do this, we can use the matrix saved in <c>m.netmeta$TE.fixed</c> (if we use the fixed-effects model) or <c>m.netmeta$TE.random</c> (if we use the random-effects model). We need to make a few pre-processing steps to make the matrix easier to read. First, we extract the data from our <c>m.netmeta</c> object, and round the numbers in the matrix to two decimal places.
         </p>
         <program language="r">
-          <input>
+          <code>
 result.matrix &lt;- m.netmeta$TE.fixed
 result.matrix &lt;- round(result.matrix, 2)
-          </input>
+          </code>
         </program>
         <p>
           Given that one "triangle" in our matrix will hold redundant information, we replace the lower triangle with empty values using this code:
         </p>
         <program language="r">
-          <input>
+          <code>
 result.matrix[lower.tri(result.matrix, diag = FALSE)] &lt;- NA
-          </input>
+          </code>
         </program>
         <p>
           This gives the following result:
         </p>
         <program language="r">
-          <input>
+          <code>
 result.matrix
-          </input>
+          </code>
         </program>
         <p>
           If we want to report these results in our research paper, a good idea might be to also include the confidence intervals for each effect size estimate. These can be obtained the same way as before using the <c>lower.fixed</c> and <c>upper.fixed</c> (or <c>lower.random</c> and <c>upper.random</c>) matrices in <c>m.netmeta</c>.
@@ -722,7 +722,7 @@ result.matrix
           The output of <c>netleague</c> can be easily exported into a .csv file. It can be used to report comprehensive results of our network meta-analysis in a single table. Another big plus of using this function is that effect size estimates <alert>and</alert> confidence intervals will be displayed together in each cell. Suppose that we want to produce such a treatment estimate table, and save it as a .csv file called "netleague.csv". This can be achieved using the following code:
         </p>
         <program language="r">
-          <input>
+          <code>
 # Produce effect table
 netleague &lt;- netleague(m.netmeta, 
                        bracket = "(", # use round brackets
@@ -730,7 +730,7 @@ netleague &lt;- netleague(m.netmeta,
 
 # Save results (here: the ones of the fixed-effect model)
 write.csv(netleague$fixed, "netleague.csv")
-          </input>
+          </code>
         </program>
         <p>
           ##### Treatment Ranking
@@ -748,9 +748,9 @@ write.csv(netleague$fixed, "netleague.csv")
           The <c>netrank</c> function requires our <c>m.netmeta</c> model as input. Additionally, we should also specify the <c>small.values</c> parameter, which defines if smaller (i.e. negative) effect sizes in a comparison indicate a beneficial (<c>"good"</c>) or harmful (<c>"bad"</c>) effect. Here, we use <c>small.values = "good"</c>, since negative effect sizes mean that a treatment was more effective in <alert>reducing</alert> depression. 
         </p>
         <program language="r">
-          <input>
+          <code>
 netrank(m.netmeta, small.values = "good")
-          </input>
+          </code>
         </program>
         <p>
           We see that individual therapy (<c>ind</c>) has the highest P-score, indicating that this treatment format may be particularly helpful. Conversely, wait-lists (<c>wlc</c>) have a P-score of zero, which seems to go along with our intuition that simply letting people wait for treatment is not the best option. 
@@ -765,7 +765,7 @@ netrank(m.netmeta, small.values = "good")
           In <alert>{netmeta}</alert>, this can be achieved using the <c>forest</c> function. The <c>forest</c> function in <alert>{netmeta}</alert>  works very similar to the one of the <alert>{meta}</alert> package, which we already described in Chapter <xref ref="forest"/>. The main difference is that we need to specify the reference group in the forest plot using the <c>reference.group</c> argument. We use care us usual (<c>"cau"</c>) again.
         </p>
         <program language="r">
-          <input>
+          <code>
 forest(m.netmeta, 
        reference.group = "cau",
        sortvar = TE,
@@ -776,7 +776,7 @@ forest(m.netmeta,
        label.left = "Favors Intervention",
        label.right = "Favors Care As Usual",
        labels = long.labels)
-          </input>
+          </code>
         </program>
         <p>
           The forest plot shows that there are other high-performing treatments formats besides individual therapy. We also see that some of the confidence intervals are overlapping. This makes a clear-cut decision less easy. While individual treatments do seem to produce the best results, there are several therapy formats which also provide substantial benefits compared to care as usual. 
@@ -786,9 +786,7 @@ forest(m.netmeta,
       <subsubsection xml:id="evaluating-the-validity-of-the-results">
         <title>Evaluating the Validity of the Results</title>
 
-        <p>
-          ##### The Net Heat Plot {#net-heat-plot}
-        </p>
+        
         <p>
           The <alert>{netmeta}</alert> package has an in-built function, <c>netheat</c>, which allows us to produce a <alert>net heat plot</alert>. Net heat plots are very helpful to evaluate the inconsistency in our network model, and what designs contribute to it. 
         </p>
@@ -796,9 +794,9 @@ forest(m.netmeta,
           The <c>netheat</c> function only needs a fitted network meta-analysis object to produce the plot. 
         </p>
         <program language="r">
-          <input>
+          <code>
 netheat(m.netmeta)
-          </input>
+          </code>
         </program>
         <p>
           The function generates a quadratic heatmap, in which each design in a row is compared to the other designs (in the columns). Importantly, the rows and columns signify specific <alert>designs</alert>, not individual treatment <alert>comparisons</alert> in our network. Thus, the plot also features rows and columns for the design used in our multi-arm study, which compared guided self-help, individual therapy, and a wait-list. The net heat plot has two important features :
@@ -825,9 +823,9 @@ netheat(m.netmeta)
           Therefore, let us check how the net heat plot changes when we assume a random-effects model. We can do this by setting the <c>random</c> argument in <c>netheat</c> to <c>TRUE</c>. 
         </p>
         <program language="r">
-          <input>
+          <code>
 netheat(m.netmeta, random = TRUE)
-          </input>
+          </code>
         </program>
         <p>
           We see that this results in a substantial decrease of inconsistency in our network. There are no fields with a dark red background now, which indicates that the overall consistency of our model improves considerably once a random-effects model is used. 
@@ -835,9 +833,7 @@ netheat(m.netmeta, random = TRUE)
         <p>
           We can therefore conclude that the random-effects model is preferable for our data. In practice, this would mean that we re-run the model using <c>netmeta</c> while setting <c>comb.random</c> to <c>TRUE</c> (and <c>comb.fixed</c> to <c>FALSE</c>), and that we only report results of analyses based on the random-effects model. We omit this step here, since all the analyses we presented before can also be applied to random-effects network models, in exactly the same way.
         </p>
-        <p>
-          ##### Net Splitting {#net-splitting}
-        </p>
+        
         <p>
           <idx><h>Node Splitting</h></idx>
         </p>
@@ -845,12 +841,12 @@ netheat(m.netmeta, random = TRUE)
           Another method to check for consistency in our network is <alert>net splitting</alert>. This method splits our network estimates into the contribution of direct and indirect evidence, which allows us to control for inconsistency in the estimates of individual comparisons in our network. To apply the net splitting technique, we only have to provide the <c>netsplit</c> function with our fitted model. 
         </p>
         <program language="r">
-          <input>
+          <code>
 netsplit(m.netmeta)
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## Separate indirect from direct evidence using back-calculation method
 ## 
 ## Fixed effects model: 
@@ -868,7 +864,7 @@ netsplit(m.netmeta)
 ##  Diff       - Difference between direct and indirect estimates
 ##  z          - z-value of test for disagreement (direct vs. indirect)
 ##  p-value    - p-value of test for disagreement (direct vs. indirect)
-          </input>
+          </code>
         </program>
         <p>
           The most important information presented in the output is the difference between effect estimates based on direct and indirect evidence (<c>Diff</c>), and whether this difference is significant (as indicated by the <c>p-value</c> column). When a difference is <m>p&lt;</m> 0.05, there is a significant disagreement (inconsistency) between the direct and indirect estimate. 
@@ -877,9 +873,9 @@ netsplit(m.netmeta)
           We see in the output that there are indeed many comparisons which show significant inconsistency between direct and indirect evidence (when using the fixed-effects model). A good way to visualize the net split results is through a forest plot. 
         </p>
         <program language="r">
-          <input>
+          <code>
 netsplit(m.netmeta) %&gt;% forest()
-          </input>
+          </code>
         </program>
         <p>
           ##### Comparison-Adjusted Funnel Plots
@@ -928,7 +924,7 @@ netsplit(m.netmeta) %&gt;% forest()
           Arguments that are defined for the <c>funnel</c> function in <alert>{meta}</alert> can also be used additionally.
         </p>
         <program language="r">
-          <input>
+          <code>
 funnel(m.netmeta, 
       order = c("wlc", "cau", "ind", "grp", # from old to new
                 "tel", "ush", "gsh"), 
@@ -938,7 +934,7 @@ funnel(m.netmeta,
               "khaki", "plum", "aquamarine", "sandybrown", 
               "coral", "gold4"), 
       linreg = TRUE)
-          </input>
+          </code>
         </program>
         <p>
           If our hypothesis is true, we can expect that studies with a small sample (and thus a higher standard error) are asymmetrically distributed around the zero line in the plot. This is because small studies comparing a novel treatment to an older one, yet finding that the new treatment is not better, are less likely to get published. Therefore, they are systematically missing on one side of the funnel.
@@ -1056,7 +1052,7 @@ funnel(m.netmeta,
           \begin{equation} \hat\theta<em>k \sim \mathcal{N}(\theta,\sigma</em>k^2) (#eq:nw11) \end{equation}
         </p>
         <p>
-          This formula expresses the <alert>likelihood</alert> of our effect sizes--the <m>P(\boldsymbol{Y}|\boldsymbol{\theta})</m> part in equation <xref ref="eq:bayes"/>--assuming that they follow a normal distribution. We assume that each effect size is a draw from the same distribution, the mean of which is the true effect size <m>\theta</m>, and the variance of which is <m>\sigma^2_k</m>. In the fixed-effect model, we assume that the true effect size is identical across all studies, so <m>\theta</m> stays the same for different studies <m>k</m> and their observed effect sizes <m>\hat\theta_k</m>. 
+          This formula expresses the <alert>likelihood</alert> of our effect sizes--the <m>P(\boldsymbol{Y}|\boldsymbol{\theta})</m> part in equation <xref provisional="eq:bayes"/>--assuming that they follow a normal distribution. We assume that each effect size is a draw from the same distribution, the mean of which is the true effect size <m>\theta</m>, and the variance of which is <m>\sigma^2_k</m>. In the fixed-effect model, we assume that the true effect size is identical across all studies, so <m>\theta</m> stays the same for different studies <m>k</m> and their observed effect sizes <m>\hat\theta_k</m>. 
         </p>
         <p>
           <idx><h>Uninformative Prior</h></idx> <idx><h>Prior Distribution</h></idx>
@@ -1116,9 +1112,9 @@ funnel(m.netmeta,
         Now, let us use the <alert>{gemtc}</alert> package to perform our first Bayesian network meta-analysis. As always, we have to first install the package, and then load it from our library.
       </p>
       <program language="r">
-        <input>
+        <code>
 library(gemtc)
-        </input>
+        </code>
       </program>
       <p>
         <idx><h>Gibbs Sampler</h></idx> <idx><h>JAGS</h></idx> <idx><h>rjags Package</h></idx>
@@ -1127,12 +1123,12 @@ library(gemtc)
         The <alert>{gemtc}</alert> package depends on <alert>{rjags}</alert> , which is used for the Gibbs sampling procedure that we described before (Chapter <xref ref="bayesian-inference"/>). However, before we install and load this package, we first have to install another software called <alert>JAGS</alert> (short for “Just Another Gibbs Sampler”). The software is available for both Windows and Mac, and you can download it for free from the <url href="https://sourceforge.net/projects/mcmc-jags/files/">Internet</url>. After this is completed, we can install and load the <alert>{rjags}</alert> package<fn>Technically speaking, <alert>JAGS</alert> is not only a computer program, but also a programming language for Bayesian modeling that <alert>{gemtc}</alert> uses in the background (you can find the manual <url href="https://people.stat.sc.edu/hansont/stat740/jags_user_manual.pdf">here</url>). JAGS itself relies heavily on the <alert>BUGS</alert> (short for "Bayesian inference Using Gibbs Sampling) language, which exists since the late 1980s .</fn>.
       </p>
       <program language="r">
-        <input>
+        <code>
 install.packages("rjags")
 library(rjags)
-        </input>
+        </code>
       </program>
-      <subsubsection xml:id="data-preparation">
+      <subsubsection xml:id="netwma-data-preparation-2">
         <title>Data Preparation</title>
 
         <p>
@@ -1156,12 +1152,12 @@ library(rjags)
           The <c>TherapyFormatsGeMTC</c> data set is actually a list with two elements, one of which is called <c>data</c>. This element is the data frame we need to fit the model. Let us have a look at it.
         </p>
         <program language="r">
-          <input>
+          <code>
 library(dmetar)
 data(TherapyFormatsGeMTC)
 
 head(TherapyFormatsGeMTC$data)
-          </input>
+          </code>
         </program>
         <p>
           The <alert>{gemtc}</alert> package also requires that the columns of our data frame are labeled correctly. If we are using effect sizes based on continuous outcomes (such as the mean difference or standardized mean difference), our data set has to contain these columns:
@@ -1203,29 +1199,29 @@ head(TherapyFormatsGeMTC$data)
           The optional <c>treatments</c> argument can be used to provide <alert>{gemtc}</alert> with the actual names of all the treatments included in the network. This information should be prepared in a data frame with an <c>id</c> and <c>description</c> column. We have created such a data frame and saved it as <c>treat.codes</c> in <c>TherapyFormatsGeMTC</c>:
         </p>
         <program language="r">
-          <input>
+          <code>
 TherapyFormatsGeMTC$treat.codes
-          </input>
+          </code>
         </program>
         <p>
           We use this data frame and our effect size data in <c>TherapyFormatsGeMTC</c> to build our <c>mtc.network</c> object. We save it under the name <c>network</c>.
         </p>
         <program language="r">
-          <input>
+          <code>
 network &lt;- mtc.network(data.re  = TherapyFormatsGeMTC$data,
                        treatments = TherapyFormatsGeMTC$treat.codes)
-          </input>
+          </code>
         </program>
         <p>
           Plugging the resulting object into the <c>summary</c> function already provides us with some interesting information about our network.
         </p>
         <program language="r">
-          <input>
+          <code>
 summary(network)
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## $Description
 ## [1] "MTC dataset: Network"
 ## 
@@ -1243,7 +1239,7 @@ summary(network)
 ## 2  ind wlc 18
 ## 3  grp ind  7
 ## [...]
-          </input>
+          </code>
         </program>
         <p>
           <idx><h>Network Graph</h></idx>
@@ -1252,10 +1248,10 @@ summary(network)
           We can also use the <c>plot</c> function to generate a network plot. Like the network generated by the <alert>{netmeta}</alert> package, the edge thickness corresponds with the number of studies we included for that comparison.
         </p>
         <program language="r">
-          <input>
+          <code>
 plot(network, 
      use.description = TRUE) # Use full treatment names
-          </input>
+          </code>
         </program>
         <p>
           As an alternative, we can also check if we can create a better visualization of our network using the <alert>Fruchterman-Reingold algorithm</alert>. This algorithm comes with some inherent randomness, meaning that we have to set a seed to make our result reproducible. 
@@ -1264,7 +1260,7 @@ plot(network,
           The network plots are created using the <alert>{igraph}</alert> package . When this package is installed and loaded, we can also use other arguments to change the appearance of our plot. A detailed description of the different styling options can be found in the online <alert>{igraph}</alert> <url href="https://igraph.org/r/doc/plot.common.html">manual</url>.
         </p>
         <program language="r">
-          <input>
+          <code>
 library(igraph)
 set.seed(12345) # set seed for reproducibility
 
@@ -1279,7 +1275,7 @@ plot(network,
      vertex.label.cex = 1.5,            # node label size
      edge.curved = 0.2,                 # edge curvature
      layout = layout.fruchterman.reingold)
-          </input>
+          </code>
         </program>
       </subsubsection>
 
@@ -1293,7 +1289,7 @@ plot(network,
           <idx><h>Markov Chain Monte Carlo</h></idx>
         </p>
         <p>
-          Thus, there are only a few arguments we have to specify when compiling our model using the <c>mtc.model</c> function. First, we have to specify the <c>mtc.network</c> object we have created before. Furthermore, we have to decide if we want to use a random- or fixed effects model using the <c>linearModel</c> argument. Given that our previous frequentist analysis indicated substantial heterogeneity and inconsistency (see Chapter <xref ref="net-heat-plot"/>), we will use <c>linearModel = "random"</c>. We also have to specify the number of <alert>Markov chains</alert> we want to use. A value between 3 and 4 is sensible here, and we take <c>n.chain = 4</c>. 
+          Thus, there are only a few arguments we have to specify when compiling our model using the <c>mtc.model</c> function. First, we have to specify the <c>mtc.network</c> object we have created before. Furthermore, we have to decide if we want to use a random- or fixed effects model using the <c>linearModel</c> argument. Given that our previous frequentist analysis indicated substantial heterogeneity and inconsistency (see Chapter <xref provisional="net-heat-plot"/>), we will use <c>linearModel = "random"</c>. We also have to specify the number of <alert>Markov chains</alert> we want to use. A value between 3 and 4 is sensible here, and we take <c>n.chain = 4</c>. 
         </p>
         <p>
           There are two additional, optional arguments called <c>likelihood</c> and <c>link</c>. These two arguments vary depending on the type of effect size data we are using, and are automatically inferred by <alert>{gemtc}</alert> unless explicitly specified. Since we are dealing with effect sizes based on continuous outcome data (viz. SMDs), we are assuming a <c>"normal"</c> likelihood along with an <c>"identity"</c> link. 
@@ -1302,14 +1298,14 @@ plot(network,
           Had we been using binary outcome measures (e.g. log-odds ratios), the appropriate likelihood and link would have been <c>"binom"</c> (binomial) and <c>"logit"</c>, respectively. More details on this can be found in the documentation of <c>mtc.model</c>. However, when the data has been prepared correctly in the previous step, <c>mtc.model</c> usually selects the correct settings automatically.
         </p>
         <program language="r">
-          <input>
+          <code>
 # We give our compiled model the name `model`.
 model &lt;- mtc.model(network,
                    likelihood = "normal",
                    link = "identity",
                    linearModel = "random",
                    n.chain = 4)
-          </input>
+          </code>
         </program>
       </subsubsection>
 
@@ -1347,10 +1343,10 @@ model &lt;- mtc.model(network,
           First, we conduct a simulation with only a few iterations, and then a second one in which the number of iterations is large. We save both objects as <c>mcmc1</c> and <c>mcmc2</c>, respectively. Note that, depending on the size of your network, the simulation may take some time to finish.
         </p>
         <program language="r">
-          <input>
+          <code>
 mcmc1 &lt;- mtc.run(model, n.adapt = 50, n.iter = 1000, thin = 10)
 mcmc2 &lt;- mtc.run(model, n.adapt = 5000, n.iter = 1e5, thin = 10)
-          </input>
+          </code>
         </program>
       </subsubsection>
 
@@ -1361,10 +1357,10 @@ mcmc2 &lt;- mtc.run(model, n.adapt = 5000, n.iter = 1e5, thin = 10)
           To see if our simulations have resulted in the convergence of the algorithm, and to check which settings are preferable, we can evaluate some of the outputs of our <c>mcmc1</c> and <c>mcmc2</c> objects. A good start is to use the <c>plot</c> function. This provides us with a kind of "time series", commonly referred to as a <alert>trace plot</alert>, for each treatment comparison over all iterations. In this example, we only focus on the estimate of the individual therapy (<c>ind</c>) versus wait-list control (<c>wlc</c>) comparison.
         </p>
         <program language="r">
-          <input>
+          <code>
 plot(mcmc1)
 plot(mcmc2)
-          </input>
+          </code>
         </program>
         <p>
           When comparing earlier to later iterations in <c>mcmc1</c>, we see that there is a slight discontinuity in the overall trend of the time series. The estimates of the four different chains (the four lines) slightly differ in their course when moving from the first half to the second half of the plot. In the plot for <c>mcmc2</c>, on the other hand, we see much more rapid up-and-down variation, but no real long-term trend. This delivers a first indication that the settings in <c>mcmc2</c> are more adequate<fn>To be reliable, the Markov chains of an estimated parameter should have reached <alert>stationarity</alert> during the course of the simulation, meaning that all lines scatter randomly around a common, stable mean value. When this point is reached, the chains in the trace plot typically resemble a "fat hairy caterpillar" .</fn>.
@@ -1382,33 +1378,33 @@ plot(mcmc2)
           To produce this plot, we simply have to plug in the <c>mtc.run</c> object into the <c>gelman.plot</c> function. Here is the result for both simulations (again only showing the <c>ind</c> versus <c>wlc</c> comparison).
         </p>
         <program language="r">
-          <input>
+          <code>
 gelman.plot(mcmc1)
 gelman.plot(mcmc2)
-          </input>
+          </code>
         </program>
         <p>
           We can also directly access the <alert>overall</alert> PSRF of our model, using this code:
         </p>
         <program language="r">
-          <input>
+          <code>
 gelman.diag(mcmc1)$mpsrf
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## [1] 1.034131
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 gelman.diag(mcmc2)$mpsrf
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## [1] 1.000351
-          </input>
+          </code>
         </program>
         <p>
           We see that, while the overall PRSF is below the threshold in both simulations, the value in <c>mcmc2</c> is much lower and very close to 1. This indicates that the second model should be used. 
@@ -1419,7 +1415,7 @@ gelman.diag(mcmc2)$mpsrf
         <title>Assessing Inconsistency: The Nodesplit Method</title>
 
         <p>
-          Like the <alert>{netmeta}</alert> package, <alert>{gemtc}</alert> package also provides us with a way to evaluate the consistency of our network model: the <em>nodesplit</em> method (Dias et al., 2010). The idea behind this procedure is similar to the one of the net splitting method that we described before (Chapter <xref ref="net-splitting"/>). To perform a <em>nodesplit</em> analysis, we use the <c>mtc.nodesplit</c> function, using the same settings as in <c>mcmc2</c>. We save the result as <c>nodesplit</c>. 
+          Like the <alert>{netmeta}</alert> package, <alert>{gemtc}</alert> package also provides us with a way to evaluate the consistency of our network model: the <em>nodesplit</em> method (Dias et al., 2010). The idea behind this procedure is similar to the one of the net splitting method that we described before (Chapter <xref provisional="net-splitting"/>). To perform a <em>nodesplit</em> analysis, we use the <c>mtc.nodesplit</c> function, using the same settings as in <c>mcmc2</c>. We save the result as <c>nodesplit</c>. 
         </p>
         <p>
           Please be aware that the nodesplit model computation may take a long time, even up to several hours, depending on the complexity of your network.
@@ -1428,7 +1424,7 @@ gelman.diag(mcmc2)$mpsrf
           <idx><h>Node Splitting</h></idx> <idx><h>Consistency</h></idx>
         </p>
         <program language="r">
-          <input>
+          <code>
 nodesplit &lt;- mtc.nodesplit(network, 
                            linearModel = "random", 
                            likelihood = "normal",
@@ -1436,18 +1432,18 @@ nodesplit &lt;- mtc.nodesplit(network,
                            n.adapt = 5000, 
                            n.iter = 1e5, 
                            thin = 10)
-          </input>
+          </code>
         </program>
         <p>
           Using the <c>summary</c> function, we can print the results.
         </p>
         <program language="r">
-          <input>
+          <code>
 summary(nodesplit)
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## Node-splitting analysis of inconsistency
 ## ========================================
 ## 
@@ -1465,7 +1461,7 @@ summary(nodesplit)
 ## 11 -&gt; indirect         0.26 (0.044, 0.48)   
 ## 12 -&gt; network          0.24 (0.041, 0.43)   
 ## [...]
-          </input>
+          </code>
         </program>
         <p>
           The function output shows us the results for the effects of different comparisons when using only direct, only indirect, and all available evidence. Different estimates using direct and indirect evidence suggest the presence of inconsistency. We can control for this by looking at the Bayesian <c>p.value</c> column. One or more comparisons with <m>p&lt;</m> 0.05 are problematic, since this indicates inconsistency in our network. From the output, we see that this is not the case in our (random-effects model) example.
@@ -1483,9 +1479,9 @@ summary(nodesplit)
           It is also possible to generate a forest plot for the nodesplit model, using the <c>plot</c> function. However, a forest is only generated when we plug the nodesplit object into <c>summary</c> first.
         </p>
         <program language="r">
-          <input>
+          <code>
 plot(summary(nodesplit)) 
-          </input>
+          </code>
         </program>
       </subsubsection>
 
@@ -1502,10 +1498,10 @@ plot(summary(nodesplit))
           We save the results under the name <c>rank</c>, and then visualize them using a so-called <alert>rankogram</alert>.
         </p>
         <program language="r">
-          <input>
+          <code>
 rank &lt;- rank.probability(mcmc2, preferredDirection = -1)
 plot(rank, beside=TRUE)
-          </input>
+          </code>
         </program>
         <p>
           In this plot, we see that individual therapy (ind) is probably the best treatment option in our network, given that its first bar (signifying the first rank) is the largest. This finding is in agreement with the results of the frequentist analysis, where we found the same pattern.
@@ -1514,11 +1510,11 @@ plot(rank, beside=TRUE)
           Additionally, we can also produce a forest plot of our results using the <c>forest</c> function. To do this, we first have to put our results object into the <c>relative.effect</c> function and specify <c>t1</c>, the reference treatment. We use care as usual (<c>"cau"</c>) as the reference group again. Then, we call the <c>forest</c> function on the results to generate the plot.
         </p>
         <program language="r">
-          <input>
+          <code>
 forest(relative.effect(mcmc2, t1 = "cau"), 
        use.description = TRUE, # Use long treatment names
        xlim = c(-1.5, 0.5))
-          </input>
+          </code>
         </program>
         <p>
           <idx><h>SUCRA Score</h></idx>
@@ -1564,27 +1560,27 @@ forest(relative.effect(mcmc2, t1 = "cau"),
           The <c>sucra</c> function only needs a <c>rank.probability</c> object as input, and we need to specify if lower values indicate better outcomes. This can be done using the <c>lower.is.better</c> argument. Let us see what results we get.
         </p>
         <program language="r">
-          <input>
+          <code>
 library(dmetar)
 rank.probability &lt;- rank.probability(mcmc2)
 sucra &lt;- dmetar::sucra(rank.probability, lower.is.better = TRUE)
 
 sucra
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ##         SUCRA
 ## ind 0.9225292
 ## tel 0.8516583
 ## gsh 0.6451292
 ## [...]
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 plot(sucra)
-          </input>
+          </code>
         </program>
         <p>
           Looking at the SUCRA values of each treatment, we again see that individual treatment may be the best option, followed by telephone-based treatment and guided self-help.
@@ -1596,10 +1592,10 @@ plot(sucra)
           The <c>relative.effect.table</c> function automatically creates a treatment comparison matrix containing the estimated effect, as well as the credible intervals for each comparison. 
         </p>
         <program language="r">
-          <input>
+          <code>
 results &lt;- relative.effect.table(mcmc2)
 save(results, file = "results.csv")
-          </input>
+          </code>
         </program>
       </subsubsection>
 
@@ -1627,19 +1623,19 @@ save(results, file = "results.csv")
         Let us have a quick look at the data.
       </p>
       <program language="r">
-        <input>
+        <code>
 TherapyFormatsGeMTC$study.info
-        </input>
+        </code>
       </program>
       <program language="r">
-        <input>
+        <code>
 ##                        study rob
 ## 1             Campbell, 2000   1
 ## 2             Reynolds, 1989   1
 ## 3            Carpenter, 1994   0
 ## 4             Shrednik, 2000   1
 ## [...]
-        </input>
+        </code>
       </program>
       <p>
         <idx><h>Dummy Variable</h></idx>
@@ -1648,11 +1644,11 @@ TherapyFormatsGeMTC$study.info
         The data set contains two columns: <c>study</c>, the name of the study included in our network and <c>rob</c>, its risk of bias. Please note that the study labels must be completely identical to the ones used in the actual effect size data set. The <c>rob</c> variable is a dummy-coded predictor, where <c>0</c> indicates a low risk of bias, and <c>1</c> high risk of bias. Using the <c>study.info</c> data frame, we can now create a meta-regression network using <c>mtc.network</c>.
       </p>
       <program language="r">
-        <input>
+        <code>
 network.mr &lt;- mtc.network(data.re = TherapyFormatsGeMTC$data,
                           studies = TherapyFormatsGeMTC$study.info,
                           treatments = TherapyFormatsGeMTC$treat.codes)
-        </input>
+        </code>
       </program>
       <p>
         Now, we must define the <alert>regressor</alert> we want to include in our network meta-analysis model. This can be done by generating a list object with three elements:
@@ -1675,45 +1671,45 @@ network.mr &lt;- mtc.network(data.re = TherapyFormatsGeMTC$data,
         </li>
       </ul>
       <program language="r">
-        <input>
+        <code>
 regressor &lt;- list(coefficient = "shared",
                   variable = "rob",
                   control = "cau")
-        </input>
+        </code>
       </program>
       <p>
         Next, we compile our model. We provide the <c>mtc.model</c> function with the network we just generated, set the type of our model to <c>"regression"</c>, and provide the function with the <c>regressor</c> object we just generated. We save the output under the name <c>model.mr</c>.
       </p>
       <program language="r">
-        <input>
+        <code>
 model.mr &lt;- mtc.model(network.mr,
                       likelihood = "normal",
                       link = "identity",
                       type = "regression",
                       regressor = regressor)
-        </input>
+        </code>
       </program>
       <p>
         After this step, we can run the model using the <c>mtc.run</c> function. We use the same specifications as used for fitting the <c>mcmc2</c> model before. The results are saved as <c>mcmc3</c>.
       </p>
       <program language="r">
-        <input>
+        <code>
 mcmc3 &lt;- mtc.run(model.mr,
                  n.adapt = 5000,
                  n.iter = 1e5,
                  thin = 10)
-        </input>
+        </code>
       </program>
       <p>
         Now, we can analyze the results using the <c>summary</c> function.
       </p>
       <program language="r">
-        <input>
+        <code>
 summary(mcmc3)
-        </input>
+        </code>
       </program>
       <program language="r">
-        <input>
+        <code>
 ## Results on the Mean Difference scale
 ## [...]
 ## 
@@ -1740,7 +1736,7 @@ summary(mcmc3)
 ## Regression on "rob", shared coefficients, "cau" as control
 ## Input standardized: x' = (rob - 0.4340659) / 1
 ## Estimates at the centering value: rob = 0.4340659
-        </input>
+        </code>
       </program>
       <p>
         The results for our predictor are reported next to <c>B</c>. Because our predictor is dummy-coded, the value of <c>B</c> represents the effect of a study having a <alert>high</alert> risk of bias. The estimate is <m>b=</m> -0.33, and when looking at the second table (<c>Quantiles for each variable</c>), we see that the 95% credible interval of <m>b</m> ranges from -0.59 to -0.08. Since the credible interval does not include zero, we may conclude that risk of bias does indeed influence the results. When the risk of bias is high (<c>rob</c> = 1), we can predict higher overall effects (since negative effect sizes indicate "better" outcomes in our example).
@@ -1749,7 +1745,7 @@ summary(mcmc3)
         We can explore the effect of the predictor further by generating two forest plots: one for the estimated treatment effects when the risk of bias is high, and another for when it is low. We can do this using the <c>relative.effect</c> function, where we specify the <c>covariate</c> value. A value of <c>covariate = 0</c> stands for studies with a low risk of bias, and <c>covariate = 1</c> for high risk of bias.
       </p>
       <program language="r">
-        <input>
+        <code>
 forest(relative.effect(mcmc3, t1 = "cau", covariate = 1),
        use.description = TRUE, xlim = c(-1.5, 1))
 title("High Risk of Bias")
@@ -1757,7 +1753,7 @@ title("High Risk of Bias")
 forest(relative.effect(mcmc3, t1 = "cau", covariate = 0),
        use.description = TRUE, xlim = c(-1.5, 1))
 title("Low Risk of Bias")
-        </input>
+        </code>
       </program>
       <p>
         Comparing the forest plots, we can see that there is a pattern. The treatment effects based on high risk of bias studies are generally higher (i.e. more negative). This is in line with the estimate of our predictor <m>b</m> in the fitted model.
@@ -1769,10 +1765,10 @@ title("Low Risk of Bias")
         Lastly, we can also examine if the network meta-regression model we just generated fits the data better than the "normal" network meta-analysis model from before. To do this, we can compare the <alert>deviance information criteria</alert> (DICs), which are an equivalent to the AIC and BIC values in frequentist statistics. We can access the DIC of both <c>mcmc3</c> and <c>mcmc2</c> using this code:
       </p>
       <program language="r">
-        <input>
+        <code>
 summary(mcmc3)$DIC
 summary(mcmc2)$DIC
-        </input>
+        </code>
       </program>
       <p>
         We see in the output that the DIC value of our meta-regression model (261.19) is lower than the one of our previous model which did not control for risk of bias (DIC = 323.6). Lower DIC values indicate a better fit. Based on this finding, we can conclude that our network meta-regression model fits the data better than one without the covariate.
@@ -1798,7 +1794,7 @@ summary(mcmc2)$DIC
 
   </section>
 
-  <section xml:id="questions-answers">
+  <section xml:id="netwma-questions-answers">
     <title>Questions &amp; Answers</title>
 
     <exercise>
@@ -1848,7 +1844,7 @@ summary(mcmc2)$DIC
     </exercise>
   </section>
 
-  <section xml:id="summary">
+  <section xml:id="netwma-summary">
     <title>Summary</title>
 
     <ul>

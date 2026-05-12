@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<chapter xml:id="ch-discovering-r" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="discovering-R" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Discovering R</title>
 
   <introduction>
@@ -56,7 +56,7 @@
       </li>
       <li>
         <p>
-          The first time you open R Studio, it will probably look a lot like in Figure <xref ref="fig:rstudio-1"/>. There are three panes in R Studio. In the upper right corner, we have the <alert>Environment</alert> pane, which displays objects that we defined (i.e. saved) internally in <em>R</em>. In the bottom right corner, you can find the <alert>Files, Plots, Packages and Help</alert> pane. This pane serves several functions; for example, it is used to display files on your computer, show plots and installed packages, and to access the help pages. The heart of R Studio, however, is the left side, where you can find the <alert>Console</alert>. The console is where all the <em>R</em> code is entered and then run.
+          The first time you open R Studio, it will probably look a lot like in Figure <xref provisional="fig:rstudio-1"/>. There are three panes in R Studio. In the upper right corner, we have the <alert>Environment</alert> pane, which displays objects that we defined (i.e. saved) internally in <em>R</em>. In the bottom right corner, you can find the <alert>Files, Plots, Packages and Help</alert> pane. This pane serves several functions; for example, it is used to display files on your computer, show plots and installed packages, and to access the help pages. The heart of R Studio, however, is the left side, where you can find the <alert>Console</alert>. The console is where all the <em>R</em> code is entered and then run.
         </p>
       </li>
     </ol>
@@ -85,9 +85,9 @@
       Say that we want to know what the square root of 9 is. In <em>R</em>, we can use the <c>sqrt</c> function for this. We simply have to provide <c>9</c> as the input to the function to get the result. You can try this yourself. Next to the little arrow (<c>&gt;</c>) in your console, write down <c>sqrt(9)</c> and then hit Enter. Let us see what happens.
     </p>
     <program language="r">
-      <input>
+      <code>
 sqrt(9)
-      </input>
+      </code>
     </program>
     <p>
       We now received our first <alert>output</alert> from <em>R</em>. It tells us that the square root of 9 is 3. Although there are much more complex functions in <em>R</em> than this one, they are all governed by the same principle: you provide information on parameters that a function requires, the function uses this information to do its calculations, and in the end, it provides you with the output.
@@ -119,14 +119,14 @@ sqrt(9)
       The <c>install.packages</c> function only requires the name of the package we want to install as input. One package after another, our code should look like this:
     </p>
     <program language="r">
-      <input>
+      <code>
 install.packages("tidyverse")
 install.packages("meta")
 install.packages("metafor")
-      </input>
+      </code>
     </program>
     <p>
-      Simply type the code above into the console; then hit Enter to start the installation (see Figure <xref ref="fig:rstudio-1"/>).
+      Simply type the code above into the console; then hit Enter to start the installation (see Figure <xref provisional="fig:rstudio-1"/>).
     </p>
     <note>
       <p>
@@ -137,9 +137,9 @@ install.packages("metafor")
       After you hit Enter, <em>R</em> will start to install the package and print some information on the progress of the installation. When the <c>install.packages</c> function is finished, the package is ready to be used. Installed packages are added to <em>R</em> 's <alert>system library</alert>. This system library can be accessed in the <alert>Packages</alert> pane in the bottom left corner of your R Studio screen. Whenever we want to use the installed package, we can load it from our library using the <c>library</c> function. Let us try this out, and load the <alert>{tidyverse}</alert> package.
     </p>
     <program language="r">
-      <input>
+      <code>
 library(tidyverse)
-      </input>
+      </code>
     </program>
   </section>
 
@@ -170,9 +170,9 @@ library(tidyverse)
       To install the <alert>{dmetar}</alert> package, the <em>R</em> version on your computer must be 3.6 or higher. If you have (re-)installed <em>R</em> recently, this will probably be the case. To check if your <em>R</em> version is new enough, you can paste this line of code into the Console, and then hit Enter.
     </p>
     <program language="r">
-      <input>
+      <code>
 R.Version()$version.string
-      </input>
+      </code>
     </program>
     <p>
       This will display the current <em>R</em> version you have. If the <em>R</em> version is below 3.6, you will have to update it. There are good <url href="https://www.linkedin.com/pulse/3-methods-update-r-rstudio-windows-mac-woratana-ngarmtrakulchol/">blog posts</url> on the Internet providing guidance on how to do this.
@@ -181,23 +181,23 @@ R.Version()$version.string
       If you want to install <alert>{dmetar}</alert>, one package already needs to be installed on your computer first. This package is called <alert>{devtools}</alert>. So, if <alert>{devtools}</alert> is not on your computer yet, you can install it like we did before.
     </p>
     <program language="r">
-      <input>
+      <code>
 install.packages("devtools")
-      </input>
+      </code>
     </program>
     <p>
       You can then install <alert>{dmetar}</alert> using this line of code:
     </p>
     <program language="r">
-      <input>
+      <code>
 devtools::install_github("MathiasHarrer/dmetar")
-      </input>
+      </code>
     </program>
     <p>
       This will initiate the installation process. It is likely that the installation will take some time because several other packages have to be installed along with the <alert>{dmetar}</alert> package for it to function properly. During the installation process, the installation manager may ask you if you want to update existing <em>R</em> packages on your computer. The output may look something like this:
     </p>
     <program language="r">
-      <input>
+      <code>
 ## These packages have more recent versions available.
 ## Which would you like to update?
 ## 
@@ -208,20 +208,20 @@ devtools::install_github("MathiasHarrer/dmetar")
 ## 5: zip    (2.0.3 -&gt; 2.0.4) [CRAN]
 ## 
 ## Enter one or more numbers, or an empty line to skip updates:
-      </input>
+      </code>
     </program>
     <p>
       When you get this message, it is best to tell the installation manager that no packages should be updated. In our example, this means pasting <c>3</c> into the console and then hitting Enter. In the same vein, when the installation manager asks this question:
     </p>
     <program language="r">
-      <input>
+      <code>
 ## There are binary versions available but the source versions are later:
 ##  
 ##  [...]
 ##  
 ##   Do you want to install from sources the package which needs compilation?
 ##   y/n: 
-      </input>
+      </code>
     </program>
     <p>
       It is best to choose <c>n</c> (no). If the installation fails with this strategy (meaning that you get an <c>Error</c>), run the installation again, but update all packages this time. 
@@ -281,7 +281,7 @@ devtools::install_github("MathiasHarrer/dmetar")
       Let us start with an example data set. Imagine that you plan to conduct a meta-analysis of suicide prevention programs. The outcome you want to focus on in your study is the severity of suicidal ideation (i.e. to what degree individuals think about, consider, or plan to end their life), assessed by questionnaires. You already completed the study search and data extraction, and now want to import your meta-analysis data in <em>R</em>. 
     </p>
     <p>
-      The next task is therefore to prepare an <em>Excel</em> sheet containing all the relevant data. Table <xref ref="tab:suicidedata"/> presents all the data we want to import. In the first row, this table also shows how we can name our columns in the <em>Excel</em> file based on the rules we listed above. We can see that the spreadsheet lists each study in one row. For each study, the sample size (<m>n</m>), mean and standard deviation (<m>SD</m>) is included for both the intervention and control group. This is the outcome data needed to calculate effect sizes, which is something we will cover in detail in Chapter <xref ref="effects"/>. The following three columns contain variables we want to analyze later on as part of the meta-analysis. 
+      The next task is therefore to prepare an <em>Excel</em> sheet containing all the relevant data. Table <xref provisional="tab:suicidedata"/> presents all the data we want to import. In the first row, this table also shows how we can name our columns in the <em>Excel</em> file based on the rules we listed above. We can see that the spreadsheet lists each study in one row. For each study, the sample size (<m>n</m>), mean and standard deviation (<m>SD</m>) is included for both the intervention and control group. This is the outcome data needed to calculate effect sizes, which is something we will cover in detail in Chapter <xref ref="effects"/>. The following three columns contain variables we want to analyze later on as part of the meta-analysis. 
     </p>
     <p>
       We have prepared an <em>Excel</em> file for you called <alert>"SuicidePrevention.xlsx"</alert>, containing exactly this data. The file can be downloaded from the <url href="https://protectlab.org/en/datasets/suicide-prevention/">Internet</url>. 
@@ -327,9 +327,9 @@ devtools::install_github("MathiasHarrer/dmetar")
       Now that we have imported our first data set using R Studio, let us do a few manipulations. <alert>Data wrangling</alert>, meaning the transformation of data to make it usable for further analysis, is an essential part of all data analytics. Some professions, such as data scientists, spend the majority of their time turning raw, "untidy" data into "tidy" data sets. Functions of the <alert>{tidyverse}</alert> provide an excellent toolbox for data wrangling. If you have not loaded the package from your library yet, you should do so now for the following examples.
     </p>
     <program language="r">
-      <input>
+      <code>
 library(tidyverse)
-      </input>
+      </code>
     </program>
     <subsection xml:id="class-conversion">
       <title>Class Conversion</title>
@@ -338,9 +338,9 @@ library(tidyverse)
         First, we should have a peek at the <c>SuicidePrevention</c> data set we imported in the last chapter. To do this, we can use the <c>glimpse</c> function provided by the <alert>{tidyverse}</alert>.
       </p>
       <program language="r">
-        <input>
+        <code>
 glimpse(SuicidePrevention)
-        </input>
+        </code>
       </program>
       <p>
         We see that this gives us details on the type of data we have stored in each column of our data set. There are different abbreviations signifying different types of data. In <em>R</em>, they are called <alert>classes</alert>. 
@@ -371,19 +371,19 @@ glimpse(SuicidePrevention)
         We can also check the class of a column using the <c>class</c> function. We can access the column in a data frame directly by adding the <c>$</c> operator to its name and then the name of the column. Let us try this out. First, we let <em>R</em> provide us with the data contained in the column <c>n.e</c>. After that, we check the class of the column.
       </p>
       <program language="r">
-        <input>
+        <code>
 SuicidePrevention$n.e
 
 class(SuicidePrevention$n.e)
-        </input>
+        </code>
       </program>
       <p>
         We see that the column <c>n.e</c> containing the sample sizes in the intervention group has the class <c>character</c>. But wait, that is the wrong class! During the import, this column was wrongly classified as a <c>character</c> variable, while it should actually have the class <c>numeric</c>. This has implications on further analysis steps. For example, if we want to calculate the mean sample size, we get this warning:
       </p>
       <program language="r">
-        <input>
+        <code>
 mean(SuicidePrevention$n.e)
-        </input>
+        </code>
       </program>
       <p>
         To make our data set usable, we often have to convert our columns to the right classes first. To do this, we can use a set of functions which all begin with "<c>as.</c>": <c>as.numeric</c>, <c>as.character</c>, <c>as.logical</c> and <c>as.factor</c>. Let us go through a few examples.
@@ -395,7 +395,7 @@ mean(SuicidePrevention$n.e)
         The fact that some numerical values are coded as <alert>characters</alert> in our data set, however, will lead to problems downstream, so we should change the class using the <c>as.numeric</c> function. We provide the function with the column we want to change and then save the output back to its original place using the <alert>assignment operator</alert> (<c>&lt;-</c>). This leads to the following code.
       </p>
       <program language="r">
-        <input>
+        <code>
 SuicidePrevention$n.e &lt;- as.numeric(SuicidePrevention$n.e)
 SuicidePrevention$mean.e &lt;- as.numeric(SuicidePrevention$mean.e)
 SuicidePrevention$sd.e &lt;- as.numeric(SuicidePrevention$sd.e)
@@ -403,59 +403,59 @@ SuicidePrevention$n.c &lt;- as.numeric(SuicidePrevention$n.c)
 SuicidePrevention$mean.c &lt;- as.numeric(SuicidePrevention$mean.c)
 SuicidePrevention$sd.c &lt;- as.numeric(SuicidePrevention$sd.c)
 SuicidePrevention$n.c &lt;- as.numeric(SuicidePrevention$n.c)
-        </input>
+        </code>
       </program>
       <p>
         We also see in the <c>glimpse</c> output that <c>age_group</c> and <c>control</c>, the subgroups in our data, are coded as characters. In reality, however, it is more adequate to encode them as factors, with two factor levels each. We can use the <c>as.factor</c> function to change the class.
       </p>
       <program language="r">
-        <input>
+        <code>
 SuicidePrevention$age_group &lt;- as.factor(SuicidePrevention$age_group)
 SuicidePrevention$control &lt;- as.factor(SuicidePrevention$control)
-        </input>
+        </code>
       </program>
       <p>
         Using the <c>levels</c> and <c>nlevels</c> function, we can also have a look at the factor labels and number of levels in a factor.
       </p>
       <program language="r">
-        <input>
+        <code>
 levels(SuicidePrevention$age_group)
 nlevels(SuicidePrevention$age_group)
-        </input>
+        </code>
       </program>
       <p>
         We can also use the <c>levels</c> function to change the name of the factor labels. We simply have to assign new names to the original labels. To do this in <em>R</em>, we have to use the <alert>concatenate</alert>, or <c>c</c> function. This function can tie two or more words or numbers together and create one element. Let us try this out.
       </p>
       <program language="r">
-        <input>
+        <code>
 new.factor.levels &lt;- c("gen", "older")
 new.factor.levels
-        </input>
+        </code>
       </program>
       <p>
         Perfect. We can now use the newly created <c>new.factor.levels</c> object and assign it to the factor labels of our <c>age_group</c> column.
       </p>
       <program language="r">
-        <input>
+        <code>
 levels(SuicidePrevention$age_group) &lt;- new.factor.levels
-        </input>
+        </code>
       </program>
       <p>
         Let us check if the renaming has worked.
       </p>
       <program language="r">
-        <input>
+        <code>
 SuicidePrevention$age_group
-        </input>
+        </code>
       </program>
       <p>
         It is also possible to create logicals using <c>as.logical</c>. Let us say we want to recode the column <c>pubyear</c>, so that it only displays if a study was published after 2009. To do this, we have to define a yes/no rule via code. We can do this using the "greater or equal than" operator <c>&gt;=</c>, and then use this as the input for the <c>as.logical</c> function.
       </p>
       <program language="r">
-        <input>
+        <code>
 SuicidePrevention$pubyear
 as.logical(SuicidePrevention$pubyear &gt;= 2010)
-        </input>
+        </code>
       </program>
       <p>
         We can see that this encodes every element in <c>pubyear</c> as <c>TRUE</c> or <c>FALSE</c>, depending on whether the publication year was greater than or equal to 2010, or not.
@@ -469,59 +469,59 @@ as.logical(SuicidePrevention$pubyear &gt;= 2010)
         In <em>R</em>, there are several ways to extract a subset of a data frame. We have already covered one way, the <c>$</c> operator, which can be used to extract columns. A more generic way to extract slices from a data set is to use square brackets. The generic form we have to follow when using square brackets is <c>data.frame[rows, columns]</c>. It is always possible to extract rows and columns by using the number in which they appear in the data set. For example, we can use the following code to extract the data in the second row of the data frame.
       </p>
       <program language="r">
-        <input>
+        <code>
 SuicidePrevention[2,]
-        </input>
+        </code>
       </program>
       <p>
         We can be even more specific and tell <em>R</em>  that we want only the information in the first column of the second row.
       </p>
       <program language="r">
-        <input>
+        <code>
 SuicidePrevention[2, 1]
-        </input>
+        </code>
       </program>
       <p>
         To select specific slices, we have to use the concatenate (<c>c</c>) function again. For example, if we want to extract rows 2 and 3 as well as columns 4 and 6, we can use this code.
       </p>
       <program language="r">
-        <input>
+        <code>
 SuicidePrevention[c(2,3), c(4,6)]
-        </input>
+        </code>
       </program>
       <p>
         It is usually only possible to select rows by their number. For columns, however, it is also possible to provide the column <alert>name</alert> instead of the number.
       </p>
       <program language="r">
-        <input>
+        <code>
 SuicidePrevention[, c("author", "control")]
-        </input>
+        </code>
       </program>
       <p>
         Another possibility is to <alert>filter</alert> a data set based on row values. We can use the <c>filter</c> function to do this. In the function, we need to specify our data set name, as well as a filtering logic. A relatively straightforward example is to filter all studies in which <c>n.e</c> is equal or smaller than 50. 
       </p>
       <program language="r">
-        <input>
+        <code>
 filter(SuicidePrevention, n.e &lt;= 50)
-        </input>
+        </code>
       </program>
       <p>
         But it is also possible to filter by names. Imagine we want to extract the studies by authors <alert>Meijer</alert> and <alert>Zaytsev</alert>. To do this, we have to define our filtering logic using the <c>%in%</c> operator and the concatenate function.
       </p>
       <program language="r">
-        <input>
+        <code>
 filter(SuicidePrevention, author %in% c("Meijer et al.",
                                         "Zaytsev et al."))
-        </input>
+        </code>
       </program>
       <p>
         Conversely, we can also extract all studies <alert>except</alert> the one by <alert>Meijer</alert> and <alert>Zaytsev</alert> by putting an exclamation mark in front of the filtering logic.
       </p>
       <program language="r">
-        <input>
+        <code>
 filter(SuicidePrevention, !author %in% c("Meijer et al.", 
                                          "Zaytsev et al."))
-        </input>
+        </code>
       </program>
     </subsection>
 
@@ -532,42 +532,42 @@ filter(SuicidePrevention, !author %in% c("Meijer et al.",
         Of course it is also possible to change specific values in an <em>R</em> data frame, or to expand them. To change data we saved internally in <em>R</em>, we have to use the <alert>assignment operator</alert>. Let us re-use what we previously learned about data slicing to change a specific value in our data set. Imagine that we made a mistake and that the publication year of the study by <alert>DeVries et al.</alert> is wrongly reported as 2019 when it should be 2018. We can change the value by slicing our data set accordingly, and then assigning the new value. Remember that the results of <alert>DeVries et al.</alert> are reported in the second row of the data set.
       </p>
       <program language="r">
-        <input>
+        <code>
 SuicidePrevention[2, "pubyear"] &lt;- 2018
 SuicidePrevention[2, "pubyear"]
-        </input>
+        </code>
       </program>
       <program language="r">
-        <input>
+        <code>
 ## [1] 2018
-        </input>
+        </code>
       </program>
       <p>
         It is also possible to change more than one value at once. For example, if we want to add 5 to every intervention group mean in our data set, we can do that using this code.
       </p>
       <program language="r">
-        <input>
+        <code>
 SuicidePrevention$mean.e + 5
-        </input>
+        </code>
       </program>
       <p>
         We can also use two or more columns to do calculations. A practically relevant example is that we might be interested in calculating the <alert>mean difference</alert> between the intervention and control group means for each study. Compared to other programming languages, this is spectacularly easy in <em>R</em>.
       </p>
       <program language="r">
-        <input>
+        <code>
 SuicidePrevention$mean.e - SuicidePrevention$mean.c
-        </input>
+        </code>
       </program>
       <p>
         As you can see, this takes the intervention group mean of each study, and then subtracts the control group mean, each time using the value of the same row. Imagine that we want to use this mean difference later on. Therefore, we want to save it as an extra object called <c>md</c>, and add it as a new column to our <c>SuicidePrevention</c> data frame. Both is easy using the assignment operator.
       </p>
       <program language="r">
-        <input>
+        <code>
 md &lt;- SuicidePrevention$mean.e - SuicidePrevention$mean.c
 
 SuicidePrevention$md &lt;- SuicidePrevention$mean.e - 
                             SuicidePrevention$mean.c
-        </input>
+        </code>
       </program>
       <p>
         <idx><h>Pipe, _R_</h></idx>
@@ -576,21 +576,21 @@ SuicidePrevention$md &lt;- SuicidePrevention$mean.e -
         The last thing we want to show you are <alert>pipe operators</alert>. In <em>R</em>, pipes are written as <c>%&gt;%</c>. Pipes essentially allow us to apply a function to an object without having to specify the object name directly in the function call. We simply connect the object and the function using the pipe operator. Let us give you an easy example. If we want to calculate the mean sample size in the control group, we can use the <c>mean</c> function and the pipe operator like this:
       </p>
       <program language="r">
-        <input>
+        <code>
 SuicidePrevention$n.c %&gt;% mean()
-        </input>
+        </code>
       </program>
       <p>
         Admittedly, in this example, it is hard to see the added values of such pipes. The special strength of pipes comes from the fact that they allow us to <alert>chain</alert> many functions together. Imagine we want to know the square root of the mean control group sample size, but only of studies published after 2009. Pipes let us do this conveniently in one step.
       </p>
       <program language="r">
-        <input>
+        <code>
 SuicidePrevention %&gt;% 
   filter(pubyear &gt; 2009) %&gt;% 
   pull(n.c) %&gt;% 
   mean() %&gt;% 
   sqrt()
-        </input>
+        </code>
       </program>
       <p>
         In the pipe, we used one function we have not covered before, the <c>pull</c> function. This function can be seen as an equivalent of the <c>$</c> operator that we can use in pipes. It simply "pulls out" the variable we specify in the function, so it can be fed forward to the next part of the pipe.
@@ -624,17 +624,17 @@ SuicidePrevention %&gt;%
         To save an object as an <em>.rda</em> data file, you can use the <c>save</c> function. In the function, you have to provide (1) the name of the object, and (2) the <alert>exact</alert> name you want the file to have, including the file ending. Running the function will then save the file to your working directory.
       </p>
       <program language="r">
-        <input>
+        <code>
 save(SuicidePrevention, file = "suicideprevention.rda")
-        </input>
+        </code>
       </program>
       <p>
         The file ending <em>.csv</em> stands for <alert>comma-separated values</alert>. This format is one of the most commonly used ones for data in general. It can be opened by many programs, including <em>Excel</em>. You can use the <c>write.csv</c> function to save your data as a <em>.csv</em>. The code structure and behavior is nearly identical to the one of <c>save</c>, but the supplied object <alert>needs</alert> to be a data frame or other tabular data object. And of course, you need to specify the file type ".csv".
       </p>
       <program language="r">
-        <input>
+        <code>
 write.csv(SuicidePrevention, file = "suicideprevention.csv")
-        </input>
+        </code>
       </program>
       <p>
         This has only been a quick overview of data manipulation strategies in <em>R</em>. Learning <em>R</em> from scratch can be exhausting at times, especially when we deal with something as supposedly easy as manipulating data. However, the best way to get accustomed to the way <em>R</em> works is to practice. After some time, common <em>R</em> commands will become second nature to you. 
@@ -646,7 +646,7 @@ write.csv(SuicidePrevention, file = "suicideprevention.csv")
 
   </section>
 
-  <section xml:id="questions-answers">
+  <section xml:id="discovering-R-questions-answers">
     <title>Questions &amp; Answers</title>
 
     <exercise>
@@ -657,7 +657,7 @@ write.csv(SuicidePrevention, file = "suicideprevention.csv")
         For these exercises, we will use a new data set called <c>data</c>. You can create this data set directly in <em>R</em> using this code:
       </p>
       <program language="r">
-        <input>
+        <code>
 data &lt;- data.frame("Author" = c("Jones", "Goldman", 
                                 "Townsend", "Martin", 
                                 "Rose"),
@@ -670,7 +670,7 @@ data &lt;- data.frame("Author" = c("Jones", "Goldman",
                   "subgroup" = c("one", "one", 
                                  "two", "two", 
                                  "three"))
-        </input>
+        </code>
       </program>
     </exercise>
     <note>
@@ -715,7 +715,7 @@ data &lt;- data.frame("Author" = c("Jones", "Goldman",
     </note>
   </section>
 
-  <section xml:id="summary">
+  <section xml:id="discovering-R-summary">
     <title>Summary</title>
 
     <ul>

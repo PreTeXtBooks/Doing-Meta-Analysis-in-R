@@ -2,7 +2,6 @@
 <preface xml:id="preface">
   <title>Preface</title>
 
-  <introduction>
     <blockquote>
       <p>
         "The problems are solved, not by giving new information, but by arranging what we have known since long." -- <alert>Ludwig Wittgenstein</alert>, <url href="https://plato.stanford.edu/entries/wittgenstein/#PhilInve"><alert>Philosophical Investigations</alert></url>
@@ -26,9 +25,8 @@
     <p>
       With this guide, we want to show that many of these concerns are unfounded, and that learning how to do a meta-analysis in <em>R</em> is worth the effort. We hope that the guide will help you to learn the skills needed to master your own meta-analysis project in <em>R</em>. We also hope that this guide will make it easier for you to not only learn <alert>what</alert> meta-analytic methods to apply when, but also <alert>why</alert> we apply them. Last but not least, we see this guide as an attempt to show you that meta-analysis methods and <em>R</em> programming are not mere inconveniences, but a fascinating topic to explore.
     </p>
-  </introduction>
 
-  <section xml:id="this-book-is-for-mortals">
+  <paragraphs xml:id="this-book-is-for-mortals">
     <title>This Book Is for Mortals</title>
 
     <p>
@@ -60,9 +58,9 @@
         </p>
       </li>
     </ul>
-  </section>
+  </paragraphs>
 
-  <section xml:id="topics-covered-in-the-book">
+  <paragraphs xml:id="topics-covered-in-the-book">
     <title>Topics Covered in the Book</title>
 
     <p>
@@ -125,12 +123,12 @@
         </p>
       </li>
     </ul>
-  </section>
+  </paragraphs>
 
-  <section xml:id="how-to-use-this-book">
+  <paragraphs xml:id="how-to-use-this-book">
     <title>How to Use This Book</title>
 
-    <subsection xml:id="work-flow">
+    <paragraphs xml:id="work-flow">
       <title>Work Flow</title>
 
       <p>
@@ -142,9 +140,9 @@
       <p>
         The last section of this book contains helpful tools for your meta-analysis. This does not mean that these topics are the final things you have to consider when performing a meta-analysis. We simply put these chapters in the end because they primarily serve as reference works for your own meta-analysis projects. We link to these tools throughout the book in sections where they are thematically relevant.
       </p>
-    </subsection>
+    </paragraphs>
 
-    <subsection xml:id="companion-r-package">
+    <paragraphs xml:id="companion-r-package">
       <title>Companion <em>R</em> Package</title>
 
       <p>
@@ -156,9 +154,9 @@
       <p>
         Although advised, it is not essential that you install the package. Wherever we make use of <alert>{dmetar}</alert> in the book, we will also provide you with the raw code for the function, or a download link to the data set we are using.
       </p>
-    </subsection>
+    </paragraphs>
 
-    <subsection xml:id="text-boxes">
+    <paragraphs xml:id="text-boxes">
       <title>Text Boxes</title>
 
       <p>
@@ -204,11 +202,11 @@
           These boxes contain recommendations on how you can report <em>R</em> output in your thesis or research article.
         </p>
       </note>
-    </subsection>
+    </paragraphs>
 
-  </section>
+  </paragraphs>
 
-  <section xml:id="conventions">
+  <paragraphs xml:id="conventions">
     <title>Conventions</title>
 
     <p>
@@ -242,9 +240,9 @@
     <p>
       This serif font is reserved for formulas, statistics, and other forms of mathematical notation.
     </p>
-  </section>
+  </paragraphs>
 
-  <section xml:id="what-to-do-when-you-are-stuck">
+  <paragraphs xml:id="what-to-do-when-you-are-stuck">
     <title>What to Do When You Are Stuck</title>
 
     <p>
@@ -253,7 +251,7 @@
     <p>
       If you are looking for something a little more practical than this motivational message: here are a few things you can do once you stumble upon things that this guide cannot answer.
     </p>
-    <subsection xml:id="do-not-panic">
+    <paragraphs xml:id="do-not-panic">
       <title>Do Not Panic</title>
 
       <p>
@@ -262,9 +260,9 @@
       <p>
         Also, make sure that your output actually <alert>is</alert> an error message. <em>R</em> distinguishes between <c>Error</c>s, <c>Warning</c>s, and plain messages. Only the first means that your code could not be executed. <c>Warning</c>s mean that your code did run, but that something <alert>may</alert> have gone awry. Messages mean that your code did run completely, and are usually shown when a function simply wants to bring your attention to something it has done for you under the hood. For this reason, they are also called <alert>diagnostic messages</alert>.
       </p>
-    </subsection>
+    </paragraphs>
 
-    <subsection xml:id="google">
+    <paragraphs xml:id="google">
       <title>Google</title>
 
       <p>
@@ -273,9 +271,9 @@
       <p>
         There is a large <em>R</em> community out there, and it is very likely that someone had the same problem as you before. Google is also helpful if there is something specific you want to do with your data, but do not know what <em>R</em> commands you can use to do this. Even for experts, it is absolutely normal to use Google <alert>dozens</alert> of times when writing <em>R</em> code. Do not hesitate to do the same whenever you get stuck.
       </p>
-    </subsection>
+    </paragraphs>
 
-    <subsection xml:id="stackoverflow-crossvalidated">
+    <paragraphs xml:id="stackoverflow-crossvalidated">
       <title><em>StackOverflow</em> &amp; <em>CrossValidated</em></title>
 
       <p>
@@ -290,19 +288,19 @@
       <p>
         StackOverflow, by the way, is primarily for questions on programming. If your question also has a statistics background, you can use <url href="https://stats.stackexchange.com/">CrossValidated</url> instead. CrossValidated works like StackOverflow, but is primarily used by statistics and machine learning experts.
       </p>
-    </subsection>
+    </paragraphs>
 
-    <subsection xml:id="contact-us">
+    <paragraphs xml:id="contact-us">
       <title>Contact Us</title>
 
       <p>
         If you have the feeling that your problem has something to do with this guide itself, you can also contact us. This particularly pertains to issues with the companion <em>R</em> package for this guide, <alert>{dmetar}</alert>. If you have trouble installing the package, or using some if its functions, you can go to our <url href="https://www.protectlab.org/meta-analysis-in-r">website</url>, where you can find ways to report your issue. When certain problems come up frequently, we usually try to have a look at them and search for fixes. Known issues will also be displayed in the Corrections &amp; Remarks section in the online version of the guide (see <alert>Work Flow</alert> section). Please do not be disappointed if we do not answer your question personally, or if takes long until we get back to you. We receive many questions related to meta-analysis and our package every day, so it is sometimes not possible to directly answer each and every one.
       </p>
-    </subsection>
+    </paragraphs>
 
-  </section>
+  </paragraphs>
 
-  <section xml:id="acknowledgments">
+  <paragraphs xml:id="acknowledgments">
     <title>Acknowledgments</title>
 
     <p>
@@ -326,6 +324,6 @@
     <p>
       Mathias, Pim, Toshi &amp; David
     </p>
-  </section>
+  </paragraphs>
 
 </preface>

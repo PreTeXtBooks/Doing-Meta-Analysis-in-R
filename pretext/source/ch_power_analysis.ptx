@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<chapter xml:id="ch-power-analysis" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="power" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Power Analysis</title>
 
   <introduction>
@@ -103,7 +103,7 @@
       Where <m>n_1</m> and <m>n_2</m> stand for the sample sizes in group 1 and group 2 of a study, where <m>\theta</m> is the assumed effect size (expressed as a standardized mean difference), and <m>K</m> is the total number of studies in our meta-analysis. Importantly, as a simplification, this formula assumes that the sample sizes in both groups are identical across all included studies.
     </p>
     <p>
-      The formula is very similar to the one used to calculate the standard error of a standardized mean difference, with one exception. We now divide the the standard error by <m>K</m>. This means that the standard error of our pooled effect is reduced by factor <m>K</m>, representing the total number of studies in our meta-analysis. Put differently, when assuming a fixed-effect model, pooling the studies leads to a <m>K</m>-fold increase in the precision of our overall effect<fn>Note that this statement is, of course, only correct because we are using the simplified formula in equation <xref ref="eq:pow3"/>.</fn>. 
+      The formula is very similar to the one used to calculate the standard error of a standardized mean difference, with one exception. We now divide the the standard error by <m>K</m>. This means that the standard error of our pooled effect is reduced by factor <m>K</m>, representing the total number of studies in our meta-analysis. Put differently, when assuming a fixed-effect model, pooling the studies leads to a <m>K</m>-fold increase in the precision of our overall effect<fn>Note that this statement is, of course, only correct because we are using the simplified formula in equation <xref provisional="eq:pow3"/>.</fn>. 
     </p>
     <p>
       After we defined <m>\theta</m> and calculated <m>\sigma_{\theta}</m>, we end up with a value of <m>z</m>. This <m>z</m> score can be used to obtain the power of our meta-analysis, given a number of studies <m>K</m> with group sizes <m>n_1</m> and <m>n_2</m>:
@@ -121,7 +121,7 @@
       We can now use these formulas to calculate the power of a fixed-effect meta-analysis. Imagine that we expect <m>K=</m> 10 studies, each with approximately 25 participants in both groups. We want to be able to detect an effect of SMD = 0.2. What power does such a meta-analysis have?
     </p>
     <program language="r">
-      <input>
+      <code>
 # Define assumptions
 theta &lt;- 0.2
 K &lt;- 10
@@ -136,7 +136,7 @@ z = theta/sigma
 
 # Calculate the power
 1 - pnorm(1.96-z) + pnorm(-1.96-z)
-      </input>
+      </code>
     </program>
     <p>
       We see that, with 60.6%, such a meta-analysis would be <alert>underpowered</alert>, even though 10 studies were included. A more convenient way to calculate the power of a (fixed-effect) meta-analysis is to use the <c>power.analysis</c> function.
@@ -208,14 +208,14 @@ z = theta/sigma
       Let us try out this function, using the same input as in the example from before.
     </p>
     <program language="r">
-      <input>
+      <code>
 library(dmetar)
 power.analysis(d = 0.2, 
                k = 10, 
                n1 = 25, 
                n2 = 25, 
                p = 0.05)
-      </input>
+      </code>
     </program>
   </section>
 
@@ -256,26 +256,26 @@ power.analysis(d = 0.2,
       The <c>power.analysis</c> function can also be used for random-effects meta-analyses. The amount of assumed between-study heterogeneity can be controlled using the <c>heterogeneity</c> argument. Possible values are <c>"low"</c>, <c>"moderate"</c> and <c>"high"</c>. Using the same values as in the previous example, let us now calculate the expected power when the between-study heterogeneity is moderate. 
     </p>
     <program language="r">
-      <input>
+      <code>
 power.analysis(d = 0.2, 
                k = 10, 
                n1 = 25, 
                n2 = 25, 
                p = 0.05,
                heterogeneity = "moderate")
-      </input>
+      </code>
     </program>
     <program language="r">
-      <input>
+      <code>
 ## Random-effects model used (moderate heterogeneity assumed). 
 ## Power: 40.76%
-      </input>
+      </code>
     </program>
     <p>
       We see that the estimated power is 40.76%. This is lower than the normative 80% threshold. It is also lower than the 60.66% we obtain we assuming a fixed-effect model. This is because between-study heterogeneity decreases the precision of our pooled effect estimate, resulting in a drop in statistical power. 
     </p>
     <p>
-      Figure <xref ref="fig:power"/> visualizes the effect of the true effect size, number of studies, and amount of between-study heterogeneity on the power of a meta-analysis.<fn>If you want to quickly check the power of a meta-analysis under varying assumptions, you can also use a <alert>power calculator tool</alert> developed for this purpose. The tool is based on the same <em>R</em> function that we cover in this chapter. It can be found online: https://mathiasharrer.shinyapps.io/power<em>calculator</em>meta_analysis/.</fn> 
+      Figure <xref provisional="fig:power"/> visualizes the effect of the true effect size, number of studies, and amount of between-study heterogeneity on the power of a meta-analysis.<fn>If you want to quickly check the power of a meta-analysis under varying assumptions, you can also use a <alert>power calculator tool</alert> developed for this purpose. The tool is based on the same <em>R</em> function that we cover in this chapter. It can be found online: https://mathiasharrer.shinyapps.io/power<em>calculator</em>meta_analysis/.</fn> 
     </p>
   </section>
 
@@ -317,10 +317,10 @@ power.analysis(d = 0.2,
       Let us assume that we expect the first group to show an effect of SMD = 0.3 with a standard error of 0.13, while the second group has an effect of SMD = 0.66, and a standard error of 0.14. We can use these assumptions as input to our call to the function:
     </p>
     <program language="r">
-      <input>
+      <code>
 power.analysis.subgroup(TE1 = 0.30, TE2 = 0.66, 
                         seTE1 = 0.13, seTE2 = 0.14)
-      </input>
+      </code>
     </program>
     <p>
       In the output, we can see that the power of our imaginary subgroup test (47%) would not be sufficient. The output also tells us that, all else being equal, the effect size difference needs to be at least 0.54 in order to reach sufficient power.

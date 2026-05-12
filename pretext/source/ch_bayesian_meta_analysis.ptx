@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<chapter xml:id="ch-bayesian-meta-analysis" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="bayesian-ma" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Bayesian Meta-Analysis</title>
 
   <introduction>
@@ -136,10 +136,10 @@
       <idx><h>extraDistr Package</h></idx>
     </p>
     <program language="r">
-      <input>
+      <code>
 library(extraDistr)
 phcauchy(0.3, sigma = 0.3)
-      </input>
+      </code>
     </program>
     <p>
       However, this is already a quite specific assumption concerning the true value of <m>\tau</m>. A more conservative approach, which we will follow in our hands-on example, is to set <m>s</m> to 0.5; this makes the distribution flatter. In general, it is advised to always conduct sensitivity analyses with different prior specifications to check if they affect the results substantially. Using <m>s=</m> 0.5 as our parameter of the Half-Cauchy distribution, we can write down our <m>\tau</m> prior like this:
@@ -168,9 +168,9 @@ phcauchy(0.3, sigma = 0.3)
       Before we start fitting the model, we first have to install and load the <alert>{brms}</alert> package.
     </p>
     <program language="r">
-      <input>
+      <code>
 library(brms)
-      </input>
+      </code>
     </program>
     <subsection xml:id="fitting-the-model">
       <title>Fitting the Model</title>
@@ -182,10 +182,10 @@ library(brms)
         We can use the <c>prior</c> function to specify the distributions. The function takes two arguments. In the first argument, we specify the distribution we want to assume for our prior, including the distribution parameters. In the second argument, we have to define the <c>class</c> of the prior. For <m>\mu</m>, the appropriate class is <c>Intercept</c>, since it is a fixed population-level effect. For <m>\tau</m>, the class is <c>sd</c>, because it is a variance (or, to be more precise, a <alert>standard deviation</alert>). We can define both priors using the <c>prior</c> function, then concatenate them, and save the resulting object as <c>priors</c>. 
       </p>
       <program language="r">
-        <input>
+        <code>
 priors &lt;- c(prior(normal(0,1), class = Intercept),
             prior(cauchy(0,0.5), class = sd))
-        </input>
+        </code>
       </program>
       <p>
         Now, we can proceed and fit the model. To do this, we use the <c>brm</c> function in <alert>{brms}</alert>. The function has many arguments, but only a few are relevant for us.
@@ -206,12 +206,12 @@ priors &lt;- c(prior(normal(0,1), class = Intercept),
         We save our fitted Bayesian meta-analysis model under the name <c>m.brm</c>. The code looks like this:
       </p>
       <program language="r">
-        <input>
+        <code>
 m.brm &lt;- brm(TE|se(seTE) ~ 1 + (1|Author),
              data = ThirdWave,
              prior = priors,
              iter = 4000)
-        </input>
+        </code>
       </program>
       <p>
         Please be aware that Bayesian methods are much more computationally expensive compared to standard meta-analytic techniques we covered before. It may therefore take a few minutes until the sampling is completed.
@@ -231,12 +231,12 @@ m.brm &lt;- brm(TE|se(seTE) ~ 1 + (1|Author),
         The <m>\hat{R}</m> value represents the <alert>Potential Scale Reduction Factor</alert> (PSRF) we already covered when discussing Bayesian network meta-analysis (Chapter <xref ref="bayesian-model-convergence"/>). The <m>\hat{R}</m> value of our estimates should be smaller than 1.01. To check this, we can produce a <c>summary</c> of our <c>m.brm</c> object.
       </p>
       <program language="r">
-        <input>
+        <code>
 summary(m.brm)
-        </input>
+        </code>
       </program>
       <program language="r">
-        <input>
+        <code>
 ## Family: gaussian 
 ##   Links: mu = identity; sigma = identity 
 ## Formula: TE | se(seTE) ~ 1 + (1 | Author) 
@@ -260,7 +260,7 @@ summary(m.brm)
 ## Bulk_ESS and Tail_ESS are effective sample size measures, 
 ## and Rhat is the potential scale reduction factor on split 
 ## chains (at convergence, Rhat = 1).
-        </input>
+        </code>
       </program>
       <p>
         As we can see, the <c>Rhat</c> value for both parameters is 1, signifying convergence. This means that the results can be interpreted.
@@ -269,9 +269,9 @@ summary(m.brm)
         In a posterior predictive check, on the other hand, data are simulated through random draws from the posterior predictive distribution and then compared to the observed data. If a model has converged and captures the data well, we can expect that the densities of the replications are roughly similar to the one of the observed data. This can easily be checked using the output of the <c>pp_check</c> function.
       </p>
       <program language="r">
-        <input>
+        <code>
 pp_check(m.brm)
-        </input>
+        </code>
       </program>
       <p>
         <idx><h>Potential Scale Reduction Factor</h></idx>
@@ -288,12 +288,12 @@ pp_check(m.brm)
         The estimate of the between-study heterogeneity, <c>sd(Intercept)</c>, is <m>\tau=</m> 0.29, thus closely resembling our initial "best guess" when setting the priors. Using the <c>ranef</c> function, we can also extract the estimated deviation of each study's "true" effect size from the pooled effect:
       </p>
       <program language="r">
-        <input>
+        <code>
 ranef(m.brm)
-        </input>
+        </code>
       </program>
       <program language="r">
-        <input>
+        <code>
 ## $Author
 ## , , Intercept
 ##                           Estimate Est.Error         Q2.5       Q97.5
@@ -303,7 +303,7 @@ ranef(m.brm)
 ## de Vibe et al.         -0.31923470 0.1454819 -0.612269461 -0.03795683
 ## Frazier et al.         -0.11388029 0.1497128 -0.417029387  0.17085917
 ## [...]
-        </input>
+        </code>
       </program>
       <p>
         The next part of the output we can interpret are the <c>Population-Level Effects</c>. This section represents the "fixed" population parameters we modeled. In our case, this is <m>\mu</m>, the overall effect size of our meta-analysis.
@@ -318,23 +318,23 @@ ranef(m.brm)
         Because this is a Bayesian model, we do not find any <m>p</m>-values here. But our example should underline that we can also make reasonable inferences without having to resort to classical significance testing. A great thing we can do in Bayesian, but not in frequentist meta-analysis, is to model the parameters we want to estimate <alert>probabilistically</alert>. The Bayesian model not only estimates the parameters of interest but a whole posterior distribution for <m>\tau^2</m> and <m>\mu</m>, which we can access quite easily. We only have to use the <c>posterior_samples</c> function.
       </p>
       <program language="r">
-        <input>
+        <code>
 post.samples &lt;- posterior_samples(m.brm, c("^b", "^sd"))
 names(post.samples)
-        </input>
+        </code>
       </program>
       <program language="r">
-        <input>
+        <code>
 ## [1] "b_Intercept"          "sd_Author__Intercept"
-        </input>
+        </code>
       </program>
       <p>
         The resulting data frame contains two columns: <c>b_Intercept</c>, the posterior sample data for the pooled effect size, and <c>sd_Author_Intercept</c>, the one for the between-study heterogeneity <m>\tau</m>. We rename the columns <c>smd</c> and <c>tau</c> to make the name more informative.
       </p>
       <program language="r">
-        <input>
+        <code>
 names(post.samples) &lt;- c("smd", "tau")
-        </input>
+        </code>
       </program>
       <p>
         <idx><h>Posterior Distribution</h></idx>
@@ -343,7 +343,7 @@ names(post.samples) &lt;- c("smd", "tau")
         Using the data in <c>post.samples</c>, we can now generate a <alert>density plot</alert> of the posterior distributions. We use the <alert>{ggplot2}</alert> package for plotting.
       </p>
       <program language="r">
-        <input>
+        <code>
 ggplot(aes(x = smd), data = post.samples) +
   geom_density(fill = "lightblue",                # set the color
                color = "lightblue", alpha = 0.7) +  
@@ -361,7 +361,7 @@ ggplot(aes(x = tau), data = post.samples) +
     labs(x = expression(tau),
        y = element_blank()) +
   theme_minimal()
-        </input>
+        </code>
       </program>
       <p>
         We see that the posterior distributions follow a unimodal, and roughly normal distribution, peaking around the estimated values for <m>\mu</m> and <m>\tau</m>. 
@@ -379,15 +379,15 @@ ggplot(aes(x = tau), data = post.samples) +
         We can use the <c>ecdf</c> function to define an ECDF in <em>R</em>, and then check the probability of our pooled effect being smaller than 0.30. The code looks like this:
       </p>
       <program language="r">
-        <input>
+        <code>
 smd.ecdf &lt;- ecdf(post.samples$smd)
 smd.ecdf(0.3)
-        </input>
+        </code>
       </program>
       <program language="r">
-        <input>
+        <code>
 ## [1] 0.002125
-        </input>
+        </code>
       </program>
       <p>
         We see that with 0.21%, the probability of our pooled effect being smaller than 0.30 is very, very low. Assuming the cut-off is valid, this would mean that the overall effect of the intervention we find in this meta-analysis is very likely to be meaningful.
@@ -407,7 +407,7 @@ smd.ecdf(0.3)
         Unfortunately, there is currently no maintained package to directly create forest plots from <alert>{brms}</alert> models. But it is possible to build them oneself using functions of the <alert>{tidybayes}</alert> package . So, let us first load this package along with a few other ones before we proceed.
       </p>
       <program language="r">
-        <input>
+        <code>
 library(tidybayes)
 library(dplyr)
 library(ggplot2)
@@ -415,7 +415,7 @@ library(ggridges)
 library(glue)
 library(stringr)
 library(forcats)
-        </input>
+        </code>
       </program>
       <p>
         Before we can generate the plot, we have to prepare the data. In particular, we need to extract the posterior distribution for <alert>each study individually</alert> (since forest plots also depict the specific effect size of each study). To achieve this, we can use the <c>spread_draws</c> function in the <alert>{tidybayes}</alert> package. The function needs three arguments as input: our fitted <alert>{brms}</alert> model, the random-effects factor by which the results should be indexed, and the parameter we want to extract (here <c>b_Intercept</c>, since we want to extract the fixed term: the effect size). 
@@ -424,46 +424,46 @@ library(forcats)
         Using the pipe operator, we can directly manipulate the output. Using the <c>mutate</c> function in <alert>{dplyr}</alert>, we calculate the actual effect size of each study by adding the pooled effect size <c>b_Intercept</c> to the estimated deviation of each study. We save the result as <c>study.draws</c>.
       </p>
       <program language="r">
-        <input>
+        <code>
 study.draws &lt;- spread_draws(m.brm, r_Author[Author,], b_Intercept) %&gt;% 
   mutate(b_Intercept = r_Author + b_Intercept)
-        </input>
+        </code>
       </program>
       <p>
         Next, we want to generate the distribution of the pooled effect in a similar way (since in forest plots, the summary effect is usually displayed in the last row). We therefore slightly adapt the code from before, dropping the second argument to only get the pooled effect. The call to <c>mutate</c> only adds an extra column called <c>"Author"</c>. We save the result as <c>pooled.effect.draws</c>.
       </p>
       <program language="r">
-        <input>
+        <code>
 pooled.effect.draws &lt;- spread_draws(m.brm, b_Intercept) %&gt;% 
   mutate(Author = "Pooled Effect")
-        </input>
+        </code>
       </program>
       <p>
         Next, we bind <c>study.draws</c> and <c>pooled.effect.draws</c> together in one data frame. We then start a pipe again, calling <c>ungroup</c> first, and then use <c>mutate</c> to (1) clean the study labels (i.e. replace dots with spaces), and (2) reorder the study factor levels by effect size (high to low). The result is the data we need for plotting, which we save as <c>forest.data</c>.
       </p>
       <program language="r">
-        <input>
+        <code>
 forest.data &lt;- bind_rows(study.draws, 
                          pooled.effect.draws) %&gt;% 
    ungroup() %&gt;%
    mutate(Author = str_replace_all(Author, "[.]", " ")) %&gt;% 
    mutate(Author = reorder(Author, b_Intercept))
-        </input>
+        </code>
       </program>
       <p>
         Lastly, the forest plot should also display the effect size (SMD and credible interval) of each study. To do this, we use our newly generated <c>forest.data</c> data set, group it by <c>Author</c>, and then use the <c>mean_qi</c> function to calculate these values. We save the output as <c>forest.data.summary</c>.
       </p>
       <program language="r">
-        <input>
+        <code>
 forest.data.summary &lt;- group_by(forest.data, Author) %&gt;% 
   mean_qi(b_Intercept)
-        </input>
+        </code>
       </program>
       <p>
         We are now ready to generate the forest plot using the <alert>{ggplot2}</alert> package. The code to generate the plot looks like this:
       </p>
       <program language="r">
-        <input>
+        <code>
 ggplot(aes(b_Intercept, 
            relevel(Author, "Pooled Effect", 
                    after = Inf)), 
@@ -493,7 +493,7 @@ ggplot(aes(b_Intercept,
   labs(x = "Standardized Mean Difference", # summary measure
        y = element_blank()) +
   theme_minimal()
-        </input>
+        </code>
       </program>
       <note>
         <p>
@@ -516,7 +516,7 @@ ggplot(aes(b_Intercept,
 
   </section>
 
-  <section xml:id="questions-answers">
+  <section xml:id="bayesian-ma-questions-answers">
     <title>Questions &amp; Answers</title>
 
     <note>
@@ -556,7 +556,7 @@ ggplot(aes(b_Intercept,
     </note>
   </section>
 
-  <section xml:id="summary">
+  <section xml:id="bayesian-ma-summary">
     <title>Summary</title>
 
     <ul>

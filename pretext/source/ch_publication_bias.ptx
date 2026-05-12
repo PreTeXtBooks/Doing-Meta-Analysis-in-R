@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<chapter xml:id="ch-publication-bias" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="pub-bias" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Publication Bias</title>
 
   <introduction>
@@ -130,7 +130,7 @@
     <ul>
       <li>
         <p>
-          <alert>Study search</alert>. In Chapter <xref ref="study-search"/>, we discussed the process of searching for eligible studies. If publication bias exists, this step is of great import, because it means that that a search of the published literature may yield data that is not fully representative of all the evidence. We can counteract this by also searching for <alert>grey literature</alert>, which includes dissertations, preprints, government reports, or conference proceedings. Fortunately, pre-registration is also becoming more common in many disciplines. This makes it possible to search study registries such as the ICTRP or <alert>OSF Registries</alert> (see Table <xref ref="tab:bibdatabases"/> in Chapter <xref ref="study-search"/>) for studies with unpublished data, and ask the authors if they can provide us with data that has not been made public (yet)<fn>Mahmood and colleagues  provide a detailed account of how a comprehensive grey literature search can be conducted, and what challenges this may entail. The article can be openly accessed online.</fn>. Grey literature search can be tedious and frustrating, but it is worth the effort. One large study has found that the inclusion of grey and unpublished literature can help to avoid an overestimation of the true effects .
+          <alert>Study search</alert>. In Chapter <xref ref="study-search"/>, we discussed the process of searching for eligible studies. If publication bias exists, this step is of great import, because it means that that a search of the published literature may yield data that is not fully representative of all the evidence. We can counteract this by also searching for <alert>grey literature</alert>, which includes dissertations, preprints, government reports, or conference proceedings. Fortunately, pre-registration is also becoming more common in many disciplines. This makes it possible to search study registries such as the ICTRP or <alert>OSF Registries</alert> (see Table <xref provisional="tab:bibdatabases"/> in Chapter <xref ref="study-search"/>) for studies with unpublished data, and ask the authors if they can provide us with data that has not been made public (yet)<fn>Mahmood and colleagues  provide a detailed account of how a comprehensive grey literature search can be conducted, and what challenges this may entail. The article can be openly accessed online.</fn>. Grey literature search can be tedious and frustrating, but it is worth the effort. One large study has found that the inclusion of grey and unpublished literature can help to avoid an overestimation of the true effects .
         </p>
       </li>
       <li>
@@ -196,7 +196,7 @@
           When there is no publication bias, the data points in such a plot should form a roughly symmetrical, upside-down funnel. This is why they are called funnel plots. Studies in the top part of the plot (those with low standard errors), should lie closely together, and not far away from the pooled effect size. In the lower part of the plot, with increasing standard errors, the funnel "opens up", and effect sizes are expected to scatter more heavily to the left and right of the pooled effect. 
         </p>
         <p>
-          It becomes easier to see why studies should form a funnel when we think back to what we learned about the behavior of effect sizes in Chapter <xref ref="what-is-es"/>, and when discussing the fixed-effect model in Chapter <xref ref="fem"/> (Figure <xref ref="fig:funnel1"/>). The standard error is indicative of a study's <alert>precision</alert>: with decreasing standard error, we expect the observed effect size to become an increasingly good estimator of the true effect size. When the standard error is high, the effect size has a low precision and is therefore much more likely to be far off from the actual effect in the population.
+          It becomes easier to see why studies should form a funnel when we think back to what we learned about the behavior of effect sizes in Chapter <xref ref="what-is-es"/>, and when discussing the fixed-effect model in Chapter <xref ref="fem"/> (Figure <xref provisional="fig:funnel1"/>). The standard error is indicative of a study's <alert>precision</alert>: with decreasing standard error, we expect the observed effect size to become an increasingly good estimator of the true effect size. When the standard error is high, the effect size has a low precision and is therefore much more likely to be far off from the actual effect in the population.
         </p>
         <p>
           We will now make this more concrete by generating a funnel plot ourselves. In the <alert>{meta}</alert> package, the <c>meta::funnel</c><fn>In this chapter we always append <c>meta::</c> when calling the <c>funnel</c> function. This is not strictly necessary, but in practice may sometimes help to avoid error messages (and related confusion), since there is a another <c>funnel</c> function in the <c>metafor</c> package, which we do not cover here.</fn> function can be used to print a funnel plot for a meta-analysis object. Here, we produce a funnel plot for our <c>m.gen</c> meta-analysis object. We specify two further arguments, <c>xlim</c> and <c>studlab</c>. The first controls the limits of the x-axis in the plot, while the latter tells the function to include study labels. A call to the <c>title</c> function after running <c>meta::funnel</c> adds a title to the plot. 
@@ -205,7 +205,7 @@
           Our code looks like this:
         </p>
         <program language="r">
-          <input>
+          <code>
 # Load 'meta' package
 library(meta)
 
@@ -216,7 +216,7 @@ meta::funnel(m.gen,
 
 # Add title
 title("Funnel Plot (Third Wave Psychotherapies)")
-          </input>
+          </code>
         </program>
         <p>
           As discussed, the resulting funnel plot shows the effect size of each study (expressed as the standardized mean difference) on the x-axis, and the standard error (from large to small) on the y-axis. To facilitate the interpretation, the plot also includes the idealized funnel-shape that we expect our studies to follow. The vertical line in the middle of the funnel shows the average effect size. Because we used a random-effects model when generating <c>m.gen</c>, the funnel plot also uses the random-effects estimate.
@@ -237,7 +237,7 @@ title("Funnel Plot (Third Wave Psychotherapies)")
           This results in the following code: 
         </p>
         <program language="r">
-          <input>
+          <code>
 # Define fill colors for contour
 col.contour = c("gray75", "gray85", "gray95")
 
@@ -253,7 +253,7 @@ legend(x = 1.6, y = 0.01,
 
 # Add a title
 title("Contour-Enhanced Funnel Plot (Third Wave Psychotherapies)")
-          </input>
+          </code>
         </program>
         <p>
           We see that the funnel plot now contains three shaded regions. We are particularly interested in the <m>p&lt;</m> 0.05 and <m>p&lt;</m> 0.01 regions, because effect sizes falling into this area are traditionally considered significant. 
@@ -342,7 +342,7 @@ title("Contour-Enhanced Funnel Plot (Third Wave Psychotherapies)")
           Let us see what results we get when we fit such a regression model to the data in <c>m.gen</c>. Using <em>R</em>, we can extract the original data in <c>m.gen</c> to calculate the response <c>y</c> and our predictor <c>x</c>. In the code below, we do this using a pipe (Chapter <xref ref="data-transform"/>) and the <c>mutate</c> function, which is part of the <alert>{tidyverse}</alert>. After that, we use the <alert>l</alert>inear <alert>m</alert>odel function <c>lm</c> to regress the <m>z</m> scores <c>y</c> on the precision <c>x</c>. In the last part of the pipe, we request a <c>summary</c> of the results.
         </p>
         <program language="r">
-          <input>
+          <code>
 # Load required package
 library(tidyverse)
 
@@ -350,10 +350,10 @@ m.gen$data %&gt;%
   mutate(y = TE/seTE, x = 1/seTE) %&gt;% 
   lm(y ~ x, data = .) %&gt;% 
   summary()
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## [...]
 ## 
 ## Coefficients:
@@ -364,7 +364,7 @@ m.gen$data %&gt;%
 ## Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 ## 
 ## [...]
-          </input>
+          </code>
         </program>
         <p>
           In the results, we see that the intercept of our regression model is <m>\hat\beta_0</m> = 4.11. This is significantly larger than zero (<m>t</m> = 4.677, <m>p&lt;</m> 0.001), and indicates that the data in the funnel plot is indeed asymmetrical. Overall, this corroborates our initial findings that there are small-study effects. Yet, to reiterate, it is uncertain if this pattern has been caused by publication bias.
@@ -373,9 +373,9 @@ m.gen$data %&gt;%
           A more convenient way to perform Egger's test of the intercept is to use the <c>metabias</c> function in <alert>{meta}</alert>. This function only needs the meta-analysis object as input, and we have to set the <c>method.bias</c> argument to <c>"linreg"</c>. If we apply the function to <c>m.gen</c>, we get the same results as before.
         </p>
         <program language="r">
-          <input>
+          <code>
 metabias(m.gen, method.bias = "linreg")
-          </input>
+          </code>
         </program>
         <note>
           <p>
@@ -410,7 +410,7 @@ metabias(m.gen, method.bias = "linreg")
           Where <m>SE^*_{\text{SMD}_{\text{between}}}</m> is the modified version of the standard error. It might be a good idea to check if Egger's test gives the same results when using this improvement. In the following code, we add the sample size per group of each study to our initial data set, calculate the adapted standard error, and then use it to re-run the analyses. 
         </p>
         <program language="r">
-          <input>
+          <code>
 # Add experimental (n1) and control group (n2) sample size
 n1 &lt;- c(62, 72, 44, 135, 103, 71, 69, 68, 95, 
         43, 79, 61, 62, 60, 43, 42, 64, 63)
@@ -430,7 +430,7 @@ m.gen.c &lt;- metagen(TE = TE, seTE = seTE_c,
 
 # Egger's test
 metabias(m.gen.c, method = "linreg")
-          </input>
+          </code>
         </program>
         <p>
           We see that, although the exact values differ, the interpretation of the results remains the same. This points to the robustness of our previous finding.
@@ -452,10 +452,10 @@ metabias(m.gen.c, method = "linreg")
             <c>metabias(m.gen, method.bias = "Pustejovsky")</c>
           </p>
           <p>
-            Please note that <c>metabias</c>, under these settings, uses equation <xref ref="eq:pub5"/> to perform Egger's test, which is equivalent to equation <xref ref="eq:pub1"/> shown before. The main difference is that <c>metabias</c> uses the corrected standard error as the predictor in the model, and the inverse variance of included effect sizes as weights. 
+            Please note that <c>metabias</c>, under these settings, uses equation <xref provisional="eq:pub5"/> to perform Egger's test, which is equivalent to equation <xref provisional="eq:pub1"/> shown before. The main difference is that <c>metabias</c> uses the corrected standard error as the predictor in the model, and the inverse variance of included effect sizes as weights. 
           </p>
           <p>
-            In our example, however, we used the corrected standard error on both sides of equation <xref ref="eq:pub1"/>. This means that results of our approach as shown above, and results obtained via setting <c>method.bias</c> to <c>"Pustejovsky"</c>, will not be completely identical.
+            In our example, however, we used the corrected standard error on both sides of equation <xref provisional="eq:pub1"/>. This means that results of our approach as shown above, and results obtained via setting <c>method.bias</c> to <c>"Pustejovsky"</c>, will not be completely identical.
           </p>
         </note>
       </subsubsection>
@@ -497,9 +497,9 @@ metabias(m.gen.c, method = "linreg")
           As you might remember, we used the risk ratio as the summary measure for this meta-analysis.
         </p>
         <program language="r">
-          <input>
+          <code>
 metabias(m.bin, method.bias = "peters")
-          </input>
+          </code>
         </program>
         <p>
           We see that the structure of the output looks identical to the one of Eggers' test. The output tells us that the results are the ones of a regression test <c>based on sample size</c>, meaning that Peters' method has been used. The test is not significant (<m>t</m> = -0.08, <m>p</m> = 0.94), indicating no funnel plot asymmetry.
@@ -554,9 +554,9 @@ metabias(m.bin, method.bias = "peters")
           We can apply the trim and fill algorithm to our data using the <c>trimfill</c> function in <alert>{meta}</alert>. The function has very sensible defaults, so it is sufficient to simply provide it with our meta-analysis object. In our example, we use our <c>m.gen</c> object again. However, before we start, let us first check the amount of <m>I^2</m> heterogeneity we observed in this meta-analysis.
         </p>
         <program language="r">
-          <input>
+          <code>
 m.gen$I2
-          </input>
+          </code>
         </program>
         <p>
           We see that, with <m>I^2</m> = 63%, the heterogeneity in our analysis is substantial. In light of the trim and fill method's limitations in heterogeneous data sets, this could prove problematic. 
@@ -565,25 +565,25 @@ m.gen$I2
           We will therefore conduct two trim and fill analyses: one with all studies, and a sensitivity analysis in which we exclude two outliers identified in chapter <xref ref="outliers"/> (i.e. study 3 and 16). We save the results to <c>tf</c> and <c>tf.no.out</c>.
         </p>
         <program language="r">
-          <input>
+          <code>
 # Using all studies
 tf &lt;- trimfill(m.gen)
 
 # Analyze with outliers removed
 tf.no.out &lt;- trimfill(update(m.gen, 
                              subset = -c(3, 16)))
-          </input>
+          </code>
         </program>
         <p>
           First, let us have a look at the first analysis, which includes all studies.
         </p>
         <program language="r">
-          <input>
+          <code>
 summary(tf)
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## Review:     Third Wave Psychotherapies
 ##                              SMD             95%-CI %W(random)
 ## [...]
@@ -613,7 +613,7 @@ summary(tf)
 ## - Q-profile method for confidence interval of tau^2 and tau
 ## - Hartung-Knapp adjustment for random effects model
 ## - Trim-and-fill method to adjust for funnel plot asymmetry
-          </input>
+          </code>
         </program>
         <p>
           We see that the trim and fill procedure added a total of eight studies. Trimmed and filled studies include our detected outliers, but also a few other smaller studies with relatively high effects. We see that the imputed effect sizes are all very low, and some are even highly negative. The output also provides us with the estimate of the corrected effect, which is <m>g=</m> 0.34. This is still significant, but much lower than the effect of <m>g=</m> 0.58 we initially calculated for <c>m.gen</c>. 
@@ -622,12 +622,12 @@ summary(tf)
           Now, let us compare this to the results of the analysis in which outliers were removed.
         </p>
         <program language="r">
-          <input>
+          <code>
 summary(tf.no.out)
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## Review:     Third Wave Psychotherapies
 ## [...]     
 ## 
@@ -640,7 +640,7 @@ summary(tf.no.out)
 ##  tau^2 = 0.0421 [0.0116; 0.2181]; tau = 0.2053 [0.1079; 0.4671];
 ##  I^2 = 50.5% [19.1%; 69.7%]; H = 1.42 [1.11; 1.82]
 ## [...]
-          </input>
+          </code>
         </program>
         <p>
           With <m>g=</m> 0.34, the results are nearly identical. Overall, the trim and fill method indicates that the pooled effect of <m>g=</m> 0.58 in our meta-analysis is overestimated due to small-study effects. In reality, the effect may be considerably smaller. It is likely that this overestimation has been caused by publication bias, but this is not certain. Other explanations are possible too, and this could mean that the trim and fill estimate is invalid.
@@ -649,7 +649,7 @@ summary(tf.no.out)
           Lastly, it is also possible to create a funnel plot including the imputed studies. We only have to apply the <c>meta::funnel</c> function to the output of <c>trimfill</c>. In the following code, we create contour-enhanced funnel plots for both trim and fill analyses (with and without outliers). Using the <c>par</c> function, we can print both plots side by side.
         </p>
         <program language="r">
-          <input>
+          <code>
 
 # Define fill colors for contour
 contour &lt;- c(0.9, 0.95, 0.99)
@@ -674,7 +674,7 @@ meta::funnel(tf.no.out,
 legend(x = 1.1, y = 0.01, 
        legend = ld, fill = col.contour)
 title("Funnel Plot (Trim &amp; Fill Method) - Outliers Removed")
-          </input>
+          </code>
         </program>
         <p>
           In these funnel plots, the imputed studies are represented by circles that have no fill color.
@@ -748,10 +748,10 @@ title("Funnel Plot (Trim &amp; Fill Method) - Outliers Removed")
           There is currently no straightforward implementation of PET-PEESE in <alert>{meta}</alert>, so we write our own code using the linear model function <c>lm</c>. Before we can fit the PET and PEESE model, however, we first have to prepare all the variables we need in our data frame. We will call this data frame <c>dat.petpeese</c>. The most important variable, of course, is the standardized mean difference. No matter if we initially ran our meta-analysis using <c>metacont</c> or <c>metagen</c>, the calculated SMDs of each study will always be stored under <c>TE</c> in our meta-analysis object.
         </p>
         <program language="r">
-          <input>
+          <code>
 # Build data set, starting with the effect size
 dat.petpeese &lt;- data.frame(TE = m.gen$TE)
-          </input>
+          </code>
         </program>
         <p>
           <idx><h>Standardized Mean Difference</h></idx>
@@ -763,7 +763,7 @@ dat.petpeese &lt;- data.frame(TE = m.gen$TE)
           Therefore, we use the adapted formula to calculate the corrected standard error <c>seTE_c</c>, so that it is not correlated with the effect size itself. We also save this variable to <c>dat.petpeese</c>. Furthermore, we add a variable <c>seTE_c2</c>, containing the <alert>squared</alert> standard error, since we need this as the predictor for PEESE.
         </p>
         <program language="r">
-          <input>
+          <code>
 # Experimental (n1) and control group (n2) sample size
 n1 &lt;- c(62, 72, 44, 135, 103, 71, 69, 68, 95, 
         43, 79, 61, 62, 60, 43, 42, 64, 63)
@@ -776,21 +776,21 @@ dat.petpeese$seTE_c &lt;- sqrt((n1+n2)/(n1*n2))
 
 # Add squared modified SE (= variance)
 dat.petpeese$seTE_c2 &lt;- dat.petpeese$seTE_c^2
-          </input>
+          </code>
         </program>
         <p>
           Lastly, we need to calculate the inverse-variance weights <c>w_k</c> for each study. Here, we also use the squared modified standard error to get an estimate of the variance.
         </p>
         <program language="r">
-          <input>
+          <code>
 dat.petpeese$w_k &lt;- 1/dat.petpeese$seTE_c^2
-          </input>
+          </code>
         </program>
         <p>
           Now, <c>dat.petpeese</c> contains all the variables we need to fit a weighted linear regression model for PET and PEESE. In the following code, we fit both models, and then directly print the estimated coefficients using the <c>summary</c> function. These are the results we get:
         </p>
         <program language="r">
-          <input>
+          <code>
 # PET
 pet &lt;- lm(TE ~ seTE_c, weights = w_k, data = dat.petpeese)
 summary(pet)$coefficients
@@ -798,7 +798,7 @@ summary(pet)$coefficients
 # PEESE
 peese &lt;- lm(TE ~ seTE_c2, weights = w_k, data = dat.petpeese)
 summary(peese)$coefficients
-          </input>
+          </code>
         </program>
         <p>
           To determine if PET or PEESE should be used, we first need to have a look at the results of the PET method. We see that the limit estimate is <m>g</m> = -1.35. This effect is significant (<m>p</m> &lt; 0.10), but considerably smaller than zero, indicating that the PET estimate should be used. 
@@ -900,16 +900,16 @@ summary(peese)$coefficients
           Since <alert>{metasens}</alert> and <alert>{meta}</alert> have been developed by the same group of researchers, they usually work together quite seamlessly. To conduct a limit meta-analysis of our <c>m.gen</c> meta-analysis, for example, we only need to provide it as the first argument in our call to <c>limitmeta</c>. 
         </p>
         <program language="r">
-          <input>
+          <code>
 # Install 'metasens', then load from library
 library(metasens)
 
 # Run limit meta-analysis
 limitmeta(m.gen)
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## Results for individual studies 
 ## (left: original data; right: shrunken estimates)
 ## 
@@ -939,7 +939,7 @@ limitmeta(m.gen)
 ##     Adjusted estimate -0.0345 [-0.3630; 0.2940] -0.21   0.8367
 ##   Unadjusted estimate  0.5771 [ 0.3782; 0.7760] -0.21 &lt; 0.0001
 ## [...]
-          </input>
+          </code>
         </program>
         <p>
           The output first shows us the original (left) and shrunken estimates (right) of each study. We see that the adjusted effect sizes are considerably smaller than the observed ones--some are even negative now. In the second part of the output, we see the adjusted pooled effect estimate. It is <m>g=</m> -0.03, indicating that the overall effect is approximately zero when correcting for small-study effects. 
@@ -957,7 +957,7 @@ limitmeta(m.gen)
           When generating a funnel plot for <c>limitmeta</c> objects, it is also possible to include the shrunken study-level effect size estimates, by setting the <c>shrunken</c> argument to <c>TRUE</c>. Here is the code to produce these plots: 
         </p>
         <program language="r">
-          <input>
+          <code>
 # Create limitmeta object
 lmeta &lt;- limitmeta(m.gen)
 
@@ -966,24 +966,24 @@ funnel.limitmeta(lmeta, xlim = c(-0.5, 2))
 
 # Funnel with curve and shrunken study estimates
 funnel.limitmeta(lmeta, xlim = c(-0.5, 2), shrunken = TRUE)
-          </input>
+          </code>
         </program>
         <p>
           Note that <c>limitmeta</c> can not only be applied to meta-analyses which use the standardized mean difference--any kind of <alert>{meta}</alert> meta-analysis object can be used. To exemplify this, let us check the adjusted effect size of <c>m.bin</c>, which used the risk ratio as the summary measure.
         </p>
         <program language="r">
-          <input>
+          <code>
 limitmeta(m.bin)
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## Result of limit meta-analysis:
 ## 
 ##  Random effects model     RR           95%-CI    z     pval
 ##     Adjusted estimate 2.2604 [1.8066; 2.8282] 7.13 &lt; 0.0001
 ##   Unadjusted estimate 2.0217 [1.5786; 2.5892] 7.13 &lt; 0.0001
-          </input>
+          </code>
         </program>
         <p>
           We see that in this analysis, the original and adjusted estimate are largely identical. This is not very surprising, given that Peters' test (Chapter <xref ref="peters-test"/>) already indicated that small-study effects seem to play a minor role in this meta-analysis.
@@ -1077,13 +1077,13 @@ limitmeta(m.bin)
           Since we assume that small <m>p</m>-values are more frequent than high <m>p</m>-values, we can use a one-sided test by setting the <c>alternative</c> argument to <c>"greater"</c>.
         </p>
         <program language="r">
-          <input>
+          <code>
 k &lt;- 7   # number of studies p&lt;0.025
 n &lt;- 8   # total number of significant studies
 p &lt;- 0.5 # assumed probability of k (null hypothesis)
 
 binom.test(k, n, p, alternative = "greater")$p.value
-          </input>
+          </code>
         </program>
         <p>
           We see that the binomial test is significant (<m>p&lt;</m> 0.05). This means there are significantly more high than low <m>p</m>-values in our example. Overall, this indicates that the <m>p</m>-curve is right-skewed, and that there is a true effect.
@@ -1110,30 +1110,30 @@ binom.test(k, n, p, alternative = "greater")$p.value
           Let us try out Fisher's method in a brief example. Imagine that our <m>p</m>-curve contains five <m>p</m>-values: <m>p=</m> 0.001, 0.002, 0.003, 0.004 and 0.03. To test for right-skewness, we first have to transform these <m>p</m>-values into the <m>pp</m>-value:
         </p>
         <program language="r">
-          <input>
+          <code>
 p &lt;- c(0.001, 0.002, 0.003, 0.004, 0.03)
 pp &lt;- p*20
 
 # Show pp values
 pp
-          </input>
+          </code>
         </program>
         <p>
           Using equation 9.15, we can calculate the value of <m>\chi^2</m> using this code:
         </p>
         <program language="r">
-          <input>
+          <code>
 chi2 &lt;- -2*sum(log(pp))
 chi2
-          </input>
+          </code>
         </program>
         <p>
           This results in <m>\chi^2=</m> 25.96. Since five studies were included, the degrees of freedom are <m>\text{d.f.}=2\times5=10</m>. We can use this information to check how likely our data are under the null hypothesis of no effect/no right-skewness. This can be done in <em>R</em> using the <c>pchisq</c> function, which we have to provide with our value of <m>\chi^2</m> as well as the number of d.f.:
         </p>
         <program language="r">
-          <input>
+          <code>
 pchisq(26.96, df = 10, lower.tail = FALSE)
-          </input>
+          </code>
         </program>
         <p>
           This gives us a <m>p</m>-value of 0.0026. This means that the null hypothesis is very unlikely, and therefore rejected. The significant value of the <m>\chi^2</m> test tells us that, in this example, the <m>p</m>-values are indeed right-skewed. This can be seen as evidence for the assumption that there is evidential value behind our data. 
@@ -1171,9 +1171,7 @@ pchisq(26.96, df = 10, lower.tail = FALSE)
         <p>
           The only difference now is that we are not particularly keen on rejecting the null hypothesis: this would mean that we reject the notion that at least a small effect exists in our data. We would be forced to say that there is either an effect small enough to be negligible--or that there is no effect at all. 
         </p>
-        <p>
-          ##### Interpretation of P-Curve Results {#interpretation-p-curve-results}
-        </p>
+        
         <p>
           We have now covered several tests that allow to analyze an empirical <m>p</m>-curve. Do not worry too much if you found some of the statistical concepts difficult to understand. It takes some time to get a grasp of the methodology behind p-curve, and the following hands-on example will certainly be helpful in this respect. The most important part is to understand the <alert>idea</alert> behind the p-curve tests, and how their results can be interpreted. In this section, we will now focus on the latter.
         </p>
@@ -1262,7 +1260,7 @@ pchisq(26.96, df = 10, lower.tail = FALSE)
           However, before we run the analysis, we remove the two outlying studies that we identified previously (study 3 and study 16, see Chapter <xref ref="outliers"/>). We will cover later why this is a good idea.
         </p>
         <program language="r">
-          <input>
+          <code>
 library(dmetar)
 library(meta)
 
@@ -1271,10 +1269,10 @@ m.gen_update &lt;- update(m.gen, subset = -c(3, 16))
 
 # Run p-curve analysis
 pcurve(m.gen_update)
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## P-curve analysis 
 ##  ----------------------- 
 ## - Total number of provided studies: k = 16 
@@ -1296,7 +1294,7 @@ pcurve(m.gen_update)
 ##  ----------------------- 
 ## - Evidential value present: yes 
 ## - Evidential value absent/inadequate: no
-          </input>
+          </code>
         </program>
         <p>
           We see that running the <c>pcurve</c> function results in two outputs: our p-curve analysis results, and a plot of the observed <m>p</m>-curve. 
@@ -1305,7 +1303,7 @@ pcurve(m.gen_update)
           The output tells us that the meta-analysis contained <m>k=</m> 9 significant effects that were included in the <m>p</m>-curve. Most of these studies (<m>k=</m> 8) had highly significant results (i.e. <m>p&lt;</m> 0.025). The <c>Results</c> section contains the main outcomes of the analysis. We see that all three right-skewness tests are significant: the binomial test (<c>pBinom</c>; <m>p=</m> 0.02), the full <m>p</m>-curve <m>pp</m>-value test (<c>pFull</c>; <m>p&lt;</m> 0.001) and the test based on the half <m>p</m>-curve (<c>pHalf</c>; <m>p=</m> 0.003)<fn>In the output, we also see that the test statistic associated with the full and half <m>p</m> curve test is a <m>z</m> score. This is because the <c>pcurve</c> function uses Stouffer's instead Fisher's method to aggregate the results. As we mentioned in footnote 6 in this chapter, both methods are closely related.</fn>. 
         </p>
         <p>
-          Applying the criteria we set up in Chapter <xref ref="interpretation-p-curve-results"/>, this indicates that our data contains evidential value. In the next line, we see that the three flatness tests are <alert>not</alert> significant, with <m>p</m>s ranging from 0.938 to 1. This, quite logically, tells us that evidential value is neither absent nor inadequate. The same interpretation is provided for us in the <c>Evidential value</c> section of the output. 
+          Applying the criteria we set up in Chapter <xref provisional="interpretation-p-curve-results"/>, this indicates that our data contains evidential value. In the next line, we see that the three flatness tests are <alert>not</alert> significant, with <m>p</m>s ranging from 0.938 to 1. This, quite logically, tells us that evidential value is neither absent nor inadequate. The same interpretation is provided for us in the <c>Evidential value</c> section of the output. 
         </p>
         <p>
           The <m>p</m>-curve plot produced by the function contains three lines: a solid one, representing the empirical <m>p</m>-curve based on our data; a dashed line showing the expected <m>p</m>-value distribution assuming 33% power; and a dotted line, which shows the uniform distribution we would expect when there is no effect. The solid line is visibly right-skewed, just as we would expect when the studies measure a true effect. 
@@ -1388,7 +1386,7 @@ pcurve(m.gen_update)
           Using this formula, we can calculate the <m>t</m>-value based on data reported in a primary study. Imagine that a study contained <m>n_1=</m> 30 participants in the experimental group, and <m>n_2=</m> 20 participants in the control group. The study reports a mean of 13 and 10 for group 1 and 2, respectively, and that both groups had a standard deviation of 5. Based on this data, we can use the following code to calculate <m>t</m>: 
         </p>
         <program language="r">
-          <input>
+          <code>
 # Calculate mean difference
 md &lt;- 13-10
 
@@ -1403,7 +1401,7 @@ se &lt;- s_pooled*sqrt((n1+n2)/(n1*n2))
 
 # Calculate t-value (equivalent to 2-sample t-test with equal variance)
 md/se
-          </input>
+          </code>
         </program>
         <p>
           The result is <m>t_{48}=</m> 2.078. Does this result support the null hypothesis that both means are identical and that there is no effect? 
@@ -1412,9 +1410,9 @@ md/se
           To answer this question, we can use the <c>pt</c> function. This function gives us the probability of finding a <m>t</m>-value greater than 2.078 when d.f. = 48 <alert>and</alert> provided that the null hypothesis is true. This probability is equal to the <m>p</m>-value of a one-sided <m>t</m>-test. 
         </p>
         <program language="r">
-          <input>
+          <code>
 pt(2.078, df = 48, lower.tail = F)
-          </input>
+          </code>
         </program>
         <p>
           The result is <m>p=</m> 0.02, which means that the test is significant. Therefore, we reject the null hypothesis that the effect of the experimental group is zero (or negative). As a consequence, we accept the alternative hypothesis: there is a positive effect favoring the experimental groups (assuming that higher scores represent better outcomes). 
@@ -1432,13 +1430,13 @@ pt(2.078, df = 48, lower.tail = F)
           Where <m>n_1</m> and <m>n_2</m> are the sample sizes in both groups. In our example, we can calculate the non-centrality parameter <m>\delta</m> using this code:
         </p>
         <program language="r">
-          <input>
+          <code>
 theta &lt;- 0.6
 delta &lt;- theta/sqrt((n1+n2)/(n1*n2))
 
 # Show delta
 delta
-          </input>
+          </code>
         </program>
         <p>
           To see how a non-central <m>t</m>-distribution with <m>\delta=</m> 2.078 looks like, let us do a little simulation. Using the <c>rt</c> function we draw one million random <m>t</m>-values with 48 degrees of freedom, twice: once when assuming a non-centrality parameter of zero (which is equal to the null of no effect), and once using the value of <m>\delta</m> that we just calculated (meaning that the true effect is SMD = 0.6). 
@@ -1447,7 +1445,7 @@ delta
           Then, using a pipe and the <c>hist</c> function, we let <em>R</em> draw a histogram of both simulations. 
         </p>
         <program language="r">
-          <input>
+          <code>
 # '1 with 6 zeros' can also be written as '1e6' in R
 # Make sure that the "tidyverse" package is loaded (for pipe)
 rt(n = 1e6, df = 48, ncp = 0) %&gt;% 
@@ -1464,7 +1462,7 @@ rt(n = 1e6, df = 48, ncp = delta) %&gt;%
        xlim = c(-4,8), 
        ylim = c(0, 40000), 
        add = T)
-          </input>
+          </code>
         </program>
         <p>
           This is the resulting plot:
@@ -1476,10 +1474,10 @@ rt(n = 1e6, df = 48, ncp = delta) %&gt;%
           The central question, of course, is: how likely is it to obtain a value greater than <m>t_{48}=</m> 2.078 when this alternative distribution is indeed the correct one, and when the true effect is in fact <m>\theta=</m> 0.6? To examine this question, we can use the <c>pt</c> function again, but this time also provide our assumed non-centrality parameter <m>\delta</m>. This information can be added using the <c>ncp</c> argument. Let us check what result we get.
         </p>
         <program language="r">
-          <input>
+          <code>
 # Remember that t=2.078
 pt(2.078, df = 48, ncp = delta, lower.tail = FALSE)
-          </input>
+          </code>
         </program>
         <p>
           We see that the probability of obtaining a value greater than our result under the specified alternative hypothesis is roughly 50%. This means that about half of the values are expected to be higher, and the other half lower than the <m>t</m>-value we found. All in all, this indicates that a non-central <m>t</m>-distribution assuming 48 degrees of freedom and a true effect of 0.6 approximates our finding very well. It seems very likely that the true population effect of the study is SMD = 0.6.
@@ -1526,7 +1524,7 @@ pt(2.078, df = 48, ncp = delta, lower.tail = FALSE)
           P-curve's effect estimation method is also implemented in the <c>pcurve</c> function. To use it, we have to set the <c>effect.estimation</c> argument to <c>TRUE</c>. We also have to specify <c>N</c>, the sample size of each study. Lastly, we can control the search space for candidate effect sizes using <c>dmax</c> and <c>dmin</c>. Here, we tell <c>pcurve</c> to search for effect sizes between Cohen's <m>d=</m> 0 and 1. Please note that <c>dmin</c> must always be zero or greater--the minimum that p-curve can detect is no effect. 
         </p>
         <program language="r">
-          <input>
+          <code>
 # Add experimental (n1) and control group (n2) sample size
 # Sample sizes of study 3 and 16 removed
 n1 &lt;- c(62, 72, 135, 103, 71, 69, 68, 95, 
@@ -1541,16 +1539,16 @@ pcurve(m.gen_update,
        N = n1+n2, 
        dmin = 0,
        dmax = 1)
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## P-curve analysis 
 ##  ----------------------- 
 ## [...]
 ##    
 ## P-curve's estimate of the true effect size: d=0.389  
-          </input>
+          </code>
         </program>
         <p>
           The output now contains two new elements: an estimate of the true effect size, as well as a plot showing results of the effect size search. In the plot, the candidate effect sizes form a smooth, V-shaped gradient, which peaks at an effect size of <m>d=</m> 0.389. At this point, the difference between the calculated <m>pp</m> distribution and a uniform distribution (represented by the value of <m>D</m> on the y-axis) is minimal, which means that it represents the best estimate of the true effect. 
@@ -1659,7 +1657,7 @@ pcurve(m.gen_update,
           We could assume, for example, that the publication bias mechanism in our meta-analysis can be described with three cut-points. First, there is <m>a_1=</m> 0.025. This value equals a one-sided <m>p</m>-value of 0.025, and two-sided <m>p</m>-value of 0.05. Since this is the conventional significance threshold used in most studies, it makes sense to assume that all <m>p</m>-values smaller <m>a_1=</m> 0.025 have a selection probability <m>\omega_1</m> of 100%. After all, there is no reason to put a study into the file drawer when its results were positive. The next cut-point we define is <m>a_2=</m> 0.05. For results in this range, we assume a selection probability of 80%: still high, but lower compared to results that are clearly significant. Then, we specify a large interval, ranging from <m>a_2=</m> 0.05 to <m>a_3=</m> 0.5, in which the selection probability is 60%. Lastly, for studies with a very high <m>p</m>-value of <m>\geq</m> 0.5, we define an even lower probability of <m>\omega_4=</m> 35%. 
         </p>
         <p>
-          This results in a selection model as depicted in Figure <xref ref="fig:stepcurve"/> below. 
+          This results in a selection model as depicted in Figure <xref provisional="fig:stepcurve"/> below. 
         </p>
         <p>
           When we define a selection model based on a step function, we usually only specify the cut-points <m>a_i</m>. These are the only fixed parameters in our model, while the selection probabilities <m>\omega = \omega_1, \omega_2, \dots, \omega_c</m> are estimated from the data. Based on the formula in equation 9.20, the selection model can then be fitted to our data. This involves using maximum likelihood procedures to jointly estimate <m>\omega</m>, as well as a corrected estimate of <m>\mu</m> and <m>\tau^2</m> which takes the disparate selection probabilities <m>\omega</m> into account. The resulting corrected estimate of <m>\mu</m> then represents the true average effect size when controlling for the assumed publication bias mechanism. 
@@ -1698,7 +1696,7 @@ pcurve(m.gen_update,
           The <c>selmodel</c> function only accepts meta-analysis objects created by <alert>{metafor}</alert>'s <c>rma</c> function (see Chapter <xref ref="multiple-metareg-R"/>). Therefore, we have to create such an object first. In our call to <c>rma</c>, we use settings identical to the ones we used for <alert>{meta}</alert>'s <c>metagen</c> function (Chapter <xref ref="pre-calculated-es"/>). 
         </p>
         <program language="r">
-          <input>
+          <code>
 library(metafor)
 
 # We name the new object 'm.rma'
@@ -1708,20 +1706,20 @@ m.rma &lt;- rma(yi = TE,
              slab = Author,
              method = "REML",
              test = "knha")
-          </input>
+          </code>
         </program>
         <p>
           Using the <c>m.rma</c> object, we can now fit a three-parameter selection model using <c>selmodel</c>. To tell the function that we want to apply a step function, we have to set the <c>type</c> argument to <c>"stepfun"</c>. In the <c>steps</c> argument, we can specify the cut-point, which, in our model, is <m>a_1</m>=0.025. Let us have a look at the results:
         </p>
         <program language="r">
-          <input>
+          <code>
 selmodel(m.rma,
          type = "stepfun",
          steps = 0.025)
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## [...]
 ## 
 ## Model Results:
@@ -1740,7 +1738,7 @@ selmodel(m.rma,
 ## 
 ## ---
 ## Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-          </input>
+          </code>
         </program>
         <p>
           Under <c>Model Results</c>, we can see that the selection model's estimate of the true average effect size is <m>g=</m> 0.59 (95%CI: 0.34-0.84). Interestingly, this estimate is nearly identical to the pooled effect size that we obtained previously (<m>g=</m> 0.58). 
@@ -1755,14 +1753,14 @@ selmodel(m.rma,
           As a sensitivity analysis, we can change <m>a_1</m> from 0.025 to 0.05, and then re-run the analysis. Setting the cut-point to 0.05 means that we assume that a two-sided <m>p</m>-value between 0.05 and 0.10 is just as "publishable" as one below 0.05. It could be, for example, that results which are significant on a "trend level" are still likely to be selected--or that some of the original studies used a one-sided test to evaluate if the study groups differ. Let us see if this altered cut-point changes the results:
         </p>
         <program language="r">
-          <input>
+          <code>
 selmodel(m.rma,
          type = "stepfun",
          steps = 0.05)
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## [...]
 ## 
 ## Model Results:
@@ -1781,7 +1779,7 @@ selmodel(m.rma,
 ## 
 ## ---
 ## Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-          </input>
+          </code>
         </program>
         <p>
           Interestingly enough, we now see a different pattern. The new average effect size estimate is <m>g=</m> 0.37, which is smaller than before. Furthermore, the likelihood test is significant, indicating that the intervals differ. We can see that, with <m>\omega_2=</m> 0.18, the selection likelihood of values <m>p></m> 0.1 (two-sided) is much lower than the one of (marginally) significant <m>p</m>-values. 
@@ -1808,7 +1806,7 @@ selmodel(m.rma,
           As a sensitivity analysis, we could check how the estimate of <m>\mu</m> changes when we assume that these selection models are appropriate for our meta-analysis. To do this, we have to define all the cut-points used in the models displayed above, as well as the likelihood <m>\omega_i</m> given to each interval.
         </p>
         <program language="r">
-          <input>
+          <code>
 # Define the cut-points
 a &lt;- c(0.005, 0.01, 0.05, 0.10, 0.25, 0.35, 0.50, 
        0.65, 0.75, 0.90, 0.95, 0.99, 0.995)
@@ -1819,19 +1817,19 @@ w.moderate &lt;- c(1, 0.99, 0.95, 0.80, 0.75, 0.65, 0.60,
                 0.55, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50)
 w.severe &lt;- c(1, 0.99, 0.90, 0.75, 0.60, 0.50, 0.40, 0.35, 
               0.30, 0.25, 0.10, 0.10, 0.10, 0.10)
-          </input>
+          </code>
         </program>
         <p>
           Once these parameters are defined, we can use them in our call to <c>selmodel</c>. The new cut-points must be provided to the <c>steps</c> arguments, and the fixed likelihoods to <c>delta</c>:
         </p>
         <program language="r">
-          <input>
+          <code>
 # Fit model assuming moderate selection
 selmodel(m.rma, type = "stepfun", steps = a, delta = w.moderate)
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## [...]
 ## 
 ## Model Results:
@@ -1840,23 +1838,23 @@ selmodel(m.rma, type = "stepfun", steps = a, delta = w.moderate)
 ##   0.5212  0.0935  5.5741  &lt;.0001  0.3380  0.7045  *** 
 ##
 ## [...]
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 # Fit model assuming severe selection
 selmodel(m.rma, type = "stepfun", steps = a, delta = w.severe)
-          </input>
+          </code>
         </program>
         <program language="r">
-          <input>
+          <code>
 ## [...]
 ## Model Results:
 ## 
 ## estimate      se    zval    pval   ci.lb   ci.ub 
 ##   0.4601  0.1211  3.8009  0.0001  0.2229  0.6974  *** 
 ## [...]
-          </input>
+          </code>
         </program>
         <p>
           We see that, when imposing a selection model representative of moderate selection, the estimate of the pooled effect size is <m>g=</m> 0.52. When a severe selection process is assumed, we obtain a slightly lower effect of <m>g=</m> 0.46. 
@@ -1906,7 +1904,7 @@ selmodel(m.rma, type = "stepfun", steps = a, delta = w.severe)
       In any case, results of publication bias methods should always be interpreted with caution. There are instances where the results of publication bias analyses have led to contentious debates--for example in the "ego-depletion" literature . It is important to keep in mind that the best way to control for publication bias is to perform an adequate search for unpublished evidence, and to change publication practices altogether. Every statistical "proof" of publication bias that we as meta-analysts can come up with is weak at best.
     </p>
     <p>
-      To make it easier for you to decide which method may be applied when we created a brief overview of the advantages and disadvantages of each approach (see Table <xref ref="tab:pubtab"/>). 
+      To make it easier for you to decide which method may be applied when we created a brief overview of the advantages and disadvantages of each approach (see Table <xref provisional="tab:pubtab"/>). 
     </p>
     <p>
       The table contains both statistical and practical considerations and should be seen as neither comprehensive nor final. Publication bias methods are an ongoing field of investigation, and it is likely that things will look differently once more evidence has been established. 
@@ -1919,7 +1917,7 @@ selmodel(m.rma, type = "stepfun", steps = a, delta = w.severe)
     </p>
   </section>
 
-  <section xml:id="questions-answers">
+  <section xml:id="pub-bias-questions-answers">
     <title>Questions &amp; Answers</title>
 
     <exercise>
@@ -1969,7 +1967,7 @@ selmodel(m.rma, type = "stepfun", steps = a, delta = w.severe)
     </exercise>
   </section>
 
-  <section xml:id="summary">
+  <section xml:id="pub-bias-summary">
     <title>Summary</title>
 
     <ul>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<chapter xml:id="ch-reporting-reproducibility" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="reporting-reproducibility" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Reporting &amp; Reproducibility</title>
 
   <introduction>
@@ -69,9 +69,9 @@
       After clicking on <alert>Create Project</alert>, the <em>R</em> project is set. A great feature of <em>R</em> projects is that we do not have to use <alert>absolute paths</alert> to the files we want to reference. We only use the file name, or, if the file is in a (sub-)folder, the folder and file name. Suppose that we stored our data set <alert>data.xlsx</alert> in the sub-folder "data". Using the <alert>{openxlsx}</alert> package (Chapter <xref ref="data-prep-R"/>), we can import the data set with a relative path.
     </p>
     <program language="r">
-      <input>
+      <code>
 read_excel("data/data.xlsx")
-      </input>
+      </code>
     </program>
   </section>
 
@@ -94,14 +94,14 @@ read_excel("data/data.xlsx")
       The file already contains some exemplary content, which we can delete, except for the first six lines:
     </p>
     <program language="r">
-      <input>
+      <code>
 ---
 title: "Analysis"
 author: "Author Name"
 date: "10/16/2020"
 output: html_document
 ---
-      </input>
+      </code>
     </program>
     <p>
       This part is the so-called <alert>YAML</alert> header. It controls the title, author, date, and export format of the document. The output format we chose for our document is <c>html_document</c>, meaning that the document will be exported as an HTML page once it is rendered. 
@@ -144,10 +144,10 @@ output: html_document
         To access our OSF repository directly via <em>R</em>, we can use the <alert>{osfr}</alert> package . Before we can use the functionality of this package, we first have to use our access token to authenticate. To do this, we use the <c>osf_auth</c> function, providing it with the access token we just received (the token displayed below is made up):
       </p>
       <program language="r">
-        <input>
+        <code>
 library(osfr)
 osf_auth("AtmuMZ3pSuS7tceSMz2NNSAmVDNTzpm2Ud87")
-        </input>
+        </code>
       </program>
     </subsection>
 
@@ -161,28 +161,28 @@ osf_auth("AtmuMZ3pSuS7tceSMz2NNSAmVDNTzpm2Ud87")
         To create a new repository, the <c>osf_create_project</c> function can be used. We save the new OSF repository in <em>R</em> as <c>meta_analysis_project</c>.
       </p>
       <program language="r">
-        <input>
+        <code>
 meta_analysis_project &lt;- osf_create_project("Meta-Analysis Project")
-        </input>
+        </code>
       </program>
       <p>
         Using the <c>osf_open</c> function, we can then access the newly created repository online:
       </p>
       <program language="r">
-        <input>
+        <code>
 osf_open(meta_analysis_project)
-        </input>
+        </code>
       </program>
       <p>
         Now that the repository has been created, we can proceed by adding <alert>components</alert> to it. In OSF, components work like folders on a computer. Suppose we want to create two components: one for our data sets, and one for our R Markdown scripts. To do this, we can use the <c>osf_create_component</c> function. We have to provide the function with the <em>R</em> repository object (<c>meta_analysis_project</c>), and then set the title of the new component. 
       </p>
       <program language="r">
-        <input>
+        <code>
 scripts &lt;- osf_create_component(meta_analysis_project, 
                                 title = "Analysis Scripts")
 datasets &lt;- osf_create_component(meta_analysis_project, 
                                  title = "Datasets")
-        </input>
+        </code>
       </program>
       <p>
         When we go to the online page of the repository now, we see that the two components have been added.
@@ -196,33 +196,33 @@ datasets &lt;- osf_create_component(meta_analysis_project,
         To upload data to the OSF repository, we can use the <c>osf_upload</c> function. The function requires us to specify the component to which we want to add the file, and the path to the file that should be uploaded. Suppose that we want to upload an R Markdown script called “Analysis.rmd”, which is currently saved in our <em>R</em> project sub-folder "scripts". To upload, we can use the following code:
       </p>
       <program language="r">
-        <input>
+        <code>
 osf_upload(scripts, "scripts/Analysis.rmd")
-        </input>
+        </code>
       </program>
       <p>
         To see if the file has been uploaded successfully, we can access contents of the component using the <c>osf_ls_files</c> function.
       </p>
       <program language="r">
-        <input>
+        <code>
 osf_ls_files(scripts)
-        </input>
+        </code>
       </program>
       <program language="r">
-        <input>
+        <code>
 ## # A tibble: 2 x 3
 ##   name            id                       meta            
 ##   &lt;chr&gt;           &lt;chr&gt;                    &lt;list&gt;          
 ## 1 Analysis.rmd    1db74s7bfcf91f0012567572l &lt;named list [3]&gt;
-        </input>
+        </code>
       </program>
       <p>
         We see in the output that the upload was successful. To download a file, we can select a row from the <c>osf_ls_files</c> function output, and use it in the <c>osf_download</c> function to download the file back into the project folder on our computer.
       </p>
       <program language="r">
-        <input>
+        <code>
 osf_download(osf_ls_files(scripts)[1,])
-        </input>
+        </code>
       </program>
     </subsection>
 
