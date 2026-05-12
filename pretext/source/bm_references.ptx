@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <references xml:id="references">
   <title>References</title>
-  <p>
-    Bibliographic source files for this guide are available as <url href="https://github.com/PreTeXtBooks/Doing-Meta-Analysis-in-R/blob/master/book.bib">book.bib</url> and <url href="https://github.com/PreTeXtBooks/Doing-Meta-Analysis-in-R/blob/master/packages.bib">packages.bib</url>.
-  </p>
-  <p>
-    The book citation files are also provided as <url href="https://www.protectlab.org/meta-analysis-in-r/data/citation.bib">BibTeX</url> and <url href="https://www.protectlab.org/meta-analysis-in-r/data/citation.ris">RIS</url>.
-  </p>
+  <program language="rmd">
+    <code><![CDATA[
+`r if (knitr:::is_html_output()) '
+# References {-}
+'`
+
+---
+
+<style>
+p { margin-top: 0; margin-bottom: 20px; }
+</style>
+
+<br></br>
+]]></code>
+  </program>
 </references>
