@@ -1,307 +1,251 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<chapter xml:id="ch-reporting-reproducibility" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="reporting-reproducibility" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Reporting &amp; Reproducibility</title>
-  <program language="rmd">
-    <input><![CDATA[
-# Reporting & Reproducibility {#reporting-reproducibility}
 
----
+  <introduction>
+    <figure>
+      <image source="_figs/reporting.jpg"/>
+    </figure>
+    <p>
+      In the previous chapters, we discussed various techniques, approaches, and strategies we can use to conduct a meta-analysis in <em>R</em>. However, running the statistical analyses only makes up a small proportion of the entire meta-analysis "process" in practice. "In the wild", it is common that:
+    </p>
+    <ul>
+      <li>
+        <p>
+          We find an error in our <em>R</em> code, and therefore have to redo parts of the analysis with a few changes.
+        </p>
+      </li>
+      <li>
+        <p>
+          Collaborators or reviewers suggest using a different approach or model, or performing an additional sensitivity analysis.
+        </p>
+      </li>
+      <li>
+        <p>
+          We need to delegate some parts of the analysis to one of our collaborators and have to send her the current status of our work.
+        </p>
+      </li>
+      <li>
+        <p>
+          We had to stop working on our project for some time, which means that we have forgotten many things by the time we resume working on it.
+        </p>
+      </li>
+      <li>
+        <p>
+          We want to share results of our analysis with project collaborators but they do not know <em>R</em> and do not have R Studio installed.
+        </p>
+      </li>
+    </ul>
+    <p>
+      These are just a few scenarios, but they illustrate that a <alert>reproducible workflow</alert> when conducting meta-analyses in <em>R</em> is beneficial to you and the people you work with. Aiming for reproducibility is also a cornerstone of <alert>open science</alert> practices. Fully reproducible meta-analyses make it as transparent as possible to others how we ended up with our results. 
+    </p>
+    <p>
+      <idx><h>Markdown, _R_</h></idx> <idx><h>Open Science Framework (OSF)</h></idx>
+    </p>
+    <p>
+      R Studio is an optimal tool to create a reproducible workflow and to facilitate cooperation. In this chapter, we introduce three tools to reproduce, report and disseminate our analyses: <em>R</em> Projects, <alert>R Markdown</alert>, and the <alert>Open Science Framework</alert>.
+    </p>
+  </introduction>
 
-<img src="_figs/reporting.jpg" />
+  <section xml:id="using-r-projects">
+    <title>Using <em>R</em> Projects</title>
 
-<br></br>
-
-<span class="firstcharacter">I</span>
-n the previous chapters, we discussed various techniques, approaches, and strategies we can use to conduct a meta-analysis in _R_. However, running the statistical analyses only makes up a small proportion of the entire meta-analysis "process" in practice. "In the wild", it is common that:
-
-* We find an error in our _R_ code, and therefore have to redo parts of the analysis with a few changes.
-
-* Collaborators or reviewers suggest using a different approach or model, or performing an additional sensitivity analysis.
-
-* We need to delegate some parts of the analysis to one of our collaborators and have to send her the current status of our work.
-
-* We had to stop working on our project for some time, which means that we have forgotten many things by the time we resume working on it.
-
-* We want to share results of our analysis with project collaborators but they do not know _R_ and do not have R Studio installed.
-
-These are just a few scenarios, but they illustrate that a **reproducible workflow** when conducting meta-analyses in _R_ is beneficial to you and the people you work with. Aiming for reproducibility is also a cornerstone of **open science** practices. Fully reproducible meta-analyses make it as transparent as possible to others how we ended up with our results. 
-
-\index{Markdown, _R_}
-\index{Open Science Framework (OSF)}
-
-R Studio is an optimal tool to create a reproducible workflow and to facilitate cooperation. In this chapter, we introduce three tools to reproduce, report and disseminate our analyses: _R_ Projects, **R Markdown**, and the **Open Science Framework**.
-
-<br></br>
-
-## Using _R_ Projects
-
----
-
-\index{Project, _R_}
-
-A good way to start with your analysis is to first set up an _R_ **project** in R Studio. _R_ projects create a new environment in a folder on our computer. In this folder, all the data and _R_ code you need for your analyses is saved. Conducting analyses in an _R_ project means that all objects we create are temporarily saved in the project environment and will be accessible the next time we reopen it. To create a new _R_ project, we can click on the **R project** field in the upper right corner of the R Studio window, and then on **New Project...** in the drop-down menu.
-
-```{r, message = F, out.width = '60%', echo = F, fig.align='center'}
-library(OpenImageR)
-knitr::include_graphics('images/rproj1_col.png')
-```
-
-Then we create a **New Directory**, a new folder on our computer, which will become the working directory of the project.
-
-```{r, message = F, out.width = '45%', echo = F, fig.align='center'}
-library(OpenImageR)
-knitr::include_graphics('images/rproj2_col.png')
-```
-
-
-Then, we click on **New Project**.
-
-```{r, message = F, out.width = '45%', echo = F, fig.align='center'}
-library(OpenImageR)
-knitr::include_graphics('images/rproj3_col.png')
-```
-
-We give our new project the name "Meta-Analysis Project". The project folder will be stored in **~Documents/R**.
-
-```{r, message = F, out.width = '45%', echo = F, fig.align='center'}
-library(OpenImageR)
-knitr::include_graphics('images/rproj4_col.png')
-```
-
-After clicking on **Create Project**, the _R_ project is set. A great feature of _R_ projects is that we do not have to use **absolute paths** to the files we want to reference. We only use the file name, or, if the file is in a (sub-)folder, the folder and file name. Suppose that we stored our data set **data.xlsx** in the sub-folder "data". Using the **{openxlsx}** package (Chapter \@ref(data-prep-R)), we can import the data set with a relative path.
-
-```{r, eval=F}
+    <p>
+      <idx><h>Project, _R_</h></idx>
+    </p>
+    <p>
+      A good way to start with your analysis is to first set up an <em>R</em> <alert>project</alert> in R Studio. <em>R</em> projects create a new environment in a folder on our computer. In this folder, all the data and <em>R</em> code you need for your analyses is saved. Conducting analyses in an <em>R</em> project means that all objects we create are temporarily saved in the project environment and will be accessible the next time we reopen it. To create a new <em>R</em> project, we can click on the <alert>R project</alert> field in the upper right corner of the R Studio window, and then on <alert>New Project...</alert> in the drop-down menu.
+    </p>
+    <p>
+      Then we create a <alert>New Directory</alert>, a new folder on our computer, which will become the working directory of the project.
+    </p>
+    <p>
+      Then, we click on <alert>New Project</alert>.
+    </p>
+    <p>
+      We give our new project the name "Meta-Analysis Project". The project folder will be stored in <alert>~Documents/R</alert>.
+    </p>
+    <p>
+      After clicking on <alert>Create Project</alert>, the <em>R</em> project is set. A great feature of <em>R</em> projects is that we do not have to use <alert>absolute paths</alert> to the files we want to reference. We only use the file name, or, if the file is in a (sub-)folder, the folder and file name. Suppose that we stored our data set <alert>data.xlsx</alert> in the sub-folder "data". Using the <alert>{openxlsx}</alert> package (Chapter <xref ref="data-prep-R"/>), we can import the data set with a relative path.
+    </p>
+    <program language="r">
+      <code>
 read_excel("data/data.xlsx")
-```
+      </code>
+    </program>
+  </section>
 
-<br></br>
+  <section xml:id="writing-reproducible-reports-with-r-markdown">
+    <title>Writing Reproducible Reports with R Markdown</title>
 
-## Writing Reproducible Reports with R Markdown
-
----
-
-\index{Markdown, _R_}
-
-**Markdown** is a simple markup language for text formatting. **R Markdown** [@xie2018r] is an extension of Markdown and makes it easy to combine plain text, _R_ code, and _R_ output in one document. This makes R Markdown an extremely helpful reporting tool. Using R Markdown, we can create HTML or PDF files containing all code used in our analyses, the output produced by the code, and can add detailed information on what we did in each analysis step. 
-
-It is very easy to build R Markdown files in R Studio. We only have to click on the white symbol with the green "plus" sign in the top left corner of the R Studio window. Then, in the drop-down menu, we click on **R Markdown...**.
-
-\vspace{2mm}
-
-```{r, message = F, out.width = '35%', echo = F, fig.align='center'}
-library(OpenImageR)
-knitr::include_graphics('images/rmd1_col.png')
-```
-
-\vspace{2mm}
-
-After defining the name of the new R Markdown document, it should pop up in the upper-left corner of the R Studio window.
-
-\vspace{2mm}
-
-```{r, message = F, out.width = '55%', echo = F, fig.align='center'}
-library(OpenImageR)
-knitr::include_graphics('images/rmd2_col.png')
-```
-\vspace{2mm}
-
-The file already contains some exemplary content, which we can delete, except for the first six lines:
-
-```
+    <p>
+      <idx><h>Markdown, _R_</h></idx>
+    </p>
+    <p>
+      <alert>Markdown</alert> is a simple markup language for text formatting. <alert>R Markdown</alert>  is an extension of Markdown and makes it easy to combine plain text, <em>R</em> code, and <em>R</em> output in one document. This makes R Markdown an extremely helpful reporting tool. Using R Markdown, we can create HTML or PDF files containing all code used in our analyses, the output produced by the code, and can add detailed information on what we did in each analysis step. 
+    </p>
+    <p>
+      It is very easy to build R Markdown files in R Studio. We only have to click on the white symbol with the green "plus" sign in the top left corner of the R Studio window. Then, in the drop-down menu, we click on <alert>R Markdown...</alert>.
+    </p>
+    <p>
+      After defining the name of the new R Markdown document, it should pop up in the upper-left corner of the R Studio window.
+    </p>
+    <p>
+      The file already contains some exemplary content, which we can delete, except for the first six lines:
+    </p>
+    <program language="r">
+      <code>
 ---
 title: "Analysis"
 author: "Author Name"
 date: "10/16/2020"
 output: html_document
 ---
-```
+      </code>
+    </program>
+    <p>
+      This part is the so-called <alert>YAML</alert> header. It controls the title, author, date, and export format of the document. The output format we chose for our document is <c>html_document</c>, meaning that the document will be exported as an HTML page once it is rendered. 
+    </p>
+    <p>
+      All <em>R Markdown documents</em> consist of two parts: plain Markdown text, and so-called <alert>R chunks</alert>, shown in grey. We will not go into detail how the text parts in the R Markdown document are formatted, but there is an online <url href="https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">cheat sheet</url>, which is a great resource to start learning Markdown syntax (this should only take about twenty minutes). The <em>R</em> code chunks, on the other hand, simply contain all the code we would usually type into the console. By clicking on the <alert>Insert</alert> field in the upper right corner of the document, we can add new code chunks. The code can be run by clicking on the little green triangle above each chunk.
+    </p>
+    <p>
+      Once we are finished writing our document, we can export it as an HTML, PDF, or MS Word document by clicking on the <alert>Knit</alert> symbol in the upper left corner. This renders the document, including all text, code, and output, and exports it in the defined format. The final document is automatically saved in our project folder.
+    </p>
+  </section>
 
-This part is the so-called **YAML** header. It controls the title, author, date, and export format of the document. The output format we chose for our document is `html_document`, meaning that the document will be exported as an HTML page once it is rendered. 
+  <section xml:id="osf">
+    <title>OSF Repositories</title>
 
-All _R Markdown documents_ consist of two parts: plain Markdown text, and so-called **R chunks**, shown in grey. We will not go into detail how the text parts in the R Markdown document are formatted, but there is an online [cheat sheet](https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf), which is a great resource to start learning Markdown syntax (this should only take about twenty minutes). The _R_ code chunks, on the other hand, simply contain all the code we would usually type into the console. By clicking on the **Insert** field in the upper right corner of the document, we can add new code chunks. The code can be run by clicking on the little green triangle above each chunk.
+    <p>
+      <idx><h>Open Science Framework (OSF)</h></idx>
+    </p>
+    <p>
+      The <alert>Open Science Framework</alert> (<url href="https://www.osf.io">OSF</url>) is an open-source online platform to facilitate collaboration and reproducibility in research. The OSF includes an online <alert>repository</alert>, where researchers deposit their study material to collaborate and make all steps of the research process (more) transparent. The OSF is a spearhead of the open science movement, which has gathered much momentum in the last decade. 
+    </p>
+    <p>
+      It is encouraged that all meta-analysts make their research and analysis process transparent to the public, by providing open access to the collected data and <em>R</em> code used for their analyses. The OSF is a great tool to do this--all repositories you created for yourself are private by default, and it is up to you to decide if, when, and what you want to make public. In the following, we will show you how to set up an OSF repository in <em>R</em>, upload and download files, and how to add collaborators.
+    </p>
+    <subsection xml:id="access-token">
+      <title>Access Token</title>
 
-\vspace{2mm}
+      <p>
+        To start using the OSF, we first have to create a personal account on the <url href="https://osf.io/register">website</url>. After the account has been created, we also have to generate an <alert>access token</alert> so that we can manipulate our repository directly using <em>R</em>. To get the access token, we have to navigate to <alert>Profile</alert> &gt; <alert>Settings</alert> &gt; <alert>Personal access tokens</alert>. There, we click on <alert>Create token</alert>.
+      </p>
+      <p>
+        Then, under <alert>Scopes</alert>, we check all boxes, and click on <alert>Create token</alert> again. After that, our personal access token should appear. We copy the token and save it for later.
+      </p>
+    </subsection>
 
-```{r, message = F, out.width = '25%', echo = F, fig.align='center'}
-library(OpenImageR)
-knitr::include_graphics('images/rmd3_col.png')
-```
-\vspace{2mm}
+    <subsection xml:id="the-osfr-package-authentication">
+      <title>The <alert>{osfr}</alert> Package &amp; Authentication</title>
 
-Once we are finished writing our document, we can export it as an HTML, PDF, or MS Word document by clicking on the **Knit** symbol in the upper left corner. This renders the document, including all text, code, and output, and exports it in the defined format. The final document is automatically saved in our project folder.
-
-\vspace{2mm}
-
-```{r, message = F, out.width = '40%', echo = F, fig.align='center'}
-library(OpenImageR)
-knitr::include_graphics('images/rmd4_col.png')
-```
-
-<br></br>
-
-## OSF Repositories {#osf}
-
----
-
-\index{Open Science Framework (OSF)}
-
-The **Open Science Framework** ([OSF](https://www.osf.io)) is an open-source online platform to facilitate collaboration and reproducibility in research. The OSF includes an online **repository**, where researchers deposit their study material to collaborate and make all steps of the research process (more) transparent. The OSF is a spearhead of the open science movement, which has gathered much momentum in the last decade. 
-
-It is encouraged that all meta-analysts make their research and analysis process transparent to the public, by providing open access to the collected data and _R_ code used for their analyses. The OSF is a great tool to do this--all repositories you created for yourself are private by default, and it is up to you to decide if, when, and what you want to make public. In the following, we will show you how to set up an OSF repository in _R_, upload and download files, and how to add collaborators.
-
-<br></br>
-
-### Access Token
-
----
-
-To start using the OSF, we first have to create a personal account on the [website](https://osf.io/register). After the account has been created, we also have to generate an **access token** so that we can manipulate our repository directly using _R_. To get the access token, we have to navigate to **Profile** > **Settings** > **Personal access tokens**. There, we click on **Create token**.
-
-\vspace{4mm}
-
-```{r, message = F, out.width = '60%', echo = F, fig.align='center'}
-library(OpenImageR)
-knitr::include_graphics('images/osf1_col.png')
-```
-
-\vspace{4mm}
-
-Then, under **Scopes**, we check all boxes, and click on **Create token** again. After that, our personal access token should appear. We copy the token and save it for later.
-
-\vspace{4mm}
-
-```{r, message = F, out.width = '60%', echo = F, fig.align='center'}
-library(OpenImageR)
-knitr::include_graphics('images/osf2_col.png')
-```
-
-<br></br>
-
-### The **{osfr}** Package & Authentication
-
----
-
-To access our OSF repository directly via _R_, we can use the **{osfr}** package [@osfr]. Before we can use the functionality of this package, we first have to use our access token to authenticate. To do this, we use the `osf_auth` function, providing it with the access token we just received (the token displayed below is made up):
-
-```{r, eval=F}
+      <p>
+        To access our OSF repository directly via <em>R</em>, we can use the <alert>{osfr}</alert> package . Before we can use the functionality of this package, we first have to use our access token to authenticate. To do this, we use the <c>osf_auth</c> function, providing it with the access token we just received (the token displayed below is made up):
+      </p>
+      <program language="r">
+        <code>
 library(osfr)
 osf_auth("AtmuMZ3pSuS7tceSMz2NNSAmVDNTzpm2Ud87")
-```
+        </code>
+      </program>
+    </subsection>
 
+    <subsection xml:id="repository-setup">
+      <title>Repository Setup</title>
 
-
-<br></br>
-
-### Repository Setup
-
----
-
-Using **{osfr}**, we can now initialize an OSF repository using _R_. Imagine that we are working on a new meta-analysis project, and that we want to upload our data as well as an R Markdown script to an OSF repository. The name of the repository should be "Meta-Analysis Project". 
-
-To create a new repository, the `osf_create_project` function can be used. We save the new OSF repository in _R_ as `meta_analysis_project`.
-
-\vspace{2mm}
-
-```{r, eval=F}
-meta_analysis_project <- osf_create_project("Meta-Analysis Project")
-```
-
-
-Using the `osf_open` function, we can then access the newly created repository online:
-
-\vspace{2mm}
-
-```{r, eval=F}
+      <p>
+        Using <alert>{osfr}</alert>, we can now initialize an OSF repository using <em>R</em>. Imagine that we are working on a new meta-analysis project, and that we want to upload our data as well as an R Markdown script to an OSF repository. The name of the repository should be "Meta-Analysis Project". 
+      </p>
+      <p>
+        To create a new repository, the <c>osf_create_project</c> function can be used. We save the new OSF repository in <em>R</em> as <c>meta_analysis_project</c>.
+      </p>
+      <program language="r">
+        <code>
+meta_analysis_project &lt;- osf_create_project("Meta-Analysis Project")
+        </code>
+      </program>
+      <p>
+        Using the <c>osf_open</c> function, we can then access the newly created repository online:
+      </p>
+      <program language="r">
+        <code>
 osf_open(meta_analysis_project)
-```
-
-
-```{r, message = F, out.width = '60%', echo = F, fig.align='center'}
-library(OpenImageR)
-knitr::include_graphics('images/osf3_col.png')
-```
-
-
-Now that the repository has been created, we can proceed by adding **components** to it. In OSF, components work like folders on a computer. Suppose we want to create two components: one for our data sets, and one for our R Markdown scripts. To do this, we can use the `osf_create_component` function. We have to provide the function with the _R_ repository object (`meta_analysis_project`), and then set the title of the new component. 
-
-```{r, eval=F}
-scripts <- osf_create_component(meta_analysis_project, 
+        </code>
+      </program>
+      <p>
+        Now that the repository has been created, we can proceed by adding <alert>components</alert> to it. In OSF, components work like folders on a computer. Suppose we want to create two components: one for our data sets, and one for our R Markdown scripts. To do this, we can use the <c>osf_create_component</c> function. We have to provide the function with the <em>R</em> repository object (<c>meta_analysis_project</c>), and then set the title of the new component. 
+      </p>
+      <program language="r">
+        <code>
+scripts &lt;- osf_create_component(meta_analysis_project, 
                                 title = "Analysis Scripts")
-datasets <- osf_create_component(meta_analysis_project, 
+datasets &lt;- osf_create_component(meta_analysis_project, 
                                  title = "Datasets")
-```
+        </code>
+      </program>
+      <p>
+        When we go to the online page of the repository now, we see that the two components have been added.
+      </p>
+    </subsection>
 
-When we go to the online page of the repository now, we see that the two components have been added.
+    <subsection xml:id="upload-download">
+      <title>Upload &amp; Download</title>
 
-
-<br></br>
-
-### Upload & Download
-
----
-
-To upload data to the OSF repository, we can use the `osf_upload` function. The function requires us to specify the component to which we want to add the file, and the path to the file that should be uploaded. Suppose that we want to upload an R Markdown script called “Analysis.rmd”, which is currently saved in our _R_ project sub-folder "scripts". To upload, we can use the following code:
-
-```{r, eval = F}
+      <p>
+        To upload data to the OSF repository, we can use the <c>osf_upload</c> function. The function requires us to specify the component to which we want to add the file, and the path to the file that should be uploaded. Suppose that we want to upload an R Markdown script called “Analysis.rmd”, which is currently saved in our <em>R</em> project sub-folder "scripts". To upload, we can use the following code:
+      </p>
+      <program language="r">
+        <code>
 osf_upload(scripts, "scripts/Analysis.rmd")
-```
-
-To see if the file has been uploaded successfully, we can access contents of the component using the `osf_ls_files` function.
-
-```{r, eval=F}
+        </code>
+      </program>
+      <p>
+        To see if the file has been uploaded successfully, we can access contents of the component using the <c>osf_ls_files</c> function.
+      </p>
+      <program language="r">
+        <code>
 osf_ls_files(scripts)
-```
-
-```
+        </code>
+      </program>
+      <program language="r">
+        <code>
 ## # A tibble: 2 x 3
 ##   name            id                       meta            
-##   <chr>           <chr>                    <list>          
-## 1 Analysis.rmd    1db74s7bfcf91f0012567572l <named list [3]>
-```
-
-We see in the output that the upload was successful. To download a file, we can select a row from the `osf_ls_files` function output, and use it in the `osf_download` function to download the file back into the project folder on our computer.
-
-```{r, eval = F}
+##   &lt;chr&gt;           &lt;chr&gt;                    &lt;list&gt;          
+## 1 Analysis.rmd    1db74s7bfcf91f0012567572l &lt;named list [3]&gt;
+        </code>
+      </program>
+      <p>
+        We see in the output that the upload was successful. To download a file, we can select a row from the <c>osf_ls_files</c> function output, and use it in the <c>osf_download</c> function to download the file back into the project folder on our computer.
+      </p>
+      <program language="r">
+        <code>
 osf_download(osf_ls_files(scripts)[1,])
-```
+        </code>
+      </program>
+    </subsection>
 
-<br></br>
+    <subsection xml:id="pre-registration">
+      <title>Collaboration, Open Access &amp; Pre-Registration</title>
 
-### Collaboration, Open Access & Pre-Registration {#pre-registration}
+      <p>
+        <idx><h>Preregistration</h></idx>
+      </p>
+      <p>
+        On the OSF repository website, we can also add collaborators under the <alert>Contributors</alert> field.
+      </p>
+      <p>
+        At any time, it is possible to make the repository <alert>public</alert> by clicking on the <alert>Make Public</alert> button in the upper right corner of the website.
+      </p>
+      <p>
+        In Chapter <xref ref="analysis-plan"/>, we discussed that analysis plans and pre-registration are essential parts of a high-quality meta-analysis. The OSF makes it very convenient to also create an openly accessible pre-registration for our project. We simply have to click on the <alert>Registrations</alert> button on top, and then create a <alert>New registration</alert>. This leads us to the <alert>OSF Registries</alert> website, where we can provide detailed information on our planned study, including our analysis plan. 
+      </p>
+      <p>
+        After specifying all the required details, the study can be registered. This creates a register entry that can be accessed through a unique ID (e.g. <alert>osf.io/q2jp7</alert>). After the registration is completed, it is not possible to change the stated search plan, hypotheses and/or analysis strategy anymore.
+      </p>
+    </subsection>
 
----
+  </section>
 
-\index{Preregistration}
-
-On the OSF repository website, we can also add collaborators under the **Contributors** field.
-
-
-
-```{r, message = F, out.width = '65%', echo = F, fig.align='center'}
-library(OpenImageR)
-knitr::include_graphics('images/osf4_col.png')
-```
-
-At any time, it is possible to make the repository **public** by clicking on the **Make Public** button in the upper right corner of the website.
-
-```{r, message = F, out.width = '40%', echo = F, fig.align='center'}
-library(OpenImageR)
-knitr::include_graphics('images/osf5.png')
-```
-
-In Chapter \@ref(analysis-plan), we discussed that analysis plans and pre-registration are essential parts of a high-quality meta-analysis. The OSF makes it very convenient to also create an openly accessible pre-registration for our project. We simply have to click on the **Registrations** button on top, and then create a **New registration**. This leads us to the **OSF Registries** website, where we can provide detailed information on our planned study, including our analysis plan. 
-
-\vspace{2mm}
-
-```{r, message = F, out.width = '57%', echo = F, fig.align='center'}
-library(OpenImageR)
-knitr::include_graphics('images/osf6_col.png')
-```
-
-After specifying all the required details, the study can be registered. This creates a register entry that can be accessed through a unique ID (e.g. **osf.io/q2jp7**). After the registration is completed, it is not possible to change the stated search plan, hypotheses and/or analysis strategy anymore.
-
-
-$$\tag*{$\blacksquare$}$$
-    ]]></input>
-  </program>
 </chapter>

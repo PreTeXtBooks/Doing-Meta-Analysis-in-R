@@ -2,7 +2,7 @@
 <references xml:id="references">
   <title>References</title>
   <program language="rmd">
-    <input><![CDATA[
+    <code><![CDATA[
 `r if (knitr:::is_html_output()) '
 # References {-}
 '`
@@ -14,6 +14,6 @@ p { margin-top: 0; margin-bottom: 20px; }
 </style>
 
 <br></br>
-]]></input>
+]]></code>
   </program>
 </references>

@@ -2,7 +2,7 @@
 <chapter xml:id="citing-this-guide">
   <title>Citing this Guide</title>
   <program language="rmd">
-    <input><![CDATA[
+    <code><![CDATA[
 # Citing this Guide {-}
 
 ---
@@ -19,6 +19,6 @@ Download the reference as [BibTeX](https://www.protectlab.org/meta-analysis-in-r
 
 
 <br></br>
-]]></input>
+]]></code>
   </program>
 </chapter>

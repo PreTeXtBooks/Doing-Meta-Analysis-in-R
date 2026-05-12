@@ -2,7 +2,7 @@
 <preface xml:id="welcome">
   <title>Welcome</title>
   <program language="rmd">
-    <input><![CDATA[
+    <code><![CDATA[
 --- 
 title: "Doing Meta-Analysis in R"
 subtitle: "A Hands-on Guide"
@@ -124,6 +124,6 @@ knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
 ```
-]]></input>
+]]></code>
   </program>
 </preface>

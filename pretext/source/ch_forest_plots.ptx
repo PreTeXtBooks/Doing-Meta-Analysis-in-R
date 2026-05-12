@@ -1,194 +1,218 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<chapter xml:id="ch-forest-plots" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="forest" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Forest Plots</title>
-  <program language="rmd">
-    <input><![CDATA[
-# Forest Plots {#forest}
 
----
+  <introduction>
+    <figure>
+      <image source="_figs/forest2.jpg"/>
+    </figure>
+    <p>
+      <idx><h>Forest Plot</h></idx>
+    </p>
+    <p>
+      In the last chapters, we learned how we can pool effect sizes in <em>R</em>, and how to assess the heterogeneity in a meta-analysis. We now come to a somewhat more pleasant part of meta-analyses, in which we visualize the results we obtained in previous steps.
+    </p>
+    <p>
+      The most common way to visualize meta-analyses is through <alert>forest plots</alert>. Such plots provide a graphical display of the observed effect, confidence interval, and usually also the weight of each study. They also display the pooled effect we have calculated in a meta-analysis. Overall, this allows others to quickly examine the precision and spread of the included studies, and how the pooled effect relates to the observed effect sizes.
+    </p>
+    <p>
+      <idx><h>meta Package</h></idx>
+    </p>
+    <p>
+      The <alert>{meta}</alert> package has an in-built function which makes it very easy to produce beautiful forest plots directly in <em>R</em>. The function has a broad functionality and allows one to change the appearance of the plot as desired. This forest plot function, and how we can use it in practice, will be the main focus of this chapter. Furthermore, we will also briefly discuss an alternative approach to visualize the results of a meta-analysis.
+    </p>
+  </introduction>
 
-<img src="_figs/forest2.jpg" />
+  <section xml:id="what-is-a-forest-plot">
+    <title>What Is a Forest Plot?</title>
 
-<br></br>
+    <p>
+      Figure <xref provisional="fig:forest"/> shows the main components of a forest plot. On the left side, forest plots display the name of each study included in the meta-analysis. For each study, a graphical representation of the effect size is provided, usually in the center of the plot. This visualization shows the point estimate of a study on the x-axis. This point estimate is supplemented by a line, which represents the range of the confidence interval calculated for the observed effect size. Usually, the point estimate is surrounded by a square. The size of this square is determined by the weight (Chapter <xref ref="fem"/>) of the effect size: studies with a larger weight are given a larger square, while studies with a lower weight have a smaller square. 
+    </p>
+    <p>
+      Conventionally, a forest plot should also contain the effect size data that was used to perform the meta-analysis. This provides others with the data needed to replicate our results.
+    </p>
+    <p>
+      At the bottom of the plot, a diamond shape represents the average effect. The length of the diamond symbolizes the confidence interval of the pooled result on the x-axis. Typically, forest plots also include a vertical <alert>reference line</alert>, which indicates the point on the x-axis equal to no effect. As we will see in the coming examples, forest plots can be enhanced by also displaying, for example, a heterogeneity measure such as <m>I^2</m> or <m>\tau^2</m>.
+    </p>
+    <p>
+      <idx><h>Logarithm, Natural</h></idx>
+    </p>
+    <p>
+      Effect size and confidence intervals in forest plots are usually displayed on a linear scale. Yet, when the summary measure is a <alert>ratio</alert> (such as odds ratios or risk ratios), it is common to use a <alert>logarithmic</alert> scale on the x-axis instead. This means that values around 1 are more closely together than values which are much lower or higher than 1. 
+    </p>
+    <p>
+      This makes sense for ratios since these effect size metrics cannot be interpreted in a "linear" fashion (i.e. the "opposite" of RR = 0.50 is 2, not 1.5; see Chapter <xref ref="ratios"/>). The reference line for such effect sizes is usually 1, which indicates no effect.
+    </p>
+  </section>
 
-\index{Forest Plot}
+  <section xml:id="forest-R">
+    <title>Forest Plots in <em>R</em></title>
 
-<span class="firstcharacter">I</span>
-n the last chapters, we learned how we can pool effect sizes in _R_, and how to assess the heterogeneity in a meta-analysis. We now come to a somewhat more pleasant part of meta-analyses, in which we visualize the results we obtained in previous steps.
-
-The most common way to visualize meta-analyses is through **forest plots**. Such plots provide a graphical display of the observed effect, confidence interval, and usually also the weight of each study. They also display the pooled effect we have calculated in a meta-analysis. Overall, this allows others to quickly examine the precision and spread of the included studies, and how the pooled effect relates to the observed effect sizes.
-
-\index{meta Package}
-
-The **{meta}** package has an in-built function which makes it very easy to produce beautiful forest plots directly in _R_. The function has a broad functionality and allows one to change the appearance of the plot as desired. This forest plot function, and how we can use it in practice, will be the main focus of this chapter. Furthermore, we will also briefly discuss an alternative approach to visualize the results of a meta-analysis.
-
-<br></br>
-
-## What Is a Forest Plot?
-
----
-
-Figure \@ref(fig:forest) shows the main components of a forest plot. On the left side, forest plots display the name of each study included in the meta-analysis. For each study, a graphical representation of the effect size is provided, usually in the center of the plot. This visualization shows the point estimate of a study on the x-axis. This point estimate is supplemented by a line, which represents the range of the confidence interval calculated for the observed effect size. Usually, the point estimate is surrounded by a square. The size of this square is determined by the weight (Chapter \@ref(fem)) of the effect size: studies with a larger weight are given a larger square, while studies with a lower weight have a smaller square. 
-
-Conventionally, a forest plot should also contain the effect size data that was used to perform the meta-analysis. This provides others with the data needed to replicate our results.
-
-```{r forest, out.width='100%', message = F, echo = F, fig.align='center', fig.cap = "Key elements of a forest plot."}
-library(OpenImageR)
-knitr::include_graphics('images/forest_sep.png')
-```
-
-At the bottom of the plot, a diamond shape represents the average effect. The length of the diamond symbolizes the confidence interval of the pooled result on the x-axis. Typically, forest plots also include a vertical **reference line**, which indicates the point on the x-axis equal to no effect. As we will see in the coming examples, forest plots can be enhanced by also displaying, for example, a heterogeneity measure such as $I^2$ or $\tau^2$.
-
-\index{Logarithm, Natural}
-
-Effect size and confidence intervals in forest plots are usually displayed on a linear scale. Yet, when the summary measure is a **ratio** (such as odds ratios or risk ratios), it is common to use a **logarithmic** scale on the x-axis instead. This means that values around 1 are more closely together than values which are much lower or higher than 1. 
-
-This makes sense for ratios since these effect size metrics cannot be interpreted in a "linear" fashion (i.e. the "opposite" of RR = 0.50 is 2, not 1.5; see Chapter \@ref(ratios)). The reference line for such effect sizes is usually 1, which indicates no effect.
-
-<br></br>
-
-## Forest Plots in _R_ {#forest-R}
-
----
-
-We can produce a forest plot for any type of **{meta}** meta-analysis object (e.g. results of `metagen`, `metacont`, or `metabin`) using the `meta::forest` function^[In this chapter we always append `meta::` when calling the `forest` function. This is not strictly necessary, but in practice may sometimes help to avoid error messages (and related confusion), since there is a another `forest` function in the `metafor` package, which we do not cover here.]. We simply have to provide `meta::forest` with our **{meta}** object, and a plot will be created. Usually, these forest plots already look very good by default, but the function also has countless additional arguments to further adapt the appearance. All of these arguments are described in the function documentation (which can be accessed by running `?meta::forest`). Here is a list of the more important ones:
-
-* **`sortvar`**. The variable in the meta-analysis data set by which studies are sorted in the forest plot. If we want to order the results by effect size, for example, we can use the code `sortvar = TE`. 
-
-* **`comb.fixed`**. Logical, indicating if the fixed-effect model estimate should be included in the plot.
-
-* **`comb.random`**. Logical, indicating if the random-effects model estimate should be included in the plot.
-
-* **`text.fixed`**. The **label** for the pooled effect according to the fixed-effect model. By default, `"Fixed effect model"` is printed.
-
-* **`text.random`**. The label for the pooled effect according to the random-effects model. By default, `"Random effects model"` is printed.
-
-* **`prediction`**. Logical, indicating if the prediction interval should be added to the plot.
-
-* **`label.left`** and **`label.right`**. Label added to the left and right side of the forest plot. This can be used to specify that, for example, effects on this side favor the treatment (e.g. `label.left = "Favors treatment"`).
-
-* **`smlab`**. A label displayed on top of the plot. This can be used to show which effect size metric was used.
-
-* **`xlim`**. The limits of the x-axis, or the character `“s”` to produce symmetric forest plots. This is argument particularly relevant when your results deviate substantially from zero, or if you also want to have outliers depicted. If we want that the x-axis ranges from 0 to 2, for example, the code is `xlim = c(0,2)`.
-
-* **`ref`**. The reference line in the plot. Depending on the summary measure we used, this is either 0 or 1 by default. 
-
-* **`leftcols`** and **`rightcols`**. Here, you can specify which variables should be displayed on the left and right side of the forest plot. There are a few in-built elements that the function uses by default. For example, `"studlab"` stands for the study label, `"effect"` for the observed effect size, and **`effect.ci`** for both the effect size and its confidence interval. It is also possible to add user-defined columns, as long as these were included in the `data.frame` we initially provided to the **{meta}** function. In this case, we only have to add the name of the column as a character string.
-
-* **`leftlabs`** and **`rightlabs`**. The labels that should be used for the columns displayed to the left and right of the forest plot.
-
-* **`print.I2`** and `print.I2.ci`. Logical, indicating if the $I^2$ value and its confidence interval should be printed. This is `TRUE` by default.
-
-* **`print.tau2`** and **`print.tau`**. Logical, indicating if the $\tau^2$ and $\tau$ value should be printed. The value of $\tau^2$ is printed by default.
-
-* **`col.square`**, **`col.diamond`** and **`col.predict`**. The color (e.g. `"blue"`) of the square, diamond and prediction interval, respectively.
-
-
-Time to generate our first forest plot. In this example, we plot the `m.gen` object that we also used in the previous examples. We sort the studies in the forest plot by effect size, add a prediction interval, and user-defined labels to the left. The `meta::forest` function prints the $\tau^2$ value by default, which we do not want here, so we set `print.tau2` to `FALSE`. 
-
-This is how our code looks in the end:
-
-
-```{r, fig.height=6, fig.width=8, eval=F}
+    <p>
+      We can produce a forest plot for any type of <alert>{meta}</alert> meta-analysis object (e.g. results of <c>metagen</c>, <c>metacont</c>, or <c>metabin</c>) using the <c>meta::forest</c> function<fn>In this chapter we always append <c>meta::</c> when calling the <c>forest</c> function. This is not strictly necessary, but in practice may sometimes help to avoid error messages (and related confusion), since there is a another <c>forest</c> function in the <c>metafor</c> package, which we do not cover here.</fn>. We simply have to provide <c>meta::forest</c> with our <alert>{meta}</alert> object, and a plot will be created. Usually, these forest plots already look very good by default, but the function also has countless additional arguments to further adapt the appearance. All of these arguments are described in the function documentation (which can be accessed by running <c>?meta::forest</c>). Here is a list of the more important ones:
+    </p>
+    <ul>
+      <li>
+        <p>
+          <alert><c>sortvar</c></alert>. The variable in the meta-analysis data set by which studies are sorted in the forest plot. If we want to order the results by effect size, for example, we can use the code <c>sortvar = TE</c>.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert><c>comb.fixed</c></alert>. Logical, indicating if the fixed-effect model estimate should be included in the plot.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert><c>comb.random</c></alert>. Logical, indicating if the random-effects model estimate should be included in the plot.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert><c>text.fixed</c></alert>. The <alert>label</alert> for the pooled effect according to the fixed-effect model. By default, <c>"Fixed effect model"</c> is printed.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert><c>text.random</c></alert>. The label for the pooled effect according to the random-effects model. By default, <c>"Random effects model"</c> is printed.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert><c>prediction</c></alert>. Logical, indicating if the prediction interval should be added to the plot.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert><c>label.left</c></alert> and <alert><c>label.right</c></alert>. Label added to the left and right side of the forest plot. This can be used to specify that, for example, effects on this side favor the treatment (e.g. <c>label.left = "Favors treatment"</c>).
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert><c>smlab</c></alert>. A label displayed on top of the plot. This can be used to show which effect size metric was used.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert><c>xlim</c></alert>. The limits of the x-axis, or the character <c>“s”</c> to produce symmetric forest plots. This is argument particularly relevant when your results deviate substantially from zero, or if you also want to have outliers depicted. If we want that the x-axis ranges from 0 to 2, for example, the code is <c>xlim = c(0,2)</c>.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert><c>ref</c></alert>. The reference line in the plot. Depending on the summary measure we used, this is either 0 or 1 by default.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert><c>leftcols</c></alert> and <alert><c>rightcols</c></alert>. Here, you can specify which variables should be displayed on the left and right side of the forest plot. There are a few in-built elements that the function uses by default. For example, <c>"studlab"</c> stands for the study label, <c>"effect"</c> for the observed effect size, and <alert><c>effect.ci</c></alert> for both the effect size and its confidence interval. It is also possible to add user-defined columns, as long as these were included in the <c>data.frame</c> we initially provided to the <alert>{meta}</alert> function. In this case, we only have to add the name of the column as a character string.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert><c>leftlabs</c></alert> and <alert><c>rightlabs</c></alert>. The labels that should be used for the columns displayed to the left and right of the forest plot.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert><c>print.I2</c></alert> and <c>print.I2.ci</c>. Logical, indicating if the <m>I^2</m> value and its confidence interval should be printed. This is <c>TRUE</c> by default.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert><c>print.tau2</c></alert> and <alert><c>print.tau</c></alert>. Logical, indicating if the <m>\tau^2</m> and <m>\tau</m> value should be printed. The value of <m>\tau^2</m> is printed by default.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert><c>col.square</c></alert>, <alert><c>col.diamond</c></alert> and <alert><c>col.predict</c></alert>. The color (e.g. <c>"blue"</c>) of the square, diamond and prediction interval, respectively.
+        </p>
+      </li>
+    </ul>
+    <p>
+      Time to generate our first forest plot. In this example, we plot the <c>m.gen</c> object that we also used in the previous examples. We sort the studies in the forest plot by effect size, add a prediction interval, and user-defined labels to the left. The <c>meta::forest</c> function prints the <m>\tau^2</m> value by default, which we do not want here, so we set <c>print.tau2</c> to <c>FALSE</c>. 
+    </p>
+    <p>
+      This is how our code looks in the end:
+    </p>
+    <program language="r">
+      <code>
 meta::forest(m.gen, 
              sortvar = TE,
              prediction = TRUE, 
              print.tau2 = FALSE,
              leftlabs = c("Author", "g", "SE"))
-```
-
-```{r, fig.height=6, fig.width=8, echo=F}
-par(bg="#FFFEFA")
-forest(m.gen, 
-       sortvar = TE,
-       prediction = TRUE, 
-       print.tau2 = FALSE,
-       leftlabs = c("Author", "g", "SE"))
-```
-
-
-The plot that `meta::forest` provides us with already looks quite decent. We also see that a think black line has been added to the plot, representing the prediction interval around our pooled effect.
-
-\index{Risk of Bias}
-
-We could enhance the plot by adding a column displaying the risk of bias of each study. The `ThirdWave` data set, which we used to generate `m.gen`, contains a column called `RiskOfBias`, in which the risk of bias assessment of each study is stored. 
-
-When we used `metagen` to calculate the meta-analysis (Chapter \@ref(pre-calculated-es)), the function automatically saved this data within `m.gen`. Therefore, we can use the `leftcols` argument to add the column to the plot. This results in the following code:
-
-```{r, fig.height=6, fig.width=9, eval=F}
+      </code>
+    </program>
+    <p>
+      The plot that <c>meta::forest</c> provides us with already looks quite decent. We also see that a think black line has been added to the plot, representing the prediction interval around our pooled effect.
+    </p>
+    <p>
+      <idx><h>Risk of Bias</h></idx>
+    </p>
+    <p>
+      We could enhance the plot by adding a column displaying the risk of bias of each study. The <c>ThirdWave</c> data set, which we used to generate <c>m.gen</c>, contains a column called <c>RiskOfBias</c>, in which the risk of bias assessment of each study is stored. 
+    </p>
+    <p>
+      When we used <c>metagen</c> to calculate the meta-analysis (Chapter <xref ref="pre-calculated-es"/>), the function automatically saved this data within <c>m.gen</c>. Therefore, we can use the <c>leftcols</c> argument to add the column to the plot. This results in the following code:
+    </p>
+    <program language="r">
+      <code>
 meta::forest(m.gen, 
              sortvar = TE,
              prediction = TRUE, 
              print.tau2 = FALSE,
              leftcols = c("studlab", "TE", "seTE", "RiskOfBias"),
              leftlabs = c("Author", "g", "SE", "Risk of Bias"))
-```
+      </code>
+    </program>
+    <p>
+      We see that now, the risk of bias information of each study has been added to the forest plot.
+    </p>
+    <subsection xml:id="layout-types">
+      <title>Layout Types</title>
 
-```{r, fig.height=6, fig.width=9, echo=F}
-par(bg="#FFFEFA")
-forest(m.gen, 
-       sortvar = TE,
-       prediction = TRUE, 
-       print.tau2 = FALSE,
-       leftcols = c("studlab", "TE", "seTE", "RiskOfBias"),
-       leftlabs = c("Author", "g", "SE", "Risk of Bias"))
-```
-
-We see that now, the risk of bias information of each study has been added to the forest plot.
-
-\vspace{4mm}
-
-<br></br>
-
-### Layout Types
-
----
-
-The `meta::forest` function has two "pre-packaged" layouts, which we can use to bring our forest plot into a specific format without having to specify numerous arguments. One of them is the `"JAMA"` layout, which gives us a forest plot according to the guidelines of the **Journal of the American Medical Association**. This layout may be used if you want to publish your meta-analysis in a medical journal.
-
-\vspace{2mm}
-
-```{r, eval=F}
+      <p>
+        The <c>meta::forest</c> function has two "pre-packaged" layouts, which we can use to bring our forest plot into a specific format without having to specify numerous arguments. One of them is the <c>"JAMA"</c> layout, which gives us a forest plot according to the guidelines of the <alert>Journal of the American Medical Association</alert>. This layout may be used if you want to publish your meta-analysis in a medical journal.
+      </p>
+      <program language="r">
+        <code>
 meta::forest(m.gen, layout = "JAMA")
-```
-
-```{r, echo=F, fig.height=6, fig.width=8, out.width="75%", fig.align='center'}
-par(bg="#FFFEFA")
-meta::forest(m.gen, layout = "JAMA")
-```
-
-\index{Review Manager (RevMan)}
-
-The other layout is `"RevMan5"`, which produces a forest plot similar to the ones generated by Cochrane's **Review Manager 5**.
-
-```{r, eval=F}
+        </code>
+      </program>
+      <p>
+        <idx><h>Review Manager (RevMan)</h></idx>
+      </p>
+      <p>
+        The other layout is <c>"RevMan5"</c>, which produces a forest plot similar to the ones generated by Cochrane's <alert>Review Manager 5</alert>.
+      </p>
+      <program language="r">
+        <code>
 meta::forest(m.gen, layout = "RevMan5")
-```
+        </code>
+      </program>
+    </subsection>
 
-```{r, echo=F, fig.height=6, fig.width=9, out.width="75%", fig.align='center'}
-par(bg="#FFFEFA")
-meta::forest(m.gen, layout = "RevMan5")
-```
+    <subsection xml:id="saving-the-forest-plots">
+      <title>Saving the Forest Plots</title>
 
-<br></br>
-
-### Saving the Forest Plots
-
----
-
-Forest plots generated by `meta::forest` can be saved as a PDF, PNG, or **scalable vector graphic** (SVG) file. In contrast to other plots generated through base _R_ or the **{ggplot2}** package, the output of `meta::forest` is not automatically re-scaled when we save it as a file. This means that forest plots are sometimes cut off on two or four sides, and we have to adjust the width and height manually so that everything is visible.
-
-The `pdf`, `png` and `svg` function can be used to save plots via _R_ code. We have to start with a call to one of these functions, which tells _R_ that the output of the following code should be saved in the document. Then, we add our call to the  `meta::forest` function. In the last line, we have to include `dev.off()`, which will save the generated output to the file we specified above. 
-
-All three functions require us to specify the `file` argument, which should contain the name of the file. The file is then automatically saved in the working directory under that name. Additionally, we can use the `width` and `height` argument to control the size of the plot, which can be helpful when the output is cut off.
-
-Assuming we want to save our initial forest plot under the name "forestplot", we can use the following code to generate a PDF, PNG and SVG file.
-
-\vspace{2mm}
-
-**PDF**
-
-```{r, eval=F}
+      <p>
+        Forest plots generated by <c>meta::forest</c> can be saved as a PDF, PNG, or <alert>scalable vector graphic</alert> (SVG) file. In contrast to other plots generated through base <em>R</em> or the <alert>{ggplot2}</alert> package, the output of <c>meta::forest</c> is not automatically re-scaled when we save it as a file. This means that forest plots are sometimes cut off on two or four sides, and we have to adjust the width and height manually so that everything is visible.
+      </p>
+      <p>
+        The <c>pdf</c>, <c>png</c> and <c>svg</c> function can be used to save plots via <em>R</em> code. We have to start with a call to one of these functions, which tells <em>R</em> that the output of the following code should be saved in the document. Then, we add our call to the  <c>meta::forest</c> function. In the last line, we have to include <c>dev.off()</c>, which will save the generated output to the file we specified above. 
+      </p>
+      <p>
+        All three functions require us to specify the <c>file</c> argument, which should contain the name of the file. The file is then automatically saved in the working directory under that name. Additionally, we can use the <c>width</c> and <c>height</c> argument to control the size of the plot, which can be helpful when the output is cut off.
+      </p>
+      <p>
+        Assuming we want to save our initial forest plot under the name "forestplot", we can use the following code to generate a PDF, PNG and SVG file.
+      </p>
+      <p>
+        <alert>PDF</alert>
+      </p>
+      <program language="r">
+        <code>
 pdf(file = "forestplot.pdf", width = 8, height = 7)
 
 meta::forest(m.gen, 
@@ -198,13 +222,13 @@ meta::forest(m.gen,
              leftlabs = c("Author", "g", "SE"))
 
 dev.off()
-```
-
-\vspace{2mm}
-
-**PNG**
-
-```{r, eval=F}
+        </code>
+      </program>
+      <p>
+        <alert>PNG</alert>
+      </p>
+      <program language="r">
+        <code>
 png(file = "forestplot.png", width = 2800, height = 2400, res = 300)
 
 meta::forest(m.gen, 
@@ -214,13 +238,13 @@ meta::forest(m.gen,
              leftlabs = c("Author", "g", "SE"))
 
 dev.off()
-```
-
-\vspace{2mm}
-
-**SVG**
-
-```{r, eval=F}
+        </code>
+      </program>
+      <p>
+        <alert>SVG</alert>
+      </p>
+      <program language="r">
+        <code>
 svg(file = "forestplot.svg", width = 8, height = 7)
 
 meta::forest(m.gen, 
@@ -230,108 +254,146 @@ meta::forest(m.gen,
              leftlabs = c("Author", "g", "SE"))
 
 dev.off()
-```
+        </code>
+      </program>
+    </subsection>
 
-<br></br>
+  </section>
 
-## Drapery Plots {#drapery}
+  <section xml:id="drapery">
+    <title>Drapery Plots</title>
 
----
-
-\index{Drapery Plot}
-
-\index{P-Value}
-
-Forest plots are, by far, the most common way to visualize meta-analyses. Most published meta-analyses contain a forest plot, and many researchers understand how they are interpreted. It is advisable that you also include one in your meta-analysis report since forest plots provide a comprehensive and easily understandable summary of your findings.
-
-However, forest plots are not the only way to illustrate our results. Meta-analyses can also be visualized, for example, through **drapery plots** [@rucker2020beyond]. A drawback of forest plots is that they can only display confidence intervals assuming a fixed significance threshold, conventionally $p<$ 0.05. It is based on these confidence intervals that researchers decide if an effect is significant or not. 
-
-There has been a controversy around the use of $p$-values in recent years [@wellek2017critical], and some have argued that hypothesis testing based on $p$-values has contributed to the "replication crisis" in many research areas [@nuzzo2014statistical].
-
-Drapery plots are based on $p$-**value functions**. Such $p$-value functions have been proposed to prevent us from solely relying on the $p$<0.05 significance threshold when interpreting the results of an analysis [@infanger2019p]. 
-
-Therefore, instead of only calculating the 95% confidence interval, $p$-value functions provide a continuous curve which shows the confidence interval for varying values of $p$. In a drapery plot, a confidence curve is plotted for each study, as well as for the average effect. The x-axis shows the effect size metric, and the y-axis the assumed $p$-value. 
-
-Drapery plots can be generated through the `drapery` function in **{meta}**. Like `meta::forest`, this function automatically generates the plot once we provide it with a **{meta}** meta-analysis object. There are a few additional arguments, with the most important ones being:
-
-* **`type`**: Defines the type of value to be plotted on the y-axis. This can be `"zvalue"` (default) for the test statistic, or the $p$-value (`"pvalue"`). 
-
-* **`study.results`**: Logical, indicating if the results of each study should be included in the plot. If `FALSE`, only the summary effect is printed.
-
-* **`labels`**: When we set this argument to `"studlab"`, the study labels will be included in the plot.
-
-* **`legend`**: Logical, indicating if a legend should be printed.
-
-* **`pos.legend`**. The position of the legend. Either `"bottomright"`, `"bottom"`, `"bottomleft"`, `"left"`, `"topleft"`, `"top"`, `"topright"`, `"right"`, or `"center"`. 
-
-Let us try out the `drapery` function in an example using our `m.gen` meta-analysis object. 
-
-
-```{r, fig.align='center', eval=F}
+    <p>
+      <idx><h>Drapery Plot</h></idx>
+    </p>
+    <p>
+      <idx><h>P-Value</h></idx>
+    </p>
+    <p>
+      Forest plots are, by far, the most common way to visualize meta-analyses. Most published meta-analyses contain a forest plot, and many researchers understand how they are interpreted. It is advisable that you also include one in your meta-analysis report since forest plots provide a comprehensive and easily understandable summary of your findings.
+    </p>
+    <p>
+      However, forest plots are not the only way to illustrate our results. Meta-analyses can also be visualized, for example, through <alert>drapery plots</alert> . A drawback of forest plots is that they can only display confidence intervals assuming a fixed significance threshold, conventionally <m>p&lt;</m> 0.05. It is based on these confidence intervals that researchers decide if an effect is significant or not. 
+    </p>
+    <p>
+      There has been a controversy around the use of <m>p</m>-values in recent years , and some have argued that hypothesis testing based on <m>p</m>-values has contributed to the "replication crisis" in many research areas .
+    </p>
+    <p>
+      Drapery plots are based on <m>p</m>-<alert>value functions</alert>. Such <m>p</m>-value functions have been proposed to prevent us from solely relying on the <m>p</m>&lt;0.05 significance threshold when interpreting the results of an analysis . 
+    </p>
+    <p>
+      Therefore, instead of only calculating the 95% confidence interval, <m>p</m>-value functions provide a continuous curve which shows the confidence interval for varying values of <m>p</m>. In a drapery plot, a confidence curve is plotted for each study, as well as for the average effect. The x-axis shows the effect size metric, and the y-axis the assumed <m>p</m>-value. 
+    </p>
+    <p>
+      Drapery plots can be generated through the <c>drapery</c> function in <alert>{meta}</alert>. Like <c>meta::forest</c>, this function automatically generates the plot once we provide it with a <alert>{meta}</alert> meta-analysis object. There are a few additional arguments, with the most important ones being:
+    </p>
+    <ul>
+      <li>
+        <p>
+          <alert><c>type</c></alert>: Defines the type of value to be plotted on the y-axis. This can be <c>"zvalue"</c> (default) for the test statistic, or the <m>p</m>-value (<c>"pvalue"</c>).
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert><c>study.results</c></alert>: Logical, indicating if the results of each study should be included in the plot. If <c>FALSE</c>, only the summary effect is printed.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert><c>labels</c></alert>: When we set this argument to <c>"studlab"</c>, the study labels will be included in the plot.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert><c>legend</c></alert>: Logical, indicating if a legend should be printed.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert><c>pos.legend</c></alert>. The position of the legend. Either <c>"bottomright"</c>, <c>"bottom"</c>, <c>"bottomleft"</c>, <c>"left"</c>, <c>"topleft"</c>, <c>"top"</c>, <c>"topright"</c>, <c>"right"</c>, or <c>"center"</c>.
+        </p>
+      </li>
+    </ul>
+    <p>
+      Let us try out the <c>drapery</c> function in an example using our <c>m.gen</c> meta-analysis object. 
+    </p>
+    <program language="r">
+      <code>
 drapery(m.gen, 
         labels = "studlab",
         type = "pval", 
         legend = FALSE)
-```
+      </code>
+    </program>
+    <p>
+      The resulting plot contains a <m>p</m>-value curve for each effect size, all in the shape of an upside down V. The thick line represents the average effect according to the random-effects model. The shaded area we see in the plot represents the prediction interval, which is considerably wider than the confidence interval of the pooled effect.
+    </p>
+    <p>
+      The "peak" of the <m>p</m>-value functions represents the exact value of the effect size in our meta-analysis. As we go down the y-axis, the <m>p</m>-value becomes smaller, and the confidence intervals wider and wider, until we reach conventional significance thresholds, indicated by the dashed horizontal lines. 
+    </p>
+    <p>
+      Based on the plot, we see that we can be quite confident in the pooled effect size being greater than zero, given that the thick line reaches zero on the x-axis when <m>p</m> is already very, very small (&lt;0.01).
+    </p>
+    <p>
+      Rücker et al.  recommend that drapery plots should mainly be used <alert>in addition</alert> to forest plots. Simply replacing the forest with a drapery plot may be not a good idea, because the latter does not contain much of the effect size information that might be needed by others to reproduce our results. 
+    </p>
+  </section>
 
+  <section xml:id="forest-questions-answers">
+    <title>Questions &amp; Answers</title>
 
-```{r, fig.align='center', echo=F, fig.width=12, fig.height=8}
-par(bg="#FFFEFA")
-drapery(m.gen, 
-        labels = "studlab",
-        type = "pval", 
-        legend = FALSE,
-        bg = "#FFFEFA")
-```
+    <exercise>
+      <p>
+        <alert>Test your knowledge!</alert>
+      </p>
+      <ol>
+        <li>
+          <p>
+            What are the key components of a forest plot?
+          </p>
+        </li>
+        <li>
+          <p>
+            What are the advantages of presenting a forest plot of our meta-analysis?
+          </p>
+        </li>
+        <li>
+          <p>
+            What are the limitations of forest plots, and how do drapery plots overcome this limitation?
+          </p>
+        </li>
+      </ol>
+      <p>
+        <alert>Answers to these questions are listed in <url href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/qanda.html#qanda6">Appendix A</url> at the end of this book.</alert>
+      </p>
+    </exercise>
+  </section>
 
-The resulting plot contains a $p$-value curve for each effect size, all in the shape of an upside down V. The thick line represents the average effect according to the random-effects model. The shaded area we see in the plot represents the prediction interval, which is considerably wider than the confidence interval of the pooled effect.
+  <section xml:id="forest-summary">
+    <title>Summary</title>
 
-The "peak" of the $p$-value functions represents the exact value of the effect size in our meta-analysis. As we go down the y-axis, the $p$-value becomes smaller, and the confidence intervals wider and wider, until we reach conventional significance thresholds, indicated by the dashed horizontal lines. 
+    <ul>
+      <li>
+        <p>
+          It is conventional to visualize the results of meta-analyses through forest plots.
+        </p>
+      </li>
+      <li>
+        <p>
+          Forest plots contain a graphical representation of each study's effect size and confidence interval, and also show the calculated overall effect. Furthermore, they contain the effect size data that was used for pooling.
+        </p>
+      </li>
+      <li>
+        <p>
+          It is also possible to add other kinds of information to a forest plot, for example the quality rating that each study received.
+        </p>
+      </li>
+      <li>
+        <p>
+          Forest plots can only display results assuming a fixed significance threshold, usually <m>p&lt;</m> 0.05. To visualize how results change for varying significance thresholds, drapery plots can be generated in addition.
+        </p>
+      </li>
+    </ul>
+  </section>
 
-Based on the plot, we see that we can be quite confident in the pooled effect size being greater than zero, given that the thick line reaches zero on the x-axis when $p$ is already very, very small (<0.01).
-
-Rücker et al. [-@rucker2020beyond] recommend that drapery plots should mainly be used **in addition** to forest plots. Simply replacing the forest with a drapery plot may be not a good idea, because the latter does not contain much of the effect size information that might be needed by others to reproduce our results. 
-
-$$\tag*{$\blacksquare$}$$
-
-<br></br>
-
-## Questions & Answers
-
-```{block, type='boxquestion'}
-**Test your knowledge!**
-
-\vspace{4mm}
-
-1. What are the key components of a forest plot?
-
-\vspace{-2mm}
-
-2. What are the advantages of presenting a forest plot of our meta-analysis?
-
-\vspace{-2mm}
-
-3. What are the limitations of forest plots, and how do drapery plots overcome this limitation?
-
-\vspace{4mm}
-
-
-**Answers to these questions are listed in [Appendix A](https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/qanda.html#qanda6) at the end of this book.**
-
-```
-
-
-<br></br>
-
-## Summary
-
-* It is conventional to visualize the results of meta-analyses through forest plots. 
-
-* Forest plots contain a graphical representation of each study's effect size and confidence interval, and also show the calculated overall effect. Furthermore, they contain the effect size data that was used for pooling.
-
-* It is also possible to add other kinds of information to a forest plot, for example the quality rating that each study received.
-
-* Forest plots can only display results assuming a fixed significance threshold, usually $p<$ 0.05. To visualize how results change for varying significance thresholds, drapery plots can be generated in addition.
-    ]]></input>
-  </program>
 </chapter>

@@ -1,593 +1,573 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <appendix xml:id="appendix" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Appendix</title>
-  <program language="rmd">
-    <input><![CDATA[
-# (APPENDIX) Appendix {-}
 
-<br></br>
+  <section xml:id="qanda1">
+    <title>Chapter 1: Introduction</title>
 
-# Questions & Answers {#qanda}
+    <p>
+      <alert>1. How can meta-analysis be defined? What differentiates a meta-analysis from other types of literature reviews?</alert>
+    </p>
+    <p>
+      Meta-analysis can be defined as an <alert>analysis of analyses</alert> (definition by Glass). In contrast to other types of (systematic) reviews, meta-analysis aims to synthesize evidence in a quantitative way. Usually, the goal is to derive a numerical estimate that describes a clearly circumscribed research field <alert>as a whole</alert>.
+    </p>
+    <p>
+      <alert>2. Can you name one of the founding mothers and fathers of meta-analysis? What achievement can be attributed to her or him?</alert>
+    </p>
+    <p>
+      Karl Pearson: combination of typhoid inoculation data across the British Empire; Ronald Fisher: approaches to synthesize data of agricultural research studies; Mary Smith and Gene Glass: coined the term "meta-analysis", first meta-analysis of psychotherapy trials; John Hunter and Frank Schmidt: meta-analysis with correction of measurement artifacts (psychometric meta-analysis); Rebecca DerSimonian and Nan Laird: method to calculate random-effects model meta-analyses; Peter Elwood and Archie Cochrane: pioneer meta-analysis in medicine.
+    </p>
+    <p>
+      <alert>3. Name three common problems of meta-analyses and describe them in one or two sentences.</alert>
+    </p>
+    <p>
+      "Apples and Oranges": studies are too different to be synthesized; "Garbage In, Garbage Out": invalid evidence is only reproduced by meta-analyses; "File Drawer": negative results are not published, leading to biased findings in meta-analyses; "Researcher Agenda": researchers can tweak meta-analyses to prove what they want to prove.
+    </p>
+    <p>
+      <alert>4. Name qualities that define a good research question for a meta-analysis.</alert>
+    </p>
+    <p>
+      FINER: feasible, interesting, novel, ethical, relevant; PICO: clearly defined population, intervention/exposure, control group/comparison, and analyzed outcome.
+    </p>
+    <p>
+      <alert>5. Have a look again at the eligibility criteria of the meta-analysis on sleep interventions in college students (end of Chapter 1.4.1). Can you extract the PICO from the inclusion and exclusion criteria of this study?</alert>
+    </p>
+    <p>
+      Population: tertiary education students; Intervention: sleep-focused psychological interventions; Comparison: passive control condition; Outcome: sleep disturbance, as measured by standardized symptom measures.
+    </p>
+    <p>
+      <alert>6. Name a few important sources that can be used to search studies.</alert>
+    </p>
+    <p>
+      Review articles, references in studies, "forward search" (searching for studies that have cited a relevant article), searching relevant journals, bibliographic database search. 
+    </p>
+    <p>
+      <alert>7. Describe the difference between "study quality" and "risk of bias" in one or two sentences.</alert>
+    </p>
+    <p>
+      A study can fulfill all study quality criteria that are considered important in a research field and still have a high risk of bias (e.g. because bias is difficult to avoid for this type of study or research topic).
+    </p>
+  </section>
 
----
+  <section xml:id="qanda2">
+    <title>Chapter 2: Discovering R</title>
 
-
-## Chapter 1: Introduction (see [Chapter 1](#intro)) {#qanda1}
-
----
-
-**1. How can meta-analysis be defined? What differentiates a meta-analysis from other types of literature reviews?**
-
-Meta-analysis can be defined as an **analysis of analyses** (definition by Glass). In contrast to other types of (systematic) reviews, meta-analysis aims to synthesize evidence in a quantitative way. Usually, the goal is to derive a numerical estimate that describes a clearly circumscribed research field **as a whole**.
-
-**2. Can you name one of the founding mothers and fathers of meta-analysis? What achievement can be attributed to her or him?**
-
-Karl Pearson: combination of typhoid inoculation data across the British Empire; Ronald Fisher: approaches to synthesize data of agricultural research studies; Mary Smith and Gene Glass: coined the term "meta-analysis", first meta-analysis of psychotherapy trials; John Hunter and Frank Schmidt: meta-analysis with correction of measurement artifacts (psychometric meta-analysis); Rebecca DerSimonian and Nan Laird: method to calculate random-effects model meta-analyses; Peter Elwood and Archie Cochrane: pioneer meta-analysis in medicine.
-
-**3. Name three common problems of meta-analyses and describe them in one or two sentences.**
-
-"Apples and Oranges": studies are too different to be synthesized; "Garbage In, Garbage Out": invalid evidence is only reproduced by meta-analyses; "File Drawer": negative results are not published, leading to biased findings in meta-analyses; "Researcher Agenda": researchers can tweak meta-analyses to prove what they want to prove.
-
-**4. Name qualities that define a good research question for a meta-analysis.**
-
-FINER: feasible, interesting, novel, ethical, relevant; PICO: clearly defined population, intervention/exposure, control group/comparison, and analyzed outcome.
-
-**5. Have a look again at the eligibility criteria of the meta-analysis on sleep interventions in college students (end of Chapter 1.4.1). Can you extract the PICO from the inclusion and exclusion criteria of this study?**
-
-Population: tertiary education students; Intervention: sleep-focused psychological interventions; Comparison: passive control condition; Outcome: sleep disturbance, as measured by standardized symptom measures.
-
-**6. Name a few important sources that can be used to search studies.**
-
-Review articles, references in studies, "forward search" (searching for studies that have cited a relevant article), searching relevant journals, bibliographic database search. 
-
-**7. Describe the difference between "study quality" and "risk of bias" in one or two sentences.**
-
-A study can fulfill all study quality criteria that are considered important in a research field and still have a high risk of bias (e.g. because bias is difficult to avoid for this type of study or research topic).
-
-<br></br>
-
-## Chapter 2: Discovering R (see [Chapter 2](#discovering-R)) {#qanda2}
-
----
-
-**1. Show the variable `Author`.**
-
-```{r, eval=F}
+    <p>
+      <alert>1. Show the variable <c>Author</c>.</alert>
+    </p>
+    <program language="r">
+      <code>
 data$Author
-```
-
-**2. Convert `subgroup` to a factor.**
-
-```{r, eval=F}
-data$subgroup <- as.factor(data$subgroup)
-```
-
-**3. Select all the data of the "Jones" and "Martin" study.**
-
-```{r, eval=F}
+      </code>
+    </program>
+    <p>
+      <alert>2. Convert <c>subgroup</c> to a factor.</alert>
+    </p>
+    <program language="r">
+      <code>
+data$subgroup &lt;- as.factor(data$subgroup)
+      </code>
+    </program>
+    <p>
+      <alert>3. Select all the data of the "Jones" and "Martin" study.</alert>
+    </p>
+    <program language="r">
+      <code>
 library(tidyverse)
-data %>%
+data %&gt;%
     filter(Author %in% c("Jones", "Martin"))
-```
-
-**4. Change the name of the study "Rose" to "Bloom".**
-
-```{r, eval=F}
-data[5,1] <- "Bloom"
-```
-
-**5. Create a new variable `TE_seTE_diff` by subtracting `seTE` from `TE`. Save the results in `data`.**
-
-```{r, eval=F}
-TE_seTE_diff <- data$TE - data$seTE
-```
-
-**6. Use a pipe to (1) filter all studies in subgroup "one" or "two", (2) select the variable `TE_seTE_diff`, (3) take the mean of the variable, and then apply the `exp` function to it.**
-
-```{r, eval=F}
-data %>%
-    deplyr::filter(subgroup %in% c("one", "two")) %>%
-    pull(TE_seTE_diff) %>%
-    mean() %>%
+      </code>
+    </program>
+    <p>
+      <alert>4. Change the name of the study "Rose" to "Bloom".</alert>
+    </p>
+    <program language="r">
+      <code>
+data[5,1] &lt;- "Bloom"
+      </code>
+    </program>
+    <p>
+      <alert>5. Create a new variable <c>TE_seTE_diff</c> by subtracting <c>seTE</c> from <c>TE</c>. Save the results in <c>data</c>.</alert>
+    </p>
+    <program language="r">
+      <code>
+TE_seTE_diff &lt;- data$TE - data$seTE
+      </code>
+    </program>
+    <p>
+      <alert>6. Use a pipe to (1) filter all studies in subgroup "one" or "two", (2) select the variable <c>TE_seTE_diff</c>, (3) take the mean of the variable, and then apply the <c>exp</c> function to it.</alert>
+    </p>
+    <program language="r">
+      <code>
+data %&gt;%
+    deplyr::filter(subgroup %in% c("one", "two")) %&gt;%
+    pull(TE_seTE_diff) %&gt;%
+    mean() %&gt;%
     exp()
-```
-
-<br></br>
-
-## Chapter 3: Effect Sizes (see [Chapter 3](#effects)) {#qanda3}
-
----
-
-**1. Is there a clear definition of the term "effect size"? What do people refer to when they speak of effect sizes?**
-
-No, there is no universally accepted definition. Some reserve the term "effect size" for differences between intervention and control groups. Others use a more liberal definition, and only exclude "one-variable" measures (e.g. means and proportions). 
-
-**2. Name a primary reason why observed effect sizes deviate from the true effect size of the population. How can it be quantified?**
-
-Observed effect sizes are assumed to deviate from the true effect size because of sampling error. The expected size of a study's sampling error can be expressed by its standard error.
-
-**3. Why are large studies better estimators of the true effect than small ones?**
-
-Because they are assumed to have a smaller sampling error, which leads to more precise effect estimates.
-
-**4. What criteria does an effect size metric have to fulfill to be usable for meta-analyses?**
-
-It needs to be comparable, computable, reliable and interpretable.
-
-**5. What does a standardized mean difference of 1 represent?**
-
-It represents that the means of the two groups differ by one pooled standard deviation.
-
-**6. What kind of transformation is necessary to pool effect sizes based on ratios (e.g. an odds ratio)?**
-
-The effect size needs to be log-transformed (in order to use the inverse-variance pooling method).
-
-**7. Name three types of effect size corrections.**
-
-Small sample bias correction of standardized mean differences (Hedges' $g$); correction for unreliability; correction for range restriction.
-
-**8. When does the unit-of-analysis problem occur? How can it be avoided?**
-
-When effect sizes in our data set are correlated (for example because they are part of the same study). The unit-of-analysis problem can be (partly or fully) avoided by (1) splitting the sample size of the shared group, (2) removing comparisons, (3) combining groups, or (4) using models that account for the effect size dependencies (e.g. three-level models).
-
-<br></br>
-
-## Chapter 4: Pooling Effect Sizes (see [Chapter 4](#pooling-es)) {#qanda4}
-
----
-
-**1. What is the difference between a fixed-effect model and a random-effects model?**
-
-The fixed-effect model assumes that all studies are estimators of the same true effect size. The random-effects model assumes that the true effect sizes of studies vary because of between-study heterogeneity (captured by the variance $\tau^2$), which needs to be estimated.
-
-**2. Can you think of a case in which the results of the fixed- and random-effects model are identical?**
-
-When the between-study heterogeneity variance $\tau^2$ is zero.
-
-**3. What is $\tau^2$? How can it be estimated?**
-
-The between-study heterogeneity variance. It can be estimated using different methods, for example restricted maximum likelihood (REML), the Paule-Mandel estimator, or the DerSimonian-Laird estimator.
-
-**4. Which distribution is the Knapp-Hartung adjustment based on? What effect does it have?**
-
-It is based on a $t$-distribution. The Knapp-Hartung adjustment usually leads to more conservative (i.e. wider) confidence intervals. 
-
-**5. What does "inverse-variance" pooling mean? When is this method not the best solution?**
-
-The method is called inverse-variance pooling because it uses the inverse of a study's variance as the pooling weight. The generic inverse-variance method is not the preferred option for meta-analyses of binary outcome data (e.g. risk or odds ratios).
-
-**6. You want to meta-analyze binary outcome data. The number of observations in the study arms is roughly similar, the observed event is very rare, and you do no expect the treatment effect to be large. Which pooling method would you use?**
-
-This is a scenario in which the Peto method may perform well.
-
-**7. For which outcome measures can GLMMs be used?**
-
-Proportions. It is also possible to use them for other binary outcome measures, but not generally recommended. 
-
-<br></br>
-
-## Chapter 5: Between-Study Heterogeneity (see [Chapter 5](#heterogeneity)) {#qanda5}
-
----
-
-**1. Why is it important to examine the between-study heterogeneity of a meta-analysis?**
-
-When the between-study heterogeneity is large, the true effect sizes can be assumed to vary considerably. In this case, a point estimate of the average true effect may not represent the data well in their totality. Between-study heterogeneity can also lead to effect estimates that are not robust, for example because a few outlying studies distort the overall result.
-
-**2. Can you name the two types of heterogeneity? Which one is relevant in the context of calculating a meta-analysis?**
-
-Baseline/design-related heterogeneity and statistical heterogeneity. Only statistical heterogeneity is assessed quantitatively in meta-analyses.
-
-**3. Why is the significance of Cochran's $Q$ not a sufficient measure of between-study heterogeneity?**
-
-Because the significance of the $Q$ test heavily depends on the number of studies included in our meta-analysis, and their size.
-
-**4. What are the advantages of using prediction intervals to express the amount of heterogeneity in a meta-analysis?**
-
-Prediction intervals allow to express the impact of between study heterogeneity on future studies on the same scale as the summary measure.
-
-**5. What is the difference between statistical outliers and influential studies?**
-
-Statistical outliers are studies with **extreme** effect sizes. Studies are influential when their impact on the overall result is large. It is possible that a study can be defined as a statistical outlier without being very influential, and vice versa. For example, a large study may have a big impact on the pooled results, even though its effect size is not particularly small or large.
-
-**6. For what can GOSH plots be used?**
-
-GOSH plots can be used to explore patterns of heterogeneity in our data, and which studies contribute to them.
-
-<br></br>
-
-## Chapter 6: Forest Plots (see [Chapter 6](#forest)) {#qanda6}
-
----
-
-**1. What are the key components of a forest plot?**
-
-Graphical representation of each study's observed effect size, with confidence intervals; the weight of each study, represented by the size of squares around the observed effect sizes; the numeric value of each study's observed effect and weight; the pooled effect, represented by a diamond; a reference line, usually representing no effect.
-
-**2. What are the advantages of presenting a forest plot of our meta-analysis?**
-
-They allow to quickly examine the number, effect size and precision of all included studies, and how the observed effects "add up" to the pooled effect.
-
-**3. What are the limitations of forest plots, and how do drapery plots overcome this limitation?**
-
-Forest plots can only show the confidence intervals of effects assuming a fixed significance threshold (usually $\alpha$ = 0.05). Drapery plots can be used to show the confidence intervals (and thus the significance) of effect sizes for varying $p$-values.
-
-<br></br>
-
-## Chapter 7: Subgroup Analyses (see [Chapter 7](#subgroup)) {#qanda7}
-
----
-
-**1. In the best case, what can a subgroup analysis tell us that influence and outlier analyses cannot?**
-
-Subgroup analyses can potentially explain **why** certain heterogeneity patterns exist in our data, versus only telling us **that** they exist.
-
-**2. Why is the model behind subgroup analyses called the fixed-effects (plural) model?**
-
-Because it assumes that, while studies within subgroups follow a random-effects model, the subgroup levels themselves are fixed. There are several fixed subgroup effects.
-
-**3. As part of your meta-analysis, you want to examine if the effect of an educational training program differs depending on the school district in which it was delivered. Is a subgroup analysis using the fixed-effects (plural) model appropriate to answer this question?**
-
-Probably not. It makes more sense to assume that the school districts represent draws from a larger population of districts, not all school districts there are. 
-
-**4. A friend of yours conducted a meta-analysis containing a total of nine studies. Five of these studies fall into one subgroup, four into the other. She asks you if it makes sense to perform a subgroup analysis. What would you recommend?**
-
-It is probably not a good idea to conduct a subgroup analysis, since the total number of studies is smaller than ten.
-
-**5. You found a meta-analysis in which the authors claim that the analyzed treatment is more effective in women than men. This finding is based on a subgroup analysis, in which studies were divided into subgroups based on the share of females included in the study population. Is this finding credible, and why (not)?**
-
-The finding is based a subgroup variable that has been created using aggregated study data. This may introduce ecological bias, and the results are therefore questionable.
-
-<br></br>
-
-## Chapter 8: Meta-Regression (see [Chapter 8](#metareg)) {#qanda8}
-
----
-
-**1. What is the difference between a conventional regression analysis used in primary studies, and meta-regression?**
-
-The unit of analysis are studies (instead of persons), the effect sizes of which are more or less precise. In meta-regression, we have to build regression models that account for the fact that some studies should have a greater weight than others.
-
-**2. Subgroup analyses and meta-regression are closely related. How can the meta-regression formula be adapted to subgroup data?**
-
-By using dummy/categorical predictors.
-
-**3. Which method is used in meta-regression to give individual studies a differing weight?**
-
-Meta-regression uses **weighted least squares** to give studies with higher precision a greater weight.
-
-**4. What characteristics mark a meta-regression model that fits our data well? Which index can be used to examine this?**
-
-A "good" meta-regression model should lead to a large reduction in the amount of unexplained between-study heterogeneity variance. An index which covers this increase in explained variance is the $R^2$ analog.
-
-**5. When we calculate a subgroup analysis using meta-regression techniques, do we assume a separate or common value of $\tau^2$ in the subgroups?**
-
-A common estimate of $\tau^2$ is assumed in the subgroups.
-
-**6. What are the limitations and pitfalls of (multiple) meta-regression?**
-
-Overfitting meta-regression can lead to false positive results; multicollinearity can lead to parameter estimates that are not robust.
-
-**7. Name two methods that can be used to improve the robustness of (multiple) meta-regression models, and why they are helpful.**
-
-We can conduct a permutation test or use multi-model inference.
-
-<br></br>
-
-## Chapter 9: Publication Bias (see [Chapter 9](#pub-bias)) {#qanda9}
-
----
-
-**1. How can the term "publication bias" be defined? Why is it problematic in meta-analyses?**
-
-Publication bias exists when the probability of a study to get published depends on its results. This is problematic because it can lead to biased results in meta-analyses. Because not all evidence is considered, meta-analyses may result in findings that would not have materialized when all existing information had been considered.
-
-**2. What other reporting biases are there? Name and explain at least three.**
-
-Citation bias: studies with negative findings are less likely to be cited; time-lag bias: studies with negative findings are published later; multiple publication bias: studies with positive findings are more likely to be reported in several articles; language bias: evidence may be omitted because it is not published in English; outcome reporting bias: positive outcomes of a study are more likely to be reported than negative outcomes.
-
-**3. Name two questionable research practices (QRPs), and explain how they can threaten the validity of our meta-analysis.**
-
-P-hacking, HARKing. Both lead to an inflation of positive findings, even when there is no true effect.
-
-**4. Explain the core assumptions behind small-study effect methods.**
-
-Large studies (i.e. studies with a small standard error) are very likely to get published, no matter what their findings are. Smaller studies have a smaller precision, which means that very high effect sizes are needed to attain statistical significance. Therefore, only small studies with very high effects are published, while the rest ends up in the "file drawer".
-
-**5. When we find out that our data displays small-study effects, does this automatically mean that there is publication bias?**
-
-No. There are several other explanations why we find small-study effects, including between-study heterogeneity, effects of co-variates (e.g. treatment fidelity is higher in smaller studies), or chance. 
-
-**6. What does p-curve estimate: the true effect of all studies included in our meta-analysis, or just the true effect of all _significant_ effect sizes?**
-
-P-curve only estimates the true effect of all significant effect sizes. This is one of the reasons why it does not perform well when there is between-study heterogeneity.
-
-**7. Which publication bias method has the best performance?**
-
-No publication bias method consistently outperforms all the others. Therefore, it is helpful to apply several methods, and see if their results coalign.
-
-<br></br>
-
-## Chapter 10: "Multilevel" Meta-Analysis (see [Chapter 10](#multilevel-ma)) {#qanda10}
-
----
-
-**1. Why is it more accurate to speak of "three-level" instead of "multilevel" models?**
-
-Because the "conventional" random-effects model is already a multilevel model. It assumes that participants are nested within studies, and that the studies themselves are drawn from a population of true effect sizes. 
-
-**2. When are three-level meta-analysis models useful?**
-
-When we are dealing with correlated or nested data. Three-level models are particularly useful when studies contribute multiple effect sizes, or when there is good reason to believe that studies themselves fall into larger clusters.
-
-**3. Name two common causes of effect size dependency.**
-
-Dependence caused by the researchers involved in the primary studies; dependency created by the meta-analyst herself.
-
-**4. How can the multilevel $I^2$ statistic be interpreted?**
-
-It tells us the amount of variance not attributable to sampling error, and differentiates between heterogeneity variance **within** clusters, and heterogeneity variance **between** clusters.
-
-**5. How can a three-level model be expanded to incorporate the effect of moderator variables?**
-
-By integrating a fixed-effect term to the model formula.
-
-<br></br>
-
-## Chapter 11: Structural Equation Modeling Meta-Analysis (see [Chapter 11](#sem)) {#qanda11}
-
----
-
-**1. What is structural equation modeling, and what is used for?**
-
-Structural equation modeling is a statistical method that can be used to test assumed relationships between manifest and latent variables.
-
-**2. What are the two ways through which SEM can be represented?**
-
-SEM can be represented graphically or through matrices. 
-
-**3. Describe a random-effects meta-analysis from a SEM perspective.**
-
-From a SEM perspective, the true overall effect size in a random-effects meta-analysis can be seen as a latent variable. It is "influenced" by two arms: the sampling error on level 1 and the true effect size heterogeneity variance on level 2.
-
-**4. What is a multivariate meta-analysis, and when is it useful?**
-
-Multivariate meta-analysis allows to simultaneously pool two (or more) outcomes of studies. An asset of jointly estimating the two outcome variables is that the correlation between outcomes can be taken into account. 
-
-**5. When we find that our proposed meta-analytic SEM fits the data well, does this automatically mean that this model is the "correct" one?**
-
-No. Frequently, there is more than one model that fits the data well. 
-
-<br></br>
-
-## Chapter 12: Network Meta-Analysis (see [Chapter 12](#netwma)) {#qanda12}
-
----
-
-**1. When are network meta-analyses useful? What is their advantage compared to standard meta-analyses?**
-
-Network meta-analyses are useful when there are several competing treatments for some problem area, and we want to estimate which one has the largest benefits. In contrast to conventional meta-analyses, network meta-analysis models can integrate both direct and indirect evidence.
-
-**2. What is the difference between direct and indirect evidence in a treatment network? How can direct evidence be used to generate indirect evidence?**
-
-Direct evidence is information provided by comparisons that have actually been investigated in the included studies. Indirect evidence is derived from direct evidence by subtracting the effect of one (directly observed) comparison from the one of a related comparison (e.g. a comparison that used the same control group). 
-
-**3. What is the main idea behind the assumption of transitivity in network meta-analyses?**
-
-The assumption of transitivity stipulates that direct evidence can be used to infer unobserved, indirect evidence, and that direct and indirect evidence is consistent.
-
-**4. What is the relationship between transitivity and consistency?**
-
-Transitivity is a pre-requisite to conduct network meta-analyses, and cannot be tested directly. The statistical manifestation of transitivity is consistency, and is fulfilled when effect size estimates based on direct evidence are identical/similar to estimates based on indirect evidence.
-
-**5. Name two modeling approaches that can be used to conduct network meta-analyses. Is one of them better than the other?**
-
-Network meta-analysis can be conducted using a frequentist or Bayesian model. Both models are equivalent and produce converging results with increasing sample size.
-
-**6. When we include several comparisons from one study (i.e. multi-arm studies), what problem does this cause?**
-
-This means that the effect estimates are correlated, causing a unit-of-analysis error.
-
-**7. What do we have to keep in mind when interpreting the P- or SUCRA score of different treatments?**
-
-That the effect estimates of different treatments often overlap. This means that P-/SUCRA scores should always be interpreted with some caution. 
-
-<br></br>
-
-## Chapter 13: Bayesian Meta-Analysis (see [Chapter 13](#bayesian-ma)) {#qanda13}
-
----
-
-**1. What are differences and similarities between the "conventional" random-effects model and a Bayesian hierarchical model?**
-
-The random-effects model underlying frequentist meta-analysis is conceptually identical to the Bayesian hierarchical model. The main difference is that the Bayesian hierarchical model includes (weakly informative) prior distributions for the overall true effect size $\mu$ and between-study heterogeneity $\tau$.
-
-**2. Name three advantages of Bayesian meta-analyses compared to their frequentist counterpart.**
-
-Uncertainty of the $\tau^2$ estimate is directly modeled; a posterior distribution for $\mu$ is produced, which can be used to calculate the probability of $\mu$ lying below a certain value; prior knowledge or beliefs can be integrated into the model.
-
-**3. Explain the difference between a weakly informative and non-informative prior.**
-
-Non-informative priors assume that all or a range of possible values are equally likely. Weakly informative priors represent a **weak** belief that some values are more probable than others. 
-
-**4. What is a Half-Cauchy distribution, and why is it useful for Bayesian meta-analysis?**
-
-The Half-Cauchy distribution is a Cauchy distribution that is only defined for positive values. It is controlled by a location and scaling parameter, the latter determining how heavy the tails of the distribution are. Half-Cauchy distributions can be used as priors for $\tau$.
-
-**5. What is an ECDF, and how can it be used in Bayesian meta-analyses?**
-
-ECDF stands for **empirical cumulative distribution function**. ECDFs based on the posterior distribution of $\mu$ (or $\tau$) can be used to determine the (cumulative) probability that the estimated parameter is below or above some specified threshold. 
-
-\qed
-
-<br></br>
-
-# Effect Size Formulas {#formula}
-
----
-
-
-
-\renewcommand{\arraystretch}{2}
-```{r esformula, echo=F, message=F, fig.align='center'}
-library(kableExtra)
-library(openxlsx)
-
-dat = read.xlsx("data/estable2.xlsx")
-
-colnames(dat) = c(" ", "Effect Size ($\\hat\\theta$)",
-                  "Standard Error (SE)", "Function")
-dat[1][is.na(dat[1])] = " "
-dat[2][is.na(dat[2])] = " "
-dat[3][is.na(dat[3])] = " "
-dat[4][is.na(dat[4])] = " "
-dat[1][dat[1] == "XXX"] = " "
-
-#dat[5,2] = cell_spec(dat[5,2], "latex", font_size = 6, escape = FALSE) # cor2
-dat[6,2] = cell_spec(dat[6,2], "latex", font_size = 4, escape = FALSE)    # pb
-dat[7,3] = cell_spec(dat[7,3], "latex", font_size = 6, escape = FALSE) # between md
-dat[8,3] = cell_spec(dat[8,3], "latex", font_size = 6, escape = FALSE) # between smd
-dat[9,3] = cell_spec(dat[9,3], "latex", font_size = 6, escape = FALSE) # within md
-dat[10,2] = cell_spec(dat[10,2], "latex", font_size = 6, escape = FALSE) # within smd
-dat[10,3] = cell_spec(dat[10,3], "latex", font_size = 6, escape = FALSE) # within smd
-dat[11,3] = cell_spec(dat[11,3], "latex", font_size = 6, escape = FALSE) # rr 1
-dat[26,2] = cell_spec(dat[26,2], "latex", font_size = 6, escape = FALSE) # range 2
-dat[27,2] = cell_spec(dat[27,2], "latex", font_size = 6, escape = FALSE) # range 3
-
-dat[1,1] = "Arithmetic Mean (\\@ref(means))"
-dat[c(2,3),1] = "Proportion (\\@ref(props))"
-dat[4:5,1] = "Product-Moment Correlation (\\@ref(pearson-cors))"
-dat[6,1] = "Point-Biserial Correlation<sup>1</sup> (\\@ref(pb-cors))"
-dat[7,1] = "Between-Group Mean Difference (\\@ref(b-group-md))"
-dat[8,1] = "Between-Group Standardized Mean Difference (\\@ref(b-group-smd))"
-dat[9,1] = "Within-Group Mean Difference (\\@ref(w-group-smd))"
-dat[10,1] = "Within-Group Standardized Mean Difference (\\@ref(w-group-smd))"
-dat[11:14,1] = "Risk Ratio (\\@ref(rr))"
-dat[15:18,1] = "Odds Ratio (\\@ref(or))"
-dat[19:20,1] = "Incidence Rate Ratio (\\@ref(irr))"
-dat[21,1] = "Small Sample Bias (\\@ref(hedges-g))"
-dat[22:24,1] = "Unreliability (\\@ref(unrealiable))"
-dat[25:27,1] = "Range Restriction (\\@ref(range))"
-
-kableExtra::kable(dat, "html",
-                  #longtable = TRUE,
-                  escape = FALSE,
-                  #booktabs = TRUE,
-                  align = "lccl",
-                  linesep = "") %>% 
-  kable_classic(font_size = 12,
-                html_font = "Roboto") %>% 
-  #column_spec(1, width = "2cm") %>% 
-  #column_spec(2, width = "3cm") %>% 
-  #column_spec(3, width = "4cm") %>% 
-  column_spec(4, monospace = T) %>% 
-  collapse_rows(columns = 1, latex_hline = "none", valign = "top") %>% 
-  pack_rows(" ", 1, 1, indent = FALSE) %>% 
-  pack_rows(" ", 2, 3, indent = FALSE) %>% 
-  pack_rows(" ", 4, 6, indent = FALSE) %>% 
-  pack_rows(" ", 6, 6, indent = FALSE) %>% 
-  pack_rows(" ", 8, 8, indent = FALSE) %>% 
-  pack_rows(" ", 9, 9, indent = FALSE) %>% 
-  pack_rows(" ", 10, 10, indent = FALSE) %>% 
-  pack_rows(" ", 11, 15, indent = FALSE) %>% 
-  pack_rows(" ", 15, 18, indent = FALSE) %>% 
-  pack_rows(" ", 19, 20, indent = FALSE) %>% 
-  pack_rows(" ", 21, 21, indent = FALSE) %>% 
-  pack_rows(" ", 22, 24, indent = FALSE) %>% 
-  pack_rows(" ", 25, 27, indent = FALSE) %>% 
-  pack_rows("Correlation", 4, 6, indent = FALSE, 
-            label_row_css = "background-color: #277DB0; color: #fff;") %>% 
-  pack_rows("(Standardized) Mean Difference", 7, 10, hline_after = FALSE, indent = FALSE,
-            label_row_css = "background-color: #277DB0; color: #fff;") %>% 
-  pack_rows("Binary Outcome Effect Size", 11, 20, hline_after = FALSE, indent = FALSE,
-            label_row_css = "background-color: #277DB0; color: #fff;") %>% 
-  pack_rows("Effect Size Correction", 21, 27, hline_after = FALSE, indent = FALSE,
-            label_row_css = "background-color: #277DB0; color: #fff;") %>% 
-  footnote(number = c("Point-biserial correlations may be converted to SMDs for meta-analysis (see Chapter \\@ref(pb-cors))."),
-           symbol = "The pooled standard deviation is defined as $s_{\\text{pooled}} = \\sqrt{\\dfrac{(n_1-1)s^2_1+(n_2-1)s^2_2}{(n_1-1)+(n_2-1)}}$.", 
-           escape=FALSE) %>% 
-  row_spec(0, background = "#277DB0", color = "#f5f5f5") %>% 
-  row_spec(1, extra_css = "border-bottom: 1px solid") %>% 
-  row_spec(2:3, background = "#f5f5f5") %>% 
-  row_spec(6, extra_css = "border-top: 1px solid", background = "#f5f5f5") %>% 
-  #row_spec(6, background = "#f5f5f5") %>% 
-  row_spec(7, extra_css = "border-bottom: 1px solid") %>% 
-  row_spec(8, background = "#f5f5f5", extra_css = "border-bottom: 1px solid") %>% 
-  row_spec(9, extra_css = "border-bottom: 1px solid") %>% 
-  row_spec(10, background = "#f5f5f5") %>% 
-  row_spec(14, extra_css = "border-bottom: 1px solid") %>% 
-  row_spec(15:18, background = "#f5f5f5") %>% 
-  row_spec(19, extra_css = "border-top: 1px solid") %>% 
-  row_spec(21, extra_css = "border-bottom: 1px solid") %>% 
-  row_spec(22:24, background = "#f5f5f5") %>% 
-  row_spec(25, extra_css = "border-top: 1px solid")
-
-```
-
-
-
-\renewcommand{\arraystretch}{1}
-
-<br></br>
-
-# List of Symbols {#symbollist}
-
----
-
-```{r symbol, echo=F, message=F, fig.align='center', warning = F}
-library(kableExtra)
-library(openxlsx)
-
-# dat = read.xlsx("data/symbols.xlsx")
-dat = read.csv("data/symbols.csv")
-dat = dat[2:5]
-
-dat[14,4] = "Risk ratio, odds ratio, incidence rate ratio."
-
-dat[2,3] = "$\\mathcal{HC}(x_0,s)$"
-dat[11,3] = "$\\mathcal{N}(\\mu, \\sigma^2)$"
-
-rbind(c("$~$", "$~$", "$~$", "$~$"), dat) -> dat
-
-below = function(data, i){rbind(data[i,], c(" ", " ", " ", "$~$"))}
-l = list()
-for (i in 1:nrow(dat)){l[[i]] = below(dat, i)}
-do.call(rbind, l) %>% as.data.frame() -> dat
-
-rownames(dat) = 1:nrow(dat)
-
-kableExtra::kable(dat, "html", 
-                  col.names = NULL, booktabs = TRUE,
-                  longtable = T,
-                  escape = FALSE, 
-                  linesep = "") %>% 
-  kable_classic(font_size = 14,
-                html_font = "Roboto", 
-                bootstrap_options = c("striped")) %>% 
-  column_spec(1, width = "1cm") %>% 
-  column_spec(2, width = "4cm") %>% 
-  column_spec(3, width = "1cm") %>% 
-  column_spec(4, width = "4cm") 
-
-```
-
-
-**Note.** Vectors and matrices are written in **bold**. For example, we can denote all observed effect sizes in a meta-analysis with a vector $\boldsymbol{\hat\theta} = (\hat\theta_1, \hat\theta_2, \dots, \hat\theta_K)^\top$, where $K$ is the total number of studies. The $\top$ symbol indicates that the vector is **transposed**. This means that elements in the vector are arranged vertically instead of horizontally. This is sometimes necessary to do further operations with the vector, for example multiplying it with another matrix.
-
-
-<br></br>
-
-# _R_ & Package Information {#attr}
-
----
-
-<br></br>
-
-This book was compiled using _R_ version 4.2.0 ("Vigorous Calisthenics", 2022-04-22) running under macOS Catalina 10.15.4 (Apple Darwin 17.0 64-bit x86-64). The following package versions are used in the book:
-
-\vspace{4mm}
-
-```
+      </code>
+    </program>
+  </section>
+
+  <section xml:id="qanda3">
+    <title>Chapter 3: Effect Sizes</title>
+
+    <p>
+      <alert>1. Is there a clear definition of the term "effect size"? What do people refer to when they speak of effect sizes?</alert>
+    </p>
+    <p>
+      No, there is no universally accepted definition. Some reserve the term "effect size" for differences between intervention and control groups. Others use a more liberal definition, and only exclude "one-variable" measures (e.g. means and proportions). 
+    </p>
+    <p>
+      <alert>2. Name a primary reason why observed effect sizes deviate from the true effect size of the population. How can it be quantified?</alert>
+    </p>
+    <p>
+      Observed effect sizes are assumed to deviate from the true effect size because of sampling error. The expected size of a study's sampling error can be expressed by its standard error.
+    </p>
+    <p>
+      <alert>3. Why are large studies better estimators of the true effect than small ones?</alert>
+    </p>
+    <p>
+      Because they are assumed to have a smaller sampling error, which leads to more precise effect estimates.
+    </p>
+    <p>
+      <alert>4. What criteria does an effect size metric have to fulfill to be usable for meta-analyses?</alert>
+    </p>
+    <p>
+      It needs to be comparable, computable, reliable and interpretable.
+    </p>
+    <p>
+      <alert>5. What does a standardized mean difference of 1 represent?</alert>
+    </p>
+    <p>
+      It represents that the means of the two groups differ by one pooled standard deviation.
+    </p>
+    <p>
+      <alert>6. What kind of transformation is necessary to pool effect sizes based on ratios (e.g. an odds ratio)?</alert>
+    </p>
+    <p>
+      The effect size needs to be log-transformed (in order to use the inverse-variance pooling method).
+    </p>
+    <p>
+      <alert>7. Name three types of effect size corrections.</alert>
+    </p>
+    <p>
+      Small sample bias correction of standardized mean differences (Hedges' <m>g</m>); correction for unreliability; correction for range restriction.
+    </p>
+    <p>
+      <alert>8. When does the unit-of-analysis problem occur? How can it be avoided?</alert>
+    </p>
+    <p>
+      When effect sizes in our data set are correlated (for example because they are part of the same study). The unit-of-analysis problem can be (partly or fully) avoided by (1) splitting the sample size of the shared group, (2) removing comparisons, (3) combining groups, or (4) using models that account for the effect size dependencies (e.g. three-level models).
+    </p>
+  </section>
+
+  <section xml:id="qanda4">
+    <title>Chapter 4: Pooling Effect Sizes</title>
+
+    <p>
+      <alert>1. What is the difference between a fixed-effect model and a random-effects model?</alert>
+    </p>
+    <p>
+      The fixed-effect model assumes that all studies are estimators of the same true effect size. The random-effects model assumes that the true effect sizes of studies vary because of between-study heterogeneity (captured by the variance <m>\tau^2</m>), which needs to be estimated.
+    </p>
+    <p>
+      <alert>2. Can you think of a case in which the results of the fixed- and random-effects model are identical?</alert>
+    </p>
+    <p>
+      When the between-study heterogeneity variance <m>\tau^2</m> is zero.
+    </p>
+    <p>
+      <alert>3. What is <m>\tau^2</m>? How can it be estimated?</alert>
+    </p>
+    <p>
+      The between-study heterogeneity variance. It can be estimated using different methods, for example restricted maximum likelihood (REML), the Paule-Mandel estimator, or the DerSimonian-Laird estimator.
+    </p>
+    <p>
+      <alert>4. Which distribution is the Knapp-Hartung adjustment based on? What effect does it have?</alert>
+    </p>
+    <p>
+      It is based on a <m>t</m>-distribution. The Knapp-Hartung adjustment usually leads to more conservative (i.e. wider) confidence intervals. 
+    </p>
+    <p>
+      <alert>5. What does "inverse-variance" pooling mean? When is this method not the best solution?</alert>
+    </p>
+    <p>
+      The method is called inverse-variance pooling because it uses the inverse of a study's variance as the pooling weight. The generic inverse-variance method is not the preferred option for meta-analyses of binary outcome data (e.g. risk or odds ratios).
+    </p>
+    <p>
+      <alert>6. You want to meta-analyze binary outcome data. The number of observations in the study arms is roughly similar, the observed event is very rare, and you do no expect the treatment effect to be large. Which pooling method would you use?</alert>
+    </p>
+    <p>
+      This is a scenario in which the Peto method may perform well.
+    </p>
+    <p>
+      <alert>7. For which outcome measures can GLMMs be used?</alert>
+    </p>
+    <p>
+      Proportions. It is also possible to use them for other binary outcome measures, but not generally recommended. 
+    </p>
+  </section>
+
+  <section xml:id="qanda5">
+    <title>Chapter 5: Between-Study Heterogeneity</title>
+
+    <p>
+      <alert>1. Why is it important to examine the between-study heterogeneity of a meta-analysis?</alert>
+    </p>
+    <p>
+      When the between-study heterogeneity is large, the true effect sizes can be assumed to vary considerably. In this case, a point estimate of the average true effect may not represent the data well in their totality. Between-study heterogeneity can also lead to effect estimates that are not robust, for example because a few outlying studies distort the overall result.
+    </p>
+    <p>
+      <alert>2. Can you name the two types of heterogeneity? Which one is relevant in the context of calculating a meta-analysis?</alert>
+    </p>
+    <p>
+      Baseline/design-related heterogeneity and statistical heterogeneity. Only statistical heterogeneity is assessed quantitatively in meta-analyses.
+    </p>
+    <p>
+      <alert>3. Why is the significance of Cochran's <m>Q</m> not a sufficient measure of between-study heterogeneity?</alert>
+    </p>
+    <p>
+      Because the significance of the <m>Q</m> test heavily depends on the number of studies included in our meta-analysis, and their size.
+    </p>
+    <p>
+      <alert>4. What are the advantages of using prediction intervals to express the amount of heterogeneity in a meta-analysis?</alert>
+    </p>
+    <p>
+      Prediction intervals allow to express the impact of between study heterogeneity on future studies on the same scale as the summary measure.
+    </p>
+    <p>
+      <alert>5. What is the difference between statistical outliers and influential studies?</alert>
+    </p>
+    <p>
+      Statistical outliers are studies with <alert>extreme</alert> effect sizes. Studies are influential when their impact on the overall result is large. It is possible that a study can be defined as a statistical outlier without being very influential, and vice versa. For example, a large study may have a big impact on the pooled results, even though its effect size is not particularly small or large.
+    </p>
+    <p>
+      <alert>6. For what can GOSH plots be used?</alert>
+    </p>
+    <p>
+      GOSH plots can be used to explore patterns of heterogeneity in our data, and which studies contribute to them.
+    </p>
+  </section>
+
+  <section xml:id="qanda6">
+    <title>Chapter 6: Forest Plots</title>
+
+    <p>
+      <alert>1. What are the key components of a forest plot?</alert>
+    </p>
+    <p>
+      Graphical representation of each study's observed effect size, with confidence intervals; the weight of each study, represented by the size of squares around the observed effect sizes; the numeric value of each study's observed effect and weight; the pooled effect, represented by a diamond; a reference line, usually representing no effect.
+    </p>
+    <p>
+      <alert>2. What are the advantages of presenting a forest plot of our meta-analysis?</alert>
+    </p>
+    <p>
+      They allow to quickly examine the number, effect size and precision of all included studies, and how the observed effects "add up" to the pooled effect.
+    </p>
+    <p>
+      <alert>3. What are the limitations of forest plots, and how do drapery plots overcome this limitation?</alert>
+    </p>
+    <p>
+      Forest plots can only show the confidence intervals of effects assuming a fixed significance threshold (usually <m>\alpha</m> = 0.05). Drapery plots can be used to show the confidence intervals (and thus the significance) of effect sizes for varying <m>p</m>-values.
+    </p>
+  </section>
+
+  <section xml:id="qanda7">
+    <title>Chapter 7: Subgroup Analyses</title>
+
+    <p>
+      <alert>1. In the best case, what can a subgroup analysis tell us that influence and outlier analyses cannot?</alert>
+    </p>
+    <p>
+      Subgroup analyses can potentially explain <alert>why</alert> certain heterogeneity patterns exist in our data, versus only telling us <alert>that</alert> they exist.
+    </p>
+    <p>
+      <alert>2. Why is the model behind subgroup analyses called the fixed-effects (plural) model?</alert>
+    </p>
+    <p>
+      Because it assumes that, while studies within subgroups follow a random-effects model, the subgroup levels themselves are fixed. There are several fixed subgroup effects.
+    </p>
+    <p>
+      <alert>3. As part of your meta-analysis, you want to examine if the effect of an educational training program differs depending on the school district in which it was delivered. Is a subgroup analysis using the fixed-effects (plural) model appropriate to answer this question?</alert>
+    </p>
+    <p>
+      Probably not. It makes more sense to assume that the school districts represent draws from a larger population of districts, not all school districts there are. 
+    </p>
+    <p>
+      <alert>4. A friend of yours conducted a meta-analysis containing a total of nine studies. Five of these studies fall into one subgroup, four into the other. She asks you if it makes sense to perform a subgroup analysis. What would you recommend?</alert>
+    </p>
+    <p>
+      It is probably not a good idea to conduct a subgroup analysis, since the total number of studies is smaller than ten.
+    </p>
+    <p>
+      <alert>5. You found a meta-analysis in which the authors claim that the analyzed treatment is more effective in women than men. This finding is based on a subgroup analysis, in which studies were divided into subgroups based on the share of females included in the study population. Is this finding credible, and why (not)?</alert>
+    </p>
+    <p>
+      The finding is based a subgroup variable that has been created using aggregated study data. This may introduce ecological bias, and the results are therefore questionable.
+    </p>
+  </section>
+
+  <section xml:id="qanda8">
+    <title>Chapter 8: Meta-Regression</title>
+
+    <p>
+      <alert>1. What is the difference between a conventional regression analysis used in primary studies, and meta-regression?</alert>
+    </p>
+    <p>
+      The unit of analysis are studies (instead of persons), the effect sizes of which are more or less precise. In meta-regression, we have to build regression models that account for the fact that some studies should have a greater weight than others.
+    </p>
+    <p>
+      <alert>2. Subgroup analyses and meta-regression are closely related. How can the meta-regression formula be adapted to subgroup data?</alert>
+    </p>
+    <p>
+      By using dummy/categorical predictors.
+    </p>
+    <p>
+      <alert>3. Which method is used in meta-regression to give individual studies a differing weight?</alert>
+    </p>
+    <p>
+      Meta-regression uses <alert>weighted least squares</alert> to give studies with higher precision a greater weight.
+    </p>
+    <p>
+      <alert>4. What characteristics mark a meta-regression model that fits our data well? Which index can be used to examine this?</alert>
+    </p>
+    <p>
+      A "good" meta-regression model should lead to a large reduction in the amount of unexplained between-study heterogeneity variance. An index which covers this increase in explained variance is the <m>R^2</m> analog.
+    </p>
+    <p>
+      <alert>5. When we calculate a subgroup analysis using meta-regression techniques, do we assume a separate or common value of <m>\tau^2</m> in the subgroups?</alert>
+    </p>
+    <p>
+      A common estimate of <m>\tau^2</m> is assumed in the subgroups.
+    </p>
+    <p>
+      <alert>6. What are the limitations and pitfalls of (multiple) meta-regression?</alert>
+    </p>
+    <p>
+      Overfitting meta-regression can lead to false positive results; multicollinearity can lead to parameter estimates that are not robust.
+    </p>
+    <p>
+      <alert>7. Name two methods that can be used to improve the robustness of (multiple) meta-regression models, and why they are helpful.</alert>
+    </p>
+    <p>
+      We can conduct a permutation test or use multi-model inference.
+    </p>
+  </section>
+
+  <section xml:id="qanda9">
+    <title>Chapter 9: Publication Bias</title>
+
+    <p>
+      <alert>1. How can the term "publication bias" be defined? Why is it problematic in meta-analyses?</alert>
+    </p>
+    <p>
+      Publication bias exists when the probability of a study to get published depends on its results. This is problematic because it can lead to biased results in meta-analyses. Because not all evidence is considered, meta-analyses may result in findings that would not have materialized when all existing information had been considered.
+    </p>
+    <p>
+      <alert>2. What other reporting biases are there? Name and explain at least three.</alert>
+    </p>
+    <p>
+      Citation bias: studies with negative findings are less likely to be cited; time-lag bias: studies with negative findings are published later; multiple publication bias: studies with positive findings are more likely to be reported in several articles; language bias: evidence may be omitted because it is not published in English; outcome reporting bias: positive outcomes of a study are more likely to be reported than negative outcomes.
+    </p>
+    <p>
+      <alert>3. Name two questionable research practices (QRPs), and explain how they can threaten the validity of our meta-analysis.</alert>
+    </p>
+    <p>
+      P-hacking, HARKing. Both lead to an inflation of positive findings, even when there is no true effect.
+    </p>
+    <p>
+      <alert>4. Explain the core assumptions behind small-study effect methods.</alert>
+    </p>
+    <p>
+      Large studies (i.e. studies with a small standard error) are very likely to get published, no matter what their findings are. Smaller studies have a smaller precision, which means that very high effect sizes are needed to attain statistical significance. Therefore, only small studies with very high effects are published, while the rest ends up in the "file drawer".
+    </p>
+    <p>
+      <alert>5. When we find out that our data displays small-study effects, does this automatically mean that there is publication bias?</alert>
+    </p>
+    <p>
+      No. There are several other explanations why we find small-study effects, including between-study heterogeneity, effects of co-variates (e.g. treatment fidelity is higher in smaller studies), or chance. 
+    </p>
+    <p>
+      <alert>6. What does p-curve estimate: the true effect of all studies included in our meta-analysis, or just the true effect of all <em>significant</em> effect sizes?</alert>
+    </p>
+    <p>
+      P-curve only estimates the true effect of all significant effect sizes. This is one of the reasons why it does not perform well when there is between-study heterogeneity.
+    </p>
+    <p>
+      <alert>7. Which publication bias method has the best performance?</alert>
+    </p>
+    <p>
+      No publication bias method consistently outperforms all the others. Therefore, it is helpful to apply several methods, and see if their results coalign.
+    </p>
+  </section>
+
+  <section xml:id="qanda10">
+    <title>Chapter 10: "Multilevel" Meta-Analysis</title>
+
+    <p>
+      <alert>1. Why is it more accurate to speak of "three-level" instead of "multilevel" models?</alert>
+    </p>
+    <p>
+      Because the "conventional" random-effects model is already a multilevel model. It assumes that participants are nested within studies, and that the studies themselves are drawn from a population of true effect sizes. 
+    </p>
+    <p>
+      <alert>2. When are three-level meta-analysis models useful?</alert>
+    </p>
+    <p>
+      When we are dealing with correlated or nested data. Three-level models are particularly useful when studies contribute multiple effect sizes, or when there is good reason to believe that studies themselves fall into larger clusters.
+    </p>
+    <p>
+      <alert>3. Name two common causes of effect size dependency.</alert>
+    </p>
+    <p>
+      Dependence caused by the researchers involved in the primary studies; dependency created by the meta-analyst herself.
+    </p>
+    <p>
+      <alert>4. How can the multilevel <m>I^2</m> statistic be interpreted?</alert>
+    </p>
+    <p>
+      It tells us the amount of variance not attributable to sampling error, and differentiates between heterogeneity variance <alert>within</alert> clusters, and heterogeneity variance <alert>between</alert> clusters.
+    </p>
+    <p>
+      <alert>5. How can a three-level model be expanded to incorporate the effect of moderator variables?</alert>
+    </p>
+    <p>
+      By integrating a fixed-effect term to the model formula.
+    </p>
+  </section>
+
+  <section xml:id="qanda11">
+    <title>Chapter 11: Structural Equation Modeling Meta-Analysis</title>
+
+    <p>
+      <alert>1. What is structural equation modeling, and what is used for?</alert>
+    </p>
+    <p>
+      Structural equation modeling is a statistical method that can be used to test assumed relationships between manifest and latent variables.
+    </p>
+    <p>
+      <alert>2. What are the two ways through which SEM can be represented?</alert>
+    </p>
+    <p>
+      SEM can be represented graphically or through matrices. 
+    </p>
+    <p>
+      <alert>3. Describe a random-effects meta-analysis from a SEM perspective.</alert>
+    </p>
+    <p>
+      From a SEM perspective, the true overall effect size in a random-effects meta-analysis can be seen as a latent variable. It is "influenced" by two arms: the sampling error on level 1 and the true effect size heterogeneity variance on level 2.
+    </p>
+    <p>
+      <alert>4. What is a multivariate meta-analysis, and when is it useful?</alert>
+    </p>
+    <p>
+      Multivariate meta-analysis allows to simultaneously pool two (or more) outcomes of studies. An asset of jointly estimating the two outcome variables is that the correlation between outcomes can be taken into account. 
+    </p>
+    <p>
+      <alert>5. When we find that our proposed meta-analytic SEM fits the data well, does this automatically mean that this model is the "correct" one?</alert>
+    </p>
+    <p>
+      No. Frequently, there is more than one model that fits the data well. 
+    </p>
+  </section>
+
+  <section xml:id="qanda12">
+    <title>Chapter 12: Network Meta-Analysis</title>
+
+    <p>
+      <alert>1. When are network meta-analyses useful? What is their advantage compared to standard meta-analyses?</alert>
+    </p>
+    <p>
+      Network meta-analyses are useful when there are several competing treatments for some problem area, and we want to estimate which one has the largest benefits. In contrast to conventional meta-analyses, network meta-analysis models can integrate both direct and indirect evidence.
+    </p>
+    <p>
+      <alert>2. What is the difference between direct and indirect evidence in a treatment network? How can direct evidence be used to generate indirect evidence?</alert>
+    </p>
+    <p>
+      Direct evidence is information provided by comparisons that have actually been investigated in the included studies. Indirect evidence is derived from direct evidence by subtracting the effect of one (directly observed) comparison from the one of a related comparison (e.g. a comparison that used the same control group). 
+    </p>
+    <p>
+      <alert>3. What is the main idea behind the assumption of transitivity in network meta-analyses?</alert>
+    </p>
+    <p>
+      The assumption of transitivity stipulates that direct evidence can be used to infer unobserved, indirect evidence, and that direct and indirect evidence is consistent.
+    </p>
+    <p>
+      <alert>4. What is the relationship between transitivity and consistency?</alert>
+    </p>
+    <p>
+      Transitivity is a pre-requisite to conduct network meta-analyses, and cannot be tested directly. The statistical manifestation of transitivity is consistency, and is fulfilled when effect size estimates based on direct evidence are identical/similar to estimates based on indirect evidence.
+    </p>
+    <p>
+      <alert>5. Name two modeling approaches that can be used to conduct network meta-analyses. Is one of them better than the other?</alert>
+    </p>
+    <p>
+      Network meta-analysis can be conducted using a frequentist or Bayesian model. Both models are equivalent and produce converging results with increasing sample size.
+    </p>
+    <p>
+      <alert>6. When we include several comparisons from one study (i.e. multi-arm studies), what problem does this cause?</alert>
+    </p>
+    <p>
+      This means that the effect estimates are correlated, causing a unit-of-analysis error.
+    </p>
+    <p>
+      <alert>7. What do we have to keep in mind when interpreting the P- or SUCRA score of different treatments?</alert>
+    </p>
+    <p>
+      That the effect estimates of different treatments often overlap. This means that P-/SUCRA scores should always be interpreted with some caution. 
+    </p>
+  </section>
+
+  <section xml:id="qanda13">
+    <title>Chapter 13: Bayesian Meta-Analysis</title>
+
+    <p>
+      <alert>1. What are differences and similarities between the "conventional" random-effects model and a Bayesian hierarchical model?</alert>
+    </p>
+    <p>
+      The random-effects model underlying frequentist meta-analysis is conceptually identical to the Bayesian hierarchical model. The main difference is that the Bayesian hierarchical model includes (weakly informative) prior distributions for the overall true effect size <m>\mu</m> and between-study heterogeneity <m>\tau</m>.
+    </p>
+    <p>
+      <alert>2. Name three advantages of Bayesian meta-analyses compared to their frequentist counterpart.</alert>
+    </p>
+    <p>
+      Uncertainty of the <m>\tau^2</m> estimate is directly modeled; a posterior distribution for <m>\mu</m> is produced, which can be used to calculate the probability of <m>\mu</m> lying below a certain value; prior knowledge or beliefs can be integrated into the model.
+    </p>
+    <p>
+      <alert>3. Explain the difference between a weakly informative and non-informative prior.</alert>
+    </p>
+    <p>
+      Non-informative priors assume that all or a range of possible values are equally likely. Weakly informative priors represent a <alert>weak</alert> belief that some values are more probable than others. 
+    </p>
+    <p>
+      <alert>4. What is a Half-Cauchy distribution, and why is it useful for Bayesian meta-analysis?</alert>
+    </p>
+    <p>
+      The Half-Cauchy distribution is a Cauchy distribution that is only defined for positive values. It is controlled by a location and scaling parameter, the latter determining how heavy the tails of the distribution are. Half-Cauchy distributions can be used as priors for <m>\tau</m>.
+    </p>
+    <p>
+      <alert>5. What is an ECDF, and how can it be used in Bayesian meta-analyses?</alert>
+    </p>
+    <p>
+      ECDF stands for <alert>empirical cumulative distribution function</alert>. ECDFs based on the posterior distribution of <m>\mu</m> (or <m>\tau</m>) can be used to determine the (cumulative) probability that the estimated parameter is below or above some specified threshold. 
+    </p>
+    <p>
+      \qed
+    </p>
+    <p>
+      \renewcommand{\arraystretch}{2}
+    </p>
+    <p>
+      \renewcommand{\arraystretch}{1}
+    </p>
+    <p>
+      <alert>Note.</alert> Vectors and matrices are written in <alert>bold</alert>. For example, we can denote all observed effect sizes in a meta-analysis with a vector <m>\boldsymbol{\hat\theta} = (\hat\theta_1, \hat\theta_2, \dots, \hat\theta_K)^\top</m>, where <m>K</m> is the total number of studies. The <m>\top</m> symbol indicates that the vector is <alert>transposed</alert>. This means that elements in the vector are arranged vertically instead of horizontally. This is sometimes necessary to do further operations with the vector, for example multiplying it with another matrix.
+    </p>
+    <p>
+      This book was compiled using <em>R</em> version 4.2.0 ("Vigorous Calisthenics", 2022-04-22) running under macOS Catalina 10.15.4 (Apple Darwin 17.0 64-bit x86-64). The following package versions are used in the book:
+    </p>
+    <program language="r">
+      <code>
 brms 2.18.0                 clubSandwich 0.5.6
 dmetar 0.0.9000             dplyr 1.0.10             
 esc 0.5.1                   extraDistr 1.9.1            
@@ -602,102 +582,125 @@ rjags 4-10                  robvis 0.3.0
 semPlot 1.1.5               stringr 1.4.0               
 tidybayes 2.1.1             tidyverse 1.3.1
 wildmeta 0.1.0
-```
-
-\vspace{4mm}
-
-Attached base packages:
-
-```
+      </code>
+    </program>
+    <p>
+      Attached base packages:
+    </p>
+    <program language="r">
+      <code>
 base 4.2.0        datasets 4.2.0    graphics 4.2.0     
 grDevices 4.2.0   methods 4.2.0     stats 4.2.0
 utils 4.2.0
-```
+      </code>
+    </program>
+    <p>
+      Locale: <c>en_US.UTF-8</c>
+    </p>
+    <note>
+      <p>
+        <alert>Installing Specific Package Versions</alert>
+      </p>
+      <p>
+        Are you having trouble running some of the code presented in the guide? Sometimes, this is caused by having an <alert>older or newer version</alert> of a package installed on your computer. If this is the case, it can be helpful to install the exact version of a package that we also used to compile this book. Some helpful tips on how to install specific versions of an R package can be found <url href="https://support.posit.co/hc/en-us/articles/219949047-Installing-older-versions-of-packages">here</url>.
+      </p>
+    </note>
+    <p>
+      <alert>Attributions</alert>
+    </p>
+    <p>
+      Figure <xref provisional="fig:eysenck"/>: Sirswindon at <url href="https://commons.wikimedia.org/wiki/File:Hans.Eysenck.jpg">English Wikipedia</url>, <url href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</url>, via Wikimedia Commons. Desaturated from original. 
+    </p>
+    <note>
+      <p>
+        Errata and remarks concerning the first edition print version of the book are displayed here.
+      </p>
+    </note>
+    <p>
+      Last updated: <c>r format(Sys.time(), '%d %B, %Y')</c>.
+    </p>
+  </section>
 
-\vspace{4mm}
+  <section xml:id="chapter-333">
+    <title>Chapter 3.3.3</title>
 
-Locale: `en_US.UTF-8`
+    <p>
+      In the imaginary experiment in Figure 3.4, four participants experience the event during the 10-year observation period. In the calculation example, however, we use <m>E=3</m> to calculate the incidence rate. In the online version, we have now corrected this so that <m>E=4</m>, like in the experiment.
+    </p>
+  </section>
 
-```{block, type='boxinfo'}
-**Installing Specific Package Versions**
+  <section xml:id="chapter-42">
+    <title>Chapter 4.2</title>
 
-Are you having trouble running some of the code presented in the guide? Sometimes, this is caused by having an **older or newer version** of a package installed on your computer. If this is the case, it can be helpful to install the exact version of a package that we also used to compile this book. Some helpful tips on how to install specific versions of an R package can be found [here](https://support.posit.co/hc/en-us/articles/219949047-Installing-older-versions-of-packages).
+    <p>
+      A new version of <alert>{meta}</alert> (version 5.0-0) has recently been released. We adapted the code in this chapter accordingly to avoid deprecation messages:
+    </p>
+    <ul>
+      <li>
+        <p>
+          The <c>comb.fixed</c> and <c>comb.random</c> arguments are now called <c>fixed</c> and <c>random</c>, respectively.
+        </p>
+      </li>
+      <li>
+        <p>
+          To print all studies, one now has to use <c>summary</c> method for <alert>{meta}</alert> meta-analysis objects.
+        </p>
+      </li>
+    </ul>
+    <p>
+      In the latest version of <alert>{meta}</alert> (version 7.0-0), calls to <c>update.meta</c> now need to be replaced with <c>update</c>. If <c>meta</c> models have been fitted using the deprecated <c>hakn</c> argument, <c>update</c> will now produce an error message. We have therefore changed this to the new <c>method.random.ci</c> argument throughout the guide. This applies to all meta-analysis functions, e.g., <c>metagen</c>, <c>metabin</c>, <c>metacor</c>, etc.
+    </p>
+  </section>
 
+  <section xml:id="chapter-73">
+    <title>Chapter 7.3</title>
 
-```
+    <p>
+      A new version of <alert>{meta}</alert> (version 5.0-0) has recently been released. We adapted the code in this chapter accordingly to avoid deprecation messages:
+    </p>
+    <ul>
+      <li>
+        <p>
+          The <c>byvar</c> argument is now called <c>subgroup</c>.
+        </p>
+      </li>
+      <li>
+        <p>
+          To print all studies, one now has to use <c>summary</c> method for <alert>{meta}</alert> meta-analysis objects.
+        </p>
+      </li>
+    </ul>
+  </section>
 
+  <section xml:id="chapter-1221">
+    <title>Chapter 12.2.1</title>
 
+    <p>
+      The print version contains a factual error concerning the definition of full rank in non-square (rectangular) matrices. It is stated that a "matrix is not of full rank when its rows are not all independent". This, however, only applies to square matrices and non-square matrices with less rows than columns (<m>m &lt; n</m>). In our example, there are more rows than columns; this means that <m>\boldsymbol{X}</m> is not full rank because its <alert>columns</alert> are not all independent (in <m>m > n</m> matrices, rows are always linearly dependent). This erratum has been corrected in the online version. 
+    </p>
+  </section>
 
+  <section xml:id="chapter-1222">
+    <title>Chapter 12.2.2</title>
 
-
-\vspace{8mm}
-
-<br></br>
-
-**Attributions**
-
-Figure \@ref(fig:eysenck): Sirswindon at [English Wikipedia](https://commons.wikimedia.org/wiki/File:Hans.Eysenck.jpg), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0), via Wikimedia Commons. Desaturated from original. 
-
-
-<br></br>
-
-# Corrections & Remarks {#corrections}
-
----
-
-
-```{block2, type='boxinfo'}
-Errata and remarks concerning the first edition print version of the book are displayed here.
-```
-
-Last updated: `r format(Sys.time(), '%d %B, %Y')`.
-
-## Chapter 3.3.3 {-}
-
-In the imaginary experiment in Figure 3.4, four participants experience the event during the 10-year observation period. In the calculation example, however, we use $E=3$ to calculate the incidence rate. In the online version, we have now corrected this so that $E=4$, like in the experiment.
-
-
-## Chapter 4.2 {-}
-
-A new version of **{meta}** (version 5.0-0) has recently been released. We adapted the code in this chapter accordingly to avoid deprecation messages:
-
-- The `comb.fixed` and `comb.random` arguments are now called `fixed` and `random`, respectively.
-
-- To print all studies, one now has to use `summary` method for **{meta}** meta-analysis objects.
-
-In the latest version of **{meta}** (version 7.0-0), calls to `update.meta` now need to be replaced with `update`. If `meta` models have been fitted using the deprecated `hakn` argument, `update` will now produce an error message. We have therefore changed this to the new `method.random.ci` argument throughout the guide. This applies to all meta-analysis functions, e.g., `metagen`, `metabin`, `metacor`, etc.
-
-
-
-## Chapter 7.3 {-}
-
-A new version of **{meta}** (version 5.0-0) has recently been released. We adapted the code in this chapter accordingly to avoid deprecation messages:
-
-- The `byvar` argument is now called `subgroup`.
-
-- To print all studies, one now has to use `summary` method for **{meta}** meta-analysis objects.
-
-## Chapter 12.2.1 {-}
-
-The print version contains a factual error concerning the definition of full rank in non-square (rectangular) matrices. It is stated that a "matrix is not of full rank when its rows are not all independent". This, however, only applies to square matrices and non-square matrices with less rows than columns ($m < n$). In our example, there are more rows than columns; this means that $\boldsymbol{X}$ is not full rank because its **columns** are not all independent (in $m > n$ matrices, rows are always linearly dependent). This erratum has been corrected in the online version. 
-
-## Chapter 12.2.2 {-}
-
-A new version of **{netmeta}** (version 2.0-0) has recently been released. We adapted the code in this chapter accordingly to avoid error messages:
-
-- The latest version of **{netmeta}** resulted in non-convergence of the Fisher scoring algorithm implemented in `rma.mv`. This problem pertains to all versions of **{dmetar}** installed before 24-Oct-2021. To avoid the issue, simply [reinstall the lastest version of **{dmetar}**](https://dmetar.protectlab.org/#installation).
-
-
-
-
-<br></br>
+    <p>
+      A new version of <alert>{netmeta}</alert> (version 2.0-0) has recently been released. We adapted the code in this chapter accordingly to avoid error messages:
+    </p>
+    <ul>
+      <li>
+        <p>
+          The latest version of <alert>{netmeta}</alert> resulted in non-convergence of the Fisher scoring algorithm implemented in <c>rma.mv</c>. This problem pertains to all versions of <alert>{dmetar}</alert> installed before 24-Oct-2021. To avoid the issue, simply <url href="https://dmetar.protectlab.org/#installation">reinstall the lastest version of <alert>{dmetar}</alert></url>.
+        </p>
+      </li>
+    </ul>
+  </section>
 
 
+  <section xml:id="symbollist">
+    <title>List of Symbols</title>
+    <p>
+      The following symbols and abbreviations are used throughout this book.
+    </p>
+  </section>
 
-
-
-
-
-]]></input>
-  </program>
 </appendix>
