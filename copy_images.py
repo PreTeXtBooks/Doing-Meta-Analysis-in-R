@@ -94,15 +94,22 @@ def main():
         fig_references.update(fig_pattern.findall(text))
 
     for fig_name in sorted(fig_references):
-        source_path = source_figs_dir / fig_name
+        fig_rel_path = Path(fig_name)
+        if fig_rel_path.is_absolute() or ".." in fig_rel_path.parts:
+            print(f"  Warning: Skipping invalid _figs image reference: {fig_name}")
+            continue
+
+        source_path = source_figs_dir / fig_rel_path
         if not source_path.exists():
-            source_path = source_images_dir / fig_name
+            source_path = source_images_dir / fig_rel_path
+            if source_path.exists():
+                print(f"  Found _figs fallback image in images/: {fig_name}")
 
         if not source_path.exists():
             print(f"  Warning: Missing referenced _figs image: {fig_name}")
             continue
 
-        target_path = pretext_fig_assets / fig_name
+        target_path = pretext_fig_assets / fig_rel_path
         target_path.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source_path, target_path)
         figs_copied += 1
