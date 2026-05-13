@@ -93,7 +93,11 @@ def main():
     source_images_root = source_images_dir.resolve()
     target_figs_root = pretext_fig_assets.resolve()
     for ptx_file in source_ptx_dir.glob("*.ptx"):
-        text = ptx_file.read_text(encoding="utf-8")
+        try:
+            text = ptx_file.read_text(encoding="utf-8")
+        except (OSError, UnicodeDecodeError) as e:
+            print(f"  Warning: Could not read {ptx_file.name}: {e}")
+            continue
         fig_references.update(fig_pattern.findall(text))
 
     for fig_name in sorted(fig_references):
