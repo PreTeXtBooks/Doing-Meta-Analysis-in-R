@@ -94,9 +94,9 @@ def main():
         fig_references.update(fig_pattern.findall(text))
 
     for fig_name in sorted(fig_references):
-        source_path = source_images_dir / fig_name
+        source_path = source_figs_dir / fig_name
         if not source_path.exists():
-            source_path = source_figs_dir / fig_name
+            source_path = source_images_dir / fig_name
 
         if not source_path.exists():
             print(f"  Warning: Missing referenced _figs image: {fig_name}")
