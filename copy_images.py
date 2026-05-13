@@ -88,7 +88,7 @@ def main():
     # Copy all chapter opener images referenced as source="_figs/<name>"
     # to pretext/assets/_figs so they render in PreTeXt output.
     fig_references = set()
-    fig_pattern = re.compile(r'<image\s+source=["\']_figs/([A-Za-z0-9_./-]+)["\']')
+    fig_pattern = re.compile(r'<image\s+source=["\']_figs/([A-Za-z0-9_.-]+)["\']')
     source_figs_root = source_figs_dir.resolve()
     source_images_root = source_images_dir.resolve()
     target_figs_root = pretext_fig_assets.resolve()
@@ -102,17 +102,20 @@ def main():
             print(f"  Warning: Skipping invalid _figs image reference: {fig_name}")
             continue
 
-        source_path = (source_figs_dir / fig_rel_path).resolve()
-        if source_path.exists() and not source_path.is_relative_to(source_figs_root):
+        primary_path = (source_figs_dir / fig_rel_path).resolve()
+        if not primary_path.is_relative_to(source_figs_root):
             print(f"  Warning: Skipping unsafe _figs image path: {fig_name}")
             continue
+
+        source_path = primary_path
         if not source_path.exists():
-            source_path = (source_images_dir / fig_rel_path).resolve()
-            if source_path.exists() and source_path.is_relative_to(source_images_root):
-                print(f"  Found _figs fallback image in images/: {fig_name}")
-            elif source_path.exists():
+            fallback_path = (source_images_dir / fig_rel_path).resolve()
+            if not fallback_path.is_relative_to(source_images_root):
                 print(f"  Warning: Skipping unsafe fallback image path: {fig_name}")
                 continue
+            source_path = fallback_path
+            if source_path.exists():
+                print(f"  Found _figs fallback image in images/: {fig_name}")
 
         if not source_path.exists():
             print(f"  Warning: Missing referenced _figs image: {fig_name}")
