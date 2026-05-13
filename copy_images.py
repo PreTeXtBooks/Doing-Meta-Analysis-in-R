@@ -88,7 +88,10 @@ def main():
     # Copy all chapter opener images referenced as source="_figs/<name>"
     # to pretext/assets/_figs so they render in PreTeXt output.
     fig_references = set()
-    fig_pattern = re.compile(r'<image\s+source=["\']_figs/([^"\']+)["\']')
+    fig_pattern = re.compile(r'<image\s+source=["\']_figs/([A-Za-z0-9_./-]+)["\']')
+    source_figs_root = source_figs_dir.resolve()
+    source_images_root = source_images_dir.resolve()
+    target_figs_root = pretext_fig_assets.resolve()
     for ptx_file in source_ptx_dir.glob("*.ptx"):
         text = ptx_file.read_text(encoding="utf-8")
         fig_references.update(fig_pattern.findall(text))
@@ -99,17 +102,26 @@ def main():
             print(f"  Warning: Skipping invalid _figs image reference: {fig_name}")
             continue
 
-        source_path = source_figs_dir / fig_rel_path
+        source_path = (source_figs_dir / fig_rel_path).resolve()
+        if source_path.exists() and not source_path.is_relative_to(source_figs_root):
+            print(f"  Warning: Skipping unsafe _figs image path: {fig_name}")
+            continue
         if not source_path.exists():
-            source_path = source_images_dir / fig_rel_path
-            if source_path.exists():
+            source_path = (source_images_dir / fig_rel_path).resolve()
+            if source_path.exists() and source_path.is_relative_to(source_images_root):
                 print(f"  Found _figs fallback image in images/: {fig_name}")
+            elif source_path.exists():
+                print(f"  Warning: Skipping unsafe fallback image path: {fig_name}")
+                continue
 
         if not source_path.exists():
             print(f"  Warning: Missing referenced _figs image: {fig_name}")
             continue
 
-        target_path = pretext_fig_assets / fig_rel_path
+        target_path = (pretext_fig_assets / fig_rel_path).resolve()
+        if not target_path.is_relative_to(target_figs_root):
+            print(f"  Warning: Skipping unsafe _figs target path: {fig_name}")
+            continue
         target_path.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source_path, target_path)
         figs_copied += 1
