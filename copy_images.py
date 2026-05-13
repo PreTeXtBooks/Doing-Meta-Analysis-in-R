@@ -88,7 +88,7 @@ def main():
     # Copy all chapter opener images referenced as source="_figs/<name>"
     # to pretext/assets/_figs so they render in PreTeXt output.
     fig_references = set()
-    fig_pattern = re.compile(r'<image\s+source="_figs/([^"]+)"')
+    fig_pattern = re.compile(r'<image\s+source=["\']_figs/([^"\']+)["\']')
     for ptx_file in source_ptx_dir.glob("*.ptx"):
         text = ptx_file.read_text(encoding="utf-8")
         fig_references.update(fig_pattern.findall(text))
@@ -102,7 +102,9 @@ def main():
             print(f"  Warning: Missing referenced _figs image: {fig_name}")
             continue
 
-        shutil.copy2(source_path, pretext_fig_assets / fig_name)
+        target_path = pretext_fig_assets / fig_name
+        target_path.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source_path, target_path)
         figs_copied += 1
         print(f"  Copied _figs image: {fig_name}")
     
