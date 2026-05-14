@@ -326,4 +326,18 @@
     </p>
   </paragraphs>
 
+  <paragraphs xml:id="note-pretext-edition">
+    <title>Note on This PreTeXt Edition</title>
+
+    <p>
+      This is a <url href="https://pretextbook.org/">PreTeXt</url> conversion of <em>Doing Meta-Analysis with R: A Hands-On Guide</em>, originally written by <url href="https://www.mharrer.dev">Mathias Harrer</url>, <url href="https://www.pimcuijpers.com/blog/">Pim Cuijpers</url>, <url href="http://ebmh.med.kyoto-u.ac.jp/professor.html">Toshi A. Furukawa</url>, and <url href="https://www.protectlab.org/en/author/prof.-dr.-david-daniel-ebert/">David D. Ebert</url>. The original work is available online at <url href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/">bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R</url> and was published by Chapman &amp; Hall/CRC Press. The original GitHub repository for the book source is at <url href="https://github.com/MathiasHarrer/Doing-Meta-Analysis-in-R">github.com/MathiasHarrer/Doing-Meta-Analysis-in-R</url>.
+    </p>
+    <p>
+      This PreTeXt edition was prepared by <url href="https://github.com/PreTeXtBooks/Doing-Meta-Analysis-in-R">the PreTeXtBooks project</url> to make the content available in the PreTeXt format, enabling accessible and structured output in HTML, PDF, and other formats. All prose, code examples, figures, and mathematical content are intended to be faithful reproductions of the original work, though occasional typographical errors may have been introduced in the conversion process. Report any issues to our <url href="https://github.com/PreTeXtBooks/Doing-Meta-Analysis-in-R/issues">GitHub Issues Page</url>.
+    </p>
+    <p>
+      The original work by Mathias Harrer, Pim Cuijpers, Toshi A. Furukawa, and David D. Ebert is licensed under a <url href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0 1.0 Universal License</url>.
+    </p>
+  </paragraphs>
+
 </preface>
