@@ -185,7 +185,7 @@ esc_rpb(r = 0.25,      # point-biserial correlation
       We can also derive the SMD from the <m>F</m>-value of a one-way ANOVA with <alert>two</alert> groups. Such ANOVAs can be identified by looking at the <alert>degrees of freedom</alert>. In a one-way ANOVA with two groups, the degrees of freedom should always start with 1 (e.g. <m>F_{\text{1,147}}</m>=5.31). 
     </p>
     <p>
-      The formula used for the transformation looks like this [based on sources in <xref ref="references"/>]:
+      The formula used for the transformation looks like this [based on multiple sources (1996–2002); see <xref ref="references"/>]:
     </p>
     <p>
       \begin{equation} \text{SMD} = \sqrt{  F\left(\frac{n<em>1+n</em>2}{n<em>1 n</em>2}\right)\left(\frac{n<em>1+n</em>2}{n<em>1+n</em>2-2}\right)} (#eq:esc4) \end{equation}
