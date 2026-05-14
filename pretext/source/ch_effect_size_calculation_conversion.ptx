@@ -185,7 +185,7 @@ esc_rpb(r = 0.25,      # point-biserial correlation
       We can also derive the SMD from the <m>F</m>-value of a one-way ANOVA with <alert>two</alert> groups. Such ANOVAs can be identified by looking at the <alert>degrees of freedom</alert>. In a one-way ANOVA with two groups, the degrees of freedom should always start with 1 (e.g. <m>F_{\text{1,147}}</m>=5.31). 
     </p>
     <p>
-      The formula used for the transformation looks like this [based on @rosnow1996computing; @rosnow2000contrasts; see @thalheimer2002calculate]:
+      The formula used for the transformation looks like this [based on multiple sources (1996–2002); see <xref ref="references"/>]:
     </p>
     <p>
       \begin{equation} \text{SMD} = \sqrt{  F\left(\frac{n<em>1+n</em>2}{n<em>1 n</em>2}\right)\left(\frac{n<em>1+n</em>2}{n<em>1+n</em>2-2}\right)} (#eq:esc4) \end{equation}
@@ -439,7 +439,7 @@ NNT(d = 0.245, CER = 0.35)
         <alert>A Number to be Treated with Care: Criticism of the NNT</alert>
       </p>
       <p>
-        While common, usage of NNTs to communicate the results of clinical trials is not uncontroversial. Criticisms include that lay people often misunderstand it [despite purportedly being an "intuitive" alternative to other effect size measures, @christensen2006number]; and that researchers often calculate NNTs incorrectly . 
+        While common, usage of NNTs to communicate the results of clinical trials is not uncontroversial. Criticisms include that lay people often misunderstand it [despite purportedly being an "intuitive" alternative to other effect size measures; see <xref ref="references"/>]; and that researchers often calculate NNTs incorrectly . 
       </p>
       <p>
         Furthermore, it is not possible to calculate reliable standard errors (and confidence intervals) of NNTs, which means that they can not be used in meta-analyses . It is only possible to convert results to the NNT after pooling has been conducted using another effect size measure.

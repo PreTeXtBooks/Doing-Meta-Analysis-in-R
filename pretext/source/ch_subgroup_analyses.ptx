@@ -80,7 +80,7 @@
         In the next step, we assess if there is a <alert>true</alert> difference between the <m>G</m> subgroups. The assumption is that the subgroups are different, meaning that at least one subgroup is part of a different population of studies.
       </p>
       <p>
-        An elegant way to test this is to pretend that the pooled effect of a subgroup is actually nothing more than the <alert>observed effect size</alert> of <alert>one large study</alert> [see @borenstein2011introduction, chapter 19]. If we conduct a subgroup analysis with <m>G=3</m> subgroups, for example, we pretend that we have calculated the observed effect sizes (and standard errors) of three big studies. 
+        An elegant way to test this is to pretend that the pooled effect of a subgroup is actually nothing more than the <alert>observed effect size</alert> of <alert>one large study</alert> [see <xref ref="references"/>, chapter 19]. If we conduct a subgroup analysis with <m>G=3</m> subgroups, for example, we pretend that we have calculated the observed effect sizes (and standard errors) of three big studies. 
       </p>
       <p>
         Once we look at the subgroups this way, it becomes clear that the question we ask ourselves is quite similar to the one we face when assessing the heterogeneity of a normal meta-analysis. We want to know if differences in effect sizes exist only due to sampling error, or because of <alert>true</alert> differences in the effect sizes. 
