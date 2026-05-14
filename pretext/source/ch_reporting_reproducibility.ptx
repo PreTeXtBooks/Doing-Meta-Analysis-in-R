@@ -56,15 +56,27 @@
     <p>
       A good way to start with your analysis is to first set up an <em>R</em> <alert>project</alert> in R Studio. <em>R</em> projects create a new environment in a folder on our computer. In this folder, all the data and <em>R</em> code you need for your analyses is saved. Conducting analyses in an <em>R</em> project means that all objects we create are temporarily saved in the project environment and will be accessible the next time we reopen it. To create a new <em>R</em> project, we can click on the <alert>R project</alert> field in the upper right corner of the R Studio window, and then on <alert>New Project...</alert> in the drop-down menu.
     </p>
+    <figure>
+      <image source="generated/rproj1_col.png"/>
+    </figure>
+    <figure>
+      <image source="generated/rproj2_col.png"/>
+    </figure>
     <p>
       Then we create a <alert>New Directory</alert>, a new folder on our computer, which will become the working directory of the project.
     </p>
     <p>
       Then, we click on <alert>New Project</alert>.
     </p>
+    <figure>
+      <image source="generated/rproj3_col.png"/>
+    </figure>
     <p>
       We give our new project the name "Meta-Analysis Project". The project folder will be stored in <alert>~Documents/R</alert>.
     </p>
+    <figure>
+      <image source="generated/rproj4_col.png"/>
+    </figure>
     <p>
       After clicking on <alert>Create Project</alert>, the <em>R</em> project is set. A great feature of <em>R</em> projects is that we do not have to use <alert>absolute paths</alert> to the files we want to reference. We only use the file name, or, if the file is in a (sub-)folder, the folder and file name. Suppose that we stored our data set <alert>data.xlsx</alert> in the sub-folder "data". Using the <alert>{openxlsx}</alert> package (Chapter <xref ref="data-prep-R"/>), we can import the data set with a relative path.
     </p>
@@ -87,6 +99,12 @@ read_excel("data/data.xlsx")
     <p>
       It is very easy to build R Markdown files in R Studio. We only have to click on the white symbol with the green "plus" sign in the top left corner of the R Studio window. Then, in the drop-down menu, we click on <alert>R Markdown...</alert>.
     </p>
+    <figure>
+      <image source="generated/rmd1_col.png"/>
+    </figure>
+    <figure>
+      <image source="generated/rmd2_col.png"/>
+    </figure>
     <p>
       After defining the name of the new R Markdown document, it should pop up in the upper-left corner of the R Studio window.
     </p>
@@ -109,6 +127,12 @@ output: html_document
     <p>
       All <em>R Markdown documents</em> consist of two parts: plain Markdown text, and so-called <alert>R chunks</alert>, shown in grey. We will not go into detail how the text parts in the R Markdown document are formatted, but there is an online <url href="https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">cheat sheet</url>, which is a great resource to start learning Markdown syntax (this should only take about twenty minutes). The <em>R</em> code chunks, on the other hand, simply contain all the code we would usually type into the console. By clicking on the <alert>Insert</alert> field in the upper right corner of the document, we can add new code chunks. The code can be run by clicking on the little green triangle above each chunk.
     </p>
+    <figure>
+      <image source="generated/rmd3_col.png"/>
+    </figure>
+    <figure>
+      <image source="generated/rmd4_col.png"/>
+    </figure>
     <p>
       Once we are finished writing our document, we can export it as an HTML, PDF, or MS Word document by clicking on the <alert>Knit</alert> symbol in the upper left corner. This renders the document, including all text, code, and output, and exports it in the defined format. The final document is automatically saved in our project folder.
     </p>
@@ -132,6 +156,12 @@ output: html_document
       <p>
         To start using the OSF, we first have to create a personal account on the <url href="https://osf.io/register">website</url>. After the account has been created, we also have to generate an <alert>access token</alert> so that we can manipulate our repository directly using <em>R</em>. To get the access token, we have to navigate to <alert>Profile</alert> &gt; <alert>Settings</alert> &gt; <alert>Personal access tokens</alert>. There, we click on <alert>Create token</alert>.
       </p>
+      <figure>
+        <image source="generated/osf1_col.png"/>
+      </figure>
+      <figure>
+        <image source="generated/osf2_col.png"/>
+      </figure>
       <p>
         Then, under <alert>Scopes</alert>, we check all boxes, and click on <alert>Create token</alert> again. After that, our personal access token should appear. We copy the token and save it for later.
       </p>
@@ -173,6 +203,9 @@ meta_analysis_project &lt;- osf_create_project("Meta-Analysis Project")
 osf_open(meta_analysis_project)
         </code>
       </program>
+      <figure>
+        <image source="generated/osf3_col.png"/>
+      </figure>
       <p>
         Now that the repository has been created, we can proceed by adding <alert>components</alert> to it. In OSF, components work like folders on a computer. Suppose we want to create two components: one for our data sets, and one for our R Markdown scripts. To do this, we can use the <c>osf_create_component</c> function. We have to provide the function with the <em>R</em> repository object (<c>meta_analysis_project</c>), and then set the title of the new component. 
       </p>
@@ -238,6 +271,15 @@ osf_download(osf_ls_files(scripts)[1,])
       <p>
         At any time, it is possible to make the repository <alert>public</alert> by clicking on the <alert>Make Public</alert> button in the upper right corner of the website.
       </p>
+      <figure>
+        <image source="generated/osf4_col.png"/>
+      </figure>
+      <figure>
+        <image source="generated/osf5.png"/>
+      </figure>
+      <figure>
+        <image source="generated/osf6_col.png"/>
+      </figure>
       <p>
         In Chapter <xref ref="analysis-plan"/>, we discussed that analysis plans and pre-registration are essential parts of a high-quality meta-analysis. The OSF makes it very convenient to also create an openly accessible pre-registration for our project. We simply have to click on the <alert>Registrations</alert> button on top, and then create a <alert>New registration</alert>. This leads us to the <alert>OSF Registries</alert> website, where we can provide detailed information on our planned study, including our analysis plan. 
       </p>

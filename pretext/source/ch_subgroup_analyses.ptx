@@ -110,8 +110,12 @@
         Borenstein and colleagues  argue that all of this may seem a little confusing to us because the word "fixed" can mean different things in statistics. In conventional meta-analyses, the term "fixed effect" is used synonymously with "common effect". In the context of subgroup analyses, however, we speak of "fixed effects" to underline that they are "not random". They are not simply random manifestations of an over-arching distribution, to which we aim to generalize, but the <alert>real</alert> and <alert>only</alert> categories into which a variable can fall. 
       </p>
       <p>
-        Figure <xref provisional="fig:subgroups"/> visualizes the fixed-effects (plural) model, assuming that studies within subgroups follow the random-effects model.
+        Figure <xref ref="fig:subgroups"/> visualizes the fixed-effects (plural) model, assuming that studies within subgroups follow the random-effects model.
       </p>
+      <figure xml:id="fig:subgroups">
+        <caption>Visualization of the fixed-effects (plural) model, assuming a random-effects model within subgroups.</caption>
+        <image source="generated/subgroups_sep.png"/>
+      </figure>
       <note>
         <p>
           <alert>A Few Examples of Subgroup Variables With Fixed Levels</alert>

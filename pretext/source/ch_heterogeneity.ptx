@@ -761,6 +761,9 @@ m.gen.inf &lt;- InfluenceAnalysis(m.gen, random = TRUE)
 plot(m.gen.inf, "baujat")
           </code>
         </program>
+        <figure>
+          <image source="generated/baujat_col_sep.png"/>
+        </figure>
         <p>
           Baujat plots  are diagnostic plots to detect studies which overly contribute to the heterogeneity in a meta-analysis. The plot shows the contribution of each study to the overall <alert>heterogeneity</alert> (as measured by Cochran's <m>Q</m>) on the <alert>horizontal</alert> axis, and its <alert>influence</alert> on the <alert>pooled effect size</alert> on the <alert>vertical</alert> axis. 
         </p>
@@ -786,6 +789,9 @@ plot(m.gen.inf, "baujat")
 plot(m.gen.inf, "influence")
           </code>
         </program>
+        <figure>
+          <image source="generated/influence_col_sep.png"/>
+        </figure>
         <p>
           We see that the plot displays, for each study, the value of different influence measures. These measures are used to characterize which studies fit well into our meta-analysis model, and which do not. To understand what the diagnostics mean, let us briefly go through them from left to right, top to bottom.
         </p>
@@ -920,6 +926,9 @@ plot(m.gen.inf, "i2")
         <p>
           The first plot is ordered by effect size (low to high). Here, we see how the overall effect estimate changes when different studies are removed. Since the two outlying and influential studies "DanitzOrsillo" and "Shapiro et al." have very high effect sizes, we find that the overall effect is smallest when they are removed.
         </p>
+        <figure>
+          <image source="generated/forestesi2_col_sep.png"/>
+        </figure>
         <p>
           The second plot is ordered by heterogeneity (low to high), as measured by <m>I^2</m>. This plot illustrates that the lowest <m>I^2</m> heterogeneity is reached by omitting the studies "DanitzOrsillo" and "Shapiro et al.". This corroborates our finding that these two studies were the main "culprits" for the between-study heterogeneity we found in the meta-analysis.
         </p>
@@ -992,6 +1001,9 @@ res.gosh &lt;- gosh(m.rma)
 plot(res.gosh, alpha = 0.01)
         </code>
       </program>
+      <figure>
+        <image source="generated/gosh0_sep.png"/>
+      </figure>
       <p>
         We see an interesting pattern in our data: while most values are concentrated in a cluster with relatively high effects and high heterogeneity, the distribution of <m>I^2</m> values is heavily right-skewed and bi-modal. There seem to be some study combinations for which the estimated heterogeneity is much lower, but where the pooled effect size is also smaller, resulting in a shape with a "comet-like" tail.
       </p>
@@ -1070,6 +1082,12 @@ plot(res.gosh.diag)
       <p>
         <idx><h>Cook's Distance</h></idx>
       </p>
+      <figure>
+        <image source="generated/gosh1_col_sep.png"/>
+      </figure>
+      <figure>
+        <image source="generated/gosh2_col_sep.png"/>
+      </figure>
       <p>
         This produces several plots. The first three plots display the clustering solution found by each algorithm and the amount of cluster imbalance pertaining to each study in each cluster. Based on this information, a Cook's distance value is calculated for each study, which is used to determine if a study might have a large impact on the detected cluster (and may therefore be an influential case).
       </p>

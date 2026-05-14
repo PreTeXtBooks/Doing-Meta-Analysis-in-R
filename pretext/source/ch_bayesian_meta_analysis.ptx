@@ -281,6 +281,9 @@ pp_check(m.brm)
     <subsection xml:id="interpreting-the-results">
       <title>Interpreting the Results</title>
 
+      <figure>
+        <image source="generated/ppcheck_sep.png"/>
+      </figure>
       <p>
         We can begin to interpret the results by looking at the <c>Group-Level Effects</c> in our summary output first. This section is reserved for the random effect we defined in our formula. Since we fitted a random-effects meta-analysis model, the variable <c>~Author</c>, signifying the individual studies, has been modeled with a random intercept. As we described before, this represents our assumption on level 2 that each study has its own "true" effect size, which has been sampled from an overarching distribution of true effect sizes. We also see that our group-level effect has 18 levels, corresponding with the <m>K=</m> 18 studies in our data. 
       </p>
@@ -366,6 +369,10 @@ ggplot(aes(x = tau), data = post.samples) +
       <p>
         We see that the posterior distributions follow a unimodal, and roughly normal distribution, peaking around the estimated values for <m>\mu</m> and <m>\tau</m>. 
       </p>
+      <figure>
+        <image source="generated/posterior1_sep.png"/>
+        <image source="generated/posterior2_sep.png"/>
+      </figure>
       <p>
         The fact that Bayesian methods create an actual sampling distribution for our parameters of interest means that we can calculate <alert>exact probabilities</alert> that <m>\mu</m> or <m>\tau</m> is larger or smaller than some specific value. Imagine that found in previous literature that, if effects of an intervention are below SMD = 0.30, they are not meaningful anymore. We could therefore calculate the probability that the true overall effect in our meta-analysis is smaller than SMD = 0.30, based on our model. 
       </p>
@@ -375,6 +382,9 @@ ggplot(aes(x = tau), data = post.samples) +
       <p>
         This can be done by looking at the <alert>empirical cumulative distribution function</alert> (ECDF). The ECDF lets us select one specific value <m>X</m>, and returns the probability of some value <m>x</m> being smaller than <m>X</m>, based on provided data. The ECDF of <m>\mu</m>'s posterior distribution in our example can be seen below.
       </p>
+      <figure>
+        <image source="generated/ecdf_sep.png"/>
+      </figure>
       <p>
         We can use the <c>ecdf</c> function to define an ECDF in <em>R</em>, and then check the probability of our pooled effect being smaller than 0.30. The code looks like this:
       </p>
@@ -495,6 +505,9 @@ ggplot(aes(b_Intercept,
   theme_minimal()
         </code>
       </program>
+      <figure>
+        <image source="generated/tidybayes_sep.png"/>
+      </figure>
       <note>
         <p>
           <alert>Observed Versus Model-Based Effect Sizes</alert>
