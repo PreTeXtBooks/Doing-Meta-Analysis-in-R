@@ -10,6 +10,10 @@ import sys
 import os
 
 
+# Regex pattern for (ref:label) text references used in fig.cap etc.
+_REF_LABEL_PATTERN = re.compile(r'^\(ref:([\w.-]+)\)$')
+
+
 # ---------------------------------------------------------------------------
 # XML helpers
 # ---------------------------------------------------------------------------
@@ -248,8 +252,7 @@ def parse_rmd_blocks(content, text_refs=None):
     Block types: heading, para, code, block_chunk, hr, bq, ul, ol, dm, img
     """
     content = strip_yaml_frontmatter(content)
-    if text_refs is None:
-        text_refs = parse_text_references(content)
+    text_refs = parse_text_references(content)
     content = preprocess_lines(content)
     lines = content.split('\n')
     blocks = []
@@ -864,7 +867,7 @@ def render_code(block, writer):
             # Resolve caption: fig.cap may be a (ref:xxx) reference
             cap_raw = opts.get('fig.cap', '') or opts.get('fig_cap', '')
             if cap_raw:
-                ref_m = re.match(r'^\(ref:([\w.-]+)\)$', cap_raw.strip())
+                ref_m = _REF_LABEL_PATTERN.match(cap_raw.strip())
                 if ref_m:
                     cap_raw = text_refs.get(ref_m.group(1), cap_raw)
                 caption = convert_inline(cap_raw)
@@ -884,10 +887,7 @@ def render_code(block, writer):
 
             for img_path in imgs:
                 # Map images/xxx.png -> generated/xxx.png
-                if img_path.startswith('images/'):
-                    src = 'generated/' + img_path[len('images/'):]
-                else:
-                    src = img_path
+                src = img_path.replace('images/', 'generated/', 1) if img_path.startswith('images/') else img_path
                 writer.self_close('image', f'source="{xml_escape_attr(src)}"')
 
             writer.close_tag('figure')
