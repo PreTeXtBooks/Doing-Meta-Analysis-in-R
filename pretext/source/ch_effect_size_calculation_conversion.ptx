@@ -21,6 +21,12 @@
     <p>
       The good news is that we can sometimes <alert>convert</alert> reported information into the desired effect size format. This makes it possible to include affected studies in a meta-analysis with <alert>pre-calculated</alert> data (Chapter <xref ref="pre-calculated-es"/>) using <c>metagen</c>. For example, we can convert the results of a two-sample <m>t</m>-test to a standardized mean difference and its standard error, and then use <c>metagen</c> to perform a meta-analysis of pre-calculated SMDs. The <alert>{esc}</alert> package  provides several helpful functions which allow us to perform such conversions directly in <em>R</em>.
     </p>
+    <p>
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="reporting-reproducibility"/>.
+    </p>
+    <p>
+      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
+    </p>
   </introduction>
 
   <section xml:id="mean-standard-error">

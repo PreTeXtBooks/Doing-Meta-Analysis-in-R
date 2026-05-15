@@ -21,6 +21,12 @@
     <p>
       Whether you are working in academia or at a company, the things you can do in <em>R</em> will often seem like a superpower to others. But it is a superpower that everyone can learn, provided some time and effort. That being said, it is time to get started.
     </p>
+    <p>
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="intro"/> and then continue with Chapter <xref ref="effects"/>.
+    </p>
+    <p>
+      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
+    </p>
   </introduction>
 
   <section xml:id="install-R">

@@ -36,6 +36,12 @@
     <p>
       In this chapter, we will describe the statistical model behind subgroup analyses, and how we can conduct one directly in <em>R</em>.
     </p>
+    <p>
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="forest"/> and then continue with Chapter <xref ref="metareg"/>.
+    </p>
+    <p>
+      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
+    </p>
   </introduction>
 
   <section xml:id="fixed-effect-plural">

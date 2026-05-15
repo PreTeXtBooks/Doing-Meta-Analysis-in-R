@@ -49,6 +49,12 @@
     <p>
       It is very likely that you have already stumbled upon the term "effect size" before. We also used the word here, without paying too much attention to what it precisely stands for. In the next section, we should therefore explore what we actually mean when we talk about an "effect size". 
     </p>
+    <p>
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="discovering-R"/> and then continue with Chapter <xref ref="pooling-es"/>.
+    </p>
+    <p>
+      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
+    </p>
   </introduction>
 
   <section xml:id="what-is-es">

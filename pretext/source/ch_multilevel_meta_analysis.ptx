@@ -24,6 +24,12 @@
     <p>
       When people talk about multilevel meta-analysis, what they think of are <alert>three-level meta-analysis models</alert>. Such models are indeed somewhat different to the fixed-effect and random-effects model we already know. In this chapter, we will therefore first describe why meta-analysis naturally implies a multilevel structure of our data, and how we can extend a conventional meta-analysis to a three-level model. As always, we will also have a look at how such models can be fitted in <em>R</em> using a hands-on example. 
     </p>
+    <p>
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="pub-bias"/> and then continue with Chapter <xref ref="sem"/>.
+    </p>
+    <p>
+      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
+    </p>
   </introduction>
 
   <section xml:id="multilevel-nature">

@@ -76,6 +76,12 @@
         When we interpret the post-hoc power, this can also lead to the <alert>power approach paradox</alert> (PAP). This paradox arises because an analysis yielding no significant effect is thought to show <alert>more</alert> evidence that the null hypothesis is true when the p-value is <alert>smaller</alert>, since then, the power to detect a true effect would be <alert>higher</alert>.
       </p>
     </note>
+    <p>
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="bayesian-ma"/> and then continue with Chapter <xref ref="risk-of-bias-plots"/>.
+    </p>
+    <p>
+      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
+    </p>
   </introduction>
 
   <section xml:id="fixed-effect-model">

@@ -33,6 +33,12 @@
     <p>
       Therefore, it is important to first discuss the core components and assumptions of network meta-analysis models. The underpinnings of network meta-analysis can be a little abstract at times. We will therefore go through the essential details in small steps, in order to get a better understanding of this method.
     </p>
+    <p>
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="sem"/> and then continue with Chapter <xref ref="bayesian-ma"/>.
+    </p>
+    <p>
+      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
+    </p>
   </introduction>
 
   <section xml:id="what-is-net-ma">

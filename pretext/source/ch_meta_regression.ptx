@@ -36,6 +36,12 @@
     <p>
       Meta-regression, although it has its own limitations, can be a very powerful tool in meta-analyses. It is also very versatile: <alert>multiple meta-regression</alert>, for example, allows us to include not only one, but several predictor variables, along with their interaction. In the second part of this chapter, we will therefore also have a look at multiple meta-regression, and how we can conduct one using <em>R</em>.
     </p>
+    <p>
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="subgroup"/> and then continue with Chapter <xref ref="pub-bias"/>.
+    </p>
+    <p>
+      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
+    </p>
   </introduction>
 
   <section xml:id="the-metareg-model">

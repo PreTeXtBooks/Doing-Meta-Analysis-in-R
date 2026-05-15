@@ -33,6 +33,12 @@
     <p>
       Application of meta-analytic SEM techniques, of course, presupposes a basic familiarity with structural equation modeling. In the next section, we therefore briefly discuss the general idea behind structural equation modeling, as well as its meta-analytic extension. 
     </p>
+    <p>
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="multilevel-ma"/> and then continue with Chapter <xref ref="netwma"/>.
+    </p>
+    <p>
+      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
+    </p>
   </introduction>
 
   <section xml:id="what-is-meta-sem">

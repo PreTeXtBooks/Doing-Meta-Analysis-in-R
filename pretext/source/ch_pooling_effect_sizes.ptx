@@ -33,6 +33,12 @@
     <p>
       As we will see, the nature of the meta-analysis requires us to make a fundamental decision right away: we have to assume either a <alert>fixed-effect model</alert> or a <alert>random-effects model</alert>. Knowledge of the concept behind meta-analytic pooling is needed to make an informed decision which of these two models, along with other analytic specifications, is more appropriate in which context.
     </p>
+    <p>
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="effects"/> and then continue with Chapter <xref ref="heterogeneity"/>.
+    </p>
+    <p>
+      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
+    </p>
   </introduction>
 
   <section xml:id="fem-rem">

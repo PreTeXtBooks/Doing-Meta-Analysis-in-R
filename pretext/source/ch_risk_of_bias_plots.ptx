@@ -20,6 +20,12 @@
     <p>
       In this chapter, we will describe how to create risk of bias plots in <em>R</em>, using the <alert>{robvis}</alert> package.
     </p>
+    <p>
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="power"/> and then continue with Chapter <xref ref="reporting-reproducibility"/>.
+    </p>
+    <p>
+      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
+    </p>
   </introduction>
 
   <section xml:id="introduction">
