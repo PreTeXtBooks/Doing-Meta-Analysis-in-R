@@ -90,7 +90,7 @@
       <idx><h>Standardized Mean Difference</h></idx> <idx><h>Random-Effects Model</h></idx> <idx><h>History of Meta-Analysis</h></idx>
     </p>
     <p>
-      The name "meta-analysis" and the beginning of its rise to prominence, however, can be traced back to a scholarly dispute raging in the mid-20th century. In 1952, the famous British psychologist Hans Jürgen Eysenck (Figure <xref provisional="fig:eysenck"/>) published an article in which he claimed that psychotherapy (in that time, this largely meant Freudian psychoanalysis) was ineffective. If patients get better during therapy, it is because their situation would have improved anyway due to factors that have nothing to do with the therapy. Even worse, Eysenck claimed, psychotherapy would often hinder patients from getting better. 
+      The name "meta-analysis" and the beginning of its rise to prominence, however, can be traced back to a scholarly dispute raging in the mid-20th century. In 1952, the famous British psychologist Hans Jürgen Eysenck (Figure <xref ref="fig:eysenck"/>) published an article in which he claimed that psychotherapy (in that time, this largely meant Freudian psychoanalysis) was ineffective. If patients get better during therapy, it is because their situation would have improved anyway due to factors that have nothing to do with the therapy. Even worse, Eysenck claimed, psychotherapy would often hinder patients from getting better. 
     </p>
     <p>
       The reputation of psychotherapy took a big hit, and it did not recover until the late 1970s. During that time, Gene V. Glass developed a technique he termed "meta-analysis", which allowed to pool <alert>Standardized Mean Differences</alert><fn>i.e., the difference in means between two groups, for example an intervention and control group, expressed in the units of the pooled standard deviation of both groups (see Chapter <xref ref="s-md"/>).</fn> across studies. The first extensive application of his technique was in an article published in the <alert>American Psychologist</alert>, written by Mary L. Smith and Glass himself . In this large study, results from 375 studies with more than 4000 participants were combined in a meta-analysis. 
@@ -98,9 +98,10 @@
     <p>
       The study found that psychotherapies had a pooled effect of 0.68, which can be considered quite large. Glass' work had an immense impact because it provided quantitative evidence that Eysenck's verdict was wrong. Eysenck himself, however, was not convinced, calling the meta-analysis "an abandonment of scholarship" and "an exercise in mega-silliness" .
     </p>
-    <p>
-      (ref:eysenck) Hans Jürgen Eysenck (<url href="#attr"><em>Sirswindon/CC BY-SA 3.0</em></url>).
-    </p>
+    <figure xml:id="fig:eysenck">
+      <caption>Hans Jürgen Eysenck (<url href="#attr"><em>Sirswindon/CC BY-SA 3.0</em></url>).</caption>
+      <image source="generated/eysenck_col.jpg"/>
+    </figure>
     <p>
       Today we know that Smith and Glass' study may have overestimated the effects of psychotherapy because it did not control for biases in the included studies . However, the primary finding that some psychotherapies are effective has been corroborated by countless other meta-analyses in the following decades. Eysenck's grim response could not change that meta-analysis soon became a commonly used method in various fields of study. This time has been very aptly described as the "meta-analytic Big Bang" .
     </p>

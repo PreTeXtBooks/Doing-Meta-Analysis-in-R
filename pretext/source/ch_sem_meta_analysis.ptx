@@ -79,6 +79,9 @@
       <subsubsection xml:id="matrix-representation">
         <title>Matrix Representation</title>
 
+        <figure xml:id="fig:regression_path">
+          <image source="generated/regression_path_sep.png"/>
+        </figure>
         <p>
           There are several ways to represent SEM through matrices . Here, we will focus on the <alert>Reticular Action Model</alert> formulation, or RAM . We do this because this formulation is used by the <alert>{metaSEM}</alert> package which we will be introducing later on. RAM uses four matrices: <m>\boldsymbol{F}</m>, <m>\boldsymbol{A}</m>, <m>\boldsymbol{S}</m>, and <m>\boldsymbol{M}</m>. Because the <m>\boldsymbol{M}</m> matrix is not necessary to fit the meta-analytic SEM we cover, we omit it here [see <xref ref="references"/> for a more extensive introduction]. 
         </p>
@@ -88,24 +91,36 @@
         <p>
           <alert>The <m>\boldsymbol{A}</m> Matrix: Single Arrows</alert>
         </p>
+        <figure>
+          <image source="generated/M1.png"/>
+        </figure>
         <p>
           The <m>\boldsymbol{A}</m> matrix represents the asymmetrical (single) arrows in our path model. We can fill this matrix by searching for the <alert>column</alert> entry of the variable in which the arrow starts (<m>x</m>), and then for the matrix <alert>row</alert> entry of the variable in which the arrow ends (<m>y</m>). The value of our arrow, <m>\beta_1</m>, is put where the selected column and row intersect in the matrix (<m>i_{y,x}</m>). Given that there are no other paths between variables in our model, we fill the remaining fields with 0. Thus, the <m>\boldsymbol{A}</m> matrix for our example looks like this:
         </p>
         <p>
           <alert>The <m>\boldsymbol{S}</m> Matrix: Single Arrows</alert>
         </p>
+        <figure>
+          <image source="generated/M2.png"/>
+        </figure>
         <p>
           The <m>\boldsymbol{S}</m> matrix represents the (co-)variances we want to estimate for the included variables. For <m>x</m>, our predictor, we need to estimate the variance <m>\sigma^2_x</m>. For our predicted variable <m>y</m>, we want to know the prediction error variance <m>\sigma^2_{e_y}</m>. Therefore, we specify <m>\boldsymbol{S}</m> like this:
         </p>
         <p>
           <alert>The <m>\boldsymbol{F}</m> Matrix: Single Arrows</alert>
         </p>
+        <figure>
+          <image source="generated/M4.png"/>
+        </figure>
         <p>
           The <m>\boldsymbol{F}</m> matrix allows us to specify the <alert>observed</alert> variables in our model. To specify that a variable has been observed, we simply insert 1 in the respective diagonal field of the matrix. Given that both <m>x</m> and <m>y</m> are observed in our model, we insert 1 into both diagonal fields:
         </p>
         <p>
           <idx><h>Maximum Likelihood</h></idx>
         </p>
+        <figure>
+          <image source="generated/M3.png"/>
+        </figure>
         <p>
           Once these matrices are set, it is possible to estimate the parameters in our SEM, and to evaluate how well the specified model fits the data. This involves some matrix algebra and parameter estimation through maximum likelihood estimation, the mathematical minutiae of which we will omit here. If you are interested in understanding the details behind this step, you can have a look at <xref ref="references"/>, chapter 4.3. 
         </p>
@@ -154,6 +169,9 @@
     <subsection xml:id="the-two-stage-meta-analytic-sem-approach">
       <title>The Two-Stage Meta-Analytic SEM Approach</title>
 
+      <figure>
+        <image source="generated/REM_SEM_sep.png"/>
+      </figure>
       <p>
         Above, we defined the (random-effects) meta-analysis model from a SEM perspective. Although this is interesting from a theoretical standpoint, the model above is not more or less capable than the meta-analysis techniques we covered before: it describes that effect sizes are pooled assuming a random-effects model.
       </p>
@@ -459,6 +477,9 @@ plot(m.mv,
       <p>
         <idx><h>Prediction Interval</h></idx>
       </p>
+      <figure xml:id="fig:metasem_forest_img">
+        <image source="generated/forest_metasem.png"/>
+      </figure>
       <p>
         In the middle of the plot, the pooled effect of both variables is shown as a red diamond. The smaller blue ellipse represents the 95% confidence interval of our pooled effect; while the larger black ellipse depicts the 95% <alert>prediction</alert> interval (Chapter <xref ref="het-measure-which"/>)<fn>These prediction intervals (or "plausible value intervals") are based on a different formula [<m>\hat\mu \pm 1.96 \times \hat\tau</m>; see <xref ref="references"/>] than the one used by <alert>{meta}</alert> and <alert>{metafor}</alert> (equation 5.7 in Chapter <xref ref="het-measure-which"/>), resulting in a slightly narrower interval.</fn>.
       </p>
@@ -491,6 +512,9 @@ plot(m.mv,
       The proposed structure represented as a graphical model looks like this<fn>Please note that the labels in the path diagram are somewhat "idiosyncratic" to make identifying the relevant components of the model easier later on.</fn>:
     </p>
     <subsection xml:id="sem-data-preparation">
+    <figure>
+      <image source="generated/CFA_Graph-1_sep.png"/>
+    </figure>
       <title>Data Preparation</title>
 
       <p>
@@ -929,6 +953,9 @@ semPaths(cfa.plot,
          edge.label.cex = 1)
         </code>
       </program>
+      <figure xml:id="fig:cfa_img">
+        <image source="generated/cfa.png"/>
+      </figure>
       <note>
         <p>
           <alert>Further Reading</alert>

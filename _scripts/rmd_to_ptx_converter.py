@@ -10,6 +10,10 @@ import sys
 import os
 
 
+# Regex pattern for (ref:label) text references used in fig.cap etc.
+_REF_LABEL_PATTERN = re.compile(r'^\(ref:([\w.-]+)\)$')
+
+
 # ---------------------------------------------------------------------------
 # XML helpers
 # ---------------------------------------------------------------------------
@@ -69,6 +73,19 @@ def strip_yaml_frontmatter(content):
         if end != -1:
             return content[end + 6:]
     return content
+
+
+def parse_text_references(content):
+    """
+    Parse (ref:label) text reference definitions from Rmd content.
+    These are standalone lines of the form:
+        (ref:label) Caption text here.
+    Returns a dict mapping label -> text.
+    """
+    refs = {}
+    for m in re.finditer(r'^\(ref:([\w.-]+)\)\s+(.+)$', content, re.MULTILINE):
+        refs[m.group(1)] = m.group(2).strip()
+    return refs
 
 
 def preprocess_lines(content):
@@ -229,12 +246,13 @@ def parse_list_items(lines, start, ordered=False):
     return items, i
 
 
-def parse_rmd_blocks(content):
+def parse_rmd_blocks(content, text_refs=None):
     """
     Parse Rmd content into a flat list of block dicts.
     Block types: heading, para, code, block_chunk, hr, bq, ul, ol, dm, img
     """
     content = strip_yaml_frontmatter(content)
+    text_refs = parse_text_references(content)
     content = preprocess_lines(content)
     lines = content.split('\n')
     blocks = []
@@ -275,6 +293,7 @@ def parse_rmd_blocks(content):
                     'header': header,
                     'code': code,
                     'info': chunk_info,
+                    'text_refs': text_refs,
                 })
             i = j + 1
             continue
@@ -389,6 +408,11 @@ def parse_rmd_blocks(content):
             if items:
                 blocks.append({'type': 'ol', 'items': items})
             i = next_i
+            continue
+
+        # Text reference definitions: (ref:label) text... — skip these lines
+        if re.match(r'^\(ref:[\w.-]+\)\s', line):
+            i += 1
             continue
 
         # Regular paragraph - collect until blank line or structural element
@@ -832,11 +856,42 @@ def render_code(block, writer):
     label = info.get('label') if info else None
     lang = (info.get('lang', 'r') if info else 'r') or 'r'
     code = block.get('code', '')
+    text_refs = block.get('text_refs') or {}
 
     echo_opt = opts.get('echo', 'T')
 
-    # Skip echo=F chunks (figure-generating / setup chunks not shown to readers)
+    # For echo=F chunks, check if the code is purely knitr::include_graphics()
     if echo_opt in ('FALSE', 'F', 'false'):
+        imgs = re.findall(r"knitr::include_graphics\(['\"]([^'\"]+)['\"]\)", code)
+        if imgs:
+            # Resolve caption: fig.cap may be a (ref:xxx) reference
+            cap_raw = opts.get('fig.cap', '') or opts.get('fig_cap', '')
+            if cap_raw:
+                ref_m = _REF_LABEL_PATTERN.match(cap_raw.strip())
+                if ref_m:
+                    cap_raw = text_refs.get(ref_m.group(1), cap_raw)
+                caption = convert_inline(cap_raw)
+            else:
+                caption = ''
+
+            # Build figure element
+            if label:
+                fig_attrs = f'xml:id="fig:{label}"'
+            else:
+                fig_attrs = ''
+
+            writer.open_tag('figure', fig_attrs)
+
+            if caption:
+                writer.write_inline_tag('caption', caption)
+
+            for img_path in imgs:
+                # Map images/xxx.png -> generated/xxx.png
+                src = img_path.replace('images/', 'generated/', 1) if img_path.startswith('images/') else img_path
+                writer.self_close('image', f'source="{xml_escape_attr(src)}"')
+
+            writer.close_tag('figure')
+        # Skip all other echo=F chunks (pure R-generated plots, setup, etc.)
         return
 
     if not code.strip():
@@ -1062,7 +1117,8 @@ def convert_file(rmd_path, ptx_path, output_path=None):
     if not wrapper_info:
         raise ValueError(f"Could not find wrapper element in {ptx_path}")
 
-    blocks = parse_rmd_blocks(rmd_content)
+    text_refs = parse_text_references(rmd_content)
+    blocks = parse_rmd_blocks(rmd_content, text_refs=text_refs)
     ptx_output = build_ptx(blocks, wrapper_info)
 
     out_path = output_path or ptx_path

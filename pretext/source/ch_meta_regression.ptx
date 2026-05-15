@@ -104,6 +104,10 @@
       <p>
         Written this way, it becomes clearer that our formula actually contains two models, one for subgroup A, and one for subgroup B. The main difference between the models is that the effect of the second subgroup is "shifted" up or down, depending on the value of <m>\beta</m> (which we denote as <m>\theta_{\Delta}</m> in the formula above).
       </p>
+      <figure xml:id="fig:subgroups2">
+        <caption>Meta-regression with a categorical predictor (subgroup analysis).</caption>
+        <image source="generated/subgroups2_sep.png"/>
+      </figure>
       <p>
         This should make it clear that subgroup analyses work just like a normal regression: they use some variable <m>x</m> to predict the value of <m>y</m>, which, in our case, is the effect size of a study. The special thing is that <m>\beta x_k</m> is not continuous--it is a fixed value we add to the prediction, depending on whether a study belongs to a certain subgroup or not. This fixed value of <m>\beta</m> is the estimated difference in effect sizes between two subgroups.
       </p>
@@ -122,11 +126,18 @@
         To the intercept, the term <m>\beta x_k</m> is added. This part produces a <alert>regression slope</alert>: the continuous variable <m>x</m> is multiplied with the <alert>regression weight</alert> <m>\beta</m>, thus lowering or elevating the predicted effect for different values of the covariate. 
       </p>
       <p>
-        The aim of the meta-regression model is to find values of <m>\theta</m> and <m>\beta</m> which minimize the difference between the <alert>predicted</alert> effect size, and the <alert>true</alert> effect size of studies (see Figure <xref provisional="fig:subgroups3"/>).
+        The aim of the meta-regression model is to find values of <m>\theta</m> and <m>\beta</m> which minimize the difference between the <alert>predicted</alert> effect size, and the <alert>true</alert> effect size of studies (see Figure <xref ref="fig:subgroups3"/>).
       </p>
       <p>
         Looking closely at the meta-regression formula, we see that it contains two types of terms. Some terms include a subscript <m>k</m>, while others do not. A subscript <m>k</m> indicates that a value <alert>varies</alert> from study to study. When a term does not include a subscript <m>k</m>, this means that it stays the same for all studies.
       </p>
+      <figure xml:id="fig:subgroups3">
+        <caption>Meta-regression with a continuous predictor and four studies.</caption>
+        <image source="generated/subgroups3_sep.png"/>
+      </figure>
+      <figure>
+        <image source="generated/metareg_form_sep.png"/>
+      </figure>
       <p>
         In a meta-regression, both <m>\theta</m> and <m>\beta</m> are invariable, or fixed. This tells us something important about what a meta-regression does: based on the variation in a predictor variable and the observed effects, it tries to "distill" a <alert>fixed pattern</alert> underlying our data, in the form of a <alert>regression line</alert>. If the meta-regression model fits the data well, the estimated parameters <m>\theta</m> and <m>\beta</m> can be used to predict the effect size of a study the model has <alert>never seen before</alert> (provided we know <m>x</m>). 
       </p>
@@ -153,6 +164,9 @@
       <p>
         The fit of the meta-regression model can therefore be assessed by checking how much of the heterogeneity variance it explains. The predictors included in the mixed-effects model should minimize the amount of the <alert>residual</alert>, or unexplained, heterogeneity variance, which we denote with <m>\tau^2_{\text{unexplained}}</m>. 
       </p>
+      <figure>
+        <image source="generated/rem_mem_sep.png"/>
+      </figure>
       <p>
         In regression analyses, the <m>R^2</m> index is commonly used to quantify the percentage of variation explained by the model. An analogous index, <m>R^2_{*}</m>, can also be calculated for meta-regression. We add an asterisk here to indicate that the <m>R^2</m> in meta-regression is slightly different to the one used in conventional regressions, because we deal with <alert>true effect sizes</alert> instead of observed data points. The formula for <m>R^2_*</m> looks like this:
       </p>
@@ -376,6 +390,9 @@ metareg(m.gen, RiskOfBias)
       <p>
         But what if the relationship between <m>x_1</m> and <m>x_2</m> is more complex? It is possible, like in our previous example, that a more recent publication year is positively associated with higher effects. But not all studies must follow this trend. Maybe the increase is most pronounced among high-quality studies, while the results of low-quality studies stayed largely the same over time. We can visualize this assumed relationship between effect size (<m>\hat\theta_k</m>), publication year (<m>x_1</m>) and study quality (<m>x_2</m>) in the following way:
       </p>
+      <figure xml:id="fig:metareg2">
+        <image source="generated/metareg2_col_sep.png"/>
+      </figure>
       <p>
         The graph shows a classic example of an interaction. We see that the steepness of the regression slope depends on the value of another predictor. While the slope for high-quality studies is very steep, indicating a strong relationship between year and effect, the situation is different for low-quality studies. The regression line in this subgroup is virtually horizontal, indicating that the publication year has no, or even a slightly negative effect on the results. 
       </p>
@@ -414,6 +431,10 @@ metareg(m.gen, RiskOfBias)
         <p>
           <idx><h>Ordinary Least Squares (OLS)</h></idx> <idx><h>Maximum Likelihood</h></idx>
         </p>
+        <figure xml:id="fig:overfitting">
+          <caption>Predictions of an overfitted model versus model with a robust fit.</caption>
+          <image source="generated/overfitting_col_sep.png"/>
+        </figure>
         <p>
           For model fitting, regression utilizes <alert>optimization</alert> techniques such as ordinary least squares or maximum likelihood estimation. As we learned, meta-regression uses a weighted version of ordinary least squares (see Chapter <xref ref="metareg-model-fit"/>), and is, therefore, no exception. 
         </p>
@@ -1074,6 +1095,9 @@ multimodel.inference(TE = "yi",
         <p>
           <idx><h>Akaike's Information Criterion</h></idx>
         </p>
+        <figure>
+          <image source="generated/mmi-plot.png"/>
+        </figure>
         <p>
           There is a lot to see here, so let us go through the output step by step.
         </p>

@@ -338,6 +338,12 @@ title("Contour-Enhanced Funnel Plot (Third Wave Psychotherapies)")
         <p>
           <idx><h>tidyverse Package</h></idx>
         </p>
+        <figure xml:id="fig:eggers">
+          <image source="generated/eggers-1_sep.png"/>
+          <image source="generated/eggers-2_sep.png"/>
+          <image source="generated/eggers-3_sep.png"/>
+          <image source="generated/eggers-4_sep.png"/>
+        </figure>
         <p>
           Let us see what results we get when we fit such a regression model to the data in <c>m.gen</c>. Using <em>R</em>, we can extract the original data in <c>m.gen</c> to calculate the response <c>y</c> and our predictor <c>x</c>. In the code below, we do this using a pipe (Chapter <xref ref="data-transform"/>) and the <c>mutate</c> function, which is part of the <alert>{tidyverse}</alert>. After that, we use the <alert>l</alert>inear <alert>m</alert>odel function <c>lm</c> to regress the <m>z</m> scores <c>y</c> on the precision <c>x</c>. In the last part of the pipe, we request a <c>summary</c> of the results.
         </p>

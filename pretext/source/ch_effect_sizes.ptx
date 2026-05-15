@@ -592,8 +592,12 @@ se
           Where <m>s_{\text{pooled}}</m> is calculated using the same formula (3.16) we already covered in Chapter <xref ref="b-group-md"/>. Standardized mean differences are much more often used in meta-analyses than unstandardized mean differences. This is because <m>\text{SMD}_{\text{between}}</m> can be compared between studies, even if those studies did not measure the outcome of interest using the same instruments. 
         </p>
         <p>
-          The standardization has the effect that <m>\text{SMD}_{\text{between}}=</m> 1 always means that the two groups means are one sample standard deviation away from each other (see Figure <xref provisional="fig:smd"/>); <m>\text{SMD}_{\text{between}}=</m> 2 then represents a difference of 2 standard deviations, and so forth<fn>Kristoffer Magnusson developed a great interactive tool visualizing the distribution of two groups for varying values of the standardized mean difference. The tool can be found online: https://www.rpsychologist.com/d3/cohend/</fn>. 
+          The standardization has the effect that <m>\text{SMD}_{\text{between}}=</m> 1 always means that the two groups means are one sample standard deviation away from each other (see Figure <xref ref="fig:smd"/>); <m>\text{SMD}_{\text{between}}=</m> 2 then represents a difference of 2 standard deviations, and so forth<fn>Kristoffer Magnusson developed a great interactive tool visualizing the distribution of two groups for varying values of the standardized mean difference. The tool can be found online: https://www.rpsychologist.com/d3/cohend/</fn>. 
         </p>
+        <figure xml:id="fig:smd">
+          <caption>Standardized mean difference of 1 (assuming normality, equal standard deviations and equal sample size in both groups).</caption>
+          <image source="generated/smd_sep.png"/>
+        </figure>
         <p>
           The standardization makes it much easier to evaluate the magnitude of the mean difference. Standardized mean differences are often interpreted using the conventions by Cohen :
         </p>

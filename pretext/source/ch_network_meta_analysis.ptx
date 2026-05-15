@@ -50,12 +50,18 @@
       <p>
         This visual representation of a treatment comparison is called a <alert>graph</alert>. Graphs are structures used to model how different objects relate to each other, and there is an entire sub-field of mathematics, <alert>graph theory</alert>, which is devoted to this topic. 
       </p>
+      <figure>
+        <image source="generated/graph1_col_sep.png"/>
+      </figure>
       <p>
         Our graph has two core components. The first one are two circles (so-called <alert>nodes</alert>), which represent the two conditions A and B in trial <m>i</m>. The second component is the line connecting these two nodes. This line is called an <alert>edge</alert>. The edge represents how A and B relate to each other. In our case, the interpretation of the line is quite easy. We can describe the relationship between A and B in terms of the effect size <m>\hat\theta_{i\text{,A,B}}</m> we observe when we compare A and B. This effect size can be expressed as, for example, an SMD or odds ratio, depending on the outcome measure.
       </p>
       <p>
         Now, imagine that we have also obtained data from another study <m>j</m>. This trial also used the control condition B. But instead of administering A, this study used another treatment C. In study <m>j</m>, treatment C was also compared to B. We can add this information to our graph:
       </p>
+      <figure>
+        <image source="generated/graph2_col_sep.png"/>
+      </figure>
       <p>
         This creates our first small network. It is clearly visible that the graph now contains two effect size estimates: <m>\hat\theta_{i\text{,A,B}}</m>, comparing A to B, and <m>\hat\theta_{j\text{,C,B}}</m>, the comparison between C and B. Since both of these effect sizes were directly observed in "real" trials, we call such information <alert>direct evidence</alert>. Therefore, we denote these effect sizes with <m>\hat\theta^{\text{direct}}_{\text{B,A}}</m> and  <m>\hat\theta^{\text{direct}}_{\text{B,C}}</m>. Condition B comes first in this notation because we determined it to be our <alert>reference</alert> group. We chose B as the reference condition because both trials used it as the control group.
       </p>
@@ -65,6 +71,9 @@
       <p>
         However, there is an indirect connection between A and C. This connection exists because B serves as the link, or <alert>bridge</alert>, between the two conditions: A <m>\rightarrow</m> B <m>\rightarrow</m> C. As a result, there is <alert>indirect evidence</alert> for the relationship between A and C, which can be derived from the structure of the network:
       </p>
+      <figure>
+        <image source="generated/graph3_col_sep.png"/>
+      </figure>
       <p>
         Using information from the directly observed edges, we can calculate the effect of the <alert>indirectly</alert> observed comparison between A and C. We denote this non-observed, indirect effect size with <m>\hat\theta^{\text{indirect}}_{\text{A,C}}</m>. The effect estimate can be derived using this formula :
       </p>
@@ -173,6 +182,9 @@
       <p>
         <idx><h>Frequentist Statistics</h></idx> <idx><h>Bayesian Hierarchical Model</h></idx>
       </p>
+      <figure>
+        <image source="generated/graph4_col_sep.png"/>
+      </figure>
       <p>
         Therefore, we need a computational model which allows us to pool all available network data in an efficient and internally consistent manner. Several statistical approaches have been developed for network meta-analysis . In the following chapters, we will discuss a <alert>frequentist</alert> as well as a <alert>Bayesian hierarchical model</alert>, and how they can be implemented in <em>R</em>.
       </p>
@@ -798,6 +810,9 @@ forest(m.netmeta,
 netheat(m.netmeta)
           </code>
         </program>
+        <figure>
+          <image source="generated/heat_fixed_col_sep.png"/>
+        </figure>
         <p>
           The function generates a quadratic heatmap, in which each design in a row is compared to the other designs (in the columns). Importantly, the rows and columns signify specific <alert>designs</alert>, not individual treatment <alert>comparisons</alert> in our network. Thus, the plot also features rows and columns for the design used in our multi-arm study, which compared guided self-help, individual therapy, and a wait-list. The net heat plot has two important features :
         </p>
@@ -830,6 +845,9 @@ netheat(m.netmeta, random = TRUE)
         <p>
           We see that this results in a substantial decrease of inconsistency in our network. There are no fields with a dark red background now, which indicates that the overall consistency of our model improves considerably once a random-effects model is used. 
         </p>
+        <figure>
+          <image source="generated/heat_random_col_sep.png"/>
+        </figure>
         <p>
           We can therefore conclude that the random-effects model is preferable for our data. In practice, this would mean that we re-run the model using <c>netmeta</c> while setting <c>comb.random</c> to <c>TRUE</c> (and <c>comb.fixed</c> to <c>FALSE</c>), and that we only report results of analyses based on the random-effects model. We omit this step here, since all the analyses we presented before can also be applied to random-effects network models, in exactly the same way.
         </p>
@@ -1022,6 +1040,9 @@ funnel(m.netmeta,
       <p>
         <idx><h>Markov Chain Monte Carlo</h></idx> <idx><h>Gibbs Sampler</h></idx>
       </p>
+      <figure>
+        <image source="generated/prior_col_sep.png"/>
+      </figure>
       <p>
         Another asset of Bayesian approaches is that the parameters do not have to follow a bell curve distribution, like the ones in our visualization. Other kinds of (more complex) distributions can also be modeled. A disadvantage of Bayesian inference, however, is that generating the (joint) distribution from our collected data can be very computationally expensive. Special <alert>Markov Chain Monte Carlo</alert> simulation procedures, such as the <alert>Gibbs sampling algorithm</alert>, have been developed to generate posterior distributions. Markov Chain Monte Carlo is also used in the <alert>{gemtc}</alert> package to run our Bayesian network meta-analysis model .
       </p>
@@ -1491,6 +1512,9 @@ plot(summary(nodesplit))
         <p>
           Now that we fitted our network meta-analysis model, and have convinced ourselves that it is trustworthy, it is time to finally produce the results.
         </p>
+        <figure>
+          <image source="generated/nodesplit_forest_sep.png"/>
+        </figure>
         <p>
           As mentioned before, the main question we may want to answer in network meta-analyses is which treatment performs the best. To answer this question, we can first run the <c>rank.probability</c> function. This function calculates the probability of a treatment being the best option, second best option, third best option, and so forth. The function needs our <c>mcmc2</c> object as input, and we additionally specify the <c>preferredDirection</c> argument. If smaller (i.e. negative) effect sizes indicate better outcomes, we set this argument to <c>-1</c>. Otherwise, we use <c>1</c>. 
         </p>

@@ -56,6 +56,9 @@
     <p>
       This explanatory character of models is deeply ingrained in modern statistics, and meta-analysis is no exception. The conceptualization of models as a vehicle for explanation is the hallmark of a statistical "culture" to which, as Breiman  famously estimated, 98% of all statisticians adhere. 
     </p>
+    <figure xml:id="fig:model">
+      <image source="generated/model_concept_sep.png"/>
+    </figure>
     <p>
       By specifying a statistical model, we try to find an approximate representation of the "reality" behind our data. We want a mathematical formula that explains how we can find the <alert>true</alert> effect size underlying all of our studies, based on their observed results. As we learned in Chapter <xref ref="what-are-mas"/>, one of the ultimate goals of meta-analysis is to find one numerical value that characterizes our studies <alert>as a whole</alert>, even though the observed effect sizes vary from study to study. A meta-analysis model must therefore explain the reasons why and how much observed study results differ, even though there is only one overall effect. 
     </p>
@@ -295,7 +298,7 @@ pooled_effect
         \begin{equation} \hat\theta<em>k = \mu + \zeta</em>k + \epsilon_k (#eq:pes6) \end{equation}
       </p>
       <p>
-        This formula makes it clear that our observed effect size deviates from the pooled effect <m>\mu</m> because of two error terms, <m>\zeta_k</m> and <m>\epsilon_k</m>. This relationship is visualized in Figure <xref provisional="fig:random"/>. 
+        This formula makes it clear that our observed effect size deviates from the pooled effect <m>\mu</m> because of two error terms, <m>\zeta_k</m> and <m>\epsilon_k</m>. This relationship is visualized in Figure <xref ref="fig:random"/>. 
       </p>
       <p>
         <idx><h>Exchangeability Assumption</h></idx>
@@ -324,6 +327,10 @@ pooled_effect
         </p>
       </note>
       <subsubsection xml:id="tau-estimators">
+      <figure xml:id="fig:random">
+        <caption>Illustration of parameters of the random-effects model.</caption>
+        <image source="generated/rem_sep2.png"/>
+      </figure>
         <title>Estimators of the Between-Study Heterogeneity</title>
 
         <p>
@@ -492,7 +499,7 @@ pooled_effect
       Time to put what we learned into practice. In the rest of this chapter, we will explore how we can run meta-analyses of different effect sizes directly in <em>R</em>. The <alert>{meta}</alert> package we will use to do this has a special structure. It contains several meta-analysis functions which are each focused on one type of effect size data. There is a set of parameters which can be specified in the same way across all of these functions; for example if we want to apply a fixed- or random-effects model, or which <m>\tau^2</m> estimator should be used. Apart from that, there are <alert>function-specific</alert> arguments which allow us to tweak details of our meta-analysis that are only relevant for a specific type of data. 
     </p>
     <p>
-      Figure <xref provisional="fig:metaflow"/> provides an overview of <alert>{meta}</alert>'s structure. To determine which function to use, we first have to clarify what kind of effect size data we want to synthesize. The most fundamental distinction is the one between <alert>raw</alert> and <alert>pre-calculated</alert> effect size data. We speak of "raw" data when we have all the necessary information needed to calculate the desired effect size stored in our data frame but have not yet calculated the actual effect size. The <c>SuicidePrevention</c> data set we used earlier contains raw data: the mean, standard deviation and sample size of two groups, which is needed to calculate the standardized mean difference. 
+      Figure <xref ref="fig:metaflow"/> provides an overview of <alert>{meta}</alert>'s structure. To determine which function to use, we first have to clarify what kind of effect size data we want to synthesize. The most fundamental distinction is the one between <alert>raw</alert> and <alert>pre-calculated</alert> effect size data. We speak of "raw" data when we have all the necessary information needed to calculate the desired effect size stored in our data frame but have not yet calculated the actual effect size. The <c>SuicidePrevention</c> data set we used earlier contains raw data: the mean, standard deviation and sample size of two groups, which is needed to calculate the standardized mean difference. 
     </p>
     <p>
       We call effect size data "pre-calculated", on the other hand, when they already contain the final effect size of each study, as well as the standard error. If we want to use a corrected version of an effect metric (such as Hedges' <m>g</m>, Chapter <xref ref="hedges-g"/>), it is necessary that this correction has already been applied to pre-calculated effect size data before we start the pooling. 
@@ -503,6 +510,10 @@ pooled_effect
     <p>
       This leaves us no other choice than to pre-calculate the desired effect size for each study right away so that all have the same format. Chapter <xref ref="es-calc"/> in the “Helpful Tools” part of this book presents a few formulas which can help you to convert a reported effect size into the desired metric.
     </p>
+    <figure xml:id="fig:metaflow">
+      <caption>Conceptual overview of meta-analysis functions.</caption>
+      <image source="generated/meta_flow_sep.png"/>
+    </figure>
     <p>
       The function of choice for pre-calculated effect sizes is <c>metagen</c>. Its name stands for <alert>gen</alert>eric inverse variance meta-analysis. If we use <c>metagen</c> with binary data (e.g. proportions, risk ratios, odds ratios), it is important, as we covered in Chapter <xref ref="ratios"/>, that the effect sizes are log-transformed before the function is used. 
     </p>

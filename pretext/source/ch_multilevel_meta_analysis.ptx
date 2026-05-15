@@ -45,11 +45,15 @@
       The second one, <m>\zeta_k</m>, represents the between-study heterogeneity. This heterogeneity is caused by the fact that the true effect size of some study <m>k</m> is again only part of an overarching <alert>distribution of true effect sizes</alert>. This distribution is from where the individual true effect size <m>\theta_k</m> was drawn. Therefore, our aim in the random-effects model is to estimate the mean of the distribution of true effect sizes, denoted with <m>\mu</m>.
     </p>
     <p>
-      The two error terms <m>\epsilon_k</m> and <m>\zeta_k</m> correspond with the two levels in our meta-analysis data: the "participant" level (level 1) and the "study" level (level 2). Figure <xref provisional="fig:multilevel1"/> below symbolizes this structure. 
+      The two error terms <m>\epsilon_k</m> and <m>\zeta_k</m> correspond with the two levels in our meta-analysis data: the "participant" level (level 1) and the "study" level (level 2). Figure <xref ref="fig:multilevel1"/> below symbolizes this structure. 
     </p>
     <p>
       At the lowest level (level 1) we have the participants (or patients, specimens, etc., depending on the research field). These participants are part of larger units: the studies included in our meta-analysis. This overlying layer of studies constitutes our second level. 
     </p>
+    <figure xml:id="fig:multilevel1">
+      <caption>Multilevel structure of the conventional random-effects model.</caption>
+      <image source="generated/multilevel-model_col_sep.png"/>
+    </figure>
     <p>
       When we conduct a meta-analysis, data on level 1 usually already reaches us in a "pooled" form (e.g. the authors of the paper provide us with the mean and standard deviation of their studied sample instead of the raw data). Pooling on level 2, the study level, however, has to be performed as part of the meta-analysis. Traditionally, such type of data is called <alert>nested</alert>: one can say that participants are "nested" within studies.
     </p>
@@ -101,6 +105,9 @@
     <p>
       <idx><h>Cluster Effect</h></idx>
     </p>
+    <figure xml:id="fig:multilevel2">
+      <image source="generated/multilevel-model2_col_sep.png"/>
+    </figure>
     <p>
       We see that a three-level model contains three pooling steps. First, researchers themselves "pool" the results of individual participants in their primary studies, and report the aggregated effect size. Then, on level 2, these effect sizes are nested within several <alert>clusters</alert>, denoted by <m>\kappa</m>. These cluster can either be individual studies (i.e. many effect sizes are nested in one study), or subgroups of studies (i.e. many studies are nested in one subgroup, where each study contributes only one effect size). 
     </p>
@@ -564,6 +571,10 @@ summary(mod.model)
     <p>
       In this section, we will therefore devote some time to an extended three-level architecture, the so-called <alert>Correlated and Hierarchical Effects</alert> (CHE) model . Like our previous (hierarchical) three-level model, the CHE model allows to combine several effect sizes into larger clusters, based on certain commonalities (e.g. because they stem from the same study, work group, cultural region, etc.). 
     </p>
+    <figure xml:id="fig:multilevel3">
+      <caption>In its original form, the three-level (hierarchical) model assumes that effect size estimates within studies or clusters are independent.</caption>
+      <image source="generated/multilevel-model3_col_sep.png"/>
+    </figure>
     <p>
       But in addition, this model also explicitly takes into account that some effect sizes within clusters are based on the same sample (e.g. because several measurements were taken), and that their sampling errors are therefore correlated. In many real-life scenarios, the CHE model should therefore provide a <alert>good starting point</alert>; especially when the dependence structure in our data is complex, or only partially known <fn>Pustejovsky and Tipton  also provide a decision-tree to determine if and when the CHE model is appropriate (see <url href="https://link.springer.com/content/pdf/10.1007/s11121-021-01246-3.pdf">Figure 1</url>). You can use this heuristic as a way to check if the CHE model provides the best assumptions for your data, or if another working model is more reasonable.</fn>.
     </p>

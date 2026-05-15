@@ -27,11 +27,15 @@
     <title>What Is a Forest Plot?</title>
 
     <p>
-      Figure <xref provisional="fig:forest"/> shows the main components of a forest plot. On the left side, forest plots display the name of each study included in the meta-analysis. For each study, a graphical representation of the effect size is provided, usually in the center of the plot. This visualization shows the point estimate of a study on the x-axis. This point estimate is supplemented by a line, which represents the range of the confidence interval calculated for the observed effect size. Usually, the point estimate is surrounded by a square. The size of this square is determined by the weight (Chapter <xref ref="fem"/>) of the effect size: studies with a larger weight are given a larger square, while studies with a lower weight have a smaller square. 
+      Figure <xref ref="fig:forest"/> shows the main components of a forest plot. On the left side, forest plots display the name of each study included in the meta-analysis. For each study, a graphical representation of the effect size is provided, usually in the center of the plot. This visualization shows the point estimate of a study on the x-axis. This point estimate is supplemented by a line, which represents the range of the confidence interval calculated for the observed effect size. Usually, the point estimate is surrounded by a square. The size of this square is determined by the weight (Chapter <xref ref="fem"/>) of the effect size: studies with a larger weight are given a larger square, while studies with a lower weight have a smaller square. 
     </p>
     <p>
       Conventionally, a forest plot should also contain the effect size data that was used to perform the meta-analysis. This provides others with the data needed to replicate our results.
     </p>
+    <figure xml:id="fig:forest">
+      <caption>Key elements of a forest plot.</caption>
+      <image source="generated/forest_sep.png"/>
+    </figure>
     <p>
       At the bottom of the plot, a diamond shape represents the average effect. The length of the diamond symbolizes the confidence interval of the pooled result on the x-axis. Typically, forest plots also include a vertical <alert>reference line</alert>, which indicates the point on the x-axis equal to no effect. As we will see in the coming examples, forest plots can be enhanced by also displaying, for example, a heterogeneity measure such as <m>I^2</m> or <m>\tau^2</m>.
     </p>

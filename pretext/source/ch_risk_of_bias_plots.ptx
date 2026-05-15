@@ -37,6 +37,10 @@
     <p>
       Similarly, producing the graphs by hand, using software such as MS PowerPoint, is time consuming and means the figures have to manually updated if changes are needed. Additionally, journals usually require figures to be of publication quality (above ~300-400dpi), which can be hard to achieve when exporting the risk of bias figures from RevMan or creating them by hand.
     </p>
+    <figure xml:id="fig:rob-revman">
+      <caption>Example RevMan output.</caption>
+      <image source="generated/robsummaryrevman.jpg"/>
+    </figure>
     <p>
       To avoid all of this, you can now easily plot the risk of bias figures yourself within R Studio, using the <alert>{robvis}</alert> package  which provides functions to convert a risk of bias assessment summary table into a summary plot or a traffic-light plot.
     </p>
@@ -109,6 +113,9 @@ library(robvis)
       <p>
         In Excel, this risk of bias summary table would look like this:
       </p>
+      <figure xml:id="fig:rob-example-data">
+        <image source="generated/rob_excel.png"/>
+      </figure>
       <note>
         <p>
           <alert>Column Names</alert>
@@ -647,6 +654,9 @@ ggsave(plot = rob_barplot,
     <subsection xml:id="landing-page">
       <title>Landing Page</title>
 
+      <figure>
+        <image source="generated/robvis-app-landingpage.png"/>
+      </figure>
       <p>
         The page presents a concise version of the guidance found in the previous chapters, specifically relating to setting up your dataset. More importantly, users can download the example datasets for each tool as a CSV file and use these to interact with the app and explore its functionality.
       </p>
@@ -661,6 +671,12 @@ ggsave(plot = rob_barplot,
       <p>
         This menu acts as a graphical interface for the <c>rob_traffic_light</c> function:
       </p>
+      <figure>
+        <image source="generated/robvis-app-traffic-light.png"/>
+      </figure>
+      <figure>
+        <image source="generated/robvis-app-summary-plot.png"/>
+      </figure>
       <ul>
         <li>
           <p>
