@@ -12,4 +12,7 @@
   <p>
     Download the citation as <url href="https://www.protectlab.org/meta-analysis-in-r/data/citation.bib">BibTeX</url> or <url href="https://www.protectlab.org/meta-analysis-in-r/data/citation.ris">RIS</url>. See <xref ref="references"/> for additional bibliographic files.
   </p>
+  <p>
+    The PreTeXt source format used for this edition is documented in <xref ref="pretext-guide"/>.
+  </p>
 </chapter>
