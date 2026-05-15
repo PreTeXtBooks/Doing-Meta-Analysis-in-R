@@ -76,6 +76,12 @@
         When we interpret the post-hoc power, this can also lead to the <alert>power approach paradox</alert> (PAP). This paradox arises because an analysis yielding no significant effect is thought to show <alert>more</alert> evidence that the null hypothesis is true when the p-value is <alert>smaller</alert>, since then, the power to detect a true effect would be <alert>higher</alert>.
       </p>
     </note>
+    <p>
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="bayesian-ma"/> and then continue with Chapter <xref ref="risk-of-bias-plots"/>.
+    </p>
+    <p>
+      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
+    </p>
   </introduction>
 
   <section xml:id="fixed-effect-model">
@@ -275,7 +281,7 @@ power.analysis(d = 0.2,
       We see that the estimated power is 40.76%. This is lower than the normative 80% threshold. It is also lower than the 60.66% we obtain we assuming a fixed-effect model. This is because between-study heterogeneity decreases the precision of our pooled effect estimate, resulting in a drop in statistical power. 
     </p>
     <p>
-      Figure <xref provisional="fig:power"/> visualizes the effect of the true effect size, number of studies, and amount of between-study heterogeneity on the power of a meta-analysis.<fn>If you want to quickly check the power of a meta-analysis under varying assumptions, you can also use a <alert>power calculator tool</alert> developed for this purpose. The tool is based on the same <em>R</em> function that we cover in this chapter. It can be found online: https://mathiasharrer.shinyapps.io/power<em>calculator</em>meta_analysis/.</fn> 
+      Figure <xref provisional="fig-power"/> visualizes the effect of the true effect size, number of studies, and amount of between-study heterogeneity on the power of a meta-analysis.<fn>If you want to quickly check the power of a meta-analysis under varying assumptions, you can also use a <alert>power calculator tool</alert> developed for this purpose. The tool is based on the same <em>R</em> function that we cover in this chapter. It can be found online: https://mathiasharrer.shinyapps.io/power<em>calculator</em>meta_analysis/.</fn> 
     </p>
   </section>
 

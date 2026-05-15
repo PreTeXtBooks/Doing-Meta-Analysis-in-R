@@ -21,18 +21,24 @@
     <p>
       The <alert>{meta}</alert> package has an in-built function which makes it very easy to produce beautiful forest plots directly in <em>R</em>. The function has a broad functionality and allows one to change the appearance of the plot as desired. This forest plot function, and how we can use it in practice, will be the main focus of this chapter. Furthermore, we will also briefly discuss an alternative approach to visualize the results of a meta-analysis.
     </p>
+    <p>
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="heterogeneity"/> and then continue with Chapter <xref ref="subgroup"/>.
+    </p>
+    <p>
+      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
+    </p>
   </introduction>
 
   <section xml:id="what-is-a-forest-plot">
     <title>What Is a Forest Plot?</title>
 
     <p>
-      Figure <xref ref="fig:forest"/> shows the main components of a forest plot. On the left side, forest plots display the name of each study included in the meta-analysis. For each study, a graphical representation of the effect size is provided, usually in the center of the plot. This visualization shows the point estimate of a study on the x-axis. This point estimate is supplemented by a line, which represents the range of the confidence interval calculated for the observed effect size. Usually, the point estimate is surrounded by a square. The size of this square is determined by the weight (Chapter <xref ref="fem"/>) of the effect size: studies with a larger weight are given a larger square, while studies with a lower weight have a smaller square. 
+      Figure <xref ref="fig-forest"/> shows the main components of a forest plot. On the left side, forest plots display the name of each study included in the meta-analysis. For each study, a graphical representation of the effect size is provided, usually in the center of the plot. This visualization shows the point estimate of a study on the x-axis. This point estimate is supplemented by a line, which represents the range of the confidence interval calculated for the observed effect size. Usually, the point estimate is surrounded by a square. The size of this square is determined by the weight (Chapter <xref ref="fem"/>) of the effect size: studies with a larger weight are given a larger square, while studies with a lower weight have a smaller square. 
     </p>
     <p>
       Conventionally, a forest plot should also contain the effect size data that was used to perform the meta-analysis. This provides others with the data needed to replicate our results.
     </p>
-    <figure xml:id="fig:forest">
+    <figure xml:id="fig-forest">
       <caption>Key elements of a forest plot.</caption>
       <image source="generated/forest_sep.png"/>
     </figure>

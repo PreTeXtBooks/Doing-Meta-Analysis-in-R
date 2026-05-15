@@ -21,6 +21,12 @@
     <p>
       Whether you are working in academia or at a company, the things you can do in <em>R</em> will often seem like a superpower to others. But it is a superpower that everyone can learn, provided some time and effort. That being said, it is time to get started.
     </p>
+    <p>
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="intro"/> and then continue with Chapter <xref ref="effects"/>.
+    </p>
+    <p>
+      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
+    </p>
   </introduction>
 
   <section xml:id="install-R">
@@ -56,11 +62,11 @@
       </li>
       <li>
         <p>
-          The first time you open R Studio, it will probably look a lot like in Figure <xref ref="fig:rstudio-1"/>. There are three panes in R Studio. In the upper right corner, we have the <alert>Environment</alert> pane, which displays objects that we defined (i.e. saved) internally in <em>R</em>. In the bottom right corner, you can find the <alert>Files, Plots, Packages and Help</alert> pane. This pane serves several functions; for example, it is used to display files on your computer, show plots and installed packages, and to access the help pages. The heart of R Studio, however, is the left side, where you can find the <alert>Console</alert>. The console is where all the <em>R</em> code is entered and then run.
+          The first time you open R Studio, it will probably look a lot like in Figure <xref ref="fig-rstudio-1"/>. There are three panes in R Studio. In the upper right corner, we have the <alert>Environment</alert> pane, which displays objects that we defined (i.e. saved) internally in <em>R</em>. In the bottom right corner, you can find the <alert>Files, Plots, Packages and Help</alert> pane. This pane serves several functions; for example, it is used to display files on your computer, show plots and installed packages, and to access the help pages. The heart of R Studio, however, is the left side, where you can find the <alert>Console</alert>. The console is where all the <em>R</em> code is entered and then run.
         </p>
       </li>
     </ol>
-    <figure xml:id="fig:rstudio-1">
+    <figure xml:id="fig-rstudio-1">
       <caption>Panes in R Studio.</caption>
       <image source="generated/rstudio_1_col_sep.png"/>
     </figure>
@@ -130,14 +136,14 @@ install.packages("metafor")
       </code>
     </program>
     <p>
-      Simply type the code above into the console; then hit Enter to start the installation (see Figure <xref ref="fig:rstudio-1"/>).
+      Simply type the code above into the console; then hit Enter to start the installation (see Figure <xref ref="fig-rstudio-1"/>).
     </p>
     <note>
       <p>
         Do not forget to put the package names into <alert>quotation marks</alert> (<c>""</c>). Otherwise, you will get an error message.
       </p>
     </note>
-    <figure xml:id="fig:rstudio-2">
+    <figure xml:id="fig-rstudio-2">
       <caption>Installing a package.</caption>
       <image source="generated/rstudio_2_col.png"/>
     </figure>
@@ -306,7 +312,7 @@ devtools::install_github("MathiasHarrer/dmetar")
     <p>
       <idx><h>Data Frame</h></idx>
     </p>
-    <figure xml:id="fig:wd">
+    <figure xml:id="fig-wd">
       <caption>Setting the working directory; data set loaded in the R environment.</caption>
       <image source="generated/wd_col_sep.png"/>
     </figure>

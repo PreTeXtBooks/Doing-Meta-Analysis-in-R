@@ -20,6 +20,12 @@
     <p>
       In this chapter, we will describe how to create risk of bias plots in <em>R</em>, using the <alert>{robvis}</alert> package.
     </p>
+    <p>
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="power"/> and then continue with Chapter <xref ref="reporting-reproducibility"/>.
+    </p>
+    <p>
+      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
+    </p>
   </introduction>
 
   <section xml:id="introduction">
@@ -37,7 +43,7 @@
     <p>
       Similarly, producing the graphs by hand, using software such as MS PowerPoint, is time consuming and means the figures have to manually updated if changes are needed. Additionally, journals usually require figures to be of publication quality (above ~300-400dpi), which can be hard to achieve when exporting the risk of bias figures from RevMan or creating them by hand.
     </p>
-    <figure xml:id="fig:rob-revman">
+    <figure xml:id="fig-rob-revman">
       <caption>Example RevMan output.</caption>
       <image source="generated/robsummaryrevman.jpg"/>
     </figure>
@@ -113,7 +119,7 @@ library(robvis)
       <p>
         In Excel, this risk of bias summary table would look like this:
       </p>
-      <figure xml:id="fig:rob-example-data">
+      <figure xml:id="fig-rob-example-data">
         <image source="generated/rob_excel.png"/>
       </figure>
       <note>

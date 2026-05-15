@@ -33,6 +33,12 @@
     <p>
       Application of meta-analytic SEM techniques, of course, presupposes a basic familiarity with structural equation modeling. In the next section, we therefore briefly discuss the general idea behind structural equation modeling, as well as its meta-analytic extension. 
     </p>
+    <p>
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="multilevel-ma"/> and then continue with Chapter <xref ref="netwma"/>.
+    </p>
+    <p>
+      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
+    </p>
   </introduction>
 
   <section xml:id="what-is-meta-sem">
@@ -79,7 +85,7 @@
       <subsubsection xml:id="matrix-representation">
         <title>Matrix Representation</title>
 
-        <figure xml:id="fig:regression_path">
+        <figure xml:id="fig-regression_path">
           <image source="generated/regression_path_sep.png"/>
         </figure>
         <p>
@@ -477,7 +483,7 @@ plot(m.mv,
       <p>
         <idx><h>Prediction Interval</h></idx>
       </p>
-      <figure xml:id="fig:metasem_forest_img">
+      <figure xml:id="fig-metasem_forest_img">
         <image source="generated/forest_metasem.png"/>
       </figure>
       <p>
@@ -953,7 +959,7 @@ semPaths(cfa.plot,
          edge.label.cex = 1)
         </code>
       </program>
-      <figure xml:id="fig:cfa_img">
+      <figure xml:id="fig-cfa_img">
         <image source="generated/cfa.png"/>
       </figure>
       <note>

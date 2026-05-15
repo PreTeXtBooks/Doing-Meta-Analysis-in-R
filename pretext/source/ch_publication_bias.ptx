@@ -45,6 +45,12 @@
     <p>
       In this chapter, we will therefore discuss the various shapes and forms through which publication bias can distort our findings. We will also have a look at a few approaches that we as meta-analysts can use to examine the risk of publication bias in our data; and how publication bias can be mitigated in the first place.
     </p>
+    <p>
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="metareg"/> and then continue with Chapter <xref ref="multilevel-ma"/>.
+    </p>
+    <p>
+      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
+    </p>
   </introduction>
 
   <section xml:id="types-of-pub-biases">
@@ -196,7 +202,7 @@
           When there is no publication bias, the data points in such a plot should form a roughly symmetrical, upside-down funnel. This is why they are called funnel plots. Studies in the top part of the plot (those with low standard errors), should lie closely together, and not far away from the pooled effect size. In the lower part of the plot, with increasing standard errors, the funnel "opens up", and effect sizes are expected to scatter more heavily to the left and right of the pooled effect. 
         </p>
         <p>
-          It becomes easier to see why studies should form a funnel when we think back to what we learned about the behavior of effect sizes in Chapter <xref ref="what-is-es"/>, and when discussing the fixed-effect model in Chapter <xref ref="fem"/> (Figure <xref provisional="fig:funnel1"/>). The standard error is indicative of a study's <alert>precision</alert>: with decreasing standard error, we expect the observed effect size to become an increasingly good estimator of the true effect size. When the standard error is high, the effect size has a low precision and is therefore much more likely to be far off from the actual effect in the population.
+          It becomes easier to see why studies should form a funnel when we think back to what we learned about the behavior of effect sizes in Chapter <xref ref="what-is-es"/>, and when discussing the fixed-effect model in Chapter <xref ref="fem"/> (Figure <xref provisional="fig-funnel1"/>). The standard error is indicative of a study's <alert>precision</alert>: with decreasing standard error, we expect the observed effect size to become an increasingly good estimator of the true effect size. When the standard error is high, the effect size has a low precision and is therefore much more likely to be far off from the actual effect in the population.
         </p>
         <p>
           We will now make this more concrete by generating a funnel plot ourselves. In the <alert>{meta}</alert> package, the <c>meta::funnel</c><fn>In this chapter we always append <c>meta::</c> when calling the <c>funnel</c> function. This is not strictly necessary, but in practice may sometimes help to avoid error messages (and related confusion), since there is a another <c>funnel</c> function in the <c>metafor</c> package, which we do not cover here.</fn> function can be used to print a funnel plot for a meta-analysis object. Here, we produce a funnel plot for our <c>m.gen</c> meta-analysis object. We specify two further arguments, <c>xlim</c> and <c>studlab</c>. The first controls the limits of the x-axis in the plot, while the latter tells the function to include study labels. A call to the <c>title</c> function after running <c>meta::funnel</c> adds a title to the plot. 
@@ -338,7 +344,7 @@ title("Contour-Enhanced Funnel Plot (Third Wave Psychotherapies)")
         <p>
           <idx><h>tidyverse Package</h></idx>
         </p>
-        <figure xml:id="fig:eggers">
+        <figure xml:id="fig-eggers">
           <image source="generated/eggers-1_sep.png"/>
           <image source="generated/eggers-2_sep.png"/>
           <image source="generated/eggers-3_sep.png"/>
@@ -1663,7 +1669,7 @@ pcurve(m.gen_update,
           We could assume, for example, that the publication bias mechanism in our meta-analysis can be described with three cut-points. First, there is <m>a_1=</m> 0.025. This value equals a one-sided <m>p</m>-value of 0.025, and two-sided <m>p</m>-value of 0.05. Since this is the conventional significance threshold used in most studies, it makes sense to assume that all <m>p</m>-values smaller <m>a_1=</m> 0.025 have a selection probability <m>\omega_1</m> of 100%. After all, there is no reason to put a study into the file drawer when its results were positive. The next cut-point we define is <m>a_2=</m> 0.05. For results in this range, we assume a selection probability of 80%: still high, but lower compared to results that are clearly significant. Then, we specify a large interval, ranging from <m>a_2=</m> 0.05 to <m>a_3=</m> 0.5, in which the selection probability is 60%. Lastly, for studies with a very high <m>p</m>-value of <m>\geq</m> 0.5, we define an even lower probability of <m>\omega_4=</m> 35%. 
         </p>
         <p>
-          This results in a selection model as depicted in Figure <xref provisional="fig:stepcurve"/> below. 
+          This results in a selection model as depicted in Figure <xref provisional="fig-stepcurve"/> below. 
         </p>
         <p>
           When we define a selection model based on a step function, we usually only specify the cut-points <m>a_i</m>. These are the only fixed parameters in our model, while the selection probabilities <m>\omega = \omega_1, \omega_2, \dots, \omega_c</m> are estimated from the data. Based on the formula in equation 9.20, the selection model can then be fitted to our data. This involves using maximum likelihood procedures to jointly estimate <m>\omega</m>, as well as a corrected estimate of <m>\mu</m> and <m>\tau^2</m> which takes the disparate selection probabilities <m>\omega</m> into account. The resulting corrected estimate of <m>\mu</m> then represents the true average effect size when controlling for the assumed publication bias mechanism. 

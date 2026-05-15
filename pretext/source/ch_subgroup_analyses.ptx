@@ -36,6 +36,12 @@
     <p>
       In this chapter, we will describe the statistical model behind subgroup analyses, and how we can conduct one directly in <em>R</em>.
     </p>
+    <p>
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="forest"/> and then continue with Chapter <xref ref="metareg"/>.
+    </p>
+    <p>
+      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
+    </p>
   </introduction>
 
   <section xml:id="fixed-effect-plural">
@@ -110,9 +116,9 @@
         Borenstein and colleagues  argue that all of this may seem a little confusing to us because the word "fixed" can mean different things in statistics. In conventional meta-analyses, the term "fixed effect" is used synonymously with "common effect". In the context of subgroup analyses, however, we speak of "fixed effects" to underline that they are "not random". They are not simply random manifestations of an over-arching distribution, to which we aim to generalize, but the <alert>real</alert> and <alert>only</alert> categories into which a variable can fall. 
       </p>
       <p>
-        Figure <xref ref="fig:subgroups"/> visualizes the fixed-effects (plural) model, assuming that studies within subgroups follow the random-effects model.
+        Figure <xref ref="fig-subgroups"/> visualizes the fixed-effects (plural) model, assuming that studies within subgroups follow the random-effects model.
       </p>
-      <figure xml:id="fig:subgroups">
+      <figure xml:id="fig-subgroups">
         <caption>Visualization of the fixed-effects (plural) model, assuming a random-effects model within subgroups.</caption>
         <image source="generated/subgroups_sep.png"/>
       </figure>

@@ -24,6 +24,12 @@
     <p>
       When people talk about multilevel meta-analysis, what they think of are <alert>three-level meta-analysis models</alert>. Such models are indeed somewhat different to the fixed-effect and random-effects model we already know. In this chapter, we will therefore first describe why meta-analysis naturally implies a multilevel structure of our data, and how we can extend a conventional meta-analysis to a three-level model. As always, we will also have a look at how such models can be fitted in <em>R</em> using a hands-on example. 
     </p>
+    <p>
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="pub-bias"/> and then continue with Chapter <xref ref="sem"/>.
+    </p>
+    <p>
+      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
+    </p>
   </introduction>
 
   <section xml:id="multilevel-nature">
@@ -45,12 +51,12 @@
       The second one, <m>\zeta_k</m>, represents the between-study heterogeneity. This heterogeneity is caused by the fact that the true effect size of some study <m>k</m> is again only part of an overarching <alert>distribution of true effect sizes</alert>. This distribution is from where the individual true effect size <m>\theta_k</m> was drawn. Therefore, our aim in the random-effects model is to estimate the mean of the distribution of true effect sizes, denoted with <m>\mu</m>.
     </p>
     <p>
-      The two error terms <m>\epsilon_k</m> and <m>\zeta_k</m> correspond with the two levels in our meta-analysis data: the "participant" level (level 1) and the "study" level (level 2). Figure <xref ref="fig:multilevel1"/> below symbolizes this structure. 
+      The two error terms <m>\epsilon_k</m> and <m>\zeta_k</m> correspond with the two levels in our meta-analysis data: the "participant" level (level 1) and the "study" level (level 2). Figure <xref ref="fig-multilevel1"/> below symbolizes this structure. 
     </p>
     <p>
       At the lowest level (level 1) we have the participants (or patients, specimens, etc., depending on the research field). These participants are part of larger units: the studies included in our meta-analysis. This overlying layer of studies constitutes our second level. 
     </p>
-    <figure xml:id="fig:multilevel1">
+    <figure xml:id="fig-multilevel1">
       <caption>Multilevel structure of the conventional random-effects model.</caption>
       <image source="generated/multilevel-model_col_sep.png"/>
     </figure>
@@ -105,7 +111,7 @@
     <p>
       <idx><h>Cluster Effect</h></idx>
     </p>
-    <figure xml:id="fig:multilevel2">
+    <figure xml:id="fig-multilevel2">
       <image source="generated/multilevel-model2_col_sep.png"/>
     </figure>
     <p>
@@ -571,7 +577,7 @@ summary(mod.model)
     <p>
       In this section, we will therefore devote some time to an extended three-level architecture, the so-called <alert>Correlated and Hierarchical Effects</alert> (CHE) model . Like our previous (hierarchical) three-level model, the CHE model allows to combine several effect sizes into larger clusters, based on certain commonalities (e.g. because they stem from the same study, work group, cultural region, etc.). 
     </p>
-    <figure xml:id="fig:multilevel3">
+    <figure xml:id="fig-multilevel3">
       <caption>In its original form, the three-level (hierarchical) model assumes that effect size estimates within studies or clusters are independent.</caption>
       <image source="generated/multilevel-model3_col_sep.png"/>
     </figure>
