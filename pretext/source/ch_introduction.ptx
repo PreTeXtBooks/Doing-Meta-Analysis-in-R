@@ -28,7 +28,8 @@
       It is an inconvenient truth that the scientific process, when left to its own devices, will not automatically move us to the best of all possible worlds. With unprecedented amounts of research findings produced each day, it is even more important to view and critically appraise bodies of evidence <alert>in their entirety</alert>. Meta-analysis can be  enormously helpful in achieving this, as long as we acknowledge its own limitations and biases.
     </p>
     <p>
-      This guide is structured to build these skills chapter by chapter: we start with practical <em>R</em> setup in Chapter <xref ref="discovering-R"/>, then move on to core methods in Chapters <xref ref="effects"/> and <xref ref="pooling-es"/>.
+      This guide is structured to build these skills chapter by chapter.
+      We start with practical <em>R</em> setup in Chapter <xref ref="discovering-R"/>, then move on to core methods in Chapters <xref ref="effects"/> and <xref ref="pooling-es"/>.
       Advanced techniques are covered in Chapters <xref ref="multilevel-ma"/>, <xref ref="netwma"/>, and <xref ref="bayesian-ma"/>.
     </p>
     <p>
