@@ -281,7 +281,7 @@ power.analysis(d = 0.2,
       We see that the estimated power is 40.76%. This is lower than the normative 80% threshold. It is also lower than the 60.66% we obtain we assuming a fixed-effect model. This is because between-study heterogeneity decreases the precision of our pooled effect estimate, resulting in a drop in statistical power. 
     </p>
     <p>
-      Figure <xref provisional="fig:power"/> visualizes the effect of the true effect size, number of studies, and amount of between-study heterogeneity on the power of a meta-analysis.<fn>If you want to quickly check the power of a meta-analysis under varying assumptions, you can also use a <alert>power calculator tool</alert> developed for this purpose. The tool is based on the same <em>R</em> function that we cover in this chapter. It can be found online: https://mathiasharrer.shinyapps.io/power<em>calculator</em>meta_analysis/.</fn> 
+      Figure <xref provisional="fig-power"/> visualizes the effect of the true effect size, number of studies, and amount of between-study heterogeneity on the power of a meta-analysis.<fn>If you want to quickly check the power of a meta-analysis under varying assumptions, you can also use a <alert>power calculator tool</alert> developed for this purpose. The tool is based on the same <em>R</em> function that we cover in this chapter. It can be found online: https://mathiasharrer.shinyapps.io/power<em>calculator</em>meta_analysis/.</fn> 
     </p>
   </section>
 

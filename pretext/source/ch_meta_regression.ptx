@@ -110,7 +110,7 @@
       <p>
         Written this way, it becomes clearer that our formula actually contains two models, one for subgroup A, and one for subgroup B. The main difference between the models is that the effect of the second subgroup is "shifted" up or down, depending on the value of <m>\beta</m> (which we denote as <m>\theta_{\Delta}</m> in the formula above).
       </p>
-      <figure xml:id="fig:subgroups2">
+      <figure xml:id="fig-subgroups2">
         <caption>Meta-regression with a categorical predictor (subgroup analysis).</caption>
         <image source="generated/subgroups2_sep.png"/>
       </figure>
@@ -132,12 +132,12 @@
         To the intercept, the term <m>\beta x_k</m> is added. This part produces a <alert>regression slope</alert>: the continuous variable <m>x</m> is multiplied with the <alert>regression weight</alert> <m>\beta</m>, thus lowering or elevating the predicted effect for different values of the covariate. 
       </p>
       <p>
-        The aim of the meta-regression model is to find values of <m>\theta</m> and <m>\beta</m> which minimize the difference between the <alert>predicted</alert> effect size, and the <alert>true</alert> effect size of studies (see Figure <xref ref="fig:subgroups3"/>).
+        The aim of the meta-regression model is to find values of <m>\theta</m> and <m>\beta</m> which minimize the difference between the <alert>predicted</alert> effect size, and the <alert>true</alert> effect size of studies (see Figure <xref ref="fig-subgroups3"/>).
       </p>
       <p>
         Looking closely at the meta-regression formula, we see that it contains two types of terms. Some terms include a subscript <m>k</m>, while others do not. A subscript <m>k</m> indicates that a value <alert>varies</alert> from study to study. When a term does not include a subscript <m>k</m>, this means that it stays the same for all studies.
       </p>
-      <figure xml:id="fig:subgroups3">
+      <figure xml:id="fig-subgroups3">
         <caption>Meta-regression with a continuous predictor and four studies.</caption>
         <image source="generated/subgroups3_sep.png"/>
       </figure>
@@ -396,7 +396,7 @@ metareg(m.gen, RiskOfBias)
       <p>
         But what if the relationship between <m>x_1</m> and <m>x_2</m> is more complex? It is possible, like in our previous example, that a more recent publication year is positively associated with higher effects. But not all studies must follow this trend. Maybe the increase is most pronounced among high-quality studies, while the results of low-quality studies stayed largely the same over time. We can visualize this assumed relationship between effect size (<m>\hat\theta_k</m>), publication year (<m>x_1</m>) and study quality (<m>x_2</m>) in the following way:
       </p>
-      <figure xml:id="fig:metareg2">
+      <figure xml:id="fig-metareg2">
         <image source="generated/metareg2_col_sep.png"/>
       </figure>
       <p>
@@ -437,7 +437,7 @@ metareg(m.gen, RiskOfBias)
         <p>
           <idx><h>Ordinary Least Squares (OLS)</h></idx> <idx><h>Maximum Likelihood</h></idx>
         </p>
-        <figure xml:id="fig:overfitting">
+        <figure xml:id="fig-overfitting">
           <caption>Predictions of an overfitted model versus model with a robust fit.</caption>
           <image source="generated/overfitting_col_sep.png"/>
         </figure>

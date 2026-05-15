@@ -129,7 +129,7 @@ mean(sample)
       We see that the mean is <m>\bar{x} =</m> 10.07, which is already very close to the true value in our population. The sampling distribution can now be created by repeating what we did here--taking a random sample and calculating its mean--<alert>countless times</alert>. To simulate this process for you, we conducted the steps from before 1000 times. 
     </p>
     <p>
-      The histogram in Figure <xref provisional="fig:samplingdist"/> displays the results. We can see that the means of the samples closely resemble a normal distribution with a mean of 10. If we were to draw even more samples, the distribution of the means would get even closer to a normal distribution. This idea is expressed in one of the most fundamental tenets of statistics, the <alert>central limit theorem</alert> .
+      The histogram in Figure <xref provisional="fig-samplingdist"/> displays the results. We can see that the means of the samples closely resemble a normal distribution with a mean of 10. If we were to draw even more samples, the distribution of the means would get even closer to a normal distribution. This idea is expressed in one of the most fundamental tenets of statistics, the <alert>central limit theorem</alert> .
     </p>
     <p>
       The standard error is defined as the standard deviation of this sampling distribution. Therefore, we calculated the standard deviation of the 1000 simulated means to get an approximation of the standard error. The result is <m>SE =</m> 0.267. 
@@ -158,7 +158,7 @@ sd(sample)/sqrt(50)
       To exemplify this relationship, we conducted another simulation. Again, we used the <c>rnorm</c> function, and assumed a true population mean of <m>\mu =</m> 10 and that <m>\sigma =</m> 2. But this time, we varied the sample size, from <m>n =</m> 2 to <m>n =</m> 500. For each simulation, we calculated both the mean, and the standard error using formula 3.2. 
     </p>
     <p>
-      Figure <xref provisional="fig:simulse"/> shows the results. We can see that the means look like a <alert>funnel</alert>: as the sample size increases, the mean estimates become more and more precise, and converge towards 10. This increase in precision is represented by the standard error: with increasing sample size, the standard error becomes smaller and smaller.
+      Figure <xref provisional="fig-simulse"/> shows the results. We can see that the means look like a <alert>funnel</alert>: as the sample size increases, the mean estimates become more and more precise, and converge towards 10. This increase in precision is represented by the standard error: with increasing sample size, the standard error becomes smaller and smaller.
     </p>
     <p>
       We have now explored the quintessential elements we need to conduct a meta-analysis: an (1) observed effect size or outcome measure, and (2) its precision, expressed as the standard error. If these two types of information can be calculated from a published study, it is usually also possible to perform a meta-analytic synthesis (see Chapter <xref ref="pooling-es"/>).
@@ -285,7 +285,7 @@ sqrt((p*(1-p))/n)
         The fact that the range of proportions is restricted between 0 and 1 can be problematic . When <m>p</m> is close to 0 or close to 1, the standard error is artificially compressed, which leads us to overestimate the precision of the proportion estimate. 
       </p>
       <p>
-        This has something to do with the sampling distribution. When values of <m>p</m> are very low or very high, the sampling distribution will not be approximately normal like in Figure <xref provisional="fig:samplingdist"/>. The distribution will be <alert>right-skewed</alert> or <alert>left-skewed</alert> because it is impossible for a random sample to have a calculated proportion outside the 0-1 range. 
+        This has something to do with the sampling distribution. When values of <m>p</m> are very low or very high, the sampling distribution will not be approximately normal like in Figure <xref provisional="fig-samplingdist"/>. The distribution will be <alert>right-skewed</alert> or <alert>left-skewed</alert> because it is impossible for a random sample to have a calculated proportion outside the 0-1 range. 
       </p>
       <p>
         To avoid this, proportions are commonly <alert>logit</alert>-transformed before they are pooled. A logit-transformation first involves calculating the <alert>odds</alert> (see Chapter <xref ref="or"/>). Odds are defined as the proportion of participants which fall into a specific category, divided by the proportion of units which do not fall into that category. 
@@ -598,9 +598,9 @@ se
           Where <m>s_{\text{pooled}}</m> is calculated using the same formula (3.16) we already covered in Chapter <xref ref="b-group-md"/>. Standardized mean differences are much more often used in meta-analyses than unstandardized mean differences. This is because <m>\text{SMD}_{\text{between}}</m> can be compared between studies, even if those studies did not measure the outcome of interest using the same instruments. 
         </p>
         <p>
-          The standardization has the effect that <m>\text{SMD}_{\text{between}}=</m> 1 always means that the two groups means are one sample standard deviation away from each other (see Figure <xref ref="fig:smd"/>); <m>\text{SMD}_{\text{between}}=</m> 2 then represents a difference of 2 standard deviations, and so forth<fn>Kristoffer Magnusson developed a great interactive tool visualizing the distribution of two groups for varying values of the standardized mean difference. The tool can be found online: https://www.rpsychologist.com/d3/cohend/</fn>. 
+          The standardization has the effect that <m>\text{SMD}_{\text{between}}=</m> 1 always means that the two groups means are one sample standard deviation away from each other (see Figure <xref ref="fig-smd"/>); <m>\text{SMD}_{\text{between}}=</m> 2 then represents a difference of 2 standard deviations, and so forth<fn>Kristoffer Magnusson developed a great interactive tool visualizing the distribution of two groups for varying values of the standardized mean difference. The tool can be found online: https://www.rpsychologist.com/d3/cohend/</fn>. 
         </p>
-        <figure xml:id="fig:smd">
+        <figure xml:id="fig-smd">
           <caption>Standardized mean difference of 1 (assuming normality, equal standard deviations and equal sample size in both groups).</caption>
           <image source="generated/smd_sep.png"/>
         </figure>
@@ -1122,7 +1122,7 @@ esc_2x2(grp1yes = grp1yes, grp1no = grp1no,
         The person-time expresses the total time in which participants in a study were at risk of having an event. To calculate the person-time, we sum up the time at risk (expressed as days, weeks, or years) of all study subjects. However, the time at risk differs from person to person. 
       </p>
       <p>
-        To exemplify this, imagine we are conducting a study with 6 participants. The study lasts for exactly 10 years. After each year, we interview the participants to examine if they experienced the event of interest. Whenever we observe that the event has occurred, the study ends for the affected participant, and we do not examine her or him until the study ends. The results of our study are visualized in Figure <xref provisional="fig:incidence"/>.
+        To exemplify this, imagine we are conducting a study with 6 participants. The study lasts for exactly 10 years. After each year, we interview the participants to examine if they experienced the event of interest. Whenever we observe that the event has occurred, the study ends for the affected participant, and we do not examine her or him until the study ends. The results of our study are visualized in Figure <xref provisional="fig-incidence"/>.
       </p>
       <p>
         <idx><h>Survival Analysis</h></idx> <idx><h>Odds Ratio</h></idx> <idx><h>Censoring</h></idx> <idx><h>Person-Time</h></idx>
@@ -1205,7 +1205,7 @@ se_log_irr &lt;- sqrt((1/e_treat)+(1/e_contr))
         Incidence rate ratios are commonly used in epidemiology and prevention research. They can be used when participants are followed for a longer period of time, and when there are regular assessments in between. In practice, however, there is one caveat we should consider when calculating IRRs as part of a meta-analysis: it is important that the incidence data reported in the included articles is fine-grained enough. Sometimes, papers only report the total number of events during the entire study period and not the number of events recorded at each assessment point in between. It is also possible that no interim assessments were made to begin with. 
       </p>
       <p>
-        In our example above (see Figure <xref provisional="fig:incidence"/>), we simply took the <alert>midpoint</alert> between the last "event-free" assessment point and the assessment point in which the event was recorded to estimate the time at risk of a participant. It is important to keep in mind that this is only a <alert>best guess</alert> of when the event happened exactly. Even when taking the midpoint, our estimates can still be off by about half a year in our example. 
+        In our example above (see Figure <xref provisional="fig-incidence"/>), we simply took the <alert>midpoint</alert> between the last "event-free" assessment point and the assessment point in which the event was recorded to estimate the time at risk of a participant. It is important to keep in mind that this is only a <alert>best guess</alert> of when the event happened exactly. Even when taking the midpoint, our estimates can still be off by about half a year in our example. 
       </p>
       <p>
         Our estimate of the person-time will be best if the time between assessment points is as small as possible. If assessment intervals in a study are too coarse depends on the context of the meta-analysis, but it is always advisable to conduct sensitivity analyses . 
@@ -1336,7 +1336,7 @@ g
         </code>
       </program>
       <p>
-        As we can see in the output, Hedges' <m>g</m> is smaller than the uncorrected SMD. Hedges' <m>g</m> can never be larger than the uncorrected SMD, and the difference between the two metrics is larger when the sample size is smaller (see Figure <xref provisional="fig:dtog"/>).
+        As we can see in the output, Hedges' <m>g</m> is smaller than the uncorrected SMD. Hedges' <m>g</m> can never be larger than the uncorrected SMD, and the difference between the two metrics is larger when the sample size is smaller (see Figure <xref provisional="fig-dtog"/>).
       </p>
       <p>
         It is important to note that the terms SMD and Hedges' <m>g</m> are sometimes used interchangeably in research reports. When a study reports results as the SMD, it is, therefore, relevant to check if the authors indeed refer to the uncorrected standardized mean difference, or if the small-sample bias correction has been applied (meaning that Hedges' <m>g</m> was used). 

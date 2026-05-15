@@ -43,7 +43,7 @@
     <p>
       Similarly, producing the graphs by hand, using software such as MS PowerPoint, is time consuming and means the figures have to manually updated if changes are needed. Additionally, journals usually require figures to be of publication quality (above ~300-400dpi), which can be hard to achieve when exporting the risk of bias figures from RevMan or creating them by hand.
     </p>
-    <figure xml:id="fig:rob-revman">
+    <figure xml:id="fig-rob-revman">
       <caption>Example RevMan output.</caption>
       <image source="generated/robsummaryrevman.jpg"/>
     </figure>
@@ -119,7 +119,7 @@ library(robvis)
       <p>
         In Excel, this risk of bias summary table would look like this:
       </p>
-      <figure xml:id="fig:rob-example-data">
+      <figure xml:id="fig-rob-example-data">
         <image source="generated/rob_excel.png"/>
       </figure>
       <note>

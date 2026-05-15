@@ -85,7 +85,7 @@
       <subsubsection xml:id="matrix-representation">
         <title>Matrix Representation</title>
 
-        <figure xml:id="fig:regression_path">
+        <figure xml:id="fig-regression_path">
           <image source="generated/regression_path_sep.png"/>
         </figure>
         <p>
@@ -483,7 +483,7 @@ plot(m.mv,
       <p>
         <idx><h>Prediction Interval</h></idx>
       </p>
-      <figure xml:id="fig:metasem_forest_img">
+      <figure xml:id="fig-metasem_forest_img">
         <image source="generated/forest_metasem.png"/>
       </figure>
       <p>
@@ -959,7 +959,7 @@ semPaths(cfa.plot,
          edge.label.cex = 1)
         </code>
       </program>
-      <figure xml:id="fig:cfa_img">
+      <figure xml:id="fig-cfa_img">
         <image source="generated/cfa.png"/>
       </figure>
       <note>
