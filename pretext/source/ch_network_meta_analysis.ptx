@@ -122,7 +122,7 @@
         <idx><h>Consistency</h></idx> <idx><h>Transitivity Assumption</h></idx>
       </p>
       <p>
-        There is yet another issue. Equation <xref ref="eq:networkes"/> from before, which allows us to estimate indirect evidence from direct comparisons, only holds if a crucial pre-requisite is met: the assumption of <alert>transitivity</alert>. From a statistical standpoint, this assumption translates to network <alert>consistency</alert> <xref ref="efthimiou2016getreal"/>. In the following, we explain what both of these terms mean, and why they are important.
+        There is yet another issue. Equation <xref provisional="eq:networkes"/> from before, which allows us to estimate indirect evidence from direct comparisons, only holds if a crucial pre-requisite is met: the assumption of <alert>transitivity</alert>. From a statistical standpoint, this assumption translates to network <alert>consistency</alert> <xref ref="efthimiou2016getreal"/>. In the following, we explain what both of these terms mean, and why they are important.
       </p>
     </subsection>
 
@@ -145,7 +145,7 @@
         The requirement we just mentioned is derived from the <alert>transitivity</alert> assumption of network meta-analyses. There is disagreement in the literature about whether this is an assumption unique to network meta-analysis, or simply an extension of the assumptions in conventional pairwise meta-analysis. The disagreement may also be partly caused by an inconsistent usage of terms in the literature <xref ref="dias2018network"/>, <xref ref="efthimiou2016getreal"/>, <xref ref="song2009methodological"/>, <xref ref="lu2009modeling"/>. 
       </p>
       <p>
-        The core tenet of the transitivity assumption is that we can combine direct evidence (e.g. from comparisons A <m>−</m> B and C <m>−</m> B) to create indirect evidence about a related comparison (e.g. A <m>−</m> C), as we have done before using formula <xref ref="eq:networkes"/> <xref ref="efthimiou2016getreal"/>.
+        The core tenet of the transitivity assumption is that we can combine direct evidence (e.g. from comparisons A <m>−</m> B and C <m>−</m> B) to create indirect evidence about a related comparison (e.g. A <m>−</m> C), as we have done before using formula <xref provisional="eq:networkes"/> <xref ref="efthimiou2016getreal"/>.
       </p>
       <p>
         <idx><h>Exchangeability Assumption</h></idx>
@@ -1079,7 +1079,7 @@ funnel(m.netmeta,
           \begin{equation} \hat\theta<em>k \sim \mathcal{N}(\theta,\sigma</em>k^2) (#eq:nw11) \end{equation}
         </p>
         <p>
-          This formula expresses the <alert>likelihood</alert> of our effect sizes--the <m>P(\boldsymbol{Y}|\boldsymbol{\theta})</m> part in equation <xref ref="eq:bayes"/>--assuming that they follow a normal distribution. We assume that each effect size is a draw from the same distribution, the mean of which is the true effect size <m>\theta</m>, and the variance of which is <m>\sigma^2_k</m>. In the fixed-effect model, we assume that the true effect size is identical across all studies, so <m>\theta</m> stays the same for different studies <m>k</m> and their observed effect sizes <m>\hat\theta_k</m>. 
+          This formula expresses the <alert>likelihood</alert> of our effect sizes--the <m>P(\boldsymbol{Y}|\boldsymbol{\theta})</m> part in equation <xref provisional="eq:bayes"/>--assuming that they follow a normal distribution. We assume that each effect size is a draw from the same distribution, the mean of which is the true effect size <m>\theta</m>, and the variance of which is <m>\sigma^2_k</m>. In the fixed-effect model, we assume that the true effect size is identical across all studies, so <m>\theta</m> stays the same for different studies <m>k</m> and their observed effect sizes <m>\hat\theta_k</m>. 
         </p>
         <p>
           <idx><h>Uninformative Prior</h></idx> <idx><h>Prior Distribution</h></idx>
@@ -1316,7 +1316,7 @@ plot(network,
           <idx><h>Markov Chain Monte Carlo</h></idx>
         </p>
         <p>
-          Thus, there are only a few arguments we have to specify when compiling our model using the <c>mtc.model</c> function. First, we have to specify the <c>mtc.network</c> object we have created before. Furthermore, we have to decide if we want to use a random- or fixed effects model using the <c>linearModel</c> argument. Given that our previous frequentist analysis indicated substantial heterogeneity and inconsistency (see Chapter <xref ref="net-heat-plot"/>), we will use <c>linearModel = "random"</c>. We also have to specify the number of <alert>Markov chains</alert> we want to use. A value between 3 and 4 is sensible here, and we take <c>n.chain = 4</c>. 
+          Thus, there are only a few arguments we have to specify when compiling our model using the <c>mtc.model</c> function. First, we have to specify the <c>mtc.network</c> object we have created before. Furthermore, we have to decide if we want to use a random- or fixed effects model using the <c>linearModel</c> argument. Given that our previous frequentist analysis indicated substantial heterogeneity and inconsistency (see Chapter <xref provisional="net-heat-plot"/>), we will use <c>linearModel = "random"</c>. We also have to specify the number of <alert>Markov chains</alert> we want to use. A value between 3 and 4 is sensible here, and we take <c>n.chain = 4</c>. 
         </p>
         <p>
           There are two additional, optional arguments called <c>likelihood</c> and <c>link</c>. These two arguments vary depending on the type of effect size data we are using, and are automatically inferred by <alert>{gemtc}</alert> unless explicitly specified. Since we are dealing with effect sizes based on continuous outcome data (viz. SMDs), we are assuming a <c>"normal"</c> likelihood along with an <c>"identity"</c> link. 
@@ -1442,7 +1442,7 @@ gelman.diag(mcmc2)$mpsrf
         <title>Assessing Inconsistency: The Nodesplit Method</title>
 
         <p>
-          Like the <alert>{netmeta}</alert> package, <alert>{gemtc}</alert> package also provides us with a way to evaluate the consistency of our network model: the <em>nodesplit</em> method (Dias et al., 2010). The idea behind this procedure is similar to the one of the net splitting method that we described before (Chapter <xref ref="net-splitting"/>). To perform a <em>nodesplit</em> analysis, we use the <c>mtc.nodesplit</c> function, using the same settings as in <c>mcmc2</c>. We save the result as <c>nodesplit</c>. 
+          Like the <alert>{netmeta}</alert> package, <alert>{gemtc}</alert> package also provides us with a way to evaluate the consistency of our network model: the <em>nodesplit</em> method (Dias et al., 2010). The idea behind this procedure is similar to the one of the net splitting method that we described before (Chapter <xref provisional="net-splitting"/>). To perform a <em>nodesplit</em> analysis, we use the <c>mtc.nodesplit</c> function, using the same settings as in <c>mcmc2</c>. We save the result as <c>nodesplit</c>. 
         </p>
         <p>
           Please be aware that the nodesplit model computation may take a long time, even up to several hours, depending on the complexity of your network.

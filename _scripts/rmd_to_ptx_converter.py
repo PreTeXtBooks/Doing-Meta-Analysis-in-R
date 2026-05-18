@@ -572,7 +572,7 @@ def convert_inline(text):
         if text[pos:pos+5] == '\\@ref':
             m = re.match(r'\\@ref\(([^)]+)\)', text[pos:])
             if m:
-                ref = m.group(1)
+                ref = m.group(1).replace(':', '-')
                 parts.append(('raw', f'<xref ref="{ref}"/>'))
                 pos += m.end()
                 continue

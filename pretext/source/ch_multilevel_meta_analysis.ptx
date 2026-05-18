@@ -51,7 +51,7 @@
       The second one, <m>\zeta_k</m>, represents the between-study heterogeneity. This heterogeneity is caused by the fact that the true effect size of some study <m>k</m> is again only part of an overarching <alert>distribution of true effect sizes</alert>. This distribution is from where the individual true effect size <m>\theta_k</m> was drawn. Therefore, our aim in the random-effects model is to estimate the mean of the distribution of true effect sizes, denoted with <m>\mu</m>.
     </p>
     <p>
-      The two error terms <m>\epsilon_k</m> and <m>\zeta_k</m> correspond with the two levels in our meta-analysis data: the "participant" level (level 1) and the "study" level (level 2). Figure <xref ref="fig:multilevel1"/> below symbolizes this structure. 
+      The two error terms <m>\epsilon_k</m> and <m>\zeta_k</m> correspond with the two levels in our meta-analysis data: the "participant" level (level 1) and the "study" level (level 2). Figure <xref ref="fig-multilevel1"/> below symbolizes this structure. 
     </p>
     <p>
       At the lowest level (level 1) we have the participants (or patients, specimens, etc., depending on the research field). These participants are part of larger units: the studies included in our meta-analysis. This overlying layer of studies constitutes our second level. 
@@ -67,7 +67,7 @@
       <idx><h>Random-Effects Model</h></idx>
     </p>
     <p>
-      Let us go back to the random-effects model formula in equation <xref ref="eq:mlm1"/>. Implicitly, this formula already describes the multilevel structure of our meta-analysis data. To make this more obvious, we have to split the equation into two formulas, where each corresponds to one of the two levels. If we do this, we get the following result: 
+      Let us go back to the random-effects model formula in equation <xref provisional="eq:mlm1"/>. Implicitly, this formula already describes the multilevel structure of our meta-analysis data. To make this more obvious, we have to split the equation into two formulas, where each corresponds to one of the two levels. If we do this, we get the following result: 
     </p>
     <p>
       <alert>Level 1 (participants) model:</alert>

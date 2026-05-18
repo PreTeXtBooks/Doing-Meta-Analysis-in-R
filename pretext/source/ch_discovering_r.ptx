@@ -62,7 +62,7 @@
       </li>
       <li>
         <p>
-          The first time you open R Studio, it will probably look a lot like in Figure <xref ref="fig:rstudio-1"/>. There are three panes in R Studio. In the upper right corner, we have the <alert>Environment</alert> pane, which displays objects that we defined (i.e. saved) internally in <em>R</em>. In the bottom right corner, you can find the <alert>Files, Plots, Packages and Help</alert> pane. This pane serves several functions; for example, it is used to display files on your computer, show plots and installed packages, and to access the help pages. The heart of R Studio, however, is the left side, where you can find the <alert>Console</alert>. The console is where all the <em>R</em> code is entered and then run.
+          The first time you open R Studio, it will probably look a lot like in Figure <xref ref="fig-rstudio-1"/>. There are three panes in R Studio. In the upper right corner, we have the <alert>Environment</alert> pane, which displays objects that we defined (i.e. saved) internally in <em>R</em>. In the bottom right corner, you can find the <alert>Files, Plots, Packages and Help</alert> pane. This pane serves several functions; for example, it is used to display files on your computer, show plots and installed packages, and to access the help pages. The heart of R Studio, however, is the left side, where you can find the <alert>Console</alert>. The console is where all the <em>R</em> code is entered and then run.
         </p>
       </li>
     </ol>
@@ -136,7 +136,7 @@ install.packages("metafor")
       </code>
     </program>
     <p>
-      Simply type the code above into the console; then hit Enter to start the installation (see Figure <xref ref="fig:rstudio-1"/>).
+      Simply type the code above into the console; then hit Enter to start the installation (see Figure <xref ref="fig-rstudio-1"/>).
     </p>
     <note>
       <p>
@@ -295,7 +295,7 @@ devtools::install_github("MathiasHarrer/dmetar")
       Let us start with an example data set. Imagine that you plan to conduct a meta-analysis of suicide prevention programs. The outcome you want to focus on in your study is the severity of suicidal ideation (i.e. to what degree individuals think about, consider, or plan to end their life), assessed by questionnaires. You already completed the study search and data extraction, and now want to import your meta-analysis data in <em>R</em>. 
     </p>
     <p>
-      The next task is therefore to prepare an <em>Excel</em> sheet containing all the relevant data. Table <xref ref="tab:suicidedata"/> presents all the data we want to import. In the first row, this table also shows how we can name our columns in the <em>Excel</em> file based on the rules we listed above. We can see that the spreadsheet lists each study in one row. For each study, the sample size (<m>n</m>), mean and standard deviation (<m>SD</m>) is included for both the intervention and control group. This is the outcome data needed to calculate effect sizes, which is something we will cover in detail in Chapter <xref ref="effects"/>. The following three columns contain variables we want to analyze later on as part of the meta-analysis. 
+      The next task is therefore to prepare an <em>Excel</em> sheet containing all the relevant data. Table <xref provisional="tab:suicidedata"/> presents all the data we want to import. In the first row, this table also shows how we can name our columns in the <em>Excel</em> file based on the rules we listed above. We can see that the spreadsheet lists each study in one row. For each study, the sample size (<m>n</m>), mean and standard deviation (<m>SD</m>) is included for both the intervention and control group. This is the outcome data needed to calculate effect sizes, which is something we will cover in detail in Chapter <xref ref="effects"/>. The following three columns contain variables we want to analyze later on as part of the meta-analysis. 
     </p>
     <p>
       We have prepared an <em>Excel</em> file for you called <alert>"SuicidePrevention.xlsx"</alert>, containing exactly this data. The file can be downloaded from the <url href="https://protectlab.org/en/datasets/suicide-prevention/">Internet</url>. 

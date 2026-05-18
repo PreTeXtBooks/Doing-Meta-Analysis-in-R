@@ -109,7 +109,7 @@
       Where <m>n_1</m> and <m>n_2</m> stand for the sample sizes in group 1 and group 2 of a study, where <m>\theta</m> is the assumed effect size (expressed as a standardized mean difference), and <m>K</m> is the total number of studies in our meta-analysis. Importantly, as a simplification, this formula assumes that the sample sizes in both groups are identical across all included studies.
     </p>
     <p>
-      The formula is very similar to the one used to calculate the standard error of a standardized mean difference, with one exception. We now divide the the standard error by <m>K</m>. This means that the standard error of our pooled effect is reduced by factor <m>K</m>, representing the total number of studies in our meta-analysis. Put differently, when assuming a fixed-effect model, pooling the studies leads to a <m>K</m>-fold increase in the precision of our overall effect<fn>Note that this statement is, of course, only correct because we are using the simplified formula in equation <xref ref="eq:pow3"/>.</fn>. 
+      The formula is very similar to the one used to calculate the standard error of a standardized mean difference, with one exception. We now divide the the standard error by <m>K</m>. This means that the standard error of our pooled effect is reduced by factor <m>K</m>, representing the total number of studies in our meta-analysis. Put differently, when assuming a fixed-effect model, pooling the studies leads to a <m>K</m>-fold increase in the precision of our overall effect<fn>Note that this statement is, of course, only correct because we are using the simplified formula in equation <xref provisional="eq:pow3"/>.</fn>. 
     </p>
     <p>
       After we defined <m>\theta</m> and calculated <m>\sigma_{\theta}</m>, we end up with a value of <m>z</m>. This <m>z</m> score can be used to obtain the power of our meta-analysis, given a number of studies <m>K</m> with group sizes <m>n_1</m> and <m>n_2</m>:
@@ -281,7 +281,7 @@ power.analysis(d = 0.2,
       We see that the estimated power is 40.76%. This is lower than the normative 80% threshold. It is also lower than the 60.66% we obtain we assuming a fixed-effect model. This is because between-study heterogeneity decreases the precision of our pooled effect estimate, resulting in a drop in statistical power. 
     </p>
     <p>
-      Figure <xref ref="fig:power"/> visualizes the effect of the true effect size, number of studies, and amount of between-study heterogeneity on the power of a meta-analysis.<fn>If you want to quickly check the power of a meta-analysis under varying assumptions, you can also use a <alert>power calculator tool</alert> developed for this purpose. The tool is based on the same <em>R</em> function that we cover in this chapter. It can be found online: https://mathiasharrer.shinyapps.io/power<em>calculator</em>meta_analysis/.</fn> 
+      Figure <xref provisional="fig:power"/> visualizes the effect of the true effect size, number of studies, and amount of between-study heterogeneity on the power of a meta-analysis.<fn>If you want to quickly check the power of a meta-analysis under varying assumptions, you can also use a <alert>power calculator tool</alert> developed for this purpose. The tool is based on the same <em>R</em> function that we cover in this chapter. It can be found online: https://mathiasharrer.shinyapps.io/power<em>calculator</em>meta_analysis/.</fn> 
     </p>
   </section>
 

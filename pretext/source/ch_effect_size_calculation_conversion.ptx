@@ -393,7 +393,7 @@ nnt(m.b)
       The <c>nnt</c> function provides the number needed to treat for different assumed CERs. The three lines show the result for the minimum, mean, and maximum CER in our data set. The mean CER estimate is the "typical" NNT that is usually reported. 
     </p>
     <p>
-      It is also possible to use <c>nnt</c> with <c>metagen</c> models, as long as the summary measure <c>sm</c> is either <c>"RR"</c> or <c>"OR"</c>. For such models, we also need to specify the assumed CER in the <c>p.c</c> argument in <c>nnt</c>. Here is an example using the <c>m.gen_bin</c> meta-analysis object we created in Chapter <xref ref="m-gen-bin"/>:
+      It is also possible to use <c>nnt</c> with <c>metagen</c> models, as long as the summary measure <c>sm</c> is either <c>"RR"</c> or <c>"OR"</c>. For such models, we also need to specify the assumed CER in the <c>p.c</c> argument in <c>nnt</c>. Here is an example using the <c>m.gen_bin</c> meta-analysis object we created in Chapter <xref provisional="m-gen-bin"/>:
     </p>
     <program language="r">
       <code>
