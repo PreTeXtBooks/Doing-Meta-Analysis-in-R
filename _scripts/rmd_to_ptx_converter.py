@@ -611,7 +611,7 @@ def convert_inline(text):
                     if km:
                         key = km.group(1).replace(':', '-')
                         # Skip Rmd cross-reference keys like ref(section-id)
-                        if '(' in key or key.startswith('ref'):
+                        if '(' in key or key == 'ref' or re.match(r'ref[^a-zA-Z]', key):
                             continue
                         xrefs.append(f'<xref ref="{key}"/>')
                 if xrefs:
