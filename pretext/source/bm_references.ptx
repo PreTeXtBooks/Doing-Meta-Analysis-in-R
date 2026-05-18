@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <references xml:id="references">
   <title>References</title>
-  <p>
-    Bibliographic source files for this guide are available as <url href="https://github.com/PreTeXtBooks/Doing-Meta-Analysis-in-R/blob/master/book.bib">book.bib</url> and <url href="https://github.com/PreTeXtBooks/Doing-Meta-Analysis-in-R/blob/master/packages.bib">packages.bib</url>.
-  </p>
-  <p>
-    The book citation files are also provided as <url href="https://www.protectlab.org/meta-analysis-in-r/data/citation.bib">BibTeX</url> and <url href="https://www.protectlab.org/meta-analysis-in-r/data/citation.ris">RIS</url>.
-  </p>
+  <introduction>
+    <p>
+      Bibliographic source files for this guide are available as <url href="https://github.com/PreTeXtBooks/Doing-Meta-Analysis-in-R/blob/master/book.bib">book.bib</url> and <url href="https://github.com/PreTeXtBooks/Doing-Meta-Analysis-in-R/blob/master/packages.bib">packages.bib</url>.
+    </p>
+  </introduction>
+  <biblio xml:id="harrer2021" type="bibtex">
+    <title>Doing Meta-Analysis with R: A Hands-On Guide</title>
+    <author>Mathias Harrer and Pim Cuijpers and Toshi A. Furukawa and David D. Ebert</author>
+    <year>2021</year>
+    <publisher>Chapman and Hall/CRC Press</publisher>
+    <note>
+      <p>
+        Citation exports are available as <url href="https://www.protectlab.org/meta-analysis-in-r/data/citation.bib">BibTeX</url> and <url href="https://www.protectlab.org/meta-analysis-in-r/data/citation.ris">RIS</url>.
+      </p>
+    </note>
+  </biblio>
+  <biblio xml:id="pretext-guide" type="bibtex">
+    <title>PreTeXt Guide</title>
+    <author>Robert A. Beezer and the PreTeXt community</author>
+    <publisher>PreTeXt Project</publisher>
+    <note>
+      <p>
+        Available at <url href="https://pretextbook.org/doc/guide/html/">pretextbook.org/doc/guide/html/</url>.
+      </p>
+    </note>
+  </biblio>
 </references>
