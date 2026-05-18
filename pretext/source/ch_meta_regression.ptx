@@ -51,7 +51,7 @@
       In the past, you may have already performed a regression using primary study data, where participants are the unit of analysis. In meta-analyses, the individual data of each participant is usually not available, and we can only resort to aggregated results. This is why we have to perform meta-regression with predictors on a <alert>study level</alert>. 
     </p>
     <p>
-      It also means that, while we conduct analyses on samples much larger than usual for primary studies, it is still possible that we do not have enough data points for a meta-regression to be useful. In Chapter <xref ref="limits-subgroup"/>, we already covered that subgroup analyses often make no sense when  <m>K&lt;</m> 10. Borenstein and colleagues  mention that this guideline may also be applied to meta-regression models, but that it should not be seen as an iron-clad rule.
+      It also means that, while we conduct analyses on samples much larger than usual for primary studies, it is still possible that we do not have enough data points for a meta-regression to be useful. In Chapter <xref ref="limits-subgroup"/>, we already covered that subgroup analyses often make no sense when  <m>K&lt;</m> 10. Borenstein and colleagues <xref ref="borenstein2011introduction"/> mention that this guideline may also be applied to meta-regression models, but that it should not be seen as an iron-clad rule.
     </p>
     <p>
       In a conventional regression, we want to estimate the value <m>y_i</m> of person <m>i</m> using a <alert>predictor</alert> (or <alert>covariate</alert>) <m>x_i</m> with a regression coefficient <m>\beta</m>. A standard regression equation, therefore, looks like this:
@@ -420,7 +420,7 @@ metareg(m.gen, RiskOfBias)
       <title>Common Pitfalls in Multiple Meta-Regression</title>
 
       <p>
-        Multiple meta-regression, while very useful when applied properly, comes with certain caveats. Some argue that (multiple) meta-regression is often improperly used and interpreted in practice, leading to a low validity of the results . There are some points we have to keep in mind when fitting multiple meta-regression models, which we describe in the following.
+        Multiple meta-regression, while very useful when applied properly, comes with certain caveats. Some argue that (multiple) meta-regression is often improperly used and interpreted in practice, leading to a low validity of the results <xref ref="higgins2004controlling"/>. There are some points we have to keep in mind when fitting multiple meta-regression models, which we describe in the following.
       </p>
       <subsubsection xml:id="overfitting-seeing-a-signal-where-there-is-none">
         <title>Overfitting: Seeing A Signal Where There Is None</title>
@@ -432,7 +432,7 @@ metareg(m.gen, RiskOfBias)
           To better understand the risks of (multiple) meta-regression models, we have to understand the concept of <alert>overfitting</alert>. Overfitting occurs when we build a statistical model that fits the data <alert>too</alert> closely. In essence, this means that we build a statistical model which can predict the data <alert>at hand</alert> very well, but performs badly at predicting <alert>future</alert> data. 
         </p>
         <p>
-          This happens when our model assumes that some variation in our data stems from a true "signal", when in fact we only capture random noise . As a result, the model produces <alert>false positive</alert> results: it sees relationships where there are none.
+          This happens when our model assumes that some variation in our data stems from a true "signal", when in fact we only capture random noise <xref ref="iniesta2016machine"/>. As a result, the model produces <alert>false positive</alert> results: it sees relationships where there are none.
         </p>
         <p>
           <idx><h>Ordinary Least Squares (OLS)</h></idx> <idx><h>Maximum Likelihood</h></idx>
@@ -445,7 +445,7 @@ metareg(m.gen, RiskOfBias)
           For model fitting, regression utilizes <alert>optimization</alert> techniques such as ordinary least squares or maximum likelihood estimation. As we learned, meta-regression uses a weighted version of ordinary least squares (see Chapter <xref ref="metareg-model-fit"/>), and is, therefore, no exception. 
         </p>
         <p>
-          This "greedy" optimization, however, means that regression approaches can be prone to overfitting . Unfortunately, the risk of building a non-robust model is even higher once we go from conventional to meta-regression. There are several reasons for this :
+          This "greedy" optimization, however, means that regression approaches can be prone to overfitting <xref ref="gigerenzer2004mindless"/>. Unfortunately, the risk of building a non-robust model is even higher once we go from conventional to meta-regression. There are several reasons for this <xref ref="higgins2004controlling"/>:
         </p>
         <ol>
           <li>
@@ -465,7 +465,7 @@ metareg(m.gen, RiskOfBias)
           </li>
           <li>
             <p>
-              Meta-regression in general, and multiple meta-regression in particular, makes it very easy to "play around" with predictors. We can test numerous meta-regression models, include more predictors or remove them, in an attempt to explain the heterogeneity in our data. Such an approach is tempting and often found in practice, because meta-analysts want to find an explanation why effect sizes differ . However, such behavior has been shown to massively increase the risk of spurious findings, because we can change parts of our model indefinitely until we find a significant model, which is then very likely to be overfitted (i.e. it mostly models statistical noise).
+              Meta-regression in general, and multiple meta-regression in particular, makes it very easy to "play around" with predictors. We can test numerous meta-regression models, include more predictors or remove them, in an attempt to explain the heterogeneity in our data. Such an approach is tempting and often found in practice, because meta-analysts want to find an explanation why effect sizes differ <xref ref="higgins2002statistical"/>. However, such behavior has been shown to massively increase the risk of spurious findings, because we can change parts of our model indefinitely until we find a significant model, which is then very likely to be overfitted (i.e. it mostly models statistical noise).
             </p>
           </li>
         </ol>
@@ -511,13 +511,13 @@ metareg(m.gen, RiskOfBias)
           <idx><h>Multi-Collinearity</h></idx> <idx><h>Overfitting</h></idx>
         </p>
         <p>
-          <alert>Multi-collinearity</alert> means that one or more predictors in our regression model can be predicted by another model predictor with high accuracy . This typically means that we have two or more independent variables in our model which are highly correlated. 
+          <alert>Multi-collinearity</alert> means that one or more predictors in our regression model can be predicted by another model predictor with high accuracy <xref ref="mansfiled1982detecting"/>. This typically means that we have two or more independent variables in our model which are highly correlated. 
         </p>
         <p>
           Most of the dangers of multi-collinearity are associated with the problem of overfitting. High collinearity can cause our predictor coefficient estimates <m>\hat\beta</m> to behave erratically, and change considerably with minor changes in our data. It also limits the size of the explained variance by the model, in our case <m>R^2_*</m>.
         </p>
         <p>
-          Multi-collinearity in meta-regression is common . Although multiple regression can handle low degrees of collinearity, we should check and, if necessary, control for very highly correlated predictors. There is no consolidated yes-no-rule to determine the presence of multi-collinearity. 
+          Multi-collinearity in meta-regression is common <xref ref="berlin1994advantages"/>. Although multiple regression can handle low degrees of collinearity, we should check and, if necessary, control for very highly correlated predictors. There is no consolidated yes-no-rule to determine the presence of multi-collinearity. 
         </p>
         <p>
           A crude, but often effective way is to check for very high predictor correlations (i.e. <m>r \geq</m> 0.8) before fitting the model. Multi-collinearity can then be reduced by either (1) removing one of the close-to-redundant predictors, or (2) trying to combine the predictors into one single variable.
@@ -548,7 +548,7 @@ metareg(m.gen, RiskOfBias)
         <ul>
           <li>
             <p>
-              <alert>Step-wise</alert>. Step-wise entry means that variables/predictors are added to the model one after another. At first glance, this sounds a lot like hierarchical regression, but there is a crucial difference: step-wise regression methods select predictors based on a <alert>statistical criterion</alert>. In a procedure called <alert>forward selection</alert>, the variable explaining the largest amount of variability in the data is used as the first predictor. This process is then repeated for the remaining variables, each time selecting the variable which explains most of the residual unexplained variability in the data. There is also a procedure called <alert>backward selection</alert>, in which all variables are used as predictors in the model first, and then removed successively based on a predefined statistical criterion. There is an extensive literature discouraging the usage of step-wise methods . If we recall the common pitfalls of multiple regression models we presented above, it becomes clear that these methods have high risk of producing overfitted models with spurious findings. Nevertheless, step-wise methods are still frequently used in practice, which makes it important to know that these procedures exist. If we use stepwise methods ourselves, however, it is advised to primarily do so in an exploratory fashion and to keep the limitations of this procedure in mind.
+              <alert>Step-wise</alert>. Step-wise entry means that variables/predictors are added to the model one after another. At first glance, this sounds a lot like hierarchical regression, but there is a crucial difference: step-wise regression methods select predictors based on a <alert>statistical criterion</alert>. In a procedure called <alert>forward selection</alert>, the variable explaining the largest amount of variability in the data is used as the first predictor. This process is then repeated for the remaining variables, each time selecting the variable which explains most of the residual unexplained variability in the data. There is also a procedure called <alert>backward selection</alert>, in which all variables are used as predictors in the model first, and then removed successively based on a predefined statistical criterion. There is an extensive literature discouraging the usage of step-wise methods <xref ref="chatfield1995model"/>, <xref ref="whittingham2006we"/>. If we recall the common pitfalls of multiple regression models we presented above, it becomes clear that these methods have high risk of producing overfitted models with spurious findings. Nevertheless, step-wise methods are still frequently used in practice, which makes it important to know that these procedures exist. If we use stepwise methods ourselves, however, it is advised to primarily do so in an exploratory fashion and to keep the limitations of this procedure in mind.
             </p>
           </li>
         </ul>
@@ -573,7 +573,7 @@ metareg(m.gen, RiskOfBias)
         <idx><h>meta Package</h></idx> <idx><h>metafor Package</h></idx>
       </p>
       <p>
-        After all this input, it is high time that we start fitting our first multiple meta-regression using <em>R</em>. The following examples will be the first ones in which we will not use the <alert>{meta}</alert> package. Instead, we will have a look at <alert>{metafor}</alert> . This package provides a vast array of advanced functionality for meta-analysis, along with a great documentation<fn>In fact, to conduct a meta-regression, <alert>{meta}</alert> functions also use the <alert>{metafor}</alert> package internally.</fn>. So, to begin, make sure you have <alert>{metafor}</alert> installed, and loaded from the library.
+        After all this input, it is high time that we start fitting our first multiple meta-regression using <em>R</em>. The following examples will be the first ones in which we will not use the <alert>{meta}</alert> package. Instead, we will have a look at <alert>{metafor}</alert> <xref ref="urviecht"/>. This package provides a vast array of advanced functionality for meta-analysis, along with a great documentation<fn>In fact, to conduct a meta-regression, <alert>{meta}</alert> functions also use the <alert>{metafor}</alert> package internally.</fn>. So, to begin, make sure you have <alert>{metafor}</alert> installed, and loaded from the library.
       </p>
       <program language="r">
         <code>
@@ -633,7 +633,7 @@ MVRegressionData[,c("reputation", "quality", "pubyear")] %&gt;% cor()
           <idx><h>PerformanceAnalytics Package</h></idx>
         </p>
         <p>
-          The <alert>{PerformanceAnalytics}</alert> package  contains a function called <c>chart.Correlation</c>, which we can use to visualize the correlation matrix. We have to install the <c>PerformanceAnalytics</c> package first, and then use this code:
+          The <alert>{PerformanceAnalytics}</alert> package <xref ref="perfanalytics"/> contains a function called <c>chart.Correlation</c>, which we can use to visualize the correlation matrix. We have to install the <c>PerformanceAnalytics</c> package first, and then use this code:
         </p>
         <program language="r">
           <code>
@@ -909,10 +909,10 @@ m.qual.rep.int
           As an example, imagine we have a set <m>S</m> containing three numbers: <m>S=\{1,2,3 \}</m>. One possible permutation of this set is <m>(2,1,3)</m>; another is <m>(3,2,1)</m>. We see that the permuted results both contain all three numbers from before, but in a different order.
         </p>
         <p>
-          Permutation can also be used to perform <alert>permutation tests</alert>, which is a specific type of resampling method. Broadly speaking, resampling methods are used to validate the robustness of a statistical model by providing it with (slightly) different data sampled from the same source or generative process . This is a way to better assess if the coefficients in our model indeed capture a true pattern underlying our data; or if we overfitted our model, thereby falsely assuming patterns in our data when they are in fact statistical noise.
+          Permutation can also be used to perform <alert>permutation tests</alert>, which is a specific type of resampling method. Broadly speaking, resampling methods are used to validate the robustness of a statistical model by providing it with (slightly) different data sampled from the same source or generative process <xref ref="good2013permutation"/>. This is a way to better assess if the coefficients in our model indeed capture a true pattern underlying our data; or if we overfitted our model, thereby falsely assuming patterns in our data when they are in fact statistical noise.
         </p>
         <p>
-          Permutation tests do not require that we have a spare “test” data set on which we can evaluate how our meta-regression performs in predicting unseen effect sizes. For this reason, among others, permutation tests have been recommended to assess the robustness of our meta-regression models .
+          Permutation tests do not require that we have a spare “test” data set on which we can evaluate how our meta-regression performs in predicting unseen effect sizes. For this reason, among others, permutation tests have been recommended to assess the robustness of our meta-regression models <xref ref="higgins2004controlling"/>.
         </p>
         <p>
           We will not go too much into the details of how a permutation test is performed for meta-regression models. The most important part is that we re-calculate the <m>p</m>-values of our model based on the test statistics obtained across all possible, or many randomly selected, permutations of our original data set. 
@@ -948,7 +948,7 @@ permutest(m.qual.rep)
           We again see our familiar output including the results for all predictors. Looking at the <c>pval*</c> column, we see that our <m>p</m>-value for the reputation predictor has decreased from <m>p</m> &lt; 0.001 to <m>p_*</m> = 0.001. This, however, is still highly significant, indicating that the effect of the predictor is robust. 
         </p>
         <p>
-          It has been recommended to always use this permutation test before reporting the results of a meta-regression model .
+          It has been recommended to always use this permutation test before reporting the results of a meta-regression model <xref ref="higgins2004controlling"/>.
         </p>
         <note>
           <p>
@@ -958,7 +958,7 @@ permutest(m.qual.rep)
             Please note that when the number of studies <m>K</m> included in our model is small, conventionally used thresholds for statistical significance (i.e. <m>p</m> &lt; 0.05) cannot be reached. 
           </p>
           <p>
-            For meta-regression models, a permutation test using <c>permutest</c> will only be able to reach statistical significance if <m>K</m> &gt; 4 . 
+            For meta-regression models, a permutation test using <c>permutest</c> will only be able to reach statistical significance if <m>K</m> &gt; 4 <xref ref="viechtbauer2015comparison"/>. 
           </p>
         </note>
       </subsubsection>

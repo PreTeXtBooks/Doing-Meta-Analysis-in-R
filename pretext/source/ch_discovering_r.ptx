@@ -10,13 +10,13 @@
       In this chapter, we begin our journey into the <em>R</em> universe. Possibly, this is your first-ever exposure to programming, and you might feel a little anxious. That is understandable, but there is no reason to worry. Over the last two decades, thousands of intelligent people all around the world have contributed ways to make working with <em>R</em> easier and more convenient for its users. We will also get to know an extremely powerful computer program that we can use to make writing and running <em>R</em> code much less cumbersome. 
     </p>
     <p>
-      Nevertheless, it is still harder to work with <em>R</em> compared to other data analysis programs you may have used before. Hadley Wickham, one of the most important figures in the <em>R</em> community, once stressed that <em>R</em> is fundamentally different to <alert>Graphical User Interface</alert> (GUI) based software for statistics . GUIs allow you to perform data analyses just by clicking a few buttons, but you are ultimately limited to the functionality that the developers have deemed important. 
+      Nevertheless, it is still harder to work with <em>R</em> compared to other data analysis programs you may have used before. Hadley Wickham, one of the most important figures in the <em>R</em> community, once stressed that <em>R</em> is fundamentally different to <alert>Graphical User Interface</alert> (GUI) based software for statistics <xref ref="grolemund2014hands"/>. GUIs allow you to perform data analyses just by clicking a few buttons, but you are ultimately limited to the functionality that the developers have deemed important. 
     </p>
     <p>
       <em>R</em>, on the other hand, has none of these limitations but can require more background knowledge. Like any language, <em>R</em> has to be learned, and it needs practice to become a proficient user. Frustration is an unpleasant, but natural part of this process. In the preface, you can find an entire section in which we describe a few things you can do if you get stuck.
     </p>
     <p>
-      We want to assure you that learning <em>R</em> <alert>is</alert> worth it. <em>R</em> is the most versatile, comprehensive and most frequently used statistical programming language. The <em>R</em> community is rapidly expanding each and every year, and <em>R</em> 's appeal is so large that even the New York Times found it newsworthy to report on it . 
+      We want to assure you that learning <em>R</em> <alert>is</alert> worth it. <em>R</em> is the most versatile, comprehensive and most frequently used statistical programming language. The <em>R</em> community is rapidly expanding each and every year, and <em>R</em> 's appeal is so large that even the New York Times found it newsworthy to report on it <xref ref="vance2009data"/>. 
     </p>
     <p>
       Whether you are working in academia or at a company, the things you can do in <em>R</em> will often seem like a superpower to others. But it is a superpower that everyone can learn, provided some time and effort. That being said, it is time to get started.
@@ -111,17 +111,17 @@ sqrt(9)
     <ul>
       <li>
         <p>
-          <alert>{tidyverse}</alert>. The <alert>{tidyverse}</alert> package  is not a single package, but actually a bundle of packages which make it easy to manipulate and visualize data in <em>R</em>. When we install the <alert>{tidyverse}</alert> package, this provides us with the <alert>{ggplot2}</alert>, <alert>{dplyr}</alert>, <alert>{tidyr}</alert>, <alert>{readr}</alert>, <alert>{purrr}</alert>, <alert>{stringr}</alert> and <alert>{forcats}</alert> package at the same time. Functions included in the tidyverse have become very popular in the <em>R</em> community in recent years, and are used by many researchers, programmers and data scientists. If you want to learn more about the tidyverse, you can visit its <url href="https://www.tidyverse.org/">website</url>.
+          <alert>{tidyverse}</alert>. The <alert>{tidyverse}</alert> package <xref ref="tidyverse"/> is not a single package, but actually a bundle of packages which make it easy to manipulate and visualize data in <em>R</em>. When we install the <alert>{tidyverse}</alert> package, this provides us with the <alert>{ggplot2}</alert>, <alert>{dplyr}</alert>, <alert>{tidyr}</alert>, <alert>{readr}</alert>, <alert>{purrr}</alert>, <alert>{stringr}</alert> and <alert>{forcats}</alert> package at the same time. Functions included in the tidyverse have become very popular in the <em>R</em> community in recent years, and are used by many researchers, programmers and data scientists. If you want to learn more about the tidyverse, you can visit its <url href="https://www.tidyverse.org/">website</url>.
         </p>
       </li>
       <li>
         <p>
-          <alert>{meta}</alert>. This package contains functions which make it easy to run different types of meta-analyses . We will primarily focus on this package in the guide, because it is easy to use, well documented, and very versatile. More info on the <alert>{meta}</alert> package can be found on its <url href="http://www.imbi.uni-freiburg.de/lehre/lehrbuecher/meta-analysis-with-r">website</url>.
+          <alert>{meta}</alert>. This package contains functions which make it easy to run different types of meta-analyses <xref ref="meta"/>. We will primarily focus on this package in the guide, because it is easy to use, well documented, and very versatile. More info on the <alert>{meta}</alert> package can be found on its <url href="http://www.imbi.uni-freiburg.de/lehre/lehrbuecher/meta-analysis-with-r">website</url>.
         </p>
       </li>
       <li>
         <p>
-          <alert>{metafor}</alert>. The <alert>{metafor}</alert> package  is also dedicated to conducting meta-analyses, and a true powerhouse in terms of functionality. Since we will use this package at times in later chapters, and because <alert>{metafor}</alert> is used by the <alert>{meta}</alert> package for many applications, it is best to have it installed. The <alert>{metafor}</alert> package also has an excellent <url href="http://www.metafor-project.org/doku.php/metafor">documentation</url> for various meta-analysis-related topics.
+          <alert>{metafor}</alert>. The <alert>{metafor}</alert> package <xref ref="urviecht"/> is also dedicated to conducting meta-analyses, and a true powerhouse in terms of functionality. Since we will use this package at times in later chapters, and because <alert>{metafor}</alert> is used by the <alert>{meta}</alert> package for many applications, it is best to have it installed. The <alert>{metafor}</alert> package also has an excellent <url href="http://www.metafor-project.org/doku.php/metafor">documentation</url> for various meta-analysis-related topics.
         </p>
       </li>
     </ul>
@@ -327,7 +327,7 @@ devtools::install_github("MathiasHarrer/dmetar")
         <alert>{openxlsx}</alert>
       </p>
       <p>
-        It is also possible to import data files directly using code. A good package we can use to do this is called <alert>{openxslx}</alert> . As with all <em>R</em> packages, you have to install it first. You can then use the <c>read.xlsx</c> function to import an <em>Excel</em> sheet. 
+        It is also possible to import data files directly using code. A good package we can use to do this is called <alert>{openxslx}</alert> <xref ref="openxlsx"/>. As with all <em>R</em> packages, you have to install it first. You can then use the <c>read.xlsx</c> function to import an <em>Excel</em> sheet. 
       </p>
       <p>
         If the file is saved in your working directory, you only have to provide the function with the file's name, and assign the imported data to an object in <em>R</em>. If we want our dataset to have the name <c>data</c> in <em>R</em>, for example, we can use this code:
@@ -658,7 +658,7 @@ write.csv(SuicidePrevention, file = "suicideprevention.csv")
         This has only been a quick overview of data manipulation strategies in <em>R</em>. Learning <em>R</em> from scratch can be exhausting at times, especially when we deal with something as supposedly easy as manipulating data. However, the best way to get accustomed to the way <em>R</em> works is to practice. After some time, common <em>R</em> commands will become second nature to you. 
       </p>
       <p>
-        A good way to continue learning is to have a look at Hadley Wickham and Garrett Grolemund's book <alert>R for Data Science</alert> . Like this guide, the book can be completely read online for <url href="https://r4ds.had.co.nz/transform.html">free</url>. Additionally, we also collected a few exercises on the next page, which you can use for practicing what we learned here.
+        A good way to continue learning is to have a look at Hadley Wickham and Garrett Grolemund's book <alert>R for Data Science</alert> <xref ref="wickham2016r"/>. Like this guide, the book can be completely read online for <url href="https://r4ds.had.co.nz/transform.html">free</url>. Additionally, we also collected a few exercises on the next page, which you can use for practicing what we learned here.
       </p>
     </subsection>
 

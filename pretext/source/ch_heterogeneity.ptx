@@ -42,7 +42,7 @@
     <title>Measures of Heterogeneity</title>
 
     <p>
-      Before we start discussing heterogeneity measures, we should first clarify that heterogeneity can mean different things. Rücker and colleagues , for example, differentiate between <alert>baseline</alert> or <alert>design-related</alert> heterogeneity, and <alert>statistical</alert> heterogeneity.
+      Before we start discussing heterogeneity measures, we should first clarify that heterogeneity can mean different things. Rücker and colleagues <xref ref="rucker2008undue"/>, for example, differentiate between <alert>baseline</alert> or <alert>design-related</alert> heterogeneity, and <alert>statistical</alert> heterogeneity.
     </p>
     <ul>
       <li>
@@ -66,7 +66,7 @@
         Based on the random-effects model, we know that there are two sources of variation causing observed effects to differ from study to study. There is the sampling error <m>\epsilon_k</m>, and the error caused by between-study heterogeneity, <m>\zeta_k</m> (Chapter <xref ref="rem"/>). When we want to quantify between-study heterogeneity, the difficulty is to identify how much of the variation can be attributed to the sampling error, and how much to true effect size differences.
       </p>
       <p>
-        Traditionally, meta-analysts have used <alert>Cochran's</alert> <m>Q</m>  to distinguish studies' sampling error from actual between-study heterogeneity. Cochran's <m>Q</m> is defined as a <alert>weighted sum of squares</alert> (<em>WSS</em>). It uses the deviation of each study's observed effect <m>\hat\theta_k</m> from the summary effect <m>\hat\theta</m>, weighted by the inverse of the study's variance, <m>w_k</m>:
+        Traditionally, meta-analysts have used <alert>Cochran's</alert> <m>Q</m> <xref ref="cochran1954some"/> to distinguish studies' sampling error from actual between-study heterogeneity. Cochran's <m>Q</m> is defined as a <alert>weighted sum of squares</alert> (<em>WSS</em>). It uses the deviation of each study's observed effect <m>\hat\theta_k</m> from the summary effect <m>\hat\theta</m>, weighted by the inverse of the study's variance, <m>w_k</m>:
       </p>
       <p>
         \begin{equation} Q = \sum^K<em>{k=1}w</em>k(\hat\theta_k-\hat\theta)^2 (#eq:het1) \end{equation}
@@ -229,7 +229,7 @@ lines(seq(0, 100, 0.01), dchisq(seq(0, 100, 0.01), df = df),
         This was a somewhat lengthy explanation, yet it may have helped us to better understand how we can exploit the statistical properties of <m>Q</m>. Cochran's <m>Q</m> can be used to <alert>test</alert> if the variation in a meta-analysis significantly exceeds the amount we would expect under the null hypothesis of no heterogeneity. 
       </p>
       <p>
-        This <alert>test of heterogeneity</alert> is commonly used in meta-analyses, and if you go back to Chapter <xref ref="pooling-es"/>, you will see that <alert>{meta}</alert> also provides us with it by default. It is often referred to as <alert>Cochran's</alert> <m>Q</m> <alert>test</alert>, but this is actually a misnomer. Cochran himself never intended <m>Q</m> to be used in this way .
+        This <alert>test of heterogeneity</alert> is commonly used in meta-analyses, and if you go back to Chapter <xref ref="pooling-es"/>, you will see that <alert>{meta}</alert> also provides us with it by default. It is often referred to as <alert>Cochran's</alert> <m>Q</m> <alert>test</alert>, but this is actually a misnomer. Cochran himself never intended <m>Q</m> to be used in this way <xref ref="hoaglin2016misunderstandings"/>.
       </p>
       <p>
         <idx><h>DerSimonian-Laird Estimator</h></idx> <idx><h>I$^2$, Higgins \&amp; Thompson's</h></idx>
@@ -242,7 +242,7 @@ lines(seq(0, 100, 0.01), dchisq(seq(0, 100, 0.01), df = df),
           <alert>Problems With <m>Q</m> &amp; the <m>Q</m>-Test</alert>
         </p>
         <p>
-          Although <m>Q</m> is commonly used and reported in meta-analyses, it has several flaws. Hoaglin , for example, argues that the assumption of <m>Q</m> following a <m>\chi^2</m> distribution with <m>K-1</m> degrees of freedom does not reflect <m>Q</m>'s actual behavior in meta-analysis, and that related procedures such as the DerSimonian-Laird method may therefore be biased.
+          Although <m>Q</m> is commonly used and reported in meta-analyses, it has several flaws. Hoaglin <xref ref="hoaglin2016misunderstandings"/>, for example, argues that the assumption of <m>Q</m> following a <m>\chi^2</m> distribution with <m>K-1</m> degrees of freedom does not reflect <m>Q</m>'s actual behavior in meta-analysis, and that related procedures such as the DerSimonian-Laird method may therefore be biased.
         </p>
         <p>
           A more practical concern is that <m>Q</m> increases both when the number of studies <m>K</m>, and when the precision (i.e. the sample size of a study) increases. Therefore, <m>Q</m> and whether it is significant highly depends on the size of your meta-analysis, and thus its statistical power. 
@@ -260,7 +260,7 @@ lines(seq(0, 100, 0.01), dchisq(seq(0, 100, 0.01), df = df),
         <idx><h>I$^2$, Higgins \&amp; Thompson's</h></idx>
       </p>
       <p>
-        The <m>I^2</m> statistic  is another way to quantify between-study heterogeneity, and directly based on Cochran's <m>Q</m>. It is defined as the percentage of variability in the effect sizes that is not caused by sampling error. <m>I^2</m> draws on the assumption that <m>Q</m> follows a <m>\chi^2</m> distribution with <m>K-1</m> degrees of freedom under the null hypothesis of no heterogeneity. It quantifies, in percent, how much the <alert>observed</alert> value of <m>Q</m> <alert>exceeds</alert> the <alert>expected</alert> <m>Q</m> value when there is no heterogeneity (i.e. <m>K-1</m>). 
+        The <m>I^2</m> statistic <xref ref="higgins2002quantifying"/> is another way to quantify between-study heterogeneity, and directly based on Cochran's <m>Q</m>. It is defined as the percentage of variability in the effect sizes that is not caused by sampling error. <m>I^2</m> draws on the assumption that <m>Q</m> follows a <m>\chi^2</m> distribution with <m>K-1</m> degrees of freedom under the null hypothesis of no heterogeneity. It quantifies, in percent, how much the <alert>observed</alert> value of <m>Q</m> <alert>exceeds</alert> the <alert>expected</alert> <m>Q</m> value when there is no heterogeneity (i.e. <m>K-1</m>). 
       </p>
       <p>
         The formula of <m>I^2</m> looks like this:
@@ -301,7 +301,7 @@ k &lt;- 40
         We see that the <m>I^2</m> value of this simulation is approximately 50%, meaning that about half of the variation is due to between-study heterogeneity. This is also in line with our expectations since the variation in this example is based, in equal parts, on the simulated sampling error and between-study heterogeneity.
       </p>
       <p>
-        It is common to use the <m>I^2</m> statistic to report the between-study heterogeneity in meta-analyses, and <m>I^2</m> is included by default in the output we get from <alert>{meta}</alert>. The popularity of this statistic may be associated with the fact that there is a "rule of thumb" on how we can interpret it :
+        It is common to use the <m>I^2</m> statistic to report the between-study heterogeneity in meta-analyses, and <m>I^2</m> is included by default in the output we get from <alert>{meta}</alert>. The popularity of this statistic may be associated with the fact that there is a "rule of thumb" on how we can interpret it <xref ref="higgins2002quantifying"/>:
       </p>
       <ul>
         <li>
@@ -326,7 +326,7 @@ k &lt;- 40
       <title>The <m>H^2</m> Statistic</title>
 
       <p>
-        The <m>H^2</m> statistic  is also derived from Cochran's <m>Q</m>, and similar to <m>I^2</m>. It describes the ratio of the observed variation, measured by <m>Q</m>, and the expected variance due to sampling error:
+        The <m>H^2</m> statistic <xref ref="higgins2002quantifying"/> is also derived from Cochran's <m>Q</m>, and similar to <m>I^2</m>. It describes the ratio of the observed variation, measured by <m>Q</m>, and the expected variance due to sampling error:
       </p>
       <p>
         \begin{equation} H^2 = \frac{Q}{K-1} (#eq:het4) \end{equation}
@@ -374,7 +374,7 @@ m.gen$tau
           Methods to quantify the uncertainty of our between-study heterogeneity variance estimate (i.e. the confidence intervals around <m>\tau^2</m>) remain a field of ongoing investigation. Several approaches are possible, and their adequateness depends on the type of <m>\tau^2</m> estimator (Chapter <xref ref="tau-estimators"/>). 
         </p>
         <p>
-          The <alert>{meta}</alert> package follows the recommendations of Veronikki  and uses the <m>Q</m><alert>-Profile</alert> method  for most estimators.
+          The <alert>{meta}</alert> package follows the recommendations of Veronikki <xref ref="veroniki2016methods"/> and uses the <m>Q</m><alert>-Profile</alert> method <xref ref="viechtbauer2007confidence"/> for most estimators.
         </p>
         <p>
           The <m>Q</m>-Profile method is based on an altered <m>Q</m> version, the <alert>generalized</alert> <m>Q</m><alert>-statistic</alert> <m>Q_{\text{gen}}</m>. While the standard version of <m>Q</m> uses the pooled effect based on the fixed-effect model, <m>Q_{\text{gen}}</m> is based on the random-effects model. It uses the overall effect according to the random-effects model, <m>\hat\mu</m>, to calculate the deviates, as well as weights based on the random-effects model:
@@ -398,7 +398,7 @@ m.gen$tau
           The <m>Q</m>-Profile method exploits this relationship to calculate confidence intervals around <m>\tau^2</m> using an iterative process (so-called "profiling"). In this approach, <m>Q_{\text{gen}}(\widetilde{\tau}^2)</m> is calculated repeatedly while increasing the value of <m>\tau^2</m>, until the expected value of the lower and upper bound of the confidence interval based on the <m>\chi^2</m> distribution is reached. 
         </p>
         <p>
-          The <m>Q</m>-Profile method can be specified in <alert>{meta}</alert> functions through the argument <c>method.tau.ci = "QP"</c>. This is the default setting, meaning that we do not have to add this argument manually. The only exception is when we use the DerSimonian-Laird estimator (<c>method.tau = "DL"</c>). In this case, a different method, the one by Jackson , is used automatically (we can do this manually by specifying <c>method.tau.ci = "J"</c>). 
+          The <m>Q</m>-Profile method can be specified in <alert>{meta}</alert> functions through the argument <c>method.tau.ci = "QP"</c>. This is the default setting, meaning that we do not have to add this argument manually. The only exception is when we use the DerSimonian-Laird estimator (<c>method.tau = "DL"</c>). In this case, a different method, the one by Jackson <xref ref="jackson2013confidence"/>, is used automatically (we can do this manually by specifying <c>method.tau.ci = "J"</c>). 
         </p>
         <p>
           Usually, there is no necessity to deviate from <alert>{meta}</alert>'s default behavior, but it may be helpful for others to report which method has been used to calculate the confidence intervals around <m>\tau^2</m> in your meta-analysis.
@@ -424,7 +424,7 @@ m.gen$tau
       <idx><h>Sampling Error</h></idx> <idx><h>I$^2$, Higgins \&amp; Thompson's</h></idx> <idx><h>Heterogeneity</h></idx>
     </p>
     <p>
-      However, despite its common use in the literature, <m>I^2</m> is not a perfect measure for heterogeneity either. It is not an absolute measure of heterogeneity, and its value still heavily depends on the precision of the included studies . As said before, <m>I^2</m> is simply the percentage of variability not caused by sampling error <m>\epsilon</m>. If our studies become increasingly large, the sampling error tends to zero, while at the same time, <m>I^2</m> tends to 100%--simply because the studies have a greater sample size. 
+      However, despite its common use in the literature, <m>I^2</m> is not a perfect measure for heterogeneity either. It is not an absolute measure of heterogeneity, and its value still heavily depends on the precision of the included studies <xref ref="borenstein2017basics"/>, <xref ref="rucker2008undue"/>. As said before, <m>I^2</m> is simply the percentage of variability not caused by sampling error <m>\epsilon</m>. If our studies become increasingly large, the sampling error tends to zero, while at the same time, <m>I^2</m> tends to 100%--simply because the studies have a greater sample size. 
     </p>
     <p>
       <alert>Only</alert> relying on <m>I^2</m> is therefore not a good option either. Since <m>H^2</m> behaves similarly to <m>I^2</m>, the same caveats also apply to this statistic.
@@ -436,7 +436,7 @@ m.gen$tau
       <idx><h>Prediction Interval</h></idx>
     </p>
     <p>
-      <alert>Prediction intervals</alert> (PIs) are a good way to overcome this limitation . Prediction intervals give us a range into which we can expect the effects of future studies to fall based on present evidence. 
+      <alert>Prediction intervals</alert> (PIs) are a good way to overcome this limitation <xref ref="inthout2016plea"/>. Prediction intervals give us a range into which we can expect the effects of future studies to fall based on present evidence. 
     </p>
     <p>
       Say that our prediction interval lies completely on the "positive" side favoring the intervention. This means that, despite varying effects, the intervention is expected to be beneficial in the future across the contexts we studied. If the prediction interval includes zero, we can be less sure about this, although it should be noted that broad prediction intervals are quite common.
@@ -583,7 +583,7 @@ summary(m.gen)
       <title>Basic Outlier Removal</title>
 
       <p>
-        There are several ways to define the effect of a study as "outlying" . An easy, and somewhat "brute force" approach, is to view a study as an outlier if its confidence interval does not overlap with the confidence interval of the pooled effect. The effect size of an outlier is so <alert>extreme</alert> that it differs significantly from the overall effect. To detect such outliers, we can search for all studies:
+        There are several ways to define the effect of a study as "outlying" <xref ref="viechtbauer2010outlier"/>. An easy, and somewhat "brute force" approach, is to view a study as an outlier if its confidence interval does not overlap with the confidence interval of the pooled effect. The effect size of an outlier is so <alert>extreme</alert> that it differs significantly from the overall effect. To detect such outliers, we can search for all studies:
       </p>
       <ul>
         <li>
@@ -706,7 +706,7 @@ find.outliers(m.gen)
         There are several techniques to identify influential studies, and they are a little more sophisticated than the basic outlier removal we discussed previously. They are based on the <alert>leave-one-out</alert> method. In this approach, we recalculate the results of our meta-analysis <m>K</m> times, each time <alert>leaving out</alert> one study. 
       </p>
       <p>
-        Based on this data, we can calculate different <alert>influence diagnostics</alert>. Influence diagnostics allow us to detect the studies which influence the overall estimate of our meta-analysis the most, and let us assess if this large influence distorts our pooled effect .
+        Based on this data, we can calculate different <alert>influence diagnostics</alert>. Influence diagnostics allow us to detect the studies which influence the overall estimate of our meta-analysis the most, and let us assess if this large influence distorts our pooled effect <xref ref="viechtbauer2010outlier"/>.
       </p>
       <p>
         <idx><h>dmetar Package</h></idx>
@@ -754,7 +754,7 @@ m.gen.inf &lt;- InfluenceAnalysis(m.gen, random = TRUE)
         </code>
       </program>
       <p>
-        The <c>InfluenceAnalysis</c> function creates four influence diagnostic plots: a <alert>Baujat</alert> plot, <alert>influence diagnostics</alert> according to Viechtbauer and Cheung , and the leave-one-out meta-analysis results, sorted by effect size and <m>I^2</m> value. We can open each of these plots individually using the <c>plot</c> function. Let us go through them one after another.
+        The <c>InfluenceAnalysis</c> function creates four influence diagnostic plots: a <alert>Baujat</alert> plot, <alert>influence diagnostics</alert> according to Viechtbauer and Cheung <xref ref="viechtbauer2010outlier"/>, and the leave-one-out meta-analysis results, sorted by effect size and <m>I^2</m> value. We can open each of these plots individually using the <c>plot</c> function. Let us go through them one after another.
       </p>
       <subsubsection xml:id="baujat">
         <title>Baujat Plot</title>
@@ -771,7 +771,7 @@ plot(m.gen.inf, "baujat")
           <image source="generated/baujat_col_sep.png"/>
         </figure>
         <p>
-          Baujat plots  are diagnostic plots to detect studies which overly contribute to the heterogeneity in a meta-analysis. The plot shows the contribution of each study to the overall <alert>heterogeneity</alert> (as measured by Cochran's <m>Q</m>) on the <alert>horizontal</alert> axis, and its <alert>influence</alert> on the <alert>pooled effect size</alert> on the <alert>vertical</alert> axis. 
+          Baujat plots <xref ref="baujat2002graphical"/> are diagnostic plots to detect studies which overly contribute to the heterogeneity in a meta-analysis. The plot shows the contribution of each study to the overall <alert>heterogeneity</alert> (as measured by Cochran's <m>Q</m>) on the <alert>horizontal</alert> axis, and its <alert>influence</alert> on the <alert>pooled effect size</alert> on the <alert>vertical</alert> axis. 
         </p>
         <p>
           This "influence" value is determined through the leave-one-out method, and expresses the standardized difference of the overall effect when the study is included in the meta-analysis, versus when it is not included. 
@@ -949,7 +949,7 @@ plot(m.gen.inf, "i2")
       <title>GOSH Plot Analysis</title>
 
       <p>
-        In the previous chapter, we explored the robustness of our meta-analysis using influence analyses based on the leave-one-out method. Another way to explore patterns of heterogeneity in our data are so-called <alert>Graphic Display of Heterogeneity</alert> (GOSH) plots . For those plots, we fit the same meta-analysis model to <alert>all possible subsets</alert> of our included studies. In contrast to the leave-one-out method, we therefore not only fit <m>K</m> models, but a model for all <m>2^{k-1}</m> possible study combinations. 
+        In the previous chapter, we explored the robustness of our meta-analysis using influence analyses based on the leave-one-out method. Another way to explore patterns of heterogeneity in our data are so-called <alert>Graphic Display of Heterogeneity</alert> (GOSH) plots <xref ref="olkin2012gosh"/>. For those plots, we fit the same meta-analysis model to <alert>all possible subsets</alert> of our included studies. In contrast to the leave-one-out method, we therefore not only fit <m>K</m> models, but a model for all <m>2^{k-1}</m> possible study combinations. 
       </p>
       <p>
         This means that creating GOSH plots can become quite computationally expensive when the total number of studies is large. The <em>R</em> implementation we cover here therefore only fits a maximum of 1 million randomly selected models.
@@ -1051,7 +1051,7 @@ plot(res.gosh, alpha = 0.01)
         <idx><h>Gaussian Mixture Model</h></idx> <idx><h>DBSCAN</h></idx> <idx><h>K-Means</h></idx>
       </p>
       <p>
-        The <c>gosh.diagnostics</c> function uses three cluster algorithms to detect patterns in our data: the <m>k</m>-means algorithm , <alert>density reachability and connectivity clustering</alert>, or DBSCAN  and <alert>gaussian mixture models</alert> . 
+        The <c>gosh.diagnostics</c> function uses three cluster algorithms to detect patterns in our data: the <m>k</m>-means algorithm <xref ref="hartigan1979algorithm"/>, <alert>density reachability and connectivity clustering</alert>, or DBSCAN <xref ref="schubert2017dbscan"/> and <alert>gaussian mixture models</alert> <xref ref="fraley2002model"/>. 
       </p>
       <p>
         It is possible to tune some of the parameters of these algorithms. In the arguments <c>km.params</c>, <c>db.params</c> and <c>gmm.params</c>, we can add a list element which contains specifications controlling the behavior of each algorithm. In our example, we will tweak a few details of the <m>k</m>-means and DBSCAN algorithm. We specify that the <m>k</m>-means algorithm should search for two clusters ("centers") in our data. In <c>db.params</c>, we change the <c>eps</c>, or <m>\epsilon</m> value used by DBSCAN. We also specify the <c>MinPts</c> value, which determines the minimum number of points needed for each cluster. 

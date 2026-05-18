@@ -22,7 +22,7 @@
       However, this is only possible because an essential prerequisite is usually met in primary studies: we know that the outcome variable has been <alert>measured in the same way</alert> across all study subjects. For meta-analyses, this assumption is typically not met. Imagine that we want to conduct a meta-analysis where our outcome of interest are the math skills of grade eight students. Even if we apply strict inclusion criteria (see Chapter <xref ref="research-question"/>), it is likely that not every study used exactly the same test to measure math skills; some may have even only reported the proportion of students who passed or failed the test. This makes it virtually impossible to quantitatively synthesize the results directly.
     </p>
     <p>
-      To perform a meta-analysis, we have to find an <alert>effect size</alert> which can be summarized across all studies. Sometimes, such effect sizes can be directly extracted from the publication; more often, we have to calculate them from other data reported in the studies. The selected effect size metric can have a substantial impact on the results of a meta-analysis, and their interpretability. They should therefore fulfill a few important criteria . In particular, the selected effect size measure for a meta-analysis should be:
+      To perform a meta-analysis, we have to find an <alert>effect size</alert> which can be summarized across all studies. Sometimes, such effect sizes can be directly extracted from the publication; more often, we have to calculate them from other data reported in the studies. The selected effect size metric can have a substantial impact on the results of a meta-analysis, and their interpretability. They should therefore fulfill a few important criteria <xref ref="lipsey2001practical"/>, <xref ref="higgins2019cochrane"/>. In particular, the selected effect size measure for a meta-analysis should be:
     </p>
     <ul>
       <li>
@@ -67,7 +67,7 @@
       <idx><h>Correlation</h></idx> <idx><h>Standardized Mean Difference</h></idx>
     </p>
     <p>
-      We want to stress here that this is just <alert>one</alert> way to define what an effect size means. Definitions of an effect size can be wider and narrower, and the term is used differently by different people . Some researchers only talk of effect sizes when referring to the results of intervention studies, which are usually expressed as differences between the treatment and control group (see Chapter <xref ref="s-md"/>). Using this conceptualization, "effect size" refers to the effect of a treatment, and how large this effect is. 
+      We want to stress here that this is just <alert>one</alert> way to define what an effect size means. Definitions of an effect size can be wider and narrower, and the term is used differently by different people <xref ref="borenstein2011introduction"/>. Some researchers only talk of effect sizes when referring to the results of intervention studies, which are usually expressed as differences between the treatment and control group (see Chapter <xref ref="s-md"/>). Using this conceptualization, "effect size" refers to the effect of a treatment, and how large this effect is. 
     </p>
     <p>
       In our opinion, this is quite a narrow definition. Not only treatments can have an effect on some variable; effects can also appear <alert>naturally</alert> without any direct human intervention. For example, it is possible that socio-demographic variables, such as the income and education of parents, may have an effect on the educational attainment of their children. Correlations describe how well we can predict the values of a variable through the values of another, and can also be seen as a form of effect size. 
@@ -82,7 +82,7 @@
       <idx><h>Sampling Error</h></idx>
     </p>
     <p>
-      In mathematical notation, it is common to use the greek letter <alert>theta</alert> (<m>\theta</m>) as the symbol for a <alert>true</alert> effect size<fn>In this book, we will largely follow the notation used by Schwarzer et al.  when discussing effect sizes.</fn>. More precisely, <m>\theta_k</m> represents the true effect size of a study <m>k</m>. Importantly, the true effect size is <alert>not</alert> identical with the <alert>observed effect size</alert> that we find in the published results of the study. The observed effect size is only an <alert>estimate</alert> of the true effect size. It is common to use a <alert>hat</alert> (^) symbol to clarify that the entity we refer to is only an estimate. The observed effect size in study <m>k</m>, our estimate of the true effect size, can therefore be written as <m>\hat\theta_k</m>. 
+      In mathematical notation, it is common to use the greek letter <alert>theta</alert> (<m>\theta</m>) as the symbol for a <alert>true</alert> effect size<fn>In this book, we will largely follow the notation used by Schwarzer et al. <xref ref="schwarzer2015meta"/> when discussing effect sizes.</fn>. More precisely, <m>\theta_k</m> represents the true effect size of a study <m>k</m>. Importantly, the true effect size is <alert>not</alert> identical with the <alert>observed effect size</alert> that we find in the published results of the study. The observed effect size is only an <alert>estimate</alert> of the true effect size. It is common to use a <alert>hat</alert> (^) symbol to clarify that the entity we refer to is only an estimate. The observed effect size in study <m>k</m>, our estimate of the true effect size, can therefore be written as <m>\hat\theta_k</m>. 
     </p>
     <p>
       But why does <m>\hat\theta_k</m> differ from <m>\theta_k</m>? It differs because of the <alert>sampling error</alert>, which can be symbolized as <m>\epsilon_k</m>. In every primary study, researchers can only draw a small sample from the whole population. For example, when we want to examine the benefits of regular exercise on the cardiovascular health of primary care patients, we will only be able to include a small selection of patients, not <alert>all</alert> primary care patients in the world. The fact that a study can only take small samples from an infinitely large population means that the observed effect will differ from the true population effect. 
@@ -94,7 +94,7 @@
       \begin{align} \hat\theta<em>k = \theta</em>k + \epsilon_k (#eq:es1) \end{align}
     </p>
     <p>
-      It is obviously desirable that the effect size estimate <m>\hat\theta_k</m> of study <m>k</m> is as close as possible to the true effect size, and that <m>\epsilon_k</m> is minimal. All things being equal, we can assume that studies with smaller <m>\epsilon</m> will deliver a more <alert>precise</alert> estimate of the true effect size. Meta-analysis methods take into account how precise an effect size estimate is (see Chapter <xref ref="pooling-es"/>). When pooling the results of different studies, they give effects with a greater precision (i.e., less sampling error) a higher weight, because they are better estimators of the true effect . 
+      It is obviously desirable that the effect size estimate <m>\hat\theta_k</m> of study <m>k</m> is as close as possible to the true effect size, and that <m>\epsilon_k</m> is minimal. All things being equal, we can assume that studies with smaller <m>\epsilon</m> will deliver a more <alert>precise</alert> estimate of the true effect size. Meta-analysis methods take into account how precise an effect size estimate is (see Chapter <xref ref="pooling-es"/>). When pooling the results of different studies, they give effects with a greater precision (i.e., less sampling error) a higher weight, because they are better estimators of the true effect <xref ref="hedges2014statistical"/>. 
     </p>
     <p>
       But how can we know how big the sampling error is? Unsurprisingly, the true effect of a study <m>\theta_k</m> is unknown, and so <m>\epsilon_k</m> is also unknown. Often, however, we can use statistical theory to approximate the sampling error. A common way to quantify <m>\epsilon</m> is through the <alert>standard error</alert> (<m>SE</m>). The standard error is defined as the standard deviation of the <alert>sampling distribution</alert>. A sampling distribution is the distribution of a metric we get when we draw random samples with the same sample size <m>n</m> from our population <alert>many, many times</alert>. 
@@ -129,7 +129,7 @@ mean(sample)
       We see that the mean is <m>\bar{x} =</m> 10.07, which is already very close to the true value in our population. The sampling distribution can now be created by repeating what we did here--taking a random sample and calculating its mean--<alert>countless times</alert>. To simulate this process for you, we conducted the steps from before 1000 times. 
     </p>
     <p>
-      The histogram in Figure <xref provisional="fig-samplingdist"/> displays the results. We can see that the means of the samples closely resemble a normal distribution with a mean of 10. If we were to draw even more samples, the distribution of the means would get even closer to a normal distribution. This idea is expressed in one of the most fundamental tenets of statistics, the <alert>central limit theorem</alert> .
+      The histogram in Figure <xref provisional="fig:samplingdist"/> displays the results. We can see that the means of the samples closely resemble a normal distribution with a mean of 10. If we were to draw even more samples, the distribution of the means would get even closer to a normal distribution. This idea is expressed in one of the most fundamental tenets of statistics, the <alert>central limit theorem</alert> <xref ref="aronow2019foundations"/>.
     </p>
     <p>
       The standard error is defined as the standard deviation of this sampling distribution. Therefore, we calculated the standard deviation of the 1000 simulated means to get an approximation of the standard error. The result is <m>SE =</m> 0.267. 
@@ -158,7 +158,7 @@ sd(sample)/sqrt(50)
       To exemplify this relationship, we conducted another simulation. Again, we used the <c>rnorm</c> function, and assumed a true population mean of <m>\mu =</m> 10 and that <m>\sigma =</m> 2. But this time, we varied the sample size, from <m>n =</m> 2 to <m>n =</m> 500. For each simulation, we calculated both the mean, and the standard error using formula 3.2. 
     </p>
     <p>
-      Figure <xref provisional="fig-simulse"/> shows the results. We can see that the means look like a <alert>funnel</alert>: as the sample size increases, the mean estimates become more and more precise, and converge towards 10. This increase in precision is represented by the standard error: with increasing sample size, the standard error becomes smaller and smaller.
+      Figure <xref provisional="fig:simulse"/> shows the results. We can see that the means look like a <alert>funnel</alert>: as the sample size increases, the mean estimates become more and more precise, and converge towards 10. This increase in precision is represented by the standard error: with increasing sample size, the standard error becomes smaller and smaller.
     </p>
     <p>
       We have now explored the quintessential elements we need to conduct a meta-analysis: an (1) observed effect size or outcome measure, and (2) its precision, expressed as the standard error. If these two types of information can be calculated from a published study, it is usually also possible to perform a meta-analytic synthesis (see Chapter <xref ref="pooling-es"/>).
@@ -282,10 +282,10 @@ sqrt((p*(1-p))/n)
         <idx><h>Odds</h></idx> <idx><h>Logit-Transformation</h></idx> <idx><h>Logarithm, Natural</h></idx>
       </p>
       <p>
-        The fact that the range of proportions is restricted between 0 and 1 can be problematic . When <m>p</m> is close to 0 or close to 1, the standard error is artificially compressed, which leads us to overestimate the precision of the proportion estimate. 
+        The fact that the range of proportions is restricted between 0 and 1 can be problematic <xref ref="lipsey2001practical"/>. When <m>p</m> is close to 0 or close to 1, the standard error is artificially compressed, which leads us to overestimate the precision of the proportion estimate. 
       </p>
       <p>
-        This has something to do with the sampling distribution. When values of <m>p</m> are very low or very high, the sampling distribution will not be approximately normal like in Figure <xref provisional="fig-samplingdist"/>. The distribution will be <alert>right-skewed</alert> or <alert>left-skewed</alert> because it is impossible for a random sample to have a calculated proportion outside the 0-1 range. 
+        This has something to do with the sampling distribution. When values of <m>p</m> are very low or very high, the sampling distribution will not be approximately normal like in Figure <xref provisional="fig:samplingdist"/>. The distribution will be <alert>right-skewed</alert> or <alert>left-skewed</alert> because it is impossible for a random sample to have a calculated proportion outside the 0-1 range. 
       </p>
       <p>
         To avoid this, proportions are commonly <alert>logit</alert>-transformed before they are pooled. A logit-transformation first involves calculating the <alert>odds</alert> (see Chapter <xref ref="or"/>). Odds are defined as the proportion of participants which fall into a specific category, divided by the proportion of units which do not fall into that category. 
@@ -294,7 +294,7 @@ sqrt((p*(1-p))/n)
         The natural logarithm function <m>\log_e</m> is then used to transform the odds into a format where <m>p=</m> 0.5 equals a value of 0, and where there is no range restriction. This ensures that the sampling distribution is approximately normal and that standard errors are not biased. 
       </p>
       <p>
-        The calculation of logit-transformed proportions and their standard errors can be done using these formulas <fn>To transform a logit-proportion back to the original scale, we can use the following formula: <m>p=\frac{\exp(p_{\text{logit}})}{1+\exp(p_{\text{logit}})}</m>, where <m>\exp</m> is the <alert>exponential function</alert>, implemented via <c>exp</c> in <em>R</em> (see Chapter <xref provisional="ppoolbin"/>).</fn>:
+        The calculation of logit-transformed proportions and their standard errors can be done using these formulas <xref ref="lipsey2001practical"/><fn>To transform a logit-proportion back to the original scale, we can use the following formula: <m>p=\frac{\exp(p_{\text{logit}})}{1+\exp(p_{\text{logit}})}</m>, where <m>\exp</m> is the <alert>exponential function</alert>, implemented via <c>exp</c> in <em>R</em> (see Chapter <xref provisional="ppoolbin"/>).</fn>:
       </p>
       <p>
         \begin{equation} p<em>{\text{logit}} = \log</em>{e} \left(\frac{p}{1-p}\right) (#eq:es7) \end{equation}
@@ -347,7 +347,7 @@ sqrt((p*(1-p))/n)
           When calculating the product-moment correlation, we standardize the co-variation between two variables by their standard deviations. This means that it becomes less relevant if two or more studies measured a construct on the same scale; once we calculate a correlation, it is automatically possible to compare the effects. 
         </p>
         <p>
-          Correlations can take values between -1 and 1. The magnitude of a correlation is often interpreted using Cohen's  conventions:
+          Correlations can take values between -1 and 1. The magnitude of a correlation is often interpreted using Cohen's <xref ref="cohen1988statistical"/> conventions:
         </p>
         <ul>
           <li>
@@ -373,7 +373,7 @@ sqrt((p*(1-p))/n)
           <idx><h>Fisher's \textit{z}</h></idx> <idx><h>History of Meta-Analysis</h></idx>
         </p>
         <p>
-          Unfortunately, like proportions (Chapter <xref ref="props"/>), correlations are restricted in their range, and it can introduce bias when we estimate the standard error for studies with a small sample size . 
+          Unfortunately, like proportions (Chapter <xref ref="props"/>), correlations are restricted in their range, and it can introduce bias when we estimate the standard error for studies with a small sample size <xref ref="alexander1989statistical"/>. 
         </p>
         <p>
           In meta-analyses, correlations are therefore usually transformed into <alert>Fisher's</alert> <m>z</m><fn>Fisher's <m>z</m> was named after yet another famous statistician we mentioned in Chapter <xref ref="history"/>, Ronald A. Fisher.</fn>. Like the logit-transformation, this also entails the use of the natural logarithm function to make sure that the sampling distribution is approximately normal (see Chapter <xref ref="ratios"/> for a more detailed explanation). The formula looks like this:
@@ -382,7 +382,7 @@ sqrt((p*(1-p))/n)
           \begin{equation} z = 0.5\log_{e}\left(\frac{1+r}{1-r}\right) (#eq:es11) \end{equation}
         </p>
         <p>
-          If we know the sample size <m>n</m>, the approximate standard error of Fisher's <m>z</m> can be obtained through this formula :
+          If we know the sample size <m>n</m>, the approximate standard error of Fisher's <m>z</m> can be obtained through this formula <xref ref="olkin1995correlations"/>:
         </p>
         <p>
           \begin{equation} SE_{z} = \frac{1}{\sqrt{n-3}} (#eq:es12) \end{equation}
@@ -448,10 +448,10 @@ z
           <idx><h>Standardized Mean Difference</h></idx>
         </p>
         <p>
-          The point-biserial correlation bears a close resemblance to the <alert>standardized mean difference</alert>, which we will cover later (Chapter <xref ref="b-group-smd"/>). Both effect size metrics quantify how much values of a continuous variable differ between two groups. However, it is less common that point-biserial correlations are pooled in meta-analyses. Like the product-moment correlation, the point-biserial correlation has undesirable statistical properties for meta-analyses, such as range restriction when the group proportions are unequal . 
+          The point-biserial correlation bears a close resemblance to the <alert>standardized mean difference</alert>, which we will cover later (Chapter <xref ref="b-group-smd"/>). Both effect size metrics quantify how much values of a continuous variable differ between two groups. However, it is less common that point-biserial correlations are pooled in meta-analyses. Like the product-moment correlation, the point-biserial correlation has undesirable statistical properties for meta-analyses, such as range restriction when the group proportions are unequal <xref ref="bonett2019point"/>. 
         </p>
         <p>
-          When we are interested in group differences on a continuous outcome variable, it is therefore advised to convert point-biserial correlations to standardized mean differences for meta-analyses . A formula to convert a point-biserial correlation to a standardized mean difference can be found in Chapter <xref ref="convert-corr"/> in the "Helpful Tools" section of this book. 
+          When we are interested in group differences on a continuous outcome variable, it is therefore advised to convert point-biserial correlations to standardized mean differences for meta-analyses <xref ref="lipsey2001practical"/>. A formula to convert a point-biserial correlation to a standardized mean difference can be found in Chapter <xref ref="convert-corr"/> in the "Helpful Tools" section of this book. 
         </p>
       </subsubsection>
 
@@ -605,7 +605,7 @@ se
           <image source="generated/smd_sep.png"/>
         </figure>
         <p>
-          The standardization makes it much easier to evaluate the magnitude of the mean difference. Standardized mean differences are often interpreted using the conventions by Cohen :
+          The standardization makes it much easier to evaluate the magnitude of the mean difference. Standardized mean differences are often interpreted using the conventions by Cohen <xref ref="cohen1988statistical"/>:
         </p>
         <ul>
           <li>
@@ -628,10 +628,10 @@ se
           Like the convention for Pearson product-moment correlations (Chapter <xref ref="pearson-cors"/>), these are rules of thumb at best. 
         </p>
         <p>
-          It is usually much better to interpret standardized mean differences based on their "real-life" implications. An effect size may be small according to the criteria by Cohen, but it can still be extremely important. For many serious diseases, for example, even a very small statistical effect can still have a huge impact on the population level, and potentially save millions of lives. One study showed that, for depression treatment, even effects as small as <m>\text{SMD}_{\text{between}}=</m> 0.24 can have a clinically important impact on the lives of patients .
+          It is usually much better to interpret standardized mean differences based on their "real-life" implications. An effect size may be small according to the criteria by Cohen, but it can still be extremely important. For many serious diseases, for example, even a very small statistical effect can still have a huge impact on the population level, and potentially save millions of lives. One study showed that, for depression treatment, even effects as small as <m>\text{SMD}_{\text{between}}=</m> 0.24 can have a clinically important impact on the lives of patients <xref ref="cuijpers2014threshold"/>.
         </p>
         <p>
-          The standard error of <m>\text{SMD}_{\text{between}}</m> can be calculated using this formula :
+          The standard error of <m>\text{SMD}_{\text{between}}</m> can be calculated using this formula <xref ref="borenstein2011introduction"/>:
         </p>
         <p>
           \begin{equation} SE<em>{\text{SMD}</em>{\text{between}}} = \sqrt{\frac{n<em>1+n</em>2}{n<em>1n</em>2} + \frac{\text{SMD}^2<em>{\text{between}}}{2(n</em>1+n_2)}} (#eq:es18) \end{equation}
@@ -643,7 +643,7 @@ se
           <idx><h>esc Package</h></idx>
         </p>
         <p>
-          There are several functions in <em>R</em> which allow us to calculate <m>\text{SMD}_{\text{between}}</m>/Cohen's <m>d</m> in one step. Here, we use the <c>esc_mean_sd</c> function, which is part of the <alert>{esc}</alert> package . We have not used this package before, so it is necessary to install it first (see Chapter <xref ref="packages"/>).
+          There are several functions in <em>R</em> which allow us to calculate <m>\text{SMD}_{\text{between}}</m>/Cohen's <m>d</m> in one step. Here, we use the <c>esc_mean_sd</c> function, which is part of the <alert>{esc}</alert> package <xref ref="esc"/>. We have not used this package before, so it is necessary to install it first (see Chapter <xref ref="packages"/>).
         </p>
         <program language="r">
           <code>
@@ -736,7 +736,7 @@ esc_mean_sd(grp1m = grp1m, grp2m = grp2m,
             When calculating SMDs, we use <m>s_{\text{pooled}}</m> because it serves as a proxy of the true standard deviation in our population. Especially when a study is small, however, the standard deviation calculated based its sample may be a bad estimator of the population standard deviation. 
           </p>
           <p>
-            In this case, a possible solution is to use <alert>external</alert> estimates of <m>s_{\text{pooled}}</m> to standardize the mean difference . Such external estimates may be extracted from larger cross-sectional studies which used the same instrument as the study in a similar population.
+            In this case, a possible solution is to use <alert>external</alert> estimates of <m>s_{\text{pooled}}</m> to standardize the mean difference <xref ref="higgins2019cochrane"/>. Such external estimates may be extracted from larger cross-sectional studies which used the same instrument as the study in a similar population.
           </p>
         </note>
       </subsubsection>
@@ -769,13 +769,13 @@ esc_mean_sd(grp1m = grp1m, grp2m = grp2m,
           \begin{equation} \text{SMD}<em>{\text{within}} = \frac{\bar{x}</em>{\text{t}<em>2} - \bar{x}</em>{\text{t}<em>1}}{s</em>{\text{pooled}}} (#eq:es20) \end{equation}
         </p>
         <p>
-          Another solution, proposed (among others) by Becker , is to divide <m>\text{MD}_{\text{within}}</m> by the standard deviation of the pre-test scores (<m>s_{\text{t}_1}</m>). The reason for this is that <m>s_{\text{t}_1}</m> is less likely to be influenced by intervention effects<fn>There is also another, "statistical" reasoning behind using <m>s_{\text{t}_1}</m> instead of <m>\sqrt{(s_{\text{t}_1}^2 + s_{\text{t}_2}^2/2)}</m> in the denominator. In within-group designs, <m>s_{\text{t}_1}</m> and <m>s_{\text{t}_2}</m> are not independent. This means that <m>s_{\text{t}_1}^2 + s_{\text{t}_2}^2</m> does not follow a <m>\chi^2</m> distribution, which is required for formula (3.23) below to be applicable when calculating the standard error of <m>\text{SMD}_{\text{within}}</m>. A "correct" formula of the approximate sampling distribution of <m>\text{SMD}_{\text{within}}</m> when using <m>\sqrt{(s_{\text{t}_1}^2 + s_{\text{t}_2}^2/2)}</m> in the denominator has recently been described ; it also assumes that <m>r_{\text{t}_1\text{t}_2}</m> is known. See <xref ref="references"/> for discussions on how to calculate confidence intervals based on this newly "discovered" distribution. Here, however, we restrict ourselves to the formulas for <m>\text{SMD}_{\text{within}}</m> and its standard error when using only <m>s_{\text{t}_1}</m> in the denominator. We do this because these formulas are relatively easy to apply in practice, commonly found in the literature, and because standardizing by the pre-test standard deviation <m>s_{\text{t}_1}</m> is typically a reasonable approach.</fn>:
+          Another solution, proposed (among others) by Becker <xref ref="becker1988synthesizing"/>, is to divide <m>\text{MD}_{\text{within}}</m> by the standard deviation of the pre-test scores (<m>s_{\text{t}_1}</m>). The reason for this is that <m>s_{\text{t}_1}</m> is less likely to be influenced by intervention effects<fn>There is also another, "statistical" reasoning behind using <m>s_{\text{t}_1}</m> instead of <m>\sqrt{(s_{\text{t}_1}^2 + s_{\text{t}_2}^2/2)}</m> in the denominator. In within-group designs, <m>s_{\text{t}_1}</m> and <m>s_{\text{t}_2}</m> are not independent. This means that <m>s_{\text{t}_1}^2 + s_{\text{t}_2}^2</m> does not follow a <m>\chi^2</m> distribution, which is required for formula (3.23) below to be applicable when calculating the standard error of <m>\text{SMD}_{\text{within}}</m>. A "correct" formula of the approximate sampling distribution of <m>\text{SMD}_{\text{within}}</m> when using <m>\sqrt{(s_{\text{t}_1}^2 + s_{\text{t}_2}^2/2)}</m> in the denominator has recently been described <xref ref="cousineau2020approximating"/>; it also assumes that <m>r_{\text{t}_1\text{t}_2}</m> is known. @cousineau2021ci discuss ways to calculate confidence intervals based on this newly "discovered" distribution. Here, however, we restrict ourselves to the formulas for <m>\text{SMD}_{\text{within}}</m> and its standard error when using only <m>s_{\text{t}_1}</m> in the denominator. We do this because these formulas are relatively easy to apply in practice, commonly found in the literature, and because standardizing by the pre-test standard deviation <m>s_{\text{t}_1}</m> is typically a reasonable approach.</fn>:
         </p>
         <p>
           \begin{equation} \text{SMD}<em>{\text{within}} = \frac{\bar{x}</em>{\text{t}<em>2} - \bar{x}</em>{\text{t}<em>1}}{s</em>{\text{t}_1}} (#eq:es201) \end{equation}
         </p>
         <p>
-          The standard errors of <m>\text{MD}_{\text{within}}</m> and <m>\text{SMD}_{\text{within}}</m> can be calculated using these formulas :
+          The standard errors of <m>\text{MD}_{\text{within}}</m> and <m>\text{SMD}_{\text{within}}</m> can be calculated using these formulas <xref ref="borenstein2011introduction"/>, <xref ref="becker1988synthesizing"/>:
         </p>
         <p>
           \begin{equation} SE<em>{\text{MD}</em>{\text{within}}}=\sqrt{\dfrac{s^2<em>{\text{t}</em>1}+s^2<em>{\text{t}</em>2}-(2r<em>{\text{t}</em>1\text{t}<em>2}s</em>{\text{t}<em>1}s</em>{\text{t}_2})}{n}} (#eq:es21) \end{equation}
@@ -787,7 +787,7 @@ esc_mean_sd(grp1m = grp1m, grp2m = grp2m,
           The fact that we need two know the correlation <m>r_{\text{t}_1\text{t}_2}</m> between the assessment points to calculate the standard error of within-group (standardized) mean differences is often problematic in practice. The pre-post correlation of a variable is hardly ever reported in published research, which forces us to assume a value of <m>r_{\text{t}_1\text{t}_2}</m> based on previous research. 
         </p>
         <p>
-          However, if we do not get the correlation exactly right, this can lead to errors in our results. In general, it should best be avoided to calculate within-group effect sizes for a meta-analysis . Especially when we have data from both an experimental <alert>and</alert> control group, it is much better to calculate the <alert>between-group</alert> (standardized) mean differences at <m>t_2</m> to measure the effect of a treatment, instead of pre-post comparisons. Within-group mean differences may be calculated, however, when our meta-analysis focuses solely on studies which did not include a control group.
+          However, if we do not get the correlation exactly right, this can lead to errors in our results. In general, it should best be avoided to calculate within-group effect sizes for a meta-analysis <xref ref="cuijpers2017pre"/>. Especially when we have data from both an experimental <alert>and</alert> control group, it is much better to calculate the <alert>between-group</alert> (standardized) mean differences at <m>t_2</m> to measure the effect of a treatment, instead of pre-post comparisons. Within-group mean differences may be calculated, however, when our meta-analysis focuses solely on studies which did not include a control group.
         </p>
         <p>
           The within-group standardized mean difference (also known as the within-group Cohen's <m>d</m>) can be calculated like this in <em>R</em>:
@@ -839,10 +839,10 @@ se_within
             Standardized mean differences are, without a doubt, one of the <alert>most frequently used</alert> effect sizes metrics in meta-analyses. As we mentioned in Chapter <xref ref="b-group-smd"/>, standardization allows us, at least in theory, to compare the strength of an effect observed in different studies; even if these studies did not use the same instruments to measure it.
           </p>
           <p>
-            Standardization, however, is not a <alert>"Get Out of Jail Free card"</alert>. The size of a particular study's <m>\text{SMD}</m> depends heavily on the <alert>variability</alert> of its sample [see also <xref ref="references"/>]. Imagine that we conduct two identical studies, use the same instrument to measure our outcome of interest, but that the two studies are conducted in two populations with drastically different variances. In this case, the <m>\text{SMD}</m> value of both studies would <alert>differ greatly</alert>, even if the "raw" mean difference in both studies was <alert>identical</alert>. 
+            Standardization, however, is not a <alert>"Get Out of Jail Free card"</alert>. The size of a particular study's <m>\text{SMD}</m> depends heavily on the <alert>variability</alert> of its sample <xref ref="viechtbauer2007approximate"/>. Imagine that we conduct two identical studies, use the same instrument to measure our outcome of interest, but that the two studies are conducted in two populations with drastically different variances. In this case, the <m>\text{SMD}</m> value of both studies would <alert>differ greatly</alert>, even if the "raw" mean difference in both studies was <alert>identical</alert>. 
           </p>
           <p>
-            In this case, it is somewhat difficult to argue that the "causal" strength of the effect in one study was much larger or smaller than in the other. As Jacob Cohen  put it in a famous paper: "[t]he effect of A on B for me can hardly depend on whether I'm in a group that varies greatly [...] or another that does not vary at all" (p. 1001). This problem, by the way, applies to all commonly used  "standardized" effect size metrics in meta-analysis, for example correlations. 
+            In this case, it is somewhat difficult to argue that the "causal" strength of the effect in one study was much larger or smaller than in the other. As Jacob Cohen <xref ref="cohen1994earth"/> put it in a famous paper: "[t]he effect of A on B for me can hardly depend on whether I'm in a group that varies greatly [...] or another that does not vary at all" (p. 1001). This problem, by the way, applies to all commonly used  "standardized" effect size metrics in meta-analysis, for example correlations. 
           </p>
           <p>
             In addition, we have also seen that the <alert>unit</alert> by which to standardize is often <alert>less clearly defined</alert> than one may think. Various options exist both for between- and within-group <m>\text{SMD}</m>s, and it is often hard to disentangle which approach was chosen in a particular study. It is necessary to always be <alert>as consistent as possible</alert> across studies in terms of how we calculate standardized effect sizes for our meta-analysis. Even so, one should keep in mind that the <alert>commensurability of effect sizes</alert> can be limited, even if standardization was applied. 
@@ -871,7 +871,7 @@ se_within
           We use the term "risk" instead of "proportion" because this type of outcome data is frequently found in medical research, where one examines the <alert>risk</alert> of developing a disease or dying. Such occurrences are known as <alert>events</alert>. Imagine we are conducting a controlled clinical trial comprising a treatment group and a control group. We are interested in how many patients experienced some event <m>E</m> during the study period. 
         </p>
         <p>
-          The results we get from such a study can be categorized in a <m>2 \times 2</m> table :
+          The results we get from such a study can be categorized in a <m>2 \times 2</m> table <xref ref="schwarzer2015meta"/>:
         </p>
         <p>
           Based on this data, we can calculate the risk of experiencing event <m>E</m> during the study period for both the treatment group and control group. We simply divide the number of people experiencing <m>E</m> in one group by the total sample size of that group. 
@@ -949,10 +949,10 @@ se_log_rr
           The calculation of risk ratios becomes difficult when there are <alert>zero cells</alert>. It is possible in practice that <m>a</m> or <m>c</m> (or both) are zero, meaning that no event was recorded in the treatment or control group. If you have a look at the formula used to calculate RRs, it is easy to see why this is problematic. If <m>a</m> (events in the treatment group) is zero, <m>{p_{E}}_{\text{treat}}</m> is also zero, and the RR will be zero. The case of <m>c</m> being zero is even more problematic: it means that <m>{p_{E}}_{\text{control}}</m> is zero, and we all know that we <alert>cannot divide by zero</alert>. 
         </p>
         <p>
-          This issue is often dealt with using a <alert>continuity correction</alert>. The most common continuity correction method is to add an increment of 0.5 in all cells that are zero . When the sample sizes of the control group and treatment group are very uneven, we can also use the <alert>treatment arm continuity correction</alert> . 
+          This issue is often dealt with using a <alert>continuity correction</alert>. The most common continuity correction method is to add an increment of 0.5 in all cells that are zero <xref ref="gart1967bias"/>. When the sample sizes of the control group and treatment group are very uneven, we can also use the <alert>treatment arm continuity correction</alert> <xref ref="j2004add"/>. 
         </p>
         <p>
-          However, there is evidence that such corrections can lead to biased results . The (fixed-effect) <alert>Mantel-Haenszel</alert> method, a meta-analytic pooling technique we will discover in Chapter <xref provisional="mantel-haenszel"/>, can handle zero cells <alert>without</alert> correction, unless they exist in <alert>every study</alert> in our meta-analysis. It may therefore be advisable to avoid continuity corrections unless the latter scenario applies. 
+          However, there is evidence that such corrections can lead to biased results <xref ref="efthimiou2018practical"/>. The (fixed-effect) <alert>Mantel-Haenszel</alert> method, a meta-analytic pooling technique we will discover in Chapter <xref provisional="mantel-haenszel"/>, can handle zero cells <alert>without</alert> correction, unless they exist in <alert>every study</alert> in our meta-analysis. It may therefore be advisable to avoid continuity corrections unless the latter scenario applies. 
         </p>
         <p>
           A special form of the <alert>zero cell</alert> problem are <alert>double-zero studies</alert>. These are studies in which both <m>a</m> and <m>c</m> are zero. Intuitively, one might think that the results of such studies simply mean that the risk in the intervention and control group are similar, and that RR = 1. 
@@ -1066,7 +1066,7 @@ esc_2x2(grp1yes = grp1yes, grp1no = grp1no,
           The same problems pertaining to risk ratios, <alert>zero cells</alert> and <alert>double-zero studies</alert> (see Chapter <xref ref="rr"/>), are also relevant when calculating odds ratios. However, the odds ratio has one additional disadvantage compared to RRs: many people find it harder to understand, and ORs are often erroneously interpreted as RRs. 
         </p>
         <p>
-          It is, therefore, often preferable to either only use risk ratios in a meta-analysis, or to convert odds ratios to risk ratios when reporting the results . The conversion can be performed using this formula :
+          It is, therefore, often preferable to either only use risk ratios in a meta-analysis, or to convert odds ratios to risk ratios when reporting the results <xref ref="higgins2019cochrane"/>. The conversion can be performed using this formula <xref ref="zhang1998whats"/>:
         </p>
         <p>
           \begin{equation} \text{RR} = \frac{\text{OR}}{\left(1-\dfrac{c}{n<em>{\text{control}}}\right)+ \left(\dfrac{c}{n</em>{\text{control}}}\times \text{OR} \right)} (#eq:es33) \end{equation}
@@ -1107,7 +1107,7 @@ esc_2x2(grp1yes = grp1yes, grp1no = grp1no,
         The effect sizes for binary outcome data we examined previously, risk ratios and odds ratios, are ways to compare the number of events in two groups. However, they do not directly encode the <alert>time</alert> during which these events occurred. When calculating a risk or odds ratio, we tacitly assume that the observation periods in both groups are comparable. Furthermore, risk and odds ratios do not provide us with any information on <alert>how long</alert> it took until the events occurred. 
       </p>
       <p>
-        In some cases, this is just fine, because the time frame is not overly relevant for our research question. It is also possible that our binary data is cross-sectional and has no time dimension at all<fn>For example, we can also use risk or odds ratios to express differences in the proportion of smokers between females and males, based on cross-sectional survey data. In this context, RRs and ORs are often referred to as the <alert>prevalence ratio</alert> (PR) and <alert>prevalence odds ratio</alert> (POR), respectively .</fn>. In these cases, the risk or odds ratio is usually an appropriate effect size metric. 
+        In some cases, this is just fine, because the time frame is not overly relevant for our research question. It is also possible that our binary data is cross-sectional and has no time dimension at all<fn>For example, we can also use risk or odds ratios to express differences in the proportion of smokers between females and males, based on cross-sectional survey data. In this context, RRs and ORs are often referred to as the <alert>prevalence ratio</alert> (PR) and <alert>prevalence odds ratio</alert> (POR), respectively <xref ref="tamhane2016prevalence"/>.</fn>. In these cases, the risk or odds ratio is usually an appropriate effect size metric. 
       </p>
       <p>
         But now, imagine a study in which we examine the mortality of individuals in two groups over 10 years. It might be possible that the number of events over these 10 years (e.g. death) is roughly similar in both groups. However, once we have a closer look at <alert>when</alert> the deaths occurred, we see that more events in one group occurred in the first years, while in the other group, somewhat more events occurred to the end of our 10-year observation period. The calculated odds or risk ratio for our data would be approximately 1, indicating no group difference. But this misses something important: that participants in one group survived <alert>somewhat longer</alert>, even if they died eventually. 
@@ -1122,7 +1122,7 @@ esc_2x2(grp1yes = grp1yes, grp1no = grp1no,
         The person-time expresses the total time in which participants in a study were at risk of having an event. To calculate the person-time, we sum up the time at risk (expressed as days, weeks, or years) of all study subjects. However, the time at risk differs from person to person. 
       </p>
       <p>
-        To exemplify this, imagine we are conducting a study with 6 participants. The study lasts for exactly 10 years. After each year, we interview the participants to examine if they experienced the event of interest. Whenever we observe that the event has occurred, the study ends for the affected participant, and we do not examine her or him until the study ends. The results of our study are visualized in Figure <xref provisional="fig-incidence"/>.
+        To exemplify this, imagine we are conducting a study with 6 participants. The study lasts for exactly 10 years. After each year, we interview the participants to examine if they experienced the event of interest. Whenever we observe that the event has occurred, the study ends for the affected participant, and we do not examine her or him until the study ends. The results of our study are visualized in Figure <xref provisional="fig:incidence"/>.
       </p>
       <p>
         <idx><h>Survival Analysis</h></idx> <idx><h>Odds Ratio</h></idx> <idx><h>Censoring</h></idx> <idx><h>Person-Time</h></idx>
@@ -1171,7 +1171,7 @@ esc_2x2(grp1yes = grp1yes, grp1no = grp1no,
         \begin{equation} \log \text{IRR} = \log_{e}(\text{IRR}) (#eq:es35) \end{equation}
       </p>
       <p>
-        For which we can calculate the standard error like this :
+        For which we can calculate the standard error like this <xref ref="rothman2008modern"/>:
       </p>
       <p>
         \begin{equation} SE<em>{\log \text{IRR}} = \sqrt{\frac{1}{E</em>{\text{treat}}}+\frac{1}{E_{\text{control}}}} (#eq:es36) \end{equation}
@@ -1205,10 +1205,10 @@ se_log_irr &lt;- sqrt((1/e_treat)+(1/e_contr))
         Incidence rate ratios are commonly used in epidemiology and prevention research. They can be used when participants are followed for a longer period of time, and when there are regular assessments in between. In practice, however, there is one caveat we should consider when calculating IRRs as part of a meta-analysis: it is important that the incidence data reported in the included articles is fine-grained enough. Sometimes, papers only report the total number of events during the entire study period and not the number of events recorded at each assessment point in between. It is also possible that no interim assessments were made to begin with. 
       </p>
       <p>
-        In our example above (see Figure <xref provisional="fig-incidence"/>), we simply took the <alert>midpoint</alert> between the last "event-free" assessment point and the assessment point in which the event was recorded to estimate the time at risk of a participant. It is important to keep in mind that this is only a <alert>best guess</alert> of when the event happened exactly. Even when taking the midpoint, our estimates can still be off by about half a year in our example. 
+        In our example above (see Figure <xref provisional="fig:incidence"/>), we simply took the <alert>midpoint</alert> between the last "event-free" assessment point and the assessment point in which the event was recorded to estimate the time at risk of a participant. It is important to keep in mind that this is only a <alert>best guess</alert> of when the event happened exactly. Even when taking the midpoint, our estimates can still be off by about half a year in our example. 
       </p>
       <p>
-        Our estimate of the person-time will be best if the time between assessment points is as small as possible. If assessment intervals in a study are too coarse depends on the context of the meta-analysis, but it is always advisable to conduct sensitivity analyses . 
+        Our estimate of the person-time will be best if the time between assessment points is as small as possible. If assessment intervals in a study are too coarse depends on the context of the meta-analysis, but it is always advisable to conduct sensitivity analyses <xref ref="panageas2007you"/>. 
       </p>
       <p>
         This means to recalculate the IRR of studies based on different estimates of the person-time: 
@@ -1266,7 +1266,7 @@ se_log_irr &lt;- sqrt((1/e_treat)+(1/e_contr))
           Incidence rates and IRRs are an intuitive way to summarize event data, and the time frame during which these events occur. However, they are not without flaws. To calculate an incidence rate, we assume that the <alert>underlying risk</alert> in a population is <alert>constant</alert> over time (e.g. between year 1 and year 2 of a study). For IRRs it is assumed that, while the underlying risk may differ between the treatment and control group (e.g. because the treatment reduces the risk of experiencing an event), the risk <alert>within</alert> each group is constant.
         </p>
         <p>
-          It is not hard to see that this assumption is quite simplistic. There are many scenarios in which it is very <alert>unrealistic</alert> to presuppose that the event risk does not change over time . Based on a simulation study, Bender and Beckmann  concluded that using IRRs is only adequate when the average <alert>observation periods</alert> of both groups do <alert>not differ</alert> substantially, and when the <alert>baseline risk</alert> of the studied event is rather <alert>low</alert> (&lt;25%). 
+          It is not hard to see that this assumption is quite simplistic. There are many scenarios in which it is very <alert>unrealistic</alert> to presuppose that the event risk does not change over time <xref ref="kraemer2009events"/>. Based on a simulation study, Bender and Beckmann <xref ref="bender2019limitations"/> concluded that using IRRs is only adequate when the average <alert>observation periods</alert> of both groups do <alert>not differ</alert> substantially, and when the <alert>baseline risk</alert> of the studied event is rather <alert>low</alert> (&lt;25%). 
         </p>
         <p>
           An alternative, and often preferable measure to express group differences based on time-to-event data are <alert>hazard ratios</alert> (HR). A hazard ratio is a ratio of two (proportional) <alert>hazard functions</alert>. Such hazard functions describe the (varying) instantaneous risk (i.e., the "hazard") of experiencing an event at some timepoint <m>t</m>, provided that a person has not yet experienced this event until <m>t</m>. 
@@ -1307,7 +1307,7 @@ se_log_irr &lt;- sqrt((1/e_treat)+(1/e_contr))
         <idx><h>Hedges' \textit{g}</h></idx> <idx><h>Standardized Mean Difference</h></idx>
       </p>
       <p>
-        In Chapter <xref ref="s-md"/>, we covered standardized mean differences (SMDs), an effect size we can calculate when we have continuous outcome data of two groups. The standardized mean difference, however, has been found to have an <alert>upward bias</alert> when the sample size of a study is small, especially when <m>n \leq</m> 20 . This small sample bias means that SMDs systematically overestimate the true effect size when the total sample size of a study is small--which is unfortunately often the case in practice. 
+        In Chapter <xref ref="s-md"/>, we covered standardized mean differences (SMDs), an effect size we can calculate when we have continuous outcome data of two groups. The standardized mean difference, however, has been found to have an <alert>upward bias</alert> when the sample size of a study is small, especially when <m>n \leq</m> 20 <xref ref="hedges1981distribution"/>. This small sample bias means that SMDs systematically overestimate the true effect size when the total sample size of a study is small--which is unfortunately often the case in practice. 
       </p>
       <p>
         It is therefore sensible to correct the standardized mean differences of all included studies for small-sample bias, which produces an effect size called Hedges' <m>g</m>. Hedges' <m>g</m> was named after Larry Hedges, the inventor of this correction. The formula to convert uncorrected SMDs/Cohen's <m>d</m> to Hedges' <m>g</m> looks like this:
@@ -1336,7 +1336,7 @@ g
         </code>
       </program>
       <p>
-        As we can see in the output, Hedges' <m>g</m> is smaller than the uncorrected SMD. Hedges' <m>g</m> can never be larger than the uncorrected SMD, and the difference between the two metrics is larger when the sample size is smaller (see Figure <xref provisional="fig-dtog"/>).
+        As we can see in the output, Hedges' <m>g</m> is smaller than the uncorrected SMD. Hedges' <m>g</m> can never be larger than the uncorrected SMD, and the difference between the two metrics is larger when the sample size is smaller (see Figure <xref provisional="fig:dtog"/>).
       </p>
       <p>
         It is important to note that the terms SMD and Hedges' <m>g</m> are sometimes used interchangeably in research reports. When a study reports results as the SMD, it is, therefore, relevant to check if the authors indeed refer to the uncorrected standardized mean difference, or if the small-sample bias correction has been applied (meaning that Hedges' <m>g</m> was used). 
@@ -1350,16 +1350,16 @@ g
         <idx><h>Unrealiability Correction</h></idx>
       </p>
       <p>
-        It is also possible that effect size estimates are biased due to <alert>measurement error</alert>. Most questionnaires or tests do not measure an outcome of interest perfectly. The less prone an instrument is to produce measurement errors, the more <alert>reliable</alert> it is. The reliability of an instrument measuring some variable <m>x</m> can be expressed through a reliability coefficient <m>r_{xx}</m>, which can take values between 0 and 1. Reliability is often defined as the <alert>test-retest-reliability</alert>, and can be calculated by taking two or more measurements of the same person under similar circumstances within a short period of time, and then calculating the correlation between the values<fn>An accessible and more detailed discussion of various methods to estimate the reliability of an instrument can be found in Hunter and Schmidt , chapter 3.</fn>. 
+        It is also possible that effect size estimates are biased due to <alert>measurement error</alert>. Most questionnaires or tests do not measure an outcome of interest perfectly. The less prone an instrument is to produce measurement errors, the more <alert>reliable</alert> it is. The reliability of an instrument measuring some variable <m>x</m> can be expressed through a reliability coefficient <m>r_{xx}</m>, which can take values between 0 and 1. Reliability is often defined as the <alert>test-retest-reliability</alert>, and can be calculated by taking two or more measurements of the same person under similar circumstances within a short period of time, and then calculating the correlation between the values<fn>An accessible and more detailed discussion of various methods to estimate the reliability of an instrument can be found in Hunter and Schmidt <xref ref="hunter2004methods"/>, chapter 3.</fn>. 
       </p>
       <p>
         <idx><h>Attenuation</h></idx>
       </p>
       <p>
-        When we examine the relationship of two continuous variables, a lack of reliability in one or both of the instruments used to assess these variables can lead to a phenomenon called <alert>attenuation</alert>. This problem has been described as early as 1904 by the famous psychologist Charles Spearman . When we calculate a correlation, for example, and one or both variables are measured with error, this causes us to <alert>underestimate</alert> the true correlation. The correlation is <alert>diluted</alert>. But there are good news. If we have an estimate of the (un)reliability of a measurement, it is possible to correct for this attenuation in order to get a better estimate of the true effect size.
+        When we examine the relationship of two continuous variables, a lack of reliability in one or both of the instruments used to assess these variables can lead to a phenomenon called <alert>attenuation</alert>. This problem has been described as early as 1904 by the famous psychologist Charles Spearman <xref ref="spearman1904reprinted"/>. When we calculate a correlation, for example, and one or both variables are measured with error, this causes us to <alert>underestimate</alert> the true correlation. The correlation is <alert>diluted</alert>. But there are good news. If we have an estimate of the (un)reliability of a measurement, it is possible to correct for this attenuation in order to get a better estimate of the true effect size.
       </p>
       <p>
-        John Hunter and Frank Schmidt, two important contributors to the field of meta-analysis, have developed and promoted a method through which a correction for attenuation can be conducted as part of meta-analyses . This correction is one of several other procedures, which together are sometimes called "Hunter and Schmidt techniques" or the "Hunter and Schmidt method" . 
+        John Hunter and Frank Schmidt, two important contributors to the field of meta-analysis, have developed and promoted a method through which a correction for attenuation can be conducted as part of meta-analyses <xref ref="hunter2004methods"/>. This correction is one of several other procedures, which together are sometimes called "Hunter and Schmidt techniques" or the "Hunter and Schmidt method" <xref ref="hough1994comparison"/>. 
       </p>
       <p>
         Hunter and Schmidt's correction for attenuation can be applied to (product-moment) correlations and standardized mean differences. First, let us assume that we want to correct for the unreliability in the measurement of variable <m>x</m> when we calculate the product-moment correlations <m>r_{xy}</m> of studies as part of our meta-analysis. If we know the reliability in the measurement of <m>x</m>, denoted by <m>r_{xx}</m>, we can calculate a <alert>corrected version</alert> of the correlation, <m>{r_{xy}}_{c}</m>:
@@ -1445,7 +1445,7 @@ se_c
         <idx><h>Range Restriction Correction</h></idx>
       </p>
       <p>
-        Another effect size adjustment proposed by Hunter and Schmidt  deals with the problem of range restriction. Range restriction is a phenomenon which occurs when the variation in some variable <m>x</m> is smaller in a study than in the actual population of interest. This often happens when a study recruited a very selective sample of individuals which may not represent the population as a whole. 
+        Another effect size adjustment proposed by Hunter and Schmidt <xref ref="hunter2004methods"/> deals with the problem of range restriction. Range restriction is a phenomenon which occurs when the variation in some variable <m>x</m> is smaller in a study than in the actual population of interest. This often happens when a study recruited a very selective sample of individuals which may not represent the population as a whole. 
       </p>
       <p>
         For example, consider the case where a study reports the correlation between the age of a participant and her or his cognitive functioning. Intuitively, one may assume that there is indeed an association between these variables. However, if the study only included participants which were 65 to 69 years old, it is very unlikely that a (high) correlation will be found between the two variables. This is because age in the study sample is highly range restricted. There is no real variation in age, which means that this variable can not be a good predictor of cognitive abilities. 
@@ -1531,10 +1531,10 @@ se_r_xy_c
           In this guide, we only cover corrections for unreliability and range restriction, because these problems are most commonly found in practice. However, Hunter and Schmidt have proposed various other kinds of artifact corrections. Along with a few additional methods, these techniques are sometimes called <alert>psychometric meta-analysis</alert>. 
         </p>
         <p>
-          If you want to learn more about the Hunter and Schmidt methods, you can have a look at their book <alert>Methods of Meta-Analysis</alert> , which provides an accessible and comprehensive overview. A shorter introduction can also be found in Borenstein et al. , chapter 38. 
+          If you want to learn more about the Hunter and Schmidt methods, you can have a look at their book <alert>Methods of Meta-Analysis</alert> <xref ref="hunter2004methods"/>, which provides an accessible and comprehensive overview. A shorter introduction can also be found in Borenstein et al. <xref ref="borenstein2011introduction"/>, chapter 38. 
         </p>
         <p>
-          Many of the techniques of Hunter and Schmidt are also implemented in an <em>R</em> package called <url href="https://psychmeta.com/"><alert>{psychmeta}</alert></url> . 
+          Many of the techniques of Hunter and Schmidt are also implemented in an <em>R</em> package called <url href="https://psychmeta.com/"><alert>{psychmeta}</alert></url> <xref ref="psychmeta"/>. 
         </p>
       </note>
     </subsection>
@@ -1589,7 +1589,7 @@ se_r_xy_c
         <idx><h>Unit-of-Analysis Problem</h></idx>
       </p>
       <p>
-        It is not uncommon that a study contributes more than one effect size to our meta-analysis. In particular, it may be that (1) a study included more than two groups, or that (2) a study measured an outcome using two or more instruments. Both cases cause problems. If studies contribute more than one effect size in a meta-analysis, we violate one of its core assumptions: that each effect size in a meta-analysis is <alert>independent</alert> . If this assumption is not met, we are dealing with a <alert>unit-of-analysis</alert> problem.
+        It is not uncommon that a study contributes more than one effect size to our meta-analysis. In particular, it may be that (1) a study included more than two groups, or that (2) a study measured an outcome using two or more instruments. Both cases cause problems. If studies contribute more than one effect size in a meta-analysis, we violate one of its core assumptions: that each effect size in a meta-analysis is <alert>independent</alert> <xref ref="higgins2019cochrane"/>, <xref ref="borenstein2011introduction"/>. If this assumption is not met, we are dealing with a <alert>unit-of-analysis</alert> problem.
       </p>
       <p>
         <idx><h>Double-Counting</h></idx>
@@ -1598,12 +1598,12 @@ se_r_xy_c
         Let us begin with the first case, where a study has more than two groups; for example one group examining treatment A, another one in which treatment B is administered, and a control group C. We can calculate <alert>two</alert> effect sizes for this study. Depending on the outcome data, these can be risk, odds or incidence rate ratios, or standardized mean differences. We have one effect size <m>\hat\theta_{\text{A-C}}</m> comparing treatment A to control, and another effect size <m>\hat\theta_{\text{B-C}}</m>, which expresses the effect of treatment B compared to control. When both <m>\hat\theta_{\text{A-C}}</m> and <m>\hat\theta_{\text{B-C}}</m> are included in the same meta-analysis, these effect sizes are not independent, because the information in C is included twice. This issue is also known as <alert>double-counting</alert>. 
       </p>
       <p>
-        Due to the double-counting of C, the two effect sizes are <alert>correlated</alert>. If the sample size is equal in all groups, we know that this correlation is <m>r =</m> 0.5 . This is because A and B are independent groups, and therefore uncorrelated. However, the control group in both effect sizes is identical, which leads to a perfect correlation of 1; the midpoint is 0.5. Double-counting of a group leads us to overestimate the precision (i.e. the standard error) of the affected effect sizes. This inflates the weight we give these effects in our meta-analysis, and ultimately distorts our results. There are three ways to deal with this issue:
+        Due to the double-counting of C, the two effect sizes are <alert>correlated</alert>. If the sample size is equal in all groups, we know that this correlation is <m>r =</m> 0.5 <xref ref="borenstein2011introduction"/>. This is because A and B are independent groups, and therefore uncorrelated. However, the control group in both effect sizes is identical, which leads to a perfect correlation of 1; the midpoint is 0.5. Double-counting of a group leads us to overestimate the precision (i.e. the standard error) of the affected effect sizes. This inflates the weight we give these effects in our meta-analysis, and ultimately distorts our results. There are three ways to deal with this issue:
       </p>
       <ol>
         <li>
           <p>
-            <alert>Split the sample size of the shared group</alert>. This would mean to split the sample size of group C (e.g. <m>n =</m> 200) evenly between the comparison with A, and the comparison with C, when we calculate the effect size. If we are dealing with binary outcome data, the number of events is also split evenly. In our example, we would calculate the two effect sizes like we have before, but now we pretend that C only consisted of 100 individuals in both calculations. This approach solves the problem that the precision of the effect sizes is artificially inflated due to double-counting. However, it is still sub-optimal, because the effect sizes will remain correlated .
+            <alert>Split the sample size of the shared group</alert>. This would mean to split the sample size of group C (e.g. <m>n =</m> 200) evenly between the comparison with A, and the comparison with C, when we calculate the effect size. If we are dealing with binary outcome data, the number of events is also split evenly. In our example, we would calculate the two effect sizes like we have before, but now we pretend that C only consisted of 100 individuals in both calculations. This approach solves the problem that the precision of the effect sizes is artificially inflated due to double-counting. However, it is still sub-optimal, because the effect sizes will remain correlated <xref ref="higgins2019cochrane"/>.
           </p>
         </li>
         <li>
@@ -1613,7 +1613,7 @@ se_r_xy_c
         </li>
         <li>
           <p>
-            <alert>Combine groups</alert>. This approach involves combining the results of two groups so that only one comparison remains. In our example, this would mean to combine the data of A and B and then compare the pooled results with C. This is relatively easy for binary outcome data, where we only have to sum up the number of participants and the number of events in both groups. If we have continuous outcome data, i.e. means and standard deviations, things are a little more complicated. In Chapter <xref ref="pool-groups"/> in the "Helpful Tools" section, you can find an <em>R</em> function which allows us to combine such data. By combining groups, we avoid both double-counting and correlated effect sizes. This is why this approach is also recommended by Cochrane . Nevertheless, the method also has its drawbacks. It is possible that two groups are so different that we lump something together which can not actually be compared. Imagine that the treatments in group A and B were completely different, with A being a state-of-the-art intervention, and B being an outdated approach with a limited evidence base. If we combine these two treatments and find no effect, it is nearly impossible to disentangle if this is true for both types of interventions, or if the ineffectiveness of B simply diluted the effects of A. Approaches (1) and (2) may therefore be used when two groups are too dissimilar.
+            <alert>Combine groups</alert>. This approach involves combining the results of two groups so that only one comparison remains. In our example, this would mean to combine the data of A and B and then compare the pooled results with C. This is relatively easy for binary outcome data, where we only have to sum up the number of participants and the number of events in both groups. If we have continuous outcome data, i.e. means and standard deviations, things are a little more complicated. In Chapter <xref ref="pool-groups"/> in the "Helpful Tools" section, you can find an <em>R</em> function which allows us to combine such data. By combining groups, we avoid both double-counting and correlated effect sizes. This is why this approach is also recommended by Cochrane <xref ref="higgins2019cochrane"/>. Nevertheless, the method also has its drawbacks. It is possible that two groups are so different that we lump something together which can not actually be compared. Imagine that the treatments in group A and B were completely different, with A being a state-of-the-art intervention, and B being an outdated approach with a limited evidence base. If we combine these two treatments and find no effect, it is nearly impossible to disentangle if this is true for both types of interventions, or if the ineffectiveness of B simply diluted the effects of A. Approaches (1) and (2) may therefore be used when two groups are too dissimilar.
           </p>
         </li>
       </ol>

@@ -6,6 +6,7 @@
       Bibliographic source files for this guide are available as <url href="https://github.com/PreTeXtBooks/Doing-Meta-Analysis-in-R/blob/master/book.bib">book.bib</url> and <url href="https://github.com/PreTeXtBooks/Doing-Meta-Analysis-in-R/blob/master/packages.bib">packages.bib</url>.
     </p>
   </introduction>
+
   <biblio xml:id="harrer2021" type="bibtex">
     <title>Doing Meta-Analysis with R: A Hands-On Guide</title>
     <author>Mathias Harrer and Pim Cuijpers and Toshi A. Furukawa and David D. Ebert</author>
@@ -17,6 +18,7 @@
       </p>
     </note>
   </biblio>
+
   <biblio xml:id="pretext-guide" type="bibtex">
     <title>PreTeXt Guide</title>
     <author>Robert A. Beezer and the PreTeXt community</author>
@@ -27,4 +29,2971 @@
       </p>
     </note>
   </biblio>
+
+  <biblio xml:id="aaron1998equating" type="bibtex">
+    <title>Equating $r$-based and $d$-based effect size indices: problems with a commonly recommended formula</title>
+    <author>Aaron, Bruce and Kromrey, Jeffrey D and Ferron, John</author>
+    <year>1998</year>
+    <publisher>ERIC</publisher>
+    <note><p>URL: https://files.eric.ed.gov/fulltext/ED433353.pdf</p></note>
+  </biblio>
+
+  <biblio xml:id="adler2014osteoporosis" type="bibtex">
+    <title>Osteoporosis in men: A review</title>
+    <author>Adler, Robert A</author>
+    <year>2014</year>
+    <journal>Bone Research</journal>
+    <publisher>Nature Publishing Group</publisher>
+    <volume>2</volume>
+    <pages>14001</pages>
+  </biblio>
+
+  <biblio xml:id="aert2016conducting" type="bibtex">
+    <title>Conducting Meta-Analyses Based on $p$ Values: Reservations and Recommendations for Applying P-Uniform and P-Curve.</title>
+    <author>van Aert, Robbie CM and Wicherts, Jelte M and van Assen, Marcel ALM</author>
+    <year>2016</year>
+    <journal>Perspectives on Psychological Science</journal>
+    <volume>11</volume>
+    <number>5</number>
+  </biblio>
+
+  <biblio xml:id="alexander1989statistical" type="bibtex">
+    <title>Statistical and empirical examination of the chi-square test for homogeneity of correlations in meta-analysis</title>
+    <author>Alexander, Ralph A and Scozzaro, Michael J and Borodkin, Lawrence J</author>
+    <year>1989</year>
+    <journal>Psychological Bulletin</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>106</volume>
+    <number>2</number>
+    <pages>329</pages>
+  </biblio>
+
+  <biblio xml:id="altman2011obtain" type="bibtex">
+    <title>How to obtain the confidence interval from a $P$ value</title>
+    <author>Altman, Douglas G and Bland, J Martin</author>
+    <year>2011</year>
+    <journal>BMJ</journal>
+    <publisher>British Medical Journal Publishing Group</publisher>
+    <volume>343</volume>
+    <pages>d2090</pages>
+  </biblio>
+
+  <biblio xml:id="appelbaum2018journal" type="bibtex">
+    <title>Journal article reporting standards for quantitative research in psychology: The APA Publications and Communications Board task force report.</title>
+    <author>Appelbaum, Mark and Cooper, Harris and Kline, Rex B and Mayo-Wilson, Evan and Nezu, Arthur M and Rao, Stephen M</author>
+    <year>2018</year>
+    <journal>American Psychologist</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>73</volume>
+    <number>1</number>
+    <pages>3</pages>
+  </biblio>
+
+  <biblio xml:id="aronow2019foundations" type="bibtex">
+    <title>Foundations of agnostic statistics</title>
+    <author>Aronow, Peter M and Miller, Benjamin T</author>
+    <year>2019</year>
+    <publisher>Cambridge University Press</publisher>
+  </biblio>
+
+  <biblio xml:id="assink2016fitting" type="bibtex">
+    <title>Fitting three-level meta-analytic models in R: A step-by-step tutorial</title>
+    <author>Assink, Mark and Wibbelink, Carlijn JM and others</author>
+    <year>2016</year>
+    <journal>The Quantitative Methods for Psychology</journal>
+    <volume>12</volume>
+    <number>3</number>
+    <pages>154--174</pages>
+  </biblio>
+
+  <biblio xml:id="bakbergenuly2018meta" type="bibtex">
+    <title>Meta-analysis of binary outcomes via generalized linear mixed models: A simulation study</title>
+    <author>Bakbergenuly, Ilyas and Kulinskaya, Elena</author>
+    <year>2018</year>
+    <journal>BMC Medical Research Methodology</journal>
+    <publisher>BioMed Central</publisher>
+    <volume>18</volume>
+    <number>1</number>
+    <pages>70</pages>
+  </biblio>
+
+  <biblio xml:id="bakbergenuly2020methods" type="bibtex">
+    <title>Methods for estimating between-study variance and overall effect in meta-analysis of odds ratios</title>
+    <author>Bakbergenuly, Ilyas and Hoaglin, David C and Kulinskaya, Elena</author>
+    <year>2020</year>
+    <journal>Research Synthesis Methods</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>11</volume>
+    <number>3</number>
+    <pages>426--442</pages>
+  </biblio>
+
+  <biblio xml:id="bauer2003estimating" type="bibtex">
+    <title>Estimating multilevel linear models as structural equation models</title>
+    <author>Bauer, Daniel J</author>
+    <year>2003</year>
+    <journal>Journal of Educational and Behavioral Statistics</journal>
+    <publisher>Sage Publications Sage CA: Los Angeles, CA</publisher>
+    <volume>28</volume>
+    <number>2</number>
+    <pages>135--167</pages>
+  </biblio>
+
+  <biblio xml:id="baujat2002graphical" type="bibtex">
+    <title>A graphical method for exploring heterogeneity in meta-analyses: Application to a meta-analysis of 65 trials</title>
+    <author>Baujat, Bertrand and Mahe, Cedric and Pignon, Jean-Pierre and Hill, Catherine</author>
+    <year>2002</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>21</volume>
+    <number>18</number>
+    <pages>2641--2652</pages>
+  </biblio>
+
+  <biblio xml:id="beck1996beck" type="bibtex">
+    <title>Beck Depression Inventory--II</title>
+    <author>Beck, Aaron T and Steer, Robert A and Brown, Gregory</author>
+    <year>1996</year>
+    <journal>Psychological Assessment</journal>
+  </biblio>
+
+  <biblio xml:id="becker1988synthesizing" type="bibtex">
+    <title>Synthesizing standardized mean-change measures</title>
+    <author>Becker, Betsy Jane</author>
+    <year>1988</year>
+    <journal>British Journal of Mathematical and Statistical Psychology</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>41</volume>
+    <number>2</number>
+    <pages>257--278</pages>
+  </biblio>
+
+  <biblio xml:id="bellhouse2004reverend" type="bibtex">
+    <title>The Reverend Thomas Bayes, FRS: a biography to celebrate the tercentenary of his birth</title>
+    <author>Bellhouse, David R and others</author>
+    <year>2004</year>
+    <journal>Statistical Science</journal>
+    <publisher>Institute of Mathematical Statistics</publisher>
+    <volume>19</volume>
+    <number>1</number>
+    <pages>3--43</pages>
+  </biblio>
+
+  <biblio xml:id="bender2019limitations" type="bibtex">
+    <title>Limitations of the incidence density ratio as approximation of the hazard ratio</title>
+    <author>Bender, Ralf and Beckmann, Lars</author>
+    <year>2019</year>
+    <journal>Trials</journal>
+    <publisher>BioMed Central</publisher>
+    <volume>20</volume>
+    <number>1</number>
+    <pages>1--8</pages>
+  </biblio>
+
+  <biblio xml:id="berlin1994advantages" type="bibtex">
+    <title>Advantages and limitations of metaanalytic regressions of clinical trials data.</title>
+    <author>Berlin, Jesse A and Antman, Elliott M</author>
+    <year>1994</year>
+    <journal>The Online Journal of Current Clinical Trials</journal>
+  </biblio>
+
+  <biblio xml:id="betancourt2015hamiltonian" type="bibtex">
+    <title>Hamiltonian Monte Carlo for hierarchical Models</title>
+    <author>Betancourt, Michael and Girolami, Mark</author>
+    <year>2015</year>
+    <journal>Current Trends in Bayesian Methodology with Applications</journal>
+    <publisher>Chapman &amp; Hall/CRC Press</publisher>
+  </biblio>
+
+  <biblio xml:id="bjork2008global" type="bibtex">
+    <title>Global annual volume of peer reviewed scholarly articles and the share available via different Open Access options.</title>
+    <author>Björk, Bo-Christer and Roos, Annikki and Lauri, Mari</author>
+    <year>2008</year>
+    <journal>Proceedings ELPUB 2008 Conference on Electronic Publishing</journal>
+    <pages>178--186</pages>
+  </biblio>
+
+  <biblio xml:id="bonett2019point" type="bibtex">
+    <title>Point-biserial correlation: Interval estimation, hypothesis testing, meta-analysis, and sample size determination</title>
+    <author>Bonett, Douglas G</author>
+    <year>2020</year>
+    <journal>British Journal of Mathematical and Statistical Psychology</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>73</volume>
+    <pages>113--144</pages>
+  </biblio>
+
+  <biblio xml:id="borenstein2011introduction" type="bibtex">
+    <title>Introduction to meta-analysis</title>
+    <author>Borenstein, Michael and Hedges, Larry V and Higgins, Julian PT and Rothstein, Hannah R</author>
+    <year>2011</year>
+    <publisher>John Wiley &amp; Sons</publisher>
+  </biblio>
+
+  <biblio xml:id="borenstein2013meta" type="bibtex">
+    <title>Meta-analysis and subgroups</title>
+    <author>Borenstein, Michael and Higgins, Julian PT</author>
+    <year>2013</year>
+    <journal>Prevention Science</journal>
+    <publisher>Springer</publisher>
+    <volume>14</volume>
+    <number>2</number>
+    <pages>134--143</pages>
+  </biblio>
+
+  <biblio xml:id="borenstein2017basics" type="bibtex">
+    <title>Basics of meta-analysis: $I^2$ is not an absolute measure of heterogeneity</title>
+    <author>Borenstein, Michael and Higgins, Julian PT and Hedges, Larry V and Rothstein, Hannah R</author>
+    <year>2017</year>
+    <journal>Research Synthesis Methods</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>8</volume>
+    <number>1</number>
+    <pages>5--18</pages>
+  </biblio>
+
+  <biblio xml:id="bradburn2007much" type="bibtex">
+    <title>Much ado about nothing: A comparison of the performance of meta-analytical methods with rare events</title>
+    <author>Bradburn, Michael J and Deeks, Jonathan J and Berlin, Jesse A and Russell Localio, A</author>
+    <year>2007</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>26</volume>
+    <number>1</number>
+    <pages>53--77</pages>
+  </biblio>
+
+  <biblio xml:id="bramer2018systematic" type="bibtex">
+    <title>A systematic approach to searching: An efficient and complete method to develop literature searches</title>
+    <author>Bramer, Wichor M and de Jonge, Gerdien B and Rethlefsen, Melissa L and Mast, Frans and Kleijnen, Jos</author>
+    <year>2018</year>
+    <journal>Journal of the Medical Library Association: JMLA</journal>
+    <publisher>Medical Library Association</publisher>
+    <volume>106</volume>
+    <number>4</number>
+    <pages>531</pages>
+  </biblio>
+
+  <biblio xml:id="breiman2001statistical" type="bibtex">
+    <title>Statistical modeling: The two cultures (with comments and a rejoinder by the author)</title>
+    <author>Breiman, Leo</author>
+    <year>2001</year>
+    <journal>Statistical Science</journal>
+    <publisher>Institute of Mathematical Statistics</publisher>
+    <volume>16</volume>
+    <number>3</number>
+    <pages>199--231</pages>
+  </biblio>
+
+  <biblio xml:id="burkner2017advanced" type="bibtex">
+    <title>Advanced Bayesian multilevel modeling with the R package brms</title>
+    <author>Bürkner, Paul-Christian</author>
+    <year>2017</year>
+    <journal>ArXiv Preprint 1705.11123</journal>
+  </biblio>
+
+  <biblio xml:id="burknerJSS" type="bibtex">
+    <title>brms: An R Package for Bayesian Multilevel Models Using Stan</title>
+    <author>Paul-Christian Bürkner</author>
+    <year>2017</year>
+    <journal>Journal of Statistical Software, Articles</journal>
+    <volume>80</volume>
+    <number>1</number>
+    <pages>1--28</pages>
+  </biblio>
+
+  <biblio xml:id="buscher2019effectiveness" type="bibtex">
+    <title>The effectiveness of internet-based self-help interventions to reduce suicidal ideation: Protocol for a systematic review and meta-analysis</title>
+    <author>Büscher, Rebekka and Torok, Michelle and Sander, Lasse</author>
+    <year>2019</year>
+    <journal>JMIR Research Protocols</journal>
+    <publisher>JMIR Publications Inc., Toronto, Canada</publisher>
+    <volume>8</volume>
+    <number>7</number>
+    <pages>e14174</pages>
+  </biblio>
+
+  <biblio xml:id="carter2019correcting" type="bibtex">
+    <title>Correcting for bias in psychology: A comparison of meta-analytic methods</title>
+    <author>Carter, Evan C and Schönbrodt, Felix D and Gervais, Will M and Hilgard, Joseph</author>
+    <year>2019</year>
+    <journal>Advances in Methods and Practices in Psychological Science</journal>
+    <publisher>Sage Publications Sage CA: Los Angeles, CA</publisher>
+    <volume>2</volume>
+    <number>2</number>
+    <pages>115--144</pages>
+  </biblio>
+
+  <biblio xml:id="chan2014increasing" type="bibtex">
+    <title>Increasing value and reducing waste: addressing inaccessible research</title>
+    <author>Chan, An-Wen and Song, Fujian and Vickers, Andrew and Jefferson, Tom and Dickersin, Kay and G\otzsche, Peter C and Krumholz, Harlan M and Ghersi, Davina and Van Der Worp, H Bart</author>
+    <year>2014</year>
+    <journal>The Lancet</journal>
+    <publisher>Elsevier</publisher>
+    <volume>383</volume>
+    <number>9913</number>
+    <pages>257--266</pages>
+  </biblio>
+
+  <biblio xml:id="chatfield1995model" type="bibtex">
+    <title>Model uncertainty, data mining and statistical inference</title>
+    <author>Chatfield, Chris</author>
+    <year>1995</year>
+    <journal>Journal of the Royal Statistical Society: Series A (Statistics in Society)</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>158</volume>
+    <number>3</number>
+    <pages>419--444</pages>
+  </biblio>
+
+  <biblio xml:id="cheung2008model" type="bibtex">
+    <title>A model for integrating fixed-, random-, and mixed-effects meta-analyses into structural equation modeling.</title>
+    <author>Cheung, Mike</author>
+    <year>2008</year>
+    <journal>Psychological Methods</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>13</volume>
+    <number>3</number>
+    <pages>182</pages>
+  </biblio>
+
+  <biblio xml:id="cheung2009two" type="bibtex">
+    <title>A two-stage approach to synthesizing covariance matrices in meta-analytic structural equation modeling</title>
+    <author>Cheung, Mike and Chan, Wai</author>
+    <year>2009</year>
+    <journal>Structural Equation Modeling: A Multidisciplinary Journal</journal>
+    <publisher>Taylor &amp; Francis</publisher>
+    <volume>16</volume>
+    <number>1</number>
+    <pages>28--53</pages>
+  </biblio>
+
+  <biblio xml:id="cheung2014modeling" type="bibtex">
+    <title>Modeling dependent effect sizes with three-level meta-analyses: a structural equation modeling approach.</title>
+    <author>Cheung, Mike</author>
+    <year>2014</year>
+    <journal>Psychological Methods</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>19</volume>
+    <number>2</number>
+    <pages>211</pages>
+  </biblio>
+
+  <biblio xml:id="cheung2015meta" type="bibtex">
+    <title>Meta-analysis: A structural equation modeling approach</title>
+    <author>Cheung, Mike</author>
+    <year>2015</year>
+    <publisher>John Wiley &amp; Sons</publisher>
+  </biblio>
+
+  <biblio xml:id="christensen2006number" type="bibtex">
+    <title>Number-Needed-to-Treat (NNT)--Needs Treatment with Care</title>
+    <author>Christensen, Palle Mark and Kristiansen, Ivar S\onb\o</author>
+    <year>2006</year>
+    <journal>Basic &amp; Clinical Pharmacology &amp; Toxicology</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>99</volume>
+    <number>1</number>
+    <pages>12--16</pages>
+  </biblio>
+
+  <biblio xml:id="chung2013nondegenerate" type="bibtex">
+    <title>A nondegenerate penalized likelihood estimator for variance parameters in multilevel models</title>
+    <author>Chung, Yeojin and Rabe-Hesketh, Sophia and Dorie, Vincent and Gelman, Andrew and Liu, Jingchen</author>
+    <year>2013</year>
+    <journal>Psychometrika</journal>
+    <publisher>Springer</publisher>
+    <volume>78</volume>
+    <number>4</number>
+    <pages>685--709</pages>
+  </biblio>
+
+  <biblio xml:id="cipriani2013conceptual" type="bibtex">
+    <title>Conceptual and technical challenges in network meta-analysis</title>
+    <author>Cipriani, Andrea and Higgins, Julian PT and Geddes, John R and Salanti, Georgia</author>
+    <year>2013</year>
+    <journal>Annals of Internal Medicine</journal>
+    <publisher>American College of Physicians</publisher>
+    <volume>159</volume>
+    <number>2</number>
+    <pages>130--137</pages>
+  </biblio>
+
+  <biblio xml:id="clubSandwich" type="bibtex">
+    <title>clubSandwich: Cluster-Robust (Sandwich) Variance Estimators with Small-Sample
+Corrections</title>
+    <author>James Pustejovsky</author>
+    <year>2022</year>
+    <note><p>R package version 0.5.5. URL: https://CRAN.R-project.org/package=clubSandwich</p></note>
+  </biblio>
+
+  <biblio xml:id="cochran1954some" type="bibtex">
+    <title>Some methods for strengthening the common $\chi^2$ tests</title>
+    <author>Cochran, William G</author>
+    <year>1954</year>
+    <journal>Biometrics</journal>
+    <publisher>JSTOR</publisher>
+    <volume>10</volume>
+    <number>4</number>
+    <pages>417--451</pages>
+  </biblio>
+
+  <biblio xml:id="cohen1988statistical" type="bibtex">
+    <title>Statistical power analysis for the behavioral sciences</title>
+    <author>Cohen, J</author>
+    <year>1988</year>
+    <publisher>Erlbaum Press</publisher>
+  </biblio>
+
+  <biblio xml:id="cohen1994earth" type="bibtex">
+    <title>The earth is round ($p&lt;.05$).</title>
+    <author>Cohen, Jacob</author>
+    <year>1994</year>
+    <journal>American psychologist</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>49</volume>
+    <number>12</number>
+    <pages>997</pages>
+  </biblio>
+
+  <biblio xml:id="cousineau2020approximating" type="bibtex">
+    <title>Approximating the distribution of Cohen’s $d_p$ in within-subject designs</title>
+    <author>Cousineau, Denis</author>
+    <year>2020</year>
+    <journal>Quant. Methods Psychol</journal>
+    <volume>16</volume>
+    <pages>418--421</pages>
+  </biblio>
+
+  <biblio xml:id="cuijpers2002excess" type="bibtex">
+    <title>Excess mortality in depression: A meta-analysis of community studies</title>
+    <author>Cuijpers, Pim and Smit, Filip</author>
+    <year>2002</year>
+    <journal>Journal of Affective Disorders</journal>
+    <publisher>Elsevier</publisher>
+    <volume>72</volume>
+    <number>3</number>
+    <pages>227--236</pages>
+  </biblio>
+
+  <biblio xml:id="cuijpers2014threshold" type="bibtex">
+    <title>What is the threshold for a clinically relevant effect? The case of major depressive disorders</title>
+    <author>Cuijpers, Pim and Turner, Erick H and Koole, Sander L and Van Dijke, Annemiek and Smit, Filip</author>
+    <year>2014</year>
+    <journal>Depression and Anxiety</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>31</volume>
+    <number>5</number>
+    <pages>374--378</pages>
+  </biblio>
+
+  <biblio xml:id="cuijpers2016meta" type="bibtex">
+    <title>Meta-analyses in mental health research. A practical guide</title>
+    <author>Cuijpers, Pim</author>
+    <year>2016</year>
+    <journal>Amsterdam, the Netherlands: Pim Cuijpers Uitgeverij</journal>
+  </biblio>
+
+  <biblio xml:id="cuijpers2017pre" type="bibtex">
+    <title>Pre-post effect sizes should be avoided in meta-analyses</title>
+    <author>Cuijpers, Pim and Weitz, E and Cristea, IA and Twisk, J</author>
+    <year>2017</year>
+    <journal>Epidemiology and Psychiatric Sciences</journal>
+    <publisher>Cambridge University Press</publisher>
+    <volume>26</volume>
+    <number>4</number>
+    <pages>364--368</pages>
+  </biblio>
+
+  <biblio xml:id="cuijpers2019effectiveness" type="bibtex">
+    <title>Effectiveness and acceptability of cognitive behavior therapy delivery formats in adults with depression: A network meta-analysis</title>
+    <author>Cuijpers, P and Noma, H and Karyotaki, E and Cipriani, A and Furukawa, T</author>
+    <year>2019</year>
+    <journal>JAMA Psychiatry</journal>
+    <publisher>American Medical Association</publisher>
+    <volume>76</volume>
+    <number>7</number>
+    <pages>700--707</pages>
+  </biblio>
+
+  <biblio xml:id="cuijpers2019eysenck" type="bibtex">
+    <title>Was Eysenck right after all? A reassessment of the effects of psychotherapy for adult depression</title>
+    <author>Cuijpers, P and Karyotaki, E and Reijnders, M and Ebert, DD</author>
+    <year>2019</year>
+    <journal>Epidemiology and Psychiatric Sciences</journal>
+    <publisher>Cambridge University Press</publisher>
+    <volume>28</volume>
+    <number>1</number>
+    <pages>21--30</pages>
+  </biblio>
+
+  <biblio xml:id="cuijpers2019role" type="bibtex">
+    <title>The role of common factors in psychotherapy outcomes</title>
+    <author>Cuijpers, Pim and Reijnders, Mirjam and Huibers, Marcus JH</author>
+    <year>2019</year>
+    <journal>Annual Review of Clinical Psychology</journal>
+    <publisher>Annual Reviews</publisher>
+    <volume>15</volume>
+    <pages>207--231</pages>
+  </biblio>
+
+  <biblio xml:id="cummings2013conceiving" type="bibtex">
+    <title>Conceiving the research question and developing the study plan</title>
+    <author>Cummings, Steven R and Browner, Warren S and Hulley, Stephen B</author>
+    <year>2013</year>
+    <journal>Designing Clinical Research</journal>
+    <volume>4</volume>
+    <pages>14--22</pages>
+  </biblio>
+
+  <biblio xml:id="dechartres2018association" type="bibtex">
+    <title>Association between publication characteristics and treatment effect estimates: a meta-epidemiologic study</title>
+    <author>Dechartres, Agnes and Atal, Ignacio and Riveros, Carolina and Meerpohl, Joerg and Ravaud, Philippe</author>
+    <year>2018</year>
+    <journal>Annals of Internal Medicine</journal>
+    <publisher>American College of Physicians</publisher>
+    <volume>169</volume>
+    <number>6</number>
+    <pages>385--393</pages>
+  </biblio>
+
+  <biblio xml:id="dersimonian1986meta" type="bibtex">
+    <title>Meta-analysis in clinical trials</title>
+    <author>DerSimonian, Rebecca and Laird, Nan</author>
+    <year>1986</year>
+    <journal>Controlled Clinical Trials</journal>
+    <publisher>Elsevier</publisher>
+    <volume>7</volume>
+    <number>3</number>
+    <pages>177--188</pages>
+  </biblio>
+
+  <biblio xml:id="dias2010checking" type="bibtex">
+    <title>Checking consistency in mixed treatment comparison meta-analysis</title>
+    <author>Dias, Sofia and Welton, Nicky J and Caldwell, DM and Ades, Anthony E</author>
+    <year>2010</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>29</volume>
+    <number>7-8</number>
+    <pages>932--944</pages>
+  </biblio>
+
+  <biblio xml:id="dias2013evidence" type="bibtex">
+    <title>Evidence synthesis for decision making 2: a generalized linear modeling framework for pairwise and network meta-analysis of randomized controlled trials</title>
+    <author>Dias, Sofia and Sutton, Alex J and Ades, AE and Welton, Nicky J</author>
+    <year>2013</year>
+    <journal>Medical Decision Making</journal>
+    <publisher>Sage Publications Sage CA: Los Angeles, CA</publisher>
+    <volume>33</volume>
+    <number>5</number>
+    <pages>607--617</pages>
+  </biblio>
+
+  <biblio xml:id="dias2018network" type="bibtex">
+    <title>Network meta-analysis for decision-making</title>
+    <author>Dias, Sofia and Ades, Anthony E and Welton, Nicky J and Jansen, Jeroen P and Sutton, Alexander J</author>
+    <year>2018</year>
+    <publisher>John Wiley &amp; Sons</publisher>
+  </biblio>
+
+  <biblio xml:id="diciccio1996bootstrap" type="bibtex">
+    <title>Bootstrap confidence intervals</title>
+    <author>DiCiccio, Thomas J and Efron, Bradley</author>
+    <year>1996</year>
+    <journal>Statistical Science</journal>
+    <publisher>JSTOR</publisher>
+    <pages>189--212</pages>
+  </biblio>
+
+  <biblio xml:id="dissemination2009systematic" type="bibtex">
+    <title>Systematic reviews: CRD's guidance for undertaking reviews in healthcare</title>
+    <author>Tacconelli, Evelina</author>
+    <year>2009</year>
+    <journal>The Lancet Infectious Diseases</journal>
+    <publisher>Elsevier</publisher>
+    <volume>10</volume>
+    <number>4</number>
+  </biblio>
+
+  <biblio xml:id="duval2000trim" type="bibtex">
+    <title>Trim and fill: a simple funnel-plot--based method of testing and adjusting for publication bias in meta-analysis</title>
+    <author>Duval, Sue and Tweedie, Richard</author>
+    <year>2000</year>
+    <journal>Biometrics</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>56</volume>
+    <number>2</number>
+    <pages>455--463</pages>
+  </biblio>
+
+  <biblio xml:id="duval2005publication" type="bibtex">
+    <title>Publication bias in meta-analysis</title>
+    <author>Rothstein, Hannah R and Sutton, Alexander J and Borenstein, Michael</author>
+    <year>2005</year>
+    <journal>Publication bias in meta-analysis: Prevention, assessment and adjustments</journal>
+    <publisher>John Wiley &amp; Sons</publisher>
+  </biblio>
+
+  <biblio xml:id="ebrahim2016meta" type="bibtex">
+    <title>Meta-analyses with industry involvement are massively published and report no caveats for antidepressants</title>
+    <author>Ebrahim, Shanil and Bance, Sheena and Athale, Abha and Malachowski, Cindy and Ioannidis, John PA</author>
+    <year>2016</year>
+    <journal>Journal of Clinical Epidemiology</journal>
+    <publisher>Elsevier</publisher>
+    <volume>70</volume>
+    <pages>155--163</pages>
+  </biblio>
+
+  <biblio xml:id="edwards2009indirect" type="bibtex">
+    <title>Indirect comparisons of treatments based on systematic reviews of randomised controlled trials</title>
+    <author>Edwards, SJ and Clarke, MJ and Wordsworth, S and Borrill, J</author>
+    <year>2009</year>
+    <journal>International Journal of Clinical Practice</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>63</volume>
+    <number>6</number>
+    <pages>841--854</pages>
+  </biblio>
+
+  <biblio xml:id="efthimiou2016getreal" type="bibtex">
+    <title>GetReal in network meta-analysis: a review of the methodology</title>
+    <author>Efthimiou, Orestis and Debray, Thomas PA and van Valkenhoef, Gert and Trelle, Sven and Panayidou, Klea and Moons, Karel GM and Reitsma, Johannes B and Shang, Aijing and Salanti, Georgia and GetReal Methods Review Group</author>
+    <year>2016</year>
+    <journal>Research Synthesis Methods</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>7</volume>
+    <number>3</number>
+    <pages>236--263</pages>
+  </biblio>
+
+  <biblio xml:id="efthimiou2018practical" type="bibtex">
+    <title>Practical guide to the meta-analysis of rare events</title>
+    <author>Efthimiou, Orestis</author>
+    <year>2018</year>
+    <journal>Evidence-Based Mental Health</journal>
+    <publisher>Royal College of Psychiatrists</publisher>
+    <volume>21</volume>
+    <number>2</number>
+    <pages>72--76</pages>
+  </biblio>
+
+  <biblio xml:id="egger1997bias" type="bibtex">
+    <title>Bias in meta-analysis detected by a simple, graphical test</title>
+    <author>Egger, Matthias and Smith, George Davey and Schneider, Martin and Minder, Christoph</author>
+    <year>1997</year>
+    <journal>BMJ</journal>
+    <publisher>British Medical Journal Publishing Group</publisher>
+    <volume>315</volume>
+    <number>7109</number>
+    <pages>629--634</pages>
+  </biblio>
+
+  <biblio xml:id="elwood2006first" type="bibtex">
+    <title>The first randomized trial of aspirin for heart attack and the advent of systematic overviews of trials</title>
+    <author>Elwood, Peter</author>
+    <year>2006</year>
+    <journal>Journal of the Royal Society of Medicine</journal>
+    <publisher>SAGE Publications Sage UK: London, England</publisher>
+    <volume>99</volume>
+    <number>11</number>
+    <pages>586--588</pages>
+  </biblio>
+
+  <biblio xml:id="esc" type="bibtex">
+    <title>esc: Effect Size Computation for Meta Analysis (Version 0.5.1)</title>
+    <author>Daniel Lüdecke</author>
+    <year>2019</year>
+    <note><p>URL: https://CRAN.R-project.org/package=esc</p></note>
+  </biblio>
+
+  <biblio xml:id="etz2018introduction" type="bibtex">
+    <title>Introduction to the concept of likelihood and its applications</title>
+    <author>Etz, Alexander</author>
+    <year>2018</year>
+    <journal>Advances in Methods and Practices in Psychological Science</journal>
+    <publisher>Sage Publications Sage CA: Los Angeles, CA</publisher>
+    <volume>1</volume>
+    <number>1</number>
+    <pages>60--69</pages>
+  </biblio>
+
+  <biblio xml:id="extradistr" type="bibtex">
+    <title>extraDistr: Additional Univariate and Multivariate Distributions. R package version 1.9.1</title>
+    <author>Tymoteusz Wo\lod\'zko</author>
+    <year>2020</year>
+  </biblio>
+
+  <biblio xml:id="eysenck1978exercise" type="bibtex">
+    <title>An exercise in mega-silliness</title>
+    <author>Eysenck, Hans J</author>
+    <year>1978</year>
+    <journal>American Psychologist</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>33</volume>
+    <number>5</number>
+  </biblio>
+
+  <biblio xml:id="fanelli2012negative" type="bibtex">
+    <title>Negative results are disappearing from most disciplines and countries</title>
+    <author>Fanelli, Daniele</author>
+    <year>2012</year>
+    <journal>Scientometrics</journal>
+    <publisher>Akademiai Kiado, co-published with Springer Science &amp; Business</publisher>
+    <volume>90</volume>
+    <number>3</number>
+    <pages>891--904</pages>
+  </biblio>
+
+  <biblio xml:id="fisher19351he" type="bibtex">
+    <title>The Design of Experiments</title>
+    <author>Fisher, Ronald A</author>
+    <year>1935</year>
+    <publisher>Oliver &amp; Boyd, Edinburgh, UK</publisher>
+  </biblio>
+
+  <biblio xml:id="follmann1999valid" type="bibtex">
+    <title>Valid inference in random effects meta-analysis</title>
+    <author>Follmann, Dean A and Proschan, Michael A</author>
+    <year>1999</year>
+    <journal>Biometrics</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>55</volume>
+    <number>3</number>
+    <pages>732--737</pages>
+  </biblio>
+
+  <biblio xml:id="fraley2002model" type="bibtex">
+    <title>Model-based clustering, discriminant analysis, and density estimation</title>
+    <author>Fraley, Chris and Raftery, Adrian E</author>
+    <year>2002</year>
+    <journal>Journal of the American Statistical Association</journal>
+    <publisher>Taylor &amp; Francis</publisher>
+    <volume>97</volume>
+    <number>458</number>
+    <pages>611--631</pages>
+  </biblio>
+
+  <biblio xml:id="friese2019ego" type="bibtex">
+    <title>Is ego depletion real? An analysis of arguments</title>
+    <author>Friese, Malte and Loschelder, David D and Gieseler, Karolin and Frankenbach, Julius and Inzlicht, Michael</author>
+    <year>2019</year>
+    <journal>Personality and Social Psychology Review</journal>
+    <publisher>Sage Publications Sage CA: Los Angeles, CA</publisher>
+    <volume>23</volume>
+    <number>2</number>
+    <pages>107--131</pages>
+  </biblio>
+
+  <biblio xml:id="furukawa2003low" type="bibtex">
+    <title>Low dosage tricyclic antidepressants for depression</title>
+    <author>Furukawa, Toshi A and McGuire, Hugh and Barbui, Corrado</author>
+    <year>2003</year>
+    <journal>Cochrane Database of Systematic Reviews</journal>
+    <publisher>John Wiley &amp; Sons, Ltd</publisher>
+    <number>3</number>
+  </biblio>
+
+  <biblio xml:id="furukawa2011obtain" type="bibtex">
+    <title>How to obtain NNT from Cohen's $d$: comparison of two methods</title>
+    <author>Furukawa, Toshi A and Leucht, Stefan</author>
+    <year>2011</year>
+    <journal>PLOS ONE</journal>
+    <publisher>Public Library of Science</publisher>
+    <volume>6</volume>
+    <number>4</number>
+    <pages>e19070</pages>
+  </biblio>
+
+  <biblio xml:id="furukawa2020translating" type="bibtex">
+    <title>Translating the BDI and BDI-II into the HAMD and vice versa with equipercentile linking</title>
+    <author>Furukawa, Toshi A and Reijnders, Mirjam and Kishimoto, Sanae and Sakata, Masatsugu and DeRubeis, Robert J and Dimidjian, Sona and Dozois, David JA and Hegerl, Ulrich and Hollon, Steven D and Jarrett, Robin B and Lesp\'erance, Fran\c cois and Segal, Zindel V and Mohr, David C and Simons, Anne D and Quilty, Lena C and Reynolds, Charles F and Gentili, Claudio and Leucht, Stefan and Engel, Rolf and Cuijpers, Pim</author>
+    <year>2020</year>
+    <journal>Epidemiology and Psychiatric Sciences</journal>
+    <publisher>Cambridge University Press</publisher>
+    <volume>29</volume>
+  </biblio>
+
+  <biblio xml:id="gart1967bias" type="bibtex">
+    <title>On the bias of various estimators of the logit and its variance with application to quantal bioassay</title>
+    <author>Gart, John J and Zweifel, James R</author>
+    <year>1967</year>
+    <journal>Biometrika</journal>
+    <publisher>JSTOR</publisher>
+    <pages>181--187</pages>
+  </biblio>
+
+  <biblio xml:id="gigerenzer2004mindless" type="bibtex">
+    <title>Mindless statistics</title>
+    <author>Gigerenzer, G</author>
+    <year>2004</year>
+    <journal>The Journal of Socio-Economics</journal>
+    <publisher>Elsevier</publisher>
+    <volume>33</volume>
+    <number>5</number>
+    <pages>587--606</pages>
+  </biblio>
+
+  <biblio xml:id="glass1976primary" type="bibtex">
+    <title>Primary, secondary, and meta-analysis of research</title>
+    <author>Glass, Gene V</author>
+    <year>1976</year>
+    <journal>Educational Researcher</journal>
+    <publisher>Sage Publications Sage CA: Los Angeles, CA</publisher>
+    <volume>5</volume>
+    <number>10</number>
+    <pages>3--8</pages>
+  </biblio>
+
+  <biblio xml:id="good2013permutation" type="bibtex">
+    <title>Permutation tests: A practical guide to resampling methods for testing hypotheses</title>
+    <author>Good, Phillip</author>
+    <year>2013</year>
+    <publisher>Springer Science &amp; Business</publisher>
+  </biblio>
+
+  <biblio xml:id="greco2013meta" type="bibtex">
+    <title>Meta-analysis: pitfalls and hints</title>
+    <author>Greco, T and Zangrillo, A and Biondi-Zoccai, G and Landoni, G</author>
+    <year>2013</year>
+    <journal>Heart, Lung and Vessels</journal>
+    <publisher>Edizioni Medico Scientifiche</publisher>
+    <volume>5</volume>
+    <number>4</number>
+    <pages>219</pages>
+  </biblio>
+
+  <biblio xml:id="grolemund2014hands" type="bibtex">
+    <title>Hands-on programming with R: Write your own functions and simulations</title>
+    <author>Grolemund, Garrett</author>
+    <year>2014</year>
+    <publisher>O'Reilly</publisher>
+  </biblio>
+
+  <biblio xml:id="hamberg2008gender" type="bibtex">
+    <title>Gender bias in medicine</title>
+    <author>Hamberg, Katarina</author>
+    <year>2008</year>
+    <journal>Women’s Health</journal>
+    <publisher>Sage Publications Sage UK: London, England</publisher>
+    <volume>4</volume>
+    <number>3</number>
+    <pages>237--243</pages>
+  </biblio>
+
+  <biblio xml:id="harrer2020prevention" type="bibtex">
+    <title>Prevention of eating disorders at universities: A systematic review and meta-analysis</title>
+    <author>Harrer, Mathias and Adam, Sophia H and Messner, Eva-Maria and Baumeister, Harald and Cuijpers, Pim and Bruffaerts, Ronny and Auerbach, Randy P and Kessler, Ronald C and Jacobi, Corinna and Taylor, Craig Barr and Ebert, David D</author>
+    <year>2020</year>
+    <journal>International Journal of Eating Disorders</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>53</volume>
+    <number>3</number>
+    <pages>823--833</pages>
+  </biblio>
+
+  <biblio xml:id="hartigan1979algorithm" type="bibtex">
+    <title>Algorithm AS 136: A $k$-means clustering algorithm</title>
+    <author>Hartigan, John A and Wong, Manchek A</author>
+    <year>1979</year>
+    <journal>Journal of the Royal Statistical Society. Series C (Applied Statistics)</journal>
+    <publisher>[Wiley, Royal Statistical Society]</publisher>
+    <volume>28</volume>
+    <number>1</number>
+    <pages>100--108</pages>
+  </biblio>
+
+  <biblio xml:id="hartung1999alternative" type="bibtex">
+    <title>An alternative method for meta-analysis</title>
+    <author>Hartung, Joachim</author>
+    <year>1999</year>
+    <journal>Biometrical Journal: Journal of Mathematical Methods in Biosciences</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>41</volume>
+    <number>8</number>
+    <pages>901--916</pages>
+  </biblio>
+
+  <biblio xml:id="hartung2001refined" type="bibtex">
+    <title>A refined method for the meta-analysis of controlled clinical trials with binary outcome</title>
+    <author>Hartung, Joachim and Knapp, Guido</author>
+    <year>2001</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>20</volume>
+    <number>24</number>
+    <pages>3875--3889</pages>
+  </biblio>
+
+  <biblio xml:id="hartung2001tests" type="bibtex">
+    <title>On tests of the overall treatment effect in meta-analysis with normally distributed responses</title>
+    <author>Hartung, Joachim and Knapp, Guido</author>
+    <year>2001</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>20</volume>
+    <number>12</number>
+    <pages>1771--1782</pages>
+  </biblio>
+
+  <biblio xml:id="hedges1981distribution" type="bibtex">
+    <title>Distribution theory for Glass's estimator of effect size and related estimators</title>
+    <author>Hedges, Larry V</author>
+    <year>1981</year>
+    <journal>Journal of Educational Statistics</journal>
+    <publisher>Sage Publications Sage CA: Thousand Oaks, CA</publisher>
+    <volume>6</volume>
+    <number>2</number>
+    <pages>107--128</pages>
+  </biblio>
+
+  <biblio xml:id="hedges1984estimation" type="bibtex">
+    <title>Estimation of effect size under nonrandom sampling: The effects of censoring studies yielding statistically insignificant mean differences</title>
+    <author>Hedges, Larry V</author>
+    <year>1984</year>
+    <journal>Journal of Educational Statistics</journal>
+    <publisher>Sage Publications Sage CA: Thousand Oaks, CA</publisher>
+    <volume>9</volume>
+    <number>1</number>
+    <pages>61--85</pages>
+  </biblio>
+
+  <biblio xml:id="hedges1992modeling" type="bibtex">
+    <title>Modeling publication selection effects in meta-analysis</title>
+    <author>Hedges, Larry V</author>
+    <year>1992</year>
+    <journal>Statistical Science</journal>
+    <publisher>JSTOR</publisher>
+    <volume>7</volume>
+    <number>2</number>
+    <pages>246--255</pages>
+  </biblio>
+
+  <biblio xml:id="hedges1996estimating" type="bibtex">
+    <title>Estimating effect size under publication bias: Small sample properties and robustness of a random effects selection model</title>
+    <author>Hedges, Larry V and Vevea, Jack L</author>
+    <year>1996</year>
+    <journal>Journal of Educational and Behavioral Statistics</journal>
+    <publisher>Sage Publications Sage CA: Los Angeles, CA</publisher>
+    <volume>21</volume>
+    <number>4</number>
+    <pages>299--332</pages>
+  </biblio>
+
+  <biblio xml:id="hedges1998fixed" type="bibtex">
+    <title>Fixed-and random-effects models in meta-analysis.</title>
+    <author>Hedges, Larry V and Vevea, Jack L</author>
+    <year>1998</year>
+    <journal>Psychological Methods</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>3</volume>
+    <number>4</number>
+    <pages>486</pages>
+  </biblio>
+
+  <biblio xml:id="hedges2001power" type="bibtex">
+    <title>The power of statistical tests in meta-analysis.</title>
+    <author>Hedges, Larry V and Pigott, Therese D</author>
+    <year>2001</year>
+    <journal>Psychological Methods</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>6</volume>
+    <number>3</number>
+    <pages>203</pages>
+  </biblio>
+
+  <biblio xml:id="hedges2004power" type="bibtex">
+    <title>The power of statistical tests for moderators in meta-analysis.</title>
+    <author>Hedges, Larry V and Pigott, Therese D</author>
+    <year>2004</year>
+    <journal>Psychological Methods</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>9</volume>
+    <number>4</number>
+    <pages>426</pages>
+  </biblio>
+
+  <biblio xml:id="hedges2010robust" type="bibtex">
+    <title>Robust variance estimation in meta-regression with dependent effect size estimates</title>
+    <author>Hedges, Larry and Tipton, Elizabeth and Johnson, Matthew</author>
+    <year>2010</year>
+    <journal>Research synthesis methods</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>1</volume>
+    <number>1</number>
+    <pages>39--65</pages>
+  </biblio>
+
+  <biblio xml:id="hedges2014statistical" type="bibtex">
+    <title>Statistical methods for meta-analysis</title>
+    <author>Hedges, Larry and Olkin, Ingram</author>
+    <year>2014</year>
+    <publisher>Academic Press</publisher>
+  </biblio>
+
+  <biblio xml:id="henrich2010most" type="bibtex">
+    <title>Most people are not WEIRD</title>
+    <author>Henrich, Joseph and Heine, Steven J and Norenzayan, Ara</author>
+    <year>2010</year>
+    <journal>Nature</journal>
+    <publisher>Nature Publishing Group</publisher>
+    <volume>466</volume>
+    <number>7302</number>
+    <pages>29</pages>
+  </biblio>
+
+  <biblio xml:id="higgins2002quantifying" type="bibtex">
+    <title>Quantifying heterogeneity in a meta-analysis</title>
+    <author>Higgins, Julian PT and Thompson, Simon G</author>
+    <year>2002</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>21</volume>
+    <number>11</number>
+    <pages>1539--1558</pages>
+  </biblio>
+
+  <biblio xml:id="higgins2002statistical" type="bibtex">
+    <title>Statistical heterogeneity in systematic reviews of clinical trials: a critical appraisal of guidelines and practice</title>
+    <author>Higgins, J and Thompson, S and Deeks, J and Altman, D</author>
+    <year>2002</year>
+    <journal>Journal of Health Services Research Policy</journal>
+    <publisher>SAGE Publications Sage UK: London, England</publisher>
+    <volume>7</volume>
+    <number>1</number>
+    <pages>51--61</pages>
+  </biblio>
+
+  <biblio xml:id="higgins2004controlling" type="bibtex">
+    <title>Controlling the risk of spurious findings from meta-regression</title>
+    <author>Higgins, JPT and Thompson, SG</author>
+    <year>2004</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>23</volume>
+    <number>11</number>
+    <pages>1663--1682</pages>
+  </biblio>
+
+  <biblio xml:id="higgins2009re" type="bibtex">
+    <title>A re-evaluation of random-effects meta-analysis</title>
+    <author>Higgins, Julian and Thompson, Simon G and Spiegelhalter, David J</author>
+    <year>2009</year>
+    <journal>Journal of the Royal Statistical Society: Series A (Statistics in Society)</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>172</volume>
+    <number>1</number>
+    <pages>137--159</pages>
+  </biblio>
+
+  <biblio xml:id="higgins2011cochrane" type="bibtex">
+    <title>The Cochrane Collaboration’s tool for assessing risk of bias in randomised trials</title>
+    <author>Higgins, Julian and Altman, Douglas G and G\otzsche, Peter C and Jüni, Peter and Moher, David and Oxman, Andrew D and Savovi\'c, Jelena and Schulz, Kenneth F and Weeks, Laura and Sterne, Jonathan AC</author>
+    <year>2011</year>
+    <journal>BMJ</journal>
+    <publisher>British Medical Journal Publishing Group</publisher>
+    <volume>343</volume>
+    <pages>d5928</pages>
+  </biblio>
+
+  <biblio xml:id="higgins2012consistency" type="bibtex">
+    <title>Consistency and inconsistency in network meta-analysis: concepts and models for multi-arm studies</title>
+    <author>Higgins, J and Jackson, D and Barrett, JK and Lu, G and Ades, AE and White, IR</author>
+    <year>2012</year>
+    <journal>Research Synthesis Methods</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>3</volume>
+    <number>2</number>
+    <pages>98--110</pages>
+  </biblio>
+
+  <biblio xml:id="higgins2019cochrane" type="bibtex">
+    <title>Cochrane Handbook for Systematic Reviews of Interventions</title>
+    <author>Higgins, Julian and Thomas, James and Chandler, Jacqueline and Cumpston, Miranda and Li, Tianjing and Page, Matthew J and Welch, Vivian A</author>
+    <year>2019</year>
+    <publisher>John Wiley &amp; Sons</publisher>
+  </biblio>
+
+  <biblio xml:id="hoaglin2016misunderstandings" type="bibtex">
+    <title>Misunderstandings about $Q$ and ‘Cochran's $Q$ test' in meta-analysis</title>
+    <author>Hoaglin, David C</author>
+    <year>2016</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>35</volume>
+    <number>4</number>
+    <pages>485--495</pages>
+  </biblio>
+
+  <biblio xml:id="hoenig2001abuse" type="bibtex">
+    <title>The abuse of power: the pervasive fallacy of power calculations for data analysis</title>
+    <author>Hoenig, John M and Heisey, Dennis M</author>
+    <year>2001</year>
+    <journal>The American Statistician</journal>
+    <publisher>Taylor &amp; Francis</publisher>
+    <volume>55</volume>
+    <number>1</number>
+    <pages>19--24</pages>
+  </biblio>
+
+  <biblio xml:id="hoffman2014no" type="bibtex">
+    <title>The No-U-Turn sampler: adaptively setting path lengths in Hamiltonian Monte Carlo</title>
+    <author>Hoffman, Matthew D and Gelman, Andrew</author>
+    <year>2014</year>
+    <journal>Journal of Machine Learning Research</journal>
+    <volume>15</volume>
+    <number>1</number>
+    <pages>1593--1623</pages>
+  </biblio>
+
+  <biblio xml:id="hohn2019primary" type="bibtex">
+    <title>Primary study quality in psychological meta-analyses: An empirical assessment of recent practice</title>
+    <author>Hohn, Richard E and Slaney, Kathleen L and Tafreshi, Donna</author>
+    <year>2019</year>
+    <journal>Frontiers in Psychology</journal>
+    <publisher>Frontiers</publisher>
+    <volume>9</volume>
+    <pages>2667</pages>
+  </biblio>
+
+  <biblio xml:id="hough1994comparison" type="bibtex">
+    <title>Comparison of the Glass and Hunter-Schmidt meta-analytic techniques</title>
+    <author>Hough, Susan L and Hall, Bruce W</author>
+    <year>1994</year>
+    <journal>The Journal of Educational Research</journal>
+    <publisher>Taylor &amp; Francis</publisher>
+    <volume>87</volume>
+    <number>5</number>
+    <pages>292--296</pages>
+  </biblio>
+
+  <biblio xml:id="hunter2004methods" type="bibtex">
+    <title>Methods of meta-analysis: Correcting error and bias in research findings</title>
+    <author>Hunter, John E and Schmidt, Frank L</author>
+    <year>2004</year>
+    <publisher>Sage</publisher>
+  </biblio>
+
+  <biblio xml:id="hutton2010misleading" type="bibtex">
+    <title>Misleading statistics</title>
+    <author>Hutton, Jane L</author>
+    <year>2010</year>
+    <journal>Pharmaceutical Medicine</journal>
+    <publisher>Springer</publisher>
+    <volume>24</volume>
+    <number>3</number>
+    <pages>145--149</pages>
+  </biblio>
+
+  <biblio xml:id="igraph" type="bibtex">
+    <title>The igraph software package for complex network research</title>
+    <author>Gabor Csardi and Tamas Nepusz</author>
+    <year>2006</year>
+    <journal>InterJournal</journal>
+    <volume>Complex Systems</volume>
+    <pages>1695</pages>
+    <note><p>URL: https://igraph.org</p></note>
+  </biblio>
+
+  <biblio xml:id="infanger2019p" type="bibtex">
+    <title>$P$ value functions: An underused method to present research results and to promote quantitative reasoning</title>
+    <author>Infanger, Denis and Schmidt-Trucksäss, Arno</author>
+    <year>2019</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>38</volume>
+    <number>21</number>
+    <pages>4189--4197</pages>
+  </biblio>
+
+  <biblio xml:id="iniesta2016machine" type="bibtex">
+    <title>Machine learning, statistical learning and the future of biological research in psychiatry</title>
+    <author>Iniesta, R and Stahl, D and McGuffin, P</author>
+    <year>2016</year>
+    <journal>Psychological Medicine</journal>
+    <publisher>Cambridge University Press</publisher>
+    <volume>46</volume>
+    <number>12</number>
+    <pages>2455--2465</pages>
+  </biblio>
+
+  <biblio xml:id="inthout2014hartung" type="bibtex">
+    <title>The Hartung-Knapp-Sidik-Jonkman method for random effects meta-analysis is straightforward and considerably outperforms the standard DerSimonian-Laird method</title>
+    <author>IntHout, Joanna and Ioannidis, John PA and Borm, George F</author>
+    <year>2014</year>
+    <journal>BMC Medical Research Methodology</journal>
+    <publisher>BioMed Central</publisher>
+    <volume>14</volume>
+    <number>1</number>
+    <pages>25</pages>
+  </biblio>
+
+  <biblio xml:id="inthout2016plea" type="bibtex">
+    <title>Plea for routinely presenting prediction intervals in meta-analysis</title>
+    <author>IntHout, Joanna and Ioannidis, John PA and Rovers, Maroeska M and Goeman, Jelle J</author>
+    <year>2016</year>
+    <journal>BMJ Open</journal>
+    <publisher>British Medical Journal Publishing Group</publisher>
+    <volume>6</volume>
+    <number>7</number>
+  </biblio>
+
+  <biblio xml:id="ioannidis2005most" type="bibtex">
+    <title>Why most published research findings are false</title>
+    <author>Ioannidis, John PA</author>
+    <year>2005</year>
+    <journal>PLOS Medicine</journal>
+    <publisher>Public Library of Science</publisher>
+    <volume>2</volume>
+    <number>8</number>
+    <pages>e124</pages>
+  </biblio>
+
+  <biblio xml:id="ioannidis2006indirect" type="bibtex">
+    <title>Indirect comparisons: the mesh and mess of clinical trials</title>
+    <author>Ioannidis, John PA</author>
+    <year>2006</year>
+    <journal>The Lancet</journal>
+    <publisher>Elsevier</publisher>
+    <volume>368</volume>
+    <number>9546</number>
+    <pages>1470--1472</pages>
+  </biblio>
+
+  <biblio xml:id="ioannidis2012science" type="bibtex">
+    <title>Why science is not necessarily self-correcting</title>
+    <author>Ioannidis, John PA</author>
+    <year>2012</year>
+    <journal>Perspectives on Psychological Science</journal>
+    <publisher>Sage Publications Sage CA: Los Angeles, CA</publisher>
+    <volume>7</volume>
+    <number>6</number>
+    <pages>645--654</pages>
+  </biblio>
+
+  <biblio xml:id="ioannidis2016mass" type="bibtex">
+    <title>The mass production of redundant, misleading, and conflicted systematic reviews and meta-analyses</title>
+    <author>Ioannidis, John PA</author>
+    <year>2016</year>
+    <journal>The Milbank Quarterly</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>94</volume>
+    <number>3</number>
+    <pages>485--514</pages>
+  </biblio>
+
+  <biblio xml:id="iyengar1988selection" type="bibtex">
+    <title>Selection models and the file drawer problem</title>
+    <author>Iyengar, Satish and Greenhouse, Joel B</author>
+    <year>1988</year>
+    <journal>Statistical Science</journal>
+    <publisher>JSTOR</publisher>
+    <volume>3</volume>
+    <number>1</number>
+    <pages>109--117</pages>
+  </biblio>
+
+  <biblio xml:id="j2004add" type="bibtex">
+    <title>What to add to nothing? Use and avoidance of continuity corrections in meta-analysis of sparse data</title>
+    <author>Sweeting, Michael J and Sutton, Alexander J and Lambert, Paul C</author>
+    <year>2004</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>23</volume>
+    <number>9</number>
+    <pages>1351--1375</pages>
+  </biblio>
+
+  <biblio xml:id="jackson2013confidence" type="bibtex">
+    <title>Confidence intervals for the between-study variance in random effects meta-analysis using generalised Cochran heterogeneity statistics</title>
+    <author>Jackson, Dan</author>
+    <year>2013</year>
+    <journal>Research Synthesis Methods</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>4</volume>
+    <number>3</number>
+    <pages>220--229</pages>
+  </biblio>
+
+  <biblio xml:id="jackson2013matrix" type="bibtex">
+    <title>A matrix-based method of moments for fitting the multivariate random effects model for meta-analysis and meta-regression</title>
+    <author>Jackson, Dan and White, Ian R and Riley, Richard D</author>
+    <year>2013</year>
+    <journal>Biometrical Journal</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>55</volume>
+    <number>2</number>
+    <pages>231--245</pages>
+  </biblio>
+
+  <biblio xml:id="jordan2017past" type="bibtex">
+    <title>Past-year prevalence of prescription opioid misuse among those 11 to 30 years of age in the United States: A systematic review and meta-analysis</title>
+    <author>Jordan, Ashly E and Blackburn, Natalie A and Des Jarlais, Don C and Hagan, Holly</author>
+    <year>2017</year>
+    <journal>Journal of Substance Abuse Treatment</journal>
+    <publisher>Elsevier</publisher>
+    <volume>77</volume>
+    <pages>31--37</pages>
+  </biblio>
+
+  <biblio xml:id="joreskog2006lisrel" type="bibtex">
+    <title>LISREL 8.80. Chicago: Scientific Software International</title>
+    <author>Jöreskog, KG and Sörbom, Dag</author>
+    <year>2006</year>
+    <journal>Computer software</journal>
+  </biblio>
+
+  <biblio xml:id="jorgensen2016evaluation" type="bibtex">
+    <title>Evaluation of the Cochrane tool for assessing risk of bias in randomized clinical trials: Overview of published comments and analysis of user practice in Cochrane and non-Cochrane reviews</title>
+    <author>J\orgensen, Lars and Paludan-Müller, Asger S and Laursen, David RT and Savovi\'c, Jelena and Boutron, Isabelle and Sterne, Jonathan AC and Higgins, Julian PT and Hrobjartsson, Asbj\orn</author>
+    <year>2016</year>
+    <journal>Systematic Reviews</journal>
+    <publisher>Springer</publisher>
+    <volume>5</volume>
+    <number>1</number>
+    <pages>80</pages>
+  </biblio>
+
+  <biblio xml:id="joshi2021clusterwild" type="bibtex">
+    <title>Cluster Wild Bootstrapping to Handle Dependent Effect Sizes in Meta-Analysis with a Small Number of Studies</title>
+    <author>Joshi, Megha and Pustejovsky, James E and Beretvas, S Natasha</author>
+    <year>2021</year>
+    <journal>Research Synthesis Methods</journal>
+    <publisher>Wiley Online Library</publisher>
+  </biblio>
+
+  <biblio xml:id="kerr1998harking" type="bibtex">
+    <title>HARKing: Hypothesizing after the results are known</title>
+    <author>Kerr, Norbert L</author>
+    <year>1998</year>
+    <journal>Personality and Social Psychology Review</journal>
+    <publisher>Sage Publications Sage CA: Los Angeles, CA</publisher>
+    <volume>2</volume>
+    <number>3</number>
+    <pages>196--217</pages>
+  </biblio>
+
+  <biblio xml:id="kim2009status" type="bibtex">
+    <title>Status of women in cardiovascular clinical trials</title>
+    <author>Kim, Esther SH and Menon, Venu</author>
+    <year>2009</year>
+    <journal>Arteriosclerosis, thrombosis, and vascular biology</journal>
+    <publisher>Am Heart Assoc</publisher>
+    <volume>29</volume>
+    <number>3</number>
+    <pages>279--283</pages>
+  </biblio>
+
+  <biblio xml:id="kirsch2002emperor" type="bibtex">
+    <title>The emperor's new drugs: An analysis of antidepressant medication data submitted to the US Food and Drug Administration.</title>
+    <author>Kirsch, Irving and Moore, Thomas J and Scoboria, Alan and Nicholls, Sarah S</author>
+    <year>2002</year>
+    <journal>Prevention &amp; Treatment</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>5</volume>
+    <number>1</number>
+    <pages>23a</pages>
+  </biblio>
+
+  <biblio xml:id="kirschemperorbook" type="bibtex">
+    <title>The emperor's new drugs: Exploding the antidepressant myth</title>
+    <author>Irving Kirsch</author>
+    <year>2010</year>
+    <publisher>Basic Books</publisher>
+  </biblio>
+
+  <biblio xml:id="kline2015principles" type="bibtex">
+    <title>Principles and practice of structural equation modeling</title>
+    <author>Kline, Rex B</author>
+    <year>2015</year>
+    <publisher>Guilford</publisher>
+  </biblio>
+
+  <biblio xml:id="knapp2003improved" type="bibtex">
+    <title>Improved tests for a random effects meta-regression with a single covariate</title>
+    <author>Knapp, Guido and Hartung, Joachim</author>
+    <year>2003</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>22</volume>
+    <number>17</number>
+    <pages>2693--2710</pages>
+  </biblio>
+
+  <biblio xml:id="koffel2009two" type="bibtex">
+    <title>The two-factor structure of sleep complaints and its relation to depression and anxiety.</title>
+    <author>Koffel, Erin and Watson, David</author>
+    <year>2009</year>
+    <journal>Journal of Abnormal Psychology</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>118</volume>
+    <number>1</number>
+    <pages>183</pages>
+  </biblio>
+
+  <biblio xml:id="konig2013visualizing" type="bibtex">
+    <title>Visualizing the flow of evidence in network meta-analysis and characterizing mixed treatment comparisons</title>
+    <author>König, Jochem and Krahn, Ulrike and Binder, Harald</author>
+    <year>2013</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>32</volume>
+    <number>30</number>
+    <pages>5414--5429</pages>
+  </biblio>
+
+  <biblio xml:id="kraemer2006size" type="bibtex">
+    <title>Size of treatment effects and their importance to clinical research and practice</title>
+    <author>Kraemer, Helena Chmura and Kupfer, David J</author>
+    <year>2006</year>
+    <journal>Biological Psychiatry</journal>
+    <publisher>Elsevier</publisher>
+    <volume>59</volume>
+    <number>11</number>
+    <pages>990--996</pages>
+  </biblio>
+
+  <biblio xml:id="kraemer2009events" type="bibtex">
+    <title>Events per person-time (incidence rate): A misleading statistic?</title>
+    <author>Kraemer, Helena Chmura</author>
+    <year>2009</year>
+    <journal>Statistics in medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>28</volume>
+    <number>6</number>
+    <pages>1028--1039</pages>
+  </biblio>
+
+  <biblio xml:id="krahn2013graphical" type="bibtex">
+    <title>A graphical tool for locating inconsistency in network meta-analyses</title>
+    <author>Krahn, Ulrike and Binder, Harald and König, Jochem</author>
+    <year>2013</year>
+    <journal>BMC Medical Research Methodology</journal>
+    <publisher>Springer</publisher>
+    <volume>13</volume>
+    <number>1</number>
+    <pages>35</pages>
+  </biblio>
+
+  <biblio xml:id="lakens2017examining" type="bibtex">
+    <title>Examining the reproducibility of meta-analyses in psychology: A preliminary report</title>
+    <author>Lakens, Daniel and Page-Gould, Elizabeth and van Assen, Marcel ALM and Spellman, Bobbie and Schönbrodt, Felix and Hasselman, Fred and Corker, Katherine S and Grange, James A and Sharples, Amanda and Cavender, Corinne and Hilde, Augusteijn and Heike, Gerger and Cosima, Locher and Ian, Miller and Farid, Anvari and Anne, Scheel</author>
+    <year>2017</year>
+    <publisher>MetaArXiv</publisher>
+  </biblio>
+
+  <biblio xml:id="langan2019comparison" type="bibtex">
+    <title>A comparison of heterogeneity variance estimators in simulated random-effects meta-analyses</title>
+    <author>Langan, Dean and Higgins, Julian PT and Jackson, Dan and Bowden, Jack and Veroniki, Areti Angeliki and Kontopantelis, Evangelos and Viechtbauer, Wolfgang and Simmonds, Mark</author>
+    <year>2019</year>
+    <journal>Research Synthesis Methods</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>10</volume>
+    <number>1</number>
+    <pages>83--98</pages>
+  </biblio>
+
+  <biblio xml:id="lipsey2001practical" type="bibtex">
+    <title>Practical meta-analysis.</title>
+    <author>Lipsey, Mark W and Wilson, David B</author>
+    <year>2001</year>
+    <publisher>SAGE</publisher>
+  </biblio>
+
+  <biblio xml:id="lu2009modeling" type="bibtex">
+    <title>Modeling between-trial variance structure in mixed treatment comparisons</title>
+    <author>Lu, Guobing and Ades, AE</author>
+    <year>2009</year>
+    <journal>Biostatistics</journal>
+    <publisher>Oxford University Press</publisher>
+    <volume>10</volume>
+    <number>4</number>
+    <pages>792--805</pages>
+  </biblio>
+
+  <biblio xml:id="lunn2012bugs" type="bibtex">
+    <title>The BUGS book: A practical introduction to Bayesian analysis</title>
+    <author>Lunn, David and Jackson, Chris and Best, Nicky and Thomas, Andrew and Spiegelhalter, David</author>
+    <year>2012</year>
+    <publisher>Chapman &amp; Hall/CRC Press</publisher>
+  </biblio>
+
+  <biblio xml:id="mahood2014searching" type="bibtex">
+    <title>Searching for grey literature for systematic reviews: challenges and benefits</title>
+    <author>Mahood, Quenby and Van Eerd, Dwayne and Irvin, Emma</author>
+    <year>2014</year>
+    <journal>Research Synthesis Methods</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>5</volume>
+    <number>3</number>
+    <pages>221--234</pages>
+  </biblio>
+
+  <biblio xml:id="makambi2004effect" type="bibtex">
+    <title>The effect of the heterogeneity variance estimator on some tests of treatment efficacy</title>
+    <author>Makambi, Kepher H</author>
+    <year>2004</year>
+    <journal>Journal of Biopharmaceutical Statistics</journal>
+    <publisher>Taylor &amp; Francis</publisher>
+    <volume>14</volume>
+    <number>2</number>
+    <pages>439--449</pages>
+  </biblio>
+
+  <biblio xml:id="mansfiled1982detecting" type="bibtex">
+    <title>Detecting multicollinearity</title>
+    <author>Mansfield, Edward R and Helms, Billy P</author>
+    <year>1982</year>
+    <journal>The American Statistician</journal>
+    <publisher>Taylor &amp; Francis</publisher>
+    <volume>36</volume>
+    <number>3a</number>
+    <pages>158--160</pages>
+  </biblio>
+
+  <biblio xml:id="mantel1959statistical" type="bibtex">
+    <title>Statistical aspects of the analysis of data from retrospective studies of disease</title>
+    <author>Mantel, Nathan and Haenszel, William</author>
+    <year>1959</year>
+    <journal>Journal of the National Cancer Institute</journal>
+    <publisher>Oxford University Press</publisher>
+    <volume>22</volume>
+    <number>4</number>
+    <pages>719--748</pages>
+  </biblio>
+
+  <biblio xml:id="marsman2017bayesian" type="bibtex">
+    <title>A Bayesian bird's eye view of ‘Replications of important results in social psychology’</title>
+    <author>Marsman, Maarten and Schönbrodt, Felix D and Morey, Richard D and Yao, Yuling and Gelman, Andrew and Wagenmakers, Eric-Jan</author>
+    <year>2017</year>
+    <journal>Royal Society Open Science</journal>
+    <publisher>The Royal Society Publishing</publisher>
+    <volume>4</volume>
+    <number>1</number>
+    <pages>160426</pages>
+  </biblio>
+
+  <biblio xml:id="mattos2015systematic" type="bibtex">
+    <title>Systematic review and meta-analysis: What are the implications in the clinical practice?</title>
+    <author>Mattos, Claudia Trindade and Ruellas, Ant\^onio Carlos de Oliveira</author>
+    <year>2015</year>
+    <journal>Dental Press Journal of Orthodontics</journal>
+    <publisher>SciELO Brasil</publisher>
+    <volume>20</volume>
+    <number>1</number>
+    <pages>17--19</pages>
+  </biblio>
+
+  <biblio xml:id="mbuagbaw2017approaches" type="bibtex">
+    <title>Approaches to interpreting and choosing the best treatments in network meta-analyses</title>
+    <author>Mbuagbaw, L and Rochwerg, B and Jaeschke, R and Heels-Andsell, D and Alhazzani, W and Thabane, L and Guyatt, Gordon H</author>
+    <year>2017</year>
+    <journal>Systematic Reviews</journal>
+    <publisher>BioMed Central</publisher>
+    <volume>6</volume>
+    <number>1</number>
+    <pages>1--5</pages>
+  </biblio>
+
+  <biblio xml:id="mcardle1984some" type="bibtex">
+    <title>Some algebraic properties of the reticular action model for moment structures</title>
+    <author>McArdle, J Jack and McDonald, Roderick P</author>
+    <year>1984</year>
+    <journal>British Journal of Mathematical and Statistical Psychology</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>37</volume>
+    <number>2</number>
+    <pages>234--251</pages>
+  </biblio>
+
+  <biblio xml:id="mcauley2000does" type="bibtex">
+    <title>Does the inclusion of grey literature influence estimates of intervention effectiveness reported in meta-analyses?</title>
+    <author>McAuley, Laura and Tugwell, Peter and Moher, David and others</author>
+    <year>2000</year>
+    <journal>The Lancet</journal>
+    <publisher>Elsevier</publisher>
+    <volume>356</volume>
+    <number>9237</number>
+    <pages>1228--1231</pages>
+  </biblio>
+
+  <biblio xml:id="mcgrayne2011theory" type="bibtex">
+    <title>The theory that would not die: How Bayes' rule cracked the enigma code, hunted down Russian submarines, and emerged triumphant from two centuries of controversy</title>
+    <author>McGrayne, Sharon Bertsch</author>
+    <year>2011</year>
+    <publisher>Yale University Press</publisher>
+  </biblio>
+
+  <biblio xml:id="mcguinness2020risk" type="bibtex">
+    <title>Risk-Of-Bias VISualization (robvis): An R package and Shiny web app for visualizing risk-of-bias assessments</title>
+    <author>McGuinness, Luke A and Higgins, Julian PT</author>
+    <year>2020</year>
+    <journal>Research Synthesis Methods</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>12</volume>
+    <number>1</number>
+  </biblio>
+
+  <biblio xml:id="mcneish2016using" type="bibtex">
+    <title>On using Bayesian methods to address small sample problems</title>
+    <author>McNeish, Daniel</author>
+    <year>2016</year>
+    <journal>Structural Equation Modeling: A Multidisciplinary Journal</journal>
+    <publisher>Taylor &amp; Francis</publisher>
+    <volume>23</volume>
+    <number>5</number>
+    <pages>750--773</pages>
+  </biblio>
+
+  <biblio xml:id="mcnutt2014reproducibility" type="bibtex">
+    <title>Reproducibility</title>
+    <author>McNutt, Marcia</author>
+    <year>2014</year>
+    <journal>Science</journal>
+    <publisher>American Association for the Advancement of Science</publisher>
+    <volume>343</volume>
+    <number>6168</number>
+    <pages>229</pages>
+  </biblio>
+
+  <biblio xml:id="mcshane2016adjusting" type="bibtex">
+    <title>Adjusting for publication bias in meta-analysis: An evaluation of selection methods and some cautionary notes</title>
+    <author>McShane, Blakeley B and Böckenholt, Ulf and Hansen, Karsten T</author>
+    <year>2016</year>
+    <journal>Perspectives on Psychological Science</journal>
+    <publisher>Sage Publications Sage CA: Los Angeles, CA</publisher>
+    <volume>11</volume>
+    <number>5</number>
+    <pages>730--749</pages>
+  </biblio>
+
+  <biblio xml:id="meehl1978theoretical" type="bibtex">
+    <title>Theoretical risks and tabular asterisks: Sir Karl, Sir Ronald, and the slow progress of soft psychology.</title>
+    <author>Meehl, Paul E</author>
+    <year>1978</year>
+    <journal>Journal of Consulting and Clinical Psychology</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>46</volume>
+    <number>4</number>
+    <pages>806</pages>
+  </biblio>
+
+  <biblio xml:id="mehta2005people" type="bibtex">
+    <title>People are variables too: Multilevel structural equations modeling.</title>
+    <author>Mehta, Paras D and Neale, Michael C</author>
+    <year>2005</year>
+    <journal>Psychological Methods</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>10</volume>
+    <number>3</number>
+    <pages>259</pages>
+  </biblio>
+
+  <biblio xml:id="mendes2017number" type="bibtex">
+    <title>Number needed to treat (NNT) in clinical literature: an appraisal</title>
+    <author>Mendes, Diogo and Alves, Carlos and Batel-Marques, Francisco</author>
+    <year>2017</year>
+    <journal>BMC Medicine</journal>
+    <publisher>Springer</publisher>
+    <volume>15</volume>
+    <number>1</number>
+    <pages>112</pages>
+  </biblio>
+
+  <biblio xml:id="meta" type="bibtex">
+    <title>How to perform a meta-analysis with R: A practical tutorial</title>
+    <author>Balduzzi, Sara and Rücker, Gerta and Schwarzer, Guido</author>
+    <year>2019</year>
+    <journal>Evidence-Based Mental Health</journal>
+    <publisher>Royal College of Psychiatrists</publisher>
+    <volume>22</volume>
+    <number>4</number>
+    <pages>153--160</pages>
+  </biblio>
+
+  <biblio xml:id="metasem" type="bibtex">
+    <title>metaSEM: An R package for meta-analysis using structural equation modeling</title>
+    <author>Cheung, Mike</author>
+    <year>2015</year>
+    <journal>Frontiers in Psychology</journal>
+    <publisher>Frontiers</publisher>
+    <volume>5</volume>
+    <pages>1521</pages>
+  </biblio>
+
+  <biblio xml:id="metasens" type="bibtex">
+    <title>metasens: Advanced Statistical Methods to Model and Adjust for Bias in Meta-Analysis. R package version 0.5-0</title>
+    <author>Guido Schwarzer and James R. Carpenter and Gerta Rücker</author>
+    <year>2020</year>
+    <note><p>URL: https://CRAN.R-project.org/package=metasens</p></note>
+  </biblio>
+
+  <biblio xml:id="methods2016methodological" type="bibtex">
+    <title>Methodological expectations of Campbell Collaboration intervention reviews (MECCIR): Conduct standards</title>
+    <author>Campbell Collaboration</author>
+    <year>2016</year>
+    <journal>Campbell Policies and Guidelines Series</journal>
+    <volume>3</volume>
+  </biblio>
+
+  <biblio xml:id="moher2009preferred" type="bibtex">
+    <title>Preferred reporting items for systematic reviews and meta-analyses: The PRISMA statement</title>
+    <author>Moher, David and Liberati, Alessandro and Tetzlaff, Jennifer and Altman, Douglas G and Prisma Group and others</author>
+    <year>2009</year>
+    <journal>PLoS Medicine</journal>
+    <publisher>Public Library of Science</publisher>
+    <volume>6</volume>
+    <number>7</number>
+  </biblio>
+
+  <biblio xml:id="moher2015preferred" type="bibtex">
+    <title>Preferred reporting items for systematic review and meta-analysis protocols (PRISMA-P) 2015 statement</title>
+    <author>Moher, David and Shamseer, Larissa and Clarke, Mike and Ghersi, Davina and Liberati, Alessandro and Petticrew, Mark and Shekelle, Paul and Stewart, Lesley A and ,PRISMA-P Group</author>
+    <year>2015</year>
+    <journal>Systematic Reviews</journal>
+    <publisher>Springer</publisher>
+    <volume>4</volume>
+    <number>1</number>
+    <pages>1</pages>
+  </biblio>
+
+  <biblio xml:id="moller2015strong" type="bibtex">
+    <title>Strong effects of ionizing radiation from Chernobyl on mutation rates</title>
+    <author>M\oller, Anders Pape and Mousseau, Timothy A</author>
+    <year>2015</year>
+    <journal>Scientific Reports</journal>
+    <publisher>Nature Publishing Group</publisher>
+    <volume>5</volume>
+    <pages>8363</pages>
+  </biblio>
+
+  <biblio xml:id="montgomery" type="bibtex">
+    <title>Design and Analysis of Experiments</title>
+    <author>Montgomery, Douglas C</author>
+    <year>2013</year>
+    <publisher>Wiley</publisher>
+  </biblio>
+
+  <biblio xml:id="mosca2013fifteen" type="bibtex">
+    <title>Fifteen-year trends in awareness of heart disease in women: Results of a 2012 American Heart Association national survey</title>
+    <author>Mosca, Lori and Hammond, Gmerice and Mochari-Greenberger, Heidi and Towfighi, Amytis and Albert, Michelle A</author>
+    <year>2013</year>
+    <journal>Circulation</journal>
+    <publisher>Am Heart Assoc</publisher>
+    <volume>127</volume>
+    <number>11</number>
+    <pages>1254--1263</pages>
+  </biblio>
+
+  <biblio xml:id="muthen2012mplus" type="bibtex">
+    <title>MPlus: statistical analysis with latent variables--User's guide</title>
+    <author>Muthen, Linda K and Muthen, Bengt O</author>
+    <year>2012</year>
+    <publisher>Citeseer</publisher>
+  </biblio>
+
+  <biblio xml:id="mvmeta" type="bibtex">
+    <title>Multivariate meta-analysis for non-linear and other multi-parameter associations</title>
+    <author>A. Gasparrini and B. Armstrong and M. G. Kenward</author>
+    <year>2012</year>
+    <journal>Statistics in Medicine</journal>
+    <volume>31</volume>
+    <number>29</number>
+    <pages>3821--3839</pages>
+  </biblio>
+
+  <biblio xml:id="nemeta" type="bibtex">
+    <title>netmeta: Network Meta-Analysis using Frequentist Methods</title>
+    <author>Gerta Rücker and Ulrike Krahn and Jochem König and Orestis Efthimiou and Guido Schwarzer</author>
+    <year>2020</year>
+    <note><p>R package version 1.2-1. URL: https://CRAN.R-project.org/package=netmeta</p></note>
+  </biblio>
+
+  <biblio xml:id="ngamaba2017strongly" type="bibtex">
+    <title>How strongly related are health status and subjective well-being? Systematic review and meta-analysis</title>
+    <author>Ngamaba, Kayonda Hubert and Panagioti, Maria and Armitage, Christopher J</author>
+    <year>2017</year>
+    <journal>The European Journal of Public Health</journal>
+    <publisher>Oxford University Press</publisher>
+    <volume>27</volume>
+    <number>5</number>
+    <pages>879--885</pages>
+  </biblio>
+
+  <biblio xml:id="nielsen2017one" type="bibtex">
+    <title>One and a half million medical papers reveal a link between author gender and attention to gender and sex analysis</title>
+    <author>Nielsen, Mathias Wullum and Andersen, Jens Peter and Schiebinger, Londa and Schneider, Jesper W</author>
+    <year>2017</year>
+    <journal>Nature Human Behaviour</journal>
+    <publisher>Nature Publishing Group</publisher>
+    <volume>1</volume>
+    <number>11</number>
+    <pages>791--796</pages>
+  </biblio>
+
+  <biblio xml:id="nuzzo2014statistical" type="bibtex">
+    <title>Statistical errors: $P$ values, the 'gold standard' of statistical validity, are not as reliable as many scientists assume</title>
+    <author>Nuzzo, Rigina</author>
+    <year>2014</year>
+    <journal>Nature</journal>
+    <publisher>Nature Publishing Group</publisher>
+    <volume>506</volume>
+    <number>7487</number>
+    <pages>150--153</pages>
+  </biblio>
+
+  <biblio xml:id="o2007historical" type="bibtex">
+    <title>An historical perspective on meta-analysis: Dealing quantitatively with varying study results</title>
+    <author>O'Rourke, Keith</author>
+    <year>2007</year>
+    <journal>Journal of the Royal Society of Medicine</journal>
+    <publisher>SAGE Publications Sage UK: London, England</publisher>
+    <volume>100</volume>
+    <number>12</number>
+    <pages>579--582</pages>
+  </biblio>
+
+  <biblio xml:id="olkin1995correlations" type="bibtex">
+    <title>Correlations redux</title>
+    <author>Olkin, Ingram and Finn, Jeremy D</author>
+    <year>1995</year>
+    <journal>Psychological Bulletin</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>118</volume>
+    <number>1</number>
+    <pages>155</pages>
+  </biblio>
+
+  <biblio xml:id="olkin2012gosh" type="bibtex">
+    <title>GOSH--a graphical display of study heterogeneity</title>
+    <author>Olkin, Ingram and Dahabreh, Issa J and Trikalinos, Thomas A</author>
+    <year>2012</year>
+    <journal>Research Synthesis Methods</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>3</volume>
+    <number>3</number>
+    <pages>214--223</pages>
+  </biblio>
+
+  <biblio xml:id="open2015estimating" type="bibtex">
+    <title>Estimating the reproducibility of psychological science</title>
+    <author>Open Science Collaboration and others</author>
+    <year>2015</year>
+    <journal>Science</journal>
+    <publisher>American Association for the Advancement of Science</publisher>
+    <volume>349</volume>
+    <number>6251</number>
+  </biblio>
+
+  <biblio xml:id="openxlsx" type="bibtex">
+    <title>openxlsx: Read, Write and Edit xlsx Files. R package version 4.1.5</title>
+    <author>Philipp Schauberger and Alexander Walker</author>
+    <year>2020</year>
+    <note><p>URL: https://CRAN.R-project.org/package=openxlsx</p></note>
+  </biblio>
+
+  <biblio xml:id="osfr" type="bibtex">
+    <title>osfr: An R Interface to the Open Science Framework</title>
+    <author>Aaron R. Wolen and Chris H.J. Hartgerink and Ryan Hafen and Brian G. Richards and Courtney K. Soderberg and Timothy P. York</author>
+    <year>2020</year>
+    <journal>Journal of Open Source Software</journal>
+    <volume>5</volume>
+    <number>46</number>
+    <pages>2071</pages>
+  </biblio>
+
+  <biblio xml:id="page2020investigating" type="bibtex">
+    <title>Investigating and dealing with publication bias and other reporting biases in meta-analyses of health research: a review</title>
+    <author>Page, Matthew J and Sterne, Jonathan AC and Higgins, Julian PT and Egger, Matthias</author>
+    <year>2020</year>
+    <journal>Research Synthesis Methods</journal>
+    <publisher>Wiley Online Library</publisher>
+  </biblio>
+
+  <biblio xml:id="page2021prisma" type="bibtex">
+    <title>PRISMA 2020 explanation and elaboration: updated guidance and exemplars for reporting systematic reviews</title>
+    <author>Page, Matthew J and Moher, David and Bossuyt, Patrick M and Boutron, Isabelle and Hoffmann, Tammy C and Mulrow, Cynthia D and Shamseer, Larissa and Tetzlaff, Jennifer M and Akl, Elie A and Brennan, Sue E and others</author>
+    <year>2021</year>
+    <journal>BMJ</journal>
+    <publisher>British Medical Journal Publishing Group</publisher>
+    <volume>372</volume>
+    <note><p>URL: https://www.bmj.com/content/372/bmj.n71</p></note>
+  </biblio>
+
+  <biblio xml:id="panageas2007you" type="bibtex">
+    <title>When you look matters: The effect of assessment schedule on progression-free survival</title>
+    <author>Panageas, Katherine S and Ben-Porat, Leah and Dickler, Maura N and Chapman, Paul B and Schrag, Deborah</author>
+    <year>2007</year>
+    <journal>Journal of the National Cancer Institute</journal>
+    <publisher>Oxford University Press</publisher>
+    <volume>99</volume>
+    <number>6</number>
+    <pages>428--432</pages>
+  </biblio>
+
+  <biblio xml:id="pastor2018multilevel" type="bibtex">
+    <title>On the multilevel nature of meta-analysis: a tutorial, comparison of software programs, and discussion of analytic choices</title>
+    <author>Pastor, Dena A and Lazowski, Rory A</author>
+    <year>2018</year>
+    <journal>Multivariate Behavioral Research</journal>
+    <publisher>Taylor &amp; Francis</publisher>
+    <volume>53</volume>
+    <number>1</number>
+    <pages>74--89</pages>
+  </biblio>
+
+  <biblio xml:id="patsopoulos2005relative" type="bibtex">
+    <title>Relative citation impact of various study designs in the health sciences</title>
+    <author>Patsopoulos, Nikolaos A and Analatos, Apostolos A and Ioannidis, John PA</author>
+    <year>2005</year>
+    <journal>JAMA</journal>
+    <publisher>American Medical Association</publisher>
+    <volume>293</volume>
+    <number>19</number>
+    <pages>2362--2366</pages>
+  </biblio>
+
+  <biblio xml:id="paule1982consensus" type="bibtex">
+    <title>Consensus values and weighting factors</title>
+    <author>Paule, Robert C and Mandel, John</author>
+    <year>1982</year>
+    <journal>Journal of Research of the National Bureau of Standards</journal>
+    <volume>87</volume>
+    <number>5</number>
+    <pages>377--385</pages>
+  </biblio>
+
+  <biblio xml:id="perfanalytics" type="bibtex">
+    <title>PerformanceAnalytics: Econometric Tools for Performance and Risk Analysis. R package version 2.0.4</title>
+    <author>Brian G. Peterson and Peter Carl</author>
+    <year>2020</year>
+  </biblio>
+
+  <biblio xml:id="peters2006comparison" type="bibtex">
+    <title>Comparison of two methods to detect publication bias in meta-analysis</title>
+    <author>Peters, Jaime L and Sutton, Alex J and Jones, David R and Abrams, Keith R and Rushton, Lesley</author>
+    <year>2006</year>
+    <journal>JAMA</journal>
+    <publisher>American Medical Association</publisher>
+    <volume>295</volume>
+    <number>6</number>
+    <pages>676--680</pages>
+  </biblio>
+
+  <biblio xml:id="peters2007performance" type="bibtex">
+    <title>Performance of the trim and fill method in the presence of publication bias and between-study heterogeneity</title>
+    <author>Peters, Jaime L and Sutton, Alex J and Jones, David R and Abrams, Keith R and Rushton, Lesley</author>
+    <year>2007</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>26</volume>
+    <number>25</number>
+    <pages>4544--4562</pages>
+  </biblio>
+
+  <biblio xml:id="peters2008contour" type="bibtex">
+    <title>Contour-enhanced meta-analysis funnel plots help distinguish publication bias from other causes of asymmetry</title>
+    <author>Peters, Jaime L and Sutton, Alex J and Jones, David R and Abrams, Keith R and Rushton, Lesley</author>
+    <year>2008</year>
+    <journal>Journal of Clinical Epidemiology</journal>
+    <publisher>Elsevier</publisher>
+    <volume>61</volume>
+    <number>10</number>
+    <pages>991--996</pages>
+  </biblio>
+
+  <biblio xml:id="peto1980aspirin" type="bibtex">
+    <title>Aspirin after myocardial infarction</title>
+    <author>Peto, R and Parish, S</author>
+    <year>1980</year>
+    <journal>The Lancet</journal>
+    <volume>1</volume>
+    <number>8179</number>
+    <pages>1172--1173</pages>
+  </biblio>
+
+  <biblio xml:id="piantadosi1988ecological" type="bibtex">
+    <title>The ecological fallacy</title>
+    <author>Piantadosi, Steven and Byar, David P and Green, Sylvan B</author>
+    <year>1988</year>
+    <journal>American Journal of Epidemiology</journal>
+    <publisher>Oxford University Press</publisher>
+    <volume>127</volume>
+    <number>5</number>
+    <pages>893--904</pages>
+  </biblio>
+
+  <biblio xml:id="pigott2020methodological" type="bibtex">
+    <title>Methodological guidance paper: High-quality meta-analysis in a systematic review</title>
+    <author>Pigott, Terri D and Polanin, Joshua R</author>
+    <year>2020</year>
+    <journal>Review of Educational Research</journal>
+    <publisher>SAGE Publications Sage CA: Los Angeles, CA</publisher>
+    <volume>90</volume>
+    <number>1</number>
+    <pages>24--46</pages>
+  </biblio>
+
+  <biblio xml:id="poole1999random" type="bibtex">
+    <title>Random-effects meta-analyses are not always conservative</title>
+    <author>Poole, Charles and Greenland, Sander</author>
+    <year>1999</year>
+    <journal>American Journal of Epidemiology</journal>
+    <publisher>Oxford University Press</publisher>
+    <volume>150</volume>
+    <number>5</number>
+    <pages>469--475</pages>
+  </biblio>
+
+  <biblio xml:id="prisma2020package" type="bibtex">
+    <title>PRISMA2020: R package and ShinyApp for producing PRISMA 2020 compliant flow diagrams (Version 0.0.1)</title>
+    <author>Haddaway, Neil R and McGuinness, Luke A</author>
+    <year>2020</year>
+  </biblio>
+
+  <biblio xml:id="psychmeta" type="bibtex">
+    <title>psychmeta: An R Package for Psychometric Meta-Analysis</title>
+    <author>Jeffrey A. Dahlke and Brenton M. Wiernik</author>
+    <year>2019</year>
+    <journal>Applied Psychological Measurement</journal>
+    <volume>43</volume>
+    <number>5</number>
+    <pages>415--416</pages>
+  </biblio>
+
+  <biblio xml:id="pustejovsky2019testing" type="bibtex">
+    <title>Testing for funnel plot asymmetry of standardized mean differences</title>
+    <author>Pustejovsky, James E and Rodgers, Melissa A</author>
+    <year>2019</year>
+    <journal>Research Synthesis Methods</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>10</volume>
+    <number>1</number>
+    <pages>57--71</pages>
+  </biblio>
+
+  <biblio xml:id="pustejovsky2021meta" type="bibtex">
+    <title>Meta-analysis with Robust Variance Estimation: Expanding the range of working models</title>
+    <author>Pustejovsky, James E and Tipton, Elizabeth</author>
+    <year>2021</year>
+    <journal>Prevention Science</journal>
+    <publisher>Springer</publisher>
+    <pages>1--14</pages>
+  </biblio>
+
+  <biblio xml:id="quintana2015pre" type="bibtex">
+    <title>From pre-registration to publication: A non-technical primer for conducting a meta-analysis to synthesize correlational data</title>
+    <author>Quintana, Daniel S</author>
+    <year>2015</year>
+    <journal>Frontiers in Psychology</journal>
+    <publisher>Frontiers</publisher>
+    <volume>6</volume>
+    <pages>1549</pages>
+  </biblio>
+
+  <biblio xml:id="raudenbush2009pi" type="bibtex">
+    <title>Analyzing effect sizes: Random effects models</title>
+    <author>Raudenbush, SW</author>
+    <year>2009</year>
+    <journal>The handbook of research synthesis and meta-analysis (2nd Ed.)</journal>
+    <publisher>Russell Sage Foundation</publisher>
+  </biblio>
+
+  <biblio xml:id="riley2007evidence" type="bibtex">
+    <title>Evidence synthesis combining individual patient data and aggregate data: A systematic review identified current practice and possible methods</title>
+    <author>Riley, Richard D and Simmonds, Mark C and Look, Maxime P</author>
+    <year>2007</year>
+    <journal>Journal of Clinical Epidemiology</journal>
+    <publisher>Elsevier</publisher>
+    <volume>60</volume>
+    <number>5</number>
+    <pages>431.e1--431.e12</pages>
+  </biblio>
+
+  <biblio xml:id="riley2010meta" type="bibtex">
+    <title>Meta-analysis of individual participant data: Rationale, conduct, and reporting</title>
+    <author>Riley, Richard D and Lambert, Paul C and Abo-Zaid, Ghada</author>
+    <year>2010</year>
+    <journal>BMJ</journal>
+    <publisher>British Medical Journal Publishing Group</publisher>
+    <volume>340</volume>
+    <pages>c221</pages>
+  </biblio>
+
+  <biblio xml:id="riley2021individual" type="bibtex">
+    <title>Individual Participant Data Meta-Analysis: A Handbook for Healthcare Research</title>
+    <author>Richard D. Riley and Jayne F. Tierney and Lesley A. Stewart</author>
+    <year>2021</year>
+    <publisher>Wiley</publisher>
+  </biblio>
+
+  <biblio xml:id="rjags" type="bibtex">
+    <title>rjags: Bayesian Graphical Models using MCMC. R package version 4-10</title>
+    <author>Martyn Plummer</author>
+    <year>2019</year>
+    <note><p>URL: https://CRAN.R-project.org/package=rjags</p></note>
+  </biblio>
+
+  <biblio xml:id="rmsea" type="bibtex">
+    <title>Alternative ways of assessing model fit</title>
+    <author>Browne, MW and Cudeck, R</author>
+    <year>1993</year>
+    <journal>Testing structural equation models</journal>
+    <publisher>Sage Publications</publisher>
+  </biblio>
+
+  <biblio xml:id="robins1986general" type="bibtex">
+    <title>A general estimator for the variance of the Mantel-Haenszel odds ratio</title>
+    <author>James Robins and Sander Greenland and Norman E. Breslow</author>
+    <year>1986</year>
+    <journal>American Journal of Epidemiology</journal>
+    <pages>719--723</pages>
+  </biblio>
+
+  <biblio xml:id="robumeta" type="bibtex">
+    <title>robumeta: Robust Variance Meta-Regression</title>
+    <author>Zachary Fisher and Elizabeth Tipton and Hou Zhipeng</author>
+    <year>2017</year>
+    <note><p>R package version 2.0. URL: https://CRAN.R-project.org/package=robumeta</p></note>
+  </biblio>
+
+  <biblio xml:id="robvis" type="bibtex">
+    <title>robvis: An R package and web application for visualising risk-of-bias assessments</title>
+    <author>Luke A McGuinness</author>
+    <year>2019</year>
+    <note><p>URL: https://github.com/mcguinlu/robvis</p></note>
+  </biblio>
+
+  <biblio xml:id="rosnow1996computing" type="bibtex">
+    <title>Computing contrasts, effect sizes, and counternulls on other people's published data: General procedures for research consumers.</title>
+    <author>Rosnow, Ralph L and Rosenthal, Robert</author>
+    <year>1996</year>
+    <journal>Psychological Methods</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>1</volume>
+    <number>4</number>
+    <pages>331</pages>
+  </biblio>
+
+  <biblio xml:id="rosnow2000contrasts" type="bibtex">
+    <title>Contrasts and correlations in effect-size estimation</title>
+    <author>Rosnow, Ralph L and Rosenthal, Robert and Rubin, Donald B</author>
+    <year>2000</year>
+    <journal>Psychological Science</journal>
+    <publisher>SAGE Publications Sage CA: Los Angeles, CA</publisher>
+    <volume>11</volume>
+    <number>6</number>
+    <pages>446--453</pages>
+  </biblio>
+
+  <biblio xml:id="rothman2008modern" type="bibtex">
+    <title>Modern epidemiology</title>
+    <author>Rothman, Kenneth J and Greenland, Sander and Lash, Timothy L</author>
+    <year>2008</year>
+    <publisher>Lippincott Williams &amp; Wilkins</publisher>
+  </biblio>
+
+  <biblio xml:id="rover2017bayesian" type="bibtex">
+    <title>Bayesian Random-Effects Meta-Analysis Using the `bayesmeta` R Package</title>
+    <author>Röver, Christian</author>
+    <year>2017</year>
+    <journal>ArXiv Preprint 1711.08683</journal>
+  </biblio>
+
+  <biblio xml:id="rucker2008undue" type="bibtex">
+    <title>Undue reliance on $I^2$ in assessing heterogeneity may mislead</title>
+    <author>Rücker, Gerta and Schwarzer, Guido and Carpenter, James R and Schumacher, Martin</author>
+    <year>2008</year>
+    <journal>BMC Medical Research Methodology</journal>
+    <publisher>Springer</publisher>
+    <volume>8</volume>
+    <number>1</number>
+    <pages>79</pages>
+  </biblio>
+
+  <biblio xml:id="rucker2011treatment" type="bibtex">
+    <title>Treatment-effect estimates adjusted for small-study effects via a limit meta-analysis</title>
+    <author>Rücker, Gerta and Schwarzer, Guido and Carpenter, James R and Binder, Harald and Schumacher, Martin</author>
+    <year>2011</year>
+    <journal>Biostatistics</journal>
+    <publisher>Oxford University Press</publisher>
+    <volume>12</volume>
+    <number>1</number>
+    <pages>122--142</pages>
+  </biblio>
+
+  <biblio xml:id="rucker2012network" type="bibtex">
+    <title>Network meta-analysis, electrical networks and graph theory</title>
+    <author>Rücker, Gerta</author>
+    <year>2012</year>
+    <journal>Research Synthesis Methods</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>3</volume>
+    <number>4</number>
+    <pages>312--324</pages>
+  </biblio>
+
+  <biblio xml:id="rucker2015ranking" type="bibtex">
+    <title>Ranking treatments in frequentist network meta-analysis works without resampling methods</title>
+    <author>Rücker, Gerta and Schwarzer, Guido</author>
+    <year>2015</year>
+    <journal>BMC Medical Research Methodology</journal>
+    <publisher>BioMed Central</publisher>
+    <volume>15</volume>
+    <number>58</number>
+  </biblio>
+
+  <biblio xml:id="rucker2020beyond" type="bibtex">
+    <title>Beyond the forest plot: The drapery plot</title>
+    <author>Rücker, Gerta and Schwarzer, Guido</author>
+    <year>2021</year>
+    <journal>Research Synthesis Methods</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>12</volume>
+    <number>1</number>
+    <pages>13--19</pages>
+  </biblio>
+
+  <biblio xml:id="salanti2011graphical" type="bibtex">
+    <title>Graphical methods and numerical summaries for presenting results from multiple-treatment meta-analysis: an overview and tutorial</title>
+    <author>Salanti, Georgia and Ades, AE and Ioannidis, John PA</author>
+    <year>2011</year>
+    <journal>Journal of Clinical Epidemiology</journal>
+    <publisher>Elsevier</publisher>
+    <volume>64</volume>
+    <number>2</number>
+    <pages>163--171</pages>
+  </biblio>
+
+  <biblio xml:id="salanti2014evaluating" type="bibtex">
+    <title>Evaluating the quality of evidence from a network meta-analysis</title>
+    <author>Salanti, Georgia and Del Giovane, Cinzia and Chaimani, Anna and Caldwell, Deborah M and Higgins, Julian PT</author>
+    <year>2014</year>
+    <journal>PLOS ONE</journal>
+    <publisher>Public Library of Science</publisher>
+    <volume>9</volume>
+    <number>7</number>
+    <pages>e99682</pages>
+  </biblio>
+
+  <biblio xml:id="sanderson2007tools" type="bibtex">
+    <title>Tools for assessing quality and susceptibility to bias in observational studies in epidemiology: A systematic review and annotated bibliography</title>
+    <author>Sanderson, Simon and Tatt, Iain D and Higgins, Julian</author>
+    <year>2007</year>
+    <journal>International Journal of Epidemiology</journal>
+    <publisher>Oxford University Press</publisher>
+    <volume>36</volume>
+    <number>3</number>
+    <pages>666--676</pages>
+  </biblio>
+
+  <biblio xml:id="saruhanjan2020psychological" type="bibtex">
+    <title>Psychological interventions to improve sleep in college students: A meta-analysis of randomized controlled trials</title>
+    <author>Saruhanjan, Karina and Zarski, Anna-Carlotta and Bauer, Tobias and Baumeister, Harald and Cuijpers, Pim and Spiegelhalder, Kai and Auerbach, Randy P and Kessler, Ronald C and Bruffaerts, Ronny and Karyotaki, Eirini and Berking, Matthias and Ebert, David D</author>
+    <year>2020</year>
+    <journal>Journal of Sleep Research</journal>
+    <publisher>Wiley Online Library</publisher>
+    <pages>e13097</pages>
+  </biblio>
+
+  <biblio xml:id="scherer2018full" type="bibtex">
+    <title>Full publication of results initially presented in abstracts</title>
+    <author>Scherer, Roberta W and Meerpohl, Joerg J and Pfeifer, Nadine and Schmucker, Christine and Schwarzer, Guido and von Elm, Erik</author>
+    <year>2018</year>
+    <journal>Cochrane Database of Systematic Reviews</journal>
+    <publisher>John Wiley &amp; Sons</publisher>
+    <volume>1</volume>
+    <number>11</number>
+  </biblio>
+
+  <biblio xml:id="schmidt1977development" type="bibtex">
+    <title>Development of a general solution to the problem of validity generalization.</title>
+    <author>Schmidt, Frank L and Hunter, John E</author>
+    <year>1977</year>
+    <journal>Journal of Applied Psychology</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>62</volume>
+    <number>5</number>
+    <pages>529</pages>
+  </biblio>
+
+  <biblio xml:id="schmucker2014extent" type="bibtex">
+    <title>Extent of non-publication in cohorts of studies approved by research ethics committees or included in trial registries</title>
+    <author>Schmucker, Christine and Schell, Lisa K and Portalupi, Susan and Oeller, Patrick and Cabrera, Laura and Bassler, Dirk and Schwarzer, Guido and Scherer, Roberta W and Antes, Gerd and Von Elm, Erik and Joerg J, Meerpohl</author>
+    <year>2014</year>
+    <journal>PLOS ONE</journal>
+    <publisher>Public Library of Science</publisher>
+    <volume>9</volume>
+    <number>12</number>
+    <pages>e114023</pages>
+  </biblio>
+
+  <biblio xml:id="schopfel2018electronic" type="bibtex">
+    <title>Are electronic theses and dissertations (still) grey literature in the digital age? A FAIR debate</title>
+    <author>Schöpfel, Joachim and Rasuli, Behrooz</author>
+    <year>2018</year>
+    <journal>The Electronic Library</journal>
+    <publisher>Emerald Publishing Limited</publisher>
+    <volume>36</volume>
+    <number>2</number>
+    <pages>208--219</pages>
+  </biblio>
+
+  <biblio xml:id="schubert2017dbscan" type="bibtex">
+    <title>DBSCAN revisited, revisited: Why and how you should (still) use DBSCAN</title>
+    <author>Schubert, Erich and Sander, Jörg and Ester, Martin and Kriegel, Hans Peter and Xu, Xiaowei</author>
+    <year>2017</year>
+    <journal>ACM Transactions on Database Systems (TODS)</journal>
+    <publisher>ACM New York, NY, USA</publisher>
+    <volume>42</volume>
+    <number>3</number>
+    <pages>1--21</pages>
+  </biblio>
+
+  <biblio xml:id="schwarzer2015meta" type="bibtex">
+    <title>Meta-analysis with R</title>
+    <author>Schwarzer, Guido and Carpenter, James R and Rücker, Gerta</author>
+    <year>2015</year>
+    <publisher>Springer</publisher>
+  </biblio>
+
+  <biblio xml:id="schwarzer2019seriously" type="bibtex">
+    <title>Seriously misleading results using inverse of Freeman-Tukey double arcsine transformation in meta-analysis of single proportions</title>
+    <author>Schwarzer, Guido and Chemaitelly, Hiam and Abu-Raddad, Laith J and Rücker, Gerta</author>
+    <year>2019</year>
+    <journal>Research Synthesis Methods</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>10</volume>
+    <number>3</number>
+    <pages>476--483</pages>
+  </biblio>
+
+  <biblio xml:id="semplot" type="bibtex">
+    <title>semPlot: Path Diagrams and Visual Analysis of Various SEM Packages' Output. R package version 1.1.2</title>
+    <author>Sacha Epskamp</author>
+    <year>2019</year>
+  </biblio>
+
+  <biblio xml:id="shadish2015meta" type="bibtex">
+    <title>The Meta-Analytic Big Bang</title>
+    <author>Shadish, William R and Lecy, Jesse D</author>
+    <year>2015</year>
+    <journal>Research Synthesis Methods</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>6</volume>
+    <number>3</number>
+    <pages>246--264</pages>
+  </biblio>
+
+  <biblio xml:id="shannon2016statistical" type="bibtex">
+    <title>A statistical note on Karl Pearson’s 1904 meta-analysis</title>
+    <author>Shannon, Harry</author>
+    <year>2016</year>
+    <journal>Journal of the Royal Society of Medicine</journal>
+    <publisher>SAGE Publications Sage UK: London, England</publisher>
+    <volume>109</volume>
+    <number>8</number>
+    <pages>310--311</pages>
+  </biblio>
+
+  <biblio xml:id="sharpe1997apples" type="bibtex">
+    <title>Of apples and oranges, file drawers and garbage: Why validity issues in meta-analysis will not go away</title>
+    <author>Sharpe, Donald</author>
+    <year>1997</year>
+    <journal>Clinical Psychology Review</journal>
+    <publisher>Elsevier</publisher>
+    <volume>17</volume>
+    <number>8</number>
+    <pages>881--901</pages>
+  </biblio>
+
+  <biblio xml:id="shim2019network" type="bibtex">
+    <title>Network meta-analysis: application and practice using R software</title>
+    <author>Shim, Sung Ryul and Kim, Seong-Jang and Lee, Jonghoo and Rücker, Gerta</author>
+    <year>2019</year>
+    <journal>Epidemiology and Health</journal>
+    <publisher>Korean Society of Epidemiology</publisher>
+    <volume>41</volume>
+  </biblio>
+
+  <biblio xml:id="sidik2002simple" type="bibtex">
+    <title>A simple confidence interval for meta-analysis</title>
+    <author>Sidik, Kurex and Jonkman, Jeffrey N</author>
+    <year>2002</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>21</volume>
+    <number>21</number>
+    <pages>3153--3159</pages>
+  </biblio>
+
+  <biblio xml:id="sidik2005simple" type="bibtex">
+    <title>Simple heterogeneity variance estimation for meta-analysis</title>
+    <author>Sidik, Kurex and Jonkman, Jeffrey N</author>
+    <year>2005</year>
+    <journal>Journal of the Royal Statistical Society: Series C (Applied Statistics)</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>54</volume>
+    <number>2</number>
+    <pages>367--384</pages>
+  </biblio>
+
+  <biblio xml:id="sidik2007comparison" type="bibtex">
+    <title>A comparison of heterogeneity variance estimators in combining results of studies</title>
+    <author>Sidik, Kurex and Jonkman, Jeffrey N</author>
+    <year>2007</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>26</volume>
+    <number>9</number>
+    <pages>1964--1981</pages>
+  </biblio>
+
+  <biblio xml:id="sidik2019note" type="bibtex">
+    <title>A note on the empirical Bayes heterogeneity variance estimator in meta-analysis</title>
+    <author>Sidik, Kurex and Jonkman, Jeffrey N</author>
+    <year>2019</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>38</volume>
+    <number>20</number>
+    <pages>3804--3816</pages>
+  </biblio>
+
+  <biblio xml:id="silberzahn2018many" type="bibtex">
+    <title>Many analysts, one data set: Making transparent how variations in analytic choices affect results</title>
+    <author>Silberzahn, Raphael and Uhlmann, Eric Luis and Martin, Daniel P and Anselmi, Pasquale and Aust, Frederik and Awtrey, Eli and Bahn\'\ik, \vSt\vepan and Bai, Feng and Bannard, Colin and Bonnier, Evelina and Carlsson, R and Cheung, F and Christensen, G and Clay, R and Craig, M A and Dalla Rosa, A and Dam, L and Evans, M H and Flores Cervantes, I and Fong, N and Gamez-Djokic, M and Glenz, A and Gordon-McKeon, S and Heaton, T J and Hederos, K and Heene, M and Hofelich Mohr, A J and Högden, F and Hui, K and Johannesson, M and Kalodimos, J and Kaszubowski, E and Kennedy, D M and Lei, R and Lindsay, T A and Liverani, S and Madan, C R and Molden, D and Molleman, E and Morey, R D and Mulder, L B and Nijstad, B R and Pope, N G and Pope, B and Prenoveau, J M and Rink, F and Robusto, E and Roderique, H and Sandberg, A and Schlüter, E and Schönbrodt, F D and Sherman, M F and Sommer, S A and Sotak, K and Spain, S and Spörlein, C and Stafford, T and Stefanutti, L and Tauber, S and Ullrich, J and Vianello, M and Wagenmakers, E J and Witkowiak, M and Yoon, S and Nosek, B A</author>
+    <year>2018</year>
+    <journal>Advances in Methods and Practices in Psychological Science</journal>
+    <publisher>Sage Publications Sage CA: Los Angeles, CA</publisher>
+    <volume>1</volume>
+    <number>3</number>
+    <pages>337--356</pages>
+  </biblio>
+
+  <biblio xml:id="simonsohn2014es" type="bibtex">
+    <title>P-curve and effect size: Correcting for publication bias using only significant results</title>
+    <author>Simonsohn, Uri and Nelson, Leif D and Simmons, Joseph P</author>
+    <year>2014</year>
+    <journal>Perspectives on Psychological Science</journal>
+    <publisher>Sage Publications Sage CA: Los Angeles, CA</publisher>
+    <volume>9</volume>
+    <number>6</number>
+    <pages>666--681</pages>
+  </biblio>
+
+  <biblio xml:id="simonsohn2014p" type="bibtex">
+    <title>P-curve: a key to the file-drawer.</title>
+    <author>Simonsohn, Uri and Nelson, Leif D and Simmons, Joseph P</author>
+    <year>2014</year>
+    <journal>Journal of Experimental Psychology: General</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>143</volume>
+    <number>2</number>
+    <pages>534</pages>
+  </biblio>
+
+  <biblio xml:id="simonsohn2015better" type="bibtex">
+    <title>Better P-curves: Making P-curve analysis more robust to errors, fraud, and ambitious $p$-hacking, a Reply to Ulrich and Miller (2015)</title>
+    <author>Simonsohn, Uri and Simmons, Joseph P and Nelson, Leif D</author>
+    <year>2015</year>
+    <journal>Journal of Experimental Psychology: General</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>144</volume>
+    <number>6</number>
+    <pages>1146--1152</pages>
+  </biblio>
+
+  <biblio xml:id="simonsohn2020specification" type="bibtex">
+    <title>Specification curve analysis</title>
+    <author>Simonsohn, Uri and Simmons, Joseph P and Nelson, Leif D</author>
+    <year>2020</year>
+    <journal>Nature Human Behaviour</journal>
+    <publisher>Nature Publishing Group</publisher>
+    <volume>4</volume>
+    <number>11</number>
+    <pages>1208--1214</pages>
+  </biblio>
+
+  <biblio xml:id="smith1977meta" type="bibtex">
+    <title>Meta-analysis of psychotherapy outcome studies.</title>
+    <author>Smith, Mary L and Glass, Gene V</author>
+    <year>1977</year>
+    <journal>American Psychologist</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>32</volume>
+    <number>9</number>
+    <pages>752</pages>
+  </biblio>
+
+  <biblio xml:id="song2009methodological" type="bibtex">
+    <title>Methodological problems in the use of indirect comparisons for evaluating healthcare interventions: survey of published systematic reviews</title>
+    <author>Song, Fujian and Loke, Yoon K and Walsh, Tanya and Glenny, Anne-Marie and Eastwood, Alison J and Altman, Douglas G</author>
+    <year>2009</year>
+    <journal>BMJ</journal>
+    <publisher>British Medical Journal Publishing Group</publisher>
+    <volume>338</volume>
+    <pages>b1147</pages>
+  </biblio>
+
+  <biblio xml:id="spearman1904reprinted" type="bibtex">
+    <title>The proof and measurement of association between two things</title>
+    <author>Spearman, C</author>
+    <year>1904</year>
+    <journal>The American Journal of Psychology</journal>
+    <volume>15</volume>
+    <number>1</number>
+    <pages>72--101</pages>
+  </biblio>
+
+  <biblio xml:id="stanley2008meta" type="bibtex">
+    <title>Meta-regression methods for detecting and estimating empirical effects in the presence of publication selection</title>
+    <author>Stanley, Tom D</author>
+    <year>2008</year>
+    <journal>Oxford Bulletin of Economics and Statistics</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>70</volume>
+    <number>1</number>
+    <pages>103--127</pages>
+  </biblio>
+
+  <biblio xml:id="stanley2014meta" type="bibtex">
+    <title>Meta-regression approximations to reduce publication selection bias</title>
+    <author>Stanley, Tom D and Doucouliagos, Hristos</author>
+    <year>2014</year>
+    <journal>Research Synthesis Methods</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>5</volume>
+    <number>1</number>
+    <pages>60--78</pages>
+  </biblio>
+
+  <biblio xml:id="stanley2017limitations" type="bibtex">
+    <title>Limitations of PET-PEESE and other meta-analysis methods</title>
+    <author>Stanley, Tom D</author>
+    <year>2017</year>
+    <journal>Social Psychological and Personality Science</journal>
+    <publisher>Sage Publications Sage CA: Los Angeles, CA</publisher>
+    <volume>8</volume>
+    <number>5</number>
+    <pages>581--591</pages>
+  </biblio>
+
+  <biblio xml:id="stanley2022beyond" type="bibtex">
+    <title>Beyond Random Effects: When Small-Study Findings Are More Heterogeneous</title>
+    <author>Tom Stanley and Hristos Doucouliagos and John Ioannidis</author>
+    <year>2022</year>
+    <journal>Advances in Methods and Practices in Psychological Science</journal>
+    <volume>5</volume>
+    <number>4</number>
+  </biblio>
+
+  <biblio xml:id="sterne2000publication" type="bibtex">
+    <title>Publication and related bias in meta-analysis: power of statistical tests and prevalence in the literature</title>
+    <author>Sterne, Jonathan and Gavaghan, David and Egger, Matthias</author>
+    <year>2000</year>
+    <journal>Journal of Clinical Epidemiology</journal>
+    <publisher>Elsevier</publisher>
+    <volume>53</volume>
+    <number>11</number>
+    <pages>1119--1129</pages>
+  </biblio>
+
+  <biblio xml:id="sterne2011recommendations" type="bibtex">
+    <title>Recommendations for examining and interpreting funnel plot asymmetry in meta-analyses of randomised controlled trials</title>
+    <author>Sterne, Jonathan and Sutton, Alex J and Ioannidis, John P A and Terrin, Norma and Jones, David R and Lau, Joseph and Carpenter, James and Rücker, Gerta and Harbord, Roger M and Schmid, Christopher H and Tetzlaff, Jennifer and Deeks, Jonathan J and Peters, Jaime and Macaskill, Petra and Schwarzer, Guido and Duval, Sue and Altman, Douglas G and Moher, David and Higgins, Julian P T</author>
+    <year>2011</year>
+    <journal>BMJ</journal>
+    <volume>343</volume>
+  </biblio>
+
+  <biblio xml:id="sterne2016robins" type="bibtex">
+    <title>ROBINS-I: A tool for assessing risk of bias in non-randomised studies of interventions</title>
+    <author>Sterne, Jonathan and Hernan, Miguel A and Reeves, Barnaby C and Savovi\'c, Jelena and Berkman, Nancy D and Viswanathan, Meera and Henry, David and Altman, Douglas G and Ansari, Mohammed T and Boutron, Isabelle and Carpenter, James R and Chan, An-Wen and Churchill, Rachel and Deeks, Jonathan J and Hrobjartsson, Asbj\orn and Kirkham, Jamie and Jüni, Peter and Loke, Yoon K and Pigott, Theresa D and Ramsay, Craig R and Regidor, Deborah and Rothstein, Hannah R and Sandhu, Lakhbir and Santaguida, Pasqualina L and Schünemann, Holger J and Shea, Beverly and Shrier, Ian and Tugwell, Peter and Turner, Lucy and Valentine, Jeffrey C and Waddington, Hugh and Waters, Elizabeth and Wells, George A and Whiting, Penny F and Higgins, Julian P T</author>
+    <year>2016</year>
+    <journal>BMJ</journal>
+    <volume>355</volume>
+    <pages>i4919</pages>
+  </biblio>
+
+  <biblio xml:id="sterni2019rob" type="bibtex">
+    <title>RoB 2: a revised tool for assessing risk of bias in randomised trials</title>
+    <author>Sterne, Jonathan and Savovi\'c, Jelena and Page, Matthew J and Elbers, Roy G and Blencowe, Natalie S and Boutron, Isabelle and Cates, Christopher J and Cheng, Hung-Yuan and Corbett, Mark S and Eldridge, Sandra M and others</author>
+    <year>2019</year>
+    <journal>BMJ</journal>
+    <publisher>British Medical Journal Publishing Group</publisher>
+    <volume>366</volume>
+  </biblio>
+
+  <biblio xml:id="stijnen2010random" type="bibtex">
+    <title>Random effects meta-analysis of event outcome in the framework of the generalized linear mixed model with applications in sparse data</title>
+    <author>Stijnen, Theo and Hamza, Taye H and Özdemir, Pinar</author>
+    <year>2010</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>29</volume>
+    <number>29</number>
+    <pages>3046--3067</pages>
+  </biblio>
+
+  <biblio xml:id="stinerock2018statistics" type="bibtex">
+    <title>Statistics with R: A Beginner's Guide</title>
+    <author>Stinerock, Robert</author>
+    <year>2018</year>
+    <publisher>SAGE</publisher>
+  </biblio>
+
+  <biblio xml:id="tamhane2016prevalence" type="bibtex">
+    <title>Prevalence odds ratio versus prevalence ratio: choice comes with consequences</title>
+    <author>Tamhane, Ashutosh R and Westfall, Andrew O and Burkholder, Greer A and Cutter, Gary R</author>
+    <year>2016</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>35</volume>
+    <number>30</number>
+    <pages>5730--5735</pages>
+  </biblio>
+
+  <biblio xml:id="tang2016testing" type="bibtex">
+    <title>Testing IB theories with meta-analytic structural equation modeling</title>
+    <author>Tang, Ryan W and Cheung, Mike</author>
+    <year>2016</year>
+    <journal>Review of International Business and Strategy</journal>
+    <publisher>Emerald Group Publishing Limited</publisher>
+    <volume>26</volume>
+    <number>4</number>
+    <pages>472--492</pages>
+  </biblio>
+
+  <biblio xml:id="terrin2003adjusting" type="bibtex">
+    <title>Adjusting for publication bias in the presence of heterogeneity</title>
+    <author>Terrin, Norma and Schmid, Christopher H and Lau, Joseph and Olkin, Ingram</author>
+    <year>2003</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>22</volume>
+    <number>13</number>
+    <pages>2113--2126</pages>
+  </biblio>
+
+  <biblio xml:id="thalheimer2002calculate" type="bibtex">
+    <title>How to calculate effect sizes from published research: A simplified methodology</title>
+    <author>Thalheimer, Will and Cook, Samantha</author>
+    <year>2002</year>
+    <publisher>Work-Learning Research</publisher>
+    <volume>1</volume>
+    <pages>1--9</pages>
+    <note><p>URL: http://coshima.davidrjfikis.com/EPRS8530/Effect\_Sizes\_pdf4.pdf</p></note>
+  </biblio>
+
+  <biblio xml:id="thompson2001multilevel" type="bibtex">
+    <title>Multilevel models for meta-analysis, and their application to absolute risk differences</title>
+    <author>Thompson, Simon G and Turner, Rebecca M and Warn, David E</author>
+    <year>2001</year>
+    <journal>Statistical Methods in Medical Research</journal>
+    <publisher>Sage Publications Sage CA: Thousand Oaks, CA</publisher>
+    <volume>10</volume>
+    <number>6</number>
+    <pages>375--392</pages>
+  </biblio>
+
+  <biblio xml:id="thompson2002should" type="bibtex">
+    <title>How should meta-regression analyses be undertaken and interpreted?</title>
+    <author>Thompson, Simon G and Higgins, Julian PT</author>
+    <year>2002</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>21</volume>
+    <number>11</number>
+    <pages>1559--1573</pages>
+  </biblio>
+
+  <biblio xml:id="thompson2004exploratory" type="bibtex">
+    <title>Exploratory and confirmatory factor analysis</title>
+    <author>Thompson, Bruce</author>
+    <year>2004</year>
+    <publisher>American Psychological Association</publisher>
+  </biblio>
+
+  <biblio xml:id="tidybayes" type="bibtex">
+    <title>tidybayes: Tidy Data and Geoms for Bayesian Models. R package version 2.1.1</title>
+    <author>Matthew Kay</author>
+    <year>2020</year>
+    <note><p>URL: http://mjskay.github.io/tidybayes</p></note>
+  </biblio>
+
+  <biblio xml:id="tidyverse" type="bibtex">
+    <title>Welcome to the tidyverse</title>
+    <author>Hadley Wickham and Mara Averick and Jennifer Bryan and Winston Chang and Lucy D'Agostino McGowan and Romain François and Garrett Grolemund and Alex Hayes and Lionel Henry and Jim Hester and Max Kuhn and Thomas Lin Pedersen and Evan Miller and Stephan Milton Bache and Kirill Müller and Jeroen Ooms and David Robinson and Dana Paige Seidel and Vitalie Spinu and Kohske Takahashi and Davis Vaughan and Claus Wilke and Kara Woo and Hiroaki Yutani</author>
+    <year>2019</year>
+    <journal>Journal of Open Source Software</journal>
+    <volume>4</volume>
+    <number>43</number>
+    <pages>1686</pages>
+  </biblio>
+
+  <biblio xml:id="tipton2015small" type="bibtex">
+    <title>Small-sample adjustments for tests of moderators and model fit using robust variance estimation in meta-regression</title>
+    <author>Tipton, Elizabeth and Pustejovsky, James E</author>
+    <year>2015</year>
+    <journal>Journal of Educational and Behavioral Statistics</journal>
+    <publisher>Sage Publications Sage CA: Los Angeles, CA</publisher>
+    <volume>40</volume>
+    <number>6</number>
+    <pages>604--634</pages>
+  </biblio>
+
+  <biblio xml:id="tipton2015small2" type="bibtex">
+    <title>Small sample adjustments for robust variance estimation with meta-regression.</title>
+    <author>Tipton, Elizabeth</author>
+    <year>2015</year>
+    <journal>Psychological methods</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>20</volume>
+    <number>3</number>
+    <pages>375</pages>
+  </biblio>
+
+  <biblio xml:id="tipton2019history" type="bibtex">
+    <title>A history of meta-regression: Technical, conceptual, and practical developments between 1974 and 2018</title>
+    <author>Tipton, Elizabeth and Pustejovsky, James E and Ahmadi, Hedyeh</author>
+    <year>2019</year>
+    <journal>Research Synthesis Methods</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>10</volume>
+    <number>2</number>
+    <pages>161--179</pages>
+  </biblio>
+
+  <biblio xml:id="urviecht" type="bibtex">
+    <title>Conducting meta-analyses in R with the metafor package</title>
+    <author>Wolfgang Viechtbauer</author>
+    <year>2010</year>
+    <journal>Journal of Statistical Software</journal>
+    <volume>36</volume>
+    <number>3</number>
+    <pages>1--48</pages>
+  </biblio>
+
+  <biblio xml:id="valstad2016relationship" type="bibtex">
+    <title>The relationship between central and peripheral oxytocin concentrations: A systematic review and meta-analysis protocol</title>
+    <author>Valstad, Mathias and Alvares, Gail A and Andreassen, Ole A and Westlye, Lars T and Quintana, Daniel S</author>
+    <year>2016</year>
+    <journal>Systematic Reviews</journal>
+    <publisher>BioMed Central</publisher>
+    <volume>5</volume>
+    <number>1</number>
+    <pages>1--7</pages>
+  </biblio>
+
+  <biblio xml:id="van2012automating" type="bibtex">
+    <title>Automating network meta-analysis</title>
+    <author>van Valkenhoef, Gert and Lu, Guobing and de Brock, Bert and Hillege, Hans and Ades, AE and Welton, Nicky J</author>
+    <year>2012</year>
+    <journal>Research Synthesis Methods</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>3</volume>
+    <number>4</number>
+    <pages>285--299</pages>
+  </biblio>
+
+  <biblio xml:id="vance2009data" type="bibtex">
+    <title>Data analysts captivated by R’s power</title>
+    <author>Vance, Ashlee</author>
+    <year>2009</year>
+    <journal>New York Times</journal>
+    <note><p>URL: https://www.nytimes.com/2009/01/07/technology/business-computing/07program.html</p></note>
+  </biblio>
+
+  <biblio xml:id="veroniki2016methods" type="bibtex">
+    <title>Methods to estimate the between-study variance and its uncertainty in meta-analysis</title>
+    <author>Veroniki, Areti Angeliki and Jackson, Dan and Viechtbauer, Wolfgang and Bender, Ralf and Bowden, Jack and Knapp, Guido and Kuss, Oliver and Higgins, Julian PT and Langan, Dean and Salanti, Georgia</author>
+    <year>2016</year>
+    <journal>Research Synthesis Methods</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>7</volume>
+    <number>1</number>
+    <pages>55--79</pages>
+  </biblio>
+
+  <biblio xml:id="vevea2005publication" type="bibtex">
+    <title>Publication bias in research synthesis: sensitivity analysis using a priori weight functions.</title>
+    <author>Vevea, Jack L and Woods, Carol M</author>
+    <year>2005</year>
+    <journal>Psychological Methods</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>10</volume>
+    <number>4</number>
+    <pages>428</pages>
+  </biblio>
+
+  <biblio xml:id="viechtbauer2005bias" type="bibtex">
+    <title>Bias and efficiency of meta-analytic variance estimators in the random-effects model</title>
+    <author>Viechtbauer, Wolfgang</author>
+    <year>2005</year>
+    <journal>Journal of Educational and Behavioral Statistics</journal>
+    <publisher>Sage Publications Sage CA: Los Angeles, CA</publisher>
+    <volume>30</volume>
+    <number>3</number>
+    <pages>261--293</pages>
+  </biblio>
+
+  <biblio xml:id="viechtbauer2007approximate" type="bibtex">
+    <title>Approximate confidence intervals for standardized effect sizes in the two-independent and two-dependent samples design</title>
+    <author>Viechtbauer, Wolfgang</author>
+    <year>2007</year>
+    <journal>Journal of Educational and Behavioral Statistics</journal>
+    <publisher>Sage Publications Sage CA: Thousand Oaks, CA</publisher>
+    <volume>32</volume>
+    <pages>39--60</pages>
+  </biblio>
+
+  <biblio xml:id="viechtbauer2007confidence" type="bibtex">
+    <title>Confidence intervals for the amount of heterogeneity in meta-analysis</title>
+    <author>Viechtbauer, Wolfgang</author>
+    <year>2007</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>26</volume>
+    <number>1</number>
+    <pages>37--52</pages>
+  </biblio>
+
+  <biblio xml:id="viechtbauer2010outlier" type="bibtex">
+    <title>Outlier and influence diagnostics for meta-analysis</title>
+    <author>Viechtbauer, Wolfgang and Cheung, Mike</author>
+    <year>2010</year>
+    <journal>Research Synthesis Methods</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>1</volume>
+    <number>2</number>
+    <pages>112--125</pages>
+  </biblio>
+
+  <biblio xml:id="viechtbauer2015comparison" type="bibtex">
+    <title>A comparison of procedures to test for moderators in mixed-effects meta-regression models.</title>
+    <author>Viechtbauer, Wolfgang and Lopez-Lopez, Jose Antonio and Sanchez-Meca, Julio and Mar\'\in-Mart\'\inez, Fulgencio</author>
+    <year>2015</year>
+    <journal>Psychological Methods</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>20</volume>
+    <number>3</number>
+    <pages>360</pages>
+  </biblio>
+
+  <biblio xml:id="vuorre2016bayesian" type="bibtex">
+    <title>Sometimes I R: Bayesian Meta-Analysis with R, Stan &amp; brms</title>
+    <author>Vuorre, Matti</author>
+    <year>2016</year>
+    <note><p>URL: https://mvuorre.github.io/posts/2016-09-29-bayesian-meta-analysis/</p></note>
+  </biblio>
+
+  <biblio xml:id="wampold2013great" type="bibtex">
+    <title>The great psychotherapy debate: Models, methods, and findings</title>
+    <author>Wampold, Bruce E</author>
+    <year>2013</year>
+    <publisher>Routledge</publisher>
+  </biblio>
+
+  <biblio xml:id="wang2021methodological" type="bibtex">
+    <title>The methodological quality of individual participant data meta-analysis on intervention effects: systematic review</title>
+    <author>Wang, Huan and Chen, Yancong and Lin, Yali and Abesig, Julius and Wu, Irene XY and Tam, Wilson</author>
+    <year>2021</year>
+    <journal>BMJ</journal>
+    <publisher>British Medical Journal Publishing Group</publisher>
+    <volume>373</volume>
+  </biblio>
+
+  <biblio xml:id="wellek2017critical" type="bibtex">
+    <title>A critical evaluation of the current “$p$-value controversy”</title>
+    <author>Wellek, Stefan</author>
+    <year>2017</year>
+    <journal>Biometrical Journal</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>59</volume>
+    <number>5</number>
+    <pages>854--872</pages>
+  </biblio>
+
+  <biblio xml:id="whittingham2006we" type="bibtex">
+    <title>Why do we still use stepwise modelling in ecology and behaviour?</title>
+    <author>Whittingham, Mark J and Stephens, Philip A and Bradbury, Richard B and Freckleton, Robert P</author>
+    <year>2006</year>
+    <journal>Journal of Animal Ecology</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>75</volume>
+    <number>5</number>
+    <pages>1182--1189</pages>
+  </biblio>
+
+  <biblio xml:id="wicherts2016degrees" type="bibtex">
+    <title>Degrees of freedom in planning, running, analyzing, and reporting psychological studies: A checklist to avoid $p$-hacking</title>
+    <author>Wicherts, Jelte M and Veldkamp, Coosje LS and Augusteijn, Hilde EM and Bakker, Marjan and Van Aert, Robbie and Van Assen, Marcel ALM</author>
+    <year>2016</year>
+    <journal>Frontiers in Psychology</journal>
+    <publisher>Frontiers</publisher>
+    <volume>7</volume>
+    <pages>1832</pages>
+  </biblio>
+
+  <biblio xml:id="wickham2016r" type="bibtex">
+    <title>R for data science:Import, tidy, transform, visualize, and model data</title>
+    <author>Wickham, Hadley and Grolemund, Garrett</author>
+    <year>2016</year>
+    <publisher>O'Reilly</publisher>
+  </biblio>
+
+  <biblio xml:id="wiksten2016hartung" type="bibtex">
+    <title>Hartung--Knapp method is not always conservative compared with fixed-effect meta-analysis</title>
+    <author>Wiksten, Anna and Rücker, Gerta and Schwarzer, Guido</author>
+    <year>2016</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>35</volume>
+    <number>15</number>
+    <pages>2503--2515</pages>
+  </biblio>
+
+  <biblio xml:id="wildmeta" type="bibtex">
+    <title>wildmeta: Cluster Wild Bootstrapping for Meta-Analysis</title>
+    <author>Megha Joshi and James Pustejovsky</author>
+    <year>2022</year>
+    <note><p>R package version 0.1.0. URL: https://CRAN.R-project.org/package=wildmeta</p></note>
+  </biblio>
+
+  <biblio xml:id="williams2018bayesian" type="bibtex">
+    <title>Bayesian meta-analysis with weakly informative prior distributions</title>
+    <author>Williams, Donald R and Rast, Philippe and Bürkner, Paul-Christian</author>
+    <year>2018</year>
+    <publisher>PsyArXiv</publisher>
+  </biblio>
+
+  <biblio xml:id="xie2018r" type="bibtex">
+    <title>R Markdown: The definitive guide</title>
+    <author>Xie, Yihui and Allaire, Joseph J and Grolemund, Garrett</author>
+    <year>2018</year>
+    <publisher>Chapman and Hall/CRC Press</publisher>
+  </biblio>
+
+  <biblio xml:id="yusuf1985beta" type="bibtex">
+    <title>Beta blockade during and after myocardial infarction: An overview of the randomized trials</title>
+    <author>Yusuf, Salim and Peto, Richard and Lewis, John and Collins, Rory and Sleight, Peter</author>
+    <year>1985</year>
+    <journal>Progress in Cardiovascular Diseases</journal>
+    <publisher>Elsevier</publisher>
+    <volume>27</volume>
+    <number>5</number>
+    <pages>335--371</pages>
+  </biblio>
+
+  <biblio xml:id="zhang1998whats" type="bibtex">
+    <title>What's the Relative Risk? A Method of Correcting the Odds Ratio in Cohort Studies of Common Outcomes</title>
+    <author>Zhang, Jun and Yu, Kai F.</author>
+    <year>1998</year>
+    <journal>JAMA</journal>
+    <volume>280</volume>
+    <number>19</number>
+    <pages>1690--1691</pages>
+  </biblio>
+
 </references>

@@ -54,7 +54,7 @@
       In subgroup analyses, we hypothesize that studies in our meta-analysis do not stem from one overall population. Instead, we assume that they fall into different <alert>subgroups</alert> and that each subgroup has its own true overall effect. Our aim is to reject the null hypothesis that there is no difference in effect sizes between subgroups.
     </p>
     <p>
-      The calculation of a subgroup analysis consists of two parts: first, we pool the effect in each subgroup. Subsequently, the effects of the subgroups are compared using a statistical test .
+      The calculation of a subgroup analysis consists of two parts: first, we pool the effect in each subgroup. Subsequently, the effects of the subgroups are compared using a statistical test <xref ref="borenstein2013meta"/>.
     </p>
     <subsection xml:id="pooling-the-effect-in-subgroups">
       <title>Pooling the Effect in Subgroups</title>
@@ -75,7 +75,7 @@
         Since each subgroup gets its own separate meta-analysis, estimates of the <m>\tau^2</m> heterogeneity will also differ from subgroup to subgroup. In practice, however, the individual heterogeneity values <m>\hat\tau^2_g</m> are often replaced with a version of <m>\tau^2</m> that was pooled across subgroups. 
       </p>
       <p>
-        This means that all subgroups are assumed to share a <alert>common</alert> estimate of the between-study heterogeneity. This is mostly done for practical reasons. When the number of studies in a subgroup is small, e.g. <m>k_g \leq 5</m> , it is likely that the estimate of <m>\tau^2</m> will be imprecise. In this case, it is better to calculate a pooled version of <m>\tau^2</m> that is used across all subgroups, than to rely on a very imprecise estimate of the between-study heterogeneity in one subgroup.
+        This means that all subgroups are assumed to share a <alert>common</alert> estimate of the between-study heterogeneity. This is mostly done for practical reasons. When the number of studies in a subgroup is small, e.g. <m>k_g \leq 5</m> <xref ref="borenstein2011introduction"/>, it is likely that the estimate of <m>\tau^2</m> will be imprecise. In this case, it is better to calculate a pooled version of <m>\tau^2</m> that is used across all subgroups, than to rely on a very imprecise estimate of the between-study heterogeneity in one subgroup.
       </p>
     </subsection>
 
@@ -86,7 +86,7 @@
         In the next step, we assess if there is a <alert>true</alert> difference between the <m>G</m> subgroups. The assumption is that the subgroups are different, meaning that at least one subgroup is part of a different population of studies.
       </p>
       <p>
-        An elegant way to test this is to pretend that the pooled effect of a subgroup is actually nothing more than the <alert>observed effect size</alert> of <alert>one large study</alert> [see <xref ref="references"/>, chapter 19]. If we conduct a subgroup analysis with <m>G=3</m> subgroups, for example, we pretend that we have calculated the observed effect sizes (and standard errors) of three big studies. 
+        An elegant way to test this is to pretend that the pooled effect of a subgroup is actually nothing more than the <alert>observed effect size</alert> of <alert>one large study</alert> <xref ref="borenstein2011introduction"/>. If we conduct a subgroup analysis with <m>G=3</m> subgroups, for example, we pretend that we have calculated the observed effect sizes (and standard errors) of three big studies. 
       </p>
       <p>
         Once we look at the subgroups this way, it becomes clear that the question we ask ourselves is quite similar to the one we face when assessing the heterogeneity of a normal meta-analysis. We want to know if differences in effect sizes exist only due to sampling error, or because of <alert>true</alert> differences in the effect sizes. 
@@ -101,7 +101,7 @@
         When the observed value of <m>Q</m> is substantially larger than the expected one, the <m>p</m>-value of the <m>Q</m> test will become significant. This indicates that there is a difference in the true effect sizes between subgroups. This <m>Q</m> test is an <alert>omnibus test</alert>. It tests the null hypothesis that all subgroup effect sizes are equal, and is significant when at least two subgroups, or combinations thereof, differ. 
       </p>
       <p>
-        While we normally assume that studies within the subgroups behave according to the random-effects model, the situation looks different on the pooled subgroup level. Borenstein and Higgins  argue that in many fields, the subgroups we choose to analyze cannot be seen as random draws from a "universe" of possible subgroups, but represent <alert>fixed</alert> levels of a characteristic we want to examine. Take employment status as an example. This feature has two fixed subgroups, "employed" and "unemployed". Same also applies, for example, to studies in patients with and without a specific co-morbidity. 
+        While we normally assume that studies within the subgroups behave according to the random-effects model, the situation looks different on the pooled subgroup level. Borenstein and Higgins <xref ref="borenstein2013meta"/> argue that in many fields, the subgroups we choose to analyze cannot be seen as random draws from a "universe" of possible subgroups, but represent <alert>fixed</alert> levels of a characteristic we want to examine. Take employment status as an example. This feature has two fixed subgroups, "employed" and "unemployed". Same also applies, for example, to studies in patients with and without a specific co-morbidity. 
       </p>
       <p>
         <idx><h>Fixed-Effects (Plural) Model</h></idx> <idx><h>Random-Effects Model</h></idx>
@@ -113,7 +113,7 @@
         However, we do not see the subgroups as random draws from a whole universe of subgroups. Our subgroup levels are fixed, and <alert>exhaustive</alert>, meaning that no generalization is needed. This makes it clear why we call the process generating our subgroup data a fixed-effects "plural" model: because there are <alert>several</alert> true effect sizes, but the true effect sizes represent subgroup levels that are assumed to be <alert>fixed</alert>.
       </p>
       <p>
-        Borenstein and colleagues  argue that all of this may seem a little confusing to us because the word "fixed" can mean different things in statistics. In conventional meta-analyses, the term "fixed effect" is used synonymously with "common effect". In the context of subgroup analyses, however, we speak of "fixed effects" to underline that they are "not random". They are not simply random manifestations of an over-arching distribution, to which we aim to generalize, but the <alert>real</alert> and <alert>only</alert> categories into which a variable can fall. 
+        Borenstein and colleagues <xref ref="borenstein2011introduction"/> argue that all of this may seem a little confusing to us because the word "fixed" can mean different things in statistics. In conventional meta-analyses, the term "fixed effect" is used synonymously with "common effect". In the context of subgroup analyses, however, we speak of "fixed effects" to underline that they are "not random". They are not simply random manifestations of an over-arching distribution, to which we aim to generalize, but the <alert>real</alert> and <alert>only</alert> categories into which a variable can fall. 
       </p>
       <p>
         Figure <xref ref="fig-subgroups"/> visualizes the fixed-effects (plural) model, assuming that studies within subgroups follow the random-effects model.
@@ -199,7 +199,7 @@
       Intuitively, one might think that subgroup analysis is an exceptionally good tool to detect effect moderators. The aim of meta-analyses, after all, is to study all available evidence. This means that the total number of individuals analyzed in meta-analyses will usually surpass the one of a primary study by orders of magnitude. 
     </p>
     <p>
-      Unfortunately, however, this does not necessarily provide us with more <alert>statistical power</alert> to detect subgroup differences. There are several reasons for this : 
+      Unfortunately, however, this does not necessarily provide us with more <alert>statistical power</alert> to detect subgroup differences. There are several reasons for this <xref ref="hedges2004power"/>: 
     </p>
     <ul>
       <li>
@@ -219,18 +219,18 @@
       </li>
       <li>
         <p>
-          We can check if statistical power is a problem in our subgroup analysis by performing a <alert>subgroup power analysis</alert> beforehand. In such an analysis, we can check the minimum effect size difference we are able to detect in our subgroup analysis. In chapter <xref ref="power-subgroup"/> in the "Helpful Tools" section, we cover how subgroup power analyses can be performed in <em>R</em>. But note that power analyses can at best be seen as a helpful diagnostic, not as proof that the power of our analysis is high enough to show that the subgroups are equivalent. Schwarzer and colleagues  mention, as a general rule of thumb, that subgroup analyses only make sense when your meta-analysis contains at least <m>K=</m> 10 studies.
+          We can check if statistical power is a problem in our subgroup analysis by performing a <alert>subgroup power analysis</alert> beforehand. In such an analysis, we can check the minimum effect size difference we are able to detect in our subgroup analysis. In chapter <xref ref="power-subgroup"/> in the "Helpful Tools" section, we cover how subgroup power analyses can be performed in <em>R</em>. But note that power analyses can at best be seen as a helpful diagnostic, not as proof that the power of our analysis is high enough to show that the subgroups are equivalent. Schwarzer and colleagues <xref ref="schwarzer2015meta"/> mention, as a general rule of thumb, that subgroup analyses only make sense when your meta-analysis contains at least <m>K=</m> 10 studies.
         </p>
       </li>
     </ul>
     <p>
-      Another important limitation of subgroup analyses is that they are purely observational . Meta-analyses often only include randomized controlled trials (RCTs), in which participants were randomly allocated to either a treatment or control group. When properly conducted, such RCTs can provide evidence that the treatment <alert>caused</alert> the group difference observed in the study. This is because all relevant variables that may influence the assessed outcomes are equal in the two groups. The only difference is that one group received the treatment, while the other did not. 
+      Another important limitation of subgroup analyses is that they are purely observational <xref ref="borenstein2013meta"/>. Meta-analyses often only include randomized controlled trials (RCTs), in which participants were randomly allocated to either a treatment or control group. When properly conducted, such RCTs can provide evidence that the treatment <alert>caused</alert> the group difference observed in the study. This is because all relevant variables that may influence the assessed outcomes are equal in the two groups. The only difference is that one group received the treatment, while the other did not. 
     </p>
     <p>
       Subgroup analyses, even when consisting solely of randomized studies, cannot show causality. Imagine that our subgroup analysis finds that one type of treatment is more effective than the other. There are countless reasons why this finding may be spurious; for example, it could be that studies investigating treatment A used other control groups than the ones examining treatment B. This means that both treatments could be equally effective--we just see a difference because the treatment type is <alert>confounded</alert> with methodological factors. This example should underline that one should always appraise the results of subgroup analyses critically.
     </p>
     <p>
-      A last important pitfall involves the way the subgroups are defined. Often, it may be tempting to sort studies into subgroups based on <alert>aggregate information</alert>. Schwarzer and colleagues  name the mean age of a study as a common example. Say you want to assess if effects differ between elderly individuals (65+ years of age) and general adult populations. Therefore, you sort studies into these two categories, depending on whether the reported mean age is above or below 65. 
+      A last important pitfall involves the way the subgroups are defined. Often, it may be tempting to sort studies into subgroups based on <alert>aggregate information</alert>. Schwarzer and colleagues <xref ref="schwarzer2015meta"/> name the mean age of a study as a common example. Say you want to assess if effects differ between elderly individuals (65+ years of age) and general adult populations. Therefore, you sort studies into these two categories, depending on whether the reported mean age is above or below 65. 
     </p>
     <p>
       If we find that effects are higher in the subgroup with higher mean age, we may intuitively think that this shows that the effects are higher in older individuals. But this reasoning is deeply flawed. When the <alert>mean</alert> age of a primary study is above 65, it is still possible that it included a substantial proportion of individuals who were <alert>younger</alert> than that. <alert>Vice versa</alert>, it is also perfectly possible that a study included a large share of individuals <alert>older</alert> than 65, even when the <alert>mean</alert> age is <alert>lower</alert>. 
@@ -245,7 +245,7 @@
       <idx><h>Ecological Bias</h></idx>
     </p>
     <p>
-      The scenario we just described is caused by so-called <alert>ecological bias</alert> . It arises whenever we want to use relationships on an aggregate (<alert>macro</alert>) level to predict associations on the individual (<alert>micro</alert>) level. 
+      The scenario we just described is caused by so-called <alert>ecological bias</alert> <xref ref="thompson2002should"/>, <xref ref="piantadosi1988ecological"/>. It arises whenever we want to use relationships on an aggregate (<alert>macro</alert>) level to predict associations on the individual (<alert>micro</alert>) level. 
     </p>
     <p>
       The best way to avoid ecological bias is to <alert>never, ever</alert> use aggregate information in subgroup analyses and meta-regression. The situation is different, however, if we know that <alert>all</alert> individuals in a study fall into one category. If, for example, we have a few studies in which <alert>only</alert> adolescents under the age of 18 were included, and others in which <alert>only</alert> adults (18+ years) could participate, the risk of ecological bias is largely eliminated. However, it is still possible that effect differences were caused by confounding variables and not by the age of the participants.

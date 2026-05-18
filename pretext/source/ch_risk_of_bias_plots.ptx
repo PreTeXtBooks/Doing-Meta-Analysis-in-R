@@ -48,7 +48,7 @@
       <image source="generated/robsummaryrevman.jpg"/>
     </figure>
     <p>
-      To avoid all of this, you can now easily plot the risk of bias figures yourself within R Studio, using the <alert>{robvis}</alert> package  which provides functions to convert a risk of bias assessment summary table into a summary plot or a traffic-light plot.
+      To avoid all of this, you can now easily plot the risk of bias figures yourself within R Studio, using the <alert>{robvis}</alert> package <xref ref="mcguinness2020risk"/>, <xref ref="robvis"/> which provides functions to convert a risk of bias assessment summary table into a summary plot or a traffic-light plot.
     </p>
     <subsection xml:id="load-robvis">
       <title>Load <alert>{robvis}</alert></title>
