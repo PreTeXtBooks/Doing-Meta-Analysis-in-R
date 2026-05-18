@@ -89,7 +89,7 @@
           <image source="generated/regression_path_sep.png"/>
         </figure>
         <p>
-          There are several ways to represent SEM through matrices <xref ref="joreskog2006lisrel"/>, <xref ref="muthen2012mplus"/>, <xref ref="mcardle1984some"/>. Here, we will focus on the <alert>Reticular Action Model</alert> formulation, or RAM <xref ref="mcardle1984some"/>. We do this because this formulation is used by the <alert>{metaSEM}</alert> package which we will be introducing later on. RAM uses four matrices: <m>\boldsymbol{F}</m>, <m>\boldsymbol{A}</m>, <m>\boldsymbol{S}</m>, and <m>\boldsymbol{M}</m>. Because the <m>\boldsymbol{M}</m> matrix is not necessary to fit the meta-analytic SEM we cover, we omit it here [see @cheung2015meta for a more extensive introduction]. 
+          There are several ways to represent SEM through matrices <xref ref="joreskog2006lisrel"/>, <xref ref="muthen2012mplus"/>, <xref ref="mcardle1984some"/>. Here, we will focus on the <alert>Reticular Action Model</alert> formulation, or RAM <xref ref="mcardle1984some"/>. We do this because this formulation is used by the <alert>{metaSEM}</alert> package which we will be introducing later on. RAM uses four matrices: <m>\boldsymbol{F}</m>, <m>\boldsymbol{A}</m>, <m>\boldsymbol{S}</m>, and <m>\boldsymbol{M}</m>. Because the <m>\boldsymbol{M}</m> matrix is not necessary to fit the meta-analytic SEM we cover, we omit it here <xref ref="cheung2015meta"/>. 
         </p>
         <p>
           We will now specify the remaining <m>\boldsymbol{A}</m>, <m>\boldsymbol{F}</m> and <m>\boldsymbol{S}</m> matrices for our linear regression model from before. The three matrices all have the same number of rows and columns, corresponding with the variables we have in our model: <m>x</m> and <m>y</m>. Therefore, the generic matrix structure of our regression model always looks like this:
@@ -487,7 +487,7 @@ plot(m.mv,
         <image source="generated/forest_metasem.png"/>
       </figure>
       <p>
-        In the middle of the plot, the pooled effect of both variables is shown as a red diamond. The smaller blue ellipse represents the 95% confidence interval of our pooled effect; while the larger black ellipse depicts the 95% <alert>prediction</alert> interval (Chapter <xref ref="het-measure-which"/>)<fn>These prediction intervals (or "plausible value intervals") are based on a different formula [<m>\hat\mu \pm 1.96 \times \hat\tau</m>; see <xref ref="references"/>] than the one used by <alert>{meta}</alert> and <alert>{metafor}</alert> (equation 5.7 in Chapter <xref ref="het-measure-which"/>), resulting in a slightly narrower interval.</fn>.
+        In the middle of the plot, the pooled effect of both variables is shown as a red diamond. The smaller blue ellipse represents the 95% confidence interval of our pooled effect; while the larger black ellipse depicts the 95% <alert>prediction</alert> interval (Chapter <xref ref="het-measure-which"/>)<fn>These prediction intervals (or "plausible value intervals") are based on a different formula <xref ref="raudenbush2009pi"/> than the one used by <alert>{meta}</alert> and <alert>{metafor}</alert> (equation 5.7 in Chapter <xref ref="het-measure-which"/>), resulting in a slightly narrower interval.</fn>.
       </p>
       <p>
         Lastly, the black dots show the individual studies, where the ellipses with dashed lines represent the 95% confidence intervals.

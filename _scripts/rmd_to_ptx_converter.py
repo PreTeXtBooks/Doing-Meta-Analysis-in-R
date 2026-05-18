@@ -593,18 +593,26 @@ def convert_inline(text):
             pos = j
             continue
 
-        # ---- Citation [@key] or [-@key] ----
+        # ---- Citation [@key], [-@key], [see @key], [e.g. @k1; @k2], etc. ----
+        # Pandoc citations: brackets containing one or more @key references,
+        # optionally with prefix text, locator text, or suppressed-author prefix.
+        # xml:id values cannot contain colons, so colons in keys → hyphens.
+        # Note: \@ref(...) are Rmd cross-references, not citations — excluded via
+        # negative lookbehind and by filtering keys that contain '('.
         if text[pos] == '[':
-            m = re.match(r'\[[-]?@[^\]]+\]', text[pos:])
+            m = re.match(r'\[[^\]]*@[a-zA-Z][^\]]*\]', text[pos:])
             if m:
-                # Convert citation(s) to PTX <xref> tags
                 inner = m.group(0)[1:-1]  # strip surrounding [ ]
                 xrefs = []
                 for part in inner.split(';'):
                     part = part.strip()
-                    km = re.match(r'-?@([a-zA-Z][^\s,\]]*)', part)
+                    # Negative lookbehind: skip \@ref(...) cross-references
+                    km = re.search(r'(?<!\\)-?@([a-zA-Z][^\s,\]]*)', part)
                     if km:
                         key = km.group(1).replace(':', '-')
+                        # Skip Rmd cross-reference keys like ref(section-id)
+                        if '(' in key or key.startswith('ref'):
+                            continue
                         xrefs.append(f'<xref ref="{key}"/>')
                 if xrefs:
                     parts.append(('raw', ', '.join(xrefs)))

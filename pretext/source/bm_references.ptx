@@ -38,6 +38,16 @@
     <note><p>URL: https://files.eric.ed.gov/fulltext/ED433353.pdf</p></note>
   </biblio>
 
+  <biblio xml:id="adler2014osteoporosis" type="bibtex">
+    <title>Osteoporosis in men: A review</title>
+    <author>Adler, Robert A</author>
+    <year>2014</year>
+    <journal>Bone Research</journal>
+    <publisher>Nature Publishing Group</publisher>
+    <volume>2</volume>
+    <pages>14001</pages>
+  </biblio>
+
   <biblio xml:id="aert2016conducting" type="bibtex">
     <title>Conducting Meta-Analyses Based on $p$ Values: Reservations and Recommendations for Applying P-Uniform and P-Curve.</title>
     <author>van Aert, Robbie CM and Wicherts, Jelte M and van Assen, Marcel ALM</author>
@@ -158,6 +168,17 @@
     <pages>257--278</pages>
   </biblio>
 
+  <biblio xml:id="bellhouse2004reverend" type="bibtex">
+    <title>The Reverend Thomas Bayes, FRS: a biography to celebrate the tercentenary of his birth</title>
+    <author>Bellhouse, David R and others</author>
+    <year>2004</year>
+    <journal>Statistical Science</journal>
+    <publisher>Institute of Mathematical Statistics</publisher>
+    <volume>19</volume>
+    <number>1</number>
+    <pages>3--43</pages>
+  </biblio>
+
   <biblio xml:id="bender2019limitations" type="bibtex">
     <title>Limitations of the incidence density ratio as approximation of the hazard ratio</title>
     <author>Bender, Ralf and Beckmann, Lars</author>
@@ -174,6 +195,14 @@
     <author>Berlin, Jesse A and Antman, Elliott M</author>
     <year>1994</year>
     <journal>The Online Journal of Current Clinical Trials</journal>
+  </biblio>
+
+  <biblio xml:id="betancourt2015hamiltonian" type="bibtex">
+    <title>Hamiltonian Monte Carlo for hierarchical Models</title>
+    <author>Betancourt, Michael and Girolami, Mark</author>
+    <year>2015</year>
+    <journal>Current Trends in Bayesian Methodology with Applications</journal>
+    <publisher>Chapman &amp; Hall/CRC Press</publisher>
   </biblio>
 
   <biblio xml:id="bjork2008global" type="bibtex">
@@ -357,6 +386,17 @@
     <publisher>John Wiley &amp; Sons</publisher>
   </biblio>
 
+  <biblio xml:id="christensen2006number" type="bibtex">
+    <title>Number-Needed-to-Treat (NNT)--Needs Treatment with Care</title>
+    <author>Christensen, Palle Mark and Kristiansen, Ivar S\onb\o</author>
+    <year>2006</year>
+    <journal>Basic &amp; Clinical Pharmacology &amp; Toxicology</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>99</volume>
+    <number>1</number>
+    <pages>12--16</pages>
+  </biblio>
+
   <biblio xml:id="chung2013nondegenerate" type="bibtex">
     <title>A nondegenerate penalized likelihood estimator for variance parameters in multilevel models</title>
     <author>Chung, Yeojin and Rabe-Hesketh, Sophia and Dorie, Vincent and Gelman, Andrew and Liu, Jingchen</author>
@@ -414,6 +454,15 @@ Corrections</title>
     <volume>49</volume>
     <number>12</number>
     <pages>997</pages>
+  </biblio>
+
+  <biblio xml:id="cousineau2020approximating" type="bibtex">
+    <title>Approximating the distribution of Cohen’s $d_p$ in within-subject designs</title>
+    <author>Cousineau, Denis</author>
+    <year>2020</year>
+    <journal>Quant. Methods Psychol</journal>
+    <volume>16</volume>
+    <pages>418--421</pages>
   </biblio>
 
   <biblio xml:id="cuijpers2002excess" type="bibtex">
@@ -1037,6 +1086,16 @@ Corrections</title>
     <pages>137--159</pages>
   </biblio>
 
+  <biblio xml:id="higgins2011cochrane" type="bibtex">
+    <title>The Cochrane Collaboration’s tool for assessing risk of bias in randomised trials</title>
+    <author>Higgins, Julian and Altman, Douglas G and G\otzsche, Peter C and Jüni, Peter and Moher, David and Oxman, Andrew D and Savovi\'c, Jelena and Schulz, Kenneth F and Weeks, Laura and Sterne, Jonathan AC</author>
+    <year>2011</year>
+    <journal>BMJ</journal>
+    <publisher>British Medical Journal Publishing Group</publisher>
+    <volume>343</volume>
+    <pages>d5928</pages>
+  </biblio>
+
   <biblio xml:id="higgins2012consistency" type="bibtex">
     <title>Consistency and inconsistency in network meta-analysis: concepts and models for multi-arm studies</title>
     <author>Higgins, J and Jackson, D and Barrett, JK and Lu, G and Ades, AE and White, IR</author>
@@ -1075,6 +1134,16 @@ Corrections</title>
     <volume>55</volume>
     <number>1</number>
     <pages>19--24</pages>
+  </biblio>
+
+  <biblio xml:id="hoffman2014no" type="bibtex">
+    <title>The No-U-Turn sampler: adaptively setting path lengths in Hamiltonian Monte Carlo</title>
+    <author>Hoffman, Matthew D and Gelman, Andrew</author>
+    <year>2014</year>
+    <journal>Journal of Machine Learning Research</journal>
+    <volume>15</volume>
+    <number>1</number>
+    <pages>1593--1623</pages>
   </biblio>
 
   <biblio xml:id="hohn2019primary" type="bibtex">
@@ -1449,6 +1518,17 @@ Corrections</title>
     <publisher>Chapman &amp; Hall/CRC Press</publisher>
   </biblio>
 
+  <biblio xml:id="mahood2014searching" type="bibtex">
+    <title>Searching for grey literature for systematic reviews: challenges and benefits</title>
+    <author>Mahood, Quenby and Van Eerd, Dwayne and Irvin, Emma</author>
+    <year>2014</year>
+    <journal>Research Synthesis Methods</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>5</volume>
+    <number>3</number>
+    <pages>221--234</pages>
+  </biblio>
+
   <biblio xml:id="makambi2004effect" type="bibtex">
     <title>The effect of the heterogeneity variance estimator on some tests of treatment efficacy</title>
     <author>Makambi, Kepher H</author>
@@ -1687,6 +1767,13 @@ Corrections</title>
     <pages>8363</pages>
   </biblio>
 
+  <biblio xml:id="montgomery" type="bibtex">
+    <title>Design and Analysis of Experiments</title>
+    <author>Montgomery, Douglas C</author>
+    <year>2013</year>
+    <publisher>Wiley</publisher>
+  </biblio>
+
   <biblio xml:id="mosca2013fifteen" type="bibtex">
     <title>Fifteen-year trends in awareness of heart disease in women: Results of a 2012 American Heart Association national survey</title>
     <author>Mosca, Lori and Hammond, Gmerice and Mochari-Greenberger, Heidi and Towfighi, Amytis and Albert, Michelle A</author>
@@ -1823,6 +1910,16 @@ Corrections</title>
     <publisher>Wiley Online Library</publisher>
   </biblio>
 
+  <biblio xml:id="page2021prisma" type="bibtex">
+    <title>PRISMA 2020 explanation and elaboration: updated guidance and exemplars for reporting systematic reviews</title>
+    <author>Page, Matthew J and Moher, David and Bossuyt, Patrick M and Boutron, Isabelle and Hoffmann, Tammy C and Mulrow, Cynthia D and Shamseer, Larissa and Tetzlaff, Jennifer M and Akl, Elie A and Brennan, Sue E and others</author>
+    <year>2021</year>
+    <journal>BMJ</journal>
+    <publisher>British Medical Journal Publishing Group</publisher>
+    <volume>372</volume>
+    <note><p>URL: https://www.bmj.com/content/372/bmj.n71</p></note>
+  </biblio>
+
   <biblio xml:id="panageas2007you" type="bibtex">
     <title>When you look matters: The effect of assessment schedule on progression-free survival</title>
     <author>Panageas, Katherine S and Ben-Porat, Leah and Dickler, Maura N and Chapman, Paul B and Schrag, Deborah</author>
@@ -1948,6 +2045,12 @@ Corrections</title>
     <pages>469--475</pages>
   </biblio>
 
+  <biblio xml:id="prisma2020package" type="bibtex">
+    <title>PRISMA2020: R package and ShinyApp for producing PRISMA 2020 compliant flow diagrams (Version 0.0.1)</title>
+    <author>Haddaway, Neil R and McGuinness, Luke A</author>
+    <year>2020</year>
+  </biblio>
+
   <biblio xml:id="psychmeta" type="bibtex">
     <title>psychmeta: An R Package for Psychometric Meta-Analysis</title>
     <author>Jeffrey A. Dahlke and Brenton M. Wiernik</author>
@@ -1986,6 +2089,14 @@ Corrections</title>
     <publisher>Frontiers</publisher>
     <volume>6</volume>
     <pages>1549</pages>
+  </biblio>
+
+  <biblio xml:id="raudenbush2009pi" type="bibtex">
+    <title>Analyzing effect sizes: Random effects models</title>
+    <author>Raudenbush, SW</author>
+    <year>2009</year>
+    <journal>The handbook of research synthesis and meta-analysis (2nd Ed.)</journal>
+    <publisher>Russell Sage Foundation</publisher>
   </biblio>
 
   <biblio xml:id="riley2007evidence" type="bibtex">
@@ -2051,6 +2162,17 @@ Corrections</title>
     <author>Luke A McGuinness</author>
     <year>2019</year>
     <note><p>URL: https://github.com/mcguinlu/robvis</p></note>
+  </biblio>
+
+  <biblio xml:id="rosnow1996computing" type="bibtex">
+    <title>Computing contrasts, effect sizes, and counternulls on other people's published data: General procedures for research consumers.</title>
+    <author>Rosnow, Ralph L and Rosenthal, Robert</author>
+    <year>1996</year>
+    <journal>Psychological Methods</journal>
+    <publisher>American Psychological Association</publisher>
+    <volume>1</volume>
+    <number>4</number>
+    <pages>331</pages>
   </biblio>
 
   <biblio xml:id="rosnow2000contrasts" type="bibtex">
@@ -2485,6 +2607,15 @@ Corrections</title>
     <volume>343</volume>
   </biblio>
 
+  <biblio xml:id="sterne2016robins" type="bibtex">
+    <title>ROBINS-I: A tool for assessing risk of bias in non-randomised studies of interventions</title>
+    <author>Sterne, Jonathan and Hernan, Miguel A and Reeves, Barnaby C and Savovi\'c, Jelena and Berkman, Nancy D and Viswanathan, Meera and Henry, David and Altman, Douglas G and Ansari, Mohammed T and Boutron, Isabelle and Carpenter, James R and Chan, An-Wen and Churchill, Rachel and Deeks, Jonathan J and Hrobjartsson, Asbj\orn and Kirkham, Jamie and Jüni, Peter and Loke, Yoon K and Pigott, Theresa D and Ramsay, Craig R and Regidor, Deborah and Rothstein, Hannah R and Sandhu, Lakhbir and Santaguida, Pasqualina L and Schünemann, Holger J and Shea, Beverly and Shrier, Ian and Tugwell, Peter and Turner, Lucy and Valentine, Jeffrey C and Waddington, Hugh and Waters, Elizabeth and Wells, George A and Whiting, Penny F and Higgins, Julian P T</author>
+    <year>2016</year>
+    <journal>BMJ</journal>
+    <volume>355</volume>
+    <pages>i4919</pages>
+  </biblio>
+
   <biblio xml:id="sterni2019rob" type="bibtex">
     <title>RoB 2: a revised tool for assessing risk of bias in randomised trials</title>
     <author>Sterne, Jonathan and Savovi\'c, Jelena and Page, Matthew J and Elbers, Roy G and Blencowe, Natalie S and Boutron, Isabelle and Cates, Christopher J and Cheng, Hung-Yuan and Corbett, Mark S and Eldridge, Sandra M and others</author>
@@ -2510,6 +2641,17 @@ Corrections</title>
     <author>Stinerock, Robert</author>
     <year>2018</year>
     <publisher>SAGE</publisher>
+  </biblio>
+
+  <biblio xml:id="tamhane2016prevalence" type="bibtex">
+    <title>Prevalence odds ratio versus prevalence ratio: choice comes with consequences</title>
+    <author>Tamhane, Ashutosh R and Westfall, Andrew O and Burkholder, Greer A and Cutter, Gary R</author>
+    <year>2016</year>
+    <journal>Statistics in Medicine</journal>
+    <publisher>Wiley Online Library</publisher>
+    <volume>35</volume>
+    <number>30</number>
+    <pages>5730--5735</pages>
   </biblio>
 
   <biblio xml:id="tang2016testing" type="bibtex">
@@ -2694,6 +2836,16 @@ Corrections</title>
     <volume>30</volume>
     <number>3</number>
     <pages>261--293</pages>
+  </biblio>
+
+  <biblio xml:id="viechtbauer2007approximate" type="bibtex">
+    <title>Approximate confidence intervals for standardized effect sizes in the two-independent and two-dependent samples design</title>
+    <author>Viechtbauer, Wolfgang</author>
+    <year>2007</year>
+    <journal>Journal of Educational and Behavioral Statistics</journal>
+    <publisher>Sage Publications Sage CA: Thousand Oaks, CA</publisher>
+    <volume>32</volume>
+    <pages>39--60</pages>
   </biblio>
 
   <biblio xml:id="viechtbauer2007confidence" type="bibtex">
