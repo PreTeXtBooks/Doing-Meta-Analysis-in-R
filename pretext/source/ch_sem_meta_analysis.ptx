@@ -13,13 +13,13 @@
       <idx><h>Analysis of Variance</h></idx> <idx><h>Subgroup Analysis</h></idx>
     </p>
     <p>
-      A peculiar thing about statistical methods is that they are often put into separate “boxes”. They are treated as unrelated in research and practice, when in fact they are not. For many social science students, for example, it often comes as a surprise to hear that an <alert>analysis of variance</alert> (ANOVA) and a linear regression with a categorical predictor are doing essentially the same thing<fn>ANOVAs are based the model <m>y_{ij} = \mu + \tau_i + \epsilon_{ij}</m>, where <m>\tau_i</m> is the effect of the <m>i</m>th factor level/treatment, and <m>\epsilon_{ij}</m> represents deviations due to (unexplained) random error . This is nothing but a special case of a linear regression model. The primary difference is that <m>\tau_i</m> is <alert>effect-coded</alert> (e.g. the treatment variable is either -1 and 1 so that the categorical treatment effects sum up to zero: <m>\sum_{i=1}^{a} \tau_i = 0</m>). In contrast, categorical predictors are usually dummy-coded (e.g. 0 and 1) in linear regression models.</fn>. This often happens because these two methods are traditionally used in different contexts, and taught as separate entities.
+      A peculiar thing about statistical methods is that they are often put into separate “boxes”. They are treated as unrelated in research and practice, when in fact they are not. For many social science students, for example, it often comes as a surprise to hear that an <alert>analysis of variance</alert> (ANOVA) and a linear regression with a categorical predictor are doing essentially the same thing<fn>ANOVAs are based the model <m>y_{ij} = \mu + \tau_i + \epsilon_{ij}</m>, where <m>\tau_i</m> is the effect of the <m>i</m>th factor level/treatment, and <m>\epsilon_{ij}</m> represents deviations due to (unexplained) random error <xref ref="montgomery"/>. This is nothing but a special case of a linear regression model. The primary difference is that <m>\tau_i</m> is <alert>effect-coded</alert> (e.g. the treatment variable is either -1 and 1 so that the categorical treatment effects sum up to zero: <m>\sum_{i=1}^{a} \tau_i = 0</m>). In contrast, categorical predictors are usually dummy-coded (e.g. 0 and 1) in linear regression models.</fn>. This often happens because these two methods are traditionally used in different contexts, and taught as separate entities.
     </p>
     <p>
       <idx><h>Structural Equation Model</h></idx>
     </p>
     <p>
-      In a similar vein, it has been only fairly recently that researchers have started seeing multilevel models as a special form of a <alert>structural equation model</alert>, or SEM . As we learned, every meta-analysis is based on a multilevel model. As consequence, we can also treat meta-analyses as structural equation models in which the pooled effect size is treated as a latent (or unobserved) variable . In short: meta-analyses are multilevel models; therefore, they can be expressed as structural equation models too.
+      In a similar vein, it has been only fairly recently that researchers have started seeing multilevel models as a special form of a <alert>structural equation model</alert>, or SEM <xref ref="mehta2005people"/>, <xref ref="bauer2003estimating"/>. As we learned, every meta-analysis is based on a multilevel model. As consequence, we can also treat meta-analyses as structural equation models in which the pooled effect size is treated as a latent (or unobserved) variable <xref ref="cheung2015meta"/>. In short: meta-analyses are multilevel models; therefore, they can be expressed as structural equation models too.
     </p>
     <p>
       <idx><h>Multivariate Meta-Analysis</h></idx> <idx><h>Factor Analysis</h></idx>
@@ -45,10 +45,10 @@
     <title>What Is Meta-Analytic Structural Equation Modeling?</title>
 
     <p>
-      Structural equation modeling is a statistical technique used to test hypotheses about the relationship of <alert>manifest</alert> (observed) and <alert>latent</alert> variables . Latent variables are either not observed or <alert>observable</alert>. Personality, for example, is a construct which can only be measured indirectly, for instance through different items in a questionnaire. In SEM, an assumed relationship between manifest and latent variables (a "structure") is modeled using the manifest, measured variables, while taking their measurement error into account.
+      Structural equation modeling is a statistical technique used to test hypotheses about the relationship of <alert>manifest</alert> (observed) and <alert>latent</alert> variables <xref ref="kline2015principles"/>. Latent variables are either not observed or <alert>observable</alert>. Personality, for example, is a construct which can only be measured indirectly, for instance through different items in a questionnaire. In SEM, an assumed relationship between manifest and latent variables (a "structure") is modeled using the manifest, measured variables, while taking their measurement error into account.
     </p>
     <p>
-      SEM analysis is somewhat different to "conventional" statistical hypothesis tests (such as <m>t</m>-tests, for example). Usually, statistical tests involve testing against a <alert>null hypothesis</alert>, such as <m>H_0: \mu_1 = \mu_2</m> (where <m>\mu_1</m> and <m>\mu_2</m> are the means of two groups). In such a test, the researcher "aims" to <alert>reject</alert> the null hypothesis, since this allows to conclude that the two groups differ. Yet in SEM, a specific structural model is proposed beforehand, and the researcher instead "aims" to <alert>accept</alert> this model if the goodness of fit is sufficient .
+      SEM analysis is somewhat different to "conventional" statistical hypothesis tests (such as <m>t</m>-tests, for example). Usually, statistical tests involve testing against a <alert>null hypothesis</alert>, such as <m>H_0: \mu_1 = \mu_2</m> (where <m>\mu_1</m> and <m>\mu_2</m> are the means of two groups). In such a test, the researcher "aims" to <alert>reject</alert> the null hypothesis, since this allows to conclude that the two groups differ. Yet in SEM, a specific structural model is proposed beforehand, and the researcher instead "aims" to <alert>accept</alert> this model if the goodness of fit is sufficient <xref ref="cheung2015meta"/>.
     </p>
     <subsection xml:id="sem-model-specification">
       <title>Model Specification</title>
@@ -89,7 +89,7 @@
           <image source="generated/regression_path_sep.png"/>
         </figure>
         <p>
-          There are several ways to represent SEM through matrices . Here, we will focus on the <alert>Reticular Action Model</alert> formulation, or RAM . We do this because this formulation is used by the <alert>{metaSEM}</alert> package which we will be introducing later on. RAM uses four matrices: <m>\boldsymbol{F}</m>, <m>\boldsymbol{A}</m>, <m>\boldsymbol{S}</m>, and <m>\boldsymbol{M}</m>. Because the <m>\boldsymbol{M}</m> matrix is not necessary to fit the meta-analytic SEM we cover, we omit it here [see <xref ref="references"/> for a more extensive introduction]. 
+          There are several ways to represent SEM through matrices <xref ref="joreskog2006lisrel"/>, <xref ref="muthen2012mplus"/>, <xref ref="mcardle1984some"/>. Here, we will focus on the <alert>Reticular Action Model</alert> formulation, or RAM <xref ref="mcardle1984some"/>. We do this because this formulation is used by the <alert>{metaSEM}</alert> package which we will be introducing later on. RAM uses four matrices: <m>\boldsymbol{F}</m>, <m>\boldsymbol{A}</m>, <m>\boldsymbol{S}</m>, and <m>\boldsymbol{M}</m>. Because the <m>\boldsymbol{M}</m> matrix is not necessary to fit the meta-analytic SEM we cover, we omit it here [see @cheung2015meta for a more extensive introduction]. 
         </p>
         <p>
           We will now specify the remaining <m>\boldsymbol{A}</m>, <m>\boldsymbol{F}</m> and <m>\boldsymbol{S}</m> matrices for our linear regression model from before. The three matrices all have the same number of rows and columns, corresponding with the variables we have in our model: <m>x</m> and <m>y</m>. Therefore, the generic matrix structure of our regression model always looks like this:
@@ -138,7 +138,7 @@
       <title>Meta-Analysis From a SEM Perspective</title>
 
       <p>
-        We will now combine our knowledge about meta-analysis models and SEM to formulate meta-analysis as a structural equation model .
+        We will now combine our knowledge about meta-analysis models and SEM to formulate meta-analysis as a structural equation model <xref ref="cheung2008model"/>.
       </p>
       <p>
         To begin, let us return to the formula of the random-effects model. Previously, we already described that the meta-analysis model follows a multilevel structure (see Chapter <xref ref="multilevel-nature"/>), which looks like this:
@@ -165,7 +165,7 @@
         In a random-effects model, we assume that even the true effect size of each study is only drawn from a population of true effect sizes at level 2. The mean of this true effect size population, <m>\mu</m>, is what we want to estimate, since it represents the pooled effect size. To do this, we also need to estimate the variance of the true effect sizes <m>\widehat{\text{Var}}(\theta)=\tau^2</m> (i.e. the between-study heterogeneity). The fixed-effect model is a special case of the random-effects model in which <m>\tau^2</m> is assumed to be zero.
       </p>
       <p>
-        It is quite straightforward to represent this model as a SEM graph. We use the parameters on level 1 as latent variables to “explain” how the effect sizes we observe came into being :
+        It is quite straightforward to represent this model as a SEM graph. We use the parameters on level 1 as latent variables to “explain” how the effect sizes we observe came into being <xref ref="cheung2015meta"/>:
       </p>
       <p>
         In the graphical model, we see that the observed effect size <m>\hat\theta_k</m> of some study <m>k</m> is "influenced" by two arms: the sampling error <m>\epsilon_k</m> with variance <m>v_k</m>, and the true effect size <m>\theta_k</m> with variance <m>\tau^2</m>.
@@ -182,7 +182,7 @@
         Above, we defined the (random-effects) meta-analysis model from a SEM perspective. Although this is interesting from a theoretical standpoint, the model above is not more or less capable than the meta-analysis techniques we covered before: it describes that effect sizes are pooled assuming a random-effects model.
       </p>
       <p>
-        To really exploit the versatility of meta-analytic SEM, a two-stepped approach is required . In <alert>Two-Stage Structural Equation Modeling</alert> (TSSEM), we first pool the effect sizes of each study. Usually, these effect sizes are correlations between several variables that we want to use for modeling. For each study <m>k</m>, we have a selection of correlations, represented by the vector <m>\boldsymbol{r_k} = (r_1, r_2, \dots, r_p)</m>, where <m>p</m> is the total number of (unique) correlations. Like in a normal random-effects model, we assume that each observed correlation in study <m>k</m> deviates from the true average correlation <m>\rho</m> due to sampling error <m>\epsilon_k</m> and between-study heterogeneity <m>\zeta_k</m>. 
+        To really exploit the versatility of meta-analytic SEM, a two-stepped approach is required <xref ref="tang2016testing"/>, <xref ref="cheung2015meta"/>. In <alert>Two-Stage Structural Equation Modeling</alert> (TSSEM), we first pool the effect sizes of each study. Usually, these effect sizes are correlations between several variables that we want to use for modeling. For each study <m>k</m>, we have a selection of correlations, represented by the vector <m>\boldsymbol{r_k} = (r_1, r_2, \dots, r_p)</m>, where <m>p</m> is the total number of (unique) correlations. Like in a normal random-effects model, we assume that each observed correlation in study <m>k</m> deviates from the true average correlation <m>\rho</m> due to sampling error <m>\epsilon_k</m> and between-study heterogeneity <m>\zeta_k</m>. 
       </p>
       <p>
         When we take into account that <m>\boldsymbol{r_k}</m> stands for <alert>several</alert> correlations contained in one study, we get the following equation for the random-effects model:
@@ -200,7 +200,7 @@
         <idx><h>Weighted Least Squares (WLS)</h></idx>
       </p>
       <p>
-        In the second step, we then use <alert>weighted least squares</alert> (see Chapter <xref ref="metareg-model-fit"/>) to fit the structural equation model we specified. The function for the specified model <m>\rho(\hat\theta)</m> is  :
+        In the second step, we then use <alert>weighted least squares</alert> (see Chapter <xref ref="metareg-model-fit"/>) to fit the structural equation model we specified. The function for the specified model <m>\rho(\hat\theta)</m> is  <xref ref="cheung2009two"/>, <xref ref="cheung2015meta"/>:
       </p>
       <p>
         \begin{equation} F_{\text{WLS}}(\hat\theta) =  (\boldsymbol{r} - \rho(\hat\theta))^\top \boldsymbol{V}^{-1} ({r} - \rho(\hat\theta)) (#eq:sem5) \end{equation}
@@ -228,7 +228,7 @@
       <idx><h>metaSEM Package</h></idx>
     </p>
     <p>
-      It is of note that multivariate meta-analysis can also be performed outside a SEM framework . Here, however, we will to show you how to perform them from a SEM perspective. In this and the following examples, we will work with <alert>{metaSEM}</alert>, a magnificent package for meta-analytic SEM developed by Mike Cheung . As always, we first have to install the <alert>{metaSEM}</alert> package and load it from your library.
+      It is of note that multivariate meta-analysis can also be performed outside a SEM framework <xref ref="schwarzer2015meta"/>, <xref ref="mvmeta"/>. Here, however, we will to show you how to perform them from a SEM perspective. In this and the following examples, we will work with <alert>{metaSEM}</alert>, a magnificent package for meta-analytic SEM developed by Mike Cheung <xref ref="metasem"/>. As always, we first have to install the <alert>{metaSEM}</alert> package and load it from your library.
     </p>
     <program language="r">
       <code>
@@ -295,7 +295,7 @@ format(head(ThirdWaveMV), digits = 2)
       A common problem in practice is that the covariance (or correlation) between two outcomes is not reported in original studies. If this is the case, we have to <alert>estimate</alert> the covariance, based on a reasonable assumption concerning the correlation between the outcomes. 
     </p>
     <p>
-      Imagine that we do not know the covariance in each study yet. How can we estimate it? A good way is to look for previous literature which assessed the correlation between the two outcomes, optimally in the same kind of context we are dealing with right now. Let us say we found in the literature that stress and anxiety are very highly correlated in post-tests of clinical trials, with <m>r_{\text{S,A}} \approx</m> 0.6. Based on this assumed correlation, we can approximate the co-variance of some study <m>k</m> using the following formula :
+      Imagine that we do not know the covariance in each study yet. How can we estimate it? A good way is to look for previous literature which assessed the correlation between the two outcomes, optimally in the same kind of context we are dealing with right now. Let us say we found in the literature that stress and anxiety are very highly correlated in post-tests of clinical trials, with <m>r_{\text{S,A}} \approx</m> 0.6. Based on this assumed correlation, we can approximate the co-variance of some study <m>k</m> using the following formula <xref ref="schwarzer2015meta"/>:
     </p>
     <p>
       \begin{equation} \widehat{\text{Cov}}(\theta<em>{1},\theta</em>{2}) = SE<em>{\theta</em>{1}} \times SE<em>{\theta</em>{2}} \times \hat\rho_{1, 2} (#eq:sem6) \end{equation}
@@ -436,7 +436,7 @@ cov2cor(tc.mat)
         <idx><h>Wald-Type Test</h></idx>
       </p>
       <p>
-        It is of note that the confidence intervals presented in the summary of <c>m.mv</c> are Wald-type intervals (see Chapter <xref ref="knapp-hartung"/>). Such Wald-type intervals can sometimes be inaccurate, especially in small samples . It may thus be valuable to construct confidence intervals in another way, by using <alert>likelihood-based</alert> confidence intervals. We can get these CIs by re-running the <c>meta</c> function and additionally specifying <c>intervals.type = "LB"</c>. 
+        It is of note that the confidence intervals presented in the summary of <c>m.mv</c> are Wald-type intervals (see Chapter <xref ref="knapp-hartung"/>). Such Wald-type intervals can sometimes be inaccurate, especially in small samples <xref ref="diciccio1996bootstrap"/>. It may thus be valuable to construct confidence intervals in another way, by using <alert>likelihood-based</alert> confidence intervals. We can get these CIs by re-running the <c>meta</c> function and additionally specifying <c>intervals.type = "LB"</c>. 
       </p>
       <program language="r">
         <code>
@@ -503,13 +503,13 @@ plot(m.mv,
       <idx><h>Factor Analysis</h></idx>
     </p>
     <p>
-      Confirmatory Factor Analysis (CFA) is a popular SEM method in which one specifies how observed variables relate to assumed latent variables . CFA is often used to evaluate the psychometric properties of questionnaires or other types of assessments. It allows researchers to determine if assessed variables indeed measure the latent variables they are intended to measure, and how several latent variables relate to each other. 
+      Confirmatory Factor Analysis (CFA) is a popular SEM method in which one specifies how observed variables relate to assumed latent variables <xref ref="thompson2004exploratory"/>. CFA is often used to evaluate the psychometric properties of questionnaires or other types of assessments. It allows researchers to determine if assessed variables indeed measure the latent variables they are intended to measure, and how several latent variables relate to each other. 
     </p>
     <p>
       For frequently used questionnaires, there are usually many empirical studies which report the correlations between the different questionnaire items. Such data can be used for meta-analytic SEM. This allows us to evaluate which latent factor structure is the most appropriate based on all available evidence.
     </p>
     <p>
-      In this example, we want to confirm the latent factor structure of a (fictitious) questionnaire for sleep problems. The questionnaire is assumed to measure two distinct latent variables characterizing sleep problems: <alert>insomnia</alert> and <alert>lassitude</alert>. Koffel and Watson  argue that sleep complaints can indeed be described by these two latent factors. 
+      In this example, we want to confirm the latent factor structure of a (fictitious) questionnaire for sleep problems. The questionnaire is assumed to measure two distinct latent variables characterizing sleep problems: <alert>insomnia</alert> and <alert>lassitude</alert>. Koffel and Watson <xref ref="koffel2009two"/> argue that sleep complaints can indeed be described by these two latent factors. 
     </p>
     <p>
       To practice meta-analytic CFA, we simulated results of 11 studies in which our imaginary sleep questionnaire was assessed. We named this data set <c>SleepProblems</c>. Each of these studies contains the inter-correlations between symptoms of sleep complaints as directly measured by our questionnaire. These measured indicators include sleep quality, sleep latency, sleep efficiency, daytime dysfunction, and <alert>hypersomnia</alert> (i.e. sleeping too much). We assume that the first three symptoms are related because they all measure insomnia as a latent variable, whereas daytime dysfunction and hypersomnia are related because they are symptoms of the lassitude factor.
@@ -899,7 +899,7 @@ summary(cfa2)
         <idx><h>Root Mean Square Error of Approximation (RMSEA)</h></idx>
       </p>
       <p>
-        Furthermore, we see that the <alert>Root Mean Square Error of Approximation</alert> (RMSEA) value is 0.0098. As a rule of thumb, a model can be considered to fit the data well when its RSMEA value is below 0.05, with smaller values indicating a better fit . Thus, this goodness of fit index also indicates that the model fits our data well. 
+        Furthermore, we see that the <alert>Root Mean Square Error of Approximation</alert> (RMSEA) value is 0.0098. As a rule of thumb, a model can be considered to fit the data well when its RSMEA value is below 0.05, with smaller values indicating a better fit <xref ref="rmsea"/>. Thus, this goodness of fit index also indicates that the model fits our data well. 
       </p>
       <note>
         <p>
@@ -921,7 +921,7 @@ summary(cfa2)
         <idx><h>Path Diagram</h></idx> <idx><h>semPlot Package</h></idx>
       </p>
       <p>
-        After the model has been fitted, <alert>{metaSEM}</alert> makes it quite easy for us to visualize it graphically. However, to draw a path diagram, we first have to install and load the <alert>{semPlot}</alert> package .
+        After the model has been fitted, <alert>{metaSEM}</alert> makes it quite easy for us to visualize it graphically. However, to draw a path diagram, we first have to install and load the <alert>{semPlot}</alert> package <xref ref="semplot"/>.
       </p>
       <program language="r">
         <code>
@@ -967,7 +967,7 @@ semPaths(cfa.plot,
           <alert>Further Reading</alert>
         </p>
         <p>
-          What we covered in this chapter should at best be seen as a rudimentary introduction to meta-analytic SEM. A much more elaborated discussion of this method can be found in Mike Cheung's definitive book <alert>Meta-Analysis: A Structural Equation Modeling Approach</alert> . This book also describes various other kinds of meta-analytic structural equation models that we have not covered, and describes how they can be implemented using <em>R</em>. 
+          What we covered in this chapter should at best be seen as a rudimentary introduction to meta-analytic SEM. A much more elaborated discussion of this method can be found in Mike Cheung's definitive book <alert>Meta-Analysis: A Structural Equation Modeling Approach</alert> <xref ref="cheung2015meta"/>. This book also describes various other kinds of meta-analytic structural equation models that we have not covered, and describes how they can be implemented using <em>R</em>. 
         </p>
         <p>
           If you are looking for a shorter (and openly accessible) resource, you can have a look at the <alert>{metaSEM}</alert> package vignette. The vignette provides a brief discussion of the theory behind meta-analytic SEM and includes several illustrations with <em>R</em>. After <alert>{metaSEM}</alert> is loaded, the vignette can be downloaded from the Internet by running <c>vignette("metaSEM")</c> in the console. 

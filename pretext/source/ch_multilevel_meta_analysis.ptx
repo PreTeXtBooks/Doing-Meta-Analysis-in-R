@@ -19,7 +19,7 @@
       This first chapter deals with the topic of "multilevel" meta-analyses. You probably wonder why we put the word "multilevel" into quotation marks. Describing a study as a "multilevel" meta-analysis insinuates that this is something special or extraordinary compared to "standard" meta-analyses. 
     </p>
     <p>
-      Yet, that is not true. Every meta-analytic model presupposes a multilevel structure of our data to pool results . In the chapters before, we have already fitted a multilevel (meta-analysis) model several times--without even knowing. 
+      Yet, that is not true. Every meta-analytic model presupposes a multilevel structure of our data to pool results <xref ref="pastor2018multilevel"/>. In the chapters before, we have already fitted a multilevel (meta-analysis) model several times--without even knowing. 
     </p>
     <p>
       When people talk about multilevel meta-analysis, what they think of are <alert>three-level meta-analysis models</alert>. Such models are indeed somewhat different to the fixed-effect and random-effects model we already know. In this chapter, we will therefore first describe why meta-analysis naturally implies a multilevel structure of our data, and how we can extend a conventional meta-analysis to a three-level model. As always, we will also have a look at how such models can be fitted in <em>R</em> using a hands-on example. 
@@ -51,7 +51,7 @@
       The second one, <m>\zeta_k</m>, represents the between-study heterogeneity. This heterogeneity is caused by the fact that the true effect size of some study <m>k</m> is again only part of an overarching <alert>distribution of true effect sizes</alert>. This distribution is from where the individual true effect size <m>\theta_k</m> was drawn. Therefore, our aim in the random-effects model is to estimate the mean of the distribution of true effect sizes, denoted with <m>\mu</m>.
     </p>
     <p>
-      The two error terms <m>\epsilon_k</m> and <m>\zeta_k</m> correspond with the two levels in our meta-analysis data: the "participant" level (level 1) and the "study" level (level 2). Figure <xref ref="fig-multilevel1"/> below symbolizes this structure. 
+      The two error terms <m>\epsilon_k</m> and <m>\zeta_k</m> correspond with the two levels in our meta-analysis data: the "participant" level (level 1) and the "study" level (level 2). Figure <xref ref="fig:multilevel1"/> below symbolizes this structure. 
     </p>
     <p>
       At the lowest level (level 1) we have the participants (or patients, specimens, etc., depending on the research field). These participants are part of larger units: the studies included in our meta-analysis. This overlying layer of studies constitutes our second level. 
@@ -67,7 +67,7 @@
       <idx><h>Random-Effects Model</h></idx>
     </p>
     <p>
-      Let us go back to the random-effects model formula in equation <xref provisional="eq:mlm1"/>. Implicitly, this formula already describes the multilevel structure of our meta-analysis data. To make this more obvious, we have to split the equation into two formulas, where each corresponds to one of the two levels. If we do this, we get the following result: 
+      Let us go back to the random-effects model formula in equation <xref ref="eq:mlm1"/>. Implicitly, this formula already describes the multilevel structure of our meta-analysis data. To make this more obvious, we have to split the equation into two formulas, where each corresponds to one of the two levels. If we do this, we get the following result: 
     </p>
     <p>
       <alert>Level 1 (participants) model:</alert>
@@ -85,13 +85,13 @@
       You might have already detected that we can substitute <m>\theta_k</m> in the first equation with its definition in the second equation. What we then obtain is a formula exactly identical to the one of the random-effects model from before. The fixed-effects model can also be written in this way--we only have to set <m>\zeta_k</m> to zero. Evidently, our plain old meta-analysis model already has multilevel properties "built in". It exhibits this property because we assume that participants are nested within studies in our data.
     </p>
     <p>
-      This makes it clear that meta-analysis naturally possesses a multilevel structure. It is possible to expand this structure even further in order to better capture certain mechanisms that generated our data. This is where <alert>three-level models</alert>  come into play.
+      This makes it clear that meta-analysis naturally possesses a multilevel structure. It is possible to expand this structure even further in order to better capture certain mechanisms that generated our data. This is where <alert>three-level models</alert> <xref ref="cheung2014modeling"/>, <xref ref="assink2016fitting"/> come into play.
     </p>
     <p>
       <idx><h>Unit-of-Analysis Problem</h></idx>
     </p>
     <p>
-      Statistical independence is one of the core assumptions when we pool effect sizes in a meta-analysis. If there is a dependency between effect sizes (i.e. effect sizes are correlated), this can artificially reduce heterogeneity and thus lead to false-positive results. This issue is known as the <alert>unit-of-analysis error</alert>, which we already covered before (see Chapter <xref ref="unit-of-analysis"/>). Effect size dependence can stem from different sources :
+      Statistical independence is one of the core assumptions when we pool effect sizes in a meta-analysis. If there is a dependency between effect sizes (i.e. effect sizes are correlated), this can artificially reduce heterogeneity and thus lead to false-positive results. This issue is known as the <alert>unit-of-analysis error</alert>, which we already covered before (see Chapter <xref ref="unit-of-analysis"/>). Effect size dependence can stem from different sources <xref ref="cheung2014modeling"/>:
     </p>
     <ul>
       <li>
@@ -170,7 +170,7 @@ library(metafor)
       </code>
     </program>
     <p>
-      In our hands-on example, we will use the <c>Chernobyl</c> data set. This data set is loosely based on a real meta-analysis which examined the correlation between ionizing radiation ("nuclear fallout") and mutation rates in humans, caused by the devastating <url href="https://www.britannica.com/event/Chernobyl-disaster">1986 Chernobyl reactor disaster</url> . 
+      In our hands-on example, we will use the <c>Chernobyl</c> data set. This data set is loosely based on a real meta-analysis which examined the correlation between ionizing radiation ("nuclear fallout") and mutation rates in humans, caused by the devastating <url href="https://www.britannica.com/event/Chernobyl-disaster">1986 Chernobyl reactor disaster</url> <xref ref="moller2015strong"/>. 
     </p>
     <p>
       <idx><h>dmetar Package</h></idx>
@@ -346,7 +346,7 @@ convert_z2r(0.52)
         <idx><h>I$^2$, Higgins \&amp; Thompson's</h></idx>
       </p>
       <p>
-        We can answer this question by calculating a multilevel version of <m>I^2</m> . In conventional meta-analyses, <m>I^2</m> represents the amount of variation not attributable to sampling error (see Chapter <xref ref="i-squared"/>; i.e. the between-study heterogeneity). In three-level models, this heterogeneity variance is split into two parts: one attributable to true effect size differences <alert>within</alert> clusters, and the other to <alert>between</alert>-cluster variation. Thus, there are two <m>I^2</m> values, quantifying the percentage of total variation associated with either level 2 or level 3. 
+        We can answer this question by calculating a multilevel version of <m>I^2</m> <xref ref="cheung2014modeling"/>. In conventional meta-analyses, <m>I^2</m> represents the amount of variation not attributable to sampling error (see Chapter <xref ref="i-squared"/>; i.e. the between-study heterogeneity). In three-level models, this heterogeneity variance is split into two parts: one attributable to true effect size differences <alert>within</alert> clusters, and the other to <alert>between</alert>-cluster variation. Thus, there are two <m>I^2</m> values, quantifying the percentage of total variation associated with either level 2 or level 3. 
       </p>
       <p>
         <idx><h>dmetar Package</h></idx>
@@ -575,17 +575,17 @@ summary(mod.model)
       When several effect sizes in one study are based on the same sample, we expect their sampling errors (the <m>\epsilon_{ij}</m> terms in equation 10.7 and 10.8 in Chapters <xref ref="multilevel-nature"/> and <xref ref="three-level-subgroup"/>, respectively) to be <alert>correlated</alert>. This, however, is not yet captured by our three-level model. Our model above assumes that, within clusters/studies, the correlation (and thus the covariance) between sampling errors is zero. Or, to put it differently, it assumes that, <alert>within</alert> one cluster or study, effect size estimates are <alert>independent</alert>. 
     </p>
     <p>
-      In this section, we will therefore devote some time to an extended three-level architecture, the so-called <alert>Correlated and Hierarchical Effects</alert> (CHE) model . Like our previous (hierarchical) three-level model, the CHE model allows to combine several effect sizes into larger clusters, based on certain commonalities (e.g. because they stem from the same study, work group, cultural region, etc.). 
+      In this section, we will therefore devote some time to an extended three-level architecture, the so-called <alert>Correlated and Hierarchical Effects</alert> (CHE) model <xref ref="pustejovsky2021meta"/>. Like our previous (hierarchical) three-level model, the CHE model allows to combine several effect sizes into larger clusters, based on certain commonalities (e.g. because they stem from the same study, work group, cultural region, etc.). 
     </p>
     <figure xml:id="fig-multilevel3">
       <caption>In its original form, the three-level (hierarchical) model assumes that effect size estimates within studies or clusters are independent.</caption>
       <image source="generated/multilevel-model3_col_sep.png"/>
     </figure>
     <p>
-      But in addition, this model also explicitly takes into account that some effect sizes within clusters are based on the same sample (e.g. because several measurements were taken), and that their sampling errors are therefore correlated. In many real-life scenarios, the CHE model should therefore provide a <alert>good starting point</alert>; especially when the dependence structure in our data is complex, or only partially known <fn>Pustejovsky and Tipton  also provide a decision-tree to determine if and when the CHE model is appropriate (see <url href="https://link.springer.com/content/pdf/10.1007/s11121-021-01246-3.pdf">Figure 1</url>). You can use this heuristic as a way to check if the CHE model provides the best assumptions for your data, or if another working model is more reasonable.</fn>.
+      But in addition, this model also explicitly takes into account that some effect sizes within clusters are based on the same sample (e.g. because several measurements were taken), and that their sampling errors are therefore correlated. In many real-life scenarios, the CHE model should therefore provide a <alert>good starting point</alert>; especially when the dependence structure in our data is complex, or only partially known <xref ref="pustejovsky2021meta"/><fn>Pustejovsky and Tipton <xref ref="pustejovsky2021meta"/> also provide a decision-tree to determine if and when the CHE model is appropriate (see <url href="https://link.springer.com/content/pdf/10.1007/s11121-021-01246-3.pdf">Figure 1</url>). You can use this heuristic as a way to check if the CHE model provides the best assumptions for your data, or if another working model is more reasonable.</fn>.
     </p>
     <p>
-      Along with the CHE model, we will also discuss <alert>Robust Variance Estimation</alert> (RVE) in meta-analytic contexts . This is a set of methods which has been frequently used to handle dependent effect sizes in meta-analyses in the past. In its core, RVE revolves around the so-called <alert>Sandwich estimator</alert>. This estimator can be used in combination with the CHE model (as well as other meta-analytic models) to obtain robust confidence intervals and <m>p</m>-values; even when our selected model does not capture the intricate dependence structure of our data perfectly well.
+      Along with the CHE model, we will also discuss <alert>Robust Variance Estimation</alert> (RVE) in meta-analytic contexts <xref ref="hedges2010robust"/>, <xref ref="tipton2015small"/>, <xref ref="tipton2015small2"/>. This is a set of methods which has been frequently used to handle dependent effect sizes in meta-analyses in the past. In its core, RVE revolves around the so-called <alert>Sandwich estimator</alert>. This estimator can be used in combination with the CHE model (as well as other meta-analytic models) to obtain robust confidence intervals and <m>p</m>-values; even when our selected model does not capture the intricate dependence structure of our data perfectly well.
     </p>
     <p>
       Thus, before fitting our first CHE model, let us start with an overview of meta-analytic RVE as well as the Sandwich estimator, and explore why the latter bears such an appetizing name. 
@@ -600,10 +600,10 @@ summary(mod.model)
         It is called a "robust" estimator because it provides a <alert>consistent estimate</alert> of the asymptotic standard error(s); even when usual assumptions of linear models are not met<fn>One of these assumptions is the homogeneity of the residual variance, known as <alert>homoskedasticity</alert>. Homoskedasticity, among other assumptions, is required for "classical" estimators of the coefficient variance to be valid.</fn>. Robust estimates of the coefficient variance in a regression model are crucial. The variance estimate<fn>Or rather its <alert>square root</alert>, since this represents the <alert>standard error</alert> of the coefficient: <m>\sqrt{V_{\hat\beta}}={SE}_{\hat\beta}</m>.</fn> is used to calculate <alert>confidence intervals</alert> around the estimated regression weight, as well as <m>p</m>-values, and thus has direct implications on the inferences we draw from a model. 
       </p>
       <p>
-        The type of robust variance estimator we cover here is simply a <alert>special version</alert> of the original method used in "normal" regression models. Hedges, Tipton and Jackson  laid out an adapted type of RVE that can be used for <alert>meta-regression models</alert> with dependent effect sizes, and this approach has been extended in the last years few years. 
+        The type of robust variance estimator we cover here is simply a <alert>special version</alert> of the original method used in "normal" regression models. Hedges, Tipton and Jackson <xref ref="hedges2010robust"/> laid out an adapted type of RVE that can be used for <alert>meta-regression models</alert> with dependent effect sizes, and this approach has been extended in the last years few years. 
       </p>
       <p>
-        To understand it, we first have to look at the formula of a meta-regression again. Conceptually, this formula is very similar to equation 8.2 presented in Chapter <xref ref="the-metareg-model"/>. We simply display it differently using <alert>matrix notation</alert><fn>In this chapter, we largely follow the notation of Hedges, Tipton and Jackson  and its follow-up papers when discussing meta-analytic RVE.</fn>:
+        To understand it, we first have to look at the formula of a meta-regression again. Conceptually, this formula is very similar to equation 8.2 presented in Chapter <xref ref="the-metareg-model"/>. We simply display it differently using <alert>matrix notation</alert><fn>In this chapter, we largely follow the notation of Hedges, Tipton and Jackson <xref ref="hedges2010robust"/> and its follow-up papers when discussing meta-analytic RVE.</fn>:
       </p>
       <p>
         \begin{equation} \boldsymbol{T}<em>{j}=\boldsymbol{X}</em>{j}\boldsymbol{\beta} + \boldsymbol{u}<em>j +\boldsymbol{e}</em>j (#eq:mlm9) \end{equation}
@@ -627,7 +627,7 @@ summary(mod.model)
         \begin{equation} \begin{bmatrix}  \boldsymbol{T}<em>1 \  \boldsymbol{T}</em>2 \  \vdots \  \boldsymbol{T}<em>J \end{bmatrix} = \begin{bmatrix}  \boldsymbol{X}</em>1 \  \boldsymbol{X}<em>2 \  \vdots \  \boldsymbol{X}</em>J \end{bmatrix} \boldsymbol{\beta} + \begin{bmatrix}  \boldsymbol{u}<em>1 \  \boldsymbol{u}</em>2 \  \vdots \  \boldsymbol{u}<em>J \end{bmatrix} + \begin{bmatrix}  \boldsymbol{e}</em>1 \  \boldsymbol{e}<em>2 \  \vdots \  \boldsymbol{e}</em>J  \end{bmatrix}. (#eq:mlm11) \end{equation}
       </p>
       <p>
-        Based on this formula, we can estimate the meta-regression coefficients <m>\boldsymbol{\hat\beta}</m>. To calculate confidence intervals and conduct significance tests of the coefficients, we need an estimate of their variance <m>\boldsymbol{V_{\hat\beta}}</m>. This can be achieved using the robust sampling variance estimator. Its formula looks like this :
+        Based on this formula, we can estimate the meta-regression coefficients <m>\boldsymbol{\hat\beta}</m>. To calculate confidence intervals and conduct significance tests of the coefficients, we need an estimate of their variance <m>\boldsymbol{V_{\hat\beta}}</m>. This can be achieved using the robust sampling variance estimator. Its formula looks like this <xref ref="hedges2010robust"/>, <xref ref="pustejovsky2021meta"/>:
       </p>
       <p>
         \begin{equation} \scriptsize\boldsymbol{V}^{\text{R}}<em>{\boldsymbol{\hat\beta}} = \left(\sum^J</em>{j=1}\boldsymbol{X}<em>j^\top\boldsymbol{W}</em>j\boldsymbol{X}<em>j \right)^{-1}  \left(\sum^J</em>{j=1}\boldsymbol{X}<em>j^\top\boldsymbol{W}</em>j \boldsymbol{A}<em>j\Phi</em>j \boldsymbol{A}<em>j \boldsymbol{W}</em>j \boldsymbol{X}<em>j \right) \left(\sum^J</em>{j=1}\boldsymbol{X}<em>j^\top\boldsymbol{W}</em>j\boldsymbol{X}_j \right)^{-1}  (#eq:mlm12)  \end{equation}
@@ -641,17 +641,17 @@ summary(mod.model)
       <ul>
         <li>
           <p>
-            The first one, <m>\boldsymbol{\Phi}_j=\text{Var}(\boldsymbol{u}_j +\boldsymbol{e}_j)</m>, is a variance-covariance matrix with <m>n_j</m> rows and <m>n_j</m> columns. This matrix describes the <alert>true dependence structure</alert> of the effect sizes in some study <m>j</m> . Unfortunately, it is rarely known how and to what extent effect sizes are correlated within a study; and it is even more difficult to know this for <alert>all</alert> studies in our meta-analysis. Therefore, it is necessary to make a few simplifying assumptions in our model<fn>In the original approach by Hedges, Tipton and Jackson , for example, <m>\boldsymbol{\Phi}_j</m> is replaced by the <alert>cross-product of the model residuals</alert>, <m>\boldsymbol{\Phi}_j=\boldsymbol{e}_j{\boldsymbol{e}_j}^\top</m>, because these are readily available. This is a crude estimate of the true dependence structure, but works as a "best guess" if the number of studies in a meta-analysis is high.</fn>. The CHE model, for example, assumes the there is a <alert>known correlation</alert> <m>\rho</m> between effect sizes in the same study; and that <m>\rho</m> has the same value within and across all studies in our meta-analysis [the "constant sampling correlation" assumption; see <xref ref="references"/>].
+            The first one, <m>\boldsymbol{\Phi}_j=\text{Var}(\boldsymbol{u}_j +\boldsymbol{e}_j)</m>, is a variance-covariance matrix with <m>n_j</m> rows and <m>n_j</m> columns. This matrix describes the <alert>true dependence structure</alert> of the effect sizes in some study <m>j</m> <xref ref="pustejovsky2021meta"/>. Unfortunately, it is rarely known how and to what extent effect sizes are correlated within a study; and it is even more difficult to know this for <alert>all</alert> studies in our meta-analysis. Therefore, it is necessary to make a few simplifying assumptions in our model<fn>In the original approach by Hedges, Tipton and Jackson <xref ref="hedges2010robust"/>, for example, <m>\boldsymbol{\Phi}_j</m> is replaced by the <alert>cross-product of the model residuals</alert>, <m>\boldsymbol{\Phi}_j=\boldsymbol{e}_j{\boldsymbol{e}_j}^\top</m>, because these are readily available. This is a crude estimate of the true dependence structure, but works as a "best guess" if the number of studies in a meta-analysis is high.</fn>. The CHE model, for example, assumes the there is a <alert>known correlation</alert> <m>\rho</m> between effect sizes in the same study; and that <m>\rho</m> has the same value within and across all studies in our meta-analysis [the "constant sampling correlation" assumption, @pustejovsky2021meta].
           </p>
         </li>
         <li>
           <p>
-            The <m>\boldsymbol{W}_j</m> matrix contains the <alert>weights</alert> of each effect size. In previous chapters (see <xref ref="fem"/> and <xref ref="metareg-model-fit"/>), we already learned that we need to take the precision of effect size estimates into account before we can pool them. The optimal way to do this is to take the inverse of the variance, which would mean that <m>\boldsymbol{W}_j = \boldsymbol{\Phi}^{-1}_j</m>. As we mentioned, the true values of <m>\boldsymbol{\Phi}_j</m> are hardly ever known, so an estimate based on our model, <m>(\boldsymbol{\hat\Phi}_j)^{-1}</m>, is used<fn>The original approach by Hedges, Tipton and Jackson  employs a different method using simplified diagonal weight matrices, which are approximately efficient.</fn>.
+            The <m>\boldsymbol{W}_j</m> matrix contains the <alert>weights</alert> of each effect size. In previous chapters (see <xref ref="fem"/> and <xref ref="metareg-model-fit"/>), we already learned that we need to take the precision of effect size estimates into account before we can pool them. The optimal way to do this is to take the inverse of the variance, which would mean that <m>\boldsymbol{W}_j = \boldsymbol{\Phi}^{-1}_j</m>. As we mentioned, the true values of <m>\boldsymbol{\Phi}_j</m> are hardly ever known, so an estimate based on our model, <m>(\boldsymbol{\hat\Phi}_j)^{-1}</m>, is used<fn>The original approach by Hedges, Tipton and Jackson <xref ref="hedges2010robust"/> employs a different method using simplified diagonal weight matrices, which are approximately efficient.</fn>.
           </p>
         </li>
         <li>
           <p>
-            The last part, <m>\boldsymbol{A}_j</m>, is an <alert>adjustment matrix</alert>, and ensures that the estimator provides valid results even when the number of studies in our meta-analysis is small [say 40 or less; see <xref ref="references"/>]. The recommended approach is to use a matrix based on the bias-reduced linearization, or <alert>"CR2" method</alert> <fn>The CR2 adjustment matrix looks like this: <me>\scriptsize \boldsymbol{A}^{\text{CR2}}_j = \boldsymbol{W}_j^{-1/2}\left\{\boldsymbol{W}_j^{-1/2} \left[\boldsymbol{W}_j^{-1}-\boldsymbol{X}_j \left(\sum^J_{j=1}\boldsymbol{X}_j^\top\boldsymbol{W}_j\boldsymbol{X}_j \right)^{-1} \boldsymbol{X}_j^\top \right] \boldsymbol{W}_j^{-1/2}\right\}^{-1/2} \boldsymbol{W}_j^{-1/2}.</me> It entails taking the symmetric square root of the weight matrix <m>\boldsymbol{W}_j</m>.</fn>.
+            The last part, <m>\boldsymbol{A}_j</m>, is an <alert>adjustment matrix</alert>, and ensures that the estimator provides valid results even when the number of studies in our meta-analysis is small [say 40 or less, @hedges2010robust; @tipton2015small]. The recommended approach is to use a matrix based on the bias-reduced linearization, or <alert>"CR2" method</alert> <xref ref="tipton2015small"/><fn>The CR2 adjustment matrix looks like this: <me>\scriptsize \boldsymbol{A}^{\text{CR2}}_j = \boldsymbol{W}_j^{-1/2}\left\{\boldsymbol{W}_j^{-1/2} \left[\boldsymbol{W}_j^{-1}-\boldsymbol{X}_j \left(\sum^J_{j=1}\boldsymbol{X}_j^\top\boldsymbol{W}_j\boldsymbol{X}_j \right)^{-1} \boldsymbol{X}_j^\top \right] \boldsymbol{W}_j^{-1/2}\right\}^{-1/2} \boldsymbol{W}_j^{-1/2}.</me> It entails taking the symmetric square root of the weight matrix <m>\boldsymbol{W}_j</m>.</fn>.
           </p>
         </li>
       </ul>
@@ -661,7 +661,7 @@ summary(mod.model)
       <title>Fitting a CHE Model With Robust Variance Estimation</title>
 
       <p>
-        It is now time to fit our first correlated and hierarchical effects model with <em>R</em>, while employing robust variance estimation to guard our model against misspecification. Like before, we can use the <c>rma.mv</c> function in <alert>{metafor}</alert> to run our model. This time, we also need some additional functions provided by the <alert>{clubSandwich}</alert> package . Therefore, make sure to install the package, and then load it from your library.
+        It is now time to fit our first correlated and hierarchical effects model with <em>R</em>, while employing robust variance estimation to guard our model against misspecification. Like before, we can use the <c>rma.mv</c> function in <alert>{metafor}</alert> to run our model. This time, we also need some additional functions provided by the <alert>{clubSandwich}</alert> package <xref ref="clubSandwich"/>. Therefore, make sure to install the package, and then load it from your library.
       </p>
       <program language="r">
         <code>
@@ -762,7 +762,7 @@ coef_test(che.model,
         </code>
       </program>
       <p>
-        We see that none of the coefficients are significant when robust variance estimation is used<fn>By default, the <c>cont_int</c> and <c>coef_test</c> functions use the <alert>Satterthwaite-corrected</alert> degrees of freedom . It is recommended to keep this default setting.</fn>. 
+        We see that none of the coefficients are significant when robust variance estimation is used<fn>By default, the <c>cont_int</c> and <c>coef_test</c> functions use the <alert>Satterthwaite-corrected</alert> degrees of freedom <xref ref="tipton2015small2"/>. It is recommended to keep this default setting.</fn>. 
       </p>
       <note>
         <p>
@@ -780,10 +780,10 @@ coef_test(che.model,
           <alert>The {robumeta} package</alert>
         </p>
         <p>
-          In this section, we covered robust variance estimation in combination with the correlated and hierarchical effects model. This model, together with a few other innovations, has been proposed by Pustejosky and Tipton . 
+          In this section, we covered robust variance estimation in combination with the correlated and hierarchical effects model. This model, together with a few other innovations, has been proposed by Pustejosky and Tipton <xref ref="pustejovsky2021meta"/>. 
         </p>
         <p>
-          The <alert>"original" RVE approach</alert> by Hedges, Tipton and Jackson , along with a few small-sample extensions, can be applied using the <alert>{robumeta}</alert> package . The package allows to fit a meta-regression using the two model types originally proposed by Hedges, Tipton and Jackson: the <alert>hierarchical</alert>, as well as the <alert>correlated effects</alert> model (but not both combined).  
+          The <alert>"original" RVE approach</alert> by Hedges, Tipton and Jackson <xref ref="hedges2010robust"/>, along with a few small-sample extensions, can be applied using the <alert>{robumeta}</alert> package <xref ref="robumeta"/>. The package allows to fit a meta-regression using the two model types originally proposed by Hedges, Tipton and Jackson: the <alert>hierarchical</alert>, as well as the <alert>correlated effects</alert> model (but not both combined).  
         </p>
       </note>
     </subsection>
@@ -797,7 +797,7 @@ coef_test(che.model,
       In the last chapter, we learned how to fit a correlated and hierarchical effects model, and how to calculate confidence intervals and coefficient tests using robust variance estimation. 
     </p>
     <p>
-      Another, and sometimes favorable way to test coefficients in our model are bootstrapping procedures, a special variant of which is so-called <alert>cluster wild bootstrapping</alert> . This method is well suited if the total number of studies <m>J</m> in our meta-analysis is <alert>small</alert>; especially compared to RVE, which can lead to overly conservative results in small samples (as we have seen in our own <c>Chernobyl</c> example).
+      Another, and sometimes favorable way to test coefficients in our model are bootstrapping procedures, a special variant of which is so-called <alert>cluster wild bootstrapping</alert> <xref ref="joshi2021clusterwild"/>. This method is well suited if the total number of studies <m>J</m> in our meta-analysis is <alert>small</alert>; especially compared to RVE, which can lead to overly conservative results in small samples (as we have seen in our own <c>Chernobyl</c> example).
     </p>
     <p>
       This method is also sensible whenever we want to test so-called <alert>multiple-contrast hypotheses</alert>. Multiple-constrast hypotheses are needed, for example, if we want to test the overall effect of a dummy-coded categorical covariate. 
@@ -807,7 +807,7 @@ coef_test(che.model,
         <alert>The Cluster Wild Bootstrapping Algorithm</alert>
       </p>
       <p>
-        The wild bootstrap is a method based on the residuals of a null model (i.e. a model fitted without any additional covariates). In cluster wild bootstrapping, residuals are transformed using an adjustment matrix <m>\boldsymbol{A}_j</m>, for example based on the CR2 method (see Chapter <xref ref="sandwich"/>), to handle dependent effect sizes. A general algorithm for wild boostrapping looks like this :
+        The wild bootstrap is a method based on the residuals of a null model (i.e. a model fitted without any additional covariates). In cluster wild bootstrapping, residuals are transformed using an adjustment matrix <m>\boldsymbol{A}_j</m>, for example based on the CR2 method (see Chapter <xref ref="sandwich"/>), to handle dependent effect sizes. A general algorithm for wild boostrapping looks like this <xref ref="joshi2021clusterwild"/>:
       </p>
       <ol>
         <li>
@@ -841,7 +841,7 @@ coef_test(che.model,
       </p>
     </note>
     <p>
-      To test multiple-contrast hypotheses using the bootstrap, we can use the <alert>{wildmeta}</alert> package . This package needs to be installed and loaded from the library for our next example. Furthermore, using functions of the <alert>{tidyverse}</alert>, we generate a new variable in our <c>Chernobyl</c> data set, in which we save the year of each study.
+      To test multiple-contrast hypotheses using the bootstrap, we can use the <alert>{wildmeta}</alert> package <xref ref="wildmeta"/>. This package needs to be installed and loaded from the library for our next example. Furthermore, using functions of the <alert>{tidyverse}</alert>, we generate a new variable in our <c>Chernobyl</c> data set, in which we save the year of each study.
     </p>
     <program language="r">
       <code>

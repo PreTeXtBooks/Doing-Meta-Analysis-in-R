@@ -22,13 +22,13 @@
       <idx><h>Mixed-Treatment Comparison Meta-Analysis</h></idx>
     </p>
     <p>
-      <alert>Network meta-analysis</alert> can be used to incorporate such indirect comparisons, and thus allows us to compare the effects of several interventions simultaneously . Network meta-analysis is also known as <alert>mixed-treatment comparison meta-analysis</alert> . This is because it integrates multiple direct and indirect treatment comparisons into one model, which can be formalized as a “network” of comparisons.
+      <alert>Network meta-analysis</alert> can be used to incorporate such indirect comparisons, and thus allows us to compare the effects of several interventions simultaneously <xref ref="dias2013evidence"/>. Network meta-analysis is also known as <alert>mixed-treatment comparison meta-analysis</alert> <xref ref="van2012automating"/>. This is because it integrates multiple direct and indirect treatment comparisons into one model, which can be formalized as a “network” of comparisons.
     </p>
     <p>
       <idx><h>Consistency</h></idx>
     </p>
     <p>
-      Network meta-analysis is a “hot” research topic. In the last decade, it has been increasingly picked up by applied researchers in the bio-medical field, and other disciplines. However, this method also comes with additional challenges and pitfalls, particularly with respect to heterogeneity and so-called <alert>network inconsistency</alert> . 
+      Network meta-analysis is a “hot” research topic. In the last decade, it has been increasingly picked up by applied researchers in the bio-medical field, and other disciplines. However, this method also comes with additional challenges and pitfalls, particularly with respect to heterogeneity and so-called <alert>network inconsistency</alert> <xref ref="salanti2014evaluating"/>. 
     </p>
     <p>
       Therefore, it is important to first discuss the core components and assumptions of network meta-analysis models. The underpinnings of network meta-analysis can be a little abstract at times. We will therefore go through the essential details in small steps, in order to get a better understanding of this method.
@@ -81,7 +81,7 @@
         <image source="generated/graph3_col_sep.png"/>
       </figure>
       <p>
-        Using information from the directly observed edges, we can calculate the effect of the <alert>indirectly</alert> observed comparison between A and C. We denote this non-observed, indirect effect size with <m>\hat\theta^{\text{indirect}}_{\text{A,C}}</m>. The effect estimate can be derived using this formula :
+        Using information from the directly observed edges, we can calculate the effect of the <alert>indirectly</alert> observed comparison between A and C. We denote this non-observed, indirect effect size with <m>\hat\theta^{\text{indirect}}_{\text{A,C}}</m>. The effect estimate can be derived using this formula <xref ref="dias2018network"/>:
       </p>
       <p>
         \begin{equation} \hat\theta<em>{\text{A,C}}^{\text{indirect}} = \hat\theta</em>{\text{B,A}}^{\text{direct}} - \hat\theta_{\text{B,C}}^{\text{direct}} (#eq:networkes) \end{equation}
@@ -116,13 +116,13 @@
         \begin{equation} \text{Var} \left(\hat\theta<em>{\text{A,C}}^{\text{indirect}} \right) = \text{Var} \left(\hat\theta</em>{\text{B,A}}^{\text{direct}} \right) + \text{Var} \left(\hat\theta_{\text{B,C}}^{\text{direct}} \right) (#eq:nw2) \end{equation}
       </p>
       <p>
-        To calculate the variance of the indirect comparison, we <alert>add up</alert> the variances of the direct comparisons. This means that effect sizes estimated from indirect evidence will always have a greater variance, and thus a lower precision, than the ones based on direct evidence . This is nothing but logical. We can have a much higher confidence in effect sizes which were estimated from observed data, compared to results which had to be inferred mathematically.  
+        To calculate the variance of the indirect comparison, we <alert>add up</alert> the variances of the direct comparisons. This means that effect sizes estimated from indirect evidence will always have a greater variance, and thus a lower precision, than the ones based on direct evidence <xref ref="dias2018network"/>. This is nothing but logical. We can have a much higher confidence in effect sizes which were estimated from observed data, compared to results which had to be inferred mathematically.  
       </p>
       <p>
         <idx><h>Consistency</h></idx> <idx><h>Transitivity Assumption</h></idx>
       </p>
       <p>
-        There is yet another issue. Equation <xref provisional="eq:networkes"/> from before, which allows us to estimate indirect evidence from direct comparisons, only holds if a crucial pre-requisite is met: the assumption of <alert>transitivity</alert>. From a statistical standpoint, this assumption translates to network <alert>consistency</alert> . In the following, we explain what both of these terms mean, and why they are important.
+        There is yet another issue. Equation <xref ref="eq:networkes"/> from before, which allows us to estimate indirect evidence from direct comparisons, only holds if a crucial pre-requisite is met: the assumption of <alert>transitivity</alert>. From a statistical standpoint, this assumption translates to network <alert>consistency</alert> <xref ref="efthimiou2016getreal"/>. In the following, we explain what both of these terms mean, and why they are important.
       </p>
     </subsection>
 
@@ -130,22 +130,22 @@
       <title>Transitivity &amp; Consistency</title>
 
       <p>
-        Network meta-analyses are certainly a valuable extension of standard meta-analytic methods. Their validity, however, has not remained uncontested. Most of the criticism of network meta-analysis revolves around, as you might have guessed, the use of indirect evidence . This especially involves cases where direct evidence is actually available for a comparison. 
+        Network meta-analyses are certainly a valuable extension of standard meta-analytic methods. Their validity, however, has not remained uncontested. Most of the criticism of network meta-analysis revolves around, as you might have guessed, the use of indirect evidence <xref ref="edwards2009indirect"/>, <xref ref="ioannidis2006indirect"/>. This especially involves cases where direct evidence is actually available for a comparison. 
       </p>
       <p>
         The key issue is that, while participants in (randomized) trials are allocated to one of the treatment conditions (e.g., A and B) <alert>by chance</alert>, the trial conditions themselves were not randomly selected in our network. This is of course all but logical. It is usually no problem to randomize participants into one of several conditions of a trial. Yet, it is difficult to imagine a researcher determining treatment conditions to be used in a trial via, say, a dice roll, before rolling out her study. The composition of selected trial conditions will hardly ever follow a random pattern in a network meta-analysis. 
       </p>
       <p>
-        This does not constitute a problem for network meta-analytic models <em>per se</em> . Our network meta-analysis model will only be biased when the selection, or non-selection, of a specific comparison within a trial depends on the true effect of that comparison . This statement is quite abstract, so let us elaborate on it a little.
+        This does not constitute a problem for network meta-analytic models <em>per se</em> <xref ref="dias2018network"/>. Our network meta-analysis model will only be biased when the selection, or non-selection, of a specific comparison within a trial depends on the true effect of that comparison <xref ref="dias2013evidence"/>. This statement is quite abstract, so let us elaborate on it a little.
       </p>
       <p>
         <idx><h>Consistency</h></idx> <idx><h>Transitivity Assumption</h></idx>
       </p>
       <p>
-        The requirement we just mentioned is derived from the <alert>transitivity</alert> assumption of network meta-analyses. There is disagreement in the literature about whether this is an assumption unique to network meta-analysis, or simply an extension of the assumptions in conventional pairwise meta-analysis. The disagreement may also be partly caused by an inconsistent usage of terms in the literature . 
+        The requirement we just mentioned is derived from the <alert>transitivity</alert> assumption of network meta-analyses. There is disagreement in the literature about whether this is an assumption unique to network meta-analysis, or simply an extension of the assumptions in conventional pairwise meta-analysis. The disagreement may also be partly caused by an inconsistent usage of terms in the literature <xref ref="dias2018network"/>, <xref ref="efthimiou2016getreal"/>, <xref ref="song2009methodological"/>, <xref ref="lu2009modeling"/>. 
       </p>
       <p>
-        The core tenet of the transitivity assumption is that we can combine direct evidence (e.g. from comparisons A <m>−</m> B and C <m>−</m> B) to create indirect evidence about a related comparison (e.g. A <m>−</m> C), as we have done before using formula <xref provisional="eq:networkes"/> .
+        The core tenet of the transitivity assumption is that we can combine direct evidence (e.g. from comparisons A <m>−</m> B and C <m>−</m> B) to create indirect evidence about a related comparison (e.g. A <m>−</m> C), as we have done before using formula <xref ref="eq:networkes"/> <xref ref="efthimiou2016getreal"/>.
       </p>
       <p>
         <idx><h>Exchangeability Assumption</h></idx>
@@ -154,16 +154,16 @@
         The assumption of transitivity pertains to the concept  of <alert>exchangeability</alert>. We already described this prerequisite in chapter <xref ref="rem"/>, where we discussed the random-effects model. The exchangeability assumption says that each true effect size <m>\theta_i</m> of some comparison <m>i</m> is the result of a random, <alert>independent</alert> draw from an "overarching" distribution of true effect sizes. 
       </p>
       <p>
-        To translate this assumption to our scenario, think of network meta-analysis as a set of <m>K</m> trials. Now, we pretend that each trial in our model contains <alert>all possible</alert> treatment comparisons in our network, denoted with <m>M</m> (e.g. A <m>−</m> B, A <m>−</m> C, B <m>−</m> C, and so forth). However, some of the treatment comparisons have been <alert>"deleted"</alert>, and are thus <alert>"missing"</alert> in some trials. The reason for this is that, in practice, studies can not assess all possible treatment options . 
+        To translate this assumption to our scenario, think of network meta-analysis as a set of <m>K</m> trials. Now, we pretend that each trial in our model contains <alert>all possible</alert> treatment comparisons in our network, denoted with <m>M</m> (e.g. A <m>−</m> B, A <m>−</m> C, B <m>−</m> C, and so forth). However, some of the treatment comparisons have been <alert>"deleted"</alert>, and are thus <alert>"missing"</alert> in some trials. The reason for this is that, in practice, studies can not assess all possible treatment options <xref ref="dias2013evidence"/>. 
       </p>
       <p>
         The key assumption is that the effect of a comparison, e.g. A <m>-</m> B, is <alert>exchangeable</alert> between trials--no matter if a trial actually assessed this comparison, or if it is is "missing". In network meta-analyses, exchangeability is fulfilled when the effect <m>\hat\theta_i</m> of some comparison <m>i</m> is based on a random, independent draw from the overarching distribution of true effects, no matter if this effect size is derived through direct or indirect evidence.
       </p>
       <p>
-        The assumption of transitivity can be violated when covariates or other effect modifiers (such as the age group of the studied populations, or the treatment intensity) are not evenly distributed across trials assessing, for example, condition A versus B, and C versus B . Transitivity as such can not be tested statistically, but the risk for violating this assumption can be attenuated by only including studies for which the population, methodology and target condition are as similar as possible .
+        The assumption of transitivity can be violated when covariates or other effect modifiers (such as the age group of the studied populations, or the treatment intensity) are not evenly distributed across trials assessing, for example, condition A versus B, and C versus B <xref ref="song2009methodological"/>. Transitivity as such can not be tested statistically, but the risk for violating this assumption can be attenuated by only including studies for which the population, methodology and target condition are as similar as possible <xref ref="salanti2014evaluating"/>.
       </p>
       <p>
-        The statistical manifestation of transitivity is called <alert>consistency</alert>, and a lack thereof is known as <alert>inconsistency</alert> . Consistency means that the relative effect of a comparison (e.g. A <m>-</m> B) based on direct evidence does not differ from the one based on indirect evidence :
+        The statistical manifestation of transitivity is called <alert>consistency</alert>, and a lack thereof is known as <alert>inconsistency</alert> <xref ref="efthimiou2016getreal"/>, <xref ref="cipriani2013conceptual"/>. Consistency means that the relative effect of a comparison (e.g. A <m>-</m> B) based on direct evidence does not differ from the one based on indirect evidence <xref ref="schwarzer2015meta"/>:
       </p>
       <p>
         \begin{equation} \theta<em>{\text{A,B}}^{\text{indirect}} = \theta</em>{\text{A,B}}^{\text{direct}} (#eq:nw3) \end{equation}
@@ -172,7 +172,7 @@
         <idx><h>Node Splitting</h></idx>
       </p>
       <p>
-        Several methods have been proposed to diagnose inconsistency in network meta-analysis models, including <alert>net heat plots</alert>  and the <alert>node splitting</alert> method . We will describe these methods in greater detail in the following sections. 
+        Several methods have been proposed to diagnose inconsistency in network meta-analysis models, including <alert>net heat plots</alert> <xref ref="krahn2013graphical"/> and the <alert>node splitting</alert> method <xref ref="dias2010checking"/>. We will describe these methods in greater detail in the following sections. 
       </p>
     </subsection>
 
@@ -192,14 +192,14 @@
         <image source="generated/graph4_col_sep.png"/>
       </figure>
       <p>
-        Therefore, we need a computational model which allows us to pool all available network data in an efficient and internally consistent manner. Several statistical approaches have been developed for network meta-analysis . In the following chapters, we will discuss a <alert>frequentist</alert> as well as a <alert>Bayesian hierarchical model</alert>, and how they can be implemented in <em>R</em>.
+        Therefore, we need a computational model which allows us to pool all available network data in an efficient and internally consistent manner. Several statistical approaches have been developed for network meta-analysis <xref ref="efthimiou2016getreal"/>. In the following chapters, we will discuss a <alert>frequentist</alert> as well as a <alert>Bayesian hierarchical model</alert>, and how they can be implemented in <em>R</em>.
       </p>
       <note>
         <p>
           <alert>Which Modeling Approach Should I Use?</alert>
         </p>
         <p>
-          While network meta-analysis models may differ in their statistical approach, the good thing is that all should produce the same results when the sample size is sufficient . In general, no network meta-analysis method is more or less valid than the other. You may therefore safely choose one or the other approach, depending on which one you find more intuitive, or based on the functionality of the <em>R</em> package which implements it . 
+          While network meta-analysis models may differ in their statistical approach, the good thing is that all should produce the same results when the sample size is sufficient <xref ref="shim2019network"/>. In general, no network meta-analysis method is more or less valid than the other. You may therefore safely choose one or the other approach, depending on which one you find more intuitive, or based on the functionality of the <em>R</em> package which implements it <xref ref="efthimiou2016getreal"/>. 
         </p>
         <p>
           In most disciplines, methods based on frequentist inference are (still) much more common than Bayesian approaches. This means that some people might understand the kind of results produced by a frequentist model more easily. A disadvantage is that the implementation of frequentist network meta-analysis in <em>R</em> (which we will cover next) does not yet support meta-regression, while this is possible using a Bayesian model.
@@ -219,14 +219,14 @@
       <idx><h>netmeta Package</h></idx> <idx><h>Frequentist Statistics</h></idx>
     </p>
     <p>
-      In the following, we will describe how to perform a network meta-analysis using the <alert>{netmeta}</alert> package . This package allows to estimate network meta-analysis models within a <alert>frequentist</alert> framework. The method used by <alert>{netmeta}</alert> is derived from graph theoretical techniques, which were originally developed for electrical networks .
+      In the following, we will describe how to perform a network meta-analysis using the <alert>{netmeta}</alert> package <xref ref="nemeta"/>. This package allows to estimate network meta-analysis models within a <alert>frequentist</alert> framework. The method used by <alert>{netmeta}</alert> is derived from graph theoretical techniques, which were originally developed for electrical networks <xref ref="rucker2012network"/>.
     </p>
     <note>
       <p>
         <alert>The Frequentist Interpretation of Probability</alert>
       </p>
       <p>
-        Frequentism is a common theoretical approach to interpret the probability of some event <m>E</m>. Frequentist approaches define the probability of <m>E</m> in terms of how often <m>E</m> is expected to occur if we repeat some process (e.g., an experiment) <alert>many, many times</alert> . 
+        Frequentism is a common theoretical approach to interpret the probability of some event <m>E</m>. Frequentist approaches define the probability of <m>E</m> in terms of how often <m>E</m> is expected to occur if we repeat some process (e.g., an experiment) <alert>many, many times</alert> <xref ref="aronow2019foundations"/>. 
       </p>
       <p>
         Frequentist ideas are at the core of many statistical procedures that quantitative researchers use on a daily basis, for example significance testing, calculation of confidence intervals, or <m>p</m>-values.
@@ -239,7 +239,7 @@
         Let us now describe how the network meta-analysis model implemented in the <alert>{netmeta}</alert> package can be formulated. Imagine that we have collected effect size data from several trials. Then, we go through all <m>K</m> trials and count the total number of treatment comparisons contained in the studies. This number of pairwise comparisons is denoted with <m>M</m>. 
       </p>
       <p>
-        We then calculate the effect size <m>\hat\theta_m</m> for each comparison <m>m</m>, and collect all effect sizes in a vector <m>\boldsymbol{\hat\theta} = (\hat\theta_1, \hat\theta_2, \dots, \hat\theta_M)</m>. To run a network meta-analysis, we now need a model which describes how this vector of observed effect sizes <m>\boldsymbol{\hat\theta}</m> was generated. In <alert>{netmeta}</alert>, the following model is used : 
+        We then calculate the effect size <m>\hat\theta_m</m> for each comparison <m>m</m>, and collect all effect sizes in a vector <m>\boldsymbol{\hat\theta} = (\hat\theta_1, \hat\theta_2, \dots, \hat\theta_M)</m>. To run a network meta-analysis, we now need a model which describes how this vector of observed effect sizes <m>\boldsymbol{\hat\theta}</m> was generated. In <alert>{netmeta}</alert>, the following model is used <xref ref="schwarzer2015meta"/>: 
       </p>
       <p>
         \begin{equation} \boldsymbol{\hat\theta} =\boldsymbol{X} \boldsymbol{\theta}_{\text{treat}} + \boldsymbol{\epsilon}  (#eq:nw4) \end{equation}
@@ -281,7 +281,7 @@
         The procedure also takes care of <alert>multi-arm</alert> studies, which contribute more than one pairwise comparison (i.e. studies in which more than two conditions were compared). Multi-arm comparisons are <alert>correlated</alert> because at least one condition is compared more than once (Chapter <xref ref="unit-of-analysis"/>). This means that the precision of multi-arm study comparisons is artificially increased--unless this is accounted for in our model. 
       </p>
       <p>
-        The model also allows us to incorporate estimates of between-study heterogeneity. Like in the "conventional" random-effects model (Chapter <xref ref="rem"/>), this is achieved by adding the estimated heterogeneity variance <m>\hat\tau^2</m> to the variance of a comparison <m>m</m>: <m>s^2_m + \hat\tau^2</m>. In the <alert>{netmeta}</alert> package, the <m>\tau^2</m> values are estimated using an adaptation of the DerSimonian-Laird estimator . 
+        The model also allows us to incorporate estimates of between-study heterogeneity. Like in the "conventional" random-effects model (Chapter <xref ref="rem"/>), this is achieved by adding the estimated heterogeneity variance <m>\hat\tau^2</m> to the variance of a comparison <m>m</m>: <m>s^2_m + \hat\tau^2</m>. In the <alert>{netmeta}</alert> package, the <m>\tau^2</m> values are estimated using an adaptation of the DerSimonian-Laird estimator <xref ref="jackson2013matrix"/>. 
       </p>
       <p>
         <idx><h>Consistency</h></idx>
@@ -318,7 +318,7 @@ library(netmeta)
         <title>Data Preparation</title>
 
         <p>
-          In this illustration, we use the <c>TherapyFormats</c> data. This data set is modeled after a real network meta-analysis assessing the effectiveness of different delivery formats of cognitive behavioral therapy for depression . All included studies are randomized controlled trials in which the effect on depressive symptoms was measured at post-test. Effect sizes of included comparisons are expressed as the standardized mean difference (SMD) between the two analyzed conditions. 
+          In this illustration, we use the <c>TherapyFormats</c> data. This data set is modeled after a real network meta-analysis assessing the effectiveness of different delivery formats of cognitive behavioral therapy for depression <xref ref="cuijpers2019effectiveness"/>. All included studies are randomized controlled trials in which the effect on depressive symptoms was measured at post-test. Effect sizes of included comparisons are expressed as the standardized mean difference (SMD) between the two analyzed conditions. 
         </p>
         <p>
           <idx><h>dmetar Package</h></idx>
@@ -555,7 +555,7 @@ summary(m.netmeta)
           The last part of the output (<c>Tests of heterogeneity</c>) breaks down the total heterogeneity in our network. There are two components: <alert>within-design</alert> heterogeneity, and inconsistency <alert>between</alert> designs. A "design" is defined as a selection of conditions included in one trial, for example A <m>-</m> B, or A <m>-</m> B <m>-</m> C. When there are true effect size differences between studies which included exactly the same conditions, we can speak of within-design heterogeneity. Variation between designs, on the other hand, reflects the inconsistency in our network. Both the within-design heterogeneity and between-design inconsistency are highly significant (<m>p</m>s &lt; 0.001). 
         </p>
         <p>
-          This is yet another sign that the random-effects model may be indicated. To further corroborate this, we can calculate the total inconsistency based on the <alert>full design-by-treatment interaction random-effects model</alert> . To do this, we only have to plug the <c>m.netmeta</c> object into the <c>decomp.design</c> function.
+          This is yet another sign that the random-effects model may be indicated. To further corroborate this, we can calculate the total inconsistency based on the <alert>full design-by-treatment interaction random-effects model</alert> <xref ref="higgins2012consistency"/>. To do this, we only have to plug the <c>m.netmeta</c> object into the <c>decomp.design</c> function.
         </p>
         <program language="r">
           <code>
@@ -700,7 +700,7 @@ plot(d.evidence)
           <idx><h>Mean Path Length</h></idx> <idx><h>Minimal Parallelism</h></idx>
         </p>
         <p>
-          As we can see, there are several estimates in our network model which had to be inferred by indirect evidence alone. The plot also provides us with two additional metrics: the <alert>minimal parallelism</alert> and <alert>mean path length</alert> of each estimated comparison. According to König, Krahn, and Binder , a mean path length &gt; 2 means that a comparison estimate should be interpreted with particular caution.
+          As we can see, there are several estimates in our network model which had to be inferred by indirect evidence alone. The plot also provides us with two additional metrics: the <alert>minimal parallelism</alert> and <alert>mean path length</alert> of each estimated comparison. According to König, Krahn, and Binder <xref ref="konig2013visualizing"/>, a mean path length &gt; 2 means that a comparison estimate should be interpreted with particular caution.
         </p>
         <p>
           ##### Effect Estimate Table
@@ -760,7 +760,7 @@ write.csv(netleague$fixed, "netleague.csv")
           The most interesting question we can answer in network meta-analysis is which treatment has the highest effects. The <c>netrank</c> function implemented in <alert>{netmeta}</alert> is helpful in this respect. It allows us to generate a <alert>ranking</alert> of treatments, indicating which treatment is more or less likely to produce the largest benefits. 
         </p>
         <p>
-          The <c>netrank</c> function is, like the model used in <c>netmeta</c> itself, based on a frequentist approach. This frequentist method uses <alert>P-scores</alert> to rank treatments, which measure the certainty that one treatment is better than another treatment, averaged over all competing treatments. The P-score has been shown to be equivalent to the <alert>SUCRA</alert> score , which we will describe in the chapter on Bayesian network meta-analysis.
+          The <c>netrank</c> function is, like the model used in <c>netmeta</c> itself, based on a frequentist approach. This frequentist method uses <alert>P-scores</alert> to rank treatments, which measure the certainty that one treatment is better than another treatment, averaged over all competing treatments. The P-score has been shown to be equivalent to the <alert>SUCRA</alert> score <xref ref="rucker2015ranking"/>, which we will describe in the chapter on Bayesian network meta-analysis.
         </p>
         <p>
           The <c>netrank</c> function requires our <c>m.netmeta</c> model as input. Additionally, we should also specify the <c>small.values</c> parameter, which defines if smaller (i.e. negative) effect sizes in a comparison indicate a beneficial (<c>"good"</c>) or harmful (<c>"bad"</c>) effect. Here, we use <c>small.values = "good"</c>, since negative effect sizes mean that a treatment was more effective in <alert>reducing</alert> depression. 
@@ -774,7 +774,7 @@ netrank(m.netmeta, small.values = "good")
           We see that individual therapy (<c>ind</c>) has the highest P-score, indicating that this treatment format may be particularly helpful. Conversely, wait-lists (<c>wlc</c>) have a P-score of zero, which seems to go along with our intuition that simply letting people wait for treatment is not the best option. 
         </p>
         <p>
-          Nonetheless, one should never automatically conclude that one treatment is the "best", solely because it has the highest score in the ranking . A way to better visualize the <alert>uncertainty</alert> in our network is to produce a forest plot, in which one condition is used as the comparison group. 
+          Nonetheless, one should never automatically conclude that one treatment is the "best", solely because it has the highest score in the ranking <xref ref="mbuagbaw2017approaches"/>. A way to better visualize the <alert>uncertainty</alert> in our network is to produce a forest plot, in which one condition is used as the comparison group. 
         </p>
         <p>
           <idx><h>Forest Plot</h></idx>
@@ -820,7 +820,7 @@ netheat(m.netmeta)
           <image source="generated/heat_fixed_col_sep.png"/>
         </figure>
         <p>
-          The function generates a quadratic heatmap, in which each design in a row is compared to the other designs (in the columns). Importantly, the rows and columns signify specific <alert>designs</alert>, not individual treatment <alert>comparisons</alert> in our network. Thus, the plot also features rows and columns for the design used in our multi-arm study, which compared guided self-help, individual therapy, and a wait-list. The net heat plot has two important features :
+          The function generates a quadratic heatmap, in which each design in a row is compared to the other designs (in the columns). Importantly, the rows and columns signify specific <alert>designs</alert>, not individual treatment <alert>comparisons</alert> in our network. Thus, the plot also features rows and columns for the design used in our multi-arm study, which compared guided self-help, individual therapy, and a wait-list. The net heat plot has two important features <xref ref="schwarzer2015meta"/>:
         </p>
         <p>
           <idx><h>Consistency</h></idx>
@@ -908,7 +908,7 @@ netsplit(m.netmeta) %&gt;% forest()
           <idx><h>Funnel Plot</h></idx>
         </p>
         <p>
-          Assessing publication bias in network meta-analysis models is difficult. Most of the techniques that we covered in Chapter <xref ref="pub-bias"/> are not directly applicable once we make the step from conventional to network meta-analysis. <alert>Comparison-adjusted funnel plots</alert>, however, have been proposed to evaluate the risk of publication bias in network meta-analyses, and can be used in some contexts . Such funnel plots are applicable when we have a <alert>specific</alert> hypothesis concerning how publication bias has affected our network model. 
+          Assessing publication bias in network meta-analysis models is difficult. Most of the techniques that we covered in Chapter <xref ref="pub-bias"/> are not directly applicable once we make the step from conventional to network meta-analysis. <alert>Comparison-adjusted funnel plots</alert>, however, have been proposed to evaluate the risk of publication bias in network meta-analyses, and can be used in some contexts <xref ref="salanti2014evaluating"/>. Such funnel plots are applicable when we have a <alert>specific</alert> hypothesis concerning how publication bias has affected our network model. 
         </p>
         <p>
           Publication bias may be created, for example, because studies with "novel" findings are more likely to get published--even if they have a small sample size. There is a natural incentive in science to produce "groundbreaking" results, for example to show that a new type of treatment is superior to the current state of the art. 
@@ -990,7 +990,7 @@ funnel(m.netmeta,
     <title>Bayesian Network Meta-Analysis</title>
 
     <p>
-      In the following, we will describe how to perform a network meta-analysis based on a Bayesian hierarchical framework. The <em>R</em> package we will use to do this is called <alert>{gemtc}</alert> . But first, let us consider the idea behind Bayesian inference in general, and the type of Bayesian model we can use for network meta-analysis.
+      In the following, we will describe how to perform a network meta-analysis based on a Bayesian hierarchical framework. The <em>R</em> package we will use to do this is called <alert>{gemtc}</alert> <xref ref="van2012automating"/>. But first, let us consider the idea behind Bayesian inference in general, and the type of Bayesian model we can use for network meta-analysis.
     </p>
     <subsection xml:id="bayesian-inference">
       <title>Bayesian Inference</title>
@@ -999,7 +999,7 @@ funnel(m.netmeta,
         <idx><h>Bayes' Theorem</h></idx> <idx><h>Frequentist Statistics</h></idx> <idx><h>Conditional Probability</h></idx>
       </p>
       <p>
-        Besides the frequentist approach, <alert>Bayesian</alert> inference is another important strand of inference statistics. Frequentist statistics is arguably used more often in most research fields. The Bayesian approach, however, is actually older; and while being increasingly picked up by researchers in recent years , it has never really been "gone" . 
+        Besides the frequentist approach, <alert>Bayesian</alert> inference is another important strand of inference statistics. Frequentist statistics is arguably used more often in most research fields. The Bayesian approach, however, is actually older; and while being increasingly picked up by researchers in recent years <xref ref="marsman2017bayesian"/>, it has never really been "gone" <xref ref="mcgrayne2011theory"/>. 
       </p>
       <p>
         The foundation of Bayesian statistics is <alert>Bayes’ Theorem</alert>, first formulated by Reverend Thomas Bayes [1701-1761; see <xref ref="references"/>]. Bayesian statistics differs from frequentism because it also incorporates “subjective” <alert>prior</alert> knowledge to make inferences. Bayes' theorem allows us to estimate the probability of an event A, <alert>given</alert> that we already know that another event B has occurred. This results in a <alert>conditional probability</alert>, which can be denoted like this: <m>P(\text{A}|\text{B})</m>. The theorem is based on a formula that explains how this conditional probability can be calculated:
@@ -1011,7 +1011,7 @@ funnel(m.netmeta,
         <idx><h>Posterior Distribution</h></idx> <idx><h>Prior Distribution</h></idx>
       </p>
       <p>
-        In this formula, the two probabilities in the numerator of the fraction each have their own names. The <m>P(\text{B}|\text{A})</m> part is known as the <alert>likelihood</alert>. It is the probability of event B, given that A is the case, or occurs . <m>P(\text{A})</m> is the <alert>prior</alert> probability that <m>A</m> occurs. <m>P(\text{A}|\text{B})</m>, lastly, is the <alert>posterior</alert> probability: the probability of A given B. Since <m>P(\text{B})</m> is a fixed constant, the formula above is often simplified:
+        In this formula, the two probabilities in the numerator of the fraction each have their own names. The <m>P(\text{B}|\text{A})</m> part is known as the <alert>likelihood</alert>. It is the probability of event B, given that A is the case, or occurs <xref ref="etz2018introduction"/>. <m>P(\text{A})</m> is the <alert>prior</alert> probability that <m>A</m> occurs. <m>P(\text{A}|\text{B})</m>, lastly, is the <alert>posterior</alert> probability: the probability of A given B. Since <m>P(\text{B})</m> is a fixed constant, the formula above is often simplified:
       </p>
       <p>
         \begin{equation} P(\text{A}|\text{B}) \propto P(\text{B}|\text{A})\times P(\text{A}) (#eq:nw9) \end{equation}
@@ -1050,7 +1050,7 @@ funnel(m.netmeta,
         <image source="generated/prior_col_sep.png"/>
       </figure>
       <p>
-        Another asset of Bayesian approaches is that the parameters do not have to follow a bell curve distribution, like the ones in our visualization. Other kinds of (more complex) distributions can also be modeled. A disadvantage of Bayesian inference, however, is that generating the (joint) distribution from our collected data can be very computationally expensive. Special <alert>Markov Chain Monte Carlo</alert> simulation procedures, such as the <alert>Gibbs sampling algorithm</alert>, have been developed to generate posterior distributions. Markov Chain Monte Carlo is also used in the <alert>{gemtc}</alert> package to run our Bayesian network meta-analysis model .
+        Another asset of Bayesian approaches is that the parameters do not have to follow a bell curve distribution, like the ones in our visualization. Other kinds of (more complex) distributions can also be modeled. A disadvantage of Bayesian inference, however, is that generating the (joint) distribution from our collected data can be very computationally expensive. Special <alert>Markov Chain Monte Carlo</alert> simulation procedures, such as the <alert>Gibbs sampling algorithm</alert>, have been developed to generate posterior distributions. Markov Chain Monte Carlo is also used in the <alert>{gemtc}</alert> package to run our Bayesian network meta-analysis model <xref ref="van2012automating"/>.
       </p>
     </subsection>
 
@@ -1067,10 +1067,10 @@ funnel(m.netmeta,
           <idx><h>Bayesian Hierarchical Model</h></idx>
         </p>
         <p>
-          This definition is equivalent to the one provided in Chapter <xref ref="rem"/>, where we discuss the "standard" random-effects model. What we describe in the following is simply the "Bayesian way" to conceptualize meta-analysis. On the other hand, this Bayesian definition of pairwise meta-analysis is already very informative, because it is directly applicable to network meta-analyses, without any further extension . 
+          This definition is equivalent to the one provided in Chapter <xref ref="rem"/>, where we discuss the "standard" random-effects model. What we describe in the following is simply the "Bayesian way" to conceptualize meta-analysis. On the other hand, this Bayesian definition of pairwise meta-analysis is already very informative, because it is directly applicable to network meta-analyses, without any further extension <xref ref="dias2013evidence"/>. 
         </p>
         <p>
-          We refer to this model as a Bayesian <alert>hierarchical</alert> model . There is nothing mysterious about the word "hierarchical" here. Indeed, we already described in Chapter <xref ref="multilevel-ma"/> that every meta-analysis model presupposes a hierarchical, or “multi-level” structure.
+          We refer to this model as a Bayesian <alert>hierarchical</alert> model <xref ref="efthimiou2016getreal"/>. There is nothing mysterious about the word "hierarchical" here. Indeed, we already described in Chapter <xref ref="multilevel-ma"/> that every meta-analysis model presupposes a hierarchical, or “multi-level” structure.
         </p>
         <p>
           Suppose that we want to conduct a conventional meta-analysis. We have included <m>K</m> studies, and have calculated an observed effect size <m>\hat\theta_k</m> for each one. We can then define the fixed-effect model like so:
@@ -1079,7 +1079,7 @@ funnel(m.netmeta,
           \begin{equation} \hat\theta<em>k \sim \mathcal{N}(\theta,\sigma</em>k^2) (#eq:nw11) \end{equation}
         </p>
         <p>
-          This formula expresses the <alert>likelihood</alert> of our effect sizes--the <m>P(\boldsymbol{Y}|\boldsymbol{\theta})</m> part in equation <xref provisional="eq:bayes"/>--assuming that they follow a normal distribution. We assume that each effect size is a draw from the same distribution, the mean of which is the true effect size <m>\theta</m>, and the variance of which is <m>\sigma^2_k</m>. In the fixed-effect model, we assume that the true effect size is identical across all studies, so <m>\theta</m> stays the same for different studies <m>k</m> and their observed effect sizes <m>\hat\theta_k</m>. 
+          This formula expresses the <alert>likelihood</alert> of our effect sizes--the <m>P(\boldsymbol{Y}|\boldsymbol{\theta})</m> part in equation <xref ref="eq:bayes"/>--assuming that they follow a normal distribution. We assume that each effect size is a draw from the same distribution, the mean of which is the true effect size <m>\theta</m>, and the variance of which is <m>\sigma^2_k</m>. In the fixed-effect model, we assume that the true effect size is identical across all studies, so <m>\theta</m> stays the same for different studies <m>k</m> and their observed effect sizes <m>\hat\theta_k</m>. 
         </p>
         <p>
           <idx><h>Uninformative Prior</h></idx> <idx><h>Prior Distribution</h></idx>
@@ -1147,7 +1147,7 @@ library(gemtc)
         <idx><h>Gibbs Sampler</h></idx> <idx><h>JAGS</h></idx> <idx><h>rjags Package</h></idx>
       </p>
       <p>
-        The <alert>{gemtc}</alert> package depends on <alert>{rjags}</alert> , which is used for the Gibbs sampling procedure that we described before (Chapter <xref ref="bayesian-inference"/>). However, before we install and load this package, we first have to install another software called <alert>JAGS</alert> (short for “Just Another Gibbs Sampler”). The software is available for both Windows and Mac, and you can download it for free from the <url href="https://sourceforge.net/projects/mcmc-jags/files/">Internet</url>. After this is completed, we can install and load the <alert>{rjags}</alert> package<fn>Technically speaking, <alert>JAGS</alert> is not only a computer program, but also a programming language for Bayesian modeling that <alert>{gemtc}</alert> uses in the background (you can find the manual <url href="https://people.stat.sc.edu/hansont/stat740/jags_user_manual.pdf">here</url>). JAGS itself relies heavily on the <alert>BUGS</alert> (short for "Bayesian inference Using Gibbs Sampling) language, which exists since the late 1980s .</fn>.
+        The <alert>{gemtc}</alert> package depends on <alert>{rjags}</alert> <xref ref="rjags"/>, which is used for the Gibbs sampling procedure that we described before (Chapter <xref ref="bayesian-inference"/>). However, before we install and load this package, we first have to install another software called <alert>JAGS</alert> (short for “Just Another Gibbs Sampler”). The software is available for both Windows and Mac, and you can download it for free from the <url href="https://sourceforge.net/projects/mcmc-jags/files/">Internet</url>. After this is completed, we can install and load the <alert>{rjags}</alert> package<fn>Technically speaking, <alert>JAGS</alert> is not only a computer program, but also a programming language for Bayesian modeling that <alert>{gemtc}</alert> uses in the background (you can find the manual <url href="https://people.stat.sc.edu/hansont/stat740/jags_user_manual.pdf">here</url>). JAGS itself relies heavily on the <alert>BUGS</alert> (short for "Bayesian inference Using Gibbs Sampling) language, which exists since the late 1980s <xref ref="lunn2012bugs"/>.</fn>.
       </p>
       <program language="r">
         <code>
@@ -1284,7 +1284,7 @@ plot(network,
           As an alternative, we can also check if we can create a better visualization of our network using the <alert>Fruchterman-Reingold algorithm</alert>. This algorithm comes with some inherent randomness, meaning that we have to set a seed to make our result reproducible. 
         </p>
         <p>
-          The network plots are created using the <alert>{igraph}</alert> package . When this package is installed and loaded, we can also use other arguments to change the appearance of our plot. A detailed description of the different styling options can be found in the online <alert>{igraph}</alert> <url href="https://igraph.org/r/doc/plot.common.html">manual</url>.
+          The network plots are created using the <alert>{igraph}</alert> package <xref ref="igraph"/>. When this package is installed and loaded, we can also use other arguments to change the appearance of our plot. A detailed description of the different styling options can be found in the online <alert>{igraph}</alert> <url href="https://igraph.org/r/doc/plot.common.html">manual</url>.
         </p>
         <program language="r">
           <code>
@@ -1316,7 +1316,7 @@ plot(network,
           <idx><h>Markov Chain Monte Carlo</h></idx>
         </p>
         <p>
-          Thus, there are only a few arguments we have to specify when compiling our model using the <c>mtc.model</c> function. First, we have to specify the <c>mtc.network</c> object we have created before. Furthermore, we have to decide if we want to use a random- or fixed effects model using the <c>linearModel</c> argument. Given that our previous frequentist analysis indicated substantial heterogeneity and inconsistency (see Chapter <xref provisional="net-heat-plot"/>), we will use <c>linearModel = "random"</c>. We also have to specify the number of <alert>Markov chains</alert> we want to use. A value between 3 and 4 is sensible here, and we take <c>n.chain = 4</c>. 
+          Thus, there are only a few arguments we have to specify when compiling our model using the <c>mtc.model</c> function. First, we have to specify the <c>mtc.network</c> object we have created before. Furthermore, we have to decide if we want to use a random- or fixed effects model using the <c>linearModel</c> argument. Given that our previous frequentist analysis indicated substantial heterogeneity and inconsistency (see Chapter <xref ref="net-heat-plot"/>), we will use <c>linearModel = "random"</c>. We also have to specify the number of <alert>Markov chains</alert> we want to use. A value between 3 and 4 is sensible here, and we take <c>n.chain = 4</c>. 
         </p>
         <p>
           There are two additional, optional arguments called <c>likelihood</c> and <c>link</c>. These two arguments vary depending on the type of effect size data we are using, and are automatically inferred by <alert>{gemtc}</alert> unless explicitly specified. Since we are dealing with effect sizes based on continuous outcome data (viz. SMDs), we are assuming a <c>"normal"</c> likelihood along with an <c>"identity"</c> link. 
@@ -1390,7 +1390,7 @@ plot(mcmc2)
           </code>
         </program>
         <p>
-          When comparing earlier to later iterations in <c>mcmc1</c>, we see that there is a slight discontinuity in the overall trend of the time series. The estimates of the four different chains (the four lines) slightly differ in their course when moving from the first half to the second half of the plot. In the plot for <c>mcmc2</c>, on the other hand, we see much more rapid up-and-down variation, but no real long-term trend. This delivers a first indication that the settings in <c>mcmc2</c> are more adequate<fn>To be reliable, the Markov chains of an estimated parameter should have reached <alert>stationarity</alert> during the course of the simulation, meaning that all lines scatter randomly around a common, stable mean value. When this point is reached, the chains in the trace plot typically resemble a "fat hairy caterpillar" .</fn>.
+          When comparing earlier to later iterations in <c>mcmc1</c>, we see that there is a slight discontinuity in the overall trend of the time series. The estimates of the four different chains (the four lines) slightly differ in their course when moving from the first half to the second half of the plot. In the plot for <c>mcmc2</c>, on the other hand, we see much more rapid up-and-down variation, but no real long-term trend. This delivers a first indication that the settings in <c>mcmc2</c> are more adequate<fn>To be reliable, the Markov chains of an estimated parameter should have reached <alert>stationarity</alert> during the course of the simulation, meaning that all lines scatter randomly around a common, stable mean value. When this point is reached, the chains in the trace plot typically resemble a "fat hairy caterpillar" <xref ref="lunn2012bugs"/>.</fn>.
         </p>
         <p>
           We can continue with our convergence assessment by looking at the density plots of the posterior effect size estimate. We see that, while the distribution in <c>mcmc1</c> still diverges somewhat from a smooth normal distribution, the result of <c>mcmc2</c> comes closer to a classic bell curve.
@@ -1442,7 +1442,7 @@ gelman.diag(mcmc2)$mpsrf
         <title>Assessing Inconsistency: The Nodesplit Method</title>
 
         <p>
-          Like the <alert>{netmeta}</alert> package, <alert>{gemtc}</alert> package also provides us with a way to evaluate the consistency of our network model: the <em>nodesplit</em> method (Dias et al., 2010). The idea behind this procedure is similar to the one of the net splitting method that we described before (Chapter <xref provisional="net-splitting"/>). To perform a <em>nodesplit</em> analysis, we use the <c>mtc.nodesplit</c> function, using the same settings as in <c>mcmc2</c>. We save the result as <c>nodesplit</c>. 
+          Like the <alert>{netmeta}</alert> package, <alert>{gemtc}</alert> package also provides us with a way to evaluate the consistency of our network model: the <em>nodesplit</em> method (Dias et al., 2010). The idea behind this procedure is similar to the one of the net splitting method that we described before (Chapter <xref ref="net-splitting"/>). To perform a <em>nodesplit</em> analysis, we use the <c>mtc.nodesplit</c> function, using the same settings as in <c>mcmc2</c>. We save the result as <c>nodesplit</c>. 
         </p>
         <p>
           Please be aware that the nodesplit model computation may take a long time, even up to several hours, depending on the complexity of your network.
@@ -1550,7 +1550,7 @@ forest(relative.effect(mcmc2, t1 = "cau"),
           <idx><h>SUCRA Score</h></idx>
         </p>
         <p>
-          In the chapter on frequentist network meta-analysis, we already covered the P-score as a metric to evaluate which treatment in a network is likely to be the most efficacious. An equivalent to the P-score is the <alert>Surface Under the Cumulative Ranking</alert> (SUCRA) score, which can be calculated like this :
+          In the chapter on frequentist network meta-analysis, we already covered the P-score as a metric to evaluate which treatment in a network is likely to be the most efficacious. An equivalent to the P-score is the <alert>Surface Under the Cumulative Ranking</alert> (SUCRA) score, which can be calculated like this <xref ref="salanti2011graphical"/>:
         </p>
         <p>
           \begin{equation} \text{SUCRA}<em>j = \frac{\sum</em>{b=1}^{a-1}\text{cum}_{jb}}{a-1} (#eq:nw16) \end{equation}
@@ -1817,7 +1817,7 @@ summary(mcmc2)$DIC
           We would like to stress that what we covered here should only be seen as a rough overview. Although we have covered some of the main pitfalls, it is still possible that you may get stuck once you begin with your own network meta-analysis. 
         </p>
         <p>
-          An excellent resource to learn more about network meta-analysis and how it can be applied in practice is <em>Network Meta-Analysis for Decision-Making</em>, written by Dias and colleagues . The book also features several hands-on examples, and shows how to run network meta-analysis models using the open source software <em>WinBUGS</em>. A shorter (and rather technical) overview of the "state-of-art" in network meta-analysis can be found in an open-access paper by Efthimiou et al. .
+          An excellent resource to learn more about network meta-analysis and how it can be applied in practice is <em>Network Meta-Analysis for Decision-Making</em>, written by Dias and colleagues <xref ref="dias2018network"/>. The book also features several hands-on examples, and shows how to run network meta-analysis models using the open source software <em>WinBUGS</em>. A shorter (and rather technical) overview of the "state-of-art" in network meta-analysis can be found in an open-access paper by Efthimiou et al. <xref ref="efthimiou2016getreal"/>.
         </p>
       </note>
     </subsection>

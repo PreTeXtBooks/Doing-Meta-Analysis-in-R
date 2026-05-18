@@ -33,7 +33,7 @@
       <idx><h>Bayesian Hierarchical Model</h></idx>
     </p>
     <p>
-      To perform a Bayesian meta-analysis, we employ a so-called <alert>Bayesian hierarchical model</alert> . We already briefly covered this type of model in the network meta-analysis chapter (Chapter <xref ref="bayesian-net-ma-model"/>). 
+      To perform a Bayesian meta-analysis, we employ a so-called <alert>Bayesian hierarchical model</alert> <xref ref="rover2017bayesian"/>, <xref ref="higgins2009re"/>. We already briefly covered this type of model in the network meta-analysis chapter (Chapter <xref ref="bayesian-net-ma-model"/>). 
     </p>
     <p>
       In Chapter <xref ref="multilevel-ma"/>, we learned that every meta-analytic model comes with an inherent "multilevel", and thus <alert>hierarchical</alert>, structure. On the first level, we have the individual participants. Data on this level usually reaches us in the form of calculated effect sizes <m>\hat\theta_k</m> of each study <m>k</m>. We assume that participants are nested within studies on the second level and that the true effect sizes <m>\theta_k</m> of different studies in our meta-analysis follow their own distribution. This distribution of true effects has a mean <m>\mu</m> (the pooled “true” effect we want to estimate) and variance <m>\tau^2</m>, representing the between-study heterogeneity.
@@ -48,7 +48,7 @@
       \begin{align} \hat\theta<em>k &amp;\sim \mathcal{N}(\theta</em>k,\sigma<em>k^2) \notag \ \theta</em>k &amp;\sim \mathcal{N}(\mu,\tau^2) (#eq:by1) \end{align}
     </p>
     <p>
-      Here, we use <m>\mathcal{N}</m> to indicate that parameters to the left were sampled from a <alert>normal</alert> distribution. Some may argue that this is an unnecessarily strict assumption for the second equation , but the formulation as shown here is the one that is used most of the time. As covered before, the fixed-effect model is simply a special case of this model in which we assume that <m>\tau^2 = 0</m>, meaning that there is no between-study heterogeneity, and that all studies share one single true effect size (i.e. that for all studies <m>k</m>: <m>\theta_k = \mu</m>). 
+      Here, we use <m>\mathcal{N}</m> to indicate that parameters to the left were sampled from a <alert>normal</alert> distribution. Some may argue that this is an unnecessarily strict assumption for the second equation <xref ref="higgins2009re"/>, but the formulation as shown here is the one that is used most of the time. As covered before, the fixed-effect model is simply a special case of this model in which we assume that <m>\tau^2 = 0</m>, meaning that there is no between-study heterogeneity, and that all studies share one single true effect size (i.e. that for all studies <m>k</m>: <m>\theta_k = \mu</m>). 
     </p>
     <p>
       We can also simplify this formula by using the marginal form:
@@ -57,7 +57,7 @@
       \begin{equation} \hat\theta<em>k  \sim \mathcal{N}(\mu,\sigma</em>k^2 + \tau^2) (#eq:by2) \end{equation}
     </p>
     <p>
-      You may have already detected that these formulas look a lot like the ones we defined when discussing the random-effects (Chapter <xref ref="rem"/>) and three-level meta-analysis (Chapter <xref ref="multilevel-nature"/>) model. Indeed, there is nothing particularly "Bayesian" about this formulation. This changes, however, when we add the following equations :
+      You may have already detected that these formulas look a lot like the ones we defined when discussing the random-effects (Chapter <xref ref="rem"/>) and three-level meta-analysis (Chapter <xref ref="multilevel-nature"/>) model. Indeed, there is nothing particularly "Bayesian" about this formulation. This changes, however, when we add the following equations <xref ref="williams2018bayesian"/>:
     </p>
     <p>
       \begin{align} (\mu, \tau^2) &amp;\sim p(.) \notag \ \tau^2 &amp;&gt; 0 (#eq:by3) \end{align}
@@ -78,7 +78,7 @@
       <idx><h>meta Package</h></idx> <idx><h>metafor Package</h></idx> <idx><h>Posterior Distribution</h></idx>
     </p>
     <p>
-      In the previous chapters, we primarily used the <alert>{meta}</alert> and <alert>{metafor}</alert> packages. These packages allow to conduct meta-analyses based on a non-Bayesian, or <alert>frequentist</alert> framework. Therefore, you might be wondering why one should start using Bayesian methods, given that we can already resort to such powerful tools using "conventional" approaches. The reason is that Bayesian meta-analysis comes with a few distinct advantages :
+      In the previous chapters, we primarily used the <alert>{meta}</alert> and <alert>{metafor}</alert> packages. These packages allow to conduct meta-analyses based on a non-Bayesian, or <alert>frequentist</alert> framework. Therefore, you might be wondering why one should start using Bayesian methods, given that we can already resort to such powerful tools using "conventional" approaches. The reason is that Bayesian meta-analysis comes with a few distinct advantages <xref ref="williams2018bayesian"/>, <xref ref="mcneish2016using"/>, <xref ref="chung2013nondegenerate"/>:
     </p>
     <ul>
       <li>
@@ -109,7 +109,7 @@
       <idx><h>Uninformative Prior</h></idx> <idx><h>Weakly Informative Prior</h></idx>
     </p>
     <p>
-      Generally, a good approach is to use <alert>weakly informative</alert> priors . Weakly informative priors can be contrasted with <alert>non-informative</alert> priors. Non-informative priors are the simplest form of a prior distribution. They are usually based on <alert>uniform</alert> distributions, and are used to represent that all values are equally credible. 
+      Generally, a good approach is to use <alert>weakly informative</alert> priors <xref ref="williams2018bayesian"/>. Weakly informative priors can be contrasted with <alert>non-informative</alert> priors. Non-informative priors are the simplest form of a prior distribution. They are usually based on <alert>uniform</alert> distributions, and are used to represent that all values are equally credible. 
     </p>
     <p>
       Weakly informative priors, on the other hand, are a little more sophisticated. They rely on distributions which represent that we have a <alert>weak</alert> belief that some values are more credible than others. However, they are still not making any specific statements concerning the value of the parameter to be estimated from our data. 
@@ -136,7 +136,7 @@
       The Half-Cauchy distribution typically has rather heavy tails, which makes it particularly useful as a prior distribution for <m>\tau</m>. The heavy tails ensure that we still give very high values of <m>\tau</m> <alert>some</alert> probability, while at the same time assuming that lower values are more likely. 
     </p>
     <p>
-      In many meta-analyses, <m>\tau</m> (the square root of <m>\tau^2</m>) lies somewhere around 0.3, or at least in the same ballpark. To specify the Half-Cauchy prior, we may therefore use <m>s=</m> 0.3. This ensures that a value of less than <m>\tau=</m> 0.3 has a 50% probability . We can confirm this using the Half-Cauchy distribution function implemented in the <c>phcauchy</c> function of the <alert>{extraDistr}</alert> package .
+      In many meta-analyses, <m>\tau</m> (the square root of <m>\tau^2</m>) lies somewhere around 0.3, or at least in the same ballpark. To specify the Half-Cauchy prior, we may therefore use <m>s=</m> 0.3. This ensures that a value of less than <m>\tau=</m> 0.3 has a 50% probability <xref ref="williams2018bayesian"/>. We can confirm this using the Half-Cauchy distribution function implemented in the <c>phcauchy</c> function of the <alert>{extraDistr}</alert> package <xref ref="extradistr"/>.
     </p>
     <p>
       <idx><h>extraDistr Package</h></idx>
@@ -168,7 +168,7 @@ phcauchy(0.3, sigma = 0.3)
       <idx><h>brms Package</h></idx> <idx><h>STAN</h></idx> <idx><h>Generalized Additive Model</h></idx>
     </p>
     <p>
-      Now that we have defined the Bayesian model for our meta-analysis, it is time to implement it in <em>R</em>. Here, we use the <alert>{brms}</alert> package  to fit our model. The <alert>{brms}</alert> package is a very versatile and powerful tool to fit Bayesian regression models. It can be used for a wide range of applications, including multilevel (mixed-effects) models, generalized linear models, multivariate models, and generalized additive models, to name just a few. Most of these models require person-level data but <alert>{brms}</alert> can also be used for meta-analysis, where we deal with (weighted) study-level data<fn>The <alert>{brms}</alert> package is based on <alert>Stan</alert>, a low-level programming language for Bayesian modeling. The Stan project has its own, actively maintained online forum (https://discourse.mc-stan.org/), where issues pertaining to <alert>{brms}</alert> can also be discussed. The forum also has a "meta-analysis" tag, which allows to filter out potentially relevant threads.</fn>.
+      Now that we have defined the Bayesian model for our meta-analysis, it is time to implement it in <em>R</em>. Here, we use the <alert>{brms}</alert> package <xref ref="burknerJSS"/>, <xref ref="burkner2017advanced"/> to fit our model. The <alert>{brms}</alert> package is a very versatile and powerful tool to fit Bayesian regression models. It can be used for a wide range of applications, including multilevel (mixed-effects) models, generalized linear models, multivariate models, and generalized additive models, to name just a few. Most of these models require person-level data but <alert>{brms}</alert> can also be used for meta-analysis, where we deal with (weighted) study-level data<fn>The <alert>{brms}</alert> package is based on <alert>Stan</alert>, a low-level programming language for Bayesian modeling. The Stan project has its own, actively maintained online forum (https://discourse.mc-stan.org/), where issues pertaining to <alert>{brms}</alert> can also be discussed. The forum also has a "meta-analysis" tag, which allows to filter out potentially relevant threads.</fn>.
     </p>
     <p>
       Before we start fitting the model, we first have to install and load the <alert>{brms}</alert> package.
@@ -417,10 +417,10 @@ smd.ecdf(0.3)
         <idx><h>Forest Plot</h></idx> <idx><h>tidybayes Package</h></idx>
       </p>
       <p>
-        As you have seen, Bayesian models allow us to extract their sampled posterior distribution. This can be extremely helpful to directly assess the probability of specific values given our model. We can also exploit this feature to create enhanced <alert>forest plots</alert> (Chapter <xref ref="forest"/>), which are both very informative and pleasing to the eye<fn>Some of the code we are about present here was inspired by a <url href="https://mvuorre.github.io/posts/2016-09-29-bayesian-meta-analysis/">blog post</url> written by Matti Vuorre .</fn>. 
+        As you have seen, Bayesian models allow us to extract their sampled posterior distribution. This can be extremely helpful to directly assess the probability of specific values given our model. We can also exploit this feature to create enhanced <alert>forest plots</alert> (Chapter <xref ref="forest"/>), which are both very informative and pleasing to the eye<fn>Some of the code we are about present here was inspired by a <url href="https://mvuorre.github.io/posts/2016-09-29-bayesian-meta-analysis/">blog post</url> written by Matti Vuorre <xref ref="vuorre2016bayesian"/>.</fn>. 
       </p>
       <p>
-        Unfortunately, there is currently no maintained package to directly create forest plots from <alert>{brms}</alert> models. But it is possible to build them oneself using functions of the <alert>{tidybayes}</alert> package . So, let us first load this package along with a few other ones before we proceed.
+        Unfortunately, there is currently no maintained package to directly create forest plots from <alert>{brms}</alert> models. But it is possible to build them oneself using functions of the <alert>{tidybayes}</alert> package <xref ref="tidybayes"/>. So, let us first load this package along with a few other ones before we proceed.
       </p>
       <program language="r">
         <code>
@@ -528,7 +528,7 @@ ggplot(aes(b_Intercept,
           This <alert>shrinkage to the mean</alert> is typical for hierarchical models with a common overarching distribution, such as meta-analytic random-effects models. During the estimation process, the Bayesian model "supplements" information on the effect of <alert>one</alert> study <m>k</m> with information on the <alert>overall</alert> distribution of true effect sizes as jointly estimated by all effect sizes <m>K</m> in the meta-analysis. 
         </p>
         <p>
-          Such <alert>"borrowing of strength"</alert> means that the values of studies with extreme effects are pulled towards the mean . This behavior is more pronounced for studies which provide relatively few information (i.e. studies with large standard errors).
+          Such <alert>"borrowing of strength"</alert> means that the values of studies with extreme effects are pulled towards the mean <xref ref="lunn2012bugs"/>. This behavior is more pronounced for studies which provide relatively few information (i.e. studies with large standard errors).
         </p>
       </note>
     </subsection>

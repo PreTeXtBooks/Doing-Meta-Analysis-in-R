@@ -16,7 +16,7 @@
       <idx><h>Potential Scale Reduction Factor</h></idx> <idx><h>Cochrane</h></idx>
     </p>
     <p>
-      Lack of statistical power, however, may still play an important role--even in meta-analysis. The number of included studies in many meta-analyses is small, often below <m>K=</m> 10. The median number of studies in Cochrane systematic reviews, for example, is six . This becomes even more problematic if we factor in that meta-analyses often include subgroup analyses and meta-regression, for which even more power is required. Furthermore, many meta-analyses show high between-study heterogeneity. This also reduces the overall precision and thus the statistical power.
+      Lack of statistical power, however, may still play an important role--even in meta-analysis. The number of included studies in many meta-analyses is small, often below <m>K=</m> 10. The median number of studies in Cochrane systematic reviews, for example, is six <xref ref="borenstein2011introduction"/>. This becomes even more problematic if we factor in that meta-analyses often include subgroup analyses and meta-regression, for which even more power is required. Furthermore, many meta-analyses show high between-study heterogeneity. This also reduces the overall precision and thus the statistical power.
     </p>
     <p>
       We already touched on the concept of statistical power in Chapter <xref ref="p-curve-es"/>, where we learned about the p-curve method. The idea behind statistical power is derived from classical hypothesis testing. It is directly related to the two types of <alert>errors</alert> that can occur in a hypothesis test. The first error is to accept the alternative hypothesis (e.g. <m>\mu_1 \neq \mu_2</m>) while the null hypothesis (<m>\mu_1 = \mu_2</m>) is true. This leads to a <alert>false positive</alert>, also known as a <alert>Type I</alert> or <m>\alpha</m> error. Conversely, it is also possible that we accept the null hypothesis, while the alternative hypothesis is true. This generates a <alert>false negative</alert>, known as a <alert>Type II</alert> or <m>\beta</m> error.
@@ -44,7 +44,7 @@
       </li>
       <li>
         <p>
-          The effect size we want to find. This is particularly important, as we have to make assumptions about how big an effect size has to be to still be meaningful. For example, one study calculated that for depression interventions, even effects as small as SMD = 0.24 may still be meaningful to patients . If we want to study negative effects of an intervention (e.g. death or symptom deterioration), even very small effect sizes are extremely important and should be detected.
+          The effect size we want to find. This is particularly important, as we have to make assumptions about how big an effect size has to be to still be meaningful. For example, one study calculated that for depression interventions, even effects as small as SMD = 0.24 may still be meaningful to patients <xref ref="cuijpers2014threshold"/>. If we want to study negative effects of an intervention (e.g. death or symptom deterioration), even very small effect sizes are extremely important and should be detected.
         </p>
       </li>
       <li>
@@ -67,7 +67,7 @@
         Please note that power analyses should always be conducted <alert>a priori</alert>, meaning <alert>before</alert> you perform the meta-analysis.
       </p>
       <p>
-        Power analyses conducted <alert>after</alert> an analysis ("post-hoc") are based on a logic that is deeply flawed . First, post-hoc power analyses are <alert>uniformative</alert>--they tell us nothing that we do not already know. When we find that an effect is not significant based on our collected sample, the calculated post-hoc power will be, by definition, insufficient (i.e. 50% or lower). When we calculate the post-hoc power of a test, we simply "play around" with a power function that is directly linked to the <m>p</m>-value of the result. 
+        Power analyses conducted <alert>after</alert> an analysis ("post-hoc") are based on a logic that is deeply flawed <xref ref="hoenig2001abuse"/>. First, post-hoc power analyses are <alert>uniformative</alert>--they tell us nothing that we do not already know. When we find that an effect is not significant based on our collected sample, the calculated post-hoc power will be, by definition, insufficient (i.e. 50% or lower). When we calculate the post-hoc power of a test, we simply "play around" with a power function that is directly linked to the <m>p</m>-value of the result. 
       </p>
       <p>
         There is nothing in the post-hoc power estimate that the <m>p</m>-value would not already tell us. Namely that, based on the effect and sample size of our test, the power is insufficient to ascertain statistical significance. 
@@ -109,7 +109,7 @@
       Where <m>n_1</m> and <m>n_2</m> stand for the sample sizes in group 1 and group 2 of a study, where <m>\theta</m> is the assumed effect size (expressed as a standardized mean difference), and <m>K</m> is the total number of studies in our meta-analysis. Importantly, as a simplification, this formula assumes that the sample sizes in both groups are identical across all included studies.
     </p>
     <p>
-      The formula is very similar to the one used to calculate the standard error of a standardized mean difference, with one exception. We now divide the the standard error by <m>K</m>. This means that the standard error of our pooled effect is reduced by factor <m>K</m>, representing the total number of studies in our meta-analysis. Put differently, when assuming a fixed-effect model, pooling the studies leads to a <m>K</m>-fold increase in the precision of our overall effect<fn>Note that this statement is, of course, only correct because we are using the simplified formula in equation <xref provisional="eq:pow3"/>.</fn>. 
+      The formula is very similar to the one used to calculate the standard error of a standardized mean difference, with one exception. We now divide the the standard error by <m>K</m>. This means that the standard error of our pooled effect is reduced by factor <m>K</m>, representing the total number of studies in our meta-analysis. Put differently, when assuming a fixed-effect model, pooling the studies leads to a <m>K</m>-fold increase in the precision of our overall effect<fn>Note that this statement is, of course, only correct because we are using the simplified formula in equation <xref ref="eq:pow3"/>.</fn>. 
     </p>
     <p>
       After we defined <m>\theta</m> and calculated <m>\sigma_{\theta}</m>, we end up with a value of <m>z</m>. This <m>z</m> score can be used to obtain the power of our meta-analysis, given a number of studies <m>K</m> with group sizes <m>n_1</m> and <m>n_2</m>:
@@ -238,7 +238,7 @@ power.analysis(d = 0.2,
       \begin{equation} \sigma^*<em>{\theta}=\sqrt{\frac{\left(\frac{n</em>1+n<em>2}{n</em>1n<em>2}\right)+\left(\frac{\theta^2}{2(n</em>1+n_2)}\right)+\tau^2}{K}} (#eq:pow5) \end{equation}
     </p>
     <p>
-      The problem is that the value of <m>\tau^2</m> is usually not known before seeing the data. Hedges and Pigott , however, provide guidelines that may be used to model either low, moderate or large between-study heterogeneity:
+      The problem is that the value of <m>\tau^2</m> is usually not known before seeing the data. Hedges and Pigott <xref ref="hedges2001power"/>, however, provide guidelines that may be used to model either low, moderate or large between-study heterogeneity:
     </p>
     <p>
       <alert>Low heterogeneity:</alert>
@@ -281,7 +281,7 @@ power.analysis(d = 0.2,
       We see that the estimated power is 40.76%. This is lower than the normative 80% threshold. It is also lower than the 60.66% we obtain we assuming a fixed-effect model. This is because between-study heterogeneity decreases the precision of our pooled effect estimate, resulting in a drop in statistical power. 
     </p>
     <p>
-      Figure <xref provisional="fig-power"/> visualizes the effect of the true effect size, number of studies, and amount of between-study heterogeneity on the power of a meta-analysis.<fn>If you want to quickly check the power of a meta-analysis under varying assumptions, you can also use a <alert>power calculator tool</alert> developed for this purpose. The tool is based on the same <em>R</em> function that we cover in this chapter. It can be found online: https://mathiasharrer.shinyapps.io/power<em>calculator</em>meta_analysis/.</fn> 
+      Figure <xref ref="fig:power"/> visualizes the effect of the true effect size, number of studies, and amount of between-study heterogeneity on the power of a meta-analysis.<fn>If you want to quickly check the power of a meta-analysis under varying assumptions, you can also use a <alert>power calculator tool</alert> developed for this purpose. The tool is based on the same <em>R</em> function that we cover in this chapter. It can be found online: https://mathiasharrer.shinyapps.io/power<em>calculator</em>meta_analysis/.</fn> 
     </p>
   </section>
 
@@ -292,7 +292,7 @@ power.analysis(d = 0.2,
       <idx><h>Subgroup Analysis</h></idx>
     </p>
     <p>
-      When planning subgroup analyses, it can be relevant to know how large the difference between two groups must be so that we can detect it, given the number of studies at our disposal. This is where a power analysis for subgroup differences can be applied. A subgroup power analysis can be conducted in <em>R</em> using the <c>power.analysis.subgroup</c> function, which implements an approach described by Hedges and Pigott .
+      When planning subgroup analyses, it can be relevant to know how large the difference between two groups must be so that we can detect it, given the number of studies at our disposal. This is where a power analysis for subgroup differences can be applied. A subgroup power analysis can be conducted in <em>R</em> using the <c>power.analysis.subgroup</c> function, which implements an approach described by Hedges and Pigott <xref ref="hedges2004power"/>.
     </p>
     <note>
       <p>

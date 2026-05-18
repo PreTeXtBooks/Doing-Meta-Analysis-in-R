@@ -19,7 +19,7 @@
       <idx><h>esc Package</h></idx>
     </p>
     <p>
-      The good news is that we can sometimes <alert>convert</alert> reported information into the desired effect size format. This makes it possible to include affected studies in a meta-analysis with <alert>pre-calculated</alert> data (Chapter <xref ref="pre-calculated-es"/>) using <c>metagen</c>. For example, we can convert the results of a two-sample <m>t</m>-test to a standardized mean difference and its standard error, and then use <c>metagen</c> to perform a meta-analysis of pre-calculated SMDs. The <alert>{esc}</alert> package  provides several helpful functions which allow us to perform such conversions directly in <em>R</em>.
+      The good news is that we can sometimes <alert>convert</alert> reported information into the desired effect size format. This makes it possible to include affected studies in a meta-analysis with <alert>pre-calculated</alert> data (Chapter <xref ref="pre-calculated-es"/>) using <c>metagen</c>. For example, we can convert the results of a two-sample <m>t</m>-test to a standardized mean difference and its standard error, and then use <c>metagen</c> to perform a meta-analysis of pre-calculated SMDs. The <alert>{esc}</alert> package <xref ref="esc"/> provides several helpful functions which allow us to perform such conversions directly in <em>R</em>.
     </p>
     <p>
       To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="reporting-reproducibility"/>.
@@ -36,7 +36,7 @@
       <idx><h>Mean, Arithmetic</h></idx> <idx><h>Standardized Mean Difference</h></idx> <idx><h>Hedges' \textit{g}</h></idx>
     </p>
     <p>
-      When calculating SMDs or Hedges' <m>g</m> from the mean and <alert>standard error</alert>, we can make use of the fact that the standard deviation of a mean is defined as its standard error, with the square root of the sample size "factored out" :
+      When calculating SMDs or Hedges' <m>g</m> from the mean and <alert>standard error</alert>, we can make use of the fact that the standard deviation of a mean is defined as its standard error, with the square root of the sample size "factored out" <xref ref="thalheimer2002calculate"/>:
     </p>
     <p>
       \begin{equation} \text{SD} =\text{SE}\sqrt{n} (#eq:esc1) \end{equation}
@@ -63,7 +63,7 @@ esc_mean_se(grp1m = 8.5,   # mean of group 1
     <title>Regression Coefficients</title>
 
     <p>
-      It is possible to calculate SMDs, Hedges' <m>g</m> or a correlation <m>r</m> from standardized or unstandardized regression coefficients . For unstandardized coefficients, we can use the <c>esc_B</c> function in <alert>{esc}</alert>. Here is an example:
+      It is possible to calculate SMDs, Hedges' <m>g</m> or a correlation <m>r</m> from standardized or unstandardized regression coefficients <xref ref="lipsey2001practical"/>. For unstandardized coefficients, we can use the <c>esc_B</c> function in <alert>{esc}</alert>. Here is an example:
     </p>
     <p>
       <idx><h>Correlation</h></idx>
@@ -155,13 +155,13 @@ esc_beta(beta = 0.37,   # standardized regression coefficient
       <idx><h>Correlation</h></idx> <idx><h>Correlation, Point-Biserial</h></idx>
     </p>
     <p>
-      For <alert>equally</alert> sized groups (<m>n_1=n_2</m>), we can use the following formula to derive the SMD from the <alert>point-biserial</alert> correlation .
+      For <alert>equally</alert> sized groups (<m>n_1=n_2</m>), we can use the following formula to derive the SMD from the <alert>point-biserial</alert> correlation <xref ref="lipsey2001practical"/>.
     </p>
     <p>
       \begin{equation} r<em>{pb} = \frac{\text{SMD}}{\sqrt{\text{SMD}^2+4}} ~~~~~~~~ \text{SMD}=\frac{2r</em>{pb}}{\sqrt{1-r^2_{pb}}} (#eq:esc2) \end{equation}
     </p>
     <p>
-      A different formula has to be used for <alert>unequally</alert> sized groups :
+      A different formula has to be used for <alert>unequally</alert> sized groups <xref ref="aaron1998equating"/>:
     </p>
     <p>
       \begin{align} r<em>{pb} &amp;= \frac{\text{SMD}}{\sqrt{\text{SMD}^2+\dfrac{(N^2-2N)}{n</em>1n<em>2}}} \notag \ \text{SMD} &amp;= \dfrac{r</em>{pb}}{\sqrt{(1-r^2)\left(\frac{n<em>1}{N}\times\left(1-\frac{n</em>1}{N}\right)\right)}} (#eq:esc3) \end{align}
@@ -216,7 +216,7 @@ esc_f(f = 5.04,      # F value of the one-way anova
       <idx><h>Standardized Mean Difference</h></idx>
     </p>
     <p>
-      An effect size expressed as a standardized mean difference can also be derived from an <alert>independent</alert> two-sample <m>t</m>-test value, using the following formula :
+      An effect size expressed as a standardized mean difference can also be derived from an <alert>independent</alert> two-sample <m>t</m>-test value, using the following formula <xref ref="rosnow2000contrasts"/>, <xref ref="thalheimer2002calculate"/>:
     </p>
     <p>
       \begin{equation} \text{SMD} = \frac {t(n<em>1+n</em>2)}{\sqrt{(n<em>1+n</em>2-2)(n<em>1n</em>2)}} (#eq:esc5) \end{equation}
@@ -244,7 +244,7 @@ esc_t(t = 3.3,     # t-value
       At times, studies only report the effect size (e.g. a value of Cohen's <m>d</m>), the <m>p</m>-value of that effect, and nothing more. Yet, to pool results in a meta-analysis, we need a measure of the <alert>precision</alert> of the effect size, preferably the standard error.
     </p>
     <p>
-      In such cases, we must estimate the standard error from the <m>p</m>-value of the effect size. This is possible for effect sizes based on <alert>differences</alert> (i.e. SMDs), or <alert>ratios</alert> (i.e. risk or odds ratios), using the formulas by Altman and Bland . These formulas are implemented in the <c>se.from.p</c> function in <em>R</em>. 
+      In such cases, we must estimate the standard error from the <m>p</m>-value of the effect size. This is possible for effect sizes based on <alert>differences</alert> (i.e. SMDs), or <alert>ratios</alert> (i.e. risk or odds ratios), using the formulas by Altman and Bland <xref ref="altman2011obtain"/>. These formulas are implemented in the <c>se.from.p</c> function in <em>R</em>. 
     </p>
     <p>
       <idx><h>dmetar Package</h></idx>
@@ -365,12 +365,12 @@ esc_chisq(chisq = 7.9,        # chi-squared value
     <ul>
       <li>
         <p>
-          The method by <alert>Kraemer and Kupfer</alert> , which calculates the NNT from an <alert>area under the curve</alert> (AUC), defined as the probability that a patient in the treatment group has an outcome preferable to the one in the control group. This method allows to calculate the NNT directly from an SMD or <m>g</m> without any extra information.
+          The method by <alert>Kraemer and Kupfer</alert> <xref ref="kraemer2006size"/>, which calculates the NNT from an <alert>area under the curve</alert> (AUC), defined as the probability that a patient in the treatment group has an outcome preferable to the one in the control group. This method allows to calculate the NNT directly from an SMD or <m>g</m> without any extra information.
         </p>
       </li>
       <li>
         <p>
-          The method by <alert>Furukawa and Leucht</alert> calculates NNT values from SMDs using the CER, or a reasonable estimate thereof. Furukawa's method has been shown to be superior in estimating the true NNT value compared to the Kraemer &amp; Kupfer method . If we can make reasonable estimates of the CER, Furukawa's method should therefore always be preferred.
+          The method by <alert>Furukawa and Leucht</alert> calculates NNT values from SMDs using the CER, or a reasonable estimate thereof. Furukawa's method has been shown to be superior in estimating the true NNT value compared to the Kraemer &amp; Kupfer method <xref ref="furukawa2011obtain"/>. If we can make reasonable estimates of the CER, Furukawa's method should therefore always be preferred.
         </p>
       </li>
     </ul>
@@ -393,7 +393,7 @@ nnt(m.b)
       The <c>nnt</c> function provides the number needed to treat for different assumed CERs. The three lines show the result for the minimum, mean, and maximum CER in our data set. The mean CER estimate is the "typical" NNT that is usually reported. 
     </p>
     <p>
-      It is also possible to use <c>nnt</c> with <c>metagen</c> models, as long as the summary measure <c>sm</c> is either <c>"RR"</c> or <c>"OR"</c>. For such models, we also need to specify the assumed CER in the <c>p.c</c> argument in <c>nnt</c>. Here is an example using the <c>m.gen_bin</c> meta-analysis object we created in Chapter <xref provisional="m-gen-bin"/>:
+      It is also possible to use <c>nnt</c> with <c>metagen</c> models, as long as the summary measure <c>sm</c> is either <c>"RR"</c> or <c>"OR"</c>. For such models, we also need to specify the assumed CER in the <c>p.c</c> argument in <c>nnt</c>. Here is an example using the <c>m.gen_bin</c> meta-analysis object we created in Chapter <xref ref="m-gen-bin"/>:
     </p>
     <program language="r">
       <code>
@@ -445,10 +445,10 @@ NNT(d = 0.245, CER = 0.35)
         <alert>A Number to be Treated with Care: Criticism of the NNT</alert>
       </p>
       <p>
-        While common, usage of NNTs to communicate the results of clinical trials is not uncontroversial. Criticisms include that lay people often misunderstand it [despite purportedly being an "intuitive" alternative to other effect size measures; see <xref ref="references"/>]; and that researchers often calculate NNTs incorrectly . 
+        While common, usage of NNTs to communicate the results of clinical trials is not uncontroversial. Criticisms include that lay people often misunderstand it [despite purportedly being an "intuitive" alternative to other effect size measures, @christensen2006number]; and that researchers often calculate NNTs incorrectly <xref ref="mendes2017number"/>. 
       </p>
       <p>
-        Furthermore, it is not possible to calculate reliable standard errors (and confidence intervals) of NNTs, which means that they can not be used in meta-analyses . It is only possible to convert results to the NNT after pooling has been conducted using another effect size measure.
+        Furthermore, it is not possible to calculate reliable standard errors (and confidence intervals) of NNTs, which means that they can not be used in meta-analyses <xref ref="hutton2010misleading"/>. It is only possible to convert results to the NNT after pooling has been conducted using another effect size measure.
       </p>
     </note>
   </section>

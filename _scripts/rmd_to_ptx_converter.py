@@ -597,7 +597,17 @@ def convert_inline(text):
         if text[pos] == '[':
             m = re.match(r'\[[-]?@[^\]]+\]', text[pos:])
             if m:
-                # Drop citation
+                # Convert citation(s) to PTX <xref> tags
+                inner = m.group(0)[1:-1]  # strip surrounding [ ]
+                xrefs = []
+                for part in inner.split(';'):
+                    part = part.strip()
+                    km = re.match(r'-?@([a-zA-Z][^\s,\]]*)', part)
+                    if km:
+                        key = km.group(1).replace(':', '-')
+                        xrefs.append(f'<xref ref="{key}"/>')
+                if xrefs:
+                    parts.append(('raw', ', '.join(xrefs)))
                 pos += m.end()
                 continue
 

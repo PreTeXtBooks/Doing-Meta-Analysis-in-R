@@ -33,7 +33,7 @@
     <title>What Is a Forest Plot?</title>
 
     <p>
-      Figure <xref ref="fig-forest"/> shows the main components of a forest plot. On the left side, forest plots display the name of each study included in the meta-analysis. For each study, a graphical representation of the effect size is provided, usually in the center of the plot. This visualization shows the point estimate of a study on the x-axis. This point estimate is supplemented by a line, which represents the range of the confidence interval calculated for the observed effect size. Usually, the point estimate is surrounded by a square. The size of this square is determined by the weight (Chapter <xref ref="fem"/>) of the effect size: studies with a larger weight are given a larger square, while studies with a lower weight have a smaller square. 
+      Figure <xref ref="fig:forest"/> shows the main components of a forest plot. On the left side, forest plots display the name of each study included in the meta-analysis. For each study, a graphical representation of the effect size is provided, usually in the center of the plot. This visualization shows the point estimate of a study on the x-axis. This point estimate is supplemented by a line, which represents the range of the confidence interval calculated for the observed effect size. Usually, the point estimate is surrounded by a square. The size of this square is determined by the weight (Chapter <xref ref="fem"/>) of the effect size: studies with a larger weight are given a larger square, while studies with a lower weight have a smaller square. 
     </p>
     <p>
       Conventionally, a forest plot should also contain the effect size data that was used to perform the meta-analysis. This provides others with the data needed to replicate our results.
@@ -283,13 +283,13 @@ dev.off()
       Forest plots are, by far, the most common way to visualize meta-analyses. Most published meta-analyses contain a forest plot, and many researchers understand how they are interpreted. It is advisable that you also include one in your meta-analysis report since forest plots provide a comprehensive and easily understandable summary of your findings.
     </p>
     <p>
-      However, forest plots are not the only way to illustrate our results. Meta-analyses can also be visualized, for example, through <alert>drapery plots</alert> . A drawback of forest plots is that they can only display confidence intervals assuming a fixed significance threshold, conventionally <m>p&lt;</m> 0.05. It is based on these confidence intervals that researchers decide if an effect is significant or not. 
+      However, forest plots are not the only way to illustrate our results. Meta-analyses can also be visualized, for example, through <alert>drapery plots</alert> <xref ref="rucker2020beyond"/>. A drawback of forest plots is that they can only display confidence intervals assuming a fixed significance threshold, conventionally <m>p&lt;</m> 0.05. It is based on these confidence intervals that researchers decide if an effect is significant or not. 
     </p>
     <p>
-      There has been a controversy around the use of <m>p</m>-values in recent years , and some have argued that hypothesis testing based on <m>p</m>-values has contributed to the "replication crisis" in many research areas .
+      There has been a controversy around the use of <m>p</m>-values in recent years <xref ref="wellek2017critical"/>, and some have argued that hypothesis testing based on <m>p</m>-values has contributed to the "replication crisis" in many research areas <xref ref="nuzzo2014statistical"/>.
     </p>
     <p>
-      Drapery plots are based on <m>p</m>-<alert>value functions</alert>. Such <m>p</m>-value functions have been proposed to prevent us from solely relying on the <m>p</m>&lt;0.05 significance threshold when interpreting the results of an analysis . 
+      Drapery plots are based on <m>p</m>-<alert>value functions</alert>. Such <m>p</m>-value functions have been proposed to prevent us from solely relying on the <m>p</m>&lt;0.05 significance threshold when interpreting the results of an analysis <xref ref="infanger2019p"/>. 
     </p>
     <p>
       Therefore, instead of only calculating the 95% confidence interval, <m>p</m>-value functions provide a continuous curve which shows the confidence interval for varying values of <m>p</m>. In a drapery plot, a confidence curve is plotted for each study, as well as for the average effect. The x-axis shows the effect size metric, and the y-axis the assumed <m>p</m>-value. 
@@ -345,7 +345,7 @@ drapery(m.gen,
       Based on the plot, we see that we can be quite confident in the pooled effect size being greater than zero, given that the thick line reaches zero on the x-axis when <m>p</m> is already very, very small (&lt;0.01).
     </p>
     <p>
-      Rücker et al.  recommend that drapery plots should mainly be used <alert>in addition</alert> to forest plots. Simply replacing the forest with a drapery plot may be not a good idea, because the latter does not contain much of the effect size information that might be needed by others to reproduce our results. 
+      Rücker et al. <xref ref="rucker2020beyond"/> recommend that drapery plots should mainly be used <alert>in addition</alert> to forest plots. Simply replacing the forest with a drapery plot may be not a good idea, because the latter does not contain much of the effect size information that might be needed by others to reproduce our results. 
     </p>
   </section>
 
