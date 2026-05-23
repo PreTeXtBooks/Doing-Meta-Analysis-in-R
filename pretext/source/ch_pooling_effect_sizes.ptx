@@ -110,8 +110,12 @@
         Although we do not know the true overall effect size of our studies, we can exploit this relationship to arrive at the best possible estimate of the true overall effect, <m>\hat\theta</m>. We know that a smaller standard error corresponds with a smaller sampling error; therefore, studies with a small standard error should be better estimators of the true overall effect than studies with a large standard error.
       </p>
       <p>
-        We can illustrate this with a simulation. Using the <c>rnorm</c> function we already used before, we simulated a selection of studies in which the true overall effect is <m>\theta = 0</m>. We took several samples but varied the sample size so that the standard error differs between the "observed" effects. The results of the simulation can be found in Figure <xref provisional="fig:funnel1"/>. 
+        We can illustrate this with a simulation. Using the <c>rnorm</c> function we already used before, we simulated a selection of studies in which the true overall effect is <m>\theta = 0</m>. We took several samples but varied the sample size so that the standard error differs between the "observed" effects. The results of the simulation can be found in Figure <xref ref="fig-funnel1"/>. 
       </p>
+      <figure xml:id="fig-funnel1">
+        <caption>Relationship between effect size and standard error.</caption>
+        <image source="generated/funnel1.png"/>
+      </figure>
       <p>
         The results of the simulation show an interesting pattern. We see that effect sizes with a small sampling error are tightly packed around the true effect size <m>\theta = 0</m>. As the standard error on the y-axis<fn>We log-transformed the standard error before plotting so that the pattern can be more easily seen.</fn> increases, the <alert>dispersion</alert> of effect sizes becomes larger and larger, and the observed effects deviate more and more from the true effect. 
       </p>
