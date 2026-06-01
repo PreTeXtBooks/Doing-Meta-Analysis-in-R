@@ -449,6 +449,22 @@ library(tidyverse)
 glimpse(SuicidePrevention)
         </code>
       </program>
+      <program language="r">
+        <code>
+## Rows: 9
+## Columns: 10
+## $ author    &lt;chr&gt; "Berry et al.", "DeVries et al.", "Fleming et al.", "Hunt &amp; Burke", "McKinnon", "Meijer et al.", "Morrison", "Zaytsev et al.", "Dehue et al."
+## $ n.e       &lt;dbl&gt; 90, 77, 30, 64, 50, 82, 100, 106, 110
+## $ mean.e    &lt;dbl&gt; 14.98, 16.21, 3.01, 19.32, 2.75, 14.48, 23.48, 20.13, 3.29
+## $ sd.e      &lt;dbl&gt; 3.29, 5.35, 0.87, 6.41, 0.50, 4.65, 7.30, 6.34, 0.91
+## $ n.c       &lt;dbl&gt; 95, 69, 30, 65, 50, 84, 120, 142, 110
+## $ mean.c    &lt;dbl&gt; 15.54, 20.13, 3.13, 20.22, 2.86, 16.31, 25.02, 21.74, 3.58
+## $ sd.c      &lt;dbl&gt; 4.41, 7.43, 1.23, 7.62, 0.45, 6.55, 7.61, 7.73, 0.99
+## $ pubyear   &lt;dbl&gt; 2006, 2019, 2006, 2011, 2010, 2003, 2006, 2019, 2017
+## $ age_group &lt;chr&gt; "general", "older adult", "general", "general", "general", "older adult", "older adult", "general", "general"
+## $ control   &lt;chr&gt; "WLC", "no intervention", "no intervention", "WLC", "WLC", "WLC", "WLC", "no intervention", "WLC"
+        </code>
+      </program>
       <p>
         We see that this gives us details on the type of data we have stored in each column of our data set. There are different abbreviations signifying different types of data. In <em>R</em>, they are called <alert>classes</alert>. 
       </p>

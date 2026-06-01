@@ -1920,8 +1920,43 @@ selmodel(m.rma, type = "stepfun", steps = a, delta = w.severe)
       In any case, results of publication bias methods should always be interpreted with caution. There are instances where the results of publication bias analyses have led to contentious debates--for example in the "ego-depletion" literature <xref ref="friese2019ego"/>. It is important to keep in mind that the best way to control for publication bias is to perform an adequate search for unpublished evidence, and to change publication practices altogether. Every statistical "proof" of publication bias that we as meta-analysts can come up with is weak at best.
     </p>
     <p>
-      To make it easier for you to decide which method may be applied when we created a brief overview of the advantages and disadvantages of each approach (see <xref provisional="tab:pubtab"/>). 
+      To make it easier for you to decide which method may be applied when we created a brief overview of the advantages and disadvantages of each approach (see Table <xref ref="tab-pubtab"/>). 
     </p>
+    <table xml:id="tab-pubtab">
+      <title>Methods to estimate the true effect size corrected for publication bias: Overview of advantages and disadvantages.</title>
+      <tabular>
+        <row>
+          <cell><alert>Method</alert></cell>
+          <cell><alert>Advantages</alert></cell>
+          <cell><alert>Disadvantages</alert></cell>
+        </row>
+        <row>
+          <cell>Duval &amp; Tweedie Trim-and-Fill</cell>
+          <cell>Very heavily used in practice. Can be interpreted by many researchers.</cell>
+          <cell>Often fails to correct the effect size enough, for example when the true effect is zero. Not robust when the heterogeneity is very large; often outperformed by other methods.</cell>
+        </row>
+        <row>
+          <cell>PET-PEESE</cell>
+          <cell>Based on a simple and intuitive model. Easy to implement and interpret.</cell>
+          <cell>Sometimes massively over- or underestimates the effect. Weak performance for meta-analyses with few studies, low sample sizes, and high heterogeneity.</cell>
+        </row>
+        <row>
+          <cell>Limit Meta-Analysis</cell>
+          <cell>Similar approach as PET-PEESE, but explicitly models between-study heterogeneity.</cell>
+          <cell>Performance is less well studied than the one of other methods. May fail when the number of studies is very low (&lt;10) and heterogeneity very high.</cell>
+        </row>
+        <row>
+          <cell>P-Curve</cell>
+          <cell>Has been shown to outperform other methods (particularly trim-and-fill) when its assumptions are met.</cell>
+          <cell>Works under the assumption of no heterogeneity, which is unlikely in practice. Requires a minimum number of significant effect sizes. Less easy to interpret and communicate.</cell>
+        </row>
+        <row>
+          <cell>Selection Models</cell>
+          <cell>Can potentially model any kind of assumed selection process. The three-parameter selection model has shown good performance in simulation studies.</cell>
+          <cell>Only valid when the selection model describes the publication bias process adequately. Assume that other small-study effects are not relevant. Can be difficult to interpret and requires background knowledge.</cell>
+        </row>
+      </tabular>
+    </table>
     <p>
       The table contains both statistical and practical considerations and should be seen as neither comprehensive nor final. Publication bias methods are an ongoing field of investigation, and it is likely that things will look differently once more evidence has been established. 
     </p>

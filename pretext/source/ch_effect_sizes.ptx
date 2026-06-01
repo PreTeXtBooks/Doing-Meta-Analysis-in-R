@@ -881,6 +881,35 @@ se_within
         <p>
           The results we get from such a study can be categorized in a <m>2 \times 2</m> table <xref ref="schwarzer2015meta"/>:
         </p>
+        <table xml:id="tab-twobytwo">
+          <title>Results of controlled studies using binary outcome data.</title>
+          <tabular>
+            <row>
+              <cell/>
+              <cell><alert>Event</alert></cell>
+              <cell><alert>No Event</alert></cell>
+              <cell/>
+            </row>
+            <row>
+              <cell>Treatment</cell>
+              <cell><m>a</m></cell>
+              <cell><m>b</m></cell>
+              <cell><m>n_{\text{treat}}</m></cell>
+            </row>
+            <row>
+              <cell>Control</cell>
+              <cell><m>c</m></cell>
+              <cell><m>d</m></cell>
+              <cell><m>n_{\text{control}}</m></cell>
+            </row>
+            <row>
+              <cell/>
+              <cell><m>n_E</m></cell>
+              <cell><m>n_{\neg E}</m></cell>
+              <cell/>
+            </row>
+          </tabular>
+        </table>
         <p>
           Based on this data, we can calculate the risk of experiencing event <m>E</m> during the study period for both the treatment group and control group. We simply divide the number of people experiencing <m>E</m> in one group by the total sample size of that group. 
         </p>
@@ -1011,7 +1040,7 @@ se_log_rr
           Like the risk ratio (<xref ref="rr"/>), <alert>odds ratios</alert> can also be calculated when we have binary outcome data of two groups. In the previous chapter on proportions (<xref ref="props"/>), we already defined the odds as the number of cases which fall into a specific category, divided by the number of units which do not fall into that category. 
         </p>
         <p>
-          Using the notation in <xref provisional="tab:twobytwo"/>, the formula for the odds in the treatment and control group looks like this:
+          Using the notation in Table <xref ref="tab-twobytwo"/>, the formula for the odds in the treatment and control group looks like this:
         </p>
         <p>
           \begin{equation} \text{Odds}_{\text{treat}} = \frac{a}{b} (#eq:es28) \end{equation}
@@ -1038,7 +1067,7 @@ se_log_rr
           \begin{equation} \log \text{OR}  = \log_{e}(\text{OR}) (#eq:es31) \end{equation}
         </p>
         <p>
-          The standard error of the log-odds ratio can be calculated using this formula (we use the notation in <xref provisional="tab:twobytwo"/>):
+          The standard error of the log-odds ratio can be calculated using this formula (we use the notation in Table <xref ref="tab-twobytwo"/>):
         </p>
         <p>
           \begin{equation} SE_{\log \text{OR}}  = \sqrt{\frac{1}{a}+\frac{1}{b}+\frac{1}{c}+\frac{1}{d}} (#eq:es32) \end{equation}
