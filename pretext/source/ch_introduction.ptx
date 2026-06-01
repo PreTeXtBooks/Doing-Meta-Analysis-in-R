@@ -463,7 +463,7 @@
         </li>
         <li>
           <p>
-            <alert>Forward search</alert>. A forward search can be seen as the opposite of screening the references of previous primary studies and reviews. It means to take a study that is relevant for the meta-analysis as basis, and then search for other articles that have cited this study since it has been published. This can be done quite easily on the Internet. You simply have to find the online entry of the study; usually, it is on the website of the journal in which it has been published. Most journal websites today have a functionality to display articles that have cited a study. Alternatively, you can also search for the study on <alert>Google Scholar</alert>. Google Scholar can display citing research for every entry.
+            <alert>Forward search</alert>. A forward search can be seen as the opposite of screening the references of previous primary studies and reviews. It means to take a study that is relevant for the meta-analysis as basis, and then search for other articles that have cited this study since it has been published. This can be done quite easily on the Internet. You simply have to find the online entry of the study; usually, it is on the website of the journal in which it has been published. Most journal websites today have a functionality to display articles that have cited a study. Alternatively, you can also search for the study on <alert>Google Scholar</alert> (see <xref ref="tab-bibdatabases"/>). Google Scholar can display citing research for every entry.
           </p>
         </li>
         <li>
@@ -473,7 +473,7 @@
         </li>
       </ul>
       <p>
-        The methods we described above can be seen as rather fine-grained strategies. They are ways to search in places where it is very likely that a relevant article will be listed. The disadvantage is that these approaches will unlikely uncover all evidence that is really out there. It is therefore advisable to also use <alert>electronic bibliographic databases</alert> for one's search.  
+        The methods we described above can be seen as rather fine-grained strategies. They are ways to search in places where it is very likely that a relevant article will be listed. The disadvantage is that these approaches will unlikely uncover all evidence that is really out there. It is therefore advisable to also use <alert>electronic bibliographic databases</alert> for one's search. An overview of important databases can be found in <xref ref="tab-bibdatabases"/>.  
       </p>
       <p>
         One should always conduct a search in several databases, not just one. Many bibliographical databases contain an immense number of entries. Nevertheless, it is common to find that the overlap in the results of databases is smaller than anticipated. You can select the databases you want to search based on their subject-specific focus. If your meta-analysis focuses on health-related outcomes, for example, you should at least search PubMed and CENTRAL. 
@@ -496,6 +496,79 @@
       <p>
         In conclusion, we want to stress that searching bibliographic databases is an art in and of itself, and that this paragraph only barely scratches the surface. A much more detailed discussion of this topic can be found in Cuijpers <xref ref="cuijpers2016meta"/> and Bramer and colleagues <xref ref="bramer2018systematic"/>.
       </p>
+      <table xml:id="tab-bibdatabases">
+        <title>Database Descriptions</title>
+        <tabular>
+          <row>
+            <cell><alert>Database</alert></cell>
+            <cell><alert>Description</alert></cell>
+          </row>
+          <row>
+            <cell><alert>Core Databases</alert></cell>
+            <cell/>
+          </row>
+          <row>
+            <cell>PubMed</cell>
+            <cell>Openly accessible database of the US National Library of Medicine. Primarily contains biomedical research.</cell>
+          </row>
+          <row>
+            <cell>PsycInfo</cell>
+            <cell>Database of the American Psychological Association. Primarily covers research in the social and behavioral sciences. Allows for a 30-day free trial.</cell>
+          </row>
+          <row>
+            <cell>Cochrane Central Register of Controlled Trials (CENTRAL)</cell>
+            <cell>Openly accessible database of the Cochrane Collaboration. Primarily covers health-related topics.</cell>
+          </row>
+          <row>
+            <cell>Embase</cell>
+            <cell>Database of biomedical research maintained by the large scientific publisher Elsevier. Requires a license.</cell>
+          </row>
+          <row>
+            <cell>ProQuest International Bibliography of the Social Sciences</cell>
+            <cell>Database of social science research. Requires a license.</cell>
+          </row>
+          <row>
+            <cell>Education Resources Information Center (ERIC)</cell>
+            <cell>Openly accessible database on education research.</cell>
+          </row>
+          <row>
+            <cell><alert>Citation Databases</alert></cell>
+            <cell/>
+          </row>
+          <row>
+            <cell>Web of Science</cell>
+            <cell>Interdisciplinary citation database maintained by Clarivate Analytics. Requires a license.</cell>
+          </row>
+          <row>
+            <cell>Scopus</cell>
+            <cell>Interdisciplinary citation database maintained by Elsevier. Requires a license.</cell>
+          </row>
+          <row>
+            <cell>Google Scholar</cell>
+            <cell>Openly accessible citation database maintained by Google. Has only limited search and reference retrieval functionality.</cell>
+          </row>
+          <row>
+            <cell><alert>Dissertations</alert></cell>
+            <cell/>
+          </row>
+          <row>
+            <cell>ProQuest Dissertations</cell>
+            <cell>Database of dissertations. Requires a license.</cell>
+          </row>
+          <row>
+            <cell><alert>Study Registries</alert></cell>
+            <cell/>
+          </row>
+          <row>
+            <cell>WHO International Clinical Trials Registry Platform (ICTRP)</cell>
+            <cell>Openly accessible database of clinical trial registrations worldwide. Can be used to identify studies that have not (yet) been published.</cell>
+          </row>
+          <row>
+            <cell>OSF Registries</cell>
+            <cell>Openly accessible interdisciplinary database of study registrations. Can be used to identify studies that have not (yet) been published.</cell>
+          </row>
+        </tabular>
+      </table>
     </subsection>
 
     <subsection xml:id="study-selection">

@@ -295,8 +295,97 @@ devtools::install_github("MathiasHarrer/dmetar")
       Let us start with an example data set. Imagine that you plan to conduct a meta-analysis of suicide prevention programs. The outcome you want to focus on in your study is the severity of suicidal ideation (i.e. to what degree individuals think about, consider, or plan to end their life), assessed by questionnaires. You already completed the study search and data extraction, and now want to import your meta-analysis data in <em>R</em>. 
     </p>
     <p>
-      The next task is therefore to prepare an <em>Excel</em> sheet containing all the relevant data. <xref provisional="tab:suicidedata"/> presents all the data we want to import. In the first row, this table also shows how we can name our columns in the <em>Excel</em> file based on the rules we listed above. We can see that the spreadsheet lists each study in one row. For each study, the sample size (<m>n</m>), mean and standard deviation (<m>SD</m>) is included for both the intervention and control group. This is the outcome data needed to calculate effect sizes, which is something we will cover in detail in <xref ref="effects"/>. The following three columns contain variables we want to analyze later on as part of the meta-analysis. 
+      The next task is therefore to prepare an <em>Excel</em> sheet containing all the relevant data. <xref ref="tab-suicidedata"/> presents all the data we want to import. In the first row, this table also shows how we can name our columns in the <em>Excel</em> file based on the rules we listed above. We can see that the spreadsheet lists each study in one row. For each study, the sample size (<m>n</m>), mean and standard deviation (<m>SD</m>) is included for both the intervention and control group. This is the outcome data needed to calculate effect sizes, which is something we will cover in detail in <xref ref="effects"/>. The following three columns contain variables we want to analyze later on as part of the meta-analysis. 
     </p>
+    <table xml:id="tab-suicidedata">
+      <title>The suicide prevention dataset</title>
+      <tabular>
+        <row>
+          <cell><alert>Author</alert></cell>
+          <cell><alert>n.e</alert></cell>
+          <cell><alert>mean.e</alert></cell>
+          <cell><alert>sd.e</alert></cell>
+          <cell><alert>n.c</alert></cell>
+          <cell><alert>mean.c</alert></cell>
+          <cell><alert>sd.c</alert></cell>
+          <cell><alert>pubyear</alert></cell>
+          <cell><alert>age_group</alert></cell>
+          <cell><alert>control</alert></cell>
+        </row>
+        <row>
+          <cell>Berry et al.</cell>
+          <cell>90</cell>
+          <cell>14.98</cell>
+          <cell>3.29</cell>
+          <cell>95</cell>
+          <cell>15.54</cell>
+          <cell>4.41</cell>
+          <cell>2006</cell>
+          <cell>general</cell>
+          <cell>WLC</cell>
+        </row>
+        <row>
+          <cell>DeVries et al.</cell>
+          <cell>77</cell>
+          <cell>16.21</cell>
+          <cell>5.35</cell>
+          <cell>69</cell>
+          <cell>20.13</cell>
+          <cell>7.43</cell>
+          <cell>2019</cell>
+          <cell>older adult</cell>
+          <cell>no intervention</cell>
+        </row>
+        <row>
+          <cell>Fleming et al.</cell>
+          <cell>30</cell>
+          <cell>3.01</cell>
+          <cell>0.87</cell>
+          <cell>30</cell>
+          <cell>3.13</cell>
+          <cell>1.23</cell>
+          <cell>2006</cell>
+          <cell>general</cell>
+          <cell>no intervention</cell>
+        </row>
+        <row>
+          <cell>Hunt &amp; Burke</cell>
+          <cell>64</cell>
+          <cell>19.32</cell>
+          <cell>6.41</cell>
+          <cell>65</cell>
+          <cell>20.22</cell>
+          <cell>7.62</cell>
+          <cell>2011</cell>
+          <cell>general</cell>
+          <cell>WLC</cell>
+        </row>
+        <row>
+          <cell>McCarthy et al.</cell>
+          <cell>50</cell>
+          <cell>4.54</cell>
+          <cell>2.75</cell>
+          <cell>50</cell>
+          <cell>5.61</cell>
+          <cell>2.66</cell>
+          <cell>1997</cell>
+          <cell>general</cell>
+          <cell>WLC</cell>
+        </row>
+        <row>
+          <cell>...</cell>
+          <cell>...</cell>
+          <cell>...</cell>
+          <cell>...</cell>
+          <cell>...</cell>
+          <cell>...</cell>
+          <cell>...</cell>
+          <cell>...</cell>
+          <cell>...</cell>
+          <cell>...</cell>
+        </row>
+      </tabular>
+    </table>
     <p>
       We have prepared an <em>Excel</em> file for you called <alert>"SuicidePrevention.xlsx"</alert>, containing exactly this data. The file can be downloaded from the <url href="https://protectlab.org/en/datasets/suicide-prevention/">Internet</url>. 
     </p>
