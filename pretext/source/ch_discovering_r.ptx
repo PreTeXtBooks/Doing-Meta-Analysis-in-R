@@ -22,7 +22,7 @@
       Whether you are working in academia or at a company, the things you can do in <em>R</em> will often seem like a superpower to others. But it is a superpower that everyone can learn, provided some time and effort. That being said, it is time to get started.
     </p>
     <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="intro"/> and then continue with Chapter <xref ref="effects"/>.
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="intro"/> and then continue with <xref ref="effects"/>.
     </p>
     <p>
       For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
@@ -295,7 +295,7 @@ devtools::install_github("MathiasHarrer/dmetar")
       Let us start with an example data set. Imagine that you plan to conduct a meta-analysis of suicide prevention programs. The outcome you want to focus on in your study is the severity of suicidal ideation (i.e. to what degree individuals think about, consider, or plan to end their life), assessed by questionnaires. You already completed the study search and data extraction, and now want to import your meta-analysis data in <em>R</em>. 
     </p>
     <p>
-      The next task is therefore to prepare an <em>Excel</em> sheet containing all the relevant data. Table <xref provisional="tab:suicidedata"/> presents all the data we want to import. In the first row, this table also shows how we can name our columns in the <em>Excel</em> file based on the rules we listed above. We can see that the spreadsheet lists each study in one row. For each study, the sample size (<m>n</m>), mean and standard deviation (<m>SD</m>) is included for both the intervention and control group. This is the outcome data needed to calculate effect sizes, which is something we will cover in detail in Chapter <xref ref="effects"/>. The following three columns contain variables we want to analyze later on as part of the meta-analysis. 
+      The next task is therefore to prepare an <em>Excel</em> sheet containing all the relevant data. <xref provisional="tab:suicidedata"/> presents all the data we want to import. In the first row, this table also shows how we can name our columns in the <em>Excel</em> file based on the rules we listed above. We can see that the spreadsheet lists each study in one row. For each study, the sample size (<m>n</m>), mean and standard deviation (<m>SD</m>) is included for both the intervention and control group. This is the outcome data needed to calculate effect sizes, which is something we will cover in detail in <xref ref="effects"/>. The following three columns contain variables we want to analyze later on as part of the meta-analysis. 
     </p>
     <p>
       We have prepared an <em>Excel</em> file for you called <alert>"SuicidePrevention.xlsx"</alert>, containing exactly this data. The file can be downloaded from the <url href="https://protectlab.org/en/datasets/suicide-prevention/">Internet</url>. 

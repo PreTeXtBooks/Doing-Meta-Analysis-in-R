@@ -32,7 +32,7 @@
       It is an inconvenient truth that the scientific process, when left to its own devices, will not automatically move us to the best of all possible worlds. With unprecedented amounts of research findings produced each day, it is even more important to view and critically appraise bodies of evidence <alert>in their entirety</alert>. Meta-analysis can be  enormously helpful in achieving this, as long as we acknowledge its own limitations and biases.
     </p>
     <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, continue with Chapter <xref ref="discovering-R"/>.
+      To follow the same sequence as the <em>Rmd</em> version of this book, continue with <xref ref="discovering-R"/>.
     </p>
     <p>
       For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
@@ -64,7 +64,7 @@
       </li>
       <li>
         <p>
-          <alert>Meta-Analyses</alert>. Most meta-analyses can be seen as an advanced type of a systematic review. The scope of meta-analyses is clearly defined beforehand, primary studies are also selected in a systematic and reproducible way, and there are also clear standards through which the validity of the evidence is assessed. This is why it is common to find studies being named a "systematic review <alert>and</alert> meta-analysis". However, there is one aspect which makes meta-analyses special. Meta-analyses aim to combine results from previous studies in a <alert>quantitative</alert> way. The goal of meta-analyses is to integrate quantitative outcomes reported in the selected studies into one numerical estimate. This estimate then summarizes all the individual results. Meta-analyses quantify, for example, the effect of a medication, the prevalence of a disease, or the correlation between two properties, <alert>across all studies</alert><fn>This statement is of course only true if meta-analytic techniques were applied soundly, and if the results of the meta-analysis allow for such generalizations.</fn>. They can therefore only be applied to studies which report quantitative results. Compared to systematic reviews, meta-analyses often have to be more exclusive concerning the kind of evidence that is summarized. To perform a meta-analysis, it is usually necessary that studies used the same design and type of measurement, and/or delivered the same intervention (see Chapter <xref ref="pitfalls"/>).
+          <alert>Meta-Analyses</alert>. Most meta-analyses can be seen as an advanced type of a systematic review. The scope of meta-analyses is clearly defined beforehand, primary studies are also selected in a systematic and reproducible way, and there are also clear standards through which the validity of the evidence is assessed. This is why it is common to find studies being named a "systematic review <alert>and</alert> meta-analysis". However, there is one aspect which makes meta-analyses special. Meta-analyses aim to combine results from previous studies in a <alert>quantitative</alert> way. The goal of meta-analyses is to integrate quantitative outcomes reported in the selected studies into one numerical estimate. This estimate then summarizes all the individual results. Meta-analyses quantify, for example, the effect of a medication, the prevalence of a disease, or the correlation between two properties, <alert>across all studies</alert><fn>This statement is of course only true if meta-analytic techniques were applied soundly, and if the results of the meta-analysis allow for such generalizations.</fn>. They can therefore only be applied to studies which report quantitative results. Compared to systematic reviews, meta-analyses often have to be more exclusive concerning the kind of evidence that is summarized. To perform a meta-analysis, it is usually necessary that studies used the same design and type of measurement, and/or delivered the same intervention (see <xref ref="pitfalls"/>).
         </p>
       </li>
     </ul>
@@ -103,7 +103,7 @@
       The name "meta-analysis" and the beginning of its rise to prominence, however, can be traced back to a scholarly dispute raging in the mid-20th century. In 1952, the famous British psychologist Hans Jürgen Eysenck (<xref ref="fig-eysenck"/>) published an article in which he claimed that psychotherapy (in that time, this largely meant Freudian psychoanalysis) was ineffective. If patients get better during therapy, it is because their situation would have improved anyway due to factors that have nothing to do with the therapy. Even worse, Eysenck claimed, psychotherapy would often hinder patients from getting better. 
     </p>
     <p>
-      The reputation of psychotherapy took a big hit, and it did not recover until the late 1970s. During that time, Gene V. Glass developed a technique he termed "meta-analysis", which allowed to pool <alert>Standardized Mean Differences</alert><fn>i.e., the difference in means between two groups, for example an intervention and control group, expressed in the units of the pooled standard deviation of both groups (see Chapter <xref ref="s-md"/>).</fn> across studies. The first extensive application of his technique was in an article published in the <alert>American Psychologist</alert>, written by Mary L. Smith and Glass himself <xref ref="smith1977meta"/>. In this large study, results from 375 studies with more than 4000 participants were combined in a meta-analysis. 
+      The reputation of psychotherapy took a big hit, and it did not recover until the late 1970s. During that time, Gene V. Glass developed a technique he termed "meta-analysis", which allowed to pool <alert>Standardized Mean Differences</alert><fn>i.e., the difference in means between two groups, for example an intervention and control group, expressed in the units of the pooled standard deviation of both groups (see <xref ref="s-md"/>).</fn> across studies. The first extensive application of his technique was in an article published in the <alert>American Psychologist</alert>, written by Mary L. Smith and Glass himself <xref ref="smith1977meta"/>. In this large study, results from 375 studies with more than 4000 participants were combined in a meta-analysis. 
     </p>
     <p>
       The study found that psychotherapies had a pooled effect of 0.68, which can be considered quite large. Glass' work had an immense impact because it provided quantitative evidence that Eysenck's verdict was wrong. Eysenck himself, however, was not convinced, calling the meta-analysis "an abandonment of scholarship" and "an exercise in mega-silliness" <xref ref="eysenck1978exercise"/>.
@@ -119,7 +119,7 @@
       About the same time Glass developed his meta-analysis method, Hunter and Schmidt started crafting their own type of meta-analysis techniques putting emphasis on the correction of measurement artifacts . Meta-analysis also found its way into medicine through the groundbreaking work of Peter Elwood and Archie Cochrane, among others, who used meta-analysis to show that aspirin has a small, but statistically and clinically relevant preventive effect on the recurrence of heart attacks . 
     </p>
     <p>
-      In the mid-80s, Rebecca DerSimonian and Nan Laird introduced an approach to calculate random-effects meta-analyses (see Chapter <xref ref="rem"/>) that has been in use to this day <xref ref="dersimonian1986meta"/>. Countless other innovations have helped to increase the applicability, robustness and versatility of meta-analytic methods in the last four decades.  
+      In the mid-80s, Rebecca DerSimonian and Nan Laird introduced an approach to calculate random-effects meta-analyses (see <xref ref="rem"/>) that has been in use to this day <xref ref="dersimonian1986meta"/>. Countless other innovations have helped to increase the applicability, robustness and versatility of meta-analytic methods in the last four decades.  
     </p>
     <p>
       <idx><h>Cochrane</h></idx> <idx><h>Cochrane, Risk of Bias Tool</h></idx> <idx><h>Cochrane, Handbook</h></idx> <idx><h>Campbell Collaboration</h></idx>
@@ -135,7 +135,7 @@
         Cochrane uses rigorous standards to synthesize evidence in the biomedical field. The institution has its headquarters in London, but also has local branches in several countries around the world. 
       </p>
       <p>
-        The Cochrane Collaboration issues the regularly updated <url href="https://training.cochrane.org/handbook"><alert>Handbook for Systematic Reviews of Interventions</alert></url> <xref ref="higgins2019cochrane"/> and the <url href="https://methods.cochrane.org/bias/resources/rob-2-revised-cochrane-risk-bias-tool-randomized-trials"><alert>Cochrane Risk of Bias Tool</alert></url> <xref ref="sterni2019rob"/>. Both are widely considered to be standard reference works for all technical details on systematic reviews and meta-analyses (see Chapter <xref ref="spec-search-coding"/>). 
+        The Cochrane Collaboration issues the regularly updated <url href="https://training.cochrane.org/handbook"><alert>Handbook for Systematic Reviews of Interventions</alert></url> <xref ref="higgins2019cochrane"/> and the <url href="https://methods.cochrane.org/bias/resources/rob-2-revised-cochrane-risk-bias-tool-randomized-trials"><alert>Cochrane Risk of Bias Tool</alert></url> <xref ref="sterni2019rob"/>. Both are widely considered to be standard reference works for all technical details on systematic reviews and meta-analyses (see <xref ref="spec-search-coding"/>). 
       </p>
       <p>
         An organization similar to Cochrane is the Oslo-based <url href="https://campbellcollaboration.org/"><alert>Campbell Collaboration</alert></url>, which primarily focuses on research in the social sciences.
@@ -180,13 +180,13 @@
         Now, imagine that the same poor meta-analyst, trying to learn from previous mistakes, overcompensates and conducts a meta-analysis containing only studies published between 1990 and 1999 in which Canadian males in their sixties with moderate depressive symptoms were treated using 40mg of Fluoxetine per day, for exactly six weeks. The meta-analyst may proudly report the positive results of the study to a psychiatrist. However, the psychiatrist may only ask: "and what do I do if my patient is 45 years old and French"? 
       </p>
       <p>
-        This brings us to an important point. The goal of meta-analyses is not to heedlessly throw everything together that can be combined. Meta-analysis can be used to answer relevant research questions that go beyond the particularities of individual studies <xref ref="borenstein2011introduction"/>. The scope and specificity of a meta-analysis should therefore be based on the research question it wants to answer, and this question should be of practical relevance (see Chapter <xref ref="spec-search-coding"/>). 
+        This brings us to an important point. The goal of meta-analyses is not to heedlessly throw everything together that can be combined. Meta-analysis can be used to answer relevant research questions that go beyond the particularities of individual studies <xref ref="borenstein2011introduction"/>. The scope and specificity of a meta-analysis should therefore be based on the research question it wants to answer, and this question should be of practical relevance (see <xref ref="spec-search-coding"/>). 
       </p>
       <p>
         If we are interested, for example, if a type of training program is effective across various age groups, cultural regions and settings, it makes perfect sense to put no restriction on the population and country of origin of a study. However, it may then be advisable to be more restrictive with respect to the training program evaluated in the studies, and only include the ones in which the training had a certain length, or covered similar topics. 
       </p>
       <p>
-        Results of such a meta-analysis would allow us not only to estimate the pooled effect of the training but also allow us to quantify if and how much this effect may <alert>vary</alert>. Meta-analysis is capable to accommodate and make sense out of such forms of <alert>heterogeneity</alert>. In Chapter <xref ref="heterogeneity"/>, we will have a closer look at this important concept. 
+        Results of such a meta-analysis would allow us not only to estimate the pooled effect of the training but also allow us to quantify if and how much this effect may <alert>vary</alert>. Meta-analysis is capable to accommodate and make sense out of such forms of <alert>heterogeneity</alert>. In <xref ref="heterogeneity"/>, we will have a closer look at this important concept. 
       </p>
       <p>
         To sum up, whether the "Apples and Oranges" problem is in fact an issue highly depends on the question a meta-analysis wants to answer. Variation between studies can often be unproblematic, and even insightful if it is correctly incorporated into the aims and problem specification of a meta-analysis.
@@ -197,7 +197,7 @@
       <title>The "Garbage In, Garbage Out" Problem</title>
 
       <p>
-        The quality of evidence produced by a meta-analysis heavily depends on the quality of the studies it summarizes. If the results reported in our included findings are biased, or downright incorrect, the results of the meta-analysis will be equally flawed. This is what the "Garbage In, Garbage Out" problem refers to. It can be mitigated to some extent by assessing the quality or <alert>risk of bias</alert> (see Chapter <xref ref="spec-search-coding"/> and <xref ref="risk-of-bias-plots"/>) of the included studies. 
+        The quality of evidence produced by a meta-analysis heavily depends on the quality of the studies it summarizes. If the results reported in our included findings are biased, or downright incorrect, the results of the meta-analysis will be equally flawed. This is what the "Garbage In, Garbage Out" problem refers to. It can be mitigated to some extent by assessing the quality or <alert>risk of bias</alert> (see <xref ref="spec-search-coding"/> and <xref ref="risk-of-bias-plots"/>) of the included studies. 
       </p>
       <p>
         However, if many or most of the results are of suboptimal quality and likely biased, even the most rigorous meta-analysis will not be able to balance this out. The only conclusion that can usually be drawn in such cases is that no trustworthy evidence exists for the reviewed topic, and that more high-quality studies have to be conducted in the future. However, even such a rather disappointing outcome can be informative, and help guide future research.
@@ -217,7 +217,7 @@
         There is good reason to believe that studies with negative or "disappointing" results are systematically underrepresented in the published literature and that there is a so called <alert>publication bias</alert>. The exact nature and extent of this bias can be at best a "known unknown" in meta-analyses. 
       </p>
       <p>
-        However, there are certain ways through which publication bias can be minimized. One pertains to the way that studies are searched and selected (see Chapter <xref ref="spec-search-coding"/>). The other approaches are statistical methods which try to estimate if publication bias exists in a meta-analysis, and how big its impact may be. We will cover a few of these methods in Chapter <xref ref="pub-bias"/>. 
+        However, there are certain ways through which publication bias can be minimized. One pertains to the way that studies are searched and selected (see <xref ref="spec-search-coding"/>). The other approaches are statistical methods which try to estimate if publication bias exists in a meta-analysis, and how big its impact may be. We will cover a few of these methods in <xref ref="pub-bias"/>. 
       </p>
     </subsection>
 
@@ -237,7 +237,7 @@
         There is evidence that, given one and the same data set, even experienced analysts with the best intentions can come to drastically varying conclusions <xref ref="silberzahn2018many"/>. The problem may be even more grave in intervention research, where some meta-analysts have a substantial <alert>researcher allegiance</alert> because they have helped to develop the type of intervention under study. Such researchers may of course be much more inclined to interpret outcomes of a meta-analysis more positively than indicated by the evidence. 
       </p>
       <p>
-        One way to reduce the researcher agenda problem is pre-registration, and publishing a detailed analysis plan <alert>before</alert> beginning with the data collection for a meta-analysis (see Chapter <xref ref="spec-search-coding"/> and <xref ref="pre-registration"/>).
+        One way to reduce the researcher agenda problem is pre-registration, and publishing a detailed analysis plan <alert>before</alert> beginning with the data collection for a meta-analysis (see <xref ref="spec-search-coding"/> and <xref ref="pre-registration"/>).
       </p>
     </subsection>
 
@@ -351,7 +351,7 @@
           Although these standards largely comment on how meta-analyses should be <alert>reported</alert>, they also have implications on best practices when performing a meta-analysis. PRISMA and MARS share many core elements, and many things that we cover in this chapter are also mentioned in both of these guidelines.
         </p>
         <p>
-          An even more detailed resource is the <alert>Cochrane Handbook for Systematic Reviews of Interventions</alert> (see Chapter <xref ref="history"/>), which contains precise recommendations on virtually every aspect of systematic reviews and meta-analyses. An overview of methodological standards for meta-analyses in social science can be found in Pigott and Polanin <xref ref="pigott2020methodological"/>.
+          An even more detailed resource is the <alert>Cochrane Handbook for Systematic Reviews of Interventions</alert> (see <xref ref="history"/>), which contains precise recommendations on virtually every aspect of systematic reviews and meta-analyses. An overview of methodological standards for meta-analyses in social science can be found in Pigott and Polanin <xref ref="pigott2020methodological"/>.
         </p>
       </note>
       <p>
@@ -373,7 +373,7 @@
         <idx><h>"File Drawer" Problem</h></idx>
       </p>
       <p>
-        Another important aspect is the <alert>publication type</alert> that is allowed for a meta-analysis. Sometimes, meta-analysts only include research articles which were published in peer-reviewed scientific journals. The argument is that studies taken from this source fulfill higher standards since they have passed the critical eyes of experts in the field. This justification is not without flaws. In Chapter <xref ref="pitfalls"/>, we already covered that the "File Drawer" problem can seriously limit the validity of meta-analysis results because positive findings are more likely to get published. 
+        Another important aspect is the <alert>publication type</alert> that is allowed for a meta-analysis. Sometimes, meta-analysts only include research articles which were published in peer-reviewed scientific journals. The argument is that studies taken from this source fulfill higher standards since they have passed the critical eyes of experts in the field. This justification is not without flaws. In <xref ref="pitfalls"/>, we already covered that the "File Drawer" problem can seriously limit the validity of meta-analysis results because positive findings are more likely to get published. 
       </p>
       <p>
         A way to mitigate the risk of publication bias is therefore to also include <alert>grey literature</alert>. Grey literature can be defined as all types of research materials that have not been made available through conventional publication formats. This includes research reports, preprints, working papers, or conference contributions. Dissertations also often count as grey literature, although many of them are indexed in electronic bibliographic databases today <xref ref="schopfel2018electronic"/>. 
@@ -401,22 +401,22 @@
         After your research question and eligibility criteria are set, it is sensible to also write an <alert>analysis plan</alert> <xref ref="pigott2020methodological"/>, <xref ref="tipton2019history"/>. In statistics, there is an important distinction between <alert>a priori</alert> and <alert>post hoc</alert> analyses. A priori analyses are specified <alert>before seeing the data</alert>. Post hoc, or <alert>exploratory</alert>, analyses are conducted <alert>after seeing the data</alert>, or based on the results implicated by the data. 
       </p>
       <p>
-        Results of a priori analyses can be regarded as much more valid and trustworthy than post hoc analyses. Post hoc analyses make it easier to tweak certain details about the analysis or the data itself until results support the goals of the researcher. They are therefore much more prone to the "Researcher Agenda" problem we discussed in Chapter <xref ref="pitfalls"/>. 
+        Results of a priori analyses can be regarded as much more valid and trustworthy than post hoc analyses. Post hoc analyses make it easier to tweak certain details about the analysis or the data itself until results support the goals of the researcher. They are therefore much more prone to the "Researcher Agenda" problem we discussed in <xref ref="pitfalls"/>. 
       </p>
       <p>
         In the analysis plan, we specify all important calculations we want to perform in our meta-analysis a priori. This serves two purposes. First, it allows others to verify that the analyses we made were indeed planned, and are not the mere result of us playing around with the data until something desirable came out. Second, a detailed analysis plan also makes our meta-analysis reproducible, meaning that others can understand what we did at each step of our meta-analysis, and try to replicate them. 
       </p>
       <p>
-        When using <em>R</em>, we can take the reproducibility of our analyses to a whole other level by writing documents which allow others to re-run every step of our analysis (see Chapter <xref ref="reporting-reproducibility"/> in the "Helpful Tools" section). But this is relevant <alert>after</alert> we complete our analyses. In the analysis plan, we specify what we plan to do <alert>before</alert> any data has been collected.
+        When using <em>R</em>, we can take the reproducibility of our analyses to a whole other level by writing documents which allow others to re-run every step of our analysis (see <xref ref="reporting-reproducibility"/> in the "Helpful Tools" section). But this is relevant <alert>after</alert> we complete our analyses. In the analysis plan, we specify what we plan to do <alert>before</alert> any data has been collected.
       </p>
       <p>
         <idx><h>Random-Effects Model</h></idx> <idx><h>Power Analysis</h></idx> <idx><h>Subgroup Analysis</h></idx> <idx><h>Meta-Regression</h></idx>
       </p>
       <p>
-        There are a few things we should always specify in our analysis plan. We should make clear which information we will extract, and which effect size metric will be calculated for each included study (see Chapter <xref ref="effects"/>). It is also recommended to decide beforehand if we will use a <alert>fixed-</alert> or <alert>random-effects model</alert> to pool results from each study, based on the amount of variation between studies we expect (see Chapter <xref ref="pooling-es"/>). An a priori <alert>power analysis</alert> may also be helpful to determine how many studies are required for our meta-analysis to find a statistically significant effect (see Chapter <xref ref="power"/> in the "Helpful Tools" section). 
+        There are a few things we should always specify in our analysis plan. We should make clear which information we will extract, and which effect size metric will be calculated for each included study (see <xref ref="effects"/>). It is also recommended to decide beforehand if we will use a <alert>fixed-</alert> or <alert>random-effects model</alert> to pool results from each study, based on the amount of variation between studies we expect (see <xref ref="pooling-es"/>). An a priori <alert>power analysis</alert> may also be helpful to determine how many studies are required for our meta-analysis to find a statistically significant effect (see <xref ref="power"/> in the "Helpful Tools" section). 
       </p>
       <p>
-        Furthermore, it is crucial to determine if we want to assess if some variables explain differences in the outcomes of included studies using subgroup analysis (Chapter <xref ref="subgroup"/>) or meta-regression (Chapter <xref ref="metareg"/>). For example, if our hypothesis states that the publication year might be associated with a study's outcome, and if we want to have a look at this association later in our meta-analysis, we mention this in our analysis plan. If we plan to sort studies into subgroups and then have a look at these subgroups separately, we should also report the exact criteria through which we will determine that a study belongs to a specific subgroup (see Chapter <xref ref="study-selection"/>). 
+        Furthermore, it is crucial to determine if we want to assess if some variables explain differences in the outcomes of included studies using subgroup analysis (<xref ref="subgroup"/>) or meta-regression (<xref ref="metareg"/>). For example, if our hypothesis states that the publication year might be associated with a study's outcome, and if we want to have a look at this association later in our meta-analysis, we mention this in our analysis plan. If we plan to sort studies into subgroups and then have a look at these subgroups separately, we should also report the exact criteria through which we will determine that a study belongs to a specific subgroup (see <xref ref="study-selection"/>). 
       </p>
       <p>
         In part II of this book ("Meta-Analysis in <em>R</em>"), we will cover various statistical techniques to apply as part of a meta-analysis. Every technique we learn there and plan to apply in our meta-analysis should be mentioned in the analysis plan.
@@ -425,7 +425,7 @@
         <idx><h>Open Science Framework (OSF)</h></idx> <idx><h>Preprint</h></idx> <idx><h>Protocol</h></idx> <idx><h>PRISMA Statement</h></idx>
       </p>
       <p>
-        Once you are finished writing your analysis plan, do not simply bury it somewhere--make it public. There are a few excellent options for researchers to make their research documents openly available. For example, we can create a new project on the website of the <alert>Open Science Framework</alert> (OSF; see Chapter <xref ref="osf"/> in the "Helpful Tools" section) and upload our analysis plan there. We can also upload our analysis plan to a preprint server such as <alert>medrxiv.org</alert>, <alert>biorxiv.org</alert>, or <alert>psyarxiv.com</alert>, depending on the nature of our research question. 
+        Once you are finished writing your analysis plan, do not simply bury it somewhere--make it public. There are a few excellent options for researchers to make their research documents openly available. For example, we can create a new project on the website of the <alert>Open Science Framework</alert> (OSF; see <xref ref="osf"/> in the "Helpful Tools" section) and upload our analysis plan there. We can also upload our analysis plan to a preprint server such as <alert>medrxiv.org</alert>, <alert>biorxiv.org</alert>, or <alert>psyarxiv.com</alert>, depending on the nature of our research question. 
       </p>
       <p>
         Once our research question, eligibility criteria, analysis plan, and search strategy (see next chapter) are set, we should also <alert>register</alert> our meta-analysis. If the meta-analysis has a broadly health-related outcome, this may preferably be done using <url href="https://www.crd.york.ac.uk/prospero/">PROSPERO</url>, one of the largest registries for prospective systematic reviews and meta-analyses. The <url href="https://osf.io/prereg/">preregistration service of the OSF</url> is also a good option. 
@@ -448,7 +448,7 @@
         <idx><h>Study Search</h></idx>
       </p>
       <p>
-        The next step after determining your eligibility criteria and analysis plan is to search for studies. In Chapter <xref ref="what-are-mas"/>, we discussed that most meta-analyses are an advanced type of systematic review. We aim to find <alert>all</alert> available evidence on a research question in order to get an unbiased, comprehensive view of the facts. This means that the search for studies should also be as comprehensive as possible. Not only one, but several sources should be used to search for studies. Here is an overview of important and commonly used sources.
+        The next step after determining your eligibility criteria and analysis plan is to search for studies. In <xref ref="what-are-mas"/>, we discussed that most meta-analyses are an advanced type of systematic review. We aim to find <alert>all</alert> available evidence on a research question in order to get an unbiased, comprehensive view of the facts. This means that the search for studies should also be as comprehensive as possible. Not only one, but several sources should be used to search for studies. Here is an overview of important and commonly used sources.
       </p>
       <ul>
         <li>
@@ -463,7 +463,7 @@
         </li>
         <li>
           <p>
-            <alert>Forward search</alert>. A forward search can be seen as the opposite of screening the references of previous primary studies and reviews. It means to take a study that is relevant for the meta-analysis as basis, and then search for other articles that have cited this study since it has been published. This can be done quite easily on the Internet. You simply have to find the online entry of the study; usually, it is on the website of the journal in which it has been published. Most journal websites today have a functionality to display articles that have cited a study. Alternatively, you can also search for the study on <alert>Google Scholar</alert> (see Table <xref provisional="tab:bibdatabases"/>). Google Scholar can display citing research for every entry.
+            <alert>Forward search</alert>. A forward search can be seen as the opposite of screening the references of previous primary studies and reviews. It means to take a study that is relevant for the meta-analysis as basis, and then search for other articles that have cited this study since it has been published. This can be done quite easily on the Internet. You simply have to find the online entry of the study; usually, it is on the website of the journal in which it has been published. Most journal websites today have a functionality to display articles that have cited a study. Alternatively, you can also search for the study on <alert>Google Scholar</alert>. Google Scholar can display citing research for every entry.
           </p>
         </li>
         <li>
@@ -473,13 +473,13 @@
         </li>
       </ul>
       <p>
-        The methods we described above can be seen as rather fine-grained strategies. They are ways to search in places where it is very likely that a relevant article will be listed. The disadvantage is that these approaches will unlikely uncover all evidence that is really out there. It is therefore advisable to also use <alert>electronic bibliographic databases</alert> for one's search. An overview of important databases can be found in Table <xref provisional="tab:bibdatabases"/>.  
+        The methods we described above can be seen as rather fine-grained strategies. They are ways to search in places where it is very likely that a relevant article will be listed. The disadvantage is that these approaches will unlikely uncover all evidence that is really out there. It is therefore advisable to also use <alert>electronic bibliographic databases</alert> for one's search.  
       </p>
       <p>
         One should always conduct a search in several databases, not just one. Many bibliographical databases contain an immense number of entries. Nevertheless, it is common to find that the overlap in the results of databases is smaller than anticipated. You can select the databases you want to search based on their subject-specific focus. If your meta-analysis focuses on health-related outcomes, for example, you should at least search PubMed and CENTRAL. 
       </p>
       <p>
-        When searching bibliographic databases, it is important to develop a <alert>search string</alert>. A search string contains different words or terms, which are connected using operators such as AND or OR. Developing search strings takes some time and experimenting. A good way to start is to use the PICO or eligibility criteria (Chapter <xref ref="research-question"/>) as basis and to connect them using AND (a simplified example would be <alert>"college student" AND  "psychotherapy" AND "randomized controlled trial" AND "depression"</alert>). 
+        When searching bibliographic databases, it is important to develop a <alert>search string</alert>. A search string contains different words or terms, which are connected using operators such as AND or OR. Developing search strings takes some time and experimenting. A good way to start is to use the PICO or eligibility criteria (<xref ref="research-question"/>) as basis and to connect them using AND (a simplified example would be <alert>"college student" AND  "psychotherapy" AND "randomized controlled trial" AND "depression"</alert>). 
       </p>
       <p>
         Most bibliographical databases also allow for <alert>truncation</alert> and <alert>wildcards</alert>. Truncation means to replace a word ending with a symbol, allowing it to vary as part of your search. This is usually done using asterisks. Using "<em>sociolog*</em>" as a search term, for example, means that the database will search for "sociology", "sociological", and "sociologist" at the same time. 
@@ -491,7 +491,7 @@
         When developing your search string, you should also have a look at the number of hits. A search string should not be too specific, so that some relevant articles are missed. For example, getting around 3000 hits for your search string is manageable in later steps, and it makes it more likely that all important references will be listed in your results. To see if your search string is generally valid, it sometimes helps to search the first few hundred hits you get, and to check if at least some of the references have something to do with your research question. 
       </p>
       <p>
-        Once you developed the final versions of the search strings you want to use in your selected databases, save them somewhere. It is best practice to already include your search string(s) in your preregistration. Reporting of the search string (for example in the supplement) is required if you want to publish a meta-analysis protocol (see Chapter <xref ref="research-question"/>), or the final results of your meta-analysis. 
+        Once you developed the final versions of the search strings you want to use in your selected databases, save them somewhere. It is best practice to already include your search string(s) in your preregistration. Reporting of the search string (for example in the supplement) is required if you want to publish a meta-analysis protocol (see <xref ref="research-question"/>), or the final results of your meta-analysis. 
       </p>
       <p>
         In conclusion, we want to stress that searching bibliographic databases is an art in and of itself, and that this paragraph only barely scratches the surface. A much more detailed discussion of this topic can be found in Cuijpers <xref ref="cuijpers2016meta"/> and Bramer and colleagues <xref ref="bramer2018systematic"/>.
@@ -580,7 +580,7 @@
           The assessors should then meet and compare their results. It is common that assessors disagree on the eligibility of some studies, and such disagreements can usually be resolved through discussion. If assessors fail to find an agreement, it can be helpful to determine a senior researcher beforehand who can make a final decision in such cases.
         </p>
         <p>
-          Using two or more assessors is not only advisable in the study selection process. This approach is also beneficial when extracting and coding data (see Chapter <xref ref="data-extraction"/>).
+          Using two or more assessors is not only advisable in the study selection process. This approach is also beneficial when extracting and coding data (see <xref ref="data-extraction"/>).
         </p>
       </note>
     </subsection>
@@ -615,7 +615,7 @@
         Apart from that, you may include some information on characteristics specified in the PICO of your meta-analysis; such as the country of origin, the mean or median age, the proportion of female and male participants, the type of intervention or exposure, the type of control group or comparison (if applicable), as well as the assessed outcomes of each study. If one or several studies have not assessed one of the characteristics, you should indicate that this detail has not been specified in the table.
       </p>
       <p>
-        It is also necessary to extract and collect the data needed to calculate the effect sizes or outcome measures we plan to pool. In Chapter <xref ref="discovering-R"/>, we will discuss in greater detail how you can structure your effect size data in a spreadsheet so that it can easily be used for calculations in <em>R</em>. If your analysis plan (see Chapter <xref ref="analysis-plan"/>) also includes planned subgroup analyses and meta-regressions, you should also extract the data you need for these analyses from the articles. 
+        It is also necessary to extract and collect the data needed to calculate the effect sizes or outcome measures we plan to pool. In <xref ref="discovering-R"/>, we will discuss in greater detail how you can structure your effect size data in a spreadsheet so that it can easily be used for calculations in <em>R</em>. If your analysis plan (see <xref ref="analysis-plan"/>) also includes planned subgroup analyses and meta-regressions, you should also extract the data you need for these analyses from the articles. 
       </p>
       <p>
         <idx><h>Risk of Bias</h></idx> <idx><h>Cochrane, Risk of Bias Tool</h></idx>
@@ -633,7 +633,7 @@
         <idx><h>Cochrane, ROBINS-I Tool</h></idx>
       </p>
       <p>
-        On several domains, the risk of bias tool lets you classify the risk of bias of a study as "high" or "low", or it can be determined that there are "some concerns". There are also conventions on how the risk of bias can be summarized visually (see Chapter <xref ref="risk-of-bias-plots"/>, where we describe how this can be done in <em>R</em>). A similar resource to assess the risk of bias in non-randomized studies is the <alert>Risk of Bias in Non-randomized Studies of Interventions</alert>, or ROBINS-I, tool <url href="https://www.riskofbias.info/welcome/home"><xref ref="sterne2016robins"/></url>. 
+        On several domains, the risk of bias tool lets you classify the risk of bias of a study as "high" or "low", or it can be determined that there are "some concerns". There are also conventions on how the risk of bias can be summarized visually (see <xref ref="risk-of-bias-plots"/>, where we describe how this can be done in <em>R</em>). A similar resource to assess the risk of bias in non-randomized studies is the <alert>Risk of Bias in Non-randomized Studies of Interventions</alert>, or ROBINS-I, tool <url href="https://www.riskofbias.info/welcome/home"><xref ref="sterne2016robins"/></url>. 
       </p>
       <p>
         The Cochrane Risk of Bias tools have become the standard approach to assess the risk of bias in (non-)randomized clinical trials <xref ref="jorgensen2016evaluation"/>. In other areas, current practices unfortunately still rather resemble the Wild West. In psychological research, for example, study quality assessments are often inconsistent, nontransparent, or not conducted at all <xref ref="hohn2019primary"/>. 
@@ -678,7 +678,7 @@
         </li>
         <li>
           <p>
-            Have a look at the eligibility criteria of the meta-analysis on sleep interventions in college students (end of Chapter <xref ref="research-question"/>). Can you extract the PICO from the inclusion and exclusion criteria of this study?
+            Have a look at the eligibility criteria of the meta-analysis on sleep interventions in college students (end of <xref ref="research-question"/>). Can you extract the PICO from the inclusion and exclusion criteria of this study?
           </p>
         </li>
         <li>

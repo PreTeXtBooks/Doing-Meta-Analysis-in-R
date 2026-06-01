@@ -25,7 +25,7 @@
       When people talk about multilevel meta-analysis, what they think of are <alert>three-level meta-analysis models</alert>. Such models are indeed somewhat different to the fixed-effect and random-effects model we already know. In this chapter, we will therefore first describe why meta-analysis naturally implies a multilevel structure of our data, and how we can extend a conventional meta-analysis to a three-level model. As always, we will also have a look at how such models can be fitted in <em>R</em> using a hands-on example. 
     </p>
     <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="pub-bias"/> and then continue with Chapter <xref ref="sem"/>.
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="pub-bias"/> and then continue with <xref ref="sem"/>.
     </p>
     <p>
       For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
@@ -36,7 +36,7 @@
     <title>The Multilevel Nature of Meta-Analysis</title>
 
     <p>
-      To see why meta-analysis has multiple levels by default, let us go back to the formula of the random-effects model that we discussed in Chapter <xref ref="rem"/>:
+      To see why meta-analysis has multiple levels by default, let us go back to the formula of the random-effects model that we discussed in <xref ref="rem"/>:
     </p>
     <p>
       \begin{equation} \hat\theta<em>k = \mu + \epsilon</em>k + \zeta_k (#eq:mlm1) \end{equation}
@@ -91,7 +91,7 @@
       <idx><h>Unit-of-Analysis Problem</h></idx>
     </p>
     <p>
-      Statistical independence is one of the core assumptions when we pool effect sizes in a meta-analysis. If there is a dependency between effect sizes (i.e. effect sizes are correlated), this can artificially reduce heterogeneity and thus lead to false-positive results. This issue is known as the <alert>unit-of-analysis error</alert>, which we already covered before (see Chapter <xref ref="unit-of-analysis"/>). Effect size dependence can stem from different sources <xref ref="cheung2014modeling"/>:
+      Statistical independence is one of the core assumptions when we pool effect sizes in a meta-analysis. If there is a dependency between effect sizes (i.e. effect sizes are correlated), this can artificially reduce heterogeneity and thus lead to false-positive results. This issue is known as the <alert>unit-of-analysis error</alert>, which we already covered before (see <xref ref="unit-of-analysis"/>). Effect size dependence can stem from different sources <xref ref="cheung2014modeling"/>:
     </p>
     <ul>
       <li>
@@ -154,7 +154,7 @@
       <idx><h>meta Package</h></idx> <idx><h>metafor Package</h></idx>
     </p>
     <p>
-      The <alert>{metafor}</alert> package is particularly well suited for fitting meta-analytic three-level models. It uses (restricted) maximum likelihood procedures to do so. Previously, we primarily used functions of the <alert>{meta}</alert> package to run meta-analyses. We did this because this package is a little less technical, and thus better suited for beginners. Yet, the <alert>{metafor}</alert> package, as we have seen in Chapter <xref ref="multiple-metareg-R"/>, is also fairly easy to use once the data is prepared correctly. How exactly one can use <alert>{metafor}</alert> to fit three-level models in <em>R</em> will be the topic of the next section<fn>Please note that the latest versions of <alert>{meta}</alert> now also allow to implement three-level meta-analytic models. In all meta-analytic pooling functions that we covered in Chapter <xref ref="pooling-es-r"/>, there is now an argument called <c>cluster</c>. This argument allows to define the name of a variable in our data set which contains the (level 3) cluster that each effect size belongs into. If the <c>cluster</c> argument is specified, a hierarchical three-level model is fitted automatically. For example, we could turn our meta-analysis from Chapter <xref ref="pre-calculated-es"/> into a three-level model by running <c>metagen(TE, seTE, cluster = InterventionType, data = ThirdWave)</c>. Nevertheless, it makes a lot of sense to learn how to fit three-level models using <alert>{metafor}</alert>: first because <alert>{meta}</alert> also uses <alert>{metafor}</alert> in the background to fit these types of models, and secondly because the <c>rma.mv</c> function we are covering in this chapter is very versatile. It can be used for much more than just "simple" hierarchical three-level models, as we will see in Chapter <xref ref="rve"/>.</fn>. 
+      The <alert>{metafor}</alert> package is particularly well suited for fitting meta-analytic three-level models. It uses (restricted) maximum likelihood procedures to do so. Previously, we primarily used functions of the <alert>{meta}</alert> package to run meta-analyses. We did this because this package is a little less technical, and thus better suited for beginners. Yet, the <alert>{metafor}</alert> package, as we have seen in <xref ref="multiple-metareg-R"/>, is also fairly easy to use once the data is prepared correctly. How exactly one can use <alert>{metafor}</alert> to fit three-level models in <em>R</em> will be the topic of the next section<fn>Please note that the latest versions of <alert>{meta}</alert> now also allow to implement three-level meta-analytic models. In all meta-analytic pooling functions that we covered in <xref ref="pooling-es-r"/>, there is now an argument called <c>cluster</c>. This argument allows to define the name of a variable in our data set which contains the (level 3) cluster that each effect size belongs into. If the <c>cluster</c> argument is specified, a hierarchical three-level model is fitted automatically. For example, we could turn our meta-analysis from <xref ref="pre-calculated-es"/> into a three-level model by running <c>metagen(TE, seTE, cluster = InterventionType, data = ThirdWave)</c>. Nevertheless, it makes a lot of sense to learn how to fit three-level models using <alert>{metafor}</alert>: first because <alert>{meta}</alert> also uses <alert>{metafor}</alert> in the background to fit these types of models, and secondly because the <c>rma.mv</c> function we are covering in this chapter is very versatile. It can be used for much more than just "simple" hierarchical three-level models, as we will see in <xref ref="rve"/>.</fn>. 
     </p>
   </section>
 
@@ -216,7 +216,7 @@ head(Chernobyl)
       <idx><h>Fisher's \textit{z}</h></idx>
     </p>
     <p>
-      The data set contains eight columns. The first one, <c>author</c>, displays the name of the study. The <c>cor</c> column shows the (un-transformed) correlation between radiation exposure and mutation rates, while <c>n</c> stands for the sample size. The columns <c>z</c>, <c>se.z</c>, and <c>var.z</c> are the Fisher-<m>z</m> transformed correlations (Chapter <xref ref="pearson-cors"/>), as well their standard error and variance. The <c>radiation</c> column serves as a moderator, dividing effect sizes into subgroups with low and high overall radiation exposure. The <c>es.id</c> column simply contains a unique ID for each effect size (i.e. each row in our data frame). 
+      The data set contains eight columns. The first one, <c>author</c>, displays the name of the study. The <c>cor</c> column shows the (un-transformed) correlation between radiation exposure and mutation rates, while <c>n</c> stands for the sample size. The columns <c>z</c>, <c>se.z</c>, and <c>var.z</c> are the Fisher-<m>z</m> transformed correlations (<xref ref="pearson-cors"/>), as well their standard error and variance. The <c>radiation</c> column serves as a moderator, dividing effect sizes into subgroups with low and high overall radiation exposure. The <c>es.id</c> column simply contains a unique ID for each effect size (i.e. each row in our data frame). 
     </p>
     <p>
       A peculiar thing about this data set is that it contains repeated entries in <c>author</c>. This is because most studies in this meta-analysis contributed more than one observed effect size. Some studies used several methods to measure mutations or several types of index persons (e.g. exposed parents versus their offspring), all of which leads to multiple effects per study. 
@@ -346,7 +346,7 @@ convert_z2r(0.52)
         <idx><h>I$^2$, Higgins \&amp; Thompson's</h></idx>
       </p>
       <p>
-        We can answer this question by calculating a multilevel version of <m>I^2</m> <xref ref="cheung2014modeling"/>. In conventional meta-analyses, <m>I^2</m> represents the amount of variation not attributable to sampling error (see Chapter <xref ref="i-squared"/>; i.e. the between-study heterogeneity). In three-level models, this heterogeneity variance is split into two parts: one attributable to true effect size differences <alert>within</alert> clusters, and the other to <alert>between</alert>-cluster variation. Thus, there are two <m>I^2</m> values, quantifying the percentage of total variation associated with either level 2 or level 3. 
+        We can answer this question by calculating a multilevel version of <m>I^2</m> <xref ref="cheung2014modeling"/>. In conventional meta-analyses, <m>I^2</m> represents the amount of variation not attributable to sampling error (see <xref ref="i-squared"/>; i.e. the between-study heterogeneity). In three-level models, this heterogeneity variance is split into two parts: one attributable to true effect size differences <alert>within</alert> clusters, and the other to <alert>between</alert>-cluster variation. Thus, there are two <m>I^2</m> values, quantifying the percentage of total variation associated with either level 2 or level 3. 
       </p>
       <p>
         <idx><h>dmetar Package</h></idx>
@@ -493,13 +493,13 @@ anova(full.model, l3.removed)
       <idx><h>Subgroup Analysis</h></idx> <idx><h>Moderator Analysis</h></idx>
     </p>
     <p>
-      Once our three-level model is set, it is also possible to assess putative moderators of the overall effect. Previously in this guide, we discovered that subgroup analyses can be expressed as a meta-regression model with a dummy-coded predictor (Chapter <xref ref="the-metareg-model"/>). In a similar vein, we can add regression terms to a "multilevel" model, which leads to a <alert>three-level mixed-effects model</alert>:
+      Once our three-level model is set, it is also possible to assess putative moderators of the overall effect. Previously in this guide, we discovered that subgroup analyses can be expressed as a meta-regression model with a dummy-coded predictor (<xref ref="the-metareg-model"/>). In a similar vein, we can add regression terms to a "multilevel" model, which leads to a <alert>three-level mixed-effects model</alert>:
     </p>
     <p>
       \begin{equation} \hat\theta<em>{ij} = \theta + \beta x</em>i + \zeta<em>{(2)ij} + \zeta</em>{(3)j} + \epsilon_{ij} (#eq:mlm8) \end{equation}
     </p>
     <p>
-      Where <m>\theta</m> is the intercept and <m>\beta</m> the regression weight of a predictor variable <m>x</m>. When we replace <m>x_i</m> with a dummy (Chapter <xref ref="the-metareg-model"/>), we get a model that can be used for subgroup analyses. When <m>x</m> is continuous, the formula above represents a three-level meta-regression model.   
+      Where <m>\theta</m> is the intercept and <m>\beta</m> the regression weight of a predictor variable <m>x</m>. When we replace <m>x_i</m> with a dummy (<xref ref="the-metareg-model"/>), we get a model that can be used for subgroup analyses. When <m>x</m> is continuous, the formula above represents a three-level meta-regression model.   
     </p>
     <p>
       Categorical or continuous predictors can be specified in <c>rma.mv</c> using the <c>mods</c> argument. The argument requires a formula, starting with a tilde (<c>~</c>), and then the name of the predictor. Multiple meta-regression is also possible by providing more than one predictor (e.g. <c>~ var1 + var2</c>). 
@@ -552,7 +552,7 @@ summary(mod.model)
         When we report the estimated variance, however, using <m>\tau^2_{\text{Level 3}}</m> and <m>\tau^2_{\text{Level 2}}</m> may be preferable since this makes it clear that we are dealing with variances of <alert>true (study) effects</alert> (i.e. heterogeneity variance). Adding the multilevel <m>I^2</m> values also makes sense, since they are easier for others to interpret--provided we first explain what they represent. 
       </p>
       <p>
-        When you conducted a model comparison using <c>anova</c>, you may at least report the results of the likelihood ratio test. Results of moderator analyses can be reported in a table such as the one presented in Chapter <xref ref="subgroup-R"/>. Here is one way to report the results in our example:
+        When you conducted a model comparison using <c>anova</c>, you may at least report the results of the likelihood ratio test. Results of moderator analyses can be reported in a table such as the one presented in <xref ref="subgroup-R"/>. Here is one way to report the results in our example:
       </p>
       <blockquote>
         <p>
@@ -603,7 +603,7 @@ summary(mod.model)
         The type of robust variance estimator we cover here is simply a <alert>special version</alert> of the original method used in "normal" regression models. Hedges, Tipton and Jackson <xref ref="hedges2010robust"/> laid out an adapted type of RVE that can be used for <alert>meta-regression models</alert> with dependent effect sizes, and this approach has been extended in the last years few years. 
       </p>
       <p>
-        To understand it, we first have to look at the formula of a meta-regression again. Conceptually, this formula is very similar to equation 8.2 presented in Chapter <xref ref="the-metareg-model"/>. We simply display it differently using <alert>matrix notation</alert><fn>In this chapter, we largely follow the notation of Hedges, Tipton and Jackson <xref ref="hedges2010robust"/> and its follow-up papers when discussing meta-analytic RVE.</fn>:
+        To understand it, we first have to look at the formula of a meta-regression again. Conceptually, this formula is very similar to equation 8.2 presented in <xref ref="the-metareg-model"/>. We simply display it differently using <alert>matrix notation</alert><fn>In this chapter, we largely follow the notation of Hedges, Tipton and Jackson <xref ref="hedges2010robust"/> and its follow-up papers when discussing meta-analytic RVE.</fn>:
       </p>
       <p>
         \begin{equation} \boldsymbol{T}<em>{j}=\boldsymbol{X}</em>{j}\boldsymbol{\beta} + \boldsymbol{u}<em>j +\boldsymbol{e}</em>j (#eq:mlm9) \end{equation}
@@ -710,7 +710,7 @@ V &lt;- with(Chernobyl,
         </code>
       </program>
       <p>
-        Using the prepared variance-covariance matrices in <c>V</c>, we can now fit our <c>rma.mv</c> model. Let us say that we want to analyze the same meta-regression model as in Chapter <xref ref="three-level-subgroup"/>, in which <c>radiation</c> was used as a covariate. 
+        Using the prepared variance-covariance matrices in <c>V</c>, we can now fit our <c>rma.mv</c> model. Let us say that we want to analyze the same meta-regression model as in <xref ref="three-level-subgroup"/>, in which <c>radiation</c> was used as a covariate. 
       </p>
       <p>
         The <alert>arguments</alert> look a <alert>little different now</alert>: the first argument is a <c>formula</c> object, in which we tell the function that our effect sizes <c>z</c> should be predicted by an intercept (<c>1</c>) and the <c>radiation</c> covariate. The <c>V</c> argument takes our list of variance-covariance matrices that we just created; and the <c>sparse</c> argument can be set to <c>TRUE</c> to speed up our computations. 
@@ -728,7 +728,7 @@ che.model &lt;- rma.mv(z ~ 1 + radiation,
         </code>
       </program>
       <p>
-        To calculate the <alert>confidence intervals</alert> of our meta-regression coefficients, we can use the <c>conf_int</c> function in <alert>{clubSandwich}</alert>. We only have to provide the fitted model, and specify the <alert>small-sample adjustment</alert> to be used under <c>vcov</c>. As recommended, we use the <c>"CR2"</c> adjustment (see Chapter <xref ref="sandwich"/>).
+        To calculate the <alert>confidence intervals</alert> of our meta-regression coefficients, we can use the <c>conf_int</c> function in <alert>{clubSandwich}</alert>. We only have to provide the fitted model, and specify the <alert>small-sample adjustment</alert> to be used under <c>vcov</c>. As recommended, we use the <c>"CR2"</c> adjustment (see <xref ref="sandwich"/>).
       </p>
       <program language="r">
         <code>
@@ -745,7 +745,7 @@ conf_int(che.model,
         </code>
       </program>
       <p>
-        We see that the point estimates under <c>Estimate</c> are similar to the ones we obtained in Chapter <xref ref="three-level-subgroup"/>. The estimated standard errors and confidence intervals, however, are much larger. It is also possible to <alert>calculate the</alert> <m>p</m><alert>-values</alert> of the regression weights using the <c>coef_test</c> function:
+        We see that the point estimates under <c>Estimate</c> are similar to the ones we obtained in <xref ref="three-level-subgroup"/>. The estimated standard errors and confidence intervals, however, are much larger. It is also possible to <alert>calculate the</alert> <m>p</m><alert>-values</alert> of the regression weights using the <c>coef_test</c> function:
       </p>
       <program language="r">
         <code>
@@ -807,7 +807,7 @@ coef_test(che.model,
         <alert>The Cluster Wild Bootstrapping Algorithm</alert>
       </p>
       <p>
-        The wild bootstrap is a method based on the residuals of a null model (i.e. a model fitted without any additional covariates). In cluster wild bootstrapping, residuals are transformed using an adjustment matrix <m>\boldsymbol{A}_j</m>, for example based on the CR2 method (see Chapter <xref ref="sandwich"/>), to handle dependent effect sizes. A general algorithm for wild boostrapping looks like this <xref ref="joshi2021clusterwild"/>:
+        The wild bootstrap is a method based on the residuals of a null model (i.e. a model fitted without any additional covariates). In cluster wild bootstrapping, residuals are transformed using an adjustment matrix <m>\boldsymbol{A}_j</m>, for example based on the CR2 method (see <xref ref="sandwich"/>), to handle dependent effect sizes. A general algorithm for wild boostrapping looks like this <xref ref="joshi2021clusterwild"/>:
       </p>
       <ol>
         <li>
@@ -902,7 +902,7 @@ cw.boot
       </code>
     </program>
     <p>
-      We see that the <m>p</m>-value of our test of moderation is 0.36, which is <alert>not significant</alert>. We had a similar finding in our previous moderator analysis of the radiation strength in Chapter <xref ref="three-level-subgroup"/>.
+      We see that the <m>p</m>-value of our test of moderation is 0.36, which is <alert>not significant</alert>. We had a similar finding in our previous moderator analysis of the radiation strength in <xref ref="three-level-subgroup"/>.
     </p>
     <p>
       Using the <c>plot</c> function, we can also visualize the <alert>density of the test statistics</alert> across all bootstrap replications. 

@@ -16,7 +16,7 @@
       <idx><h>meta Package</h></idx>
     </p>
     <p>
-      There are many packages which allow us to pool effect sizes in <em>R</em>. Here, we will focus on functions of the <alert>{meta}</alert> package, which we already installed in Chapter <xref ref="packages"/>. This package is very user-friendly and provides us with nearly all important meta-analysis results using just a few lines of code. In the previous chapter, we covered that effect sizes come in different "flavors", depending on the outcome of interest. The <alert>{meta}</alert> package contains specialized meta-analysis functions for each of these effect size metrics. All of the functions also follow nearly the same structure. 
+      There are many packages which allow us to pool effect sizes in <em>R</em>. Here, we will focus on functions of the <alert>{meta}</alert> package, which we already installed in <xref ref="packages"/>. This package is very user-friendly and provides us with nearly all important meta-analysis results using just a few lines of code. In the previous chapter, we covered that effect sizes come in different "flavors", depending on the outcome of interest. The <alert>{meta}</alert> package contains specialized meta-analysis functions for each of these effect size metrics. All of the functions also follow nearly the same structure. 
     </p>
     <p>
       Thus, once we have a basic understanding of how <alert>{meta}</alert> works, coding meta-analyses becomes straightforward, no matter which effect size we are focusing on. In this chapter, we will cover the general structure of the <alert>{meta}</alert> package. And of course, we will also explore the meta-analysis functions of the package in greater detail using hands-on examples.
@@ -34,7 +34,7 @@
       As we will see, the nature of the meta-analysis requires us to make a fundamental decision right away: we have to assume either a <alert>fixed-effect model</alert> or a <alert>random-effects model</alert>. Knowledge of the concept behind meta-analytic pooling is needed to make an informed decision which of these two models, along with other analytic specifications, is more appropriate in which context.
     </p>
     <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="effects"/> and then continue with Chapter <xref ref="heterogeneity"/>.
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="effects"/> and then continue with <xref ref="heterogeneity"/>.
     </p>
     <p>
       For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
@@ -66,7 +66,7 @@
       <image source="generated/model_concept_sep.png"/>
     </figure>
     <p>
-      By specifying a statistical model, we try to find an approximate representation of the "reality" behind our data. We want a mathematical formula that explains how we can find the <alert>true</alert> effect size underlying all of our studies, based on their observed results. As we learned in Chapter <xref ref="what-are-mas"/>, one of the ultimate goals of meta-analysis is to find one numerical value that characterizes our studies <alert>as a whole</alert>, even though the observed effect sizes vary from study to study. A meta-analysis model must therefore explain the reasons why and how much observed study results differ, even though there is only one overall effect. 
+      By specifying a statistical model, we try to find an approximate representation of the "reality" behind our data. We want a mathematical formula that explains how we can find the <alert>true</alert> effect size underlying all of our studies, based on their observed results. As we learned in <xref ref="what-are-mas"/>, one of the ultimate goals of meta-analysis is to find one numerical value that characterizes our studies <alert>as a whole</alert>, even though the observed effect sizes vary from study to study. A meta-analysis model must therefore explain the reasons why and how much observed study results differ, even though there is only one overall effect. 
     </p>
     <p>
       There are two models which try to answer exactly this question, the <alert>fixed-effect model</alert> and the <alert>random-effects model</alert>. Although both are based on different assumptions, there is still a strong link between them, as we will soon see.
@@ -90,7 +90,7 @@
         \begin{equation} \hat\theta<em>k = \theta + \epsilon</em>k  (#eq:pes1) \end{equation}
       </p>
       <p>
-        To the alert reader, this formula may seem oddly similar to the one in Chapter <xref ref="what-is-es"/>. You are not mistaken. In the previous formula, we defined that an observed effect size <m>\hat\theta_k</m> of some study <m>k</m> is an estimator of that study's true effect size <m>\theta_k</m>, burdened by the study's sampling error <m>\epsilon_k</m>. 
+        To the alert reader, this formula may seem oddly similar to the one in <xref ref="what-is-es"/>. You are not mistaken. In the previous formula, we defined that an observed effect size <m>\hat\theta_k</m> of some study <m>k</m> is an estimator of that study's true effect size <m>\theta_k</m>, burdened by the study's sampling error <m>\epsilon_k</m>. 
       </p>
       <p>
         There is only a tiny, but insightful difference between the previous formula, and the one of the fixed-effect model. In the formula of the fixed-effect model, the true effect size is not symbolized by <m>\theta_k</m>, but by <m>\theta</m>; the subscript <m>k</m> is dropped. 
@@ -104,7 +104,7 @@
         </p>
       </note>
       <p>
-        The formula of the fixed-effect models tells us that there is only one reason why observed effect sizes <m>\theta_k</m> deviate from the true overall effect: because of the sampling error <m>\epsilon_k</m>. In Chapter <xref ref="what-is-es"/>, we already discussed that there is a link between the sampling error and the sample size of a study. All things being equal, as the sample size becomes larger, the sampling error becomes smaller. We also learned that the sampling error can be represented numerically by the <alert>standard error</alert>, which also grows smaller when the sample size increases. 
+        The formula of the fixed-effect models tells us that there is only one reason why observed effect sizes <m>\theta_k</m> deviate from the true overall effect: because of the sampling error <m>\epsilon_k</m>. In <xref ref="what-is-es"/>, we already discussed that there is a link between the sampling error and the sample size of a study. All things being equal, as the sample size becomes larger, the sampling error becomes smaller. We also learned that the sampling error can be represented numerically by the <alert>standard error</alert>, which also grows smaller when the sample size increases. 
       </p>
       <p>
         Although we do not know the true overall effect size of our studies, we can exploit this relationship to arrive at the best possible estimate of the true overall effect, <m>\hat\theta</m>. We know that a smaller standard error corresponds with a smaller sampling error; therefore, studies with a small standard error should be better estimators of the true overall effect than studies with a large standard error.
@@ -147,10 +147,10 @@
         This method is the most common approach to calculate average effects in meta-analyses. Because we use the inverse of the variance, it is often called <alert>inverse-variance weighting</alert> or simply <alert>inverse-variance meta-analysis</alert>. 
       </p>
       <p>
-        For binary effect size data, there are alternative methods to calculate the weighted average, including the <alert>Mantel-Haenszel</alert>, <alert>Peto</alert>, or the sample size weighting method by Bakbergenuly <xref ref="bakbergenuly2020methods"/>. We will discuss these methods in Chapter <xref ref="pooling-or-rr"/>. 
+        For binary effect size data, there are alternative methods to calculate the weighted average, including the <alert>Mantel-Haenszel</alert>, <alert>Peto</alert>, or the sample size weighting method by Bakbergenuly <xref ref="bakbergenuly2020methods"/>. We will discuss these methods in <xref ref="pooling-or-rr"/>. 
       </p>
       <p>
-        The <alert>{meta}</alert> package makes it very easy to perform a fixed-effect meta-analysis. Before, however, let us try out the inverse-variance pooling "manually" in <em>R</em>. In our example, we will use the <c>SuicidePrevention</c> data set, which we already imported in Chapter <xref ref="data-prep-R"/>. 
+        The <alert>{meta}</alert> package makes it very easy to perform a fixed-effect meta-analysis. Before, however, let us try out the inverse-variance pooling "manually" in <em>R</em>. In our example, we will use the <c>SuicidePrevention</c> data set, which we already imported in <xref ref="data-prep-R"/>. 
       </p>
       <p>
         <idx><h>dmetar Package</h></idx>
@@ -167,10 +167,10 @@
         <idx><h>esc Package</h></idx> <idx><h>Standardized Mean Difference</h></idx> <idx><h>Hedges' \textit{g}</h></idx>
       </p>
       <p>
-        The <c>SuicidePrevention</c> data set contains raw effect size data, meaning that we have to calculate the effect sizes first. In this example, we calculate the small-sample adjusted standardized mean difference (Hedges' <m>g</m>). To do this, we use the <c>esc_mean_sd</c> function in the <alert>{esc}</alert> package (Chapter <xref ref="b-group-smd"/>). 
+        The <c>SuicidePrevention</c> data set contains raw effect size data, meaning that we have to calculate the effect sizes first. In this example, we calculate the small-sample adjusted standardized mean difference (Hedges' <m>g</m>). To do this, we use the <c>esc_mean_sd</c> function in the <alert>{esc}</alert> package (<xref ref="b-group-smd"/>). 
       </p>
       <p>
-        The function has an additional argument, <c>es.type</c>, through which we can specify that the small-sample correction should be performed (by setting <c>es.type = "g"</c>; Chapter <xref ref="hedges-g"/>). 
+        The function has an additional argument, <c>es.type</c>, through which we can specify that the small-sample correction should be performed (by setting <c>es.type = "g"</c>; <xref ref="hedges-g"/>). 
       </p>
       <p>
         Since the release of <em>R</em> version 4.2.1, we additionally have to plug our call to <c>esc_mean_sd</c> into the <c>pmap_dfr</c> function so that a standardized mean difference is calculated for each row in our data set:
@@ -327,13 +327,13 @@ pooled_effect
           <alert>Which Model Should I Use?</alert>
         </p>
         <p>
-          In practice, is it very uncommon to find a selection of studies that is perfectly homogeneous. This is true even when we follow best practices, and try to make the scope of our analysis as precise as possible through our PICO (Chapter <xref ref="research-question"/>). 
+          In practice, is it very uncommon to find a selection of studies that is perfectly homogeneous. This is true even when we follow best practices, and try to make the scope of our analysis as precise as possible through our PICO (<xref ref="research-question"/>). 
         </p>
         <p>
-          In many fields, including medicine and the social sciences, it is therefore conventional to <alert>always</alert> use a random-effects model, since some degree of between-study heterogeneity can virtually always be anticipated. A fixed-effect model may only be used when we could not detect any between-study heterogeneity (we will discuss how this is done in Chapter <xref ref="heterogeneity"/>) <alert>and</alert> when we have very good reasons to assume that the true effect is fixed. This may be the case when, for example, only exact replications of a study are considered, or when we meta-analyze subsets of one big study. Needless to say, this is seldom the case, and applications of the fixed-effect model "in the wild" are rather rare.
+          In many fields, including medicine and the social sciences, it is therefore conventional to <alert>always</alert> use a random-effects model, since some degree of between-study heterogeneity can virtually always be anticipated. A fixed-effect model may only be used when we could not detect any between-study heterogeneity (we will discuss how this is done in <xref ref="heterogeneity"/>) <alert>and</alert> when we have very good reasons to assume that the true effect is fixed. This may be the case when, for example, only exact replications of a study are considered, or when we meta-analyze subsets of one big study. Needless to say, this is seldom the case, and applications of the fixed-effect model "in the wild" are rather rare.
         </p>
         <p>
-          Even though it is conventional to use the random-effects model a priori, this approach is not undisputed. The random-effects model pays more attention to small studies when calculating the overall effect of a meta-analysis <xref ref="schwarzer2015meta"/>. Yet, small studies in particular are often fraught with biases (see Chapter <xref ref="small-study-effects"/>). This is why some have argued that the fixed-effect model is (sometimes) preferable <xref ref="poole1999random"/>, <xref ref="furukawa2003low"/>. Stanley, Doucouliagos, and Ioannidis <xref ref="stanley2022beyond"/> make a similar point and argue that, in some disciplines, a so-called "unrestricted weighted least squares" (UWLS) model should be used instead of the random-effects model.
+          Even though it is conventional to use the random-effects model a priori, this approach is not undisputed. The random-effects model pays more attention to small studies when calculating the overall effect of a meta-analysis <xref ref="schwarzer2015meta"/>. Yet, small studies in particular are often fraught with biases (see <xref ref="small-study-effects"/>). This is why some have argued that the fixed-effect model is (sometimes) preferable <xref ref="poole1999random"/>, <xref ref="furukawa2003low"/>. Stanley, Doucouliagos, and Ioannidis <xref ref="stanley2022beyond"/> make a similar point and argue that, in some disciplines, a so-called "unrestricted weighted least squares" (UWLS) model should be used instead of the random-effects model.
         </p>
       </note>
       <subsubsection xml:id="tau-estimators">
@@ -512,20 +512,20 @@ pooled_effect
       <xref ref="fig-metaflow"/> provides an overview of <alert>{meta}</alert>'s structure. To determine which function to use, we first have to clarify what kind of effect size data we want to synthesize. The most fundamental distinction is the one between <alert>raw</alert> and <alert>pre-calculated</alert> effect size data. We speak of "raw" data when we have all the necessary information needed to calculate the desired effect size stored in our data frame but have not yet calculated the actual effect size. The <c>SuicidePrevention</c> data set we used earlier contains raw data: the mean, standard deviation and sample size of two groups, which is needed to calculate the standardized mean difference. 
     </p>
     <p>
-      We call effect size data "pre-calculated", on the other hand, when they already contain the final effect size of each study, as well as the standard error. If we want to use a corrected version of an effect metric (such as Hedges' <m>g</m>, Chapter <xref ref="hedges-g"/>), it is necessary that this correction has already been applied to pre-calculated effect size data before we start the pooling. 
+      We call effect size data "pre-calculated", on the other hand, when they already contain the final effect size of each study, as well as the standard error. If we want to use a corrected version of an effect metric (such as Hedges' <m>g</m>, <xref ref="hedges-g"/>), it is necessary that this correction has already been applied to pre-calculated effect size data before we start the pooling. 
     </p>
     <p>
-      If possible, it is preferable to use raw data in our meta-analysis. This makes it easier for others to understand how we calculated the effect sizes, and replicate the results. Yet, using raw data is often not possible in practice, because studies often report their results in a different way (Chapter <xref ref="es-formats-different"/>). 
+      If possible, it is preferable to use raw data in our meta-analysis. This makes it easier for others to understand how we calculated the effect sizes, and replicate the results. Yet, using raw data is often not possible in practice, because studies often report their results in a different way (<xref ref="es-formats-different"/>). 
     </p>
     <p>
-      This leaves us no other choice than to pre-calculate the desired effect size for each study right away so that all have the same format. Chapter <xref ref="es-calc"/> in the “Helpful Tools” part of this book presents a few formulas which can help you to convert a reported effect size into the desired metric.
+      This leaves us no other choice than to pre-calculate the desired effect size for each study right away so that all have the same format. <xref ref="es-calc"/> in the “Helpful Tools” part of this book presents a few formulas which can help you to convert a reported effect size into the desired metric.
     </p>
     <figure xml:id="fig-metaflow">
       <caption>Conceptual overview of meta-analysis functions.</caption>
       <image source="generated/meta_flow_sep.png"/>
     </figure>
     <p>
-      The function of choice for pre-calculated effect sizes is <c>metagen</c>. Its name stands for <alert>gen</alert>eric inverse variance meta-analysis. If we use <c>metagen</c> with binary data (e.g. proportions, risk ratios, odds ratios), it is important, as we covered in Chapter <xref ref="ratios"/>, that the effect sizes are log-transformed before the function is used. 
+      The function of choice for pre-calculated effect sizes is <c>metagen</c>. Its name stands for <alert>gen</alert>eric inverse variance meta-analysis. If we use <c>metagen</c> with binary data (e.g. proportions, risk ratios, odds ratios), it is important, as we covered in <xref ref="ratios"/>, that the effect sizes are log-transformed before the function is used. 
     </p>
     <p>
       When we can resort to raw effect size data, <alert>{meta}</alert> provides us with a specialized function for each effect size type. We can use the <c>metamean</c>, <c>metacont</c> and <c>metacor</c> function for means, (standardized) mean differences and correlations, respectively. We can pool (incidence) rates, proportions and incidence rate ratios using the <c>metarate</c>, <c>metaprop</c> and <c>metainc</c> functions. The <c>metabin</c> function can be employed when we are dealing with risk or odds ratios.
@@ -561,7 +561,7 @@ pooled_effect
       </li>
       <li>
         <p>
-          <alert><c>method.random.ci</c></alert>. This argument controls how confidence intervals should be calculated when using the random-effects model. When setting <c>method.random.ci = "HK"</c>, the Knapp-Hartung adjustment will be applied. In older versions of <alert>{meta}</alert>, this feature was controlled by setting the <c>hakn</c> argument to <c>TRUE</c> instead. Using the Knapp-Hartung adjustment is advisable in most cases (see Chapter <xref ref="knapp-hartung"/>).
+          <alert><c>method.random.ci</c></alert>. This argument controls how confidence intervals should be calculated when using the random-effects model. When setting <c>method.random.ci = "HK"</c>, the Knapp-Hartung adjustment will be applied. In older versions of <alert>{meta}</alert>, this feature was controlled by setting the <c>hakn</c> argument to <c>TRUE</c> instead. Using the Knapp-Hartung adjustment is advisable in most cases (see <xref ref="knapp-hartung"/>).
         </p>
       </li>
       <li>
@@ -909,7 +909,7 @@ summary(m.cont)
         </code>
       </program>
       <p>
-        Looking at the output and comparing it to the one we received in Chapter <xref ref="pre-calculated-es"/>, we already see one of <alert>{meta}</alert>'s greatest assets. Although <c>metagen</c> and <c>metacont</c> are different functions requiring different data types, the structure of the output looks nearly identical. This makes interpreting the results quite easy. We see that the pooled effect according to the random-effects model is <m>g=</m> -0.23, with the 95% confidence interval ranging from -0.09 to -0.37. The effect is significant (<m>p=</m> 0.006). 
+        Looking at the output and comparing it to the one we received in <xref ref="pre-calculated-es"/>, we already see one of <alert>{meta}</alert>'s greatest assets. Although <c>metagen</c> and <c>metacont</c> are different functions requiring different data types, the structure of the output looks nearly identical. This makes interpreting the results quite easy. We see that the pooled effect according to the random-effects model is <m>g=</m> -0.23, with the 95% confidence interval ranging from -0.09 to -0.37. The effect is significant (<m>p=</m> 0.006). 
       </p>
       <p>
         We see that the effect sizes have a negative sign. In the context of our meta-analysis, this represents a favorable outcome, because it means that suicidal ideation was lower in the treatment groups compared to the control groups. To make this clearer to others, we may also consistently reverse the sign of the effect sizes (e.g. write <m>g=</m> 0.23 instead), so that positive effect sizes always represent "positive" results.
@@ -935,7 +935,7 @@ summary(m.cont)
           The <c>metabin</c> function can be used to pool effect sizes based on binary data, particularly risk and odds ratios. Before we start using the function, we first have to discuss a few particularities of meta-analyses based on these effect sizes.
         </p>
         <p>
-          It is possible to pool binary effect sizes using the generic inverse variance method we covered in Chapter <xref ref="fem"/> and <xref ref="tau-estimators"/>. We need to calculate the log-odds or risk ratio, as well as the standard error of each effect, and can then use the inverse of the effect size variance to determine the pooling weights. 
+          It is possible to pool binary effect sizes using the generic inverse variance method we covered in <xref ref="fem"/> and <xref ref="tau-estimators"/>. We need to calculate the log-odds or risk ratio, as well as the standard error of each effect, and can then use the inverse of the effect size variance to determine the pooling weights. 
         </p>
         <p>
           However, this approach is suboptimal for binary outcome data <xref ref="higgins2019cochrane"/>. When we are dealing with <alert>sparse</alert> data, meaning that the number of events or the total sample size of a study is small, the calculated standard error may not be a good estimator of the precision of the binary effect size.
@@ -960,7 +960,7 @@ summary(m.cont)
           \begin{equation} w<em>k = \frac{b</em>kc<em>k}{n</em>k} (#eq:pes10) \end{equation}
         </p>
         <p>
-          In the formulas, we use the same notation as in Chapter <xref ref="rr"/>, with <m>a_k</m> being the number of events in the treatment group, <m>c_k</m> the number of event in the control group, <m>b_k</m> the number of non-events in the treatment group, <m>d_k</m> the number of non-events in the control group, and <m>n_k</m> being the total sample size.
+          In the formulas, we use the same notation as in <xref ref="rr"/>, with <m>a_k</m> being the number of events in the treatment group, <m>c_k</m> the number of event in the control group, <m>b_k</m> the number of non-events in the treatment group, <m>d_k</m> the number of non-events in the control group, and <m>n_k</m> being the total sample size.
         </p>
         <p>
           <idx><h>Peto Method</h></idx> <idx><h>Peto Odds Ratio</h></idx>
@@ -1009,7 +1009,7 @@ summary(m.cont)
             <alert>Which Pooling Method Should I Use?</alert>
           </p>
           <p>
-            In Chapter <xref ref="rr"/>, we already talked extensively about the problem of <alert>zero-cells</alert> and <alert>continuity correction</alert>. While both the Peto and sample size method can be used without modification when there are zero cells, it is common to add 0.5 to zero cells when using the Mantel-Haenszel method. This is also the default behavior in <c>metabin</c>. 
+            In <xref ref="rr"/>, we already talked extensively about the problem of <alert>zero-cells</alert> and <alert>continuity correction</alert>. While both the Peto and sample size method can be used without modification when there are zero cells, it is common to add 0.5 to zero cells when using the Mantel-Haenszel method. This is also the default behavior in <c>metabin</c>. 
           </p>
           <p>
             Using continuity corrections, however, have been discouraged <xref ref="efthimiou2018practical"/>, as they can lead to biased results. The Mantel-Haenszel method only <alert>really</alert> requires a continuity correction when one specific cell is zero in <alert>all</alert> included studies, which is rarely the case. Usually, it is therefore advisable to use the <alert>exact</alert> Mantel-Haenszel method without continuity corrections by setting <c>MH.exact = TRUE</c> in <c>metabin</c>.
@@ -1024,7 +1024,7 @@ summary(m.cont)
             All in all, it may be advisable in most cases to follow Cochrane's general assessment <xref ref="higgins2019cochrane"/>, and use the Mantel-Haenszel method (without continuity correction). The Peto method may be used when the odds ratio is the desired effect size metric, and when the event of interest is expected to be rare.
           </p>
           <p>
-            It is also important to keep in mind that these alternative methods are primarily relevant for the <alert>fixed-effect model</alert>. Pooled estimates using the random-effects model will still essentially be based on the (generic) inverse-variance method. For example, even if the Mantel-Haenszel method is specified in <c>metabin</c>, the pooled effect is still derived using the same weighting approach we discussed in Chapter <xref ref="tau-estimators"/>. For the Peto method, the inverse-variance approach will be applied using the variance of the Peto log-odds ratio. 
+            It is also important to keep in mind that these alternative methods are primarily relevant for the <alert>fixed-effect model</alert>. Pooled estimates using the random-effects model will still essentially be based on the (generic) inverse-variance method. For example, even if the Mantel-Haenszel method is specified in <c>metabin</c>, the pooled effect is still derived using the same weighting approach we discussed in <xref ref="tau-estimators"/>. For the Peto method, the inverse-variance approach will be applied using the variance of the Peto log-odds ratio. 
           </p>
         </note>
         
@@ -1064,7 +1064,7 @@ summary(m.cont)
           </li>
           <li>
             <p>
-              <alert><c>incr</c></alert>. The increment to be added for continuity correction of zero cells. If we specify <c>incr = 0.5</c>, an increment of 0.5 is added. If we set <c>incr = "TACC"</c>, the treatment arm continuity correction method is used (see Chapter <xref ref="rr"/>). As mentioned before, it is usually recommended to leave out this argument and not apply continuity corrections.
+              <alert><c>incr</c></alert>. The increment to be added for continuity correction of zero cells. If we specify <c>incr = 0.5</c>, an increment of 0.5 is added. If we set <c>incr = "TACC"</c>, the treatment arm continuity correction method is used (see <xref ref="rr"/>). As mentioned before, it is usually recommended to leave out this argument and not apply continuity corrections.
             </p>
           </li>
           <li>
@@ -1107,7 +1107,7 @@ glimpse(DepressionMortality)
           In this example, we will calculate the risk ratio as the effect size metric, as was done by Cuijpers and Smit. We will use a random-effects pooling model, and, since we are dealing with binary outcome data, we will use the Paule-Mandel estimator for <m>\tau^2</m>. 
         </p>
         <p>
-          Looking at the data, we see that the sample sizes vary considerably from study to study, a scenario in which the Paule-Mandel method may be slightly biased (see Chapter <xref ref="tau-estimators"/>). Keeping this in mind, we can also try out another <m>\tau^2</m> estimator as a sensitivity analysis to check if the results vary by a lot.
+          Looking at the data, we see that the sample sizes vary considerably from study to study, a scenario in which the Paule-Mandel method may be slightly biased (see <xref ref="tau-estimators"/>). Keeping this in mind, we can also try out another <m>\tau^2</m> estimator as a sensitivity analysis to check if the results vary by a lot.
         </p>
         <p>
           The data set contains no zero cells, so we do not have to worry about continuity correction, and can use the exact Mantel-Haenszel method right away. We save the meta-analysis results in an object called <c>m.bin</c>.
@@ -1370,7 +1370,7 @@ summary(m.gen_bin)
           <idx><h>Incidence Rate Ratio</h></idx> <idx><h>Person-Time</h></idx>
         </p>
         <p>
-          Effect sizes based on incidence rates (i.e. incidence rate ratios, Chapter <xref ref="irr"/>) can be pooled using the <c>metainc</c> function. The arguments of this function are very similar to <c>metabin</c>:
+          Effect sizes based on incidence rates (i.e. incidence rate ratios, <xref ref="irr"/>) can be pooled using the <c>metainc</c> function. The arguments of this function are very similar to <c>metabin</c>:
         </p>
         <ul>
           <li>
@@ -1479,7 +1479,7 @@ summary(m.inc)
         <idx><h>Correlation</h></idx> <idx><h>Fisher's \textit{z}</h></idx>
       </p>
       <p>
-        Correlations can be pooled using the <c>metacor</c> function, which uses the generic inverse variance pooling method. In Chapter <xref ref="pearson-cors"/>, we covered that correlations should be Fisher's <m>z</m>-transformed before pooling. By default, <c>metacor</c> does this transformation automatically for us. It is therefore sufficient to provide the function with the original, untransformed correlations reported in the studies. The <c>metacor</c> function has only two relevant function-specific arguments:
+        Correlations can be pooled using the <c>metacor</c> function, which uses the generic inverse variance pooling method. In <xref ref="pearson-cors"/>, we covered that correlations should be Fisher's <m>z</m>-transformed before pooling. By default, <c>metacor</c> does this transformation automatically for us. It is therefore sufficient to provide the function with the original, untransformed correlations reported in the studies. The <c>metacor</c> function has only two relevant function-specific arguments:
       </p>
       <ul>
         <li>
@@ -1675,7 +1675,7 @@ summary(m.mean)
         <idx><h>Proportion</h></idx> <idx><h>Logit-Transformation</h></idx>
       </p>
       <p>
-        The <c>metaprop</c> function can be used to pool proportions. In Chapter <xref ref="props"/>, we already discussed that it is best to logit-transform proportions before the meta-analysis is performed. The <c>metaprop</c> function does this automatically for us if we specify <c>sm = "PLOGIT"</c>. If the raw proportions should be pooled, we can use <c>sm = "PRAW"</c>, but remember that this is discouraged. 
+        The <c>metaprop</c> function can be used to pool proportions. In <xref ref="props"/>, we already discussed that it is best to logit-transform proportions before the meta-analysis is performed. The <c>metaprop</c> function does this automatically for us if we specify <c>sm = "PLOGIT"</c>. If the raw proportions should be pooled, we can use <c>sm = "PRAW"</c>, but remember that this is discouraged. 
       </p>
       <p>
         <idx><h>Mixed-Effects Model</h></idx>

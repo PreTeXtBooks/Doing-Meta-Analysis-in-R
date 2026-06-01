@@ -25,7 +25,7 @@
       In meta-regression, this logic is applied to <alert>entire studies</alert>. The variable <m>x</m> represents characteristics of studies, for example the year in which it was conducted. Based on this information, a meta-regression model tries to predict <m>y</m>, the study's effect size. The fact that effect sizes are used as predicted variables, however, adds some complexity. 
     </p>
     <p>
-      In Chapter <xref ref="what-is-es"/>, we already learned that observed effect sizes <m>\hat\theta</m> can be more or less <alert>precise</alert> estimators of the study's true effect, depending on their standard error. In "normal" meta-analyses, we take this into account by giving studies a smaller or higher weight. In meta-regression, we also have to make sure that the model pays more attention to studies with a lower sampling error, since we can assume that their estimates are closer to the "truth".
+      In <xref ref="what-is-es"/>, we already learned that observed effect sizes <m>\hat\theta</m> can be more or less <alert>precise</alert> estimators of the study's true effect, depending on their standard error. In "normal" meta-analyses, we take this into account by giving studies a smaller or higher weight. In meta-regression, we also have to make sure that the model pays more attention to studies with a lower sampling error, since we can assume that their estimates are closer to the "truth".
     </p>
     <p>
       <idx><h>Mixed-Effects Model</h></idx>
@@ -37,7 +37,7 @@
       Meta-regression, although it has its own limitations, can be a very powerful tool in meta-analyses. It is also very versatile: <alert>multiple meta-regression</alert>, for example, allows us to include not only one, but several predictor variables, along with their interaction. In the second part of this chapter, we will therefore also have a look at multiple meta-regression, and how we can conduct one using <em>R</em>.
     </p>
     <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="subgroup"/> and then continue with Chapter <xref ref="pub-bias"/>.
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="subgroup"/> and then continue with <xref ref="pub-bias"/>.
     </p>
     <p>
       For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
@@ -51,7 +51,7 @@
       In the past, you may have already performed a regression using primary study data, where participants are the unit of analysis. In meta-analyses, the individual data of each participant is usually not available, and we can only resort to aggregated results. This is why we have to perform meta-regression with predictors on a <alert>study level</alert>. 
     </p>
     <p>
-      It also means that, while we conduct analyses on samples much larger than usual for primary studies, it is still possible that we do not have enough data points for a meta-regression to be useful. In Chapter <xref ref="limits-subgroup"/>, we already covered that subgroup analyses often make no sense when  <m>K&lt;</m> 10. Borenstein and colleagues <xref ref="borenstein2011introduction"/> mention that this guideline may also be applied to meta-regression models, but that it should not be seen as an iron-clad rule.
+      It also means that, while we conduct analyses on samples much larger than usual for primary studies, it is still possible that we do not have enough data points for a meta-regression to be useful. In <xref ref="limits-subgroup"/>, we already covered that subgroup analyses often make no sense when  <m>K&lt;</m> 10. Borenstein and colleagues <xref ref="borenstein2011introduction"/> mention that this guideline may also be applied to meta-regression models, but that it should not be seen as an iron-clad rule.
     </p>
     <p>
       In a conventional regression, we want to estimate the value <m>y_i</m> of person <m>i</m> using a <alert>predictor</alert> (or <alert>covariate</alert>) <m>x_i</m> with a regression coefficient <m>\beta</m>. A standard regression equation, therefore, looks like this:
@@ -66,7 +66,7 @@
       \begin{equation} \hat\theta<em>k = \theta + \beta x</em>{k} + \epsilon<em>k+\zeta</em>k (#eq:mr2) \end{equation}
     </p>
     <p>
-      Note that this formula contains two extra terms, <m>\epsilon_k</m> and <m>\zeta_k</m>. The same terms can also be found in the equation for the random-effects-model (Chapter <xref ref="rem"/>), and signify two types of independent errors. The first one, <m>\epsilon_k</m>, is the sampling error through which the effect size of a study deviates from its true effect. 
+      Note that this formula contains two extra terms, <m>\epsilon_k</m> and <m>\zeta_k</m>. The same terms can also be found in the equation for the random-effects-model (<xref ref="rem"/>), and signify two types of independent errors. The first one, <m>\epsilon_k</m>, is the sampling error through which the effect size of a study deviates from its true effect. 
     </p>
     <p>
       The second error, <m>\zeta_k</m>, denotes that even the true effect size of the study is only sampled from an overarching distribution of effect sizes. This means that between-study heterogeneity exists in our data, which is captured by the heterogeneity variance <m>\tau^2</m>.
@@ -75,7 +75,7 @@
       <idx><h>Random-Effects Model</h></idx> <idx><h>Fixed-Effect Model</h></idx> <idx><h>Mixed-Effects Model</h></idx>
     </p>
     <p>
-      Since the equation above includes a <alert>fixed</alert> effect (the <m>\beta</m> coefficient) as well as a <alert>random</alert> effect (<m>\zeta_k</m>), the model used in meta-regression is often called a <alert>mixed-effects model</alert>. Conceptually, this model is identical to the mixed-effects model we described in Chapter <xref ref="comparing-the-subgroup-effects"/>, where we explained how subgroup analyses work.
+      Since the equation above includes a <alert>fixed</alert> effect (the <m>\beta</m> coefficient) as well as a <alert>random</alert> effect (<m>\zeta_k</m>), the model used in meta-regression is often called a <alert>mixed-effects model</alert>. Conceptually, this model is identical to the mixed-effects model we described in <xref ref="comparing-the-subgroup-effects"/>, where we explained how subgroup analyses work.
     </p>
     <subsection xml:id="meta-regression-with-a-categorical-predictor">
       <title>Meta-Regression With a Categorical Predictor</title>
@@ -162,7 +162,7 @@
         <idx><h>Ordinary Least Squares (OLS)</h></idx> <idx><h>Weighted Least Squares (WLS)</h></idx>
       </p>
       <p>
-        In the first step, the calculation of a meta-regression therefore closely resembles the one of a random-effects meta-analysis, in that the between-study heterogeneity <m>\tau^2</m> is estimated using one of the methods we described in Chapter <xref ref="tau-estimators"/> (e.g. the DerSimonian-Laird or REML method). In the next step, the fixed weights <m>\theta</m> and <m>\beta</m> are estimated. Normal linear regression models use the <alert>ordinary least squares</alert> (OLS) method to find the regression line that fits the data best. In meta-regression, a modified method called <alert>weighted least squares</alert> (WLS) is used, which makes sure that studies with a smaller standard error are given a higher weight. 
+        In the first step, the calculation of a meta-regression therefore closely resembles the one of a random-effects meta-analysis, in that the between-study heterogeneity <m>\tau^2</m> is estimated using one of the methods we described in <xref ref="tau-estimators"/> (e.g. the DerSimonian-Laird or REML method). In the next step, the fixed weights <m>\theta</m> and <m>\beta</m> are estimated. Normal linear regression models use the <alert>ordinary least squares</alert> (OLS) method to find the regression line that fits the data best. In meta-regression, a modified method called <alert>weighted least squares</alert> (WLS) is used, which makes sure that studies with a smaller standard error are given a higher weight. 
       </p>
       <p>
         Once the optimal solution is found, we can check if the newly added regression term explains parts of the effect size heterogeneity. If the meta-regression model fits the data well, the true effect sizes should deviate less from the regression line compared to the pooled effect <m>\hat\mu</m>. If this is the case, the predictor <m>x</m> <alert>explains</alert> some of the heterogeneity variance in our meta-analysis.
@@ -204,7 +204,7 @@
         Under the null hypothesis that <m>\beta = 0</m>, this <m>z</m>-statistic follows a standard normal distribution. This allows us to calculate a corresponding <m>p</m>-value, which determines if the predictor is significant or not.
       </p>
       <p>
-        However, a test based on the <m>z</m>-statistic is not the only way to assess the significance of predictors. Like in normal meta-analysis models, we can also use the Knapp-Hartung adjustment, which results in a test statistic based on the <m>t</m>-distribution (see Chapter <xref ref="knapp-hartung"/>). As we learned previously, it is often advisable to use the Knapp-Hartung method, because it reduces the risk of false positives.
+        However, a test based on the <m>z</m>-statistic is not the only way to assess the significance of predictors. Like in normal meta-analysis models, we can also use the Knapp-Hartung adjustment, which results in a test statistic based on the <m>t</m>-distribution (see <xref ref="knapp-hartung"/>). As we learned previously, it is often advisable to use the Knapp-Hartung method, because it reduces the risk of false positives.
       </p>
     </subsection>
 
@@ -217,7 +217,7 @@
       The <alert>{meta}</alert> package contains a function called <c>metareg</c>, which allows us to conduct a meta-regression. The <c>metareg</c> function only requires a <alert>{meta}</alert> meta-analysis object and the name of a covariate as input.
     </p>
     <p>
-      In this example, we will use our <c>m.gen</c> meta-analysis object again, which is based on the <c>ThirdWave</c> data set (see Chapter <xref ref="pre-calculated-es"/>). Using meta-regression, we want to examine if the <alert>publication year</alert> of a study can be used to predict its effect size. By default, the <c>ThirdWave</c> data set does not contain a variable in which the publication year is stored, so we have to create a new <c>numeric</c> variable which contains this information. We simply concatenate the publication years of all studies, in the same order in which they appear in the <c>ThirdWave</c> data set. We save this variable under the name <c>year</c><fn>The publication years we use in this example are made up, and only used for illustration purposes.</fn>.
+      In this example, we will use our <c>m.gen</c> meta-analysis object again, which is based on the <c>ThirdWave</c> data set (see <xref ref="pre-calculated-es"/>). Using meta-regression, we want to examine if the <alert>publication year</alert> of a study can be used to predict its effect size. By default, the <c>ThirdWave</c> data set does not contain a variable in which the publication year is stored, so we have to create a new <c>numeric</c> variable which contains this information. We simply concatenate the publication years of all studies, in the same order in which they appear in the <c>ThirdWave</c> data set. We save this variable under the name <c>year</c><fn>The publication years we use in this example are made up, and only used for illustration purposes.</fn>.
     </p>
     <program language="r">
       <code>
@@ -282,7 +282,7 @@ m.gen.reg
       In the last line, we see the value of <m>R^2_*</m>, which in our example is 77%. This means that 77% of the difference in true effect sizes can be explained by the publication year, a value that is quite substantial.
     </p>
     <p>
-      The next section contains a <c>Test for Residual Heterogeneity</c>, which is essentially the <m>Q</m>-test we already got to know previously (see Chapter <xref ref="cochran-q"/>). Now, however, we test if the heterogeneity not explained by the predictor is significant. We see that this is the case, with <m>p</m> = 0.03. However, we know the limitations of the <m>Q</m>-test (Chapter <xref ref="cochran-q"/>), and should therefore not rely too heavily on this result.
+      The next section contains a <c>Test for Residual Heterogeneity</c>, which is essentially the <m>Q</m>-test we already got to know previously (see <xref ref="cochran-q"/>). Now, however, we test if the heterogeneity not explained by the predictor is significant. We see that this is the case, with <m>p</m> = 0.03. However, we know the limitations of the <m>Q</m>-test (<xref ref="cochran-q"/>), and should therefore not rely too heavily on this result.
     </p>
     <p>
       The next part shows the <c>Test of Moderators</c>. We see that this test is also significant (<m>p</m> = 0.0075). This means that our predictor, the publication year, does indeed influence the studies' effect size.
@@ -314,7 +314,7 @@ bubble(m.gen.reg, studlab = TRUE)
       <idx><h>Risk of Bias</h></idx>
     </p>
     <p>
-      For the sake of completeness, we can also try to repeat our subgroup analysis from the previous chapter (Chapter <xref ref="subgroup-R"/>), but this time within a meta-regression framework. This means that we use the risk of bias assessment as a categorical predictor. Since the variable <c>RiskOfBias</c> is already included in the <c>ThirdWave</c> data set, we do not have to save this information in an additional object. It suffices to simply run the <c>metareg</c> function again, but this time, we use <c>RiskOfBias</c> as the second function argument.
+      For the sake of completeness, we can also try to repeat our subgroup analysis from the previous chapter (<xref ref="subgroup-R"/>), but this time within a meta-regression framework. This means that we use the risk of bias assessment as a categorical predictor. Since the variable <c>RiskOfBias</c> is already included in the <c>ThirdWave</c> data set, we do not have to save this information in an additional object. It suffices to simply run the <c>metareg</c> function again, but this time, we use <c>RiskOfBias</c> as the second function argument.
     </p>
     <program language="r">
       <code>
@@ -442,7 +442,7 @@ metareg(m.gen, RiskOfBias)
           <image source="generated/overfitting_col_sep.png"/>
         </figure>
         <p>
-          For model fitting, regression utilizes <alert>optimization</alert> techniques such as ordinary least squares or maximum likelihood estimation. As we learned, meta-regression uses a weighted version of ordinary least squares (see Chapter <xref ref="metareg-model-fit"/>), and is, therefore, no exception. 
+          For model fitting, regression utilizes <alert>optimization</alert> techniques such as ordinary least squares or maximum likelihood estimation. As we learned, meta-regression uses a weighted version of ordinary least squares (see <xref ref="metareg-model-fit"/>), and is, therefore, no exception. 
         </p>
         <p>
           This "greedy" optimization, however, means that regression approaches can be prone to overfitting <xref ref="gigerenzer2004mindless"/>. Unfortunately, the risk of building a non-robust model is even higher once we go from conventional to meta-regression. There are several reasons for this <xref ref="higgins2004controlling"/>:
@@ -483,7 +483,7 @@ metareg(m.gen, RiskOfBias)
           </li>
           <li>
             <p>
-              Predictor selection should be based on predefined, scientifically relevant questions we want to answer in our meta-analysis. It is crucial to already define in the analysis report (Chapter <xref ref="analysis-plan"/>) which predictor (combination) will be included in the meta-regression model. It is not the end of the world if we decide to run a meta-regression that is not mentioned in our analysis plan. In this case, however, we should be honest and mention in our meta-analysis report that we decided to fit the model <alert>after</alert> seeing the data.
+              Predictor selection should be based on predefined, scientifically relevant questions we want to answer in our meta-analysis. It is crucial to already define in the analysis report (<xref ref="analysis-plan"/>) which predictor (combination) will be included in the meta-regression model. It is not the end of the world if we decide to run a meta-regression that is not mentioned in our analysis plan. In this case, however, we should be honest and mention in our meta-analysis report that we decided to fit the model <alert>after</alert> seeing the data.
             </p>
           </li>
           <li>

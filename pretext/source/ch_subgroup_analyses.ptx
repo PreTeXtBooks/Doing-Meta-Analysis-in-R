@@ -7,7 +7,7 @@
       <image source="_figs/fassade.jpg"/>
     </figure>
     <p>
-      In Chapter <xref ref="heterogeneity"/>, we discussed the concept of between-study heterogeneity, and why it is so important in meta-analyses. We also learned methods that allow us to identify which studies contribute to the observed heterogeneity as part of outlier and influence analyses. In these analyses, we approach our meta-analysis from a purely statistical standpoint. We "measure" considerable heterogeneity in our data, and therefore exclude studies with unfitting statistical properties (i.e. outlying and influential studies) to improve the robustness of our model.
+      In <xref ref="heterogeneity"/>, we discussed the concept of between-study heterogeneity, and why it is so important in meta-analyses. We also learned methods that allow us to identify which studies contribute to the observed heterogeneity as part of outlier and influence analyses. In these analyses, we approach our meta-analysis from a purely statistical standpoint. We "measure" considerable heterogeneity in our data, and therefore exclude studies with unfitting statistical properties (i.e. outlying and influential studies) to improve the robustness of our model.
     </p>
     <p>
       <idx><h>Outlier</h></idx> <idx><h>Influential Case</h></idx> <idx><h>Heterogeneity</h></idx>
@@ -25,7 +25,7 @@
       This makes it clear that we need a different approach, one that allows us to identify <alert>why</alert> a specific heterogeneity pattern can be found in our data. <alert>Subgroup analyses</alert>, also known as <alert>moderator analyses</alert>, are one way to do this. They allow us to test specific hypotheses, describing why some type of study produces lower or higher effects than another. 
     </p>
     <p>
-      As we learned in Chapter <xref ref="analysis-plan"/>, subgroup tests should be defined <alert>a priori</alert>. Before we begin with our meta-analysis, we should define different study characteristics which may influence the observed effect size, and code each study accordingly. There are countless reasons why effect sizes may differ, but we should restrict ourselves to the ones that matter in the context of our analysis. 
+      As we learned in <xref ref="analysis-plan"/>, subgroup tests should be defined <alert>a priori</alert>. Before we begin with our meta-analysis, we should define different study characteristics which may influence the observed effect size, and code each study accordingly. There are countless reasons why effect sizes may differ, but we should restrict ourselves to the ones that matter in the context of our analysis. 
     </p>
     <p>
       We can, for example, examine if some type of medication yields higher effects than another one. Or we might compare studies in which the follow-up period was rather short to studies in which it was long. We can also examine if observed effects vary depending on the cultural region in which a study was conducted. As a meta-analyst, it helps to have some subject-specific expertise, because this allows to find questions that are actually relevant to other scientists or practitioners in the field.
@@ -37,7 +37,7 @@
       In this chapter, we will describe the statistical model behind subgroup analyses, and how we can conduct one directly in <em>R</em>.
     </p>
     <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="forest"/> and then continue with Chapter <xref ref="metareg"/>.
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="forest"/> and then continue with <xref ref="metareg"/>.
     </p>
     <p>
       For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
@@ -60,7 +60,7 @@
       <title>Pooling the Effect in Subgroups</title>
 
       <p>
-        The first part is rather straightforward, as the same criteria as the ones for a meta-analysis without subgroups (see Chapter <xref ref="fem-rem"/>) apply. If we assume that all studies in a subgroup stem from the same population, and have one shared true effect, we can use the fixed-effect model. As we mentioned previously, it is often unrealistic that this assumption holds in practice, even when we partition our studies into smaller groups.
+        The first part is rather straightforward, as the same criteria as the ones for a meta-analysis without subgroups (see <xref ref="fem-rem"/>) apply. If we assume that all studies in a subgroup stem from the same population, and have one shared true effect, we can use the fixed-effect model. As we mentioned previously, it is often unrealistic that this assumption holds in practice, even when we partition our studies into smaller groups.
       </p>
       <p>
         <idx><h>Random-Effects Model</h></idx>
@@ -95,7 +95,7 @@
         <idx><h>Cochran's \textit{Q}</h></idx>
       </p>
       <p>
-        Therefore, we use the value of <m>Q</m> to determine if the subgroup differences are large enough to not be explainable by sampling error alone. Pretending that the subgroup effects are <alert>observed</alert> effect sizes, we calculate the value of <m>Q</m>. This observed <m>Q</m> value is compared to its expected value assuming a <m>\chi^2</m> distribution with, in our case, <m>G-1</m> degrees of freedom (Chapter <xref ref="cochran-q"/>). 
+        Therefore, we use the value of <m>Q</m> to determine if the subgroup differences are large enough to not be explainable by sampling error alone. Pretending that the subgroup effects are <alert>observed</alert> effect sizes, we calculate the value of <m>Q</m>. This observed <m>Q</m> value is compared to its expected value assuming a <m>\chi^2</m> distribution with, in our case, <m>G-1</m> degrees of freedom (<xref ref="cochran-q"/>). 
       </p>
       <p>
         When the observed value of <m>Q</m> is substantially larger than the expected one, the <m>p</m>-value of the <m>Q</m> test will become significant. This indicates that there is a difference in the true effect sizes between subgroups. This <m>Q</m> test is an <alert>omnibus test</alert>. It tests the null hypothesis that all subgroup effect sizes are equal, and is significant when at least two subgroups, or combinations thereof, differ. 
@@ -171,10 +171,10 @@
         <idx><h>Mixed-Effects Model</h></idx> <idx><h>Meta-Regression</h></idx>
       </p>
       <p>
-        Because the fixed-effects (plural) model contains both random effects (within subgroups) and fixed effects (since subgroups are assumed to be fixed), it is also known in the literature as a <alert>mixed-effects model</alert>. We already came across this term previously in Chapter <xref ref="pooling-props"/>, where we discussed a different type of (generalized) mixed-effects model that can be used to pool, for example, proportions. 
+        Because the fixed-effects (plural) model contains both random effects (within subgroups) and fixed effects (since subgroups are assumed to be fixed), it is also known in the literature as a <alert>mixed-effects model</alert>. We already came across this term previously in <xref ref="pooling-props"/>, where we discussed a different type of (generalized) mixed-effects model that can be used to pool, for example, proportions. 
       </p>
       <p>
-        The model we use for subgroup analyses is heavily related to other methods that are also often used in meta-analyses. In Chapter <xref ref="metareg"/>, we will show that subgroup analyses are just a special case of <alert>meta-regression</alert>, for which we also use a mixed-effects model. 
+        The model we use for subgroup analyses is heavily related to other methods that are also often used in meta-analyses. In <xref ref="metareg"/>, we will show that subgroup analyses are just a special case of <alert>meta-regression</alert>, for which we also use a mixed-effects model. 
       </p>
       <p>
         <idx><h>Multilevel Meta-Analysis</h></idx>
@@ -183,7 +183,7 @@
         Furthermore, it is also possible that subgroup levels can <alert>not</alert> be assumed to be fixed. Imagine that we want to assess if effect sizes differ depending on the location in which the effect was observed. Some studies assessed the effect in Israel, some in Italy, others in Mexico, and some in mainland China. One can argue that "country of origin" is not a factor with fixed levels: there are many, many countries in the world, and our study simply includes a "random" selection. 
       </p>
       <p>
-        In this case, it makes sense to not model the subgroups as fixed, but also let our model estimate the variability between countries as a random effect. This leads to a <alert>multi-level model</alert>, which we cover in Chapter <xref ref="multilevel-ma"/>. 
+        In this case, it makes sense to not model the subgroups as fixed, but also let our model estimate the variability between countries as a random effect. This leads to a <alert>multi-level model</alert>, which we cover in <xref ref="multilevel-ma"/>. 
       </p>
     </subsection>
 

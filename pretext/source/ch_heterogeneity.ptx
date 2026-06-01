@@ -31,7 +31,7 @@
       In this chapter, we will have a closer look at different ways to measure heterogeneity, and how they can be interpreted. We will also cover a few tools which allow us to detect studies that contribute to the heterogeneity in our data. Lastly, we discuss ways to address large amounts of heterogeneity in "real-world" meta-analyses. 
     </p>
     <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="pooling-es"/> and then continue with Chapter <xref ref="forest"/>.
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="pooling-es"/> and then continue with <xref ref="forest"/>.
     </p>
     <p>
       For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
@@ -47,7 +47,7 @@
     <ul>
       <li>
         <p>
-          <alert>Baseline</alert> or <alert>design-related</alert> heterogeneity arises when the population or research design of studies differs across studies. We have discussed this type of heterogeneity when we talked about the "Apples and Oranges" problem (Chapter <xref ref="pitfalls"/>), and ways to define the research questions (Chapter <xref ref="research-question"/>). Design-related heterogeneity can be reduced <alert>a priori</alert> by setting up a suitable PICO that determines which types of populations and designs are eligible for the meta-analysis.
+          <alert>Baseline</alert> or <alert>design-related</alert> heterogeneity arises when the population or research design of studies differs across studies. We have discussed this type of heterogeneity when we talked about the "Apples and Oranges" problem (<xref ref="pitfalls"/>), and ways to define the research questions (<xref ref="research-question"/>). Design-related heterogeneity can be reduced <alert>a priori</alert> by setting up a suitable PICO that determines which types of populations and designs are eligible for the meta-analysis.
         </p>
       </li>
       <li>
@@ -63,7 +63,7 @@
       <title>Cochran's <m>Q</m></title>
 
       <p>
-        Based on the random-effects model, we know that there are two sources of variation causing observed effects to differ from study to study. There is the sampling error <m>\epsilon_k</m>, and the error caused by between-study heterogeneity, <m>\zeta_k</m> (Chapter <xref ref="rem"/>). When we want to quantify between-study heterogeneity, the difficulty is to identify how much of the variation can be attributed to the sampling error, and how much to true effect size differences.
+        Based on the random-effects model, we know that there are two sources of variation causing observed effects to differ from study to study. There is the sampling error <m>\epsilon_k</m>, and the error caused by between-study heterogeneity, <m>\zeta_k</m> (<xref ref="rem"/>). When we want to quantify between-study heterogeneity, the difficulty is to identify how much of the variation can be attributed to the sampling error, and how much to true effect size differences.
       </p>
       <p>
         Traditionally, meta-analysts have used <alert>Cochran's</alert> <m>Q</m> <xref ref="cochran1954some"/> to distinguish studies' sampling error from actual between-study heterogeneity. Cochran's <m>Q</m> is defined as a <alert>weighted sum of squares</alert> (<em>WSS</em>). It uses the deviation of each study's observed effect <m>\hat\theta_k</m> from the summary effect <m>\hat\theta</m>, weighted by the inverse of the study's variance, <m>w_k</m>:
@@ -229,7 +229,7 @@ lines(seq(0, 100, 0.01), dchisq(seq(0, 100, 0.01), df = df),
         This was a somewhat lengthy explanation, yet it may have helped us to better understand how we can exploit the statistical properties of <m>Q</m>. Cochran's <m>Q</m> can be used to <alert>test</alert> if the variation in a meta-analysis significantly exceeds the amount we would expect under the null hypothesis of no heterogeneity. 
       </p>
       <p>
-        This <alert>test of heterogeneity</alert> is commonly used in meta-analyses, and if you go back to Chapter <xref ref="pooling-es"/>, you will see that <alert>{meta}</alert> also provides us with it by default. It is often referred to as <alert>Cochran's</alert> <m>Q</m> <alert>test</alert>, but this is actually a misnomer. Cochran himself never intended <m>Q</m> to be used in this way <xref ref="hoaglin2016misunderstandings"/>.
+        This <alert>test of heterogeneity</alert> is commonly used in meta-analyses, and if you go back to <xref ref="pooling-es"/>, you will see that <alert>{meta}</alert> also provides us with it by default. It is often referred to as <alert>Cochran's</alert> <m>Q</m> <alert>test</alert>, but this is actually a misnomer. Cochran himself never intended <m>Q</m> to be used in this way <xref ref="hoaglin2016misunderstandings"/>.
       </p>
       <p>
         <idx><h>DerSimonian-Laird Estimator</h></idx> <idx><h>I$^2$, Higgins \&amp; Thompson's</h></idx>
@@ -269,7 +269,7 @@ lines(seq(0, 100, 0.01), dchisq(seq(0, 100, 0.01), df = df),
         \begin{equation} I^2 = \frac{Q-(K-1)}{Q} (#eq:het3) \end{equation}
       </p>
       <p>
-        where <m>K</m> is the total number of studies. The value of <m>I^2</m> can not be lower than 0%, so if <m>Q</m> happens to be smaller than <m>K-1</m>, we simply use <m>0</m> instead of a negative value<fn>Please note that, while <m>I^2</m> is often calculated using the formula above, <alert>not all software</alert> follows this definition. In <alert>{metafor}</alert>, for example, its value is derived using the estimated between-study heterogeneity <m>\tau^2</m> (see <url href="https://www.metafor-project.org/doku.php/tips:i2_multilevel_multivariate">here</url>), so that: <me>I^2 = \frac{\hat{\tau}^2}{\hat{\tau}^2 + \tilde{v}};</me> where: <me>\tilde{v} = \frac{(K-1) \sum w_k}{(\sum w_k)^2 - \sum w_k^2}</me> is the "average" or "typical" sampling variance calculated from the weights <m>w_k</m> of all studies <m>k</m> in our sample (see Chapter <xref ref="fem"/>). In contrast to the formula shown before, this way to calculate <m>I^2</m> makes it easier to see that <alert><m>I^2</m> is a <em>relative</em> measure of heterogeneity</alert>. It depends on the "typical" within-study variance <m>\tilde{v}</m>, which can vary form meta-analysis to meta-analysis. We elaborate on this point in Chapter <xref ref="het-measure-which"/>. Please also note that these different formulas can sometimes explain why meta-analysis tools can return <alert>divergent values</alert> of <m>I^2</m>, even though the same data was pooled.</fn>. 
+        where <m>K</m> is the total number of studies. The value of <m>I^2</m> can not be lower than 0%, so if <m>Q</m> happens to be smaller than <m>K-1</m>, we simply use <m>0</m> instead of a negative value<fn>Please note that, while <m>I^2</m> is often calculated using the formula above, <alert>not all software</alert> follows this definition. In <alert>{metafor}</alert>, for example, its value is derived using the estimated between-study heterogeneity <m>\tau^2</m> (see <url href="https://www.metafor-project.org/doku.php/tips:i2_multilevel_multivariate">here</url>), so that: <me>I^2 = \frac{\hat{\tau}^2}{\hat{\tau}^2 + \tilde{v}};</me> where: <me>\tilde{v} = \frac{(K-1) \sum w_k}{(\sum w_k)^2 - \sum w_k^2}</me> is the "average" or "typical" sampling variance calculated from the weights <m>w_k</m> of all studies <m>k</m> in our sample (see <xref ref="fem"/>). In contrast to the formula shown before, this way to calculate <m>I^2</m> makes it easier to see that <alert><m>I^2</m> is a <em>relative</em> measure of heterogeneity</alert>. It depends on the "typical" within-study variance <m>\tilde{v}</m>, which can vary form meta-analysis to meta-analysis. We elaborate on this point in <xref ref="het-measure-which"/>. Please also note that these different formulas can sometimes explain why meta-analysis tools can return <alert>divergent values</alert> of <m>I^2</m>, even though the same data was pooled.</fn>. 
       </p>
       <p>
         We can use our simulated values of <m>Q</m> from before to illustrate how <m>I^2</m> is calculated. First, let us randomly pick the tenth simulated value in <c>Q_fixed</c>, where we assumed no heterogeneity. Then, we use the formula above to calculate <m>I^2</m>.
@@ -343,13 +343,13 @@ k &lt;- 40
       <title>Heterogeneity Variance <m>\tau^2</m> &amp; Standard Deviation <m>\tau</m></title>
 
       <p>
-        We already discussed the heterogeneity variance <m>\tau^2</m> in detail in Chapter <xref ref="rem"/>. As we mentioned there, <m>\tau^2</m> quantifies the <alert>variance</alert> of the true effect sizes underlying our data. When we take the square root of <m>\tau^2</m>, we obtain <m>\tau</m>, which is the <alert>standard deviation</alert> of the true effect sizes. 
+        We already discussed the heterogeneity variance <m>\tau^2</m> in detail in <xref ref="rem"/>. As we mentioned there, <m>\tau^2</m> quantifies the <alert>variance</alert> of the true effect sizes underlying our data. When we take the square root of <m>\tau^2</m>, we obtain <m>\tau</m>, which is the <alert>standard deviation</alert> of the true effect sizes. 
       </p>
       <p>
         A great asset of <m>\tau</m> is that it is expressed on the same scale as the effect size metric. This means that we can interpret it in the same as one would interpret, for example, the mean and standard deviation of the sample's age in a primary study. The value of <m>\tau</m> tells us something about the <alert>range</alert> of the true effect sizes. 
       </p>
       <p>
-        We can, for example, calculate the 95% confidence interval of the true effect sizes by multiplying <m>\tau</m> with 1.96, and then adding and subtracting this value from the pooled effect size. We can try this out using the <c>m.gen</c> meta-analysis we calculated in Chapter <xref ref="pre-calculated-es"/>. 
+        We can, for example, calculate the 95% confidence interval of the true effect sizes by multiplying <m>\tau</m> with 1.96, and then adding and subtracting this value from the pooled effect size. We can try this out using the <c>m.gen</c> meta-analysis we calculated in <xref ref="pre-calculated-es"/>. 
       </p>
       <p>
         Let us have a look again what the pooled effect and <m>\tau</m> estimate in this meta-analysis were:
@@ -371,7 +371,7 @@ m.gen$tau
           <alert>"What's the Uncertainty of Our Uncertainty?": Calculation of Confidence Intervals Around <m>\tau^2</m></alert>
         </p>
         <p>
-          Methods to quantify the uncertainty of our between-study heterogeneity variance estimate (i.e. the confidence intervals around <m>\tau^2</m>) remain a field of ongoing investigation. Several approaches are possible, and their adequateness depends on the type of <m>\tau^2</m> estimator (Chapter <xref ref="tau-estimators"/>). 
+          Methods to quantify the uncertainty of our between-study heterogeneity variance estimate (i.e. the confidence intervals around <m>\tau^2</m>) remain a field of ongoing investigation. Several approaches are possible, and their adequateness depends on the type of <m>\tau^2</m> estimator (<xref ref="tau-estimators"/>). 
         </p>
         <p>
           The <alert>{meta}</alert> package follows the recommendations of Veronikki <xref ref="veroniki2016methods"/> and uses the <m>Q</m><alert>-Profile</alert> method <xref ref="viechtbauer2007confidence"/> for most estimators.
@@ -383,7 +383,7 @@ m.gen$tau
           \begin{equation} Q<em>{\text{gen}} = \sum</em>{k=1}^{K} w^*<em>k (\hat\theta</em>k-\hat\mu)^2 (#eq:het5) \end{equation}
         </p>
         <p>
-          Where <m>w^*_k</m> is the random-effects weight (see Chapter <xref ref="tau-estimators"/>):
+          Where <m>w^*_k</m> is the random-effects weight (see <xref ref="tau-estimators"/>):
         </p>
         <p>
           \begin{equation} w^*<em>k = \frac{1}{s^2</em>k+\tau^2}  (#eq:het6) \end{equation}
@@ -462,7 +462,7 @@ m.gen$tau
     <title>Assessing Heterogeneity in <em>R</em></title>
 
     <p>
-      Let us see how we can use the things we learned about heterogeneity measures in practice. As an illustration, let us examine the heterogeneity of our <c>m.gen</c> meta-analysis object a little closer (we generated this object in Chapter <xref ref="pre-calculated-es"/>). 
+      Let us see how we can use the things we learned about heterogeneity measures in practice. As an illustration, let us examine the heterogeneity of our <c>m.gen</c> meta-analysis object a little closer (we generated this object in <xref ref="pre-calculated-es"/>). 
     </p>
     <p>
       Because the default output of <c>metagen</c> objects does not include prediction intervals, we have to update it first. We simply use the <c>update</c> function, and tell it that we want <c>prediction</c> intervals to be printed out additionally.
@@ -562,7 +562,7 @@ summary(m.gen)
         This "rule of thumb" is somewhat arbitrary, and, knowing the problems of <m>I^2</m> we discussed, in no way perfect. However, it can still be helpful from a practical perspective, because we can specify <alert>a priori</alert>, and in a consistent way, when we will try to get a more robust version of the pooled effect in our meta-analysis. 
       </p>
       <p>
-        What should be avoided at any cost is to remove outlying and/or influential cases without any stringent rationale, just because we like the results. Such outcomes will be heavily biased by our "researcher agenda" (see Chapter <xref ref="pitfalls"/>), even if we did not consciously try to bend the results into a "favorable" direction. 
+        What should be avoided at any cost is to remove outlying and/or influential cases without any stringent rationale, just because we like the results. Such outcomes will be heavily biased by our "researcher agenda" (see <xref ref="pitfalls"/>), even if we did not consciously try to bend the results into a "favorable" direction. 
       </p>
     </note>
   </section>
@@ -835,7 +835,7 @@ plot(m.gen.inf, "influence")
           \begin{equation} \mathrm{DFFITS}<em>k =  \dfrac{\hat\mu-\hat\mu</em>{\setminus k}}{\sqrt{\dfrac{w<em>k^{(*)}}{\sum^{K}</em>{k=1}w<em>k^{(*)}}(s^2</em>k+\hat\tau^2_{\setminus k})}} \end{equation}
         </p>
         <p>
-          For the computation, we also need <m>w_k^{(*)}</m>, the (random-effects) weight of study <m>k</m> (Chapter <xref ref="fem"/>), which is divided by the sum of weights to express the study weight in percent. 
+          For the computation, we also need <m>w_k^{(*)}</m>, the (random-effects) weight of study <m>k</m> (<xref ref="fem"/>), which is divided by the sum of weights to express the study weight in percent. 
         </p>
         <p>
           In general, the <m>\mathrm{DFFITS}</m> value indicates how much the pooled effect changes when a study <m>k</m> is removed, expressed in standard deviations. Again, higher values indicate that a study may be an influential case because its impact on the average effect is larger.
@@ -880,7 +880,7 @@ plot(m.gen.inf, "influence")
           ##### Hat Value and Study Weight
         </p>
         <p>
-          In the last row, we see the study weight and hat value of each study. We already covered the calculation and meaning of study weights extensively in Chapter <xref ref="fem"/>, so this measure does not need much more explanation. The hat value, on the other hand, is simply another metric that is equivalent to the study weight. The pattern of the hat values and weights will therefore be identical in our influence analyses. 
+          In the last row, we see the study weight and hat value of each study. We already covered the calculation and meaning of study weights extensively in <xref ref="fem"/>, so this measure does not need much more explanation. The hat value, on the other hand, is simply another metric that is equivalent to the study weight. The pattern of the hat values and weights will therefore be identical in our influence analyses. 
         </p>
         <p>
           All of these metrics provide us with a value which, if extreme, indicates that the study is an influential case, and may negatively affect the robustness of our pooled result. However, it is less clear when this point is reached. There is no strict rule which <m>\mathrm{DFFITS}</m>, Cook's distance or standardized residual value is <alert>too</alert> high. It is always necessary to evaluate the results of the influence analysis in the context of the research question to determine if it is indicated to remove a study.
@@ -918,7 +918,7 @@ plot(m.gen.inf, "influence")
           <idx><h>Leave-One-Out Method</h></idx> <idx><h>Forest Plot</h></idx>
         </p>
         <p>
-          Lastly, we can also plot the overall effect and <m>I^2</m> heterogeneity of all meta-analyses that were conducted using the leave-one-out method. We can print two <alert>forest plots</alert> (a type of plot we will get to know better in Chapter <xref ref="forest-R"/>), one sorted by the pooled effect size, and the other by the <m>I^2</m> value of the leave-one-out meta-analyses. The code to produce the plots looks like this:
+          Lastly, we can also plot the overall effect and <m>I^2</m> heterogeneity of all meta-analyses that were conducted using the leave-one-out method. We can print two <alert>forest plots</alert> (a type of plot we will get to know better in <xref ref="forest-R"/>), one sorted by the pooled effect size, and the other by the <m>I^2</m> value of the leave-one-out meta-analyses. The code to produce the plots looks like this:
         </p>
         <program language="r">
           <code>
@@ -1180,7 +1180,7 @@ update(m.gen, exclude = c(3, 4, 16)) %&gt;%
           1Removed as outliers: DanitzOrsillo, de Vibe, Shapiro.
         </p>
         <p>
-          This type of table is very convenient because we can also add further rows with results of other sensitivity analyses. For example, if we conduct an analysis in which only studies with a low risk of bias (Chapter <xref ref="data-extraction"/>) were considered, we could report the results in a third row.
+          This type of table is very convenient because we can also add further rows with results of other sensitivity analyses. For example, if we conduct an analysis in which only studies with a low risk of bias (<xref ref="data-extraction"/>) were considered, we could report the results in a third row.
         </p>
       </note>
     </subsection>

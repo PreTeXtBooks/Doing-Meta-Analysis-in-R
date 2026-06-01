@@ -34,7 +34,7 @@
       Therefore, it is important to first discuss the core components and assumptions of network meta-analysis models. The underpinnings of network meta-analysis can be a little abstract at times. We will therefore go through the essential details in small steps, in order to get a better understanding of this method.
     </p>
     <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="sem"/> and then continue with Chapter <xref ref="bayesian-ma"/>.
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="sem"/> and then continue with <xref ref="bayesian-ma"/>.
     </p>
     <p>
       For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
@@ -278,16 +278,16 @@
         This is where the <alert>graph theoretical</alert> approach implemented in the <alert>{netmeta}</alert> provides a solution. We will spare you the tedious mathematical details behind this approach, particularly since that the <alert>{netmeta}</alert> package will do the heavy lifting for us anyway. Let us only mention that this approach involves constructing a so-called <alert>Moore-Penrose pseudoinverse matrix</alert>, which then allows for calculating the fitted values of our network model using a weighted least squares approach. 
       </p>
       <p>
-        The procedure also takes care of <alert>multi-arm</alert> studies, which contribute more than one pairwise comparison (i.e. studies in which more than two conditions were compared). Multi-arm comparisons are <alert>correlated</alert> because at least one condition is compared more than once (Chapter <xref ref="unit-of-analysis"/>). This means that the precision of multi-arm study comparisons is artificially increased--unless this is accounted for in our model. 
+        The procedure also takes care of <alert>multi-arm</alert> studies, which contribute more than one pairwise comparison (i.e. studies in which more than two conditions were compared). Multi-arm comparisons are <alert>correlated</alert> because at least one condition is compared more than once (<xref ref="unit-of-analysis"/>). This means that the precision of multi-arm study comparisons is artificially increased--unless this is accounted for in our model. 
       </p>
       <p>
-        The model also allows us to incorporate estimates of between-study heterogeneity. Like in the "conventional" random-effects model (Chapter <xref ref="rem"/>), this is achieved by adding the estimated heterogeneity variance <m>\hat\tau^2</m> to the variance of a comparison <m>m</m>: <m>s^2_m + \hat\tau^2</m>. In the <alert>{netmeta}</alert> package, the <m>\tau^2</m> values are estimated using an adaptation of the DerSimonian-Laird estimator <xref ref="jackson2013matrix"/>. 
+        The model also allows us to incorporate estimates of between-study heterogeneity. Like in the "conventional" random-effects model (<xref ref="rem"/>), this is achieved by adding the estimated heterogeneity variance <m>\hat\tau^2</m> to the variance of a comparison <m>m</m>: <m>s^2_m + \hat\tau^2</m>. In the <alert>{netmeta}</alert> package, the <m>\tau^2</m> values are estimated using an adaptation of the DerSimonian-Laird estimator <xref ref="jackson2013matrix"/>. 
       </p>
       <p>
         <idx><h>Consistency</h></idx>
       </p>
       <p>
-        An equivalent of <m>I^2</m> can also be calculated, which now represents the amount of <alert>inconsistency</alert> in our network. Like in Higgins and Thompson's formula (see Chapter <xref ref="i-squared"/>), this <m>I^2</m> version is derived from <m>Q</m>. In network meta-analyses, however, <m>Q</m> translates to the total heterogeneity in the <alert>network</alert> (also denoted with <m>Q_{\text{total}}</m>). Thus, the following formula is used:
+        An equivalent of <m>I^2</m> can also be calculated, which now represents the amount of <alert>inconsistency</alert> in our network. Like in Higgins and Thompson's formula (see <xref ref="i-squared"/>), this <m>I^2</m> version is derived from <m>Q</m>. In network meta-analyses, however, <m>Q</m> translates to the total heterogeneity in the <alert>network</alert> (also denoted with <m>Q_{\text{total}}</m>). Thus, the following formula is used:
       </p>
       <p>
         \begin{equation} I^2 = \text{max} \left(\frac{Q<em>{\text{total}}-\text{d.f.}} {Q</em>{\text{total}}}, 0 \right)  (#eq:nw6) \end{equation}
@@ -348,7 +348,7 @@ head(TherapyFormats[1:5])
         <ul>
           <li>
             <p>
-              The second column, <c>TE</c>, contains the effect size of all comparisons, and <c>seTE</c> the respective standard error. To use <alert>{netmeta}</alert>, all effect sizes in our data set must be pre-calculated already. In Chapter <xref ref="effects"/>, we already covered how the most common effect sizes can be calculated, and additional tools can be found in Chapter <xref ref="es-calc"/>.
+              The second column, <c>TE</c>, contains the effect size of all comparisons, and <c>seTE</c> the respective standard error. To use <alert>{netmeta}</alert>, all effect sizes in our data set must be pre-calculated already. In <xref ref="effects"/>, we already covered how the most common effect sizes can be calculated, and additional tools can be found in <xref ref="es-calc"/>.
             </p>
           </li>
           <li>
@@ -780,7 +780,7 @@ netrank(m.netmeta, small.values = "good")
           <idx><h>Forest Plot</h></idx>
         </p>
         <p>
-          In <alert>{netmeta}</alert>, this can be achieved using the <c>forest</c> function. The <c>forest</c> function in <alert>{netmeta}</alert>  works very similar to the one of the <alert>{meta}</alert> package, which we already described in Chapter <xref ref="forest"/>. The main difference is that we need to specify the reference group in the forest plot using the <c>reference.group</c> argument. We use care us usual (<c>"cau"</c>) again.
+          In <alert>{netmeta}</alert>, this can be achieved using the <c>forest</c> function. The <c>forest</c> function in <alert>{netmeta}</alert>  works very similar to the one of the <alert>{meta}</alert> package, which we already described in <xref ref="forest"/>. The main difference is that we need to specify the reference group in the forest plot using the <c>reference.group</c> argument. We use care us usual (<c>"cau"</c>) again.
         </p>
         <program language="r">
           <code>
@@ -908,13 +908,13 @@ netsplit(m.netmeta) %&gt;% forest()
           <idx><h>Funnel Plot</h></idx>
         </p>
         <p>
-          Assessing publication bias in network meta-analysis models is difficult. Most of the techniques that we covered in Chapter <xref ref="pub-bias"/> are not directly applicable once we make the step from conventional to network meta-analysis. <alert>Comparison-adjusted funnel plots</alert>, however, have been proposed to evaluate the risk of publication bias in network meta-analyses, and can be used in some contexts <xref ref="salanti2014evaluating"/>. Such funnel plots are applicable when we have a <alert>specific</alert> hypothesis concerning how publication bias has affected our network model. 
+          Assessing publication bias in network meta-analysis models is difficult. Most of the techniques that we covered in <xref ref="pub-bias"/> are not directly applicable once we make the step from conventional to network meta-analysis. <alert>Comparison-adjusted funnel plots</alert>, however, have been proposed to evaluate the risk of publication bias in network meta-analyses, and can be used in some contexts <xref ref="salanti2014evaluating"/>. Such funnel plots are applicable when we have a <alert>specific</alert> hypothesis concerning how publication bias has affected our network model. 
         </p>
         <p>
           Publication bias may be created, for example, because studies with "novel" findings are more likely to get published--even if they have a small sample size. There is a natural incentive in science to produce "groundbreaking" results, for example to show that a new type of treatment is superior to the current state of the art. 
         </p>
         <p>
-          This would mean that something similar to small-study effects (see Chapter <xref ref="small-study-effects"/>) exists in our data. We would expect that effects of comparisons in which a new treatment was compared to an older one are <alert>asymmetrically</alert> distributed in the funnel plot. This is because "disappointing" results (i.e. the new treatment is not better than the old one) end up in the file drawer. With decreasing sample size, the benefit of the new treatment must be increasingly large to become significant, and thus merit publication. In theory, this would create the characteristic asymmetrical funnel plot that we also find in standard meta-analyses. 
+          This would mean that something similar to small-study effects (see <xref ref="small-study-effects"/>) exists in our data. We would expect that effects of comparisons in which a new treatment was compared to an older one are <alert>asymmetrically</alert> distributed in the funnel plot. This is because "disappointing" results (i.e. the new treatment is not better than the old one) end up in the file drawer. With decreasing sample size, the benefit of the new treatment must be increasingly large to become significant, and thus merit publication. In theory, this would create the characteristic asymmetrical funnel plot that we also find in standard meta-analyses. 
         </p>
         <p>
           Of course, such a pattern will only appear when the effect sizes in our plot are coded in a certain way. To test our "new versus old" hypothesis, for example, we have to make sure that each effect size used in the plot can has the same interpretation. We have to make sure that (for example) a positive effect size always indicates that the "new" treatment was superior, while a negative sign means the opposite. We can do this by defining a "ranking" of treatments from old to new, and by using this ranking to define the sign of each effect. 
@@ -940,7 +940,7 @@ netsplit(m.netmeta) %&gt;% forest()
           </li>
           <li>
             <p>
-              <alert><c>linreg</c></alert>.	When set to <c>TRUE</c>, Egger's test for funnel plot asymmetry (Chapter <xref ref="eggers-test"/>) is conducted, and its <m>p</m>-value is displayed in the plot.
+              <alert><c>linreg</c></alert>.	When set to <c>TRUE</c>, Egger's test for funnel plot asymmetry (<xref ref="eggers-test"/>) is conducted, and its <m>p</m>-value is displayed in the plot.
             </p>
           </li>
         </ul>
@@ -1067,10 +1067,10 @@ funnel(m.netmeta,
           <idx><h>Bayesian Hierarchical Model</h></idx>
         </p>
         <p>
-          This definition is equivalent to the one provided in Chapter <xref ref="rem"/>, where we discuss the "standard" random-effects model. What we describe in the following is simply the "Bayesian way" to conceptualize meta-analysis. On the other hand, this Bayesian definition of pairwise meta-analysis is already very informative, because it is directly applicable to network meta-analyses, without any further extension <xref ref="dias2013evidence"/>. 
+          This definition is equivalent to the one provided in <xref ref="rem"/>, where we discuss the "standard" random-effects model. What we describe in the following is simply the "Bayesian way" to conceptualize meta-analysis. On the other hand, this Bayesian definition of pairwise meta-analysis is already very informative, because it is directly applicable to network meta-analyses, without any further extension <xref ref="dias2013evidence"/>. 
         </p>
         <p>
-          We refer to this model as a Bayesian <alert>hierarchical</alert> model <xref ref="efthimiou2016getreal"/>. There is nothing mysterious about the word "hierarchical" here. Indeed, we already described in Chapter <xref ref="multilevel-ma"/> that every meta-analysis model presupposes a hierarchical, or “multi-level” structure.
+          We refer to this model as a Bayesian <alert>hierarchical</alert> model <xref ref="efthimiou2016getreal"/>. There is nothing mysterious about the word "hierarchical" here. Indeed, we already described in <xref ref="multilevel-ma"/> that every meta-analysis model presupposes a hierarchical, or “multi-level” structure.
         </p>
         <p>
           Suppose that we want to conduct a conventional meta-analysis. We have included <m>K</m> studies, and have calculated an observed effect size <m>\hat\theta_k</m> for each one. We can then define the fixed-effect model like so:
@@ -1147,7 +1147,7 @@ library(gemtc)
         <idx><h>Gibbs Sampler</h></idx> <idx><h>JAGS</h></idx> <idx><h>rjags Package</h></idx>
       </p>
       <p>
-        The <alert>{gemtc}</alert> package depends on <alert>{rjags}</alert> <xref ref="rjags"/>, which is used for the Gibbs sampling procedure that we described before (Chapter <xref ref="bayesian-inference"/>). However, before we install and load this package, we first have to install another software called <alert>JAGS</alert> (short for “Just Another Gibbs Sampler”). The software is available for both Windows and Mac, and you can download it for free from the <url href="https://sourceforge.net/projects/mcmc-jags/files/">Internet</url>. After this is completed, we can install and load the <alert>{rjags}</alert> package<fn>Technically speaking, <alert>JAGS</alert> is not only a computer program, but also a programming language for Bayesian modeling that <alert>{gemtc}</alert> uses in the background (you can find the manual <url href="https://people.stat.sc.edu/hansont/stat740/jags_user_manual.pdf">here</url>). JAGS itself relies heavily on the <alert>BUGS</alert> (short for "Bayesian inference Using Gibbs Sampling) language, which exists since the late 1980s <xref ref="lunn2012bugs"/>.</fn>.
+        The <alert>{gemtc}</alert> package depends on <alert>{rjags}</alert> <xref ref="rjags"/>, which is used for the Gibbs sampling procedure that we described before (<xref ref="bayesian-inference"/>). However, before we install and load this package, we first have to install another software called <alert>JAGS</alert> (short for “Just Another Gibbs Sampler”). The software is available for both Windows and Mac, and you can download it for free from the <url href="https://sourceforge.net/projects/mcmc-jags/files/">Internet</url>. After this is completed, we can install and load the <alert>{rjags}</alert> package<fn>Technically speaking, <alert>JAGS</alert> is not only a computer program, but also a programming language for Bayesian modeling that <alert>{gemtc}</alert> uses in the background (you can find the manual <url href="https://people.stat.sc.edu/hansont/stat740/jags_user_manual.pdf">here</url>). JAGS itself relies heavily on the <alert>BUGS</alert> (short for "Bayesian inference Using Gibbs Sampling) language, which exists since the late 1980s <xref ref="lunn2012bugs"/>.</fn>.
       </p>
       <program language="r">
         <code>
@@ -1316,7 +1316,7 @@ plot(network,
           <idx><h>Markov Chain Monte Carlo</h></idx>
         </p>
         <p>
-          Thus, there are only a few arguments we have to specify when compiling our model using the <c>mtc.model</c> function. First, we have to specify the <c>mtc.network</c> object we have created before. Furthermore, we have to decide if we want to use a random- or fixed effects model using the <c>linearModel</c> argument. Given that our previous frequentist analysis indicated substantial heterogeneity and inconsistency (see Chapter <xref provisional="net-heat-plot"/>), we will use <c>linearModel = "random"</c>. We also have to specify the number of <alert>Markov chains</alert> we want to use. A value between 3 and 4 is sensible here, and we take <c>n.chain = 4</c>. 
+          Thus, there are only a few arguments we have to specify when compiling our model using the <c>mtc.model</c> function. First, we have to specify the <c>mtc.network</c> object we have created before. Furthermore, we have to decide if we want to use a random- or fixed effects model using the <c>linearModel</c> argument. Given that our previous frequentist analysis indicated substantial heterogeneity and inconsistency (see <xref provisional="net-heat-plot"/>), we will use <c>linearModel = "random"</c>. We also have to specify the number of <alert>Markov chains</alert> we want to use. A value between 3 and 4 is sensible here, and we take <c>n.chain = 4</c>. 
         </p>
         <p>
           There are two additional, optional arguments called <c>likelihood</c> and <c>link</c>. These two arguments vary depending on the type of effect size data we are using, and are automatically inferred by <alert>{gemtc}</alert> unless explicitly specified. Since we are dealing with effect sizes based on continuous outcome data (viz. SMDs), we are assuming a <c>"normal"</c> likelihood along with an <c>"identity"</c> link. 
@@ -1442,7 +1442,7 @@ gelman.diag(mcmc2)$mpsrf
         <title>Assessing Inconsistency: The Nodesplit Method</title>
 
         <p>
-          Like the <alert>{netmeta}</alert> package, <alert>{gemtc}</alert> package also provides us with a way to evaluate the consistency of our network model: the <em>nodesplit</em> method (Dias et al., 2010). The idea behind this procedure is similar to the one of the net splitting method that we described before (Chapter <xref provisional="net-splitting"/>). To perform a <em>nodesplit</em> analysis, we use the <c>mtc.nodesplit</c> function, using the same settings as in <c>mcmc2</c>. We save the result as <c>nodesplit</c>. 
+          Like the <alert>{netmeta}</alert> package, <alert>{gemtc}</alert> package also provides us with a way to evaluate the consistency of our network model: the <em>nodesplit</em> method (Dias et al., 2010). The idea behind this procedure is similar to the one of the net splitting method that we described before (<xref provisional="net-splitting"/>). To perform a <em>nodesplit</em> analysis, we use the <c>mtc.nodesplit</c> function, using the same settings as in <c>mcmc2</c>. We save the result as <c>nodesplit</c>. 
         </p>
         <p>
           Please be aware that the nodesplit model computation may take a long time, even up to several hours, depending on the complexity of your network.
@@ -1638,7 +1638,7 @@ save(results, file = "results.csv")
         <idx><h>Meta-Regression</h></idx> <idx><h>gemtc Package</h></idx>
       </p>
       <p>
-        A big asset of the <alert>{gemtc}</alert> package is that it allows us to conduct <alert>network meta-regression</alert>. Much like conventional meta-regression (Chapter <xref ref="metareg"/>), we can use this functionality to determine if specific study characteristics influence the magnitude of effect sizes found in our network. It can also be a helpful tool to check for variables that may explain inconsistency.
+        A big asset of the <alert>{gemtc}</alert> package is that it allows us to conduct <alert>network meta-regression</alert>. Much like conventional meta-regression (<xref ref="metareg"/>), we can use this functionality to determine if specific study characteristics influence the magnitude of effect sizes found in our network. It can also be a helpful tool to check for variables that may explain inconsistency.
       </p>
       <p>
         <idx><h>Risk of Bias</h></idx>

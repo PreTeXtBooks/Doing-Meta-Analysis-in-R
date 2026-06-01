@@ -46,7 +46,7 @@
       R Studio is an optimal tool to create a reproducible workflow and to facilitate cooperation. In this chapter, we introduce three tools to reproduce, report and disseminate our analyses: <em>R</em> Projects, <alert>R Markdown</alert>, and the <alert>Open Science Framework</alert>.
     </p>
     <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="risk-of-bias-plots"/> and then continue with Chapter <xref ref="es-calc"/>.
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="risk-of-bias-plots"/> and then continue with <xref ref="es-calc"/>.
     </p>
     <p>
       For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
@@ -84,7 +84,7 @@
       <image source="generated/rproj4_col.png"/>
     </figure>
     <p>
-      After clicking on <alert>Create Project</alert>, the <em>R</em> project is set. A great feature of <em>R</em> projects is that we do not have to use <alert>absolute paths</alert> to the files we want to reference. We only use the file name, or, if the file is in a (sub-)folder, the folder and file name. Suppose that we stored our data set <alert>data.xlsx</alert> in the sub-folder "data". Using the <alert>{openxlsx}</alert> package (Chapter <xref ref="data-prep-R"/>), we can import the data set with a relative path.
+      After clicking on <alert>Create Project</alert>, the <em>R</em> project is set. A great feature of <em>R</em> projects is that we do not have to use <alert>absolute paths</alert> to the files we want to reference. We only use the file name, or, if the file is in a (sub-)folder, the folder and file name. Suppose that we stored our data set <alert>data.xlsx</alert> in the sub-folder "data". Using the <alert>{openxlsx}</alert> package (<xref ref="data-prep-R"/>), we can import the data set with a relative path.
     </p>
     <program language="r">
       <code>
@@ -287,7 +287,7 @@ osf_download(osf_ls_files(scripts)[1,])
         <image source="generated/osf6_col.png"/>
       </figure>
       <p>
-        In Chapter <xref ref="analysis-plan"/>, we discussed that analysis plans and pre-registration are essential parts of a high-quality meta-analysis. The OSF makes it very convenient to also create an openly accessible pre-registration for our project. We simply have to click on the <alert>Registrations</alert> button on top, and then create a <alert>New registration</alert>. This leads us to the <alert>OSF Registries</alert> website, where we can provide detailed information on our planned study, including our analysis plan. 
+        In <xref ref="analysis-plan"/>, we discussed that analysis plans and pre-registration are essential parts of a high-quality meta-analysis. The OSF makes it very convenient to also create an openly accessible pre-registration for our project. We simply have to click on the <alert>Registrations</alert> button on top, and then create a <alert>New registration</alert>. This leads us to the <alert>OSF Registries</alert> website, where we can provide detailed information on our planned study, including our analysis plan. 
       </p>
       <p>
         After specifying all the required details, the study can be registered. This creates a register entry that can be accessed through a unique ID (e.g. <alert>osf.io/q2jp7</alert>). After the registration is completed, it is not possible to change the stated search plan, hypotheses and/or analysis strategy anymore.
