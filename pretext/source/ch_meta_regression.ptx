@@ -132,7 +132,7 @@
         To the intercept, the term <m>\beta x_k</m> is added. This part produces a <alert>regression slope</alert>: the continuous variable <m>x</m> is multiplied with the <alert>regression weight</alert> <m>\beta</m>, thus lowering or elevating the predicted effect for different values of the covariate. 
       </p>
       <p>
-        The aim of the meta-regression model is to find values of <m>\theta</m> and <m>\beta</m> which minimize the difference between the <alert>predicted</alert> effect size, and the <alert>true</alert> effect size of studies (see Figure <xref ref="fig-subgroups3"/>).
+        The aim of the meta-regression model is to find values of <m>\theta</m> and <m>\beta</m> which minimize the difference between the <alert>predicted</alert> effect size, and the <alert>true</alert> effect size of studies (see <xref ref="fig-subgroups3"/>).
       </p>
       <p>
         Looking closely at the meta-regression formula, we see that it contains two types of terms. Some terms include a subscript <m>k</m>, while others do not. A subscript <m>k</m> indicates that a value <alert>varies</alert> from study to study. When a term does not include a subscript <m>k</m>, this means that it stays the same for all studies.

@@ -62,7 +62,7 @@
       </li>
       <li>
         <p>
-          The first time you open R Studio, it will probably look a lot like in Figure <xref ref="fig-rstudio-1"/>. There are three panes in R Studio. In the upper right corner, we have the <alert>Environment</alert> pane, which displays objects that we defined (i.e. saved) internally in <em>R</em>. In the bottom right corner, you can find the <alert>Files, Plots, Packages and Help</alert> pane. This pane serves several functions; for example, it is used to display files on your computer, show plots and installed packages, and to access the help pages. The heart of R Studio, however, is the left side, where you can find the <alert>Console</alert>. The console is where all the <em>R</em> code is entered and then run.
+          The first time you open R Studio, it will probably look a lot like in <xref ref="fig-rstudio-1"/>. There are three panes in R Studio. In the upper right corner, we have the <alert>Environment</alert> pane, which displays objects that we defined (i.e. saved) internally in <em>R</em>. In the bottom right corner, you can find the <alert>Files, Plots, Packages and Help</alert> pane. This pane serves several functions; for example, it is used to display files on your computer, show plots and installed packages, and to access the help pages. The heart of R Studio, however, is the left side, where you can find the <alert>Console</alert>. The console is where all the <em>R</em> code is entered and then run.
         </p>
       </li>
     </ol>
@@ -136,7 +136,7 @@ install.packages("metafor")
       </code>
     </program>
     <p>
-      Simply type the code above into the console; then hit Enter to start the installation (see Figure <xref ref="fig-rstudio-1"/>).
+      Simply type the code above into the console; then hit Enter to start the installation (see <xref ref="fig-rstudio-1"/>).
     </p>
     <note>
       <p>
