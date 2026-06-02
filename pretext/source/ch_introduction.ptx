@@ -31,12 +31,6 @@
     <p>
       It is an inconvenient truth that the scientific process, when left to its own devices, will not automatically move us to the best of all possible worlds. With unprecedented amounts of research findings produced each day, it is even more important to view and critically appraise bodies of evidence <alert>in their entirety</alert>. Meta-analysis can be  enormously helpful in achieving this, as long as we acknowledge its own limitations and biases.
     </p>
-    <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, continue with <xref ref="discovering-R"/>.
-    </p>
-    <p>
-      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
-    </p>
   </introduction>
 
   <section xml:id="what-are-mas">
