@@ -10,7 +10,7 @@
       <idx><h>meta Package</h></idx>
     </p>
     <p>
-      A problem meta-analysts frequently face is that suitable "raw" effect size data cannot be extracted from all included studies. Most functions in the <alert>{meta}</alert> package, such as <c>metacont</c> (Chapter <xref ref="pooling-smd"/>) or <c>metabin</c> (Chapter <xref ref="pooling-or-rr"/>), can only be used when complete raw effect size data is available. 
+      A problem meta-analysts frequently face is that suitable "raw" effect size data cannot be extracted from all included studies. Most functions in the <alert>{meta}</alert> package, such as <c>metacont</c> (<xref ref="pooling-smd"/>) or <c>metabin</c> (<xref ref="pooling-or-rr"/>), can only be used when complete raw effect size data is available. 
     </p>
     <p>
       In practice, this often leads to difficulties. Some published articles, particularly older ones, do not report results in a way that allows to extract the needed (raw) effect size data. It is not uncommon to find that a study reports the results of a <m>t</m>-test, one-way ANOVA, or <m>\chi^2</m>-test, but not the group-wise mean and standard deviation, or the number of events in the study conditions, that we need for our meta-analysis. 
@@ -19,10 +19,10 @@
       <idx><h>esc Package</h></idx>
     </p>
     <p>
-      The good news is that we can sometimes <alert>convert</alert> reported information into the desired effect size format. This makes it possible to include affected studies in a meta-analysis with <alert>pre-calculated</alert> data (Chapter <xref ref="pre-calculated-es"/>) using <c>metagen</c>. For example, we can convert the results of a two-sample <m>t</m>-test to a standardized mean difference and its standard error, and then use <c>metagen</c> to perform a meta-analysis of pre-calculated SMDs. The <alert>{esc}</alert> package <xref ref="esc"/> provides several helpful functions which allow us to perform such conversions directly in <em>R</em>.
+      The good news is that we can sometimes <alert>convert</alert> reported information into the desired effect size format. This makes it possible to include affected studies in a meta-analysis with <alert>pre-calculated</alert> data (<xref ref="pre-calculated-es"/>) using <c>metagen</c>. For example, we can convert the results of a two-sample <m>t</m>-test to a standardized mean difference and its standard error, and then use <c>metagen</c> to perform a meta-analysis of pre-calculated SMDs. The <alert>{esc}</alert> package <xref ref="esc"/> provides several helpful functions which allow us to perform such conversions directly in <em>R</em>.
     </p>
     <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="reporting-reproducibility"/>.
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="reporting-reproducibility"/>.
     </p>
     <p>
       For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
@@ -313,7 +313,7 @@ se.from.p(0.91, p = 0.38, N = 200,
       </code>
     </program>
     <p>
-      When <c>effect.size.type = "ratio"</c>, the function automatically also calculates the <alert>log-transformed</alert> effect size and standard error, which are needed to use the  <c>metagen</c> function (Chapter <xref ref="pre-calculated-es"/>).
+      When <c>effect.size.type = "ratio"</c>, the function automatically also calculates the <alert>log-transformed</alert> effect size and standard error, which are needed to use the  <c>metagen</c> function (<xref ref="pre-calculated-es"/>).
     </p>
   </section>
 
@@ -354,7 +354,7 @@ esc_chisq(chisq = 7.9,        # chi-squared value
       \begin{equation} \text{NNT} = (p<em>{e</em>{\text{treat}}}-p<em>{e</em>{\text{control}}})^{-1} (#eq:esc6) \end{equation}
     </p>
     <p>
-      In this formula, <m>p_{e_{\text{treat}}}</m> and <m>p_{e_{\text{control}}}</m> are the proportions of participants who experienced the event in the treatment and control group, respectively. These proportions are identical to the "risks" used to calculate the risk ratio (Chapter <xref ref="rr"/>), and also known as the <alert>experimental group event rate</alert> (EER) and <alert>control group event rate</alert> (CER). Given its formula, the NTT can also be described as the inverse of the (absolute) risk difference.
+      In this formula, <m>p_{e_{\text{treat}}}</m> and <m>p_{e_{\text{control}}}</m> are the proportions of participants who experienced the event in the treatment and control group, respectively. These proportions are identical to the "risks" used to calculate the risk ratio (<xref ref="rr"/>), and also known as the <alert>experimental group event rate</alert> (EER) and <alert>control group event rate</alert> (CER). Given its formula, the NTT can also be described as the inverse of the (absolute) risk difference.
     </p>
     <p>
       Converting standardized mean differences or Hedges' <m>g</m> to a NNT is more complicated. There are two commonly used methods:
@@ -375,7 +375,7 @@ esc_chisq(chisq = 7.9,        # chi-squared value
       </li>
     </ul>
     <p>
-      When we use risk or odds ratios as effect size measures, NNTs can be calculated directly from <alert>{meta}</alert> objects using the <c>nnt</c> function. After running our meta-analysis using <c>metabin</c> (Chapter <xref ref="pooling-or-rr"/>), we only have to plug the results into the <c>nnt</c> function. Here is an example:
+      When we use risk or odds ratios as effect size measures, NNTs can be calculated directly from <alert>{meta}</alert> objects using the <c>nnt</c> function. After running our meta-analysis using <c>metabin</c> (<xref ref="pooling-or-rr"/>), we only have to plug the results into the <c>nnt</c> function. Here is an example:
     </p>
     <program language="r">
       <code>
@@ -393,7 +393,7 @@ nnt(m.b)
       The <c>nnt</c> function provides the number needed to treat for different assumed CERs. The three lines show the result for the minimum, mean, and maximum CER in our data set. The mean CER estimate is the "typical" NNT that is usually reported. 
     </p>
     <p>
-      It is also possible to use <c>nnt</c> with <c>metagen</c> models, as long as the summary measure <c>sm</c> is either <c>"RR"</c> or <c>"OR"</c>. For such models, we also need to specify the assumed CER in the <c>p.c</c> argument in <c>nnt</c>. Here is an example using the <c>m.gen_bin</c> meta-analysis object we created in Chapter <xref provisional="m-gen-bin"/>:
+      It is also possible to use <c>nnt</c> with <c>metagen</c> models, as long as the summary measure <c>sm</c> is either <c>"RR"</c> or <c>"OR"</c>. For such models, we also need to specify the assumed CER in the <c>p.c</c> argument in <c>nnt</c>. Here is an example using the <c>m.gen_bin</c> meta-analysis object we created in <xref provisional="m-gen-bin"/>:
     </p>
     <program language="r">
       <code>
@@ -460,7 +460,7 @@ NNT(d = 0.245, CER = 0.35)
       <idx><h>Unit-of-Analysis Problem</h></idx>
     </p>
     <p>
-      To avoid unit-of-analysis errors (Chapter <xref ref="unit-of-analysis"/>), it is sometimes necessary to pool the mean and standard deviation of two or more trial arms before calculating a (standardized) mean difference. To pool continuous effect size data of two groups, we can use these equations:
+      To avoid unit-of-analysis errors (<xref ref="unit-of-analysis"/>), it is sometimes necessary to pool the mean and standard deviation of two or more trial arms before calculating a (standardized) mean difference. To pool continuous effect size data of two groups, we can use these equations:
     </p>
     <p>
       \begin{align} n<em>{\text{pooled}} &amp;= n</em>1 + n<em>2  \ m</em>{\text{pooled}} &amp;= \frac{n<em>1m</em>1+n<em>2m</em>2}{n<em>1+n</em>2} \ SD<em>{\text{pooled}} &amp;= \sqrt{\frac{(n</em>1-1)SD^{2}<em>{1}+ (n</em>2-1)SD^{2}<em>{2}+\frac{n</em>1n<em>2}{n</em>1+n<em>2}(m^{2}</em>1+m^{2}<em>2-2m</em>1m<em>2)} {n</em>1+n_2-1}} \end{align}
@@ -509,10 +509,10 @@ pool.groups(n1 = 50,   # sample size group 1
     <title>Aggregation of Effect Sizes</title>
 
     <p>
-      The <c>aggregate</c> function in <alert>{metafor}</alert> can be used to aggregate several dependent, <alert>pre-calculated effect sizes</alert> into one estimate, for example because they are part of the same study or cluster. This is a way to avoid the <alert>unit-of-analysis error</alert> (see Chapter <xref ref="unit-of-analysis"/>), but requires us to assume a value for the within-study correlation, which is typically unknown. Another (and often preferable) way to deal with effect size dependencies are (correlated) hierarchical models, which are illustrated in Chapter <xref ref="multilevel-ma"/>. 
+      The <c>aggregate</c> function in <alert>{metafor}</alert> can be used to aggregate several dependent, <alert>pre-calculated effect sizes</alert> into one estimate, for example because they are part of the same study or cluster. This is a way to avoid the <alert>unit-of-analysis error</alert> (see <xref ref="unit-of-analysis"/>), but requires us to assume a value for the within-study correlation, which is typically unknown. Another (and often preferable) way to deal with effect size dependencies are (correlated) hierarchical models, which are illustrated in <xref ref="multilevel-ma"/>. 
     </p>
     <p>
-      In this example, we aggregate effect sizes of the <c>Chernobyl</c> data set (see Chapter <xref ref="multilevel-R"/>), so that each study only provides one effect size:
+      In this example, we aggregate effect sizes of the <c>Chernobyl</c> data set (see <xref ref="multilevel-R"/>), so that each study only provides one effect size:
     </p>
     <program language="r">
       <code>

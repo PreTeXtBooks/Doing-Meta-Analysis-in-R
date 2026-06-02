@@ -22,7 +22,7 @@
       The <alert>{meta}</alert> package has an in-built function which makes it very easy to produce beautiful forest plots directly in <em>R</em>. The function has a broad functionality and allows one to change the appearance of the plot as desired. This forest plot function, and how we can use it in practice, will be the main focus of this chapter. Furthermore, we will also briefly discuss an alternative approach to visualize the results of a meta-analysis.
     </p>
     <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="heterogeneity"/> and then continue with Chapter <xref ref="subgroup"/>.
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="heterogeneity"/> and then continue with <xref ref="subgroup"/>.
     </p>
     <p>
       For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
@@ -33,7 +33,7 @@
     <title>What Is a Forest Plot?</title>
 
     <p>
-      Figure <xref ref="fig-forest"/> shows the main components of a forest plot. On the left side, forest plots display the name of each study included in the meta-analysis. For each study, a graphical representation of the effect size is provided, usually in the center of the plot. This visualization shows the point estimate of a study on the x-axis. This point estimate is supplemented by a line, which represents the range of the confidence interval calculated for the observed effect size. Usually, the point estimate is surrounded by a square. The size of this square is determined by the weight (Chapter <xref ref="fem"/>) of the effect size: studies with a larger weight are given a larger square, while studies with a lower weight have a smaller square. 
+      <xref ref="fig-forest"/> shows the main components of a forest plot. On the left side, forest plots display the name of each study included in the meta-analysis. For each study, a graphical representation of the effect size is provided, usually in the center of the plot. This visualization shows the point estimate of a study on the x-axis. This point estimate is supplemented by a line, which represents the range of the confidence interval calculated for the observed effect size. Usually, the point estimate is surrounded by a square. The size of this square is determined by the weight (<xref ref="fem"/>) of the effect size: studies with a larger weight are given a larger square, while studies with a lower weight have a smaller square. 
     </p>
     <p>
       Conventionally, a forest plot should also contain the effect size data that was used to perform the meta-analysis. This provides others with the data needed to replicate our results.
@@ -52,7 +52,7 @@
       Effect size and confidence intervals in forest plots are usually displayed on a linear scale. Yet, when the summary measure is a <alert>ratio</alert> (such as odds ratios or risk ratios), it is common to use a <alert>logarithmic</alert> scale on the x-axis instead. This means that values around 1 are more closely together than values which are much lower or higher than 1. 
     </p>
     <p>
-      This makes sense for ratios since these effect size metrics cannot be interpreted in a "linear" fashion (i.e. the "opposite" of RR = 0.50 is 2, not 1.5; see Chapter <xref ref="ratios"/>). The reference line for such effect sizes is usually 1, which indicates no effect.
+      This makes sense for ratios since these effect size metrics cannot be interpreted in a "linear" fashion (i.e. the "opposite" of RR = 0.50 is 2, not 1.5; see <xref ref="ratios"/>). The reference line for such effect sizes is usually 1, which indicates no effect.
     </p>
   </section>
 
@@ -164,7 +164,7 @@ meta::forest(m.gen,
       We could enhance the plot by adding a column displaying the risk of bias of each study. The <c>ThirdWave</c> data set, which we used to generate <c>m.gen</c>, contains a column called <c>RiskOfBias</c>, in which the risk of bias assessment of each study is stored. 
     </p>
     <p>
-      When we used <c>metagen</c> to calculate the meta-analysis (Chapter <xref ref="pre-calculated-es"/>), the function automatically saved this data within <c>m.gen</c>. Therefore, we can use the <c>leftcols</c> argument to add the column to the plot. This results in the following code:
+      When we used <c>metagen</c> to calculate the meta-analysis (<xref ref="pre-calculated-es"/>), the function automatically saved this data within <c>m.gen</c>. Therefore, we can use the <c>leftcols</c> argument to add the column to the plot. This results in the following code:
     </p>
     <program language="r">
       <code>

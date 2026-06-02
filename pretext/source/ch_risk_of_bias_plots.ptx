@@ -21,7 +21,7 @@
       In this chapter, we will describe how to create risk of bias plots in <em>R</em>, using the <alert>{robvis}</alert> package.
     </p>
     <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="power"/> and then continue with Chapter <xref ref="reporting-reproducibility"/>.
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="power"/> and then continue with <xref ref="reporting-reproducibility"/>.
     </p>
     <p>
       For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
@@ -54,7 +54,7 @@
       <title>Load <alert>{robvis}</alert></title>
 
       <p>
-        Assuming that you have already installed the <alert>{dmetar}</alert> package (see Chapter <xref ref="dmetar"/>), load the <alert>{robvis}</alert> package using:
+        Assuming that you have already installed the <alert>{dmetar}</alert> package (see <xref ref="dmetar"/>), load the <alert>{robvis}</alert> package using:
       </p>
       <program language="r">
         <code>
@@ -82,7 +82,7 @@ library(robvis)
         </li>
         <li>
           <p>
-            The last column is labelled “Weight” and contains some measure of study precision e.g. the weight assigned to each study in the meta-analysis, or if no meta-analysis was performed, the sample size of each study). See Chapter <xref ref="fem"/> for more details.
+            The last column is labelled “Weight” and contains some measure of study precision e.g. the weight assigned to each study in the meta-analysis, or if no meta-analysis was performed, the sample size of each study). See <xref ref="fem"/> for more details.
           </p>
         </li>
         <li>
@@ -131,7 +131,7 @@ library(robvis)
         </p>
       </note>
       <p>
-        Once you have saved the table you created in Excel to the working directory as a comma-separated-file (e.g. “robdata.csv”), you can either read the file into <em>R</em> programmatically using the command below or via the “import assistant” method as described in Chapter <xref ref="data-prep-R"/>.
+        Once you have saved the table you created in Excel to the working directory as a comma-separated-file (e.g. “robdata.csv”), you can either read the file into <em>R</em> programmatically using the command below or via the “import assistant” method as described in <xref ref="data-prep-R"/>.
       </p>
       <program language="r">
         <code>
@@ -164,7 +164,7 @@ my_rob_data &lt;- read.csv("robdata.csv", header = TRUE)
         </li>
       </ul>
       <p>
-        <alert>{robvis}</alert> also contains a special generic template, labeled as ROB1. Designed for use with the original Cochrane risk of bias tool for randomized controlled trials, it can also be used to visualize the results of assessments performed with other domain-based tools not included in the list above. See Chapter <xref ref="rob1-template"/> for more information on the additional steps required when using this template.
+        <alert>{robvis}</alert> also contains a special generic template, labeled as ROB1. Designed for use with the original Cochrane risk of bias tool for randomized controlled trials, it can also be used to visualize the results of assessments performed with other domain-based tools not included in the list above. See <xref ref="rob1-template"/> for more information on the additional steps required when using this template.
       </p>
     </subsection>
 
@@ -197,7 +197,7 @@ my_rob_data &lt;- read.csv("robdata.csv", header = TRUE)
         </li>
       </ul>
       <p>
-        You can explore these data sets using the <c>glimpse</c> function (see Chapter <xref ref="class-conversion"/>). For example, once you have loaded the package using <c>library(robvis)</c>, viewing the ROBINS-I example data set can be achieved by running the following command:
+        You can explore these data sets using the <c>glimpse</c> function (see <xref ref="class-conversion"/>). For example, once you have loaded the package using <c>library(robvis)</c>, viewing the ROBINS-I example data set can be achieved by running the following command:
       </p>
       <program language="r">
         <code>

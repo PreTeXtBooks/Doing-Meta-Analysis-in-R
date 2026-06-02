@@ -19,7 +19,7 @@
       Lack of statistical power, however, may still play an important role--even in meta-analysis. The number of included studies in many meta-analyses is small, often below <m>K=</m> 10. The median number of studies in Cochrane systematic reviews, for example, is six <xref ref="borenstein2011introduction"/>. This becomes even more problematic if we factor in that meta-analyses often include subgroup analyses and meta-regression, for which even more power is required. Furthermore, many meta-analyses show high between-study heterogeneity. This also reduces the overall precision and thus the statistical power.
     </p>
     <p>
-      We already touched on the concept of statistical power in Chapter <xref ref="p-curve-es"/>, where we learned about the p-curve method. The idea behind statistical power is derived from classical hypothesis testing. It is directly related to the two types of <alert>errors</alert> that can occur in a hypothesis test. The first error is to accept the alternative hypothesis (e.g. <m>\mu_1 \neq \mu_2</m>) while the null hypothesis (<m>\mu_1 = \mu_2</m>) is true. This leads to a <alert>false positive</alert>, also known as a <alert>Type I</alert> or <m>\alpha</m> error. Conversely, it is also possible that we accept the null hypothesis, while the alternative hypothesis is true. This generates a <alert>false negative</alert>, known as a <alert>Type II</alert> or <m>\beta</m> error.
+      We already touched on the concept of statistical power in <xref ref="p-curve-es"/>, where we learned about the p-curve method. The idea behind statistical power is derived from classical hypothesis testing. It is directly related to the two types of <alert>errors</alert> that can occur in a hypothesis test. The first error is to accept the alternative hypothesis (e.g. <m>\mu_1 \neq \mu_2</m>) while the null hypothesis (<m>\mu_1 = \mu_2</m>) is true. This leads to a <alert>false positive</alert>, also known as a <alert>Type I</alert> or <m>\alpha</m> error. Conversely, it is also possible that we accept the null hypothesis, while the alternative hypothesis is true. This generates a <alert>false negative</alert>, known as a <alert>Type II</alert> or <m>\beta</m> error.
     </p>
     <p>
       <idx><h>Power</h></idx> 
@@ -77,7 +77,7 @@
       </p>
     </note>
     <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="bayesian-ma"/> and then continue with Chapter <xref ref="risk-of-bias-plots"/>.
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="bayesian-ma"/> and then continue with <xref ref="risk-of-bias-plots"/>.
     </p>
     <p>
       For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
@@ -94,7 +94,7 @@
       To determine the power of a meta-analysis under the fixed-effect model, we have to specify a distribution which represents that our alternative hypothesis is correct. To do this, however, it is not sufficient to simply say that <m>\theta \neq 0</m> (i.e. that <alert>some</alert> effect exists). We have to assume a <alert>specific</alert> true effect that we want to be able to detect with sufficient (80%) power. For example SMD = 0.29. 
     </p>
     <p>
-      We already covered previously (see Chapter <xref ref="metareg-continuous"/>) that dividing an effect size through its standard error creates a <m>z</m> score. These <m>z</m> scores follow a standard normal distribution, where a value of <m>|z| \geq</m> 1.96 means that the effect is significantly different from zero (<m>p&lt;</m> 0.05). This is exactly what we want to achieve in our meta-analysis: no matter how large the exact effect size and standard error of our result, the value of <m>|z|</m> should be at least 1.96, and thus statistically significant: 
+      We already covered previously (see <xref ref="metareg-continuous"/>) that dividing an effect size through its standard error creates a <m>z</m> score. These <m>z</m> scores follow a standard normal distribution, where a value of <m>|z| \geq</m> 1.96 means that the effect is significantly different from zero (<m>p&lt;</m> 0.05). This is exactly what we want to achieve in our meta-analysis: no matter how large the exact effect size and standard error of our result, the value of <m>|z|</m> should be at least 1.96, and thus statistically significant: 
     </p>
     <p>
       \begin{equation} z  = \frac{\theta}{\sigma_{\theta}}~~~\text{where}~~~|z| \geq 1.96. (#eq:pow2) \end{equation}
@@ -281,7 +281,7 @@ power.analysis(d = 0.2,
       We see that the estimated power is 40.76%. This is lower than the normative 80% threshold. It is also lower than the 60.66% we obtain we assuming a fixed-effect model. This is because between-study heterogeneity decreases the precision of our pooled effect estimate, resulting in a drop in statistical power. 
     </p>
     <p>
-      Figure <xref provisional="fig:power"/> visualizes the effect of the true effect size, number of studies, and amount of between-study heterogeneity on the power of a meta-analysis.<fn>If you want to quickly check the power of a meta-analysis under varying assumptions, you can also use a <alert>power calculator tool</alert> developed for this purpose. The tool is based on the same <em>R</em> function that we cover in this chapter. It can be found online: https://mathiasharrer.shinyapps.io/power<em>calculator</em>meta_analysis/.</fn> 
+      <xref provisional="fig:power"/> visualizes the effect of the true effect size, number of studies, and amount of between-study heterogeneity on the power of a meta-analysis.<fn>If you want to quickly check the power of a meta-analysis under varying assumptions, you can also use a <alert>power calculator tool</alert> developed for this purpose. The tool is based on the same <em>R</em> function that we cover in this chapter. It can be found online: https://mathiasharrer.shinyapps.io/power<em>calculator</em>meta_analysis/.</fn> 
     </p>
   </section>
 

@@ -13,7 +13,7 @@
       All of these approaches can help us to draw valid conclusions from our meta-analysis. This, however, rests on a tacit assumption concerning the nature of our data, which we have not challenged yet. When conducting a meta-analysis, we take it as a given that the data we collected is <alert>comprehensive</alert>, or at least <alert>representative</alert> of the research field under examination. 
     </p>
     <p>
-      Back in Chapter <xref ref="study-search"/>, we mentioned that meta-analyses usually try to include <alert>all</alert> available evidence, in order to derive a single effect size that adequately describes the research field. From a statistical perspective, we may be able to tolerate that a few studies are missing in our analysis--but only if these studies were "left out" by chance.
+      Back in <xref ref="study-search"/>, we mentioned that meta-analyses usually try to include <alert>all</alert> available evidence, in order to derive a single effect size that adequately describes the research field. From a statistical perspective, we may be able to tolerate that a few studies are missing in our analysis--but only if these studies were "left out" by chance.
     </p>
     <p>
       Unfortunately, meta-analyses are often unable to include all existing evidence. To make things worse, there are also good reasons to assume that some studies are not missing completely "at random" from our collected data. Our world is imperfect, and so are the incentives and "rules" that govern scientific practice. This means that there are systemic biases that can determine if a study ends up in our meta-analysis or not.
@@ -37,7 +37,7 @@
       <idx><h>File Drawer Problem</h></idx>
     </p>
     <p>
-      The problem of publication bias underlines that every finding in meta-analyses can only be as good as the data it is based on. Meta-analytic techniques can only work with the data at hand. Therefore, if the collected data is distorted, even the best statistical model will only reproduce inherent biases. Maybe you recall that we already covered this fundamental caveat at the very beginning of this book, where we discussed the "File Drawer" problem (see Chapter <xref ref="pitfalls"/>). Indeed, the terms "file drawer problem" and "publication bias" are often used synonymously.
+      The problem of publication bias underlines that every finding in meta-analyses can only be as good as the data it is based on. Meta-analytic techniques can only work with the data at hand. Therefore, if the collected data is distorted, even the best statistical model will only reproduce inherent biases. Maybe you recall that we already covered this fundamental caveat at the very beginning of this book, where we discussed the "File Drawer" problem (see <xref ref="pitfalls"/>). Indeed, the terms "file drawer problem" and "publication bias" are often used synonymously.
     </p>
     <p>
       The consequences of publication bias and related issues on the results of meta-analyses can be enormous. It can cause us to overestimate the effects of treatments, overlook negative side-effects, or reinforce the belief in theories that are actually invalid. 
@@ -46,7 +46,7 @@
       In this chapter, we will therefore discuss the various shapes and forms through which publication bias can distort our findings. We will also have a look at a few approaches that we as meta-analysts can use to examine the risk of publication bias in our data; and how publication bias can be mitigated in the first place.
     </p>
     <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="metareg"/> and then continue with Chapter <xref ref="multilevel-ma"/>.
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="metareg"/> and then continue with <xref ref="multilevel-ma"/>.
     </p>
     <p>
       For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
@@ -108,7 +108,7 @@
       <idx><h>P-Hacking</h></idx>
     </p>
     <p>
-      We already mentioned the concept of "researcher degrees of freedom" previously (Chapter <xref ref="pitfalls"/>). QRPs can be defined as practices in which researchers abuse these degrees of freedom to "bend" results into the desired direction. Unfortunately, there is no clear consensus on what constitutes a QRP. There are, however, a few commonly suggested examples. 
+      We already mentioned the concept of "researcher degrees of freedom" previously (<xref ref="pitfalls"/>). QRPs can be defined as practices in which researchers abuse these degrees of freedom to "bend" results into the desired direction. Unfortunately, there is no clear consensus on what constitutes a QRP. There are, however, a few commonly suggested examples. 
     </p>
     <p>
       One of the most prominent QRPs is <alert>p-hacking</alert>, in which analyses are tweaked until the conventional significance threshold of <m>p&lt;</m> 0.05 is reached. This can include the way outliers are removed, analyses of subgroups, or the missing data handling. 
@@ -136,7 +136,7 @@
     <ul>
       <li>
         <p>
-          <alert>Study search</alert>. In Chapter <xref ref="study-search"/>, we discussed the process of searching for eligible studies. If publication bias exists, this step is of great import, because it means that that a search of the published literature may yield data that is not fully representative of all the evidence. We can counteract this by also searching for <alert>grey literature</alert>, which includes dissertations, preprints, government reports, or conference proceedings. Fortunately, pre-registration is also becoming more common in many disciplines. This makes it possible to search study registries such as the ICTRP or <alert>OSF Registries</alert> (see Table <xref provisional="tab:bibdatabases"/> in Chapter <xref ref="study-search"/>) for studies with unpublished data, and ask the authors if they can provide us with data that has not been made public (yet)<fn>Mahmood and colleagues <xref ref="mahood2014searching"/> provide a detailed account of how a comprehensive grey literature search can be conducted, and what challenges this may entail. The article can be openly accessed online.</fn>. Grey literature search can be tedious and frustrating, but it is worth the effort. One large study has found that the inclusion of grey and unpublished literature can help to avoid an overestimation of the true effects <xref ref="mcauley2000does"/>.
+          <alert>Study search</alert>. In <xref ref="study-search"/>, we discussed the process of searching for eligible studies. If publication bias exists, this step is of great import, because it means that that a search of the published literature may yield data that is not fully representative of all the evidence. We can counteract this by also searching for <alert>grey literature</alert>, which includes dissertations, preprints, government reports, or conference proceedings. Fortunately, pre-registration is also becoming more common in many disciplines. This makes it possible to search study registries such as the ICTRP or <alert>OSF Registries</alert> (see <xref ref="study-search"/>) for studies with unpublished data, and ask the authors if they can provide us with data that has not been made public (yet)<fn>Mahmood and colleagues <xref ref="mahood2014searching"/> provide a detailed account of how a comprehensive grey literature search can be conducted, and what challenges this may entail. The article can be openly accessed online.</fn>. Grey literature search can be tedious and frustrating, but it is worth the effort. One large study has found that the inclusion of grey and unpublished literature can help to avoid an overestimation of the true effects <xref ref="mcauley2000does"/>.
         </p>
       </li>
       <li>
@@ -190,7 +190,7 @@
           <idx><h>Funnel Plot</h></idx>
         </p>
         <p>
-          Earlier in this guide (Chapter <xref ref="what-is-es"/>), we learned that a study's sample size and standard error are closely related. Larger standard errors of an effect size result in wider confidence intervals and increase the chance that the effect is not statistically significant. Therefore, it is sensible to assume that small-study effects will largely affect studies with larger standard errors. 
+          Earlier in this guide (<xref ref="what-is-es"/>), we learned that a study's sample size and standard error are closely related. Larger standard errors of an effect size result in wider confidence intervals and increase the chance that the effect is not statistically significant. Therefore, it is sensible to assume that small-study effects will largely affect studies with larger standard errors. 
         </p>
         <p>
           Suppose that our collected data is burdened by publication bias. If this is the case, we can assume that the studies with large standard errors have higher effect sizes than the ones with a low standard error. This is because the smaller studies with lower effects were not significant, and thus never considered for publication. Consequently, we never included them in our meta-analysis.
@@ -202,7 +202,7 @@
           When there is no publication bias, the data points in such a plot should form a roughly symmetrical, upside-down funnel. This is why they are called funnel plots. Studies in the top part of the plot (those with low standard errors), should lie closely together, and not far away from the pooled effect size. In the lower part of the plot, with increasing standard errors, the funnel "opens up", and effect sizes are expected to scatter more heavily to the left and right of the pooled effect. 
         </p>
         <p>
-          It becomes easier to see why studies should form a funnel when we think back to what we learned about the behavior of effect sizes in Chapter <xref ref="what-is-es"/>, and when discussing the fixed-effect model in Chapter <xref ref="fem"/> (Figure <xref ref="fig-funnel1"/>). The standard error is indicative of a study's <alert>precision</alert>: with decreasing standard error, we expect the observed effect size to become an increasingly good estimator of the true effect size. When the standard error is high, the effect size has a low precision and is therefore much more likely to be far off from the actual effect in the population.
+          It becomes easier to see why studies should form a funnel when we think back to what we learned about the behavior of effect sizes in <xref ref="what-is-es"/>, and when discussing the fixed-effect model in <xref ref="fem"/> (<xref ref="fig-funnel1"/>). The standard error is indicative of a study's <alert>precision</alert>: with decreasing standard error, we expect the observed effect size to become an increasingly good estimator of the true effect size. When the standard error is high, the effect size has a low precision and is therefore much more likely to be far off from the actual effect in the population.
         </p>
         <p>
           We will now make this more concrete by generating a funnel plot ourselves. In the <alert>{meta}</alert> package, the <c>meta::funnel</c><fn>In this chapter we always append <c>meta::</c> when calling the <c>funnel</c> function. This is not strictly necessary, but in practice may sometimes help to avoid error messages (and related confusion), since there is a another <c>funnel</c> function in the <c>metafor</c> package, which we do not cover here.</fn> function can be used to print a funnel plot for a meta-analysis object. Here, we produce a funnel plot for our <c>m.gen</c> meta-analysis object. We specify two further arguments, <c>xlim</c> and <c>studlab</c>. The first controls the limits of the x-axis in the plot, while the latter tells the function to include study labels. A call to the <c>title</c> function after running <c>meta::funnel</c> adds a title to the plot. 
@@ -351,7 +351,7 @@ title("Contour-Enhanced Funnel Plot (Third Wave Psychotherapies)")
           <image source="generated/eggers-4_sep.png"/>
         </figure>
         <p>
-          Let us see what results we get when we fit such a regression model to the data in <c>m.gen</c>. Using <em>R</em>, we can extract the original data in <c>m.gen</c> to calculate the response <c>y</c> and our predictor <c>x</c>. In the code below, we do this using a pipe (Chapter <xref ref="data-transform"/>) and the <c>mutate</c> function, which is part of the <alert>{tidyverse}</alert>. After that, we use the <alert>l</alert>inear <alert>m</alert>odel function <c>lm</c> to regress the <m>z</m> scores <c>y</c> on the precision <c>x</c>. In the last part of the pipe, we request a <c>summary</c> of the results.
+          Let us see what results we get when we fit such a regression model to the data in <c>m.gen</c>. Using <em>R</em>, we can extract the original data in <c>m.gen</c> to calculate the response <c>y</c> and our predictor <c>x</c>. In the code below, we do this using a pipe (<xref ref="data-transform"/>) and the <c>mutate</c> function, which is part of the <alert>{tidyverse}</alert>. After that, we use the <alert>l</alert>inear <alert>m</alert>odel function <c>lm</c> to regress the <m>z</m> scores <c>y</c> on the precision <c>x</c>. In the last part of the pipe, we request a <c>summary</c> of the results.
         </p>
         <program language="r">
           <code>
@@ -410,7 +410,7 @@ metabias(m.gen, method.bias = "linreg")
           The effect size metric used in <c>m.gen</c> is the small sample bias-corrected SMD (Hedges' <m>g</m>). It has been argued that running Egger's test on SMDs can lead to an inflation of false positive results <xref ref="pustejovsky2019testing"/>. This is because a study's standardized mean difference and standard error are not independent. 
         </p>
         <p>
-          We can easily see this by looking at the formula used to calculate the standard error of between-group SMDs (equation 3.18, Chapter <xref ref="b-group-smd"/>). This formula includes the SMD itself, which means that a study's standard error changes for smaller or larger values of the observed effect (i.e. there is an artifactual correlation between the SMD and its standard error). 
+          We can easily see this by looking at the formula used to calculate the standard error of between-group SMDs (equation 3.18, <xref ref="b-group-smd"/>). This formula includes the SMD itself, which means that a study's standard error changes for smaller or larger values of the observed effect (i.e. there is an artifactual correlation between the SMD and its standard error). 
         </p>
         <p>
           Pustejovsky and Rodgers <xref ref="pustejovsky2019testing"/> propose to use a modified version of the standard error when testing for the funnel plot asymmetry of standardized mean differences. Only the first part of the standard error formula is used, which means that the observed effect size drops out of the equation. Thus, the formula looks like this:
@@ -479,7 +479,7 @@ metabias(m.gen.c, method = "linreg")
           <idx><h>Peter's Test</h></idx>
         </p>
         <p>
-          The dependence of effect size and standard error not only applies to standardized mean differences. This mathematical association also exists in effect sizes based on binary outcome data, such as (log) odds ratios (Chapter <xref ref="or"/>), risk ratios (Chapter <xref ref="rr"/>) or proportions (Chapter <xref ref="props"/>). 
+          The dependence of effect size and standard error not only applies to standardized mean differences. This mathematical association also exists in effect sizes based on binary outcome data, such as (log) odds ratios (<xref ref="or"/>), risk ratios (<xref ref="rr"/>) or proportions (<xref ref="props"/>). 
         </p>
         <p>
           To avoid an inflated risk of false positives when using binary effect size data, we can use another type of regression test, proposed by Peters and colleagues <xref ref="peters2006comparison"/>. To obtain the results of Peters' test, the log-transformed effect size is regressed on the inverse of the sample size:
@@ -494,16 +494,16 @@ metabias(m.gen.c, method = "linreg")
           <idx><h>Weighted Least Squares (WLS)</h></idx>
         </p>
         <p>
-          Importantly, when fitting the regression model, each study <m>k</m> is given a different weight <m>w_k</m>, depending on its sample size and event counts. This results in a <alert>weighted</alert> linear regression, which is similar (but not identical) to a meta-regression model (see Chapter <xref ref="metareg-model-fit"/>). The formula for the weights <m>w_k</m> looks like this:
+          Importantly, when fitting the regression model, each study <m>k</m> is given a different weight <m>w_k</m>, depending on its sample size and event counts. This results in a <alert>weighted</alert> linear regression, which is similar (but not identical) to a meta-regression model (see <xref ref="metareg-model-fit"/>). The formula for the weights <m>w_k</m> looks like this:
         </p>
         <p>
           \begin{equation} w<em>k = \frac{1}{\left(\dfrac{1}{a</em>k+c<em>k}+\dfrac{1}{b</em>k+d_k}\right)} (#eq:pub4) \end{equation}
         </p>
         <p>
-          Where <m>a_k</m> is the number of events in the treatment group, <m>c_k</m> is the number of events in the control group; <m>b_k</m> and <m>d_k</m> are the number of non-events in the treatment and control group, respectively (see Chapter <xref ref="rr"/>). In contrast to Eggers' regression test, Peters' test uses <m>\beta_1</m> instead of the intercept to test for funnel plot asymmetry. When the statistical test reveals that <m>\beta_1 \neq 0</m>, we can assume that asymmetry exists in our data.
+          Where <m>a_k</m> is the number of events in the treatment group, <m>c_k</m> is the number of events in the control group; <m>b_k</m> and <m>d_k</m> are the number of non-events in the treatment and control group, respectively (see <xref ref="rr"/>). In contrast to Eggers' regression test, Peters' test uses <m>\beta_1</m> instead of the intercept to test for funnel plot asymmetry. When the statistical test reveals that <m>\beta_1 \neq 0</m>, we can assume that asymmetry exists in our data.
         </p>
         <p>
-          When we have calculated a meta-analysis based on binary outcome data using the <c>metabin</c> (Chapter <xref ref="pooling-or-rr"/>) or <c>metaprop</c> (Chapter <xref ref="pooling-props"/>) function, the <c>metabias</c> function can be used to conduct Peters' test. We only have to provide a fitting meta-analysis object and use <c>"peters"</c> as the argument in <c>method.bias</c>. Let us check for funnel plot asymmetry in the <c>m.bin</c> object we created in Chapter <xref ref="pooling-or-rr"/>. 
+          When we have calculated a meta-analysis based on binary outcome data using the <c>metabin</c> (<xref ref="pooling-or-rr"/>) or <c>metaprop</c> (<xref ref="pooling-props"/>) function, the <c>metabias</c> function can be used to conduct Peters' test. We only have to provide a fitting meta-analysis object and use <c>"peters"</c> as the argument in <c>method.bias</c>. Let us check for funnel plot asymmetry in the <c>m.bin</c> object we created in <xref ref="pooling-or-rr"/>. 
         </p>
         <p>
           As you might remember, we used the risk ratio as the summary measure for this meta-analysis.
@@ -998,7 +998,7 @@ limitmeta(m.bin)
           </code>
         </program>
         <p>
-          We see that in this analysis, the original and adjusted estimate are largely identical. This is not very surprising, given that Peters' test (Chapter <xref ref="peters-test"/>) already indicated that small-study effects seem to play a minor role in this meta-analysis.
+          We see that in this analysis, the original and adjusted estimate are largely identical. This is not very surprising, given that Peters' test (<xref ref="peters-test"/>) already indicated that small-study effects seem to play a minor role in this meta-analysis.
         </p>
       </subsubsection>
 
@@ -1110,10 +1110,10 @@ binom.test(k, n, p, alternative = "greater")$p.value
           <idx><h>Fisher's Method</h></idx> <idx><h>Stouffer's Method</h></idx> <idx><h>History of Meta-Analysis</h></idx>
         </p>
         <p>
-          Using the <m>pp_k</m>-value of each significant study <m>k</m> in our meta-analysis, we can test for right-skewness using <alert>Fisher's method</alert>. This method is an "archaic" type of meta-analysis developed by R. A. Fisher in the early 20th century (see Chapter <xref ref="history"/>). Fisher's method allows to aggregate <m>p</m>-values from several studies, and to test if at least one of them measures a true effect (i.e. it tests if the distribution of submitted <m>p</m>-values is right-skewed). It entails log-transforming the <m>pp</m>-values, summing the result across all studies <m>k</m>, and then multiplying by -2. 
+          Using the <m>pp_k</m>-value of each significant study <m>k</m> in our meta-analysis, we can test for right-skewness using <alert>Fisher's method</alert>. This method is an "archaic" type of meta-analysis developed by R. A. Fisher in the early 20th century (see <xref ref="history"/>). Fisher's method allows to aggregate <m>p</m>-values from several studies, and to test if at least one of them measures a true effect (i.e. it tests if the distribution of submitted <m>p</m>-values is right-skewed). It entails log-transforming the <m>pp</m>-values, summing the result across all studies <m>k</m>, and then multiplying by -2. 
         </p>
         <p>
-          The resulting value is a test statistic which follows a <m>\chi^2</m> distribution (see Chapter <xref ref="cochran-q"/>) with <m>2\times K</m> degrees of freedom (where <m>K</m> is the total number of <m>pp</m>-values)<fn>In newer versions, p-curve uses <alert>Stouffer's method</alert> instead of the one by Fisher to test for right-skewness <xref ref="simonsohn2015better"/>. Both methods are closely related, but Stouffer's method is based on <m>z</m>-scores instead of <m>p</m>-values.</fn>:
+          The resulting value is a test statistic which follows a <m>\chi^2</m> distribution (see <xref ref="cochran-q"/>) with <m>2\times K</m> degrees of freedom (where <m>K</m> is the total number of <m>pp</m>-values)<fn>In newer versions, p-curve uses <alert>Stouffer's method</alert> instead of the one by Fisher to test for right-skewness <xref ref="simonsohn2015better"/>. Both methods are closely related, but Stouffer's method is based on <m>z</m>-scores instead of <m>p</m>-values.</fn>:
         </p>
         <p>
           \begin{equation} \chi^2<em>{2K} = -2 \sum^K</em>{k=1} \log(pp_k) (#eq:pub14) \end{equation}
@@ -1175,7 +1175,7 @@ pchisq(26.96, df = 10, lower.tail = FALSE)
           This 33% threshold is, to some extent, arbitrary; it was chosen by the inventors of p-curve as a rough indicator of an effect that is on the verge of being practically negligible. We will spare you the statistical details behind how the 33% power <m>pp</m>-values are determined, but it is important to know that it involves the use of a <alert>non-central</alert> distribution, such as the non-central <m>F</m>, <m>t</m> and <m>\chi^2</m> distribution, depending on the outcome measure<fn>In the p-curve <em>R</em> function that we will use in this book, effect sizes are first transformed to <m>z</m> scores (using the formula <m>z = \frac{\hat\theta}{SE_{\hat\theta}}</m>). To calculate expected <m>pp</m>-values for the 33% power tests, a non-central <m>\chi^2</m> distribution with d.f. = 1 is used. This is possible because the distribution of <m>\chi^2_1</m> and <m>z</m> (or, more precisely: <m>z^2</m>) is equivalent.</fn>.
         </p>
         <p>
-          In the following section on effect size estimation using p-curve (Chapter <xref ref="p-curve-es"/>), we will describe the concept behind a non-central distribution in greater detail.
+          In the following section on effect size estimation using p-curve (<xref ref="p-curve-es"/>), we will describe the concept behind a non-central distribution in greater detail.
         </p>
         <p>
           In sum, the flatness test first involves calculating <m>pp</m>-values based on an effect detectable with 33% power, for each significant <m>p</m>-value. If the 33% power estimate fits the distribution of our <m>p</m>-values well, the 33% power <m>pp</m>-values will be uniformly distributed--just as <m>p</m>-values follow a uniform distribution when the data fits the null hypothesis <m>\theta = 0</m> well. Thus, we can apply the same methods we also used in the right-skewness test, but this time, we use the 33% power <m>pp</m>-values for our calculations. 
@@ -1266,10 +1266,10 @@ pchisq(26.96, df = 10, lower.tail = FALSE)
           <idx><h>Outlier</h></idx>
         </p>
         <p>
-          Using the <c>pcurve</c> function is easy. We only need to provide the function with a <alert>{meta}</alert> meta-analysis object that we created previously. In this example, we again use our <c>m.gen</c> meta-analysis object, which we created with the <c>metagen</c> function (Chapter <xref ref="pre-calculated-es"/>). 
+          Using the <c>pcurve</c> function is easy. We only need to provide the function with a <alert>{meta}</alert> meta-analysis object that we created previously. In this example, we again use our <c>m.gen</c> meta-analysis object, which we created with the <c>metagen</c> function (<xref ref="pre-calculated-es"/>). 
         </p>
         <p>
-          However, before we run the analysis, we remove the two outlying studies that we identified previously (study 3 and study 16, see Chapter <xref ref="outliers"/>). We will cover later why this is a good idea.
+          However, before we run the analysis, we remove the two outlying studies that we identified previously (study 3 and study 16, see <xref ref="outliers"/>). We will cover later why this is a good idea.
         </p>
         <program language="r">
           <code>
@@ -1315,7 +1315,7 @@ pcurve(m.gen_update)
           The output tells us that the meta-analysis contained <m>k=</m> 9 significant effects that were included in the <m>p</m>-curve. Most of these studies (<m>k=</m> 8) had highly significant results (i.e. <m>p&lt;</m> 0.025). The <c>Results</c> section contains the main outcomes of the analysis. We see that all three right-skewness tests are significant: the binomial test (<c>pBinom</c>; <m>p=</m> 0.02), the full <m>p</m>-curve <m>pp</m>-value test (<c>pFull</c>; <m>p&lt;</m> 0.001) and the test based on the half <m>p</m>-curve (<c>pHalf</c>; <m>p=</m> 0.003)<fn>In the output, we also see that the test statistic associated with the full and half <m>p</m> curve test is a <m>z</m> score. This is because the <c>pcurve</c> function uses Stouffer's instead Fisher's method to aggregate the results. As we mentioned in footnote 6 in this chapter, both methods are closely related.</fn>. 
         </p>
         <p>
-          Applying the criteria we set up in Chapter <xref provisional="interpretation-p-curve-results"/>, this indicates that our data contains evidential value. In the next line, we see that the three flatness tests are <alert>not</alert> significant, with <m>p</m>s ranging from 0.938 to 1. This, quite logically, tells us that evidential value is neither absent nor inadequate. The same interpretation is provided for us in the <c>Evidential value</c> section of the output. 
+          Applying the criteria we set up in <xref provisional="interpretation-p-curve-results"/>, this indicates that our data contains evidential value. In the next line, we see that the three flatness tests are <alert>not</alert> significant, with <m>p</m>s ranging from 0.938 to 1. This, quite logically, tells us that evidential value is neither absent nor inadequate. The same interpretation is provided for us in the <c>Evidential value</c> section of the output. 
         </p>
         <p>
           The <m>p</m>-curve plot produced by the function contains three lines: a solid one, representing the empirical <m>p</m>-curve based on our data; a dashed line showing the expected <m>p</m>-value distribution assuming 33% power; and a dotted line, which shows the uniform distribution we would expect when there is no effect. The solid line is visibly right-skewed, just as we would expect when the studies measure a true effect. 
@@ -1324,7 +1324,7 @@ pcurve(m.gen_update)
           Overall, these results indicate the presence of evidential value and that there is a true non-zero effect. We can still not rule out that publication bias has affected the results of our meta-analysis. But, based on p-curve's results, we can conclude that the pooled effect we found is not completely spurious; it is not just a "mirage" produced by selective reporting. 
         </p>
         <p>
-          Interestingly, this finding does not really co-align with the results we obtained using some of the small-study effect methods. Both PET-PEESE (Chapter <xref ref="pet-peese"/>) and the limit meta-analysis method (Chapter <xref ref="rucker-ma"/>) estimated a corrected average effect of approximately zero<fn>An attentive reader may have recognized that for the small-study effect methods, outliers were not removed, and that this may have caused the different results. We checked for this possibility by re-running PET-PEESE and a limit meta-analysis without the statistical outliers, which lead to largely the same results as before. If you want to, you can try to verify this yourself in <em>R</em>.</fn>. 
+          Interestingly, this finding does not really co-align with the results we obtained using some of the small-study effect methods. Both PET-PEESE (<xref ref="pet-peese"/>) and the limit meta-analysis method (<xref ref="rucker-ma"/>) estimated a corrected average effect of approximately zero<fn>An attentive reader may have recognized that for the small-study effect methods, outliers were not removed, and that this may have caused the different results. We checked for this possibility by re-running PET-PEESE and a limit meta-analysis without the statistical outliers, which lead to largely the same results as before. If you want to, you can try to verify this yourself in <em>R</em>.</fn>. 
         </p>
       </subsubsection>
 
@@ -1386,7 +1386,7 @@ pcurve(m.gen_update)
           \begin{equation} t<em>{\text{d.f.}}= \frac{\text{MD}</em>{\text{between}}}{SE<em>{\text{MD}</em>{\text{between}}}} (#eq:pub15) \end{equation}
         </p>
         <p>
-          When we insert the formula for the between-group mean difference and standard error (see equation 3.14 and 3.15 in Chapter <xref ref="b-group-md"/>), we get the following formula:
+          When we insert the formula for the between-group mean difference and standard error (see equation 3.14 and 3.15 in <xref ref="b-group-md"/>), we get the following formula:
         </p>
         <p>
           \begin{equation} t<em>{n</em>{1}+n<em>{2}-2} = \frac{\hat\mu</em>{1}-\hat\mu<em>{2}}{s</em>{\text{pooled}}\sqrt{\dfrac{1}{n<em>1}+\dfrac{1}{n</em>2}}} (#eq:pub16) \end{equation}
@@ -1669,7 +1669,7 @@ pcurve(m.gen_update,
           We could assume, for example, that the publication bias mechanism in our meta-analysis can be described with three cut-points. First, there is <m>a_1=</m> 0.025. This value equals a one-sided <m>p</m>-value of 0.025, and two-sided <m>p</m>-value of 0.05. Since this is the conventional significance threshold used in most studies, it makes sense to assume that all <m>p</m>-values smaller <m>a_1=</m> 0.025 have a selection probability <m>\omega_1</m> of 100%. After all, there is no reason to put a study into the file drawer when its results were positive. The next cut-point we define is <m>a_2=</m> 0.05. For results in this range, we assume a selection probability of 80%: still high, but lower compared to results that are clearly significant. Then, we specify a large interval, ranging from <m>a_2=</m> 0.05 to <m>a_3=</m> 0.5, in which the selection probability is 60%. Lastly, for studies with a very high <m>p</m>-value of <m>\geq</m> 0.5, we define an even lower probability of <m>\omega_4=</m> 35%. 
         </p>
         <p>
-          This results in a selection model as depicted in Figure <xref ref="fig-stepcurve"/> below. 
+          This results in a selection model as depicted in <xref ref="fig-stepcurve"/> below. 
         </p>
         <figure xml:id="fig-stepcurve">
           <caption>Selection model based on a step function.</caption>
@@ -1700,7 +1700,7 @@ pcurve(m.gen_update,
           The three-parameter model is a selection model with only one cut-point <xref ref="mcshane2016adjusting"/>. It is called a <alert>three-parameter</alert> model because only three parameters need to be estimated: the true effect <m>\mu</m>, the between-study heterogeneity variance <m>\tau^2</m>, and the relative likelihood of the second interval <m>\omega_2</m><fn>It is not necessary to estimate <m>\omega_1</m>, since this interval serves as the reference category with a selection likelihood fixed at 1.</fn>.
         </p>
         <p>
-          In the three-parameter selection model, the single cut-point <m>a_1</m> is set to 0.025, which is equal to a one-sided <m>p</m>-value of 0.05. This divides the range of <m>p</m>-values into two bins: those which can be considered statistically significant, and those which are not significant. Thus, <m>\omega_2</m> represents the probability that a non-significant result is selected for publication<fn>P-curve (Chapter <xref ref="p-curve"/>) can be seen as a special type of three-parameter selection model. It also uses a <m>p</m>-value of 0.05 as the cut-point for selection, but only focuses on the significant results (for which the selection probability is assumed to be 100%); and it assumes that <m>\tau^2</m> is zero. This means that for p-curve, only one parameter is actually estimated from the data: the true effect size <m>\mu</m>.</fn>.
+          In the three-parameter selection model, the single cut-point <m>a_1</m> is set to 0.025, which is equal to a one-sided <m>p</m>-value of 0.05. This divides the range of <m>p</m>-values into two bins: those which can be considered statistically significant, and those which are not significant. Thus, <m>\omega_2</m> represents the probability that a non-significant result is selected for publication<fn>P-curve (<xref ref="p-curve"/>) can be seen as a special type of three-parameter selection model. It also uses a <m>p</m>-value of 0.05 as the cut-point for selection, but only focuses on the significant results (for which the selection probability is assumed to be 100%); and it assumes that <m>\tau^2</m> is zero. This means that for p-curve, only one parameter is actually estimated from the data: the true effect size <m>\mu</m>.</fn>.
         </p>
         <p>
           <idx><h>metafor Package</h></idx>
@@ -1709,7 +1709,7 @@ pcurve(m.gen_update,
           The <c>selmodel</c> function in the <alert>{metafor}</alert> package allows to fit various kinds of selection models in <em>R</em> <fn>At the time we are writing this, the <c>selmodel</c> function is only available through the <alert>development version</alert> of <alert>{metafor}</alert>. The development version of <alert>{metafor}</alert> can be downloaded by first installing the <alert>{remotes}</alert> package, and then running this code: <c>remotes::install_github("wviechtb/metafor")</c>. After that, <alert>{metafor}</alert> can be called from the library and the <c>selmodel</c> function should be available. Please note that it is likely that, by the time you are reading this, the <c>selmodel</c> function has already been integrated into the standard version of <alert>{metafor}</alert>, which means that installation of the development version is not necessary anymore.</fn>. It can also be used for three-parameter selection models, which we will try out now. As before, we will use the <c>ThirdWave</c> data set for our example. 
         </p>
         <p>
-          The <c>selmodel</c> function only accepts meta-analysis objects created by <alert>{metafor}</alert>'s <c>rma</c> function (see Chapter <xref ref="multiple-metareg-R"/>). Therefore, we have to create such an object first. In our call to <c>rma</c>, we use settings identical to the ones we used for <alert>{meta}</alert>'s <c>metagen</c> function (Chapter <xref ref="pre-calculated-es"/>). 
+          The <c>selmodel</c> function only accepts meta-analysis objects created by <alert>{metafor}</alert>'s <c>rma</c> function (see <xref ref="multiple-metareg-R"/>). Therefore, we have to create such an object first. In our call to <c>rma</c>, we use settings identical to the ones we used for <alert>{meta}</alert>'s <c>metagen</c> function (<xref ref="pre-calculated-es"/>). 
         </p>
         <program language="r">
           <code>
@@ -1920,8 +1920,43 @@ selmodel(m.rma, type = "stepfun", steps = a, delta = w.severe)
       In any case, results of publication bias methods should always be interpreted with caution. There are instances where the results of publication bias analyses have led to contentious debates--for example in the "ego-depletion" literature <xref ref="friese2019ego"/>. It is important to keep in mind that the best way to control for publication bias is to perform an adequate search for unpublished evidence, and to change publication practices altogether. Every statistical "proof" of publication bias that we as meta-analysts can come up with is weak at best.
     </p>
     <p>
-      To make it easier for you to decide which method may be applied when we created a brief overview of the advantages and disadvantages of each approach (see Table <xref provisional="tab:pubtab"/>). 
+      To make it easier for you to decide which method may be applied when we created a brief overview of the advantages and disadvantages of each approach (see Table <xref ref="tab-pubtab"/>). 
     </p>
+    <table xml:id="tab-pubtab">
+      <title>Methods to estimate the true effect size corrected for publication bias: Overview of advantages and disadvantages.</title>
+      <tabular>
+        <row>
+          <cell><alert>Method</alert></cell>
+          <cell><alert>Advantages</alert></cell>
+          <cell><alert>Disadvantages</alert></cell>
+        </row>
+        <row>
+          <cell>Duval &amp; Tweedie Trim-and-Fill</cell>
+          <cell>Very heavily used in practice. Can be interpreted by many researchers.</cell>
+          <cell>Often fails to correct the effect size enough, for example when the true effect is zero. Not robust when the heterogeneity is very large; often outperformed by other methods.</cell>
+        </row>
+        <row>
+          <cell>PET-PEESE</cell>
+          <cell>Based on a simple and intuitive model. Easy to implement and interpret.</cell>
+          <cell>Sometimes massively over- or underestimates the effect. Weak performance for meta-analyses with few studies, low sample sizes, and high heterogeneity.</cell>
+        </row>
+        <row>
+          <cell>Limit Meta-Analysis</cell>
+          <cell>Similar approach as PET-PEESE, but explicitly models between-study heterogeneity.</cell>
+          <cell>Performance is less well studied than the one of other methods. May fail when the number of studies is very low (&lt;10) and heterogeneity very high.</cell>
+        </row>
+        <row>
+          <cell>P-Curve</cell>
+          <cell>Has been shown to outperform other methods (particularly trim-and-fill) when its assumptions are met.</cell>
+          <cell>Works under the assumption of no heterogeneity, which is unlikely in practice. Requires a minimum number of significant effect sizes. Less easy to interpret and communicate.</cell>
+        </row>
+        <row>
+          <cell>Selection Models</cell>
+          <cell>Can potentially model any kind of assumed selection process. The three-parameter selection model has shown good performance in simulation studies.</cell>
+          <cell>Only valid when the selection model describes the publication bias process adequately. Assume that other small-study effects are not relevant. Can be difficult to interpret and requires background knowledge.</cell>
+        </row>
+      </tabular>
+    </table>
     <p>
       The table contains both statistical and practical considerations and should be seen as neither comprehensive nor final. Publication bias methods are an ongoing field of investigation, and it is likely that things will look differently once more evidence has been established. 
     </p>

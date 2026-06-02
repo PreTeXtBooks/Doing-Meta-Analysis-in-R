@@ -34,7 +34,7 @@
       Application of meta-analytic SEM techniques, of course, presupposes a basic familiarity with structural equation modeling. In the next section, we therefore briefly discuss the general idea behind structural equation modeling, as well as its meta-analytic extension. 
     </p>
     <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="multilevel-ma"/> and then continue with Chapter <xref ref="netwma"/>.
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="multilevel-ma"/> and then continue with <xref ref="netwma"/>.
     </p>
     <p>
       For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
@@ -141,7 +141,7 @@
         We will now combine our knowledge about meta-analysis models and SEM to formulate meta-analysis as a structural equation model <xref ref="cheung2008model"/>.
       </p>
       <p>
-        To begin, let us return to the formula of the random-effects model. Previously, we already described that the meta-analysis model follows a multilevel structure (see Chapter <xref ref="multilevel-nature"/>), which looks like this:
+        To begin, let us return to the formula of the random-effects model. Previously, we already described that the meta-analysis model follows a multilevel structure (see <xref ref="multilevel-nature"/>), which looks like this:
       </p>
       <p>
         <alert>Level 1</alert>
@@ -200,7 +200,7 @@
         <idx><h>Weighted Least Squares (WLS)</h></idx>
       </p>
       <p>
-        In the second step, we then use <alert>weighted least squares</alert> (see Chapter <xref ref="metareg-model-fit"/>) to fit the structural equation model we specified. The function for the specified model <m>\rho(\hat\theta)</m> is  <xref ref="cheung2009two"/>, <xref ref="cheung2015meta"/>:
+        In the second step, we then use <alert>weighted least squares</alert> (see <xref ref="metareg-model-fit"/>) to fit the structural equation model we specified. The function for the specified model <m>\rho(\hat\theta)</m> is  <xref ref="cheung2009two"/>, <xref ref="cheung2015meta"/>:
       </p>
       <p>
         \begin{equation} F_{\text{WLS}}(\hat\theta) =  (\boldsymbol{r} - \rho(\hat\theta))^\top \boldsymbol{V}^{-1} ({r} - \rho(\hat\theta)) (#eq:sem5) \end{equation}
@@ -239,7 +239,7 @@ library(metaSEM)
       <idx><h>dmetar Package</h></idx>
     </p>
     <p>
-      In our example, we will use <alert>{dmetar}</alert>'s <c>ThirdWave</c> data set again (see Chapter <xref ref="pre-calculated-es"/>). By default, this data set only contains effects on one outcome, perceived stress. Now, imagine that most studies in this meta-analysis also measured effects on <alert>anxiety</alert>, which is another important mental health-related outcome. We can therefore use a multivariate meta-analysis to jointly estimate effects on stress and anxiety, and how they relate to each other.
+      In our example, we will use <alert>{dmetar}</alert>'s <c>ThirdWave</c> data set again (see <xref ref="pre-calculated-es"/>). By default, this data set only contains effects on one outcome, perceived stress. Now, imagine that most studies in this meta-analysis also measured effects on <alert>anxiety</alert>, which is another important mental health-related outcome. We can therefore use a multivariate meta-analysis to jointly estimate effects on stress and anxiety, and how they relate to each other.
     </p>
     <p>
       To proceed, we therefore have to create a new data frame first, in which data for both outcomes is included. First, we define a vector containing the effects on anxiety (expressed as Hedges' <m>g</m>) as reported in each study, as well as their standard error. We also need to define a vector which contains the <alert>covariance</alert> between stress and anxiety reported in each study. One study did not assess anxiety outcomes, so we use <c>NA</c> in the three vectors to indicate that the information is missing.
@@ -436,7 +436,7 @@ cov2cor(tc.mat)
         <idx><h>Wald-Type Test</h></idx>
       </p>
       <p>
-        It is of note that the confidence intervals presented in the summary of <c>m.mv</c> are Wald-type intervals (see Chapter <xref ref="knapp-hartung"/>). Such Wald-type intervals can sometimes be inaccurate, especially in small samples <xref ref="diciccio1996bootstrap"/>. It may thus be valuable to construct confidence intervals in another way, by using <alert>likelihood-based</alert> confidence intervals. We can get these CIs by re-running the <c>meta</c> function and additionally specifying <c>intervals.type = "LB"</c>. 
+        It is of note that the confidence intervals presented in the summary of <c>m.mv</c> are Wald-type intervals (see <xref ref="knapp-hartung"/>). Such Wald-type intervals can sometimes be inaccurate, especially in small samples <xref ref="diciccio1996bootstrap"/>. It may thus be valuable to construct confidence intervals in another way, by using <alert>likelihood-based</alert> confidence intervals. We can get these CIs by re-running the <c>meta</c> function and additionally specifying <c>intervals.type = "LB"</c>. 
       </p>
       <program language="r">
         <code>
@@ -487,7 +487,7 @@ plot(m.mv,
         <image source="generated/forest_metasem.png"/>
       </figure>
       <p>
-        In the middle of the plot, the pooled effect of both variables is shown as a red diamond. The smaller blue ellipse represents the 95% confidence interval of our pooled effect; while the larger black ellipse depicts the 95% <alert>prediction</alert> interval (Chapter <xref ref="het-measure-which"/>)<fn>These prediction intervals (or "plausible value intervals") are based on a different formula <xref ref="raudenbush2009pi"/> than the one used by <alert>{meta}</alert> and <alert>{metafor}</alert> (equation 5.7 in Chapter <xref ref="het-measure-which"/>), resulting in a slightly narrower interval.</fn>.
+        In the middle of the plot, the pooled effect of both variables is shown as a red diamond. The smaller blue ellipse represents the 95% confidence interval of our pooled effect; while the larger black ellipse depicts the 95% <alert>prediction</alert> interval (<xref ref="het-measure-which"/>)<fn>These prediction intervals (or "plausible value intervals") are based on a different formula <xref ref="raudenbush2009pi"/> than the one used by <alert>{meta}</alert> and <alert>{metafor}</alert> (equation 5.7 in <xref ref="het-measure-which"/>), resulting in a slightly narrower interval.</fn>.
       </p>
       <p>
         Lastly, the black dots show the individual studies, where the ellipses with dashed lines represent the 95% confidence intervals.

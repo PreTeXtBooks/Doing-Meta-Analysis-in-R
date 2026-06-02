@@ -7,19 +7,19 @@
       <image source="_figs/waves.jpg"/>
     </figure>
     <p>
-      In the last chapters, we have delved into somewhat more sophisticated extensions of meta-analysis, such as "multilevel" models (Chapter <xref ref="multilevel-ma"/>), meta-analytic structural equation modeling (Chapter <xref ref="sem"/>), and network meta-analysis (Chapter <xref ref="netwma"/>). Now, we will take one step back and revisit "conventional" meta-analysis again--but this time from another angle. In this chapter, we deal with <alert>Bayesian meta-analysis</alert>. 
+      In the last chapters, we have delved into somewhat more sophisticated extensions of meta-analysis, such as "multilevel" models (<xref ref="multilevel-ma"/>), meta-analytic structural equation modeling (<xref ref="sem"/>), and network meta-analysis (<xref ref="netwma"/>). Now, we will take one step back and revisit "conventional" meta-analysis again--but this time from another angle. In this chapter, we deal with <alert>Bayesian meta-analysis</alert>. 
     </p>
     <p>
       <idx><h>gemtc Package</h></idx> <idx><h>Frequentist Statistics</h></idx>
     </p>
     <p>
-      We already covered a Bayesian model in the last chapter on network meta-analysis. There, we discussed the main ideas behind Bayesian statistics, including Bayes' theorem and the idea of prior distributions (see Chapter <xref ref="bayesian-inference"/>). In the present chapter, we build on this knowledge and try to get a more thorough understanding of the "Bayesian way" to do meta-analysis. When we set up our Bayesian network meta-analysis model, for example, the <alert>{gemtc}</alert> package specified the priors automatically for us. Here, we will do this ourselves. 
+      We already covered a Bayesian model in the last chapter on network meta-analysis. There, we discussed the main ideas behind Bayesian statistics, including Bayes' theorem and the idea of prior distributions (see <xref ref="bayesian-inference"/>). In the present chapter, we build on this knowledge and try to get a more thorough understanding of the "Bayesian way" to do meta-analysis. When we set up our Bayesian network meta-analysis model, for example, the <alert>{gemtc}</alert> package specified the priors automatically for us. Here, we will do this ourselves. 
     </p>
     <p>
       While its background is slightly more involved, we will see that Bayesian meta-analysis essentially aims to do the same thing as any "conventional" meta-analysis: it pools observed effect sizes into one overall (true) effect. Using a Bayesian model, however, also comes with several practical advantages compared to frequentist approaches. This makes it worthwhile to learn how we can implement such models using <em>R</em>. 
     </p>
     <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit Chapter <xref ref="netwma"/> and then continue with Chapter <xref ref="power"/>.
+      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="netwma"/> and then continue with <xref ref="power"/>.
     </p>
     <p>
       For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
@@ -33,10 +33,10 @@
       <idx><h>Bayesian Hierarchical Model</h></idx>
     </p>
     <p>
-      To perform a Bayesian meta-analysis, we employ a so-called <alert>Bayesian hierarchical model</alert> <xref ref="rover2017bayesian"/>, <xref ref="higgins2009re"/>. We already briefly covered this type of model in the network meta-analysis chapter (Chapter <xref ref="bayesian-net-ma-model"/>). 
+      To perform a Bayesian meta-analysis, we employ a so-called <alert>Bayesian hierarchical model</alert> <xref ref="rover2017bayesian"/>, <xref ref="higgins2009re"/>. We already briefly covered this type of model in the network meta-analysis chapter (<xref ref="bayesian-net-ma-model"/>). 
     </p>
     <p>
-      In Chapter <xref ref="multilevel-ma"/>, we learned that every meta-analytic model comes with an inherent "multilevel", and thus <alert>hierarchical</alert>, structure. On the first level, we have the individual participants. Data on this level usually reaches us in the form of calculated effect sizes <m>\hat\theta_k</m> of each study <m>k</m>. We assume that participants are nested within studies on the second level and that the true effect sizes <m>\theta_k</m> of different studies in our meta-analysis follow their own distribution. This distribution of true effects has a mean <m>\mu</m> (the pooled “true” effect we want to estimate) and variance <m>\tau^2</m>, representing the between-study heterogeneity.
+      In <xref ref="multilevel-ma"/>, we learned that every meta-analytic model comes with an inherent "multilevel", and thus <alert>hierarchical</alert>, structure. On the first level, we have the individual participants. Data on this level usually reaches us in the form of calculated effect sizes <m>\hat\theta_k</m> of each study <m>k</m>. We assume that participants are nested within studies on the second level and that the true effect sizes <m>\theta_k</m> of different studies in our meta-analysis follow their own distribution. This distribution of true effects has a mean <m>\mu</m> (the pooled “true” effect we want to estimate) and variance <m>\tau^2</m>, representing the between-study heterogeneity.
     </p>
     <p>
       Let us try to formalize this. On the first level, we assume that the observed effect size <m>\hat\theta_k</m> reported in study <m>k</m> is an estimate of the "true" effect <m>\theta_k</m> in this study. The observed effect <m>\hat\theta_k</m> deviates from <m>\theta_k</m> due to the sampling error <m>\epsilon_k</m>. This is because we assume that <m>\hat\theta_k</m> was drawn (sampled) from the population underlying <m>k</m>. This population can be seen as a distribution with mean <m>\theta_k</m>, the "true" effect of the study, and a variance <m>\sigma^2</m>. 
@@ -57,7 +57,7 @@
       \begin{equation} \hat\theta<em>k  \sim \mathcal{N}(\mu,\sigma</em>k^2 + \tau^2) (#eq:by2) \end{equation}
     </p>
     <p>
-      You may have already detected that these formulas look a lot like the ones we defined when discussing the random-effects (Chapter <xref ref="rem"/>) and three-level meta-analysis (Chapter <xref ref="multilevel-nature"/>) model. Indeed, there is nothing particularly "Bayesian" about this formulation. This changes, however, when we add the following equations <xref ref="williams2018bayesian"/>:
+      You may have already detected that these formulas look a lot like the ones we defined when discussing the random-effects (<xref ref="rem"/>) and three-level meta-analysis (<xref ref="multilevel-nature"/>) model. Indeed, there is nothing particularly "Bayesian" about this formulation. This changes, however, when we add the following equations <xref ref="williams2018bayesian"/>:
     </p>
     <p>
       \begin{align} (\mu, \tau^2) &amp;\sim p(.) \notag \ \tau^2 &amp;&gt; 0 (#eq:by3) \end{align}
@@ -72,7 +72,7 @@
       <idx><h>Markov Chain Monte Carlo</h></idx> <idx><h>Gibbs Sampler</h></idx> <idx><h>brms Package</h></idx> <idx><h>No-U-Turn Sampler (NUTS)</h></idx>
     </p>
     <p>
-      In the chapter on network meta-analysis, we already covered the method through which Bayesian approaches estimate model parameters. To recap, this involves using <alert>Markov Chain Monte Carlo</alert>-based sampling procedures, for example <alert>Gibbs sampling</alert>. In the <alert>{brms}</alert> package, which we will be using in this chapter, so-called <alert>No-U-Turn</alert> sampling <xref ref="hoffman2014no"/> is used<fn>NUTS is an extension of so-called <alert>Hamiltonian Monte Carlo</alert> (HMC), with the latter being another type of Markov Chain Monte Carlo method. Compared to other approaches (e.g. Gibbs sampling), HMC can provide a more efficient solution to estimate hierarchical models <xref ref="betancourt2015hamiltonian"/>. A brief description of HMC and NUTS can be found in the <alert>Stan</alert> reference manual (Stan is the low-level programming language on which <alert>{brms}</alert> is based, see Chapter <xref ref="bayes-ma-R"/>).</fn>.
+      In the chapter on network meta-analysis, we already covered the method through which Bayesian approaches estimate model parameters. To recap, this involves using <alert>Markov Chain Monte Carlo</alert>-based sampling procedures, for example <alert>Gibbs sampling</alert>. In the <alert>{brms}</alert> package, which we will be using in this chapter, so-called <alert>No-U-Turn</alert> sampling <xref ref="hoffman2014no"/> is used<fn>NUTS is an extension of so-called <alert>Hamiltonian Monte Carlo</alert> (HMC), with the latter being another type of Markov Chain Monte Carlo method. Compared to other approaches (e.g. Gibbs sampling), HMC can provide a more efficient solution to estimate hierarchical models <xref ref="betancourt2015hamiltonian"/>. A brief description of HMC and NUTS can be found in the <alert>Stan</alert> reference manual (Stan is the low-level programming language on which <alert>{brms}</alert> is based, see <xref ref="bayes-ma-R"/>).</fn>.
     </p>
     <p>
       <idx><h>meta Package</h></idx> <idx><h>metafor Package</h></idx> <idx><h>Posterior Distribution</h></idx>
@@ -182,7 +182,7 @@ library(brms)
       <title>Fitting the Model</title>
 
       <p>
-        In our hands-on example, we again use the <c>ThirdWave</c> data set, which contains information from a meta-analysis investigating the effects of "third wave" psychotherapies in college students (Chapter <xref ref="pre-calculated-es"/>). Before we fit the model, let us first specify the prior distribution of the overall effect size <m>\mu</m> and the between-study heterogeneity <m>\tau</m>. Previously, we defined that <m>\mu \sim \mathcal{N}(0,1)</m> and <m>\tau \sim \mathcal{HC}(0,0.5)</m>. 
+        In our hands-on example, we again use the <c>ThirdWave</c> data set, which contains information from a meta-analysis investigating the effects of "third wave" psychotherapies in college students (<xref ref="pre-calculated-es"/>). Before we fit the model, let us first specify the prior distribution of the overall effect size <m>\mu</m> and the between-study heterogeneity <m>\tau</m>. Previously, we defined that <m>\mu \sim \mathcal{N}(0,1)</m> and <m>\tau \sim \mathcal{HC}(0,0.5)</m>. 
       </p>
       <p>
         We can use the <c>prior</c> function to specify the distributions. The function takes two arguments. In the first argument, we specify the distribution we want to assume for our prior, including the distribution parameters. In the second argument, we have to define the <c>class</c> of the prior. For <m>\mu</m>, the appropriate class is <c>Intercept</c>, since it is a fixed population-level effect. For <m>\tau</m>, the class is <c>sd</c>, because it is a variance (or, to be more precise, a <alert>standard deviation</alert>). We can define both priors using the <c>prior</c> function, then concatenate them, and save the resulting object as <c>priors</c>. 
@@ -234,7 +234,7 @@ m.brm &lt;- brm(TE|se(seTE) ~ 1 + (1|Author),
         Before we start analyzing the results, we have to make sure that the model has <alert>converged</alert> (i.e. that the MCMC algorithm found the optimal solution). If this is not the case, the parameters are not trustworthy and should not be interpreted. Non-convergence happens frequently in Bayesian models and can often be resolved by re-running the model with more iterations (<c>iter</c>). To assess the convergence and overall validity of our model, we should always do two things. First, check the <m>\hat{R}</m> values of the parameter estimates, and secondly, conduct <alert>posterior predictive checks</alert>.
       </p>
       <p>
-        The <m>\hat{R}</m> value represents the <alert>Potential Scale Reduction Factor</alert> (PSRF) we already covered when discussing Bayesian network meta-analysis (Chapter <xref ref="bayesian-model-convergence"/>). The <m>\hat{R}</m> value of our estimates should be smaller than 1.01. To check this, we can produce a <c>summary</c> of our <c>m.brm</c> object.
+        The <m>\hat{R}</m> value represents the <alert>Potential Scale Reduction Factor</alert> (PSRF) we already covered when discussing Bayesian network meta-analysis (<xref ref="bayesian-model-convergence"/>). The <m>\hat{R}</m> value of our estimates should be smaller than 1.01. To check this, we can produce a <c>summary</c> of our <c>m.brm</c> object.
       </p>
       <program language="r">
         <code>
@@ -417,7 +417,7 @@ smd.ecdf(0.3)
         <idx><h>Forest Plot</h></idx> <idx><h>tidybayes Package</h></idx>
       </p>
       <p>
-        As you have seen, Bayesian models allow us to extract their sampled posterior distribution. This can be extremely helpful to directly assess the probability of specific values given our model. We can also exploit this feature to create enhanced <alert>forest plots</alert> (Chapter <xref ref="forest"/>), which are both very informative and pleasing to the eye<fn>Some of the code we are about present here was inspired by a <url href="https://mvuorre.github.io/posts/2016-09-29-bayesian-meta-analysis/">blog post</url> written by Matti Vuorre <xref ref="vuorre2016bayesian"/>.</fn>. 
+        As you have seen, Bayesian models allow us to extract their sampled posterior distribution. This can be extremely helpful to directly assess the probability of specific values given our model. We can also exploit this feature to create enhanced <alert>forest plots</alert> (<xref ref="forest"/>), which are both very informative and pleasing to the eye<fn>Some of the code we are about present here was inspired by a <url href="https://mvuorre.github.io/posts/2016-09-29-bayesian-meta-analysis/">blog post</url> written by Matti Vuorre <xref ref="vuorre2016bayesian"/>.</fn>. 
       </p>
       <p>
         Unfortunately, there is currently no maintained package to directly create forest plots from <alert>{brms}</alert> models. But it is possible to build them oneself using functions of the <alert>{tidybayes}</alert> package <xref ref="tidybayes"/>. So, let us first load this package along with a few other ones before we proceed.
