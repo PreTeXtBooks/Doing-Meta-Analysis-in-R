@@ -116,6 +116,9 @@ sample &lt;- rnorm(n = 50, mean = 10, sd = 2)
 mean(sample)
       </code>
     </program>
+<pre>
+## [1] 10.06881
+</pre>
     <p>
       <idx><h>Central Limit Theorem</h></idx>
     </p>
@@ -135,9 +138,9 @@ mean(sample)
     <p>
       As we mentioned before, we cannot simply calculate the standard error in real life by simulating the true sampling distribution. However, there are formulas based on statistical theory which allow us to calculate an estimate of the standard error, even when we are limited to only one observed sample--which we usually are. The formula to calculate the standard error of the <alert>mean</alert> is defined like this:
     </p>
-    <p>
-      \begin{align} SE = \frac{s}{\sqrt{n}} (#eq:es2) \end{align}
-    </p>
+    <me>
+      SE = \frac{s}{\sqrt{n}}
+    </me>
     <p>
       It defines the standard error as the standard deviation of our sample <m>s</m>, divided by the square root of the sample size <m>n</m>. Using this formula, we can easily calculate the standard error of our <c>sample</c> object from before using <em>R</em>. Remember that the size of our random sample was <m>n =</m> 50.
     </p>
@@ -146,6 +149,9 @@ mean(sample)
 sd(sample)/sqrt(50)
       </code>
     </program>
+<pre>
+## [1] 0.2618756
+</pre>
     <p>
       If we compare this value to the one we found in our simulation of the sampling distribution, we see that they are nearly identical. Using the formula, we could quite accurately estimate the standard error using only the sample we have at hand. 
     </p>
@@ -223,6 +229,13 @@ mean(sample)
 sd(sample)/sqrt(50)
         </code>
       </program>
+
+<pre>
+## [1] 20.17202
+
+## [1] 0.6546889
+</pre>
+
       <p>
         To conduct a meta-analysis of means, our data set should at least contain the following columns:
       </p>
@@ -254,15 +267,15 @@ sd(sample)/sqrt(50)
       <p>
         A <alert>proportion</alert> is another type of central tendency measure. It specifies how many units of a sample fall into a certain subgroup. Proportions can take values between zero and one, which can be transformed into <alert>percentages</alert> by multiplying with 100. Proportions may, for example, be used as an outcome measure when we want to examine the prevalence of a disease at a given point in time. To calculate a proportion <m>p</m>, we have to divide the number of individuals <m>k</m> falling into a specific subgroup by the total sample size <m>n</m>.
       </p>
-      <p>
+      <me>
         \begin{equation} p = \frac{k}{n} (#eq:es5) \end{equation}
-      </p>
+      </me>
       <p>
         The standard error of a proportion can be calculated this way:
       </p>
-      <p>
+      <me>
         \begin{equation} SE_{p} = \sqrt{\frac{p(1-p)}{n}} (#eq:es6) \end{equation}
-      </p>
+      </me>
       <p>
         We can calculate the proportion and its standard error in <em>R</em> using this code:
       </p>
@@ -298,12 +311,12 @@ sqrt((p*(1-p))/n)
       <p>
         The calculation of logit-transformed proportions and their standard errors can be done using these formulas <xref ref="lipsey2001practical"/><fn>To transform a logit-proportion back to the original scale, we can use the following formula: <m>p=\frac{\exp(p_{\text{logit}})}{1+\exp(p_{\text{logit}})}</m>, where <m>\exp</m> is the <alert>exponential function</alert>, implemented via <c>exp</c> in <em>R</em> (see <xref provisional="ppoolbin"/>).</fn>:
       </p>
-      <p>
+      <me>
         \begin{equation} p<em>{\text{logit}} = \log</em>{e} \left(\frac{p}{1-p}\right) (#eq:es7) \end{equation}
-      </p>
-      <p>
+      </me>
+      <me>
         \begin{equation} SE<em>{p</em>{\text{logit}}} = \sqrt{\frac{1}{np}+\frac{1}{n(1-p)}} (#eq:es8) \end{equation}
-      </p>
+      </me>
       <p>
         Luckily, the meta-analysis function we can use in <em>R</em> performs this logit-transformation automatically for us. We therefore only have to prepare the following columns in our data set:
       </p>
@@ -336,15 +349,15 @@ sqrt((p*(1-p))/n)
         <p>
           A correlation <m>r_{xy}</m> between a variable <m>x</m> and a variable <m>y</m> is defined as the <alert>co-variance</alert> <m>\text{Cov}(x,y)=\sigma^{2}_{xy}</m> of <m>x</m> and <m>y</m>, divided by the <alert>product</alert> of their standard deviations, <m>\sigma_x</m> and <m>\sigma_y</m>.
         </p>
-        <p>
+        <me>
           \begin{equation} r<em>{xy} = \frac{\sigma^{2}</em>{xy}}{\sigma<em>x \sigma</em>y} (#eq:es9) \end{equation}
-        </p>
+        </me>
         <p>
           Using the sample size <m>n</m>, the standard error of <m>r_{xy}</m> can be calculated like this:
         </p>
-        <p>
+        <me>
           \begin{equation} SE<em>{r</em>{xy}} = \frac{1-r_{xy}^2}{\sqrt{n-2}} (#eq:es10) \end{equation}
-        </p>
+        </me>
         <p>
           When calculating the product-moment correlation, we standardize the co-variation between two variables by their standard deviations. This means that it becomes less relevant if two or more studies measured a construct on the same scale; once we calculate a correlation, it is automatically possible to compare the effects. 
         </p>
@@ -380,15 +393,15 @@ sqrt((p*(1-p))/n)
         <p>
           In meta-analyses, correlations are therefore usually transformed into <alert>Fisher's</alert> <m>z</m><fn>Fisher's <m>z</m> was named after yet another famous statistician we mentioned in <xref ref="history"/>, Ronald A. Fisher.</fn>. Like the logit-transformation, this also entails the use of the natural logarithm function to make sure that the sampling distribution is approximately normal (see <xref ref="ratios"/> for a more detailed explanation). The formula looks like this:
         </p>
-        <p>
+        <me>
           \begin{equation} z = 0.5\log_{e}\left(\frac{1+r}{1-r}\right) (#eq:es11) \end{equation}
-        </p>
+        </me>
         <p>
           If we know the sample size <m>n</m>, the approximate standard error of Fisher's <m>z</m> can be obtained through this formula <xref ref="olkin1995correlations"/>:
         </p>
-        <p>
+        <me>
           \begin{equation} SE_{z} = \frac{1}{\sqrt{n-3}} (#eq:es12) \end{equation}
-        </p>
+        </me>
         <p>
           We can also calculate <m>r_{xy}</m> and <m>z</m> directly in <em>R</em>, using the <c>cor</c> and <c>log</c> function. 
         </p>
@@ -437,9 +450,9 @@ z
         <p>
           Point-biserial correlations can be calculated using this formula:
         </p>
-        <p>
-          \begin{equation} {r<em>{pb}}= \frac{(\bar{y</em>1}-\bar{y<em>2})\sqrt{p</em>1(1-p<em>1)}}{s</em>y} (#eq:es13) \end{equation}
-        </p>
+        <me>
+          \begin{equation} {r<em>{pb}}= \frac{(\bar{y</em>1}-\bar{y<em>2})\sqrt{p</em>1(1-p<em>1)}}{s</em>y}
+        </me>
         <p>
           In this formula, <m>\bar{y_1}</m> is the mean of the continuous variable when only the first group of the dichotomous variable <m>x</m> is considered, and <m>\bar{y_2}</m> is the mean when only the second group of <m>x</m> is considered; <m>p_1</m> is the proportion of cases that fall into group 1 in <m>x</m>, and <m>s_y</m> is the standard deviation of <m>y</m>. 
         </p>
@@ -476,24 +489,24 @@ z
         <p>
           The mean difference is defined as the mean of group 1, <m>\bar{x}_1</m>, minus the mean of group 2, <m>\bar{x}_2</m>:
         </p>
-        <p>
-          \begin{equation} \text{MD}<em>{\text{between}} = \bar{x}</em>1 - \bar{x}_2 (#eq:es14) \end{equation}
-        </p>
+        <me>
+          \begin{equation} \text{MD}<em>{\text{between}} = \bar{x}</em>1 - \bar{x}_2 
+        </me>
         <p>
           The standard error can be obtained using this formula:
         </p>
-        <p>
-          \begin{equation} SE<em>{\text{MD}</em>{\text{between}}} = s<em>{\text{pooled}}\sqrt{\frac{1}{n</em>1}+\frac{1}{n_2}} (#eq:es15) \end{equation}
-        </p>
+        <me>
+          \begin{equation} SE<em>{\text{MD}</em>{\text{between}}} = s<em>{\text{pooled}}\sqrt{\frac{1}{n</em>1}+\frac{1}{n_2}} 
+        </me>
         <p>
           <idx><h>Pooled Standard Deviation</h></idx>
         </p>
         <p>
           In the formula, <m>n_1</m> represents the sample size in group 1, <m>n_2</m> the sample size in group 2, and <m>s_{\text{pooled}}</m> the <alert>pooled standard deviation</alert> of both groups. Using the standard deviation of group 1 (<m>s_1</m>) and group 2 (<m>s_2</m>), the value of <m>s_{\text{pooled}}</m> can be calculated this way:
         </p>
-        <p>
-          \begin{align} s<em>{\text{pooled}} = \sqrt{\frac{(n</em>1-1)s^2<em>1+(n</em>2-1)s^2<em>2}{(n</em>1-1)+(n_2-1)}} (#eq:es16) \end{align}
-        </p>
+        <me>
+           s<em>{\text{pooled}} = \sqrt{\frac{(n</em>1-1)s^2<em>1+(n</em>2-1)s^2<em>2}{(n</em>1-1)+(n_2-1)}}
+        </me>
         <p>
           Time to provide an example on how we can calculate a mean difference and its standard error in <em>R</em>. As a first step, we will be simulating some data. We only do this here so that we have plausible values to work with. In a real meta-analysis, the mean of <c>x1</c> and <c>x2</c> as well as their standard deviations <c>s1</c> and <c>s2</c> are something that we can hopefully extract from the published paper, same as the group sample sizes <c>n1</c> and <c>n2</c>. So you do not have to worry about this first part too much.
         </p>
@@ -593,9 +606,9 @@ se
         <p>
           In contrast to unstandardized mean differences, <m>\text{SMD}_{\text{between}}</m> expresses the difference between two groups in <alert>units of standard deviations</alert>. This can be achieved by dividing the raw mean difference of two groups, <m>\bar{x_1}</m> and <m>\bar{x_2}</m>, through the pooled standard deviation <m>s_{\text{pooled}}</m> of both groups:
         </p>
-        <p>
-          \begin{equation} \text{SMD}<em>{\text{between}} = \frac{\bar{x}</em>1 - \bar{x}<em>2}{s</em>{\text{pooled}}} (#eq:es17) \end{equation}
-        </p>
+        <me>
+          \begin{equation} \text{SMD}<em>{\text{between}} = \frac{\bar{x}</em>1 - \bar{x}<em>2}{s</em>{\text{pooled}}}
+        </me>
         <p>
           Where <m>s_{\text{pooled}}</m> is calculated using the same formula (3.16) we already covered in <xref ref="b-group-md"/>. Standardized mean differences are much more often used in meta-analyses than unstandardized mean differences. This is because <m>\text{SMD}_{\text{between}}</m> can be compared between studies, even if those studies did not measure the outcome of interest using the same instruments. 
         </p>
@@ -635,9 +648,9 @@ se
         <p>
           The standard error of <m>\text{SMD}_{\text{between}}</m> can be calculated using this formula <xref ref="borenstein2011introduction"/>:
         </p>
-        <p>
-          \begin{equation} SE<em>{\text{SMD}</em>{\text{between}}} = \sqrt{\frac{n<em>1+n</em>2}{n<em>1n</em>2} + \frac{\text{SMD}^2<em>{\text{between}}}{2(n</em>1+n_2)}} (#eq:es18) \end{equation}
-        </p>
+        <me>
+          \begin{equation} SE<em>{\text{SMD}</em>{\text{between}}} = \sqrt{\frac{n<em>1+n</em>2}{n<em>1n</em>2} + \frac{\text{SMD}^2<em>{\text{between}}}{2(n</em>1+n_2)}}
+        </me>
         <p>
           Where <m>n_1</m> and <m>n_2</m> are the sample sizes of group 1 and group 2, and with <m>\text{SMD}_{\text{between}}</m> being the calculated between-group standardized mean difference.
         </p>
@@ -758,33 +771,33 @@ esc_mean_sd(grp1m = grp1m, grp2m = grp2m,
         <p>
           The within-group mean difference <m>\text{MD}_{\text{within}}</m> is calculated the same way as <m>\text{MD}_{\text{between}}</m> (see <xref ref="b-group-md"/>), except that we now compare the values of the same group at two different time points, <m>t_1</m> and <m>t_2</m>.
         </p>
-        <p>
-          \begin{equation} \text{MD}<em>{\text{within}} = \bar{x}</em>{\text{t}<em>2} - \bar{x}</em>{\text{t}_1} (#eq:es19) \end{equation}
-        </p>
+        <me>
+          \begin{equation} \text{MD}<em>{\text{within}} = \bar{x}</em>{\text{t}<em>2} - \bar{x}</em>{\text{t}_1}
+        </me>
         <p>
           Things become more complicated when we want to calculate a standardized version of the within-group mean difference. There is no full consensus on how <m>\text{SMD}_{\text{within}}</m> should be computed. In a <url href="https://web.archive.org/web/20160829095224/http://jakewestfall.org/blog/index.php/2016/03/25/five-different-cohens-d-statistics-for-within-subject-designs/">blog post</url>, Jake Westfall points out that there are at least five distinct ways to calculate it. 
         </p>
         <p>
           An intuitive option is to standardize the mean difference <m>\text{MD}_{\text{within}}</m> using the pooled standard deviation of both assessment points, <m>s_{\text{t}_1}</m> and <m>s_{\text{t}_2}</m>. Since in the number of observations is typically identical in within-group designs, this means that the sum of the two squared standard deviations simply has to be divided by 2 to obtain <m>s^2_{\text{pooled}}</m>. Otherwise, formula (3.16) in <xref ref="b-group-md"/> can be used to calculate <m>s_{\text{pooled}}</m>. This leads to the following formula:
         </p>
-        <p>
-          \begin{equation} \text{SMD}<em>{\text{within}} = \frac{\bar{x}</em>{\text{t}<em>2} - \bar{x}</em>{\text{t}<em>1}}{s</em>{\text{pooled}}} (#eq:es20) \end{equation}
-        </p>
+        <me>
+          \begin{equation} \text{SMD}<em>{\text{within}} = \frac{\bar{x}</em>{\text{t}<em>2} - \bar{x}</em>{\text{t}<em>1}}{s</em>{\text{pooled}}}
+        </me>
         <p>
           Another solution, proposed (among others) by Becker <xref ref="becker1988synthesizing"/>, is to divide <m>\text{MD}_{\text{within}}</m> by the standard deviation of the pre-test scores (<m>s_{\text{t}_1}</m>). The reason for this is that <m>s_{\text{t}_1}</m> is less likely to be influenced by intervention effects<fn>There is also another, "statistical" reasoning behind using <m>s_{\text{t}_1}</m> instead of <m>\sqrt{(s_{\text{t}_1}^2 + s_{\text{t}_2}^2/2)}</m> in the denominator. In within-group designs, <m>s_{\text{t}_1}</m> and <m>s_{\text{t}_2}</m> are not independent. This means that <m>s_{\text{t}_1}^2 + s_{\text{t}_2}^2</m> does not follow a <m>\chi^2</m> distribution, which is required for formula (3.23) below to be applicable when calculating the standard error of <m>\text{SMD}_{\text{within}}</m>. A "correct" formula of the approximate sampling distribution of <m>\text{SMD}_{\text{within}}</m> when using <m>\sqrt{(s_{\text{t}_1}^2 + s_{\text{t}_2}^2/2)}</m> in the denominator has recently been described <xref ref="cousineau2020approximating"/>; it also assumes that <m>r_{\text{t}_1\text{t}_2}</m> is known. <xref ref="cousineau2021ci"/> discuss ways to calculate confidence intervals based on this newly "discovered" distribution. Here, however, we restrict ourselves to the formulas for <m>\text{SMD}_{\text{within}}</m> and its standard error when using only <m>s_{\text{t}_1}</m> in the denominator. We do this because these formulas are relatively easy to apply in practice, commonly found in the literature, and because standardizing by the pre-test standard deviation <m>s_{\text{t}_1}</m> is typically a reasonable approach.</fn>:
         </p>
-        <p>
-          \begin{equation} \text{SMD}<em>{\text{within}} = \frac{\bar{x}</em>{\text{t}<em>2} - \bar{x}</em>{\text{t}<em>1}}{s</em>{\text{t}_1}} (#eq:es201) \end{equation}
-        </p>
+        <me>
+          \begin{equation} \text{SMD}<em>{\text{within}} = \frac{\bar{x}</em>{\text{t}<em>2} - \bar{x}</em>{\text{t}<em>1}}{s</em>{\text{t}_1}}
+        </me>
         <p>
           The standard errors of <m>\text{MD}_{\text{within}}</m> and <m>\text{SMD}_{\text{within}}</m> can be calculated using these formulas <xref ref="borenstein2011introduction"/>, <xref ref="becker1988synthesizing"/>:
         </p>
-        <p>
-          \begin{equation} SE<em>{\text{MD}</em>{\text{within}}}=\sqrt{\dfrac{s^2<em>{\text{t}</em>1}+s^2<em>{\text{t}</em>2}-(2r<em>{\text{t}</em>1\text{t}<em>2}s</em>{\text{t}<em>1}s</em>{\text{t}_2})}{n}} (#eq:es21) \end{equation}
-        </p>
-        <p>
-          \begin{equation} SE<em>{\text{SMD}</em>{\text{within}}} = \sqrt{\frac{2(1-r<em>{\text{t}</em>1\text{t}<em>2})}{n}+\frac{\text{SMD}^2</em>{\text{within}}}{2n}} (#eq:es22) \end{equation}
-        </p>
+        <me>
+          \begin{equation} SE<em>{\text{MD}</em>{\text{within}}}=\sqrt{\dfrac{s^2<em>{\text{t}</em>1}+s^2<em>{\text{t}</em>2}-(2r<em>{\text{t}</em>1\text{t}<em>2}s</em>{\text{t}<em>1}s</em>{\text{t}_2})}{n}}
+        </me>
+        <me>
+          \begin{equation} SE<em>{\text{SMD}</em>{\text{within}}} = \sqrt{\frac{2(1-r<em>{\text{t}</em>1\text{t}<em>2})}{n}+\frac{\text{SMD}^2</em>{\text{within}}}{2n}}
+        </me>
         <p>
           The fact that we need two know the correlation <m>r_{\text{t}_1\text{t}_2}</m> between the assessment points to calculate the standard error of within-group (standardized) mean differences is often problematic in practice. The pre-post correlation of a variable is hardly ever reported in published research, which forces us to assume a value of <m>r_{\text{t}_1\text{t}_2}</m> based on previous research. 
         </p>
@@ -910,21 +923,21 @@ se_within
         <p>
           The risk in the treatment group, <m>{p_{E}}_{\text{treat}}</m>, is therefore calculated like this:
         </p>
-        <p>
-          \begin{equation} {p<em>{E}}</em>{\text{treat}} = \frac{a}{a+b} = \frac{a}{n_{\text{treat}}} (#eq:es23) \end{equation}
-        </p>
+        <me>
+          \begin{equation} {p<em>{E}}</em>{\text{treat}} = \frac{a}{a+b} = \frac{a}{n_{\text{treat}}}
+        </me>
         <p>
           And the risk in the control group, <m>{p_{E}}_{\text{control}}</m>, like this:
         </p>
-        <p>
-          \begin{equation} {p<em>{E}}</em>{\text{control}} = \frac{c}{c+d} = \frac{c}{n_{\text{control}}} (#eq:es24) \end{equation}
-        </p>
+        <me>
+          \begin{equation} {p<em>{E}}</em>{\text{control}} = \frac{c}{c+d} = \frac{c}{n_{\text{control}}}
+        </me>
         <p>
           The risk ratio is then defined as the risk in the treatment/intervention group divided by the risk in the control group:
         </p>
-        <p>
-          \begin{equation} \text{RR} = \frac{{p<em>{E}}</em>{\text{treat}}}{{p<em>{E}}</em>{\text{control}}} (#eq:es25) \end{equation}
-        </p>
+        <me>
+          \begin{equation} \text{RR} = \frac{{p<em>{E}}</em>{\text{treat}}}{{p<em>{E}}</em>{\text{control}}}
+        </me>
         <p>
           <idx><h>Log-Risk Ratio</h></idx>
         </p>
@@ -937,15 +950,15 @@ se_within
         <p>
           To avoid this issue, risk ratios are often transformed into the <alert>log-risk ratio</alert> before pooling. This ensures asymptotic normality, that effect sizes can assume any value, and that values are centered around 0 (meaning no effect). The transformation is performed by taking the natural logarithm of RR:
         </p>
-        <p>
-          \begin{equation} \log \text{RR}  = \log_{e}(\text{RR}) (#eq:es26) \end{equation}
-        </p>
+        <me>
+          \begin{equation} \log \text{RR}  = \log_{e}(\text{RR})
+        </me>
         <p>
           The standard error of the log-risk ratio can then be calculated using this formula:
         </p>
-        <p>
-          \begin{equation} SE_{\log \text{RR}} = \sqrt{\frac{1}{a}+\frac{1}{c} - \frac{1}{a+b} - \frac{1}{c+d}} (#eq:es27) \end{equation}
-        </p>
+        <me>
+          \begin{equation} SE_{\log \text{RR}} = \sqrt{\frac{1}{a}+\frac{1}{c} - \frac{1}{a+b} - \frac{1}{c+d}}
+        </me>
         <p>
           We can calculate the (log-)risk ratio in <em>R</em> like this:
         </p>
