@@ -87,7 +87,9 @@
         We can describe the relationship like this <xref ref="borenstein2011introduction"/>:
       </p>
       <p>
-        \begin{equation} \hat\theta<em>k = \theta + \epsilon</em>k  (#eq:pes1) \end{equation}
+        <me>
+          \hat\theta<em>k = \theta + \epsilon</em>k
+        </me>
       </p>
       <p>
         To the alert reader, this formula may seem oddly similar to the one in <xref ref="what-is-es"/>. You are not mistaken. In the previous formula, we defined that an observed effect size <m>\hat\theta_k</m> of some study <m>k</m> is an estimator of that study's true effect size <m>\theta_k</m>, burdened by the study's sampling error <m>\epsilon_k</m>. 
@@ -132,13 +134,17 @@
         To calculate the weight <m>w_k</m> for each study <m>k</m>, we can use the standard error, which we square to obtain the <alert>variance</alert> <m>s^2_k</m> of each effect size. Since a <alert>lower</alert> variance indicates higher precision, the <alert>inverse</alert> of the variance is used to determine the weight of each study. 
       </p>
       <p>
-        \begin{equation} w<em>k = \frac{1}{s^2</em>k} (#eq:pes2) \end{equation}
+        <me>
+          w<em>k = \frac{1}{s^2</em>k}
+        </me>
       </p>
       <p>
         Once we know the weights, we can calculate the weighted average, our estimate of the true pooled effect <m>\hat\theta</m>. We only have to multiply each study's effect size <m>\hat\theta_k</m> with its corresponding weight <m>w_k</m>, sum the results across all studies <m>K</m> in our meta-analysis, and then divide by the sum of all the individual weights.
       </p>
       <p>
-        \begin{equation} \hat\theta = \frac{\sum^{K}<em>{k=1} \hat\theta</em>kw<em>k}{\sum^{K}</em>{k=1} w_k} (#eq:pes3) \end{equation}
+        <me>
+          \hat\theta = \frac{\sum^{K}<em>{k=1} \hat\theta</em>kw<em>k}{\sum^{K}</em>{k=1} w_k}
+        </me>
       </p>
       <p>
         <idx><h>Inverse-Variance Weighting</h></idx> <idx><h>Mantel-Haenszel Method</h></idx> <idx><h>Peto Method</h></idx>
@@ -290,13 +296,17 @@ pooled_effect
         Let us see how the random-effects model can be expressed in a formula. Similar to the fixed-effect model, the random-effects model starts by assuming that an observed effect size <m>\hat\theta_k</m> is an estimator of the study's true effect size <m>\theta_k</m>, burdened by sampling error <m>\epsilon_k</m>:
       </p>
       <p>
-        \begin{equation} \hat\theta<em>k = \theta</em>k + \epsilon_k  (#eq:pes4) \end{equation}
+        <me>
+          \hat\theta<em>k = \theta</em>k + \epsilon_k
+        </me>
       </p>
       <p>
         The fact that we use <m>\theta_k</m> instead of <m>\theta</m> already points to an important difference. The random-effects model only assumes that <m>\theta_k</m> is the true effect size of <alert>one</alert> single study <m>k</m>. It stipulates that there is a second source of error, denoted by <m>\zeta_k</m>. This second source of error is introduced by the fact that even the true effect size <m>\theta_k</m> of study <m>k</m> is only part of an over-arching distribution of true effect sizes with mean <m>\mu</m>.
       </p>
       <p>
-        \begin{equation} \theta<em>k  = \mu + \zeta</em>k (#eq:pes5) \end{equation}
+        <me>
+          \theta<em>k  = \mu + \zeta</em>k
+        </me>
       </p>
       <p>
         The random-effects model tells us that there is a hierarchy of two processes happening inside our black box <xref ref="thompson2001multilevel"/>: the observed effect sizes of a study deviate from their true value because of the sampling error. But even the true effect sizes are only a draw from a universe of true effects, whose mean <m>\mu</m> we want to estimate as the pooled effect of our meta-analysis. 
@@ -305,7 +315,9 @@ pooled_effect
         By plugging the second formula into the first one (i.e. replacing <m>\theta_k</m> with its definition in the second formula), we can express the random-effects model in one line <xref ref="borenstein2011introduction"/>:
       </p>
       <p>
-        \begin{equation} \hat\theta<em>k = \mu + \zeta</em>k + \epsilon_k (#eq:pes6) \end{equation}
+        <me>
+          \hat\theta<em>k = \mu + \zeta</em>k + \epsilon_k
+        </me>
       </p>
       <p>
         This formula makes it clear that our observed effect size deviates from the pooled effect <m>\mu</m> because of two error terms, <m>\zeta_k</m> and <m>\epsilon_k</m>. This relationship is visualized in <xref ref="fig-random"/>. 
@@ -353,7 +365,9 @@ pooled_effect
           In the random-effects model, we therefore calculate an adjusted <alert>random-effects weight</alert> <m>w^*_k</m> for each observation. The formula looks like this:
         </p>
         <p>
-          \begin{equation} w^*<em>k = \frac{1}{s^2</em>k+\tau^2}  (#eq:pes7) \end{equation}
+          <me>
+            w^*<em>k = \frac{1}{s^2</em>k+\tau^2}
+          </me>
         </p>
         <p>
           <idx><h>Inverse-Variance Weighting</h></idx>
@@ -362,7 +376,9 @@ pooled_effect
           Using the adjusted random-effects weights, we then calculate the pooled effect size using the inverse variance method, just like we did using the fixed-effect model:
         </p>
         <p>
-          \begin{equation} \hat\theta = \frac{\sum^{K}<em>{k=1} \hat\theta</em>kw^<em><em>k}{\sum^{K}</em>{k=1} w^</em>_k} (#eq:pes8) \end{equation}
+          <me>
+            \hat\theta = \frac{\sum^{K}<em>{k=1} \hat\theta</em>kw^<em><em>k}{\sum^{K}</em>{k=1} w^</em>_k}
+          </me>
         </p>
         <p>
           There are several  methods to estimate <m>\tau^2</m>, most of which are too complicated to do by hand. Luckily, however, these estimators are implemented in the functions of the <alert>{meta}</alert> package, which does the calculations automatically for us. Here is a list of the most common estimators, and the code by which they are referenced in <alert>{meta}</alert>:
@@ -951,13 +967,17 @@ summary(m.cont)
           <alert>Risk Ratio:</alert>
         </p>
         <p>
-          \begin{equation} w<em>k = \frac{(a</em>k+b<em>k) c</em>k}{n_k} (#eq:pes9) \end{equation}
+          <me>
+            w<em>k = \frac{(a</em>k+b<em>k) c</em>k}{n_k}
+          </me>
         </p>
         <p>
           <alert>Odds Ratio:</alert>
         </p>
         <p>
-          \begin{equation} w<em>k = \frac{b</em>kc<em>k}{n</em>k} (#eq:pes10) \end{equation}
+          <me>
+            w<em>k = \frac{b</em>kc<em>k}{n</em>k}
+          </me>
         </p>
         <p>
           In the formulas, we use the same notation as in <xref ref="rr"/>, with <m>a_k</m> being the number of events in the treatment group, <m>c_k</m> the number of event in the control group, <m>b_k</m> the number of non-events in the treatment group, <m>d_k</m> the number of non-events in the control group, and <m>n_k</m> being the total sample size.
@@ -975,16 +995,24 @@ summary(m.cont)
           To calculate <m>\hat\psi_k</m>, we need to know <m>O_k</m>, the observed events in the treatment group, and calculate <m>E_k</m>, the <alert>expected</alert> number of cases in the treatment group. The difference <m>O_k-E_k</m> is then divided by the variance <m>V_k</m> of the difference between <m>O_k</m> and <m>E_k</m>, resulting in a log-transformed version of <m>\hat\psi_k</m>. Using the same cell notation as before, the formulas to calculate <m>E_k</m>, <m>O_k</m> and <m>V_k</m> are the following:
         </p>
         <p>
-          \begin{equation} O<em>k = a</em>k (#eq:pes11) \end{equation}
+          <me>
+            O<em>k = a</em>k
+          </me>
         </p>
         <p>
-          \begin{equation} E<em>k = \frac{(a</em>k+b<em>k)(a</em>k+c<em>k)}{a</em>k+b<em>k+c</em>k+d_k} (#eq:pes12) \end{equation}
+          <me>
+            E<em>k = \frac{(a</em>k+b<em>k)(a</em>k+c<em>k)}{a</em>k+b<em>k+c</em>k+d_k}
+          </me>
         </p>
         <p>
-          \begin{equation} V<em>k = \frac{(a</em>k+b<em>k)(c</em>k+d<em>k)(a</em>k+c<em>k)(b</em>k+d<em>k)}{{(a</em>k+b<em>k+c</em>k+d<em>k)}^2(a</em>k+b<em>k+c</em>k+d_k-1)} (#eq:pes13) \end{equation}
+          <me>
+            V<em>k = \frac{(a</em>k+b<em>k)(c</em>k+d<em>k)(a</em>k+c<em>k)(b</em>k+d<em>k)}{{(a</em>k+b<em>k+c</em>k+d<em>k)}^2(a</em>k+b<em>k+c</em>k+d_k-1)}
+          </me>
         </p>
         <p>
-          \begin{equation} \log\hat\psi<em>k = \frac{O</em>k-E<em>k}{V</em>k} (#eq:pes14) \end{equation}
+          <me>
+            \log\hat\psi<em>k = \frac{O</em>k-E<em>k}{V</em>k}
+          </me>
         </p>
         <p>
           The inverse of the variance of <m>\log\hat\psi_k</m> is then used as the weight when pooling the effect sizes<fn>The variance of the log Peto odds ratio <m>\log\hat\psi_k</m> is defined as <m>\text{SE}_{\log\hat\psi_k}^2 = \widehat{\text{Var}}(\log\hat\psi_k)=V_k^{-1}</m>, so that the pooling weight using the Peto method is defined as <m>w^{\text{(Peto)}}_k=\widehat{\text{Var}}(\log\hat\psi_k)^{-1}</m>.</fn>.
@@ -996,7 +1024,9 @@ summary(m.cont)
           Recently, Bakbergenuly and colleagues <xref ref="bakbergenuly2020methods"/> proposed another method in which the weight of effects is only determined by a study's sample size, and showed that this approach may be preferable to the one by Mantel and Haenszel. We will call this the <alert>sample size method</alert>. The formula for this approach is fairly easy. We only need to know the sample size <m>n_{\text{treat}_k}</m> and <m>n_{\text{control}_k}</m> in the treatment and control group, respectively.
         </p>
         <p>
-          \begin{equation} w<em>k = \frac{n</em>{\text{treat}<em>k}n</em>{\text{control}<em>k}}{n</em>{\text{treat}<em>k} + n</em>{\text{control}_k} } (#eq:pes15) \end{equation}
+          <me>
+            w<em>k = \frac{n</em>{\text{treat}<em>k}n</em>{\text{control}<em>k}}{n</em>{\text{treat}<em>k} + n</em>{\text{control}_k} }
+          </me>
         </p>
         <p>
           When we implement this pooling method in <c>metabin</c>, the weights and overall effect of the fixed-effect and random-effects model will be identical, since the sample sizes will be used as weights in both cases. Only the <m>p</m>-value and confidence interval of the pooled effect will differ.
@@ -1690,7 +1720,9 @@ summary(m.mean)
         Mixed-effects models are regression models which contain both "fixed" and "random" components. The fixed elements are the <m>\beta</m> weights. A very simple regression model contains two <m>\beta</m> terms; the intercept <m>{\beta_0}</m>, as well as a regression term <m>{\beta_1}x</m>. These are used in combination to predict observed data <m>y</m> through some other quantity <m>x</m>. This prediction will hardly ever be perfect, leaving some random error <m>\epsilon_i</m>. Together, this gives the following formula:
       </p>
       <p>
-        \begin{equation} {y}<em>i = {\beta</em>0} + {\beta<em>1}x</em>i +  \epsilon_i (#eq:pes16) \end{equation}
+        <me>
+          {y}<em>i = {\beta</em>0} + {\beta<em>1}x</em>i +  \epsilon_i
+        </me>
       </p>
       <p>
         The crucial point is that the value of the <m>\beta</m> weights in this equation remains the same for each observation <m>i</m>. The value of <m>x</m> may vary from observation to observation, but <m>\beta_0</m> and <m>\beta_1</m> never do, since they are fixed. 
@@ -1699,7 +1731,9 @@ summary(m.mean)
         This regression equation can be turned into a <alert>mixed</alert>-effects model when random effects are added. We denote this random-effect term with <m>u_i</m>. As indicated by the subscript <m>i</m>, the random effect term can have different values for each observation. The <m>u_i</m> term is centered around zero and can increase or decrease the estimate produced by the fixed effects:
       </p>
       <p>
-        \begin{equation} {y}<em>i = {\beta</em>0} + {\beta<em>1}x</em>i + u<em>i + \epsilon</em>i (#eq:pes17) \end{equation}
+        <me>
+          {y}<em>i = {\beta</em>0} + {\beta<em>1}x</em>i + u<em>i + \epsilon</em>i
+        </me>
       </p>
       <p>
         Meta-analysis can be seen as a special type of this model in which there is no <m>\beta_1x_i</m> term. The model only contains an intercept <m>\beta_0</m>, which corresponds with the overall effect size <m>\mu</m> in the random-effects model. The <m>u_i</m> and <m>\epsilon_i</m> parts correspond with the <m>\zeta_k</m> and <m>\epsilon_k</m> error terms in meta-analyses. This makes it clear that meta-analysis is equivalent to a mixed-effects regression model. This mixed-effects model, however, only contains an intercept, as well as a random effect connected to that intercept. Using a binomial logit-link<fn>For study <m>k</m>, the logit transformation is defined as <m>\theta_k^{\text{LO}}=\log_e\left(\frac{p_k}{1-p_k}\right)</m>, leading to <m>\theta_k^{\text{LO}} \sim \theta+u_k</m>, with <m>u_k \sim \mathcal{N}(0, \tau^2)</m>. In meta-analytic GLMMs for proportions, the number of events in a study (<m>a_k</m>) is assumed to follow a binomial distribution: <m>a_k \sim \text{B}\left(n_k, \frac{\exp(\theta_k^{\text{LO}})}{1+ \exp(\theta_k^{\text{LO}})}\right)</m>. For a more detailed description, see <xref ref="references"/>, A.2.2.</fn>, we can therefore apply a (generalized) logistic mixed-effect model to estimate the pooled effect.

@@ -324,7 +324,9 @@ title("Contour-Enhanced Funnel Plot (Third Wave Psychotherapies)")
           Egger's regression test <xref ref="egger1997bias"/> is a commonly used quantitative method that tests for asymmetry in the funnel plot. Like visual inspection of the funnel plot, it can only identify small-study effects and not tell us directly if publication bias exists. The test is based on a simple linear regression model, the formula of which looks like this:
         </p>
         <p>
-          \begin{equation} \frac{\hat\theta<em>k}{SE</em>{\hat\theta<em>k}} = \beta</em>0 + \beta<em>1 \frac{1}{SE</em>{\hat\theta_k}} (#eq:pub1) \end{equation}
+          <me>
+            \frac{\hat\theta<em>k}{SE</em>{\hat\theta<em>k}} = \beta</em>0 + \beta<em>1 \frac{1}{SE</em>{\hat\theta_k}}
+          </me>
         </p>
         <p>
           The responses <m>y</m> in this formula are the observed effect sizes <m>\hat\theta_k</m> in our meta-analysis, divided through their standard error. The resulting values are equivalent to <m>z</m>-scores. These scores tell us directly if an effect size is significant; when <m>z \geq</m> 1.96 or <m>\leq</m> -1.96, we know that the effect is significant (<m>p&lt;</m> 0.05). This response is regressed on the inverse of the studies' standard error, which is equivalent to their precision. 
@@ -416,7 +418,9 @@ metabias(m.gen, method.bias = "linreg")
           Pustejovsky and Rodgers <xref ref="pustejovsky2019testing"/> propose to use a modified version of the standard error when testing for the funnel plot asymmetry of standardized mean differences. Only the first part of the standard error formula is used, which means that the observed effect size drops out of the equation. Thus, the formula looks like this:
         </p>
         <p>
-          \begin{equation} SE^*<em>{\text{SMD}</em>{\text{between}}}= \sqrt{\frac{n<em>1+n</em>2}{n<em>1n</em>2}} (#eq:pub2) \end{equation}
+          <me>
+            SE^*<em>{\text{SMD}</em>{\text{between}}}= \sqrt{\frac{n<em>1+n</em>2}{n<em>1n</em>2}}
+          </me>
         </p>
         <p>
           Where <m>SE^*_{\text{SMD}_{\text{between}}}</m> is the modified version of the standard error. It might be a good idea to check if Egger's test gives the same results when using this improvement. In the following code, we add the sample size per group of each study to our initial data set, calculate the adapted standard error, and then use it to re-run the analyses. 
@@ -485,7 +489,9 @@ metabias(m.gen.c, method = "linreg")
           To avoid an inflated risk of false positives when using binary effect size data, we can use another type of regression test, proposed by Peters and colleagues <xref ref="peters2006comparison"/>. To obtain the results of Peters' test, the log-transformed effect size is regressed on the inverse of the sample size:
         </p>
         <p>
-          \begin{equation} \log\psi<em>k =  \beta</em>0 + \beta<em>1\frac{1}{n</em>k} (#eq:pub3) \end{equation}
+          <me>
+            \log\psi<em>k =  \beta</em>0 + \beta<em>1\frac{1}{n</em>k}
+          </me>
         </p>
         <p>
           In this formula, <m>\log\psi_k</m> can stand for any log-transformed effect size based on binary outcome data (e.g. the odds ratio), and <m>n_k</m> is the total sample size of study <m>k</m>.
@@ -497,7 +503,9 @@ metabias(m.gen.c, method = "linreg")
           Importantly, when fitting the regression model, each study <m>k</m> is given a different weight <m>w_k</m>, depending on its sample size and event counts. This results in a <alert>weighted</alert> linear regression, which is similar (but not identical) to a meta-regression model (see <xref ref="metareg-model-fit"/>). The formula for the weights <m>w_k</m> looks like this:
         </p>
         <p>
-          \begin{equation} w<em>k = \frac{1}{\left(\dfrac{1}{a</em>k+c<em>k}+\dfrac{1}{b</em>k+d_k}\right)} (#eq:pub4) \end{equation}
+          <me>
+            w<em>k = \frac{1}{\left(\dfrac{1}{a</em>k+c<em>k}+\dfrac{1}{b</em>k+d_k}\right)}
+          </me>
         </p>
         <p>
           Where <m>a_k</m> is the number of events in the treatment group, <m>c_k</m> is the number of events in the control group; <m>b_k</m> and <m>d_k</m> are the number of non-events in the treatment and control group, respectively (see <xref ref="rr"/>). In contrast to Eggers' regression test, Peters' test uses <m>\beta_1</m> instead of the intercept to test for funnel plot asymmetry. When the statistical test reveals that <m>\beta_1 \neq 0</m>, we can assume that asymmetry exists in our data.
@@ -706,13 +714,17 @@ title("Funnel Plot (Trim &amp; Fill Method) - Outliers Removed")
           PET-PEESE is actually a combination of two methods: the <alert>precision-effect test</alert> (PET) and the <alert>precision-effect estimate with standard error</alert> (PEESE). Let us begin with the former. The PET method is based on a simple regression model, in which we regress a study's effect size on its standard error:
         </p>
         <p>
-          \begin{equation} \theta<em>k =  \beta</em>0 + \beta<em>1SE</em>{\theta_k} (#eq:pub5) \end{equation}
+          <me>
+            \theta<em>k =  \beta</em>0 + \beta<em>1SE</em>{\theta_k}
+          </me>
         </p>
         <p>
           Like in Peters' test, we use a weighted regression. The study weight <m>w_k</m> is calculated as the inverse of the variance--just like in a normal (fixed-effect) meta-analysis:
         </p>
         <p>
-          \begin{equation} w<em>k = \frac{1}{s</em>k^2}  (#eq:pub6) \end{equation}
+          <me>
+            w<em>k = \frac{1}{s</em>k^2}
+          </me>
         </p>
         <p>
           It is of note that the regression model used by the PET method is equivalent to the one of Eggers' test. The main difference is that in the PET formula, the <m>\beta_1</m> coefficient quantifies funnel asymmetry, while in Eggers' test, this is indicated by the intercept. 
@@ -727,13 +739,17 @@ title("Funnel Plot (Trim &amp; Fill Method) - Outliers Removed")
           The idea behind the PET method is to <alert>control</alert> for the effect of small studies by including the standard error as a predictor. In theory, this should lead to an intercept <m>\beta_0</m> which represents the true effect in our meta-analysis after correction for all small-study effects:
         </p>
         <p>
-          \begin{equation} \hat\theta<em>{\text{PET}} = \hat\beta</em>{0_{\mathrm{PET}}} (#eq:pub7) \end{equation}
+          <me>
+            \hat\theta<em>{\text{PET}} = \hat\beta</em>{0_{\mathrm{PET}}}
+          </me>
         </p>
         <p>
           The formula for the PEESE method is very similar. The only difference is that we use the <alert>squared</alert> standard error as the predictor (i.e. the effect size variance <m>s_k^2</m>):
         </p>
         <p>
-          \begin{equation} \theta<em>k =  \beta</em>0 + \beta<em>1SE</em>{\theta_k}^2 (#eq:pub8) \end{equation}
+          <me>
+            \theta<em>k =  \beta</em>0 + \beta<em>1SE</em>{\theta_k}^2
+          </me>
         </p>
         <p>
           While the formula for the study weights <m>w_k</m> remains the same. The idea behind squaring the standard error is that small studies are particularly prone to reporting <alert>highly</alert> over-estimated effects. This problem, it is assumed, is far less pronounced for studies with high statistical power. 
@@ -751,7 +767,9 @@ title("Funnel Plot (Trim &amp; Fill Method) - Outliers Removed")
           The rule to obtain the true effect size as estimated by PET-PEESE, therefore, looks like this:  
         </p>
         <p>
-          \begin{equation}   \hat\theta<em>{\text{PET-PEESE}}=\begin{cases}     \mathrm{P}(\beta</em>{0<em>{\text{PET}}} = 0) &lt;0.1~\mathrm{and}~\hat\beta</em>{0<em>{\text{PET}}} &gt; 0: &amp; \hat\beta</em>{0<em>{\text{PEESE}}}\     \text{else}: &amp; \hat\beta</em>{0_{\text{PET}}}.   \end{cases}   (#eq:pub9) \end{equation}
+          <me>
+            \hat\theta<em>{\text{PET-PEESE}}=\begin{cases}     \mathrm{P}(\beta</em>{0<em>{\text{PET}}} = 0) &lt;0.1~\mathrm{and}~\hat\beta</em>{0<em>{\text{PET}}} &gt; 0: &amp; \hat\beta</em>{0<em>{\text{PEESE}}}\     \text{else}: &amp; \hat\beta</em>{0_{\text{PET}}}.   \end{cases}
+          </me>
         </p>
         <p>
           It is somewhat difficult to wrap one's head around this if-else logic, but a hands-on example may help to clarify things. Using our <c>m.gen</c> meta-analysis object, let us see what PET-PEESE's estimate of the true effect size is.
@@ -867,7 +885,9 @@ summary(peese)$coefficients
           The idea behind Rücker's method is to build a meta-analysis model which explicitly accounts for bias due to small-study effects. As a reminder, the formula of a (random-effects) meta-analysis can be defined like this:
         </p>
         <p>
-          \begin{equation} \hat\theta<em>k = \mu + \epsilon</em>k+\zeta_k (#eq:pub10) \end{equation}
+          <me>
+            \hat\theta<em>k = \mu + \epsilon</em>k+\zeta_k
+          </me>
         </p>
         <p>
           Where <m>\hat\theta_k</m> is the observed effect size of study <m>k</m>, <m>\mu</m> is the true overall effect size, <m>\epsilon_k</m> is the sampling error, and <m>\zeta_k</m> quantifies the deviation due to between-study heterogeneity. 
@@ -876,7 +896,9 @@ summary(peese)$coefficients
           In a limit meta-analysis, we extend this model. We account for the fact that the effect sizes and standard errors of studies are not independent when there are small-study effects. This is assumed because we know that publication bias particularly affects small studies, and that small studies will therefore have a larger effect size than big studies. In Rücker's method, this bias is added to our model by introducing a new term <m>\theta_{\text{Bias}}</m>. It is assumed that <m>\theta_{\text{Bias}}</m> interacts with <m>\epsilon_k</m> and <m>\zeta_k</m>. It becomes larger as <m>\epsilon_k</m> increases. The adapted formula looks like this:
         </p>
         <p>
-          \begin{equation} \hat\theta<em>k = \mu</em>* + \theta<em>{\text{Bias}}(\epsilon</em>k+\zeta_k) (#eq:pub11) \end{equation}
+          <me>
+            \hat\theta<em>k = \mu</em>* + \theta<em>{\text{Bias}}(\epsilon</em>k+\zeta_k)
+          </me>
         </p>
         <p>
           It is important to note that in this formula, <m>\mu_*</m> does not represent the overall true effect size anymore, but a global mean that has no direct equivalent in a "standard" random-effects meta-analysis (unless <m>\theta_{\text{Bias}}=</m> 0). 
@@ -885,19 +907,25 @@ summary(peese)$coefficients
           The next step is similar to the idea behind PET-PEESE (see previous chapter). Using the formula above, we suppose that studies' effect size estimates become increasingly precise, meaning that their individual sampling error <m>\epsilon_k</m> approaches zero. This means that <m>\epsilon_k</m> ultimately drops out of the equation:
         </p>
         <p>
-          \begin{equation} \mathrm{E}(\hat\theta<em>k) \rightarrow \mu</em>{*} + \theta<em>{\text{Bias}}\zeta</em>k ~ ~ ~ ~ \text{as} ~ ~ ~ ~ \epsilon_k \rightarrow 0. (#eq:pub12) \end{equation}
+          <me>
+            \mathrm{E}(\hat\theta<em>k) \rightarrow \mu</em>{*} + \theta<em>{\text{Bias}}\zeta</em>k ~ ~ ~ ~ \text{as} ~ ~ ~ ~ \epsilon_k \rightarrow 0.
+          </me>
         </p>
         <p>
           In this formula, <m>\mathrm{E}(\hat\theta_k)</m> stands for the <alert>expected value</alert> of <m>\hat\theta_k</m> as <m>\epsilon_k</m> approaches zero. The formula we just created is the one of a "limit meta-analysis". It provides us with an adjusted estimate of the effect when removing the distorting influence of studies with a large standard error. Since <m>\zeta_k</m> is usually expressed by the between-study heterogeneity variance <m>\tau^2</m> (or its square root, the standard deviation <m>\tau</m>), we can use it to replace <m>\zeta_k</m> in the equation, which leaves us with this formula:
         </p>
         <p>
-          \begin{equation} \hat\theta<em>{*} =  \mu</em>* + \theta_{\mathrm{Bias}}\tau (#eq:pub13) \end{equation}
+          <me>
+            \hat\theta<em>{*} =  \mu</em>* + \theta_{\mathrm{Bias}}\tau
+          </me>
         </p>
         <p>
           Where <m>\hat\theta_*</m> stands for the estimate of the <alert>pooled</alert> effect size after adjusting for small-study effects. Rücker's method uses maximum likelihood  to estimate the parameters in this formula, including the "shrunken" estimate of the true effect size <m>\hat\theta_*</m>. Furthermore, it is also possible to obtain a shrunken effect size estimate <m>\hat\theta_{{*}_k}</m> for each individual study <m>k</m>, using this formula:
         </p>
         <p>
-          \begin{equation} \hat\theta<em>{{*}</em>k} =  \mu<em>* + \sqrt{\dfrac{\tau^2}{SE^2</em>k + \tau^2}}(\hat\theta<em>k - \mu</em>*) \end{equation}
+          <me>
+            \hat\theta<em>{{*}</em>k} =  \mu<em>* + \sqrt{\dfrac{\tau^2}{SE^2</em>k + \tau^2}}(\hat\theta<em>k - \mu</em>*)
+          </me>
         </p>
         <p>
           in which <m>SE^2_k</m> stands for the squared standard error (i.e. the observed variance) of <m>k</m>, and with <m>\hat\theta_k</m> being the originally observed effect size<fn>This formula can be derived from a less simplified version of equation 9.11. A technical description of how to do this can be found in Rücker and colleagues <xref ref="rucker2011treatment"/>, equations 2.4 to 2.6.</fn>. 
@@ -1116,7 +1144,9 @@ binom.test(k, n, p, alternative = "greater")$p.value
           The resulting value is a test statistic which follows a <m>\chi^2</m> distribution (see <xref ref="cochran-q"/>) with <m>2\times K</m> degrees of freedom (where <m>K</m> is the total number of <m>pp</m>-values)<fn>In newer versions, p-curve uses <alert>Stouffer's method</alert> instead of the one by Fisher to test for right-skewness <xref ref="simonsohn2015better"/>. Both methods are closely related, but Stouffer's method is based on <m>z</m>-scores instead of <m>p</m>-values.</fn>:
         </p>
         <p>
-          \begin{equation} \chi^2<em>{2K} = -2 \sum^K</em>{k=1} \log(pp_k) (#eq:pub14) \end{equation}
+          <me>
+            \chi^2<em>{2K} = -2 \sum^K</em>{k=1} \log(pp_k)
+          </me>
         </p>
         <p>
           Let us try out Fisher's method in a brief example. Imagine that our <m>p</m>-curve contains five <m>p</m>-values: <m>p=</m> 0.001, 0.002, 0.003, 0.004 and 0.03. To test for right-skewness, we first have to transform these <m>p</m>-values into the <m>pp</m>-value:
@@ -1383,13 +1413,17 @@ pcurve(m.gen_update)
           To see how p-curve achieves this, let us go through a small example. For an independent two-sample <m>t</m>-test (assuming equal variances in both groups), the value of <m>t</m> equals the between-group mean difference <m>\text{MD}_{\text{between}}</m> divided through its standard error <m>SE_{\text{MD}_{\text{between}}}</m>:
         </p>
         <p>
-          \begin{equation} t<em>{\text{d.f.}}= \frac{\text{MD}</em>{\text{between}}}{SE<em>{\text{MD}</em>{\text{between}}}} (#eq:pub15) \end{equation}
+          <me>
+            t<em>{\text{d.f.}}= \frac{\text{MD}</em>{\text{between}}}{SE<em>{\text{MD}</em>{\text{between}}}}
+          </me>
         </p>
         <p>
           When we insert the formula for the between-group mean difference and standard error (see equation 3.14 and 3.15 in <xref ref="b-group-md"/>), we get the following formula:
         </p>
         <p>
-          \begin{equation} t<em>{n</em>{1}+n<em>{2}-2} = \frac{\hat\mu</em>{1}-\hat\mu<em>{2}}{s</em>{\text{pooled}}\sqrt{\dfrac{1}{n<em>1}+\dfrac{1}{n</em>2}}} (#eq:pub16) \end{equation}
+          <me>
+            t<em>{n</em>{1}+n<em>{2}-2} = \frac{\hat\mu</em>{1}-\hat\mu<em>{2}}{s</em>{\text{pooled}}\sqrt{\dfrac{1}{n<em>1}+\dfrac{1}{n</em>2}}}
+          </me>
         </p>
         <p>
           We see in the equation that the degrees of freedom of <m>t</m> are defined as the combined sample size (<m>n_1+n_2</m>) of both groups minus 2. 
@@ -1436,7 +1470,9 @@ pt(2.078, df = 48, lower.tail = F)
           As a first guess, we could assume that the true effect size behind our finding is a standardized mean difference of <m>\theta=</m> 0.6. This would mean that we found <m>t=</m> 2.078 because there was a medium-to-large effect in the experiment. Based on this value of <m>\theta</m>, the non-centrality parameter is calculated using this formula:
         </p>
         <p>
-          \begin{equation} \delta = \frac{\theta}{\sqrt{\dfrac{n<em>{1}+n</em>{2}}{n<em>{1}n</em>{2}}}} (#eq:pub15) \end{equation}
+          <me>
+            \delta = \frac{\theta}{\sqrt{\dfrac{n<em>{1}+n</em>{2}}{n<em>{1}n</em>{2}}}}
+          </me>
         </p>
         <p>
           Where <m>n_1</m> and <m>n_2</m> are the sample sizes in both groups. In our example, we can calculate the non-centrality parameter <m>\delta</m> using this code:
@@ -1518,7 +1554,9 @@ pt(2.078, df = 48, ncp = delta, lower.tail = FALSE)
           This results in a <m>pp</m>-value for each significant study <m>k</m>. Based on all that we just covered, the formula for the <m>pp</m>-value of a study <m>k</m> can be expressed like this: 
         </p>
         <p>
-          \begin{equation} pp(t<em>k) = \mathrm{P}(t&gt;t</em>k~\vert~\delta,~\text{d.f.},~p&lt;0.05) (#eq:pub16) \end{equation}
+          <me>
+            pp(t<em>k) = \mathrm{P}(t&gt;t</em>k~\vert~\delta,~\text{d.f.},~p&lt;0.05)
+          </me>
         </p>
         <p>
           <idx><h>Kolmogorov-Smirnov Test</h></idx>
@@ -1645,7 +1683,9 @@ pcurve(m.gen_update,
           This is achieved through a <alert>weight function</alert> <m>w(p_k)</m>. The weight function tells us the selection probability of a study <m>k</m>, depending on its <m>p</m>-value. Based on this, we can  define an adapted version of <m>f(x_k)</m>, which also incorporates the publication bias mechanism. This function <m>f^*(x_k)</m> is symbolized by this formula <xref ref="vevea2005publication"/>:
         </p>
         <p>
-          \begin{equation} f^*(x<em>k) = \frac{w(p</em>k)f(x<em>k)}{\int w(p</em>k) f(x<em>k) dx</em>k} (#eq:pub17) \end{equation}
+          <me>
+            f^*(x<em>k) = \frac{w(p</em>k)f(x<em>k)}{\int w(p</em>k) f(x<em>k) dx</em>k}
+          </me>
         </p>
         <p>
           Where the denominator in the fraction stands for the integral of <m>w(p_k) f(x_k)</m>. The weight function <m>w(p_k)</m> in this equation represents our assumed selection model. 
@@ -1660,7 +1700,9 @@ pcurve(m.gen_update,
           The size of the segments is determined by several <alert>cut-points</alert> (which we denote with <m>a_i</m>). The number of cut-points, as well as their exact value, can be chosen by us. For example, when <m>w(p_k)</m> contains four segments (and thus four cut-points), we can define its inner workings like so:
         </p>
         <p>
-          \begin{equation}   w(p<em>k) =\begin{cases}     \omega</em>1~~~\text{if}~~~0 \leq p<em>k \leq a</em>1 \     \omega<em>2~~~\text{if}~~~a</em>1 \leq p<em>k \leq a</em>2 \     \omega<em>3~~~\text{if}~~~a</em>2 \leq p<em>k \leq a</em>3 \     \omega<em>4~~~\text{if}~~~a</em>3 \leq p<em>k \leq a</em>4~~~(\text{where}~~~a_4=1).   \end{cases}   (#eq:pub18) \end{equation}
+          <me>
+            w(p<em>k) =\begin{cases}     \omega</em>1~~~\text{if}~~~0 \leq p<em>k \leq a</em>1 \     \omega<em>2~~~\text{if}~~~a</em>1 \leq p<em>k \leq a</em>2 \     \omega<em>3~~~\text{if}~~~a</em>2 \leq p<em>k \leq a</em>3 \     \omega<em>4~~~\text{if}~~~a</em>3 \leq p<em>k \leq a</em>4~~~(\text{where}~~~a_4=1).   \end{cases}
+          </me>
         </p>
         <p>
           We see that for any value of <m>p</m>, the function above returns a specific selection probability <m>\omega</m>, based on the <m>p</m>-value interval into which our value falls. To make this more concrete, we now define a selection model with actual values filled in for the cut-points <m>a_i</m> and selection probabilities <m>\omega_i</m>. 
