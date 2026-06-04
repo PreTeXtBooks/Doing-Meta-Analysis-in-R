@@ -465,6 +465,15 @@ Corrections</title>
     <pages>418--421</pages>
   </biblio>
 
+  <biblio xml:id="cousineau2021ci" type="bibtex">
+    <title>A study of confidence intervals for {Cohen's} {$d_p$} in within-subject designs with new proposals</title>
+    <author>Denis Cousineau and Jean-Christophe Goulet-Pelletier</author>
+    <year>2021</year>
+    <journal>Quant. Methods Psychol</journal>
+    <volume>17</volume>
+    <pages>51--75</pages>
+  </biblio>
+
   <biblio xml:id="cuijpers2002excess" type="bibtex">
     <title>Excess mortality in depression: A meta-analysis of community studies</title>
     <author>Cuijpers, Pim and Smit, Filip</author>
@@ -1929,6 +1938,17 @@ Corrections</title>
     <volume>99</volume>
     <number>6</number>
     <pages>428--432</pages>
+  </biblio>
+
+  <biblio xml:id="parmar1998extracting" type="bibtex">
+    <title>Extracting summary statistics to perform meta-analyses of the published literature for survival endpoints</title>
+    <author>Parmar, Mahesh KB and Torri, Valter and Stewart, Lesley</author>
+    <year>1998</year>
+    <journal>Statistics in medicine</journal>
+    <volume>17</volume>
+    <number>24</number>
+    <pages>2815--2834</pages>
+    <publisher>Wiley Online Library</publisher>
   </biblio>
 
   <biblio xml:id="pastor2018multilevel" type="bibtex">
