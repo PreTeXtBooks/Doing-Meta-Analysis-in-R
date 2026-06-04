@@ -84,9 +84,9 @@
     <p>
       Put simply, <m>\hat\theta_k</m> is, therefore, the same as <m>\theta_k</m> plus some sampling error <m>\epsilon_k</m><fn>It should be noted that there are often more reasons for our observed effect sizes to differ from the true effect size than sampling error alone; for example biases in a study's research methodology, or measurement error. In <xref ref="es-correction"/>, we will discuss this in greater detail.</fn>.
     </p>
-    <p>
-      \begin{align} \hat\theta<em>k = \theta</em>k + \epsilon_k (#eq:es1) \end{align}
-    </p>
+    <me>
+      \hat\theta<em>k = \theta</em>k + \epsilon_k
+    </me>
     <p>
       It is obviously desirable that the effect size estimate <m>\hat\theta_k</m> of study <m>k</m> is as close as possible to the true effect size, and that <m>\epsilon_k</m> is minimal. All things being equal, we can assume that studies with smaller <m>\epsilon</m> will deliver a more <alert>precise</alert> estimate of the true effect size. Meta-analysis methods take into account how precise an effect size estimate is (see <xref ref="pooling-es"/>). When pooling the results of different studies, they give effects with a greater precision (i.e., less sampling error) a higher weight, because they are better estimators of the true effect <xref ref="hedges2014statistical"/>. 
     </p>
