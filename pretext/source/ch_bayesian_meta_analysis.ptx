@@ -45,7 +45,9 @@
       In the second step, we assume that the true effect sizes <m>\theta_k</m> themselves are only samples of an overarching distribution of true effect sizes. The mean of this distribution <m>\mu</m> is the pooled effect size we want to estimate. The study-specific true effects <m>\theta_k</m> deviate from <m>\mu</m> because the overarching distribution also has a variance <m>\tau^2</m>, signifying the between-study heterogeneity. Taken together, this gives these two equations:
     </p>
     <p>
-      \begin{align} \hat\theta<em>k &amp;\sim \mathcal{N}(\theta</em>k,\sigma<em>k^2) \notag \ \theta</em>k &amp;\sim \mathcal{N}(\mu,\tau^2) (#eq:by1) \end{align}
+      <me>
+        \hat\theta<em>k &amp;\sim \mathcal{N}(\theta</em>k,\sigma<em>k^2) \notag \ \theta</em>k &amp;\sim \mathcal{N}(\mu,\tau^2)
+      </me>
     </p>
     <p>
       Here, we use <m>\mathcal{N}</m> to indicate that parameters to the left were sampled from a <alert>normal</alert> distribution. Some may argue that this is an unnecessarily strict assumption for the second equation <xref ref="higgins2009re"/>, but the formulation as shown here is the one that is used most of the time. As covered before, the fixed-effect model is simply a special case of this model in which we assume that <m>\tau^2 = 0</m>, meaning that there is no between-study heterogeneity, and that all studies share one single true effect size (i.e. that for all studies <m>k</m>: <m>\theta_k = \mu</m>). 
@@ -54,13 +56,17 @@
       We can also simplify this formula by using the marginal form:
     </p>
     <p>
-      \begin{equation} \hat\theta<em>k  \sim \mathcal{N}(\mu,\sigma</em>k^2 + \tau^2) (#eq:by2) \end{equation}
+      <me>
+        \hat\theta<em>k  \sim \mathcal{N}(\mu,\sigma</em>k^2 + \tau^2)
+      </me>
     </p>
     <p>
       You may have already detected that these formulas look a lot like the ones we defined when discussing the random-effects (<xref ref="rem"/>) and three-level meta-analysis (<xref ref="multilevel-nature"/>) model. Indeed, there is nothing particularly "Bayesian" about this formulation. This changes, however, when we add the following equations <xref ref="williams2018bayesian"/>:
     </p>
     <p>
-      \begin{align} (\mu, \tau^2) &amp;\sim p(.) \notag \ \tau^2 &amp;&gt; 0 (#eq:by3) \end{align}
+      <me>
+        (\mu, \tau^2) &amp;\sim p(.) \notag \ \tau^2 &amp;&gt; 0
+      </me>
     </p>
     <p>
       <idx><h>Prior Distribution</h></idx>
@@ -121,7 +127,9 @@
       Intuitively, this makes a lot of sense. In many meta-analyses, for example, it seems reasonable to assume that the true effect lies somewhere between SMD = -2.0 and 2.0, but will unlikely be SMD = 50. Based on this rationale, a good starting point for our <m>\mu</m> prior may therefore be a normal distribution with mean 0 and variance 1. This means that we grant an approximate 95% prior probability that the true pooled effect size <m>\mu</m> lies between −2.0 and 2.0:
     </p>
     <p>
-      \begin{equation} \mu \sim \mathcal{N}(0,1) (#eq:by4) \end{equation}
+      <me>
+        \mu \sim \mathcal{N}(0,1)
+      </me>
     </p>
     <p>
       The next prior we have to specify is the one for <m>\tau^2</m>. This one is a little more difficult since we know that <m>\tau^2</m> should always be non-negative, but can be (close to) zero. A recommended distribution for this case, and one which is often used for variances such as <m>\tau^2</m>, is the <alert>Half-Cauchy</alert> prior. The Half-Cauchy distribution is a special case of a Cauchy distribution, which is only defined for one "half" (i.e. the positive side) of the distribution<fn>The standard Cauchy distribution itself is a special case of the <m>t</m> distribution with <m>\text{d.f.}=1</m>.</fn>. 
@@ -151,13 +159,17 @@ phcauchy(0.3, sigma = 0.3)
       However, this is already a quite specific assumption concerning the true value of <m>\tau</m>. A more conservative approach, which we will follow in our hands-on example, is to set <m>s</m> to 0.5; this makes the distribution flatter. In general, it is advised to always conduct sensitivity analyses with different prior specifications to check if they affect the results substantially. Using <m>s=</m> 0.5 as our parameter of the Half-Cauchy distribution, we can write down our <m>\tau</m> prior like this:
     </p>
     <p>
-      \begin{equation} \tau \sim \mathcal{HC}(0,0.5) (#eq:by5) \end{equation}
+      <me>
+        \tau \sim \mathcal{HC}(0,0.5)
+      </me>
     </p>
     <p>
       We can now put together the formulas of the hierarchical model, and our prior specifications. This leads to the complete model we can use for our Bayesian meta-analysis:
     </p>
     <p>
-      \begin{align} \hat\theta<em>k &amp;\sim \mathcal{N}(\theta</em>k,\sigma<em>k^2) \notag \ \theta</em>k &amp;\sim \mathcal{N}(\mu,\tau^2) \notag \ \mu &amp;\sim \mathcal{N}(0,1) \notag \ \tau &amp;\sim \mathcal{HC}(0,0.5) (#eq:by5) \end{align}
+      <me>
+        \hat\theta<em>k &amp;\sim \mathcal{N}(\theta</em>k,\sigma<em>k^2) \notag \ \theta</em>k &amp;\sim \mathcal{N}(\mu,\tau^2) \notag \ \mu &amp;\sim \mathcal{N}(0,1) \notag \ \tau &amp;\sim \mathcal{HC}(0,0.5)
+      </me>
     </p>
   </section>
 

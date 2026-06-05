@@ -69,7 +69,9 @@
         Traditionally, meta-analysts have used <alert>Cochran's</alert> <m>Q</m> <xref ref="cochran1954some"/> to distinguish studies' sampling error from actual between-study heterogeneity. Cochran's <m>Q</m> is defined as a <alert>weighted sum of squares</alert> (<em>WSS</em>). It uses the deviation of each study's observed effect <m>\hat\theta_k</m> from the summary effect <m>\hat\theta</m>, weighted by the inverse of the study's variance, <m>w_k</m>:
       </p>
       <p>
-        \begin{equation} Q = \sum^K<em>{k=1}w</em>k(\hat\theta_k-\hat\theta)^2 (#eq:het1) \end{equation}
+        <me>
+          Q = \sum^K<em>{k=1}w</em>k(\hat\theta_k-\hat\theta)^2
+        </me>
       </p>
       <p>
         <idx><h>Inverse-Variance Weighting</h></idx>
@@ -93,7 +95,9 @@
         Normal distributions are usually denoted with <m>\mathcal{N}</m>, and we can symbolize that the residuals are draws from a normal distribution with <m>\mu=</m> 0 and <m>\sigma=</m> 1 like this:
       </p>
       <p>
-        \begin{equation} \hat\theta_k-\hat\theta \sim \mathcal{N}(0,1) (#eq:het2) \end{equation}
+        <me>
+          \hat\theta_k-\hat\theta \sim \mathcal{N}(0,1)
+        </me>
       </p>
       <p>
         Let us try this out in <em>R</em>, and draw <m>K</m>=40 effect size residuals <m>\hat\theta_k-\hat\theta</m> using <c>rnorm</c>.
@@ -266,7 +270,9 @@ lines(seq(0, 100, 0.01), dchisq(seq(0, 100, 0.01), df = df),
         The formula of <m>I^2</m> looks like this:
       </p>
       <p>
-        \begin{equation} I^2 = \frac{Q-(K-1)}{Q} (#eq:het3) \end{equation}
+        <me>
+          I^2 = \frac{Q-(K-1)}{Q}
+        </me>
       </p>
       <p>
         where <m>K</m> is the total number of studies. The value of <m>I^2</m> can not be lower than 0%, so if <m>Q</m> happens to be smaller than <m>K-1</m>, we simply use <m>0</m> instead of a negative value<fn>Please note that, while <m>I^2</m> is often calculated using the formula above, <alert>not all software</alert> follows this definition. In <alert>{metafor}</alert>, for example, its value is derived using the estimated between-study heterogeneity <m>\tau^2</m> (see <url href="https://www.metafor-project.org/doku.php/tips:i2_multilevel_multivariate">here</url>), so that: <me>I^2 = \frac{\hat{\tau}^2}{\hat{\tau}^2 + \tilde{v}};</me> where: <me>\tilde{v} = \frac{(K-1) \sum w_k}{(\sum w_k)^2 - \sum w_k^2}</me> is the "average" or "typical" sampling variance calculated from the weights <m>w_k</m> of all studies <m>k</m> in our sample (see <xref ref="fem"/>). In contrast to the formula shown before, this way to calculate <m>I^2</m> makes it easier to see that <alert><m>I^2</m> is a <em>relative</em> measure of heterogeneity</alert>. It depends on the "typical" within-study variance <m>\tilde{v}</m>, which can vary form meta-analysis to meta-analysis. We elaborate on this point in <xref ref="het-measure-which"/>. Please also note that these different formulas can sometimes explain why meta-analysis tools can return <alert>divergent values</alert> of <m>I^2</m>, even though the same data was pooled.</fn>. 
@@ -329,7 +335,9 @@ k &lt;- 40
         The <m>H^2</m> statistic <xref ref="higgins2002quantifying"/> is also derived from Cochran's <m>Q</m>, and similar to <m>I^2</m>. It describes the ratio of the observed variation, measured by <m>Q</m>, and the expected variance due to sampling error:
       </p>
       <p>
-        \begin{equation} H^2 = \frac{Q}{K-1} (#eq:het4) \end{equation}
+        <me>
+          H^2 = \frac{Q}{K-1}
+        </me>
       </p>
       <p>
         The computation of <m>H^2</m> is a little more elegant than the one of <m>I^2</m> because we do not have to artificially correct its value when <m>Q</m> is smaller than <m>K-1</m>. When there is no between-study heterogeneity, <m>H^2</m> equals one (or smaller). Values greater than one indicate the presence of between-study heterogeneity.
@@ -380,13 +388,17 @@ m.gen$tau
           The <m>Q</m>-Profile method is based on an altered <m>Q</m> version, the <alert>generalized</alert> <m>Q</m><alert>-statistic</alert> <m>Q_{\text{gen}}</m>. While the standard version of <m>Q</m> uses the pooled effect based on the fixed-effect model, <m>Q_{\text{gen}}</m> is based on the random-effects model. It uses the overall effect according to the random-effects model, <m>\hat\mu</m>, to calculate the deviates, as well as weights based on the random-effects model:
         </p>
         <p>
-          \begin{equation} Q<em>{\text{gen}} = \sum</em>{k=1}^{K} w^*<em>k (\hat\theta</em>k-\hat\mu)^2 (#eq:het5) \end{equation}
+          <me>
+            Q<em>{\text{gen}} = \sum</em>{k=1}^{K} w^*<em>k (\hat\theta</em>k-\hat\mu)^2
+          </me>
         </p>
         <p>
           Where <m>w^*_k</m> is the random-effects weight (see <xref ref="tau-estimators"/>):
         </p>
         <p>
-          \begin{equation} w^*<em>k = \frac{1}{s^2</em>k+\tau^2}  (#eq:het6) \end{equation}
+          <me>
+            w^*<em>k = \frac{1}{s^2</em>k+\tau^2}
+          </me>
         </p>
         <p>
           <m>Q_{\text{gen}}</m> has also been shown to follow a <m>\chi^2</m> distribution with <m>K-1</m> degrees of freedom. We can think of the generalized <m>Q</m> statistic as a function <m>Q_{\text{gen}}(\tau^2)</m> which returns different values of <m>Q_{\text{gen}}</m> for higher or lower values of <m>\tau^2</m>. The results of this function have a <m>\chi^2</m> distribution. 
@@ -448,7 +460,9 @@ m.gen$tau
       The formula for 95% prediction intervals looks like this:
     </p>
     <p>
-      \begin{align} \hat\mu &amp;\pm t<em>{K-1, 0.975}\sqrt{SE</em>{\hat\mu}^2+\hat\tau^2} \notag \ \hat\mu &amp;\pm t<em>{K-1, 0.975}SD</em>{\text{PI}} (#eq:het7) \end{align}
+      <me>
+        \hat\mu &amp;\pm t<em>{K-1, 0.975}\sqrt{SE</em>{\hat\mu}^2+\hat\tau^2} \notag \ \hat\mu &amp;\pm t<em>{K-1, 0.975}SD</em>{\text{PI}}
+      </me>
     </p>
     <p>
       All of <alert>{meta}</alert>'s functions can provide us with a prediction interval around the pooled effect, but they do not do so by default. When running a meta-analysis, we have to add the argument <c>prediction = TRUE</c> so that prediction intervals appear in the output.
@@ -814,7 +828,9 @@ plot(m.gen.inf, "influence")
           The "external" pooled effect <m>\hat\mu_{\setminus k}</m> is obtained by calculating the overall effect without study <m>k</m>, along with the principles of the leave-one-out method. The resulting residual is then standardized by (1) the <alert>variance</alert> of the external effect (i.e. the squared standard error of <m>\hat\mu_{\setminus k}</m>), (2) the <m>\tau^2</m> estimate of the external pooled effect, and (3) the variance of <m>k</m>.
         </p>
         <p>
-          \begin{equation} t<em>{k} = \frac{\hat\theta</em>{k}-\hat\mu<em>{\setminus k}}{\sqrt{\mathrm{Var}(\hat\mu</em>{\setminus k})+\hat\tau^2<em>{\setminus k}+s^2</em>k}}  (#eq:het8) \end{equation}
+          <me>
+            t<em>{k} = \frac{\hat\theta</em>{k}-\hat\mu<em>{\setminus k}}{\sqrt{\mathrm{Var}(\hat\mu</em>{\setminus k})+\hat\tau^2<em>{\setminus k}+s^2</em>k}}
+          </me>
         </p>
         <p>
           <idx><h>Sampling Error</h></idx>
@@ -832,7 +848,9 @@ plot(m.gen.inf, "influence")
           The computation of the <m>\mathrm{DFFITS}</m> metric is similar to the one of the externally standardized residuals. The pattern of DFFITS and <m>t_k</m> values is therefore often comparable across studies. This is the formula:
         </p>
         <p>
-          \begin{equation} \mathrm{DFFITS}<em>k =  \dfrac{\hat\mu-\hat\mu</em>{\setminus k}}{\sqrt{\dfrac{w<em>k^{(*)}}{\sum^{K}</em>{k=1}w<em>k^{(*)}}(s^2</em>k+\hat\tau^2_{\setminus k})}} \end{equation}
+          <me>
+            \mathrm{DFFITS}<em>k =  \dfrac{\hat\mu-\hat\mu</em>{\setminus k}}{\sqrt{\dfrac{w<em>k^{(*)}}{\sum^{K}</em>{k=1}w<em>k^{(*)}}(s^2</em>k+\hat\tau^2_{\setminus k})}}
+          </me>
         </p>
         <p>
           For the computation, we also need <m>w_k^{(*)}</m>, the (random-effects) weight of study <m>k</m> (<xref ref="fem"/>), which is divided by the sum of weights to express the study weight in percent. 
@@ -853,7 +871,9 @@ plot(m.gen.inf, "influence")
           This results in <m>D_k</m> only taking positive values. The pattern across studies, however, is often similar to the <m>\mathrm{DFFITS}</m> value. Here is the formula:
         </p>
         <p>
-          \begin{equation} D<em>k =  \frac{(\hat\mu-\hat\mu</em>{\setminus k})^2}{\sqrt{s^2_k+\hat\tau^2}}. (#eq:het9) \end{equation}
+          <me>
+            D<em>k =  \frac{(\hat\mu-\hat\mu</em>{\setminus k})^2}{\sqrt{s^2_k+\hat\tau^2}}.
+          </me>
         </p>
         <p>
           ##### Covariance Ratio
@@ -862,7 +882,9 @@ plot(m.gen.inf, "influence")
           The covariance ratio of a study <m>k</m> can be calculated by dividing the variance of the pooled effect (i.e. its squared standard error) without <m>k</m> by the variance of the initial average effect.
         </p>
         <p>
-          \begin{equation} \mathrm{CovRatio}<em>k = \frac{\mathrm{Var}(\hat\mu</em>{\setminus k})}{\mathrm{Var}(\hat\mu)} (#eq:het10) \end{equation}
+          <me>
+            \mathrm{CovRatio}<em>k = \frac{\mathrm{Var}(\hat\mu</em>{\setminus k})}{\mathrm{Var}(\hat\mu)}
+          </me>
         </p>
         <p>
           A <m>\mathrm{CovRatio}_k</m> value below 1 indicates that removing study <m>k</m> results in a more precise estimate of the pooled effect size <m>\hat\mu</m>.
@@ -889,13 +911,19 @@ plot(m.gen.inf, "influence")
           Yet, there are a few helpful "rules of thumb" which can guide our decision. The <c>InfluenceAnalysis</c> function regards a study as an influential case if one of these conditions is fulfilled<fn>These conditions are derived from the "rules of thumb" used by the <url href="https://www.rdocumentation.org/packages/metafor/versions/2.4-0/topics/influence.rma.uni"><c>influence.rma.uni</c></url> function in <alert>{metafor}</alert>. <c>InfluenceAnalysis</c> applies this function "under the hood".</fn>:
         </p>
         <p>
-          \begin{equation} \mathrm{DFFITS}_k &gt; 3\sqrt{\frac{1}{k-1}} (#eq:het11) \end{equation}
+          <me>
+            \mathrm{DFFITS}_k &gt; 3\sqrt{\frac{1}{k-1}}
+          </me>
         </p>
         <p>
-          \begin{equation} D_k &gt; 0.45 (#eq:het12) \end{equation}
+          <me>
+            D_k &gt; 0.45
+          </me>
         </p>
         <p>
-          \begin{equation} \mathrm{hat_k} &gt; 3\frac{1}{k}. (#eq:het13) \end{equation}
+          <me>
+            \mathrm{hat_k} &gt; 3\frac{1}{k}.
+          </me>
         </p>
         <p>
           Studies determined to be influential are displayed in red in the plot generated by the <c>InfluenceAnalysis</c> function. 

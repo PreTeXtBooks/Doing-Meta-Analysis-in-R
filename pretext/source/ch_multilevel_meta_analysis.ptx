@@ -39,7 +39,9 @@
       To see why meta-analysis has multiple levels by default, let us go back to the formula of the random-effects model that we discussed in <xref ref="rem"/>:
     </p>
     <p>
-      \begin{equation} \hat\theta<em>k = \mu + \epsilon</em>k + \zeta_k (#eq:mlm1) \end{equation}
+      <me>
+        \hat\theta<em>k = \mu + \epsilon</em>k + \zeta_k
+      </me>
     </p>
     <p>
       <idx><h>Sampling Error</h></idx>
@@ -73,13 +75,17 @@
       <alert>Level 1 (participants) model:</alert>
     </p>
     <p>
-      \begin{equation} \hat\theta<em>k = \theta</em>k + \epsilon_k  (#eq:mlm2) \end{equation}
+      <me>
+        \hat\theta<em>k = \theta</em>k + \epsilon_k
+      </me>
     </p>
     <p>
       <alert>Level 2 (studies) model:</alert>
     </p>
     <p>
-      \begin{equation} \theta<em>k = \mu + \zeta</em>k (#eq:mlm3) \end{equation}
+      <me>
+        \theta<em>k = \mu + \zeta</em>k
+      </me>
     </p>
     <p>
       You might have already detected that we can substitute <m>\theta_k</m> in the first equation with its definition in the second equation. What we then obtain is a formula exactly identical to the one of the random-effects model from before. The fixed-effects model can also be written in this way--we only have to set <m>\zeta_k</m> to zero. Evidently, our plain old meta-analysis model already has multilevel properties "built in". It exhibits this property because we assume that participants are nested within studies in our data.
@@ -127,25 +133,33 @@
       <alert>Level 1 model:</alert>
     </p>
     <p>
-      \begin{equation} \hat\theta<em>{ij} = \theta</em>{ij} + \epsilon_{ij} (#eq:mlm4) \end{equation}
+      <me>
+        \hat\theta<em>{ij} = \theta</em>{ij} + \epsilon_{ij}
+      </me>
     </p>
     <p>
       <alert>Level 2 model:</alert>
     </p>
     <p>
-      \begin{equation} \theta<em>{ij} = \kappa</em>{j} + \zeta_{(2)ij} (#eq:mlm5) \end{equation}
+      <me>
+        \theta<em>{ij} = \kappa</em>{j} + \zeta_{(2)ij}
+      </me>
     </p>
     <p>
       <alert>Level 3 model:</alert>
     </p>
     <p>
-      \begin{equation} \kappa<em>{j} = \mu + \zeta</em>{(3)j} (#eq:mlm6) \end{equation}
+      <me>
+        \kappa<em>{j} = \mu + \zeta</em>{(3)j}
+      </me>
     </p>
     <p>
       Where <m>\hat\theta_{ij}</m> is an estimate of the true effect size <m>\theta_{ij}</m>. The term <m>ij</m> can be read as "some effect size <m>i</m> nested in cluster <m>j</m>". Parameter <m>\kappa_{j}</m> is the average effect size in cluster <m>j</m>, and <m>\mu</m> the overall average population effect. Like before, we can piece these formulas together and thus reduce the formula to one line:
     </p>
     <p>
-      \begin{equation} \hat\theta<em>{ij} = \mu + \zeta</em>{(2)ij} + \zeta<em>{(3)j} + \epsilon</em>{ij} (#eq:mlm7) \end{equation}
+      <me>
+        \hat\theta<em>{ij} = \mu + \zeta</em>{(2)ij} + \zeta<em>{(3)j} + \epsilon</em>{ij}
+      </me>
     </p>
     <p>
       We see that, in contrast to the random-effects model, this formula now contains <alert>two</alert> heterogeneity terms. One is <m>\zeta_{(2)ij}</m>, which stands for the <alert>within-cluster</alert> heterogeneity on level 2 (i.e. the <alert>true</alert> effect sizes within cluster <m>j</m> follow a distribution with mean <m>\kappa_j</m>). The other is <m>\zeta_{(3)j}</m>, the <alert>between-cluster</alert> heterogeneity on level 3. Consequentially, fitting a three-level meta-analysis model does not only involve the estimation of one heterogeneity variance parameter <m>\tau^2</m>. We have to estimate two <m>\tau^2</m> values: one for level 2, and the other for level 3. 
@@ -496,7 +510,9 @@ anova(full.model, l3.removed)
       Once our three-level model is set, it is also possible to assess putative moderators of the overall effect. Previously in this guide, we discovered that subgroup analyses can be expressed as a meta-regression model with a dummy-coded predictor (<xref ref="the-metareg-model"/>). In a similar vein, we can add regression terms to a "multilevel" model, which leads to a <alert>three-level mixed-effects model</alert>:
     </p>
     <p>
-      \begin{equation} \hat\theta<em>{ij} = \theta + \beta x</em>i + \zeta<em>{(2)ij} + \zeta</em>{(3)j} + \epsilon_{ij} (#eq:mlm8) \end{equation}
+      <me>
+        \hat\theta<em>{ij} = \theta + \beta x</em>i + \zeta<em>{(2)ij} + \zeta</em>{(3)j} + \epsilon_{ij}
+      </me>
     </p>
     <p>
       Where <m>\theta</m> is the intercept and <m>\beta</m> the regression weight of a predictor variable <m>x</m>. When we replace <m>x_i</m> with a dummy (<xref ref="the-metareg-model"/>), we get a model that can be used for subgroup analyses. When <m>x</m> is continuous, the formula above represents a three-level meta-regression model.   
@@ -606,7 +622,9 @@ summary(mod.model)
         To understand it, we first have to look at the formula of a meta-regression again. Conceptually, this formula is very similar to equation 8.2 presented in <xref ref="the-metareg-model"/>. We simply display it differently using <alert>matrix notation</alert><fn>In this chapter, we largely follow the notation of Hedges, Tipton and Jackson <xref ref="hedges2010robust"/> and its follow-up papers when discussing meta-analytic RVE.</fn>:
       </p>
       <p>
-        \begin{equation} \boldsymbol{T}<em>{j}=\boldsymbol{X}</em>{j}\boldsymbol{\beta} + \boldsymbol{u}<em>j +\boldsymbol{e}</em>j (#eq:mlm9) \end{equation}
+        <me>
+          \boldsymbol{T}<em>{j}=\boldsymbol{X}</em>{j}\boldsymbol{\beta} + \boldsymbol{u}<em>j +\boldsymbol{e}</em>j
+        </me>
       </p>
       <p>
         This formula simply tells us that some effect sizes in <m>\boldsymbol{T}</m> are predicted by regression weights <m>\beta</m> associated with certain covariates in <m>\boldsymbol{X}</m>. It also tells us that, besides the sampling error (symbolized by <m>\boldsymbol{e}_j</m>), there are random effects for each study (denoted by <m>\boldsymbol{u}_j</m>), thus producing a (mixed-effects) meta-regression model. 
@@ -615,7 +633,9 @@ summary(mod.model)
         The special thing are the subscript <m>j</m>'s in our formula. They, along with the letters in our formula being <alert>bold</alert>, symbolize that each study or cluster <m>j</m> in our data set provides, or can provide, more than one effect size. Say that <m>n_j</m> is the number of effect sizes in some study <m>j</m>. The effect sizes in <m>j</m> can then be written down as the column vector we see in the formula: <m>\boldsymbol{T}_j = (T_{j,1}, \dots, T_{j,{n_j}})^\top</m>. Similarly, <m>\boldsymbol{X}_j</m> is the <alert>design matrix</alert> containing the covariate values of some study <m>j</m>:
       </p>
       <p>
-        \begin{equation} \boldsymbol{X}<em>j = \begin{bmatrix}  x</em>{1,1}    &amp; \cdots &amp; x<em>{1,p}    \   \vdots     &amp; \ddots &amp; \vdots     \  x</em>{n<em>j,1}  &amp; \cdots &amp; x</em>{n_j,p} \end{bmatrix} (#eq:mlm10) \end{equation}
+        <me>
+          \boldsymbol{X}<em>j = \begin{bmatrix}  x</em>{1,1}    &amp; \cdots &amp; x<em>{1,p}    \   \vdots     &amp; \ddots &amp; \vdots     \  x</em>{n<em>j,1}  &amp; \cdots &amp; x</em>{n_j,p} \end{bmatrix}
+        </me>
       </p>
       <p>
         Where <m>p-1</m> is the total number of covariates<fn>In a linear regression model, a <alert>design matrix</alert> (or <alert>model matrix</alert>) contains all <alert>covariate values</alert> used to estimate the regression coefficients. In its easiest form, the design matrix can be seen like a <alert>data frame of covariates</alert>, with a <alert>column of 1's</alert> added to the first column. This first column is used to model the regression <alert>intercept</alert>. Imagine that, in our meta-regression, there are three covariates. If the fourth study in our dataset contributes three effect sizes, its design matrix could look like this: <me>\boldsymbol{X}_4 = \begin{bmatrix} 1  &amp; 4.5 &amp; 0 &amp; 2  \\  1  &amp; 7.3 &amp; 1 &amp; 2 \\ 1  &amp; 2.4 &amp; 0 &amp; 2 \end{bmatrix}.</me></fn>. The vector of regression coefficients <m>\boldsymbol{\beta} = (\beta_1, \dots, \beta_{p})^\top</m> we want to estimate contains no subscript <m>j</m>, since it is assumed to be fixed across all studies. 
@@ -624,13 +644,17 @@ summary(mod.model)
         Overall, this notation emphasizes that, when studies can contribute more than one effect size, our data looks like several smaller data sets <alert>stacked on top of each other</alert>, where <m>J</m> is the total number of studies or clusters in our data:
       </p>
       <p>
-        \begin{equation} \begin{bmatrix}  \boldsymbol{T}<em>1 \  \boldsymbol{T}</em>2 \  \vdots \  \boldsymbol{T}<em>J \end{bmatrix} = \begin{bmatrix}  \boldsymbol{X}</em>1 \  \boldsymbol{X}<em>2 \  \vdots \  \boldsymbol{X}</em>J \end{bmatrix} \boldsymbol{\beta} + \begin{bmatrix}  \boldsymbol{u}<em>1 \  \boldsymbol{u}</em>2 \  \vdots \  \boldsymbol{u}<em>J \end{bmatrix} + \begin{bmatrix}  \boldsymbol{e}</em>1 \  \boldsymbol{e}<em>2 \  \vdots \  \boldsymbol{e}</em>J  \end{bmatrix}. (#eq:mlm11) \end{equation}
+        <me>
+          \begin{bmatrix}  \boldsymbol{T}<em>1 \  \boldsymbol{T}</em>2 \  \vdots \  \boldsymbol{T}<em>J \end{bmatrix} = \begin{bmatrix}  \boldsymbol{X}</em>1 \  \boldsymbol{X}<em>2 \  \vdots \  \boldsymbol{X}</em>J \end{bmatrix} \boldsymbol{\beta} + \begin{bmatrix}  \boldsymbol{u}<em>1 \  \boldsymbol{u}</em>2 \  \vdots \  \boldsymbol{u}<em>J \end{bmatrix} + \begin{bmatrix}  \boldsymbol{e}</em>1 \  \boldsymbol{e}<em>2 \  \vdots \  \boldsymbol{e}</em>J  \end{bmatrix}.
+        </me>
       </p>
       <p>
         Based on this formula, we can estimate the meta-regression coefficients <m>\boldsymbol{\hat\beta}</m>. To calculate confidence intervals and conduct significance tests of the coefficients, we need an estimate of their variance <m>\boldsymbol{V_{\hat\beta}}</m>. This can be achieved using the robust sampling variance estimator. Its formula looks like this <xref ref="hedges2010robust"/>, <xref ref="pustejovsky2021meta"/>:
       </p>
       <p>
-        \begin{equation} \scriptsize\boldsymbol{V}^{\text{R}}<em>{\boldsymbol{\hat\beta}} = \left(\sum^J</em>{j=1}\boldsymbol{X}<em>j^\top\boldsymbol{W}</em>j\boldsymbol{X}<em>j \right)^{-1}  \left(\sum^J</em>{j=1}\boldsymbol{X}<em>j^\top\boldsymbol{W}</em>j \boldsymbol{A}<em>j\Phi</em>j \boldsymbol{A}<em>j \boldsymbol{W}</em>j \boldsymbol{X}<em>j \right) \left(\sum^J</em>{j=1}\boldsymbol{X}<em>j^\top\boldsymbol{W}</em>j\boldsymbol{X}_j \right)^{-1}  (#eq:mlm12)  \end{equation}
+        <me>
+          \scriptsize\boldsymbol{V}^{\text{R}}<em>{\boldsymbol{\hat\beta}} = \left(\sum^J</em>{j=1}\boldsymbol{X}<em>j^\top\boldsymbol{W}</em>j\boldsymbol{X}<em>j \right)^{-1}  \left(\sum^J</em>{j=1}\boldsymbol{X}<em>j^\top\boldsymbol{W}</em>j \boldsymbol{A}<em>j\Phi</em>j \boldsymbol{A}<em>j \boldsymbol{W}</em>j \boldsymbol{X}<em>j \right) \left(\sum^J</em>{j=1}\boldsymbol{X}<em>j^\top\boldsymbol{W}</em>j\boldsymbol{X}_j \right)^{-1}
+        </me>
       </p>
       <p>
         This equation looks quite complicated, and its not necessary to understand every detail. What matters for now is the <alert>form</alert> and some of the <alert>"ingredients"</alert> of it.

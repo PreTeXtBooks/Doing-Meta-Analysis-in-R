@@ -69,7 +69,9 @@
           As an illustration, let us create a path diagram for a simple linear ("non-meta-analytic") regression model, in which we want to predict <m>y</m> with <m>x</m>. The model formula looks like this:
         </p>
         <p>
-          \begin{equation} y<em>i = \beta</em>0 + \beta<em>1x</em>i + e_i (#eq:sem1) \end{equation}
+          <me>
+            y<em>i = \beta</em>0 + \beta<em>1x</em>i + e_i
+          </me>
         </p>
         <p>
           Now, let us "deconstruct" this formula. In the model, <m>x_i</m> and <m>y_i</m> are the observed variables. There are no unobserved (latent) variables. The true population mean of <m>y</m> is the regression intercept <m>\beta_0</m>, while <m>\mu_x</m> denotes the population mean of <m>x</m>. The variance of our observed predictor <m>x</m> is denoted with <m>\sigma^2_x</m>. Provided that <m>x</m> is not a perfect predictor of <m>y</m>, there will be some amount of residual error variance <m>\sigma^2_{e_y}</m> associated with <m>y</m>. There are two regression coefficients: <m>\beta_0</m>, the intercept, and <m>\beta_1</m>, the slope coefficient of <m>x</m>.
@@ -147,13 +149,17 @@
         <alert>Level 1</alert>
       </p>
       <p>
-        \begin{equation} \hat\theta<em>k = \theta</em>k + \epsilon_k (#eq:sem2) \end{equation}
+        <me>
+          \hat\theta<em>k = \theta</em>k + \epsilon_k
+        </me>
       </p>
       <p>
         <alert>Level 2</alert>
       </p>
       <p>
-        \begin{equation} \theta<em>k = \mu + \zeta</em>k (#eq:sem3) \end{equation}
+        <me>
+          \theta<em>k = \mu + \zeta</em>k
+        </me>
       </p>
       <p>
         On the first level, we assume that the effect size <m>\hat\theta_k</m> reported in study <m>k</m> is an estimator of the true effect size <m>\theta_k</m>. The observed effect size deviates from the true effect because of sampling error <m>\epsilon_k</m>, represented by the variance <m>\widehat{\text{Var}}(\hat\theta_k)=v_k</m>.
@@ -188,7 +194,9 @@
         When we take into account that <m>\boldsymbol{r_k}</m> stands for <alert>several</alert> correlations contained in one study, we get the following equation for the random-effects model:
       </p>
       <p>
-        \begin{align}   \boldsymbol{r<em>k} &amp;= \boldsymbol{\rho} + \boldsymbol{\zeta</em>k} + \boldsymbol{\epsilon<em>k} \notag \    \begin{bmatrix} r</em>1 \ r<em>2 \ \vdots \ r</em>p \end{bmatrix} &amp;=   \begin{bmatrix} \rho<em>1 \ \rho</em>2 \ \vdots \ \rho<em>p \end{bmatrix} +   \begin{bmatrix} \zeta</em>1 \ \zeta<em>2 \ \vdots \ \zeta</em>p \end{bmatrix} +   \begin{bmatrix} \epsilon<em>1 \ \epsilon</em>2 \ \vdots \ \epsilon_p \end{bmatrix} (#eq:sem4) \end{align}
+        <me>
+          \boldsymbol{r<em>k} &amp;= \boldsymbol{\rho} + \boldsymbol{\zeta</em>k} + \boldsymbol{\epsilon<em>k} \notag \    \begin{bmatrix} r</em>1 \ r<em>2 \ \vdots \ r</em>p \end{bmatrix} &amp;=   \begin{bmatrix} \rho<em>1 \ \rho</em>2 \ \vdots \ \rho<em>p \end{bmatrix} +   \begin{bmatrix} \zeta</em>1 \ \zeta<em>2 \ \vdots \ \zeta</em>p \end{bmatrix} +   \begin{bmatrix} \epsilon<em>1 \ \epsilon</em>2 \ \vdots \ \epsilon_p \end{bmatrix}
+        </me>
       </p>
       <p>
         <idx><h>metaSEM Package</h></idx>
@@ -203,7 +211,9 @@
         In the second step, we then use <alert>weighted least squares</alert> (see <xref ref="metareg-model-fit"/>) to fit the structural equation model we specified. The function for the specified model <m>\rho(\hat\theta)</m> is  <xref ref="cheung2009two"/>, <xref ref="cheung2015meta"/>:
       </p>
       <p>
-        \begin{equation} F_{\text{WLS}}(\hat\theta) =  (\boldsymbol{r} - \rho(\hat\theta))^\top \boldsymbol{V}^{-1} ({r} - \rho(\hat\theta)) (#eq:sem5) \end{equation}
+        <me>
+          F_{\text{WLS}}(\hat\theta) =  (\boldsymbol{r} - \rho(\hat\theta))^\top \boldsymbol{V}^{-1} ({r} - \rho(\hat\theta))
+        </me>
       </p>
       <p>
         Where <m>\boldsymbol{r}</m> is the pooled correlation vector. The important part of this formula is <m>\boldsymbol{V}^{-1}</m>, which is an inverted matrix containing the covariances of <m>\boldsymbol{r}</m>. This matrix is used for weighting. Importantly, the formula in this second step is the same no matter if we assume a random or fixed-effect model, because the between study-heterogeneity, if existent, is already taken care of in step 1.
@@ -298,7 +308,9 @@ format(head(ThirdWaveMV), digits = 2)
       Imagine that we do not know the covariance in each study yet. How can we estimate it? A good way is to look for previous literature which assessed the correlation between the two outcomes, optimally in the same kind of context we are dealing with right now. Let us say we found in the literature that stress and anxiety are very highly correlated in post-tests of clinical trials, with <m>r_{\text{S,A}} \approx</m> 0.6. Based on this assumed correlation, we can approximate the co-variance of some study <m>k</m> using the following formula <xref ref="schwarzer2015meta"/>:
     </p>
     <p>
-      \begin{equation} \widehat{\text{Cov}}(\theta<em>{1},\theta</em>{2}) = SE<em>{\theta</em>{1}} \times SE<em>{\theta</em>{2}} \times \hat\rho_{1, 2} (#eq:sem6) \end{equation}
+      <me>
+        \widehat{\text{Cov}}(\theta<em>{1},\theta</em>{2}) = SE<em>{\theta</em>{1}} \times SE<em>{\theta</em>{2}} \times \hat\rho_{1, 2}
+      </me>
     </p>
     <p>
       Using our example data and assuming <m>r_{\text{S,A}} \approx</m> 0.6, this formula can implemented in <em>R</em> like so:

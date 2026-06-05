@@ -57,13 +57,17 @@
       In a conventional regression, we want to estimate the value <m>y_i</m> of person <m>i</m> using a <alert>predictor</alert> (or <alert>covariate</alert>) <m>x_i</m> with a regression coefficient <m>\beta</m>. A standard regression equation, therefore, looks like this:
     </p>
     <p>
-      \begin{equation} \hat{y<em>i} = \beta</em>0 + \beta<em>1x</em>i (#eq:mr1) \end{equation}
+      <me>
+        \hat{y<em>i} = \beta</em>0 + \beta<em>1x</em>i
+      </me>
     </p>
     <p>
       In meta-regression, the variable <m>y</m> we want to predict is the observed effect size <m>\hat\theta_k</m> of study <m>k</m>. The formula for a <alert>meta-regression</alert> looks similar to the one of a normal regression model:
     </p>
     <p>
-      \begin{equation} \hat\theta<em>k = \theta + \beta x</em>{k} + \epsilon<em>k+\zeta</em>k (#eq:mr2) \end{equation}
+      <me>
+        \hat\theta<em>k = \theta + \beta x</em>{k} + \epsilon<em>k+\zeta</em>k
+      </me>
     </p>
     <p>
       Note that this formula contains two extra terms, <m>\epsilon_k</m> and <m>\zeta_k</m>. The same terms can also be found in the equation for the random-effects-model (<xref ref="rem"/>), and signify two types of independent errors. The first one, <m>\epsilon_k</m>, is the sampling error through which the effect size of a study deviates from its true effect. 
@@ -87,13 +91,17 @@
         Indeed, as mentioned before, subgroup analysis is nothing else than a meta-regression with a categorical predictor. Such categorical variables can be included through <alert>dummy-coding</alert>, e.g.:
       </p>
       <p>
-        \begin{equation}   D_g=\begin{cases}     0: &amp; \text{Subgroup A}\     1: &amp; \text{Subgroup B.}   \end{cases}   (#eq:mr3) \end{equation}
+        <me>
+          D_g=\begin{cases}     0: &amp; \text{Subgroup A}\     1: &amp; \text{Subgroup B.}   \end{cases}
+        </me>
       </p>
       <p>
         To specify a subgroup analysis in the form of a meta-regression, we simply have to replace the covariate <m>x_k</m> with <m>D_g</m>:
       </p>
       <p>
-        \begin{equation} \hat\theta<em>k = \theta + \beta D</em>g +\epsilon<em>k+\zeta</em>k. (#eq:mr4) \end{equation}
+        <me>
+          \hat\theta<em>k = \theta + \beta D</em>g +\epsilon<em>k+\zeta</em>k.
+        </me>
       </p>
       <p>
         To understand this formula, we have to read it from the left to the right. The goal of the meta-regression model, like every statistical model, is to explain how the observed data was generated. In our case, this is the observed effect size <m>\hat\theta_k</m> of some study <m>k</m> in our meta-analysis. The formula above works like a recipe, telling us which ingredients are needed to produce the observed effect. 
@@ -105,7 +113,9 @@
         Because multiplying with zero gives zero, the <m>\beta D_g</m> term completely falls out of the equation when we are dealing with a study in subgroup A. When <m>D_g=1</m>, on the other hand, we multiply by 1, meaning that <m>\beta</m> remains in the equation and is added to <m>\theta</m>, which provides us with the overall effect size in subgroup B. Essentially, the dummy predictor is a way to integrate <alert>two</alert> formulas into <alert>one</alert>. We can easily see this when we write down the formula individually for each subgroup:
       </p>
       <p>
-        \begin{equation}   D<em>g=\begin{cases}     0: &amp; \text{$\hat\theta</em>k = \theta<em>A + \epsilon</em>k+\zeta<em>k<m>}\\     1: &amp; \text{</m>\hat\theta</em>k = \theta<em>A + \theta</em>{\Delta} +\epsilon<em>k+\zeta</em>k$}   \end{cases}   (#eq:mr5) \end{equation}
+        <me>
+          D<em>g=\begin{cases}     0: &amp; \text{$\hat\theta</em>k = \theta<em>A + \epsilon</em>k+\zeta<em>k<m>}\\     1: &amp; \text{</m>\hat\theta</em>k = \theta<em>A + \theta</em>{\Delta} +\epsilon<em>k+\zeta</em>k$}   \end{cases}
+        </me>
       </p>
       <p>
         Written this way, it becomes clearer that our formula actually contains two models, one for subgroup A, and one for subgroup B. The main difference between the models is that the effect of the second subgroup is "shifted" up or down, depending on the value of <m>\beta</m> (which we denote as <m>\theta_{\Delta}</m> in the formula above).
@@ -177,7 +187,9 @@
         In regression analyses, the <m>R^2</m> index is commonly used to quantify the percentage of variation explained by the model. An analogous index, <m>R^2_{*}</m>, can also be calculated for meta-regression. We add an asterisk here to indicate that the <m>R^2</m> in meta-regression is slightly different to the one used in conventional regressions, because we deal with <alert>true effect sizes</alert> instead of observed data points. The formula for <m>R^2_*</m> looks like this:
       </p>
       <p>
-        \begin{equation} R^2<em>* = 1- \frac{\hat\tau^2</em>{\text{unexplained}}}{\hat\tau^2_{\text{(total)}}} (#eq:mr6) \end{equation}
+        <me>
+          R^2<em>* = 1- \frac{\hat\tau^2</em>{\text{unexplained}}}{\hat\tau^2_{\text{(total)}}}
+        </me>
       </p>
       <p>
         <m>R^2_*</m> uses the amount of residual heterogeneity variance that even the meta-regression slope cannot explain, and puts it in relation to the total heterogeneity that we initially found in our meta-analysis. Subtracting this fraction from 1 leaves us with the percentage of between-study heterogeneity explained by the predictor. 
@@ -186,7 +198,9 @@
         There is also another way to formulate <m>R^2_*</m>. We can say that it expresses how much the mixed-effects model has <alert>reduced</alert> the heterogeneity variance compared to the initial random-effects pooling model, in percent. This results in the following formula:
       </p>
       <p>
-        \begin{equation} R^2<em>* =  \frac{\hat\tau^2</em>{\text{REM}}-\hat\tau^2<em>{\text{MEM}}}{\hat\tau^2</em>{\text{REM}}} (#eq:mr7) \end{equation}
+        <me>
+          R^2<em>* =  \frac{\hat\tau^2</em>{\text{REM}}-\hat\tau^2<em>{\text{MEM}}}{\hat\tau^2</em>{\text{REM}}}
+        </me>
       </p>
       <p>
         In this formula, <m>\hat\tau^2_{\text{REM}}</m> represents the amount of between-study heterogeneity found in the random-effects pooling model, and <m>\hat\tau^2_{\text{MEM}}</m> represents the (residual) variance in the mixed-effects meta-regression model (i.e. the "prediction error" with respect to the true effect sizes).
@@ -198,7 +212,9 @@
         Usually, we are not only interested in the amount of heterogeneity explained by the regression model, but also if the regression weight of our predictor <m>x</m> is significant. If this is the case, we can be quite confident that <m>x</m> has an influence on the effect sizes of studies. Both in conventional and meta-regression, the significance of a regression weight is commonly assessed through a <alert>Wald-type</alert> test. This involves calculating the test statistic <m>z</m>, by dividing the estimate of <m>\beta</m> through its standard error:
       </p>
       <p>
-        \begin{equation} z = \frac{\hat\beta}{SE_{\hat\beta}} (#eq:mr8) \end{equation}
+        <me>
+          z = \frac{\hat\beta}{SE_{\hat\beta}}
+        </me>
       </p>
       <p>
         Under the null hypothesis that <m>\beta = 0</m>, this <m>z</m>-statistic follows a standard normal distribution. This allows us to calculate a corresponding <m>p</m>-value, which determines if the predictor is significant or not.
@@ -367,7 +383,9 @@ metareg(m.gen, RiskOfBias)
       This, and many other research questions, can be dealt with using <alert>multiple meta-regression</alert>. In multiple meta-regression, we use several predictors instead of just one to explain variation in effects. To allow for multiple predictors, we need to modify our previous meta-regression formula (see Equation 8.2), so that it looks like this:
     </p>
     <p>
-      \begin{equation} \hat \theta<em>k = \theta + \beta</em>1x<em>{1k} + ... + \beta</em>nx<em>{nk} + \epsilon</em>k + \zeta_k (#eq:mr10) \end{equation}
+      <me>
+        \hat \theta<em>k = \theta + \beta</em>1x<em>{1k} + ... + \beta</em>nx<em>{nk} + \epsilon</em>k + \zeta_k
+      </me>
     </p>
     <p>
       This formula tells us that we can add <m>n-1</m> more predictors <m>x</m> to our meta-regression model, thus turning it into a multiple meta-regression. The three dots in the formula symbolize that, in theory, we can add as many predictors as desired. In reality, however, things are usually more tricky. In the following, we will discuss a few important pitfalls in multiple meta-regression, and how we can build models that are robust and trustworthy. But first, let us cover another important feature of multiple meta-regression, <alert>interactions</alert>.
@@ -385,13 +403,17 @@ metareg(m.gen, RiskOfBias)
         Imagine that we want to model two predictors and how they are associated with effect sizes: the publication year (<m>x_1</m>) and the quality (<m>x_2</m>) of a study. The study quality is coded like this:
       </p>
       <p>
-        \begin{equation}   x_2=\begin{cases}     0: &amp; \text{low}\     1: &amp; \text{moderate}\     2: &amp; \text{high.}   \end{cases}   (#eq:mr11) \end{equation}
+        <me>
+          x_2=\begin{cases}     0: &amp; \text{low}\     1: &amp; \text{moderate}\     2: &amp; \text{high.}   \end{cases}
+        </me>
       </p>
       <p>
         When we assume that there is no interaction between publication year and study quality, we can build a meta-regression model by giving both <m>x_1</m> and <m>x_2</m> a regression weight <m>\beta</m>, and <alert>adding</alert> the terms together in our formula:
       </p>
       <p>
-        \begin{equation} \hat \theta<em>k = \theta + \beta</em>1x<em>{1k} + \beta</em>2x<em>{2k} + \epsilon</em>k + \zeta_k (#eq:mr12) \end{equation}
+        <me>
+          \hat \theta<em>k = \theta + \beta</em>1x<em>{1k} + \beta</em>2x<em>{2k} + \epsilon</em>k + \zeta_k
+        </me>
       </p>
       <p>
         But what if the relationship between <m>x_1</m> and <m>x_2</m> is more complex? It is possible, like in our previous example, that a more recent publication year is positively associated with higher effects. But not all studies must follow this trend. Maybe the increase is most pronounced among high-quality studies, while the results of low-quality studies stayed largely the same over time. We can visualize this assumed relationship between effect size (<m>\hat\theta_k</m>), publication year (<m>x_1</m>) and study quality (<m>x_2</m>) in the following way:
@@ -409,7 +431,9 @@ metareg(m.gen, RiskOfBias)
         To assess interactions via meta-regression, we need to add an <alert>interaction term</alert> to the model. In our example, this can be achieved by adding a third regression weight <m>\beta_3</m>, which captures the interaction <m>x_{1k}x_{2k}</m> we want to test in our model. This gives the following formula:
       </p>
       <p>
-        \begin{equation} \hat \theta<em>k = \theta + \beta</em>1x<em>{1k} + \beta</em>2x<em>{2k} + \beta</em>3x<em>{1k}x</em>{2k}+ \epsilon<em>k + \zeta</em>k (#eq:mr13) \end{equation}
+        <me>
+          \hat \theta<em>k = \theta + \beta</em>1x<em>{1k} + \beta</em>2x<em>{2k} + \beta</em>3x<em>{1k}x</em>{2k}+ \epsilon<em>k + \zeta</em>k
+        </me>
       </p>
       <p>
         Although linear multiple meta-regression models only consist of these simple building blocks, they lend themselves to various applications. Before we start fitting multiple meta-regressions using <em>R</em>, however, we should first consider their limitations and pitfalls. 

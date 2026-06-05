@@ -39,7 +39,9 @@
       When calculating SMDs or Hedges' <m>g</m> from the mean and <alert>standard error</alert>, we can make use of the fact that the standard deviation of a mean is defined as its standard error, with the square root of the sample size "factored out" <xref ref="thalheimer2002calculate"/>:
     </p>
     <p>
-      \begin{equation} \text{SD} =\text{SE}\sqrt{n} (#eq:esc1) \end{equation}
+      <me>
+        \text{SD} =\text{SE}\sqrt{n}
+      </me>
     </p>
     <p>
       We can calculate the SMD or Hedges' <m>g</m> using the <c>esc_mean_se</c> function. Here is an example:
@@ -158,13 +160,17 @@ esc_beta(beta = 0.37,   # standardized regression coefficient
       For <alert>equally</alert> sized groups (<m>n_1=n_2</m>), we can use the following formula to derive the SMD from the <alert>point-biserial</alert> correlation <xref ref="lipsey2001practical"/>.
     </p>
     <p>
-      \begin{equation} r<em>{pb} = \frac{\text{SMD}}{\sqrt{\text{SMD}^2+4}} ~~~~~~~~ \text{SMD}=\frac{2r</em>{pb}}{\sqrt{1-r^2_{pb}}} (#eq:esc2) \end{equation}
+      <me>
+        r<em>{pb} = \frac{\text{SMD}}{\sqrt{\text{SMD}^2+4}} ~~~~~~~~ \text{SMD}=\frac{2r</em>{pb}}{\sqrt{1-r^2_{pb}}}
+      </me>
     </p>
     <p>
       A different formula has to be used for <alert>unequally</alert> sized groups <xref ref="aaron1998equating"/>:
     </p>
     <p>
-      \begin{align} r<em>{pb} &amp;= \frac{\text{SMD}}{\sqrt{\text{SMD}^2+\dfrac{(N^2-2N)}{n</em>1n<em>2}}} \notag \ \text{SMD} &amp;= \dfrac{r</em>{pb}}{\sqrt{(1-r^2)\left(\frac{n<em>1}{N}\times\left(1-\frac{n</em>1}{N}\right)\right)}} (#eq:esc3) \end{align}
+      <me>
+        r<em>{pb} &amp;= \frac{\text{SMD}}{\sqrt{\text{SMD}^2+\dfrac{(N^2-2N)}{n</em>1n<em>2}}} \notag \ \text{SMD} &amp;= \dfrac{r</em>{pb}}{\sqrt{(1-r^2)\left(\frac{n<em>1}{N}\times\left(1-\frac{n</em>1}{N}\right)\right)}}
+      </me>
     </p>
     <p>
       To convert <m>r_{pb}</m> to an SMD or Hedges’ <m>g</m>, we can use the <c>esc_rpb</c> function.
@@ -194,7 +200,9 @@ esc_rpb(r = 0.25,      # point-biserial correlation
       The formula used for the transformation looks like this <xref ref="rosnow1996computing"/>, <xref ref="rosnow2000contrasts"/>, <xref ref="thalheimer2002calculate"/>:
     </p>
     <p>
-      \begin{equation} \text{SMD} = \sqrt{  F\left(\frac{n<em>1+n</em>2}{n<em>1 n</em>2}\right)\left(\frac{n<em>1+n</em>2}{n<em>1+n</em>2-2}\right)} (#eq:esc4) \end{equation}
+      <me>
+        \text{SMD} = \sqrt{  F\left(\frac{n<em>1+n</em>2}{n<em>1 n</em>2}\right)\left(\frac{n<em>1+n</em>2}{n<em>1+n</em>2-2}\right)}
+      </me>
     </p>
     <p>
       To calculate the SMD or Hedges' <m>g</m> from <m>F</m>-values, we can use the <c>esc_f</c> function. Here is an example:
@@ -219,7 +227,9 @@ esc_f(f = 5.04,      # F value of the one-way anova
       An effect size expressed as a standardized mean difference can also be derived from an <alert>independent</alert> two-sample <m>t</m>-test value, using the following formula <xref ref="rosnow2000contrasts"/>, <xref ref="thalheimer2002calculate"/>:
     </p>
     <p>
-      \begin{equation} \text{SMD} = \frac {t(n<em>1+n</em>2)}{\sqrt{(n<em>1+n</em>2-2)(n<em>1n</em>2)}} (#eq:esc5) \end{equation}
+      <me>
+        \text{SMD} = \frac {t(n<em>1+n</em>2)}{\sqrt{(n<em>1+n</em>2-2)(n<em>1n</em>2)}}
+      </me>
     </p>
     <p>
       In <em>R</em>, we can calculate the SMD or Hedges' <c>g</c> from a <m>t</m>-value using the <c>esc_t</c> function. Here is an example:
@@ -351,7 +361,9 @@ esc_chisq(chisq = 7.9,        # chi-squared value
       When we are dealing with binary effect size data, calculation of NNTs is relatively easy. The formula looks like this:
     </p>
     <p>
-      \begin{equation} \text{NNT} = (p<em>{e</em>{\text{treat}}}-p<em>{e</em>{\text{control}}})^{-1} (#eq:esc6) \end{equation}
+      <me>
+        \text{NNT} = (p<em>{e</em>{\text{treat}}}-p<em>{e</em>{\text{control}}})^{-1}
+      </me>
     </p>
     <p>
       In this formula, <m>p_{e_{\text{treat}}}</m> and <m>p_{e_{\text{control}}}</m> are the proportions of participants who experienced the event in the treatment and control group, respectively. These proportions are identical to the "risks" used to calculate the risk ratio (<xref ref="rr"/>), and also known as the <alert>experimental group event rate</alert> (EER) and <alert>control group event rate</alert> (CER). Given its formula, the NTT can also be described as the inverse of the (absolute) risk difference.
@@ -463,7 +475,9 @@ NNT(d = 0.245, CER = 0.35)
       To avoid unit-of-analysis errors (<xref ref="unit-of-analysis"/>), it is sometimes necessary to pool the mean and standard deviation of two or more trial arms before calculating a (standardized) mean difference. To pool continuous effect size data of two groups, we can use these equations:
     </p>
     <p>
-      \begin{align} n<em>{\text{pooled}} &amp;= n</em>1 + n<em>2  \ m</em>{\text{pooled}} &amp;= \frac{n<em>1m</em>1+n<em>2m</em>2}{n<em>1+n</em>2} \ SD<em>{\text{pooled}} &amp;= \sqrt{\frac{(n</em>1-1)SD^{2}<em>{1}+ (n</em>2-1)SD^{2}<em>{2}+\frac{n</em>1n<em>2}{n</em>1+n<em>2}(m^{2}</em>1+m^{2}<em>2-2m</em>1m<em>2)} {n</em>1+n_2-1}} \end{align}
+      <me>
+        n<em>{\text{pooled}} &amp;= n</em>1 + n<em>2  \ m</em>{\text{pooled}} &amp;= \frac{n<em>1m</em>1+n<em>2m</em>2}{n<em>1+n</em>2} \ SD<em>{\text{pooled}} &amp;= \sqrt{\frac{(n</em>1-1)SD^{2}<em>{1}+ (n</em>2-1)SD^{2}<em>{2}+\frac{n</em>1n<em>2}{n</em>1+n<em>2}(m^{2}</em>1+m^{2}<em>2-2m</em>1m<em>2)} {n</em>1+n_2-1}}
+      </me>
     </p>
     <p>
       We can apply this formula in <em>R</em> using the <c>pool.groups</c> function.

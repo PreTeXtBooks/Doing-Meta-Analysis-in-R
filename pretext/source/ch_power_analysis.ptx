@@ -28,7 +28,9 @@
       The power of a test directly depends on <m>\beta</m>. It is defined as Power = <m>1 - \beta</m>. Suppose that our null hypothesis states that there is no difference between the means of two groups, while the alternative hypothesis postulates that a difference (i.e. an "effect") exists. The statistical power can be defined as the probability that the test will detect an effect (i.e. a mean difference), <alert>if</alert> it exists:
     </p>
     <p>
-      \begin{equation} \text{Power} = P(\text{reject H}<em>0~|~\mu</em>1 \neq \mu_2) = 1 - \beta (#eq:pow1) \end{equation}
+      <me>
+        \text{Power} = P(\text{reject H}<em>0~|~\mu</em>1 \neq \mu_2) = 1 - \beta
+      </me>
     </p>
     <p>
       It is common practice to assume that a type I error is more grave than a type II error. Thus, the <m>\alpha</m> level is conventionally set to 0.05 and the <m>\beta</m> level to 0.2. This leads to a threshold of  <m>1-\beta</m> = 1 - 0.2 = 80%, which is typically used to determine if the statistical power of a test is adequate or not. When researchers plan a new study, they usually select a sample size that guarantees a power of 80%. It is easier to obtain statistically significant results when the true effect is large. Therefore, when the power is fixed at 80%, the required sample size only depends on the size of the true effect. The smaller the assumed effect, the larger the sample size needed to ascertain 80% power.
@@ -97,13 +99,17 @@
       We already covered previously (see <xref ref="metareg-continuous"/>) that dividing an effect size through its standard error creates a <m>z</m> score. These <m>z</m> scores follow a standard normal distribution, where a value of <m>|z| \geq</m> 1.96 means that the effect is significantly different from zero (<m>p&lt;</m> 0.05). This is exactly what we want to achieve in our meta-analysis: no matter how large the exact effect size and standard error of our result, the value of <m>|z|</m> should be at least 1.96, and thus statistically significant: 
     </p>
     <p>
-      \begin{equation} z  = \frac{\theta}{\sigma_{\theta}}~~~\text{where}~~~|z| \geq 1.96. (#eq:pow2) \end{equation}
+      <me>
+        z  = \frac{\theta}{\sigma_{\theta}}~~~\text{where}~~~|z| \geq 1.96.
+      </me>
     </p>
     <p>
       The value of <m>\sigma_{\theta}</m>, the standard error of the pooled effect size, can be calculated using this formula:
     </p>
     <p>
-      \begin{equation} \sigma<em>{\theta}=\sqrt{\frac{\left(\frac{n</em>1+n<em>2}{n</em>1n<em>2}\right)+\left(\frac{\theta^2}{2(n</em>1+n_2)}\right)}{K}} (#eq:pow3) \end{equation}
+      <me>
+        \sigma<em>{\theta}=\sqrt{\frac{\left(\frac{n</em>1+n<em>2}{n</em>1n<em>2}\right)+\left(\frac{\theta^2}{2(n</em>1+n_2)}\right)}{K}}
+      </me>
     </p>
     <p>
       Where <m>n_1</m> and <m>n_2</m> stand for the sample sizes in group 1 and group 2 of a study, where <m>\theta</m> is the assumed effect size (expressed as a standardized mean difference), and <m>K</m> is the total number of studies in our meta-analysis. Importantly, as a simplification, this formula assumes that the sample sizes in both groups are identical across all included studies.
@@ -115,7 +121,9 @@
       After we defined <m>\theta</m> and calculated <m>\sigma_{\theta}</m>, we end up with a value of <m>z</m>. This <m>z</m> score can be used to obtain the power of our meta-analysis, given a number of studies <m>K</m> with group sizes <m>n_1</m> and <m>n_2</m>:
     </p>
     <p>
-      \begin{align} \text{Power} &amp;= 1-\beta \notag \              &amp;= 1-\Phi(c<em>{\alpha}-z)+\Phi(-c</em>{\alpha}-z) \notag \              &amp;= 1-\Phi(1.96-z)+\Phi(-1.96-z). (#eq:pow4) \end{align}
+      <me>
+        \text{Power} &amp;= 1-\beta \notag \              &amp;= 1-\Phi(c<em>{\alpha}-z)+\Phi(-c</em>{\alpha}-z) \notag \              &amp;= 1-\Phi(1.96-z)+\Phi(-1.96-z).
+      </me>
     </p>
     <p>
       <idx><h>Cumulative Distribution Function (CDF)</h></idx>
@@ -235,7 +243,9 @@ power.analysis(d = 0.2,
       For power analyses assuming a random-effects model, we have to take the between-study heterogeneity variance <m>\tau^2</m> into account. Therefore, we need to calculate an adapted version of the standard error, <m>\sigma^*_{\theta}</m>:
     </p>
     <p>
-      \begin{equation} \sigma^*<em>{\theta}=\sqrt{\frac{\left(\frac{n</em>1+n<em>2}{n</em>1n<em>2}\right)+\left(\frac{\theta^2}{2(n</em>1+n_2)}\right)+\tau^2}{K}} (#eq:pow5) \end{equation}
+      <me>
+        \sigma^*<em>{\theta}=\sqrt{\frac{\left(\frac{n</em>1+n<em>2}{n</em>1n<em>2}\right)+\left(\frac{\theta^2}{2(n</em>1+n_2)}\right)+\tau^2}{K}}
+      </me>
     </p>
     <p>
       The problem is that the value of <m>\tau^2</m> is usually not known before seeing the data. Hedges and Pigott <xref ref="hedges2001power"/>, however, provide guidelines that may be used to model either low, moderate or large between-study heterogeneity:
@@ -244,19 +254,25 @@ power.analysis(d = 0.2,
       <alert>Low heterogeneity:</alert>
     </p>
     <p>
-      \begin{equation} \sigma^*<em>{\theta} = \sqrt{1.33\times\dfrac{\sigma^2</em>{\theta}}{K}} (#eq:pow6) \end{equation}
+      <me>
+        \sigma^*<em>{\theta} = \sqrt{1.33\times\dfrac{\sigma^2</em>{\theta}}{K}}
+      </me>
     </p>
     <p>
       <alert>Moderate heterogeneity:</alert>
     </p>
     <p>
-      \begin{equation} \sigma^*<em>{\theta} = \sqrt{1.67\times\dfrac{\sigma^2</em>{\theta}}{K}} (#eq:pow7) \end{equation}
+      <me>
+        \sigma^*<em>{\theta} = \sqrt{1.67\times\dfrac{\sigma^2</em>{\theta}}{K}}
+      </me>
     </p>
     <p>
       <alert>Large heterogeneity:</alert>
     </p>
     <p>
-      \begin{equation} \sigma^*<em>{\theta} = \sqrt{2\times\dfrac{\sigma^2</em>{\theta}}{K}}  (#eq:pow8) \end{equation}
+      <me>
+        \sigma^*<em>{\theta} = \sqrt{2\times\dfrac{\sigma^2</em>{\theta}}{K}}
+      </me>
     </p>
     <p>
       The <c>power.analysis</c> function can also be used for random-effects meta-analyses. The amount of assumed between-study heterogeneity can be controlled using the <c>heterogeneity</c> argument. Possible values are <c>"low"</c>, <c>"moderate"</c> and <c>"high"</c>. Using the same values as in the previous example, let us now calculate the expected power when the between-study heterogeneity is moderate. 
