@@ -21,12 +21,6 @@
     <p>
       The good news is that we can sometimes <alert>convert</alert> reported information into the desired effect size format. This makes it possible to include affected studies in a meta-analysis with <alert>pre-calculated</alert> data (<xref ref="pre-calculated-es"/>) using <c>metagen</c>. For example, we can convert the results of a two-sample <m>t</m>-test to a standardized mean difference and its standard error, and then use <c>metagen</c> to perform a meta-analysis of pre-calculated SMDs. The <alert>{esc}</alert> package <xref ref="esc"/> provides several helpful functions which allow us to perform such conversions directly in <em>R</em>.
     </p>
-    <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="reporting-reproducibility"/>.
-    </p>
-    <p>
-      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
-    </p>
   </introduction>
 
   <section xml:id="mean-standard-error">
@@ -59,6 +53,19 @@ esc_mean_se(grp1m = 8.5,   # mean of group 1
             es.type = "d") # convert to SMD; use "g" for Hedges' g
       </code>
     </program>
+
+<pre>
+## 
+## Effect Size Calculation for Meta Analysis
+## 
+##      Conversion: mean and se to effect size d
+##     Effect Size:  -0.2012
+##  Standard Error:   0.1920
+##        Variance:   0.0369
+##        Lower CI:  -0.5774
+##        Upper CI:   0.1751
+##          Weight:  27.1366
+</pre>
   </section>
 
   <section xml:id="regression-coefficients">
@@ -81,6 +88,18 @@ esc_B(b = 3.3,       # unstandardized regression coefficient
       es.type = "d") # convert to SMD; use "g" for Hedges' g
       </code>
     </program>
+<pre>
+## 
+## Effect Size Calculation for Meta Analysis
+## 
+##      Conversion: unstandardized regression coefficient to effect size d
+##     Effect Size:   0.6962
+##  Standard Error:   0.1328
+##        Variance:   0.0176
+##        Lower CI:   0.4359
+##        Upper CI:   0.9565
+##          Weight:  56.7018
+</pre>
     <program language="r">
       <code>
 esc_B(b = 2.9,       # unstandardized regression coefficient
@@ -90,8 +109,7 @@ esc_B(b = 2.9,       # unstandardized regression coefficient
       es.type = "r") # convert to correlation
       </code>
     </program>
-    <program language="r">
-      <code>
+<pre>
 ## Effect Size Calculation for Meta Analysis
 ## 
 ##      Conversion: unstandardized regression coefficient 
@@ -105,8 +123,7 @@ esc_B(b = 2.9,       # unstandardized regression coefficient
 ##      Fisher's z:   0.3782
 ##       Lower CIz:   0.1761
 ##       Upper CIz:   0.5803
-      </code>
-    </program>
+</pre>
     <p>
       Standardized regression coefficients can be transformed using <c>esc_beta</c>.
     </p>
@@ -119,6 +136,18 @@ esc_beta(beta = 0.32,   # standardized regression coefficient
          es.type = "d") # convert to SMD; use "g" for Hedges' g
       </code>
     </program>
+<pre>
+## 
+## Effect Size Calculation for Meta Analysis
+## 
+##      Conversion: standardized regression coefficient to effect size d
+##     Effect Size:   0.6867
+##  Standard Error:   0.1327
+##        Variance:   0.0176
+##        Lower CI:   0.4266
+##        Upper CI:   0.9468
+##          Weight:  56.7867
+</pre>
     <program language="r">
       <code>
 esc_beta(beta = 0.37,   # standardized regression coefficient
@@ -128,8 +157,7 @@ esc_beta(beta = 0.37,   # standardized regression coefficient
          es.type = "r") # convert to correlation
       </code>
     </program>
-    <program language="r">
-      <code>
+<pre>
 ## Effect Size Calculation for Meta Analysis
 ## 
 ##      Conversion: standardized regression coefficient 
@@ -143,8 +171,7 @@ esc_beta(beta = 0.37,   # standardized regression coefficient
 ##      Fisher's z:   0.3847
 ##       Lower CIz:   0.1823
 ##       Upper CIz:   0.5871
-      </code>
-    </program>
+</pre>
     <p>
       Please note that using regression coefficients in meta-analysis can be tricky, because we assume that the the same model has been used in all studies. This is particularly problematic if coefficients are extracted from multiple regression models, because studies may have controlled for different co-variates in their models, which means that the <m>b</m> values are not directly comparable.
     </p>
@@ -159,19 +186,20 @@ esc_beta(beta = 0.37,   # standardized regression coefficient
     <p>
       For <alert>equally</alert> sized groups (<m>n_1=n_2</m>), we can use the following formula to derive the SMD from the <alert>point-biserial</alert> correlation <xref ref="lipsey2001practical"/>.
     </p>
-    <p>
       <me>
-        r<em>{pb} = \frac{\text{SMD}}{\sqrt{\text{SMD}^2+4}} ~~~~~~~~ \text{SMD}=\frac{2r</em>{pb}}{\sqrt{1-r^2_{pb}}}
+r_{pb} = \frac{\text{SMD}}{\sqrt{\text{SMD}^2+4}}
       </me>
-    </p>
+      <me>
+\text{SMD}=\frac{2r_{pb}}{\sqrt{1-r^2_{pb}}}
+</me>
     <p>
       A different formula has to be used for <alert>unequally</alert> sized groups <xref ref="aaron1998equating"/>:
     </p>
-    <p>
       <me>
-        r<em>{pb} &amp;= \frac{\text{SMD}}{\sqrt{\text{SMD}^2+\dfrac{(N^2-2N)}{n</em>1n<em>2}}} \notag \ \text{SMD} &amp;= \dfrac{r</em>{pb}}{\sqrt{(1-r^2)\left(\frac{n<em>1}{N}\times\left(1-\frac{n</em>1}{N}\right)\right)}}
-      </me>
-    </p>
+r_{pb} &amp;= \frac{\text{SMD}}{\sqrt{\text{SMD}^2+\dfrac{(N^2-2N)}{n_1n_2}}}
+</me><me>
+\text{SMD} &amp;= \dfrac{r_{pb}}{\sqrt{(1-r^2)\left(\frac{n_1}{N}\times\left(1-\frac{n_1}{N}\right)\right)}}
+</me>
     <p>
       To convert <m>r_{pb}</m> to an SMD or Hedges’ <m>g</m>, we can use the <c>esc_rpb</c> function.
     </p>
@@ -185,6 +213,18 @@ esc_rpb(r = 0.25,      # point-biserial correlation
         es.type = "d") # convert to SMD; use "g" for Hedges' g
       </code>
     </program>
+<pre>
+## 
+## Effect Size Calculation for Meta Analysis
+## 
+##      Conversion: point-biserial r to effect size d
+##     Effect Size:   0.5188
+##  Standard Error:   0.1380
+##        Variance:   0.0190
+##        Lower CI:   0.2483
+##        Upper CI:   0.7893
+##          Weight:  52.4967
+</pre>
   </section>
 
   <section xml:id="one-way-anovas">
@@ -215,6 +255,18 @@ esc_f(f = 5.04,      # F value of the one-way anova
       es.type = "g") # convert to Hedges' g; use "d" for SMD
       </code>
     </program>
+<pre>
+## 
+## Effect Size Calculation for Meta Analysis
+## 
+##      Conversion: F-value (one-way-Anova) to effect size Hedges' g
+##     Effect Size:   0.1387
+##  Standard Error:   0.0619
+##        Variance:   0.0038
+##        Lower CI:   0.0174
+##        Upper CI:   0.2600
+##          Weight: 261.1022
+</pre>
   </section>
 
   <section xml:id="two-sample-tests">
@@ -242,6 +294,18 @@ esc_t(t = 3.3,     # t-value
       es.type="d") # convert to SMD; use "g" for Hedges' g
       </code>
     </program>
+<pre>
+## 
+## Effect Size Calculation for Meta Analysis
+## 
+##      Conversion: t-value to effect size d
+##     Effect Size:   0.4260
+##  Standard Error:   0.1305
+##        Variance:   0.0170
+##        Lower CI:   0.1703
+##        Upper CI:   0.6818
+##          Weight:  58.7211
+</pre>
   </section>
 
   <section xml:id="values">
@@ -343,6 +407,18 @@ esc_chisq(chisq = 7.9,        # chi-squared value
           es.type = "cox.or") # convert to odds ratio
       </code>
     </program>
+<pre>
+## 
+## Effect Size Calculation for Meta Analysis
+## 
+##      Conversion: chi-squared-value to effect size Cox odds ratios
+##     Effect Size:   2.6287
+##  Standard Error:   0.3440
+##        Variance:   0.1183
+##        Lower CI:   1.3394
+##        Upper CI:   5.1589
+##          Weight:   8.4502
+</pre>
   </section>
 
   <section xml:id="nnt">
@@ -360,11 +436,9 @@ esc_chisq(chisq = 7.9,        # chi-squared value
     <p>
       When we are dealing with binary effect size data, calculation of NNTs is relatively easy. The formula looks like this:
     </p>
-    <p>
       <me>
-        \text{NNT} = (p<em>{e</em>{\text{treat}}}-p<em>{e</em>{\text{control}}})^{-1}
+        \text{NNT} = (p_{e_{\text{treat}}}-p_{e_{\text{control}}})^{-1}
       </me>
-    </p>
     <p>
       In this formula, <m>p_{e_{\text{treat}}}</m> and <m>p_{e_{\text{control}}}</m> are the proportions of participants who experienced the event in the treatment and control group, respectively. These proportions are identical to the "risks" used to calculate the risk ratio (<xref ref="rr"/>), and also known as the <alert>experimental group event rate</alert> (EER) and <alert>control group event rate</alert> (CER). Given its formula, the NTT can also be described as the inverse of the (absolute) risk difference.
     </p>
@@ -401,6 +475,19 @@ m.b &lt;- metabin(ev.exp, n.exp, ev.cont, n.cont,
 nnt(m.b)
       </code>
     </program>
+<pre>
+## Number needed to treat (common effect model): 
+## 
+##      RR    p.c    NNTB             95%-CI
+##  0.7728 0.1440 30.5677 [26.1222; 37.2386]
+##  0.7728 0.3750 11.7383 [10.0312; 14.3001]
+## 
+## Number needed to treat (random effects model): 
+## 
+##      RR    p.c    NNTB             95%-CI
+##  0.7694 0.1440 30.1139 [24.0662; 41.3519]
+##  0.7694 0.3750 11.5641 [ 9.2417; 15.8796]
+</pre>
     <p>
       The <c>nnt</c> function provides the number needed to treat for different assumed CERs. The three lines show the result for the minimum, mean, and maximum CER in our data set. The mean CER estimate is the "typical" NNT that is usually reported. 
     </p>
@@ -416,6 +503,17 @@ nnt(m.gen_bin,
     p.c = 0.1) # Use a CER of 0.1
       </code>
     </program>
+<pre>
+## Number needed to treat (common effect model): 
+## 
+##      RR    p.c   NNTH            95%-CI
+##  2.0319 0.1000 9.6906 [8.2116; 11.6058]
+## 
+## Number needed to treat (random effects model): 
+## 
+##      RR    p.c   NNTH            95%-CI
+##  2.0218 0.1000 9.7870 [6.4761; 16.4843]
+</pre>
     <p>
       <idx><h>dmetar Package</h></idx>
     </p>
@@ -448,10 +546,22 @@ nnt(m.gen_bin,
     <program language="r">
       <code>
 NNT(d = 0.245)
+      </code>
+    </program>
+<pre>
+## Kraemer & Kupfer method used. 
+## [1] 7.270711
+</pre>
 
+    <program language="r">
+      <code>
 NNT(d = 0.245, CER = 0.35)
       </code>
     </program>
+<pre>
+## Furukawa & Leucht method used. 
+## [1] 10.61533
+</pre>
     <note>
       <p>
         <alert>A Number to be Treated with Care: Criticism of the NNT</alert>
@@ -476,8 +586,14 @@ NNT(d = 0.245, CER = 0.35)
     </p>
     <p>
       <me>
-        n<em>{\text{pooled}} &amp;= n</em>1 + n<em>2  \ m</em>{\text{pooled}} &amp;= \frac{n<em>1m</em>1+n<em>2m</em>2}{n<em>1+n</em>2} \ SD<em>{\text{pooled}} &amp;= \sqrt{\frac{(n</em>1-1)SD^{2}<em>{1}+ (n</em>2-1)SD^{2}<em>{2}+\frac{n</em>1n<em>2}{n</em>1+n<em>2}(m^{2}</em>1+m^{2}<em>2-2m</em>1m<em>2)} {n</em>1+n_2-1}}
+n_{\text{pooled}} &= n_1 + n_2 
       </me>
+      <me>
+m_{\text{pooled}} &= \frac{n_1m_1+n_2m_2}{n_1+n_2}
+      </me>
+      <me>
+SD_{\text{pooled}} &= \sqrt{\frac{(n_1-1)SD^{2}_{1}+ (n_2-1)SD^{2}_{2}+\frac{n_1n_2}{n_1+n_2}(m^{2}_1+m^{2}_2-2m_1m_2)} {n_1+n_2-1}}
+</me>
     </p>
     <p>
       We can apply this formula in <em>R</em> using the <c>pool.groups</c> function.
@@ -517,6 +633,10 @@ pool.groups(n1 = 50,   # sample size group 1
             sd2 = 3.8) # sd group2 
       </code>
     </program>
+<pre>
+##   Mpooled SDpooled Npooled
+## 1    3.75 3.415369     100
+</pre>
   </section>
 
   <section xml:id="aggregate-es">
