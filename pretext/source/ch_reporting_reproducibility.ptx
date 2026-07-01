@@ -45,12 +45,6 @@
     <p>
       R Studio is an optimal tool to create a reproducible workflow and to facilitate cooperation. In this chapter, we introduce three tools to reproduce, report and disseminate our analyses: <em>R</em> Projects, <alert>R Markdown</alert>, and the <alert>Open Science Framework</alert>.
     </p>
-    <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="risk-of-bias-plots"/> and then continue with <xref ref="es-calc"/>.
-    </p>
-    <p>
-      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
-    </p>
   </introduction>
 
   <section xml:id="using-r-projects">
@@ -65,12 +59,14 @@
     <figure>
       <image source="generated/rproj1_col.png"/>
     </figure>
-    <figure>
-      <image source="generated/rproj2_col.png"/>
-    </figure>
+
     <p>
       Then we create a <alert>New Directory</alert>, a new folder on our computer, which will become the working directory of the project.
     </p>
+
+    <figure>
+      <image source="generated/rproj2_col.png"/>
+    </figure>
     <p>
       Then, we click on <alert>New Project</alert>.
     </p>
@@ -108,12 +104,15 @@ read_excel("data/data.xlsx")
     <figure>
       <image source="generated/rmd1_col.png"/>
     </figure>
-    <figure>
-      <image source="generated/rmd2_col.png"/>
-    </figure>
+
     <p>
       After defining the name of the new R Markdown document, it should pop up in the upper-left corner of the R Studio window.
     </p>
+
+    <figure>
+      <image source="generated/rmd2_col.png"/>
+    </figure>
+
     <p>
       The file already contains some exemplary content, which we can delete, except for the first six lines:
     </p>
@@ -136,12 +135,12 @@ output: html_document
     <figure>
       <image source="generated/rmd3_col.png"/>
     </figure>
-    <figure>
-      <image source="generated/rmd4_col.png"/>
-    </figure>
     <p>
       Once we are finished writing our document, we can export it as an HTML, PDF, or MS Word document by clicking on the <alert>Knit</alert> symbol in the upper left corner. This renders the document, including all text, code, and output, and exports it in the defined format. The final document is automatically saved in our project folder.
     </p>
+    <figure>
+      <image source="generated/rmd4_col.png"/>
+    </figure>
   </section>
 
   <section xml:id="osf">
@@ -165,12 +164,12 @@ output: html_document
       <figure>
         <image source="generated/osf1_col.png"/>
       </figure>
-      <figure>
-        <image source="generated/osf2_col.png"/>
-      </figure>
       <p>
         Then, under <alert>Scopes</alert>, we check all boxes, and click on <alert>Create token</alert> again. After that, our personal access token should appear. We copy the token and save it for later.
       </p>
+      <figure>
+        <image source="generated/osf2_col.png"/>
+      </figure>
     </subsection>
 
     <subsection xml:id="the-osfr-package-authentication">
@@ -274,21 +273,21 @@ osf_download(osf_ls_files(scripts)[1,])
       <p>
         On the OSF repository website, we can also add collaborators under the <alert>Contributors</alert> field.
       </p>
+      <figure>
+        <image source="generated/osf4_col.png"/>
+      </figure>
       <p>
         At any time, it is possible to make the repository <alert>public</alert> by clicking on the <alert>Make Public</alert> button in the upper right corner of the website.
       </p>
       <figure>
-        <image source="generated/osf4_col.png"/>
-      </figure>
-      <figure>
         <image source="generated/osf5.png"/>
-      </figure>
-      <figure>
-        <image source="generated/osf6_col.png"/>
       </figure>
       <p>
         In <xref ref="analysis-plan"/>, we discussed that analysis plans and pre-registration are essential parts of a high-quality meta-analysis. The OSF makes it very convenient to also create an openly accessible pre-registration for our project. We simply have to click on the <alert>Registrations</alert> button on top, and then create a <alert>New registration</alert>. This leads us to the <alert>OSF Registries</alert> website, where we can provide detailed information on our planned study, including our analysis plan. 
       </p>
+      <figure>
+        <image source="generated/osf6_col.png"/>
+      </figure>
       <p>
         After specifying all the required details, the study can be registered. This creates a register entry that can be accessed through a unique ID (e.g. <alert>osf.io/q2jp7</alert>). After the registration is completed, it is not possible to change the stated search plan, hypotheses and/or analysis strategy anymore.
       </p>
