@@ -414,6 +414,9 @@ summary(i2)
 plot(i2)
         </code>
       </program>
+    <figure>
+      <image source="images/unnamed-chunk-279-1.png"/>
+    </figure>
     </subsection>
 
     <subsection xml:id="comparing-models">
