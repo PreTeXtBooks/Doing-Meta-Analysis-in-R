@@ -20,12 +20,6 @@
     <p>
       In this chapter, we will describe how to create risk of bias plots in <em>R</em>, using the <alert>{robvis}</alert> package.
     </p>
-    <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="power"/> and then continue with <xref ref="reporting-reproducibility"/>.
-    </p>
-    <p>
-      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
-    </p>
   </introduction>
 
   <section xml:id="introduction">
@@ -45,7 +39,7 @@
     </p>
     <figure xml:id="fig-rob-revman">
       <caption>Example RevMan output.</caption>
-      <image source="generated/robsummaryrevman.jpg"/>
+      <image source="images/robsummaryrevman.png"/>
     </figure>
     <p>
       To avoid all of this, you can now easily plot the risk of bias figures yourself within R Studio, using the <alert>{robvis}</alert> package <xref ref="mcguinness2020risk"/>, <xref ref="robvis"/> which provides functions to convert a risk of bias assessment summary table into a summary plot or a traffic-light plot.
@@ -204,6 +198,20 @@ my_rob_data &lt;- read.csv("robdata.csv", header = TRUE)
 glimpse(data_robins)
         </code>
       </program>
+<pre>
+## Rows: 12
+## Columns: 10
+## $ Study   &lt;fct&gt; Study 1, Study 2, Study 3, Study 4, Study 5, Study 6, Study 7,…
+## $ D1      &lt;fct&gt; Critical, Moderate, Moderate, Low, Serious, Critical, Critical…
+## $ D2      &lt;fct&gt; Low, Low, Low, Low, Serious, Serious, Moderate, Moderate, Low,…
+## $ D3      &lt;fct&gt; Critical, Low, Moderate, Serious, Low, Moderate, Moderate, Low…
+## $ D4      &lt;fct&gt; Critical, Critical, Critical, Critical, Low, Critical, Serious…
+## $ D5      &lt;fct&gt; Low, Low, Critical, Moderate, Moderate, Critical, Critical, Lo…
+## $ D6      &lt;fct&gt; Low, Moderate, Low, Low, Low, Moderate, Serious, Low, Serious,…
+## $ D7      &lt;fct&gt; Serious, Low, Serious, Critical, Moderate, Serious, Serious, C…
+## $ Overall &lt;fct&gt; Critical, Low, Serious, Low, Serious, Serious, Moderate, Moder…
+## $ Weight  &lt;dbl&gt; 33.3333333, 33.3333333, 0.1428571, 9.0909091, 12.5000000, 25.0…
+</pre>
       <p>
         These example data sets are used to create the plots presented through the remainder of this guide.
       </p>
@@ -229,6 +237,11 @@ rob_summary(data = data_rob2,
             tool = "ROB2")
         </code>
       </program>
+
+    <figure xml:id="fig-rob-revman-1">
+      <image source="images/unnamed-chunk-474-1.png"/>
+    </figure>
+
     </subsection>
 
     <subsection xml:id="risk-of-bias-plots-modifying-the-plot">
@@ -284,12 +297,20 @@ rob_summary(data = data_robins,
             tool = "ROBINS-I")
           </code>
         </program>
+    <figure xml:id="fig-rob-revman-2">
+      <image source="images/unnamed-chunk-475-1.png"/>
+    </figure>
+
         <program language="r">
           <code>
 rob_summary(data = data_quadas, 
             tool = "QUADAS-2")
           </code>
         </program>
+    <figure xml:id="fig-rob-revman-3">
+      <image source="images/unnamed-chunk-476-1.png"/>
+    </figure>
+
       </subsubsection>
 
       <subsubsection xml:id="overall">
@@ -305,6 +326,10 @@ rob_summary(data = data_rob2,
             overall = TRUE)
           </code>
         </program>
+    <figure xml:id="fig-rob-revman-4">
+      <image source="images/unnamed-chunk-477-1.png"/>
+    </figure>
+
       </subsubsection>
 
       <subsubsection xml:id="weighted-or-unweighted-bar-plots">
@@ -322,6 +347,10 @@ rob_summary(data = data_rob2,
             tool = "ROB2")
           </code>
         </program>
+    <figure xml:id="fig-rob-revman-5">
+      <image source="images/unnamed-chunk-478-1.png"/>
+    </figure>
+
         <program language="r">
           <code>
 rob_summary(data = data_rob2, 
@@ -329,6 +358,10 @@ rob_summary(data = data_rob2,
             weighted = FALSE)
           </code>
         </program>
+    <figure xml:id="fig-rob-revman-6">
+      <image source="images/unnamed-chunk-479-1.png"/>
+    </figure>
+
       </subsubsection>
 
       <subsubsection xml:id="risk-of-bias-plots-colour-scheme">
@@ -352,6 +385,10 @@ rob_summary(data = data_rob2,
             colour = "colourblind")
           </code>
         </program>
+    <figure xml:id="fig-rob-revman-7">
+      <image source="images/unnamed-chunk-481-1.png"/>
+    </figure>
+
         <p>
           And to define your own colour scheme:
         </p>
@@ -362,6 +399,10 @@ rob_summary(data = data_rob2,
             colour = c("#f442c8","#bef441","#000000"))
           </code>
         </program>
+    <figure xml:id="fig-rob-revman-8">
+      <image source="images/unnamed-chunk-482-1.png"/>
+    </figure>
+
         <p>
           When defining your own colour scheme, you must ensure that the number of discrete judgments (e.g. “Low”, “Moderate”, “High”, “Critical”) and the number of colours specified are the same. Additionally, colours must be specified in order of ascending risk-of-bias (e.g. “Low” to “Critical”), with the first hex corresponding to “Low” risk of bias.
         </p>
@@ -389,6 +430,10 @@ rob_traffic_light(data = data_rob2,
                   tool = "ROB2")
         </code>
       </program>
+    <figure>
+      <image source="images/unnamed-chunk-483-1.png"/>
+    </figure>
+
     </subsection>
 
     <subsection xml:id="risk-of-bias-plots-modifying-the-plot-2">
@@ -436,12 +481,20 @@ rob_traffic_light(data = data_robins,
                   tool = "ROBINS-I")
           </code>
         </program>
+    <figure>
+      <image source="images/unnamed-chunk-484-1.png"/>
+    </figure>
+
         <program language="r">
           <code>
 rob_traffic_light(data = data_quadas, 
                   tool = "QUADAS-2")
           </code>
         </program>
+    <figure>
+      <image source="images/unnamed-chunk-485-1.png"/>
+    </figure>
+
       </subsubsection>
 
       <subsubsection xml:id="risk-of-bias-plots-colour-scheme-2">
@@ -468,6 +521,9 @@ rob_traffic_light(data = data_rob2,
                   colour = "colourblind")
           </code>
         </program>
+    <figure>
+      <image source="images/unnamed-chunk-487-1.png"/>
+    </figure>
         <p>
           And to define your own colour scheme:
         </p>
@@ -478,6 +534,9 @@ rob_traffic_light(data = data_rob2,
                   colour = c("#f442c8","#bef441","#000000"))
           </code>
         </program>
+    <figure>
+      <image source="images/unnamed-chunk-488-1.png"/>
+    </figure>
         <p>
           When defining your own colour scheme, you must ensure that the number of discrete judgments (e.g. “Low”, “Moderate”, “High”, “Critical”) and the number of colours specified are the same. Additionally, colours must be specified in order of ascending risk-of-bias (e.g. “Low” to “Critical”), with the first hex corresponding to “Low” risk of bias.
         </p>
@@ -501,6 +560,9 @@ rob_traffic_light(data = new_rob2_data,
                   psize = 8)
           </code>
         </program>
+    <figure>
+      <image source="images/unnamed-chunk-489-1.png"/>
+    </figure>
       </subsubsection>
 
     </subsection>
@@ -533,8 +595,72 @@ rob_traffic_light(data = new_rob2_data,
         For the other tools listed in the previous sections, the names of the columns containing the domain-level risk of bias judgments are not important. For example, they are commonly named <em>D1</em>, <em>D2</em>, <em>D3</em>, etc. However, this is not the case when using the <c>"ROB1"</c> template.
       </p>
       <p>
-        Compare the column headings of the data<em>rob2 and the data</em>rob1 (presented horizontally here for ease of comparison):
+        Compare the column headings of the data_rob2 and the data_rob1 (presented horizontally here for ease of comparison):
       </p>
+
+<table xml:id="table-rob-comparison">
+  <title>Comparison of column names in the data_rob2 (left) and data_rob1 (right) datasets.</title>
+  <tabular halign="left">
+    <col halign="right"/>
+    <col halign="left"/>
+    <col halign="left"/>
+    <row header="yes">
+      <cell>No.</cell>
+      <cell>data_rob2</cell>
+      <cell>data_rob1</cell>
+    </row>
+    <row>
+      <cell>1</cell>
+      <cell>Study</cell>
+      <cell>Study</cell>
+    </row>
+    <row>
+      <cell>2</cell>
+      <cell>D1</cell>
+      <cell>Random.sequence.generation.</cell>
+    </row>
+    <row>
+      <cell>3</cell>
+      <cell>D2</cell>
+      <cell>Allocation.concealment.</cell>
+    </row>
+    <row>
+      <cell>4</cell>
+      <cell>D3</cell>
+      <cell>Blinding.of.participants.and.personnel.</cell>
+    </row>
+    <row>
+      <cell>5</cell>
+      <cell>D4</cell>
+      <cell>Blinding.of.outcome.assessment</cell>
+    </row>
+    <row>
+      <cell>6</cell>
+      <cell>D5</cell>
+      <cell>Incomplete.outcome.data</cell>
+    </row>
+    <row>
+      <cell>7</cell>
+      <cell>Overall</cell>
+      <cell>Selective.reporting.</cell>
+    </row>
+    <row>
+      <cell>8</cell>
+      <cell>Weight</cell>
+      <cell>Other.sources.of.bias.</cell>
+    </row>
+    <row>
+      <cell>9</cell>
+      <cell>.</cell>
+      <cell>Overall</cell>
+    </row>
+    <row>
+      <cell>10</cell>
+      <cell>.</cell>
+      <cell>Weight</cell>
+    </row>
+  </tabular>
+</table>
       <p>
         The domain columns (Columns 2-6) in the ROB2 example dataset have been given arbitrary names of <em>D1</em> - <em>D5</em>, as they will be overwritten by the tool to correspond to the correct domain titles given by the ROB2 guidance.
       </p>
@@ -556,6 +682,10 @@ colnames(new_rob1_data)[2] &lt;- "This is a test"
 rob_summary(data = new_rob1_data, tool = "ROB1")
         </code>
       </program>
+    <figure>
+      <image source="images/unnamed-chunk-491-1.png"/>
+    </figure>
+
       <program language="r">
         <code>
 # Create the traffic light plot
@@ -563,6 +693,9 @@ rob_traffic_light(data = new_rob1_data,
                   tool = "ROB1")
         </code>
       </program>
+    <figure>
+      <image source="images/unnamed-chunk-492-1.png"/>
+    </figure>
     </subsection>
 
   </section>
@@ -596,6 +729,10 @@ rob_summary(data_rob2, "ROB2") +
   ggtitle("Your custom title")
         </code>
       </program>
+    <figure>
+      <image source="images/unnamed-chunk-494-1.png"/>
+    </figure>
+
     </subsection>
 
     <subsection xml:id="saving-the-plot">
@@ -674,6 +811,9 @@ ggsave(plot = rob_barplot,
       <p>
         Clicking on the second tab will bring you to the screen displayed below.
       </p>
+    <figure>
+      <image source="images/robvis-app-summary-plot.png"/>
+    </figure>
       <p>
         This menu acts as a graphical interface for the <c>rob_traffic_light</c> function:
       </p>
