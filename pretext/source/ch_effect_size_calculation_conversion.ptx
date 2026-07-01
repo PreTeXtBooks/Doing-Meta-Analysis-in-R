@@ -549,7 +549,7 @@ NNT(d = 0.245)
       </code>
     </program>
 <pre>
-## Kraemer & Kupfer method used. 
+## Kraemer &amp; Kupfer method used. 
 ## [1] 7.270711
 </pre>
 
@@ -559,7 +559,7 @@ NNT(d = 0.245, CER = 0.35)
       </code>
     </program>
 <pre>
-## Furukawa & Leucht method used. 
+## Furukawa &amp; Leucht method used. 
 ## [1] 10.61533
 </pre>
     <note>
