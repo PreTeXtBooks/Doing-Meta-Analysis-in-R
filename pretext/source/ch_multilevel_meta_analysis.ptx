@@ -515,8 +515,8 @@ anova(full.model, l3.removed)
     </p>
     <p>
       <me>
-        \hat\theta<em>{ij} = \theta + \beta x</em>i + \zeta<em>{(2)ij} + \zeta</em>{(3)j} + \epsilon_{ij}
-      </me>
+\hat\theta_{ij} = \theta + \beta x_i + \zeta_{(2)ij} + \zeta_{(3)j} + \epsilon_{ij}
+</me>
     </p>
     <p>
       Where <m>\theta</m> is the intercept and <m>\beta</m> the regression weight of a predictor variable <m>x</m>. When we replace <m>x_i</m> with a dummy (<xref ref="the-metareg-model"/>), we get a model that can be used for subgroup analyses. When <m>x</m> is continuous, the formula above represents a three-level meta-regression model.   
@@ -576,7 +576,7 @@ summary(mod.model)
       </p>
       <blockquote>
         <p>
-          <em>"The pooled correlation based on the three-level meta-analytic model was <m>r=</m> 0.48 (95%CI: 0.25-0.66; <m>p</m> &lt; 0.001). The estimated variance components were $\tau^2</em>{\text{Level 3}}=<m> 0.179 and </m>\tau^2<em>{\text{Level 2}}=<m> 0.119. This means that </m>I^2</em>{\text{Level 3}}=<m> 58.22% of the total variation can be attributed to between-cluster, and </m>I^2<em>{\text{Level 2}}=<m> 31.86% to within-cluster heterogeneity. We found that the three-level model provided a significantly better fit compared to a two-level model with level 3 heterogeneity constrained to zero (</m>\chi^2</em>1=<m> 16.10; </m>p$&lt; 0.001)."_
+          <em>"The pooled correlation based on the three-level meta-analytic model was <m>r=</m> 0.48 (95%CI: 0.25-0.66; <m>p</m> &lt; 0.001). The estimated variance components were <m>\tau^2_{\text{Level 3}}= 0.179</m> and <m>\tau^2_{\text{Level 2}}= 0.119</m>. This means that <m>I^2_{\text{Level 3}}=</m> 58.22% of the total variation can be attributed to between-cluster, and <m>I^2_{\text{Level 2}}=</m> 31.86% to within-cluster heterogeneity. We found that the three-level model provided a significantly better fit compared to a two-level model with level 3 heterogeneity constrained to zero (<m>\chi^2_1 = 16.10; p&lt; 0.001</m>)."_
         </p>
       </blockquote>
     </note>
@@ -627,7 +627,7 @@ summary(mod.model)
       </p>
       <p>
         <me>
-          \boldsymbol{T}<em>{j}=\boldsymbol{X}</em>{j}\boldsymbol{\beta} + \boldsymbol{u}<em>j +\boldsymbol{e}</em>j
+          \boldsymbol{T}_{j}=\boldsymbol{X}_{j}\boldsymbol{\beta} + \boldsymbol{u}_j +\boldsymbol{e}_j
         </me>
       </p>
       <p>
@@ -638,7 +638,7 @@ summary(mod.model)
       </p>
       <p>
         <me>
-          \boldsymbol{X}<em>j = \begin{bmatrix}  x</em>{1,1}    &amp; \cdots &amp; x<em>{1,p}    \   \vdots     &amp; \ddots &amp; \vdots     \  x</em>{n<em>j,1}  &amp; \cdots &amp; x</em>{n_j,p} \end{bmatrix}
+          \boldsymbol{X}_j = \begin{bmatrix}  x_{1,1}    &amp; \cdots &amp; x_{1,p}    \   \vdots     &amp; \ddots &amp; \vdots     \  x_{n_j,1}  &amp; \cdots &amp; x_{n_j,p} \end{bmatrix}
         </me>
       </p>
       <p>
@@ -649,7 +649,7 @@ summary(mod.model)
       </p>
       <p>
         <me>
-          \begin{bmatrix}  \boldsymbol{T}<em>1 \  \boldsymbol{T}</em>2 \  \vdots \  \boldsymbol{T}<em>J \end{bmatrix} = \begin{bmatrix}  \boldsymbol{X}</em>1 \  \boldsymbol{X}<em>2 \  \vdots \  \boldsymbol{X}</em>J \end{bmatrix} \boldsymbol{\beta} + \begin{bmatrix}  \boldsymbol{u}<em>1 \  \boldsymbol{u}</em>2 \  \vdots \  \boldsymbol{u}<em>J \end{bmatrix} + \begin{bmatrix}  \boldsymbol{e}</em>1 \  \boldsymbol{e}<em>2 \  \vdots \  \boldsymbol{e}</em>J  \end{bmatrix}.
+          \begin{bmatrix}  \boldsymbol{T}_1 \  \boldsymbol{T}_2 \  \vdots \  \boldsymbol{T}_J \end{bmatrix} = \begin{bmatrix}  \boldsymbol{X}_1 \  \boldsymbol{X}_2 \  \vdots \  \boldsymbol{X}_J \end{bmatrix} \boldsymbol{\beta} + \begin{bmatrix}  \boldsymbol{u}_1 \  \boldsymbol{u}_2 \  \vdots \  \boldsymbol{u}_J \end{bmatrix} + \begin{bmatrix}  \boldsymbol{e}_1 \  \boldsymbol{e}_2 \  \vdots \  \boldsymbol{e}_J  \end{bmatrix}.
         </me>
       </p>
       <p>
@@ -657,7 +657,7 @@ summary(mod.model)
       </p>
       <p>
         <me>
-          \scriptsize\boldsymbol{V}^{\text{R}}<em>{\boldsymbol{\hat\beta}} = \left(\sum^J</em>{j=1}\boldsymbol{X}<em>j^\top\boldsymbol{W}</em>j\boldsymbol{X}<em>j \right)^{-1}  \left(\sum^J</em>{j=1}\boldsymbol{X}<em>j^\top\boldsymbol{W}</em>j \boldsymbol{A}<em>j\Phi</em>j \boldsymbol{A}<em>j \boldsymbol{W}</em>j \boldsymbol{X}<em>j \right) \left(\sum^J</em>{j=1}\boldsymbol{X}<em>j^\top\boldsymbol{W}</em>j\boldsymbol{X}_j \right)^{-1}
+          \scriptsize\boldsymbol{V}^{\text{R}}_{\boldsymbol{\hat\beta}} = \left(\sum^J_{j=1}\boldsymbol{X}_j^\top\boldsymbol{W}_j\boldsymbol{X}_j \right)^{-1}  \left(\sum^J_{j=1}\boldsymbol{X}_j^\top\boldsymbol{W}_j \boldsymbol{A}_j\Phi_j \boldsymbol{A}_j \boldsymbol{W}_j \boldsymbol{X}_j \right) \left(\sum^J_{j=1}\boldsymbol{X}_j^\top\boldsymbol{W}_j\boldsymbol{X}_j \right)^{-1}
         </me>
       </p>
       <p>
