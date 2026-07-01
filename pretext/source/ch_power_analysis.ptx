@@ -113,9 +113,9 @@
       After we defined <m>\theta</m> and calculated <m>\sigma_{\theta}</m>, we end up with a value of <m>z</m>. This <m>z</m> score can be used to obtain the power of our meta-analysis, given a number of studies <m>K</m> with group sizes <m>n_1</m> and <m>n_2</m>:
     </p>
       <me>
-\text{Power} &amp;= 1-\beta \notag \\
-             &amp;= 1-\Phi(c_{\alpha}-z)+\Phi(-c_{\alpha}-z) \notag \\
-             &amp;= 1-\Phi(1.96-z)+\Phi(-1.96-z). \tag{14.4}
+\text{Power} &amp;= 1-\beta
+             &amp;= 1-\Phi(c_{\alpha}-z)+\Phi(-c_{\alpha}-z)
+             &amp;= 1-\Phi(1.96-z)+\Phi(-1.96-z)
 </me>
     <p>
       <idx><h>Cumulative Distribution Function (CDF)</h></idx>
