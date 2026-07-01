@@ -586,13 +586,13 @@ NNT(d = 0.245, CER = 0.35)
     </p>
     <p>
       <me>
-n_{\text{pooled}} &= n_1 + n_2 
+n_{\text{pooled}} &amp;= n_1 + n_2 
       </me>
       <me>
-m_{\text{pooled}} &= \frac{n_1m_1+n_2m_2}{n_1+n_2}
+m_{\text{pooled}} &amp;= \frac{n_1m_1+n_2m_2}{n_1+n_2}
       </me>
       <me>
-SD_{\text{pooled}} &= \sqrt{\frac{(n_1-1)SD^{2}_{1}+ (n_2-1)SD^{2}_{2}+\frac{n_1n_2}{n_1+n_2}(m^{2}_1+m^{2}_2-2m_1m_2)} {n_1+n_2-1}}
+SD_{\text{pooled}} &amp;= \sqrt{\frac{(n_1-1)SD^{2}_{1}+ (n_2-1)SD^{2}_{2}+\frac{n_1n_2}{n_1+n_2}(m^{2}_1+m^{2}_2-2m_1m_2)} {n_1+n_2-1}}
 </me>
     </p>
     <p>
