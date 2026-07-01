@@ -24,12 +24,6 @@
     <p>
       When people talk about multilevel meta-analysis, what they think of are <alert>three-level meta-analysis models</alert>. Such models are indeed somewhat different to the fixed-effect and random-effects model we already know. In this chapter, we will therefore first describe why meta-analysis naturally implies a multilevel structure of our data, and how we can extend a conventional meta-analysis to a three-level model. As always, we will also have a look at how such models can be fitted in <em>R</em> using a hands-on example. 
     </p>
-    <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="pub-bias"/> and then continue with <xref ref="sem"/>.
-    </p>
-    <p>
-      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
-    </p>
   </introduction>
 
   <section xml:id="multilevel-nature">
@@ -40,8 +34,8 @@
     </p>
     <p>
       <me>
-        \hat\theta<em>k = \mu + \epsilon</em>k + \zeta_k
-      </me>
+\hat\theta_k = \mu + \epsilon_k + \zeta_k
+</me>
     </p>
     <p>
       <idx><h>Sampling Error</h></idx>
@@ -55,13 +49,13 @@
     <p>
       The two error terms <m>\epsilon_k</m> and <m>\zeta_k</m> correspond with the two levels in our meta-analysis data: the "participant" level (level 1) and the "study" level (level 2). <xref ref="fig-multilevel1"/> below symbolizes this structure. 
     </p>
-    <p>
-      At the lowest level (level 1) we have the participants (or patients, specimens, etc., depending on the research field). These participants are part of larger units: the studies included in our meta-analysis. This overlying layer of studies constitutes our second level. 
-    </p>
     <figure xml:id="fig-multilevel1">
       <caption>Multilevel structure of the conventional random-effects model.</caption>
       <image source="generated/multilevel-model_col_sep.png"/>
     </figure>
+    <p>
+      At the lowest level (level 1) we have the participants (or patients, specimens, etc., depending on the research field). These participants are part of larger units: the studies included in our meta-analysis. This overlying layer of studies constitutes our second level. 
+    </p>
     <p>
       When we conduct a meta-analysis, data on level 1 usually already reaches us in a "pooled" form (e.g. the authors of the paper provide us with the mean and standard deviation of their studied sample instead of the raw data). Pooling on level 2, the study level, however, has to be performed as part of the meta-analysis. Traditionally, such type of data is called <alert>nested</alert>: one can say that participants are "nested" within studies.
     </p>
@@ -76,7 +70,7 @@
     </p>
     <p>
       <me>
-        \hat\theta<em>k = \theta</em>k + \epsilon_k
+        \hat\theta_k = \theta_k + \epsilon_k
       </me>
     </p>
     <p>
@@ -84,8 +78,8 @@
     </p>
     <p>
       <me>
-        \theta<em>k = \mu + \zeta</em>k
-      </me>
+\theta_k = \mu + \zeta_k
+</me>
     </p>
     <p>
       You might have already detected that we can substitute <m>\theta_k</m> in the first equation with its definition in the second equation. What we then obtain is a formula exactly identical to the one of the random-effects model from before. The fixed-effects model can also be written in this way--we only have to set <m>\zeta_k</m> to zero. Evidently, our plain old meta-analysis model already has multilevel properties "built in". It exhibits this property because we assume that participants are nested within studies in our data.
@@ -134,32 +128,32 @@
     </p>
     <p>
       <me>
-        \hat\theta<em>{ij} = \theta</em>{ij} + \epsilon_{ij}
-      </me>
+\hat\theta_{ij} = \theta_{ij} + \epsilon_{ij}
+</me>
     </p>
     <p>
       <alert>Level 2 model:</alert>
     </p>
     <p>
       <me>
-        \theta<em>{ij} = \kappa</em>{j} + \zeta_{(2)ij}
-      </me>
+\theta_{ij} = \kappa_{j} + \zeta_{(2)ij}
+</me>
     </p>
     <p>
       <alert>Level 3 model:</alert>
     </p>
     <p>
       <me>
-        \kappa<em>{j} = \mu + \zeta</em>{(3)j}
-      </me>
+\kappa_{j} = \mu + \zeta_{(3)j}
+</me>
     </p>
     <p>
       Where <m>\hat\theta_{ij}</m> is an estimate of the true effect size <m>\theta_{ij}</m>. The term <m>ij</m> can be read as "some effect size <m>i</m> nested in cluster <m>j</m>". Parameter <m>\kappa_{j}</m> is the average effect size in cluster <m>j</m>, and <m>\mu</m> the overall average population effect. Like before, we can piece these formulas together and thus reduce the formula to one line:
     </p>
     <p>
       <me>
-        \hat\theta<em>{ij} = \mu + \zeta</em>{(2)ij} + \zeta<em>{(3)j} + \epsilon</em>{ij}
-      </me>
+\hat\theta_{ij} = \mu + \zeta_{(2)ij} + \zeta_{(3)j} + \epsilon_{ij}
+</me>
     </p>
     <p>
       We see that, in contrast to the random-effects model, this formula now contains <alert>two</alert> heterogeneity terms. One is <m>\zeta_{(2)ij}</m>, which stands for the <alert>within-cluster</alert> heterogeneity on level 2 (i.e. the <alert>true</alert> effect sizes within cluster <m>j</m> follow a distribution with mean <m>\kappa_j</m>). The other is <m>\zeta_{(3)j}</m>, the <alert>between-cluster</alert> heterogeneity on level 3. Consequentially, fitting a three-level meta-analysis model does not only involve the estimation of one heterogeneity variance parameter <m>\tau^2</m>. We have to estimate two <m>\tau^2</m> values: one for level 2, and the other for level 3. 
@@ -399,6 +393,13 @@ i2 &lt;- var.comp(full.model)
 summary(i2)
         </code>
       </program>
+<pre>
+##         % of total variance    I2
+## Level 1            1.254966   ---
+## Level 2           39.525499 39.53
+## Level 3           59.219534 59.22
+## Total I2: 98.75%
+</pre>
       <p>
         In the output, we see the percentage of total variance attributable to each of the three levels. The sampling error variance on level 1 is very small, making up only roughly 1%. The value of <m>I^2_{\text{Level 2}}</m>, the amount of heterogeneity variance within clusters, is much higher, totaling roughly 40%. The largest share, however, falls to level 3. Between-cluster (here: between-study) heterogeneity makes up <m>I^2_{\text{Level 3}}=</m> 59% of the total variation in our data. 
       </p>
