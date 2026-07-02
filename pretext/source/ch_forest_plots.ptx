@@ -21,12 +21,6 @@
     <p>
       The <alert>{meta}</alert> package has an in-built function which makes it very easy to produce beautiful forest plots directly in <em>R</em>. The function has a broad functionality and allows one to change the appearance of the plot as desired. This forest plot function, and how we can use it in practice, will be the main focus of this chapter. Furthermore, we will also briefly discuss an alternative approach to visualize the results of a meta-analysis.
     </p>
-    <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="heterogeneity"/> and then continue with <xref ref="subgroup"/>.
-    </p>
-    <p>
-      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
-    </p>
   </introduction>
 
   <section xml:id="what-is-a-forest-plot">
@@ -154,6 +148,9 @@ meta::forest(m.gen,
              leftlabs = c("Author", "g", "SE"))
       </code>
     </program>
+    <figure>
+      <image source="images/unnamed-chunk-165-1.png"/>
+    </figure>
     <p>
       The plot that <c>meta::forest</c> provides us with already looks quite decent. We also see that a think black line has been added to the plot, representing the prediction interval around our pooled effect.
     </p>
@@ -176,6 +173,9 @@ meta::forest(m.gen,
              leftlabs = c("Author", "g", "SE", "Risk of Bias"))
       </code>
     </program>
+    <figure>
+      <image source="images/unnamed-chunk-167-1.png"/>
+    </figure>
     <p>
       We see that now, the risk of bias information of each study has been added to the forest plot.
     </p>
@@ -190,6 +190,9 @@ meta::forest(m.gen,
 meta::forest(m.gen, layout = "JAMA")
         </code>
       </program>
+    <figure>
+      <image source="images/unnamed-chunk-169-1.png"/>
+    </figure>
       <p>
         <idx><h>Review Manager (RevMan)</h></idx>
       </p>
@@ -201,6 +204,9 @@ meta::forest(m.gen, layout = "JAMA")
 meta::forest(m.gen, layout = "RevMan5")
         </code>
       </program>
+    <figure>
+      <image source="images/unnamed-chunk-171-1.png"/>
+    </figure>
     </subsection>
 
     <subsection xml:id="saving-the-forest-plots">
@@ -335,6 +341,9 @@ drapery(m.gen,
         legend = FALSE)
       </code>
     </program>
+    <figure>
+      <image source="images/unnamed-chunk-176-1.png"/>
+    </figure>
     <p>
       The resulting plot contains a <m>p</m>-value curve for each effect size, all in the shape of an upside down V. The thick line represents the average effect according to the random-effects model. The shaded area we see in the plot represents the prediction interval, which is considerably wider than the confidence interval of the pooled effect.
     </p>
