@@ -1211,10 +1211,10 @@ funnel(m.netmeta,
         </p>
         <p>
           <me>
-\hat\theta_{k \text{,A,B}} &\sim \mathcal{N}(\theta_{k \text{,A,B}},\sigma_k^2)
+\hat\theta_{k \text{,A,B}} &amp;\sim \mathcal{N}(\theta_{k \text{,A,B}},\sigma_k^2)
           </me>
           <me>
-\theta_{k \text{,A,B}} &\sim \mathcal{N}(\theta_{\text{A,B}},\tau^2)
+\theta_{k \text{,A,B}} &amp;\sim \mathcal{N}(\theta_{\text{A,B}},\tau^2)
           </me>
         </p>
         <p>
