@@ -33,12 +33,6 @@
     <p>
       Application of meta-analytic SEM techniques, of course, presupposes a basic familiarity with structural equation modeling. In the next section, we therefore briefly discuss the general idea behind structural equation modeling, as well as its meta-analytic extension. 
     </p>
-    <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="multilevel-ma"/> and then continue with <xref ref="netwma"/>.
-    </p>
-    <p>
-      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
-    </p>
   </introduction>
 
   <section xml:id="what-is-meta-sem">
@@ -65,12 +59,60 @@
         <p>
           Path diagrams represent our SEM graphically. There is no full consensus on how path diagrams should be drawn, yet there are a few conventions. Here are the main components of path diagrams, and what they represent.
         </p>
+
+<table xml:id="table-sem-symbols">
+  <title>SEM Symbol Reference</title>
+  <tabular halign="left">
+    <col halign="center"/>
+    <col halign="left"/>
+    <col halign="left"/>
+    <row header="yes">
+      <cell>Symbol</cell>
+      <cell>Name</cell>
+      <cell>Description</cell>
+    </row>
+    <row>
+      <cell><m>\square</m></cell>
+      <cell>Rectangle</cell>
+      <cell>Manifest/observed variables.</cell>
+    </row>
+    <row>
+      <cell><m>\circ</m></cell>
+      <cell>Circle</cell>
+      <cell>Latent/unobserved variables.</cell>
+    </row>
+    <row>
+      <cell><m>\triangle</m></cell>
+      <cell>Triangle</cell>
+      <cell>Intercept (fixed vector of 1s).</cell>
+    </row>
+    <row>
+      <cell><m>\rightarrow</m></cell>
+      <cell>Arrow</cell>
+      <cell>
+        Prediction. The variable at the start of the arrow predicts the variable at 
+        the end of the arrow: Predictor <m>\rightarrow</m> Target.
+      </cell>
+    </row>
+    <row>
+      <cell><m>\leftrightarrow</m></cell>
+      <cell>Double Arrow</cell>
+      <cell>
+        (Co-)Variance. If a double arrow connects two variables (rectangles/circles), 
+        it signifies the covariance/correlation between the two variables. If a double 
+        arrow forms a loop on top of one single variable, it signifies the variance of 
+        that variable.
+      </cell>
+    </row>
+  </tabular>
+</table>
+
         <p>
           As an illustration, let us create a path diagram for a simple linear ("non-meta-analytic") regression model, in which we want to predict <m>y</m> with <m>x</m>. The model formula looks like this:
         </p>
         <p>
           <me>
-            y<em>i = \beta</em>0 + \beta<em>1x</em>i + e_i
+            y_i = \beta_0 + \beta_1x_i + e_i
           </me>
         </p>
         <p>
@@ -79,6 +121,9 @@
         <p>
           Using these components, we can build a path diagram for our linear regression model, as seen below. 
         </p>
+        <figure xml:id="fig-regression_path">
+          <image source="generated/regression_path_sep.png"/>
+        </figure>
         <p>
           We can also use this graphical model as a starting point to reassemble the regression model equation. From the model, we can infer that <m>y</m> is influenced by two components: <m>x \times \beta_1</m> and <m>1 \times \beta_0</m>. If we add these two parts together, we again arrive at the formula for <m>y</m> from before.
         </p>
@@ -86,12 +131,8 @@
 
       <subsubsection xml:id="matrix-representation">
         <title>Matrix Representation</title>
-
-        <figure xml:id="fig-regression_path">
-          <image source="generated/regression_path_sep.png"/>
-        </figure>
         <p>
-          There are several ways to represent SEM through matrices <xref ref="joreskog2006lisrel"/>, <xref ref="muthen2012mplus"/>, <xref ref="mcardle1984some"/>. Here, we will focus on the <alert>Reticular Action Model</alert> formulation, or RAM <xref ref="mcardle1984some"/>. We do this because this formulation is used by the <alert>{metaSEM}</alert> package which we will be introducing later on. RAM uses four matrices: <m>\boldsymbol{F}</m>, <m>\boldsymbol{A}</m>, <m>\boldsymbol{S}</m>, and <m>\boldsymbol{M}</m>. Because the <m>\boldsymbol{M}</m> matrix is not necessary to fit the meta-analytic SEM we cover, we omit it here <xref ref="cheung2015meta"/>. 
+          There are several ways to represent SEM through matrices <xref ref="joreskog2006lisrel"/>, <xref ref="muthen2012mplus"/>, <xref ref="mcardle1984some"/>. Here, we will focus on the <alert>Reticular Action Model</alert> formulation, or RAM <xref ref="mcardle1984some"/>. We do this because this formulation is used by the <alert>{metaSEM}</alert> package which we will be introducing later on. RAM uses four matrices: <m>\boldsymbol{F}</m>, <m>\boldsymbol{A}</m>, <m>\boldsymbol{S}</m>, and <m>\boldsymbol{M}</m>. Because the <m>\boldsymbol{M}</m> matrix is not necessary to fit the meta-analytic SEM we cover, we omit it here (see <xref ref="cheung2015meta"/> for a more extensive introduction). 
         </p>
         <p>
           We will now specify the remaining <m>\boldsymbol{A}</m>, <m>\boldsymbol{F}</m> and <m>\boldsymbol{S}</m> matrices for our linear regression model from before. The three matrices all have the same number of rows and columns, corresponding with the variables we have in our model: <m>x</m> and <m>y</m>. Therefore, the generic matrix structure of our regression model always looks like this:
@@ -130,7 +171,7 @@
           <image source="generated/M3.png"/>
         </figure>
         <p>
-          Once these matrices are set, it is possible to estimate the parameters in our SEM, and to evaluate how well the specified model fits the data. This involves some matrix algebra and parameter estimation through maximum likelihood estimation, the mathematical minutiae of which we will omit here. If you are interested in understanding the details behind this step, you can have a look at <xref ref="references"/>, chapter 4.3. 
+          Once these matrices are set, it is possible to estimate the parameters in our SEM, and to evaluate how well the specified model fits the data. This involves some matrix algebra and parameter estimation through maximum likelihood estimation, the mathematical minutiae of which we will omit here. If you are interested in understanding the details behind this step, you can have a look at <xref ref="cheung2015meta"/>, chapter 4.3. 
         </p>
       </subsubsection>
 
@@ -150,15 +191,15 @@
       </p>
       <p>
         <me>
-          \hat\theta<em>k = \theta</em>k + \epsilon_k
-        </me>
+\hat\theta_k = \theta_k + \epsilon_k
+</me>
       </p>
       <p>
         <alert>Level 2</alert>
       </p>
       <p>
         <me>
-          \theta<em>k = \mu + \zeta</em>k
+          \theta_k = \mu + \zeta_k
         </me>
       </p>
       <p>
@@ -173,6 +214,9 @@
       <p>
         It is quite straightforward to represent this model as a SEM graph. We use the parameters on level 1 as latent variables to “explain” how the effect sizes we observe came into being <xref ref="cheung2015meta"/>:
       </p>
+      <figure>
+        <image source="generated/REM_SEM_sep.png"/>
+      </figure>
       <p>
         In the graphical model, we see that the observed effect size <m>\hat\theta_k</m> of some study <m>k</m> is "influenced" by two arms: the sampling error <m>\epsilon_k</m> with variance <m>v_k</m>, and the true effect size <m>\theta_k</m> with variance <m>\tau^2</m>.
       </p>
@@ -180,10 +224,6 @@
 
     <subsection xml:id="the-two-stage-meta-analytic-sem-approach">
       <title>The Two-Stage Meta-Analytic SEM Approach</title>
-
-      <figure>
-        <image source="generated/REM_SEM_sep.png"/>
-      </figure>
       <p>
         Above, we defined the (random-effects) meta-analysis model from a SEM perspective. Although this is interesting from a theoretical standpoint, the model above is not more or less capable than the meta-analysis techniques we covered before: it describes that effect sizes are pooled assuming a random-effects model.
       </p>
@@ -195,8 +235,12 @@
       </p>
       <p>
         <me>
-          \boldsymbol{r<em>k} &amp;= \boldsymbol{\rho} + \boldsymbol{\zeta</em>k} + \boldsymbol{\epsilon<em>k} \notag \    \begin{bmatrix} r</em>1 \ r<em>2 \ \vdots \ r</em>p \end{bmatrix} &amp;=   \begin{bmatrix} \rho<em>1 \ \rho</em>2 \ \vdots \ \rho<em>p \end{bmatrix} +   \begin{bmatrix} \zeta</em>1 \ \zeta<em>2 \ \vdots \ \zeta</em>p \end{bmatrix} +   \begin{bmatrix} \epsilon<em>1 \ \epsilon</em>2 \ \vdots \ \epsilon_p \end{bmatrix}
-        </me>
+  \boldsymbol{r_k} &amp;= \boldsymbol{\rho} + \boldsymbol{\zeta_k} + \boldsymbol{\epsilon_k} \notag \\
+  \begin{bmatrix} r_1 \\ r_2 \\ \vdots \\ r_p \end{bmatrix} &=
+  \begin{bmatrix} \rho_1 \\ \rho_2 \\ \vdots \\ \rho_p \end{bmatrix} +
+  \begin{bmatrix} \zeta_1 \\ \zeta_2 \\ \vdots \\ \zeta_p \end{bmatrix} +
+  \begin{bmatrix} \epsilon_1 \\ \epsilon_2 \\ \vdots \\ \epsilon_p \end{bmatrix}
+       </me>
       </p>
       <p>
         <idx><h>metaSEM Package</h></idx>
@@ -309,7 +353,7 @@ format(head(ThirdWaveMV), digits = 2)
     </p>
     <p>
       <me>
-        \widehat{\text{Cov}}(\theta<em>{1},\theta</em>{2}) = SE<em>{\theta</em>{1}} \times SE<em>{\theta</em>{2}} \times \hat\rho_{1, 2}
+\widehat{\text{Cov}}(\theta_{1},\theta_{2}) = SE_{\theta_{1}} \times SE_{\theta_{2}} \times \hat\rho_{1, 2}
       </me>
     </p>
     <p>
@@ -433,6 +477,11 @@ dimnames(tc.mat)[[1]] &lt;- dimnames(tc.mat)[[2]] &lt;- c("Stress",
 tc.mat
         </code>
       </program>
+<pre>
+##             Stress    Anxiety
+## Stress  0.07331199 0.02894342
+## Anxiety 0.02894342 0.05753271
+</pre>
       <p>
         We now understand better what the three <m>\tau^2</m> values mean: they represent the between-study variance (heterogeneity) in the diagonal of the matrix. In the other two fields, the matrix shows the estimated covariance between stress and anxiety. Given that the covariance is just an unstandardized version of a correlation, we can transform these values into correlations using the <c>cov2cor</c> function.
       </p>
@@ -441,6 +490,11 @@ tc.mat
 cov2cor(tc.mat)
         </code>
       </program>
+<pre>
+##            Stress   Anxiety
+## Stress  1.0000000 0.4456613
+## Anxiety 0.4456613 1.0000000
+</pre>
       <p>
         We see that, quite logically, the correlations in the diagonal elements of the matrix are 1. The correlation between effects on stress and anxiety is <m>r_{\text{S,A}}</m> = 0.45. This is an interesting finding: it shows that there is a positive association between a treatment's effect on perceived stress and its effect on anxiety. We can say that treatments which have high effects on stress seem to have higher effects on anxiety too.
       </p>
@@ -489,15 +543,15 @@ plot(m.mv,
      estimate.col = "firebrick")
         </code>
       </program>
+      <figure xml:id="fig-metasem_forest_img">
+        <image source="generated/forest_metasem.png"/>
+      </figure>
       <p>
         Let us go through what we see. The plot has two axes: an x-axis displaying the effects on stress, and a y-axis, which displays the effects on anxiety. We also see the pooled effect and its 95% confidence interval for both outcomes, symbolized by the black diamond. 
       </p>
       <p>
         <idx><h>Prediction Interval</h></idx>
       </p>
-      <figure xml:id="fig-metasem_forest_img">
-        <image source="generated/forest_metasem.png"/>
-      </figure>
       <p>
         In the middle of the plot, the pooled effect of both variables is shown as a red diamond. The smaller blue ellipse represents the 95% confidence interval of our pooled effect; while the larger black ellipse depicts the 95% <alert>prediction</alert> interval (<xref ref="het-measure-which"/>)<fn>These prediction intervals (or "plausible value intervals") are based on a different formula <xref ref="raudenbush2009pi"/> than the one used by <alert>{meta}</alert> and <alert>{metafor}</alert> (equation 5.7 in <xref ref="het-measure-which"/>), resulting in a slightly narrower interval.</fn>.
       </p>
@@ -529,10 +583,11 @@ plot(m.mv,
     <p>
       The proposed structure represented as a graphical model looks like this<fn>Please note that the labels in the path diagram are somewhat "idiosyncratic" to make identifying the relevant components of the model easier later on.</fn>:
     </p>
-    <subsection xml:id="sem-data-preparation">
     <figure>
       <image source="generated/CFA_Graph-1_sep.png"/>
     </figure>
+
+    <subsection xml:id="sem-data-preparation">
       <title>Data Preparation</title>
 
       <p>
@@ -579,6 +634,14 @@ names(SleepProblems$data)
 SleepProblems$data$`Coleman et al. (2003)`
         </code>
       </program>
+<pre>
+##            Quality Latency Efficiency DTDysf HypSomnia
+## Quality       1.00    0.39       0.53  -0.30     -0.05
+## Latency       0.39    1.00       0.59   0.07      0.44
+## Efficiency    0.53    0.59       1.00   0.09      0.22
+## DTDysf       -0.30    0.07       0.09   1.00      0.45
+## HypSomnia    -0.05    0.44       0.22   0.45      1.00
+</pre>
       <p>
         The <c>data</c> list contains 11 elements, one for each of the 11 included studies. A closer look at the Coleman et al. (2003) study reveals that the data are stored as correlation matrices with five variables. Each row and column in the matrix corresponds with one of the sleep complaint symptoms assessed by our questionnaire. 
       </p>
@@ -727,6 +790,14 @@ dimnames(fc.mat)[[2]] &lt;- c("Quality", "Latency",
 round(fc.mat, 3)
           </code>
         </program>
+<pre>
+##            Quality Latency Efficiency DTDysf HypSomnia
+## Quality      1.000   0.444      0.478  0.033     0.133
+## Latency      0.444   1.000      0.510  0.121     0.193
+## Efficiency   0.478   0.510      1.000  0.221     0.190
+## DTDysf       0.033   0.121      0.221  1.000     0.509
+## HypSomnia    0.133   0.193      0.190  0.509     1.000
+</pre>
         <p>
           We can now see the pooled correlation matrix for our variables. Looking back at the model output, we also see that all correlation coefficients are significant (<m>p&lt;</m> 0.05), except one: the correlation between sleep quality and daytime dysfunction was not significant. From the perspective of our assumed model, this makes sense, because we expect these variables to load on different factors. We also see that the <m>I^2</m> values of the different estimates are very large (65-93%).  
         </p>
