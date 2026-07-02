@@ -278,11 +278,11 @@
 \end{bmatrix}
 &amp;=
 \begin{bmatrix}
-1 & -1 & 0 & 0 \\
-1 & 0 & -1 & 0 \\
-1 & 0 & 0 & -1 \\
-0 & 1 & -1 & 0 \\
-0 & 1 & 0 & -1 \\
+1 &amp; -1 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; -1 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; -1 \\
+0 &amp; 1 &amp; -1 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; -1 \\
 \end{bmatrix}
 \begin{bmatrix}
 \theta_{\text{A}} \\
@@ -1244,10 +1244,10 @@ funnel(m.netmeta,
 \end{bmatrix}
 ,
 \begin{bmatrix}
-\tau^2 & \tau^2/2 & \tau^2/2 & \tau^2/2 \\
-\tau^2/2 & \tau^2 & \tau^2/2 & \tau^2/2 \\
-\tau^2/2 & \tau^2/2 & \tau^2 & \tau^2/2 \\
-\tau^2/2 & \tau^2/2 & \tau^2/2 & \tau^2
+\tau^2 &amp; \tau^2/2 &amp; \tau^2/2 &amp; \tau^2/2 \\
+\tau^2/2 &amp; \tau^2 &amp; \tau^2/2 &amp; \tau^2/2 \\
+\tau^2/2 &amp; \tau^2/2 &amp; \tau^2 &amp; \tau^2/2 \\
+\tau^2/2 &amp; \tau^2/2 &amp; \tau^2/2 &amp; \tau^2
 \end{bmatrix}
 \right).
 </me>
