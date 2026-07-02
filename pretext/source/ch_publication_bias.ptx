@@ -324,7 +324,7 @@ title("Contour-Enhanced Funnel Plot (Third Wave Psychotherapies)")
           Egger's regression test <xref ref="egger1997bias"/> is a commonly used quantitative method that tests for asymmetry in the funnel plot. Like visual inspection of the funnel plot, it can only identify small-study effects and not tell us directly if publication bias exists. The test is based on a simple linear regression model, the formula of which looks like this:
         </p>
         <p>
-          <me>
+          <me xml:id="eqn-91">
 \frac{\hat\theta_k}{SE_{\hat\theta_k}} = \beta_0 + \beta_1 \frac{1}{SE_{\hat\theta_k}}
 </me>
         </p>
@@ -482,6 +482,20 @@ m.gen.c &lt;- metagen(TE = TE, seTE = seTE_c,
 metabias(m.gen.c, method = "linreg")
           </code>
         </program>
+<pre>
+## Review:     Third Wave Psychotherapies
+## 
+## Linear regression test of funnel plot asymmetry
+## 
+## Test result: t = 4.36, df = 16, p-value = 0.0005
+## Bias estimate: 11.1903 (SE = 2.5667)
+## 
+## Details:
+## - multiplicative residual heterogeneity variance (tau^2 = 2.5334)
+## - predictor: standard error
+## - weight:    inverse variance
+## - reference: Egger et al. (1997), BMJ
+</pre>
         <p>
           We see that, although the exact values differ, the interpretation of the results remains the same. This points to the robustness of our previous finding.
         </p>
@@ -747,11 +761,9 @@ title("Funnel Plot (Trim &amp; Fill Method) - Outliers Removed")
         <p>
           PET-PEESE is actually a combination of two methods: the <alert>precision-effect test</alert> (PET) and the <alert>precision-effect estimate with standard error</alert> (PEESE). Let us begin with the former. The PET method is based on a simple regression model, in which we regress a study's effect size on its standard error:
         </p>
-        <p>
-          <me>
+          <me xml:id="eqn-95">
             \theta<em>k =  \beta</em>0 + \beta<em>1SE</em>{\theta_k}
           </me>
-        </p>
         <p>
           Like in Peters' test, we use a weighted regression. The study weight <m>w_k</m> is calculated as the inverse of the variance–just like in a normal (fixed-effect) meta-analysis:
         </p>
