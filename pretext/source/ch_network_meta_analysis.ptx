@@ -10,10 +10,10 @@
       When we perform meta-analyses of clinical trials or other types of intervention studies, we usually estimate the true effect size of <alert>one</alert> specific treatment. We include studies in which the same type of intervention was compared to similar control groups, for example a placebo. All else being equal, this allows to assess if a <alert>specific</alert> type of treatment is effective. 
     </p>
     <p>
-      Yet, in many research areas, there is not only one "definitive" type of treatment--there are several ones. Migraine, for example, can be treated with various kinds of medications, and non-pharmaceutical therapy options also exist. Especially in "matured" research fields, it is often less relevant to show that some kind of treatment is beneficial. Instead, we want to find out which treatment is the <alert>most</alert> effective for some specific indication. 
+      Yet, in many research areas, there is not only one "definitive" type of treatment–there are several ones. Migraine, for example, can be treated with various kinds of medications, and non-pharmaceutical therapy options also exist. Especially in "matured" research fields, it is often less relevant to show that some kind of treatment is beneficial. Instead, we want to find out which treatment is the <alert>most</alert> effective for some specific indication. 
     </p>
     <p>
-      This leads to new problems. To assess the comparative effectiveness of several treatments in a conventional meta-analysis, sufficient head-to-head comparisons between two treatments need to be available. Alas, this is often not the case. In many research fields, it is common to find that only few--if any--trials have compared the effects of two treatments  <alert>directly</alert>, in lieu of "weaker" control groups. This often means that traditional meta-analyses can not be used to establish solid evidence on the <alert>relative</alert> effectiveness of several treatments. 
+      This leads to new problems. To assess the comparative effectiveness of several treatments in a conventional meta-analysis, sufficient head-to-head comparisons between two treatments need to be available. Alas, this is often not the case. In many research fields, it is common to find that only few–if any–trials have compared the effects of two treatments  <alert>directly</alert>, in lieu of "weaker" control groups. This often means that traditional meta-analyses can not be used to establish solid evidence on the <alert>relative</alert> effectiveness of several treatments. 
     </p>
     <p>
       However, while direct comparisons between two or more treatments may not exist, <alert>indirect</alert> evidence is typically available. Different treatments may have been evaluated in <alert>separate</alert> trials, but all of these trials may have used the <alert>same</alert> control group. For example, it is possible that two medications were never compared directly, but that the effect of both medications compared to a pill placebo has been studied extensively. 
@@ -32,12 +32,6 @@
     </p>
     <p>
       Therefore, it is important to first discuss the core components and assumptions of network meta-analysis models. The underpinnings of network meta-analysis can be a little abstract at times. We will therefore go through the essential details in small steps, in order to get a better understanding of this method.
-    </p>
-    <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="sem"/> and then continue with <xref ref="bayesian-ma"/>.
-    </p>
-    <p>
-      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
     </p>
   </introduction>
 
@@ -85,8 +79,7 @@
       </p>
       <p>
         <me>
-          \hat\theta<em>{\text{A,C}}^{\text{indirect}} = \hat\theta</em>{\text{B,A}}^{\text{direct}} - \hat\theta_{\text{B,C}}^{\text{direct}}
-        </me>
+\hat\theta_{\text{A,C}}^{\text{indirect}} = \hat\theta_{\text{B,A}}^{\text{direct}} - \hat\theta_{\text{B,C}}^{\text{direct}}        </me>
       </p>
       <p>
         This step is a crucial component of network meta-analysis. The equation above lets us estimate the effect size of a comparison, even if it was never directly assessed in a trial. 
@@ -116,8 +109,7 @@
       </p>
       <p>
         <me>
-          \text{Var} \left(\hat\theta<em>{\text{A,C}}^{\text{indirect}} \right) = \text{Var} \left(\hat\theta</em>{\text{B,A}}^{\text{direct}} \right) + \text{Var} \left(\hat\theta_{\text{B,C}}^{\text{direct}} \right)
-        </me>
+\text{Var} \left(\hat\theta_{\text{A,C}}^{\text{indirect}} \right) = \text{Var} \left(\hat\theta_{\text{B,A}}^{\text{direct}} \right) + \text{Var} \left(\hat\theta_{\text{B,C}}^{\text{direct}} \right)        </me>
       </p>
       <p>
         To calculate the variance of the indirect comparison, we <alert>add up</alert> the variances of the direct comparisons. This means that effect sizes estimated from indirect evidence will always have a greater variance, and thus a lower precision, than the ones based on direct evidence <xref ref="dias2018network"/>. This is nothing but logical. We can have a much higher confidence in effect sizes which were estimated from observed data, compared to results which had to be inferred mathematically.  
@@ -126,7 +118,7 @@
         <idx><h>Consistency</h></idx> <idx><h>Transitivity Assumption</h></idx>
       </p>
       <p>
-        There is yet another issue. Equation <xref provisional="eq:networkes"/> from before, which allows us to estimate indirect evidence from direct comparisons, only holds if a crucial pre-requisite is met: the assumption of <alert>transitivity</alert>. From a statistical standpoint, this assumption translates to network <alert>consistency</alert> <xref ref="efthimiou2016getreal"/>. In the following, we explain what both of these terms mean, and why they are important.
+        There is yet another issue. The from before, which allows us to estimate indirect evidence from direct comparisons, only holds if a crucial pre-requisite is met: the assumption of <alert>transitivity</alert>. From a statistical standpoint, this assumption translates to network <alert>consistency</alert> <xref ref="efthimiou2016getreal"/>. In the following, we explain what both of these terms mean, and why they are important.
       </p>
     </subsection>
 
@@ -161,7 +153,7 @@
         To translate this assumption to our scenario, think of network meta-analysis as a set of <m>K</m> trials. Now, we pretend that each trial in our model contains <alert>all possible</alert> treatment comparisons in our network, denoted with <m>M</m> (e.g. A <m>−</m> B, A <m>−</m> C, B <m>−</m> C, and so forth). However, some of the treatment comparisons have been <alert>"deleted"</alert>, and are thus <alert>"missing"</alert> in some trials. The reason for this is that, in practice, studies can not assess all possible treatment options <xref ref="dias2013evidence"/>. 
       </p>
       <p>
-        The key assumption is that the effect of a comparison, e.g. A <m>-</m> B, is <alert>exchangeable</alert> between trials--no matter if a trial actually assessed this comparison, or if it is is "missing". In network meta-analyses, exchangeability is fulfilled when the effect <m>\hat\theta_i</m> of some comparison <m>i</m> is based on a random, independent draw from the overarching distribution of true effects, no matter if this effect size is derived through direct or indirect evidence.
+        The key assumption is that the effect of a comparison, e.g. A <m>-</m> B, is <alert>exchangeable</alert> between trials–no matter if a trial actually assessed this comparison, or if it is is "missing". In network meta-analyses, exchangeability is fulfilled when the effect <m>\hat\theta_i</m> of some comparison <m>i</m> is based on a random, independent draw from the overarching distribution of true effects, no matter if this effect size is derived through direct or indirect evidence.
       </p>
       <p>
         The assumption of transitivity can be violated when covariates or other effect modifiers (such as the age group of the studied populations, or the treatment intensity) are not evenly distributed across trials assessing, for example, condition A versus B, and C versus B <xref ref="song2009methodological"/>. Transitivity as such can not be tested statistically, but the risk for violating this assumption can be attenuated by only including studies for which the population, methodology and target condition are as similar as possible <xref ref="salanti2014evaluating"/>.
@@ -171,8 +163,8 @@
       </p>
       <p>
         <me>
-          \theta<em>{\text{A,B}}^{\text{indirect}} = \theta</em>{\text{A,B}}^{\text{direct}}
-        </me>
+\theta_{\text{A,B}}^{\text{indirect}} = \theta_{\text{A,B}}^{\text{direct}}
+</me>
       </p>
       <p>
         <idx><h>Node Splitting</h></idx>
@@ -188,15 +180,18 @@
       <p>
         This concludes our description of the basic theory and assumptions of network meta-analysis models. Before, we used a simple network with three nodes and edges as an illustration. In practice, however, the number of treatments included in a network meta-analysis is usually much higher. This quickly results in considerably more complex networks, for example one which looks like this:
       </p>
-      <p>
-        Yet, with an increasing number of treatments <m>S</m> in our network, the number of (direct and indirect) pairwise comparisons <m>C</m> we have to estimate skyrockets:
-      </p>
-      <p>
-        <idx><h>Frequentist Statistics</h></idx> <idx><h>Bayesian Hierarchical Model</h></idx>
-      </p>
       <figure>
         <image source="generated/graph4_col_sep.png"/>
       </figure>
+      <p>
+        Yet, with an increasing number of treatments <m>S</m> in our network, the number of (direct and indirect) pairwise comparisons <m>C</m> we have to estimate skyrockets:
+      </p>
+      <figure>
+        <image source="images/unnamed-chunk-351-1.png"/>
+      </figure>
+      <p>
+        <idx><h>Frequentist Statistics</h></idx> <idx><h>Bayesian Hierarchical Model</h></idx>
+      </p>
       <p>
         Therefore, we need a computational model which allows us to pool all available network data in an efficient and internally consistent manner. Several statistical approaches have been developed for network meta-analysis <xref ref="efthimiou2016getreal"/>. In the following chapters, we will discuss a <alert>frequentist</alert> as well as a <alert>Bayesian hierarchical model</alert>, and how they can be implemented in <em>R</em>.
       </p>
@@ -253,7 +248,7 @@
         </me>
       </p>
       <p>
-        We assume that the vector of observed effects sizes <m>\boldsymbol{\hat\theta}</m> was generated by the right side of the equation--our model. The first part, <m>\boldsymbol{X}</m> is a <m>m \times n</m> <alert>design matrix</alert>, in which the columns represent the different treatments <m>n</m>, and the rows represent the treatment comparisons <m>m</m>. In the matrix, a treatment comparison is defined by a 1 and -1 in the same row, where the column positions correspond with the treatments that are being compared. 
+        We assume that the vector of observed effects sizes <m>\boldsymbol{\hat\theta}</m> was generated by the right side of the equation–our model. The first part, <m>\boldsymbol{X}</m> is a <m>m \times n</m> <alert>design matrix</alert>, in which the columns represent the different treatments <m>n</m>, and the rows represent the treatment comparisons <m>m</m>. In the matrix, a treatment comparison is defined by a 1 and -1 in the same row, where the column positions correspond with the treatments that are being compared. 
       </p>
       <p>
         The most important part of the formula is the vector <m>\boldsymbol{\theta}_{\text{treat}}</m>. This vector contains the <alert>true</alert> effects of the <m>n</m> unique treatments in our network. This vector is what our network meta-analysis model needs to estimate, since it allows us to determine which treatments in our network are the most effective ones. 
@@ -263,16 +258,46 @@
       </p>
       <p>
         <me>
-          \epsilon<em>m \sim \mathcal{N}(0,\sigma</em>m^2)
-        </me>
+\epsilon_m \sim \mathcal{N}(0,\sigma_m^2)
+</me>
       </p>
       <p>
         To illustrate the model formula <xref ref="schwarzer2015meta"/>, imagine that our network meta-analysis consists of <m>K=</m> 5 studies. Each study contains a unique treatment comparison (i.e. <m>K=M</m>). These comparisons are A <m>-</m> B, A <m>-</m> C, A <m>-</m> D, B <m>-</m> C, and B <m>-</m> D. This results in a vector of (observed) comparisons <m>\boldsymbol{\hat\theta} = (\hat\theta_{1\text{,A,B}}, \hat\theta_{2\text{,A,C}}, \hat\theta_{4\text{,A,D}}, \hat\theta_{4\text{,B,C}}, \hat\theta_{5\text{,B,D}})^\top</m>. Our aim is to estimate the true effect size of all four conditions included in our network, <m>\boldsymbol{\theta}_{\text{treat}} = (\theta_{\text{A}}, \theta_{\text{B}}, \theta_{\text{C}}, \theta_{\text{D}})^\top</m>. If we plug these parameters into our model formula, we get the following equation:
       </p>
       <p>
         <me>
-          \boldsymbol{\hat\theta} &amp;= \boldsymbol{X} \boldsymbol{\theta}<em>{\text{treat}} + \boldsymbol{\epsilon} \notag \  \begin{bmatrix}  \hat\theta</em>{1\text{,A,B}} \  \hat\theta<em>{2\text{,A,C}} \  \hat\theta</em>{3\text{,A,D}} \  \hat\theta<em>{4\text{,B,C}} \  \hat\theta</em>{5\text{,B,D}} \  \end{bmatrix}  &amp;=  \begin{bmatrix}  1 &amp; -1 &amp; 0 &amp; 0 \  1 &amp; 0 &amp; -1 &amp; 0 \  1 &amp; 0 &amp; 0 &amp; -1 \  0 &amp; 1 &amp; -1 &amp; 0 \  0 &amp; 1 &amp; 0 &amp; -1 \  \end{bmatrix}  \begin{bmatrix}  \theta<em>{\text{A}} \  \theta</em>{\text{B}} \  \theta<em>{\text{C}} \  \theta</em>{\text{D}} \  \end{bmatrix}  +  \begin{bmatrix}  \epsilon<em>{1} \  \epsilon</em>{2} \  \epsilon<em>{3} \  \epsilon</em>{4} \  \epsilon_{5} \  \end{bmatrix}
-        </me>
+  \boldsymbol{\hat\theta} &amp;= \boldsymbol{X} \boldsymbol{\theta}_{\text{treat}} + \boldsymbol{\epsilon} \notag \\
+        <\me>
+        <me>
+\begin{bmatrix}
+\hat\theta_{1\text{,A,B}} \\
+\hat\theta_{2\text{,A,C}} \\
+\hat\theta_{3\text{,A,D}} \\
+\hat\theta_{4\text{,B,C}} \\
+\hat\theta_{5\text{,B,D}} \\
+\end{bmatrix}
+&amp;=
+\begin{bmatrix}
+1 & -1 & 0 & 0 \\
+1 & 0 & -1 & 0 \\
+1 & 0 & 0 & -1 \\
+0 & 1 & -1 & 0 \\
+0 & 1 & 0 & -1 \\
+\end{bmatrix}
+\begin{bmatrix}
+\theta_{\text{A}} \\
+\theta_{\text{B}} \\
+\theta_{\text{C}} \\
+\theta_{\text{D}} \\
+\end{bmatrix}
++
+\begin{bmatrix}
+\epsilon_{1} \\
+\epsilon_{2} \\
+\epsilon_{3} \\
+\epsilon_{4} \\
+\epsilon_{5} \\
+</me>
       </p>
       <p>
         It is of note that in its current form, this model formula is problematic from a mathematical standpoint. Right now, the model is <alert>overparameterized</alert>. There are too many parameters <m>\boldsymbol{\theta}_{\text{treat}}</m> in our model to be estimated based on the information at hand. 
@@ -290,7 +315,7 @@
         This is where the <alert>graph theoretical</alert> approach implemented in the <alert>{netmeta}</alert> provides a solution. We will spare you the tedious mathematical details behind this approach, particularly since that the <alert>{netmeta}</alert> package will do the heavy lifting for us anyway. Let us only mention that this approach involves constructing a so-called <alert>Moore-Penrose pseudoinverse matrix</alert>, which then allows for calculating the fitted values of our network model using a weighted least squares approach. 
       </p>
       <p>
-        The procedure also takes care of <alert>multi-arm</alert> studies, which contribute more than one pairwise comparison (i.e. studies in which more than two conditions were compared). Multi-arm comparisons are <alert>correlated</alert> because at least one condition is compared more than once (<xref ref="unit-of-analysis"/>). This means that the precision of multi-arm study comparisons is artificially increased--unless this is accounted for in our model. 
+        The procedure also takes care of <alert>multi-arm</alert> studies, which contribute more than one pairwise comparison (i.e. studies in which more than two conditions were compared). Multi-arm comparisons are <alert>correlated</alert> because at least one condition is compared more than once (<xref ref="unit-of-analysis"/>). This means that the precision of multi-arm study comparisons is artificially increased–unless this is accounted for in our model. 
       </p>
       <p>
         The model also allows us to incorporate estimates of between-study heterogeneity. Like in the "conventional" random-effects model (<xref ref="rem"/>), this is achieved by adding the estimated heterogeneity variance <m>\hat\tau^2</m> to the variance of a comparison <m>m</m>: <m>s^2_m + \hat\tau^2</m>. In the <alert>{netmeta}</alert> package, the <m>\tau^2</m> values are estimated using an adaptation of the DerSimonian-Laird estimator <xref ref="jackson2013matrix"/>. 
@@ -461,7 +486,7 @@ as.matrix(table(TherapyFormats$author))
           </li>
           <li>
             <p>
-              <alert><c>tol.multiarm</c></alert>.	Effect sizes of comparisons from multi-arm studies are--by design--consistent. Sometimes however, original papers may report slightly deviating results for each comparison, which may result in a violation of consistency. This argument lets us specify a <alert>tolerance threshold</alert> (a numeric value) for the inconsistency of effect sizes and their standard errors allowed in our model.
+              <alert><c>tol.multiarm</c></alert>.	Effect sizes of comparisons from multi-arm studies are–by design–consistent. Sometimes however, original papers may report slightly deviating results for each comparison, which may result in a violation of consistency. This argument lets us specify a <alert>tolerance threshold</alert> (a numeric value) for the inconsistency of effect sizes and their standard errors allowed in our model.
             </p>
           </li>
           <li>
@@ -854,7 +879,7 @@ netheat(m.netmeta)
           </li>
         </ul>
         <p>
-          We should remind ourselves that these results are based on the fixed-effect model, since we used it to fit our network meta-analysis model. Yet, from what we have learned so far, it has become increasingly clear that using the fixed-effect model was not appropriate--there is too much heterogeneity and design inconsistency.
+          We should remind ourselves that these results are based on the fixed-effect model, since we used it to fit our network meta-analysis model. Yet, from what we have learned so far, it has become increasingly clear that using the fixed-effect model was not appropriate–there is too much heterogeneity and design inconsistency.
         </p>
         <p>
           Therefore, let us check how the net heat plot changes when we assume a random-effects model. We can do this by setting the <c>random</c> argument in <c>netheat</c> to <c>TRUE</c>. 
@@ -927,7 +952,7 @@ netsplit(m.netmeta) %&gt;% forest()
           Assessing publication bias in network meta-analysis models is difficult. Most of the techniques that we covered in <xref ref="pub-bias"/> are not directly applicable once we make the step from conventional to network meta-analysis. <alert>Comparison-adjusted funnel plots</alert>, however, have been proposed to evaluate the risk of publication bias in network meta-analyses, and can be used in some contexts <xref ref="salanti2014evaluating"/>. Such funnel plots are applicable when we have a <alert>specific</alert> hypothesis concerning how publication bias has affected our network model. 
         </p>
         <p>
-          Publication bias may be created, for example, because studies with "novel" findings are more likely to get published--even if they have a small sample size. There is a natural incentive in science to produce "groundbreaking" results, for example to show that a new type of treatment is superior to the current state of the art. 
+          Publication bias may be created, for example, because studies with "novel" findings are more likely to get published–even if they have a small sample size. There is a natural incentive in science to produce "groundbreaking" results, for example to show that a new type of treatment is superior to the current state of the art. 
         </p>
         <p>
           This would mean that something similar to small-study effects (see <xref ref="small-study-effects"/>) exists in our data. We would expect that effects of comparisons in which a new treatment was compared to an older one are <alert>asymmetrically</alert> distributed in the funnel plot. This is because "disappointing" results (i.e. the new treatment is not better than the old one) end up in the file drawer. With decreasing sample size, the benefit of the new treatment must be increasingly large to become significant, and thus merit publication. In theory, this would create the characteristic asymmetrical funnel plot that we also find in standard meta-analyses. 
@@ -1103,7 +1128,7 @@ funnel(m.netmeta,
           </me>
         </p>
         <p>
-          This formula expresses the <alert>likelihood</alert> of our effect sizes--the <m>P(\boldsymbol{Y}|\boldsymbol{\theta})</m> part in equation <xref provisional="eq:bayes"/>--assuming that they follow a normal distribution. We assume that each effect size is a draw from the same distribution, the mean of which is the true effect size <m>\theta</m>, and the variance of which is <m>\sigma^2_k</m>. In the fixed-effect model, we assume that the true effect size is identical across all studies, so <m>\theta</m> stays the same for different studies <m>k</m> and their observed effect sizes <m>\hat\theta_k</m>. 
+          This formula expresses the <alert>likelihood</alert> of our effect sizes–the <m>P(\boldsymbol{Y}|\boldsymbol{\theta})</m> part in equation <xref provisional="eq:bayes"/>–assuming that they follow a normal distribution. We assume that each effect size is a draw from the same distribution, the mean of which is the true effect size <m>\theta</m>, and the variance of which is <m>\sigma^2_k</m>. In the fixed-effect model, we assume that the true effect size is identical across all studies, so <m>\theta</m> stays the same for different studies <m>k</m> and their observed effect sizes <m>\hat\theta_k</m>. 
         </p>
         <p>
           <idx><h>Uninformative Prior</h></idx> <idx><h>Prior Distribution</h></idx>
@@ -1795,7 +1820,7 @@ summary(mcmc3)
 ## B         -0.586266 -0.41790 -0.32957 -0.2417 -0.07455
 ## 
 ## [...]
-## -- Regression settings:
+## – Regression settings:
 ## 
 ## Regression on "rob", shared coefficients, "cau" as control
 ## Input standardized: x' = (rob - 0.4340659) / 1
