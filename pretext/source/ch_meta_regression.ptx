@@ -36,12 +36,6 @@
     <p>
       Meta-regression, although it has its own limitations, can be a very powerful tool in meta-analyses. It is also very versatile: <alert>multiple meta-regression</alert>, for example, allows us to include not only one, but several predictor variables, along with their interaction. In the second part of this chapter, we will therefore also have a look at multiple meta-regression, and how we can conduct one using <em>R</em>.
     </p>
-    <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="subgroup"/> and then continue with <xref ref="pub-bias"/>.
-    </p>
-    <p>
-      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
-    </p>
   </introduction>
 
   <section xml:id="the-metareg-model">
@@ -56,17 +50,15 @@
     <p>
       In a conventional regression, we want to estimate the value <m>y_i</m> of person <m>i</m> using a <alert>predictor</alert> (or <alert>covariate</alert>) <m>x_i</m> with a regression coefficient <m>\beta</m>. A standard regression equation, therefore, looks like this:
     </p>
-    <p>
       <me>
-        \hat{y<em>i} = \beta</em>0 + \beta<em>1x</em>i
+        \hat{y_i} = \beta_0 + \beta_1x_i
       </me>
-    </p>
     <p>
       In meta-regression, the variable <m>y</m> we want to predict is the observed effect size <m>\hat\theta_k</m> of study <m>k</m>. The formula for a <alert>meta-regression</alert> looks similar to the one of a normal regression model:
     </p>
     <p>
       <me>
-        \hat\theta<em>k = \theta + \beta x</em>{k} + \epsilon<em>k+\zeta</em>k
+        \hat\theta_k = \theta + \beta x_{k} + \epsilon_k+\zeta_k
       </me>
     </p>
     <p>
@@ -100,7 +92,7 @@
       </p>
       <p>
         <me>
-          \hat\theta<em>k = \theta + \beta D</em>g +\epsilon<em>k+\zeta</em>k.
+          \hat\theta_k = \theta + \beta D_g +\epsilon_k+\zeta_k.
         </me>
       </p>
       <p>
@@ -114,7 +106,7 @@
       </p>
       <p>
         <me>
-          D<em>g=\begin{cases}     0: &amp; \text{$\hat\theta</em>k = \theta<em>A + \epsilon</em>k+\zeta<em>k<m>}\\     1: &amp; \text{</m>\hat\theta</em>k = \theta<em>A + \theta</em>{\Delta} +\epsilon<em>k+\zeta</em>k$}   \end{cases}
+          D_g=\begin{cases}     0: &amp; \text{$\hat\theta_k = \theta_A + \epsilon_k+\zeta_k<m>}\\     1: &amp; \text{</m>\hat\theta_k = \theta_A + \theta_{\Delta} +\epsilon_k+\zeta_k$}   \end{cases}
         </me>
       </p>
       <p>
@@ -186,11 +178,9 @@
       <p>
         In regression analyses, the <m>R^2</m> index is commonly used to quantify the percentage of variation explained by the model. An analogous index, <m>R^2_{*}</m>, can also be calculated for meta-regression. We add an asterisk here to indicate that the <m>R^2</m> in meta-regression is slightly different to the one used in conventional regressions, because we deal with <alert>true effect sizes</alert> instead of observed data points. The formula for <m>R^2_*</m> looks like this:
       </p>
-      <p>
         <me>
-          R^2<em>* = 1- \frac{\hat\tau^2</em>{\text{unexplained}}}{\hat\tau^2_{\text{(total)}}}
+          R^2_* = 1- \frac{\hat\tau^2_{\text{unexplained}}}{\hat\tau^2_{\text{(total)}}}
         </me>
-      </p>
       <p>
         <m>R^2_*</m> uses the amount of residual heterogeneity variance that even the meta-regression slope cannot explain, and puts it in relation to the total heterogeneity that we initially found in our meta-analysis. Subtracting this fraction from 1 leaves us with the percentage of between-study heterogeneity explained by the predictor. 
       </p>
@@ -199,7 +189,7 @@
       </p>
       <p>
         <me>
-          R^2<em>* =  \frac{\hat\tau^2</em>{\text{REM}}-\hat\tau^2<em>{\text{MEM}}}{\hat\tau^2</em>{\text{REM}}}
+          R^2_* =  \frac{\hat\tau^2_{\text{REM}}-\hat\tau^2_{\text{MEM}}}{\hat\tau^2_{\text{REM}}}
         </me>
       </p>
       <p>
@@ -384,7 +374,7 @@ metareg(m.gen, RiskOfBias)
     </p>
     <p>
       <me>
-        \hat \theta<em>k = \theta + \beta</em>1x<em>{1k} + ... + \beta</em>nx<em>{nk} + \epsilon</em>k + \zeta_k
+        \hat \theta_k = \theta + \beta_1x_{1k} + ... + \beta_nx_{nk} + \epsilon_k + \zeta_k
       </me>
     </p>
     <p>
@@ -412,7 +402,7 @@ metareg(m.gen, RiskOfBias)
       </p>
       <p>
         <me>
-          \hat \theta<em>k = \theta + \beta</em>1x<em>{1k} + \beta</em>2x<em>{2k} + \epsilon</em>k + \zeta_k
+          \hat \theta_k = \theta + \beta_1x_{1k} + \beta_2x_{2k} + \epsilon_k + \zeta_k
         </me>
       </p>
       <p>
@@ -432,7 +422,7 @@ metareg(m.gen, RiskOfBias)
       </p>
       <p>
         <me>
-          \hat \theta<em>k = \theta + \beta</em>1x<em>{1k} + \beta</em>2x<em>{2k} + \beta</em>3x<em>{1k}x</em>{2k}+ \epsilon<em>k + \zeta</em>k
+          \hat \theta_k = \theta + \beta_1x_{1k} + \beta_2x_{2k} + \beta_3x_{1k}x_{2k}+ \epsilon_k + \zeta_k
         </me>
       </p>
       <p>
