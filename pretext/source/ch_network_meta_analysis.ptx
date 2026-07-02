@@ -264,7 +264,6 @@
       <p>
         To illustrate the model formula <xref ref="schwarzer2015meta"/>, imagine that our network meta-analysis consists of <m>K=</m> 5 studies. Each study contains a unique treatment comparison (i.e. <m>K=M</m>). These comparisons are A <m>-</m> B, A <m>-</m> C, A <m>-</m> D, B <m>-</m> C, and B <m>-</m> D. This results in a vector of (observed) comparisons <m>\boldsymbol{\hat\theta} = (\hat\theta_{1\text{,A,B}}, \hat\theta_{2\text{,A,C}}, \hat\theta_{4\text{,A,D}}, \hat\theta_{4\text{,B,C}}, \hat\theta_{5\text{,B,D}})^\top</m>. Our aim is to estimate the true effect size of all four conditions included in our network, <m>\boldsymbol{\theta}_{\text{treat}} = (\theta_{\text{A}}, \theta_{\text{B}}, \theta_{\text{C}}, \theta_{\text{D}})^\top</m>. If we plug these parameters into our model formula, we get the following equation:
       </p>
-      <p>
         <me>
   \boldsymbol{\hat\theta} &amp;= \boldsymbol{X} \boldsymbol{\theta}_{\text{treat}} + \boldsymbol{\epsilon}
         </me>
@@ -297,7 +296,6 @@
 \epsilon_{3} \\
 \epsilon_{4} \\
 \epsilon_{5} \\
-</me>
       </p>
       <p>
         It is of note that in its current form, this model formula is problematic from a mathematical standpoint. Right now, the model is <alert>overparameterized</alert>. There are too many parameters <m>\boldsymbol{\theta}_{\text{treat}}</m> in our model to be estimated based on the information at hand. 
