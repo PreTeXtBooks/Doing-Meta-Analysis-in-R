@@ -36,12 +36,6 @@
     <p>
       In this chapter, we will describe the statistical model behind subgroup analyses, and how we can conduct one directly in <em>R</em>.
     </p>
-    <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="forest"/> and then continue with <xref ref="metareg"/>.
-    </p>
-    <p>
-      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
-    </p>
   </introduction>
 
   <section xml:id="fixed-effect-plural">
@@ -204,7 +198,7 @@
     <ul>
       <li>
         <p>
-          First, remember that in subgroup analyses, the results within subgroups are usually pooled using the random-effects model. If there is substantial between-study heterogeneity within the subgroup, this will decrease the precision (i.e. increase the standard error) of the pooled effect. Yet, when the subgroup effect estimates are very imprecise, this means that their confidence intervals will have a large overlap. Consequentially, this makes it harder to find a significant difference between subgroups--even if this difference does exist.
+          First, remember that in subgroup analyses, the results within subgroups are usually pooled using the random-effects model. If there is substantial between-study heterogeneity within the subgroup, this will decrease the precision (i.e. increase the standard error) of the pooled effect. Yet, when the subgroup effect estimates are very imprecise, this means that their confidence intervals will have a large overlap. Consequentially, this makes it harder to find a significant difference between subgroups–even if this difference does exist.
         </p>
       </li>
       <li>
@@ -214,12 +208,12 @@
       </li>
       <li>
         <p>
-          From the points above follows an important caveat: <alert>absence of evidence is not evidence of absence</alert>. If we do <alert>not</alert> find a difference in effect sizes between subgroups, this does not automatically mean that the subgroups produce <alert>equivalent</alert> outcomes. As we argued above, there are various reasons why our subgroup analysis may not have the statistical power needed to ascertain a true difference in effects. If this is the case, it would be a gross misinterpretation to say that the subgroups have the same effect--we simply do not know if differences exist or not. This becomes particularly explosive when we want to assess if one treatment is better than the other. Some stakeholders, including corporations, often have a vested interest in showing the equivalence of a treatment. But subgroup analyses are usually not an adequate way to prove this.
+          From the points above follows an important caveat: <alert>absence of evidence is not evidence of absence</alert>. If we do <alert>not</alert> find a difference in effect sizes between subgroups, this does not automatically mean that the subgroups produce <alert>equivalent</alert> outcomes. As we argued above, there are various reasons why our subgroup analysis may not have the statistical power needed to ascertain a true difference in effects. If this is the case, it would be a gross misinterpretation to say that the subgroups have the same effect–we simply do not know if differences exist or not. This becomes particularly explosive when we want to assess if one treatment is better than the other. Some stakeholders, including corporations, often have a vested interest in showing the equivalence of a treatment. But subgroup analyses are usually not an adequate way to prove this.
         </p>
       </li>
       <li>
         <p>
-          We can check if statistical power is a problem in our subgroup analysis by performing a <alert>subgroup power analysis</alert> beforehand. In such an analysis, we can check the minimum effect size difference we are able to detect in our subgroup analysis. In chapter <xref ref="power-subgroup"/> in the "Helpful Tools" section, we cover how subgroup power analyses can be performed in <em>R</em>. But note that power analyses can at best be seen as a helpful diagnostic, not as proof that the power of our analysis is high enough to show that the subgroups are equivalent. Schwarzer and colleagues <xref ref="schwarzer2015meta"/> mention, as a general rule of thumb, that subgroup analyses only make sense when your meta-analysis contains at least <m>K=</m> 10 studies.
+          We can check if statistical power is a problem in our subgroup analysis by performing a <alert>subgroup power analysis</alert> beforehand. In such an analysis, we can check the minimum effect size difference we are able to detect in our subgroup analysis. In <xref ref="power-subgroup"/> in the "Helpful Tools" section, we cover how subgroup power analyses can be performed in <em>R</em>. But note that power analyses can at best be seen as a helpful diagnostic, not as proof that the power of our analysis is high enough to show that the subgroups are equivalent. Schwarzer and colleagues <xref ref="schwarzer2015meta"/> mention, as a general rule of thumb, that subgroup analyses only make sense when your meta-analysis contains at least <m>K=</m> 10 studies.
         </p>
       </li>
     </ul>
@@ -227,7 +221,7 @@
       Another important limitation of subgroup analyses is that they are purely observational <xref ref="borenstein2013meta"/>. Meta-analyses often only include randomized controlled trials (RCTs), in which participants were randomly allocated to either a treatment or control group. When properly conducted, such RCTs can provide evidence that the treatment <alert>caused</alert> the group difference observed in the study. This is because all relevant variables that may influence the assessed outcomes are equal in the two groups. The only difference is that one group received the treatment, while the other did not. 
     </p>
     <p>
-      Subgroup analyses, even when consisting solely of randomized studies, cannot show causality. Imagine that our subgroup analysis finds that one type of treatment is more effective than the other. There are countless reasons why this finding may be spurious; for example, it could be that studies investigating treatment A used other control groups than the ones examining treatment B. This means that both treatments could be equally effective--we just see a difference because the treatment type is <alert>confounded</alert> with methodological factors. This example should underline that one should always appraise the results of subgroup analyses critically.
+      Subgroup analyses, even when consisting solely of randomized studies, cannot show causality. Imagine that our subgroup analysis finds that one type of treatment is more effective than the other. There are countless reasons why this finding may be spurious; for example, it could be that studies investigating treatment A used other control groups than the ones examining treatment B. This means that both treatments could be equally effective–we just see a difference because the treatment type is <alert>confounded</alert> with methodological factors. This example should underline that one should always appraise the results of subgroup analyses critically.
     </p>
     <p>
       A last important pitfall involves the way the subgroups are defined. Often, it may be tempting to sort studies into subgroups based on <alert>aggregate information</alert>. Schwarzer and colleagues <xref ref="schwarzer2015meta"/> name the mean age of a study as a common example. Say you want to assess if effects differ between elderly individuals (65+ years of age) and general adult populations. Therefore, you sort studies into these two categories, depending on whether the reported mean age is above or below 65. 
@@ -300,6 +294,15 @@
 head(ThirdWave[,c("Author", "RiskOfBias")])
       </code>
     </program>
+<pre>
+##            Author RiskOfBias
+## 1     Call et al.       high
+## 2 Cavanagh et al.        low
+## 3   DanitzOrsillo       high
+## 4  de Vibe et al.        low
+## 5  Frazier et al.        low
+## 6  Frogeli et al.        low
+</pre>
     <p>
       We see that every study in our data set has a label specifying its risk of bias assessment. When we calculated the meta-analysis using <c>metagen</c>, this information was saved internally in the <c>m.gen</c> object. To conduct a subgroup analysis, we can therefore use the <c>update</c> function, provide it with the <c>m.gen</c> object, and use the <c>subgroup</c> argument to specify which column in our data set contains the subgroup labels. 
     </p>
@@ -407,6 +410,53 @@ update(m.gen, subgroup = RiskOfBias, tau.common = TRUE)
         The results of subgroup analyses are usually reported in a table displaying the estimated effect and heterogeneity in each subgroup, as well as the <m>p</m>-value of the test for subgroup differences.
       </p>
     </note>
+<table xml:id="table-risk-of-bias-subgroup">
+  <tabular halign="center">
+    <col halign="left"/>
+    <col halign="right"/>
+    <col halign="left"/>
+    <col halign="right"/>
+    <col halign="right"/>
+    <col halign="left"/>
+    <col halign="right"/>
+    <row header="yes">
+      <cell></cell>
+      <cell><m>g</m></cell>
+      <cell>95% CI</cell>
+      <cell><m>p</m></cell>
+      <cell><m>I^2</m></cell>
+      <cell>95% CI</cell>
+      <cell><m>p</m> (subgroup)</cell>
+    </row>
+    <row>
+      <cell><em>Risk of Bias</em></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell>0.092</cell>
+    </row>
+    <row>
+      <cell>High</cell>
+      <cell>0.81</cell>
+      <cell>0.28<ndash/>1.34</cell>
+      <cell>0.009</cell>
+      <cell>0.77</cell>
+      <cell>0.51<ndash/>0.89</cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell>Low</cell>
+      <cell>0.43</cell>
+      <cell>0.28<ndash/>0.58</cell>
+      <cell><m>&lt;</m> 0.001</cell>
+      <cell>0.25</cell>
+      <cell>0.00<ndash/>0.63</cell>
+      <cell></cell>
+    </row>
+  </tabular>
+</table>
     <note>
       <p>
         In the table above, the two <m>p</m>-values in the third column show if the subgroup-specific effects are significant. We can see that this is the case for both the high and low risk of bias studies. At the same time, the value under <m>p_{\textsf{subgroup}}</m> shows that the effect <em>difference</em> between high and low risk of bias studies is not significant. 
