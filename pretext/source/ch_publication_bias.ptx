@@ -516,10 +516,10 @@ metabias(m.gen.c, method = "linreg")
             <c>metabias(m.gen, method.bias = "Pustejovsky")</c>
           </p>
           <p>
-            Please note that <c>metabias</c>, under these settings, uses equation <xref provisional="eq:pub5"/> to perform Egger's test, which is equivalent to equation <xref provisional="eq:pub1"/> shown before. The main difference is that <c>metabias</c> uses the corrected standard error as the predictor in the model, and the inverse variance of included effect sizes as weights. 
+            Please note that <c>metabias</c>, under these settings, uses equation <xref ref="eqn-95"/> to perform Egger's test, which is equivalent to equation <xref ref="eqn-91"/> shown before. The main difference is that <c>metabias</c> uses the corrected standard error as the predictor in the model, and the inverse variance of included effect sizes as weights. 
           </p>
           <p>
-            In our example, however, we used the corrected standard error on both sides of equation <xref provisional="eq:pub1"/>. This means that results of our approach as shown above, and results obtained via setting <c>method.bias</c> to <c>"Pustejovsky"</c>, will not be completely identical.
+            In our example, however, we used the corrected standard error on both sides of equation <xref ref="eqn-91"/>. This means that results of our approach as shown above, and results obtained via setting <c>method.bias</c> to <c>"Pustejovsky"</c>, will not be completely identical.
           </p>
         </note>
       </subsubsection>
@@ -538,8 +538,8 @@ metabias(m.gen.c, method = "linreg")
         </p>
         <p>
           <me>
-            \log\psi<em>k =  \beta</em>0 + \beta<em>1\frac{1}{n</em>k}
-          </me>
+\log\psi_k =  \beta_0 + \beta_1\frac{1}{n_k}
+</me>
         </p>
         <p>
           In this formula, <m>\log\psi_k</m> can stand for any log-transformed effect size based on binary outcome data (e.g. the odds ratio), and <m>n_k</m> is the total sample size of study <m>k</m>.
@@ -552,8 +552,8 @@ metabias(m.gen.c, method = "linreg")
         </p>
         <p>
           <me>
-            w<em>k = \frac{1}{\left(\dfrac{1}{a</em>k+c<em>k}+\dfrac{1}{b</em>k+d_k}\right)}
-          </me>
+w_k = \frac{1}{\left(\dfrac{1}{a_k+c_k}+\dfrac{1}{b_k+d_k}\right)}
+</me>
         </p>
         <p>
           Where <m>a_k</m> is the number of events in the treatment group, <m>c_k</m> is the number of events in the control group; <m>b_k</m> and <m>d_k</m> are the number of non-events in the treatment and control group, respectively (see <xref ref="rr"/>). In contrast to Eggers' regression test, Peters' test uses <m>\beta_1</m> instead of the intercept to test for funnel plot asymmetry. When the statistical test reveals that <m>\beta_1 \neq 0</m>, we can assume that asymmetry exists in our data.
@@ -569,6 +569,20 @@ metabias(m.gen.c, method = "linreg")
 metabias(m.bin, method.bias = "peters")
           </code>
         </program>
+<pre>
+## Review:     Depression and Mortality
+## 
+## Linear regression test of funnel plot asymmetry
+## 
+## Test result: t = -0.08, df = 16, p-value = 0.9368
+## Bias estimate: -11.1728 (SE = 138.6121)
+## 
+## Details:
+## - multiplicative residual heterogeneity variance (tau^2 = 40.2747)
+## - predictor: inverse of total sample size
+## - weight:    inverse variance of average event probability
+## - reference: Peters et al. (2006), JAMA
+</pre>
         <p>
           We see that the structure of the output looks identical to the one of Eggers' test. The output tells us that the results are the ones of a regression test <c>based on sample size</c>, meaning that Peters' method has been used. The test is not significant (<m>t</m> = -0.08, <m>p</m> = 0.94), indicating no funnel plot asymmetry.
         </p>
@@ -626,6 +640,9 @@ metabias(m.bin, method.bias = "peters")
 m.gen$I2
           </code>
         </program>
+<pre>
+## [1] 0.6263947
+</pre>
         <p>
           We see that, with <m>I^2</m> = 63%, the heterogeneity in our analysis is substantial. In light of the trim and fill method's limitations in heterogeneous data sets, this could prove problematic. 
         </p>
@@ -747,6 +764,9 @@ title("Funnel Plot (Trim &amp; Fill Method) - Outliers Removed")
         <p>
           In these funnel plots, the imputed studies are represented by circles that have no fill color.
         </p>
+    <figure>
+      <image source="images/unnamed-chunk-228-1.png"/>
+    </figure>
       </subsubsection>
 
       <subsubsection xml:id="pet-peese">
