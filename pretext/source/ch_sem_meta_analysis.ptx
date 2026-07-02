@@ -236,7 +236,7 @@
       <p>
         <me>
   \boldsymbol{r_k} &amp;= \boldsymbol{\rho} + \boldsymbol{\zeta_k} + \boldsymbol{\epsilon_k} \notag \\
-  \begin{bmatrix} r_1 \\ r_2 \\ \vdots \\ r_p \end{bmatrix} &=
+  \begin{bmatrix} r_1 \\ r_2 \\ \vdots \\ r_p \end{bmatrix} &amp;=
   \begin{bmatrix} \rho_1 \\ \rho_2 \\ \vdots \\ \rho_p \end{bmatrix} +
   \begin{bmatrix} \zeta_1 \\ \zeta_2 \\ \vdots \\ \zeta_p \end{bmatrix} +
   \begin{bmatrix} \epsilon_1 \\ \epsilon_2 \\ \vdots \\ \epsilon_p \end{bmatrix}
