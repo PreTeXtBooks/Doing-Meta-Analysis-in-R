@@ -296,7 +296,7 @@
 \epsilon_{3} \\
 \epsilon_{4} \\
 \epsilon_{5} \\
-      </p>
+        </me>
       <p>
         It is of note that in its current form, this model formula is problematic from a mathematical standpoint. Right now, the model is <alert>overparameterized</alert>. There are too many parameters <m>\boldsymbol{\theta}_{\text{treat}}</m> in our model to be estimated based on the information at hand. 
       </p>
