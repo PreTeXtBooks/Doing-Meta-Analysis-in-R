@@ -516,10 +516,10 @@ metabias(m.gen.c, method = "linreg")
             <c>metabias(m.gen, method.bias = "Pustejovsky")</c>
           </p>
           <p>
-            Please note that <c>metabias</c>, under these settings, uses equation <xref ref="eqn-95"/> to perform Egger's test, which is equivalent to equation <xref ref="eqn-91"/> shown before. The main difference is that <c>metabias</c> uses the corrected standard error as the predictor in the model, and the inverse variance of included effect sizes as weights. 
+            Please note that <c>metabias</c>, under these settings, uses equation <xref ref="eqn-95">here</xref> to perform Egger's test, which is equivalent to equation <xref ref="eqn-91">here</xref> shown before. The main difference is that <c>metabias</c> uses the corrected standard error as the predictor in the model, and the inverse variance of included effect sizes as weights. 
           </p>
           <p>
-            In our example, however, we used the corrected standard error on both sides of equation <xref ref="eqn-91"/>. This means that results of our approach as shown above, and results obtained via setting <c>method.bias</c> to <c>"Pustejovsky"</c>, will not be completely identical.
+            In our example, however, we used the corrected standard error on both sides of equation <xref ref="eqn-91">here</xref>. This means that results of our approach as shown above, and results obtained via setting <c>method.bias</c> to <c>"Pustejovsky"</c>, will not be completely identical.
           </p>
         </note>
       </subsubsection>
@@ -782,16 +782,14 @@ title("Funnel Plot (Trim &amp; Fill Method) - Outliers Removed")
           PET-PEESE is actually a combination of two methods: the <alert>precision-effect test</alert> (PET) and the <alert>precision-effect estimate with standard error</alert> (PEESE). Let us begin with the former. The PET method is based on a simple regression model, in which we regress a study's effect size on its standard error:
         </p>
           <me xml:id="eqn-95">
-            \theta<em>k =  \beta</em>0 + \beta<em>1SE</em>{\theta_k}
-          </me>
+\theta_k =  \beta_0 + \beta_1SE_{\theta_k}
+</me>
         <p>
           Like in Peters' test, we use a weighted regression. The study weight <m>w_k</m> is calculated as the inverse of the variance–just like in a normal (fixed-effect) meta-analysis:
         </p>
-        <p>
           <me>
-            w<em>k = \frac{1}{s</em>k^2}
-          </me>
-        </p>
+w_k = \frac{1}{s_k^2}
+</me>
         <p>
           It is of note that the regression model used by the PET method is equivalent to the one of Eggers' test. The main difference is that in the PET formula, the <m>\beta_1</m> coefficient quantifies funnel asymmetry, while in Eggers' test, this is indicated by the intercept. 
         </p>
@@ -806,16 +804,16 @@ title("Funnel Plot (Trim &amp; Fill Method) - Outliers Removed")
         </p>
         <p>
           <me>
-            \hat\theta<em>{\text{PET}} = \hat\beta</em>{0_{\mathrm{PET}}}
-          </me>
+\hat\theta_{\text{PET}} = \hat\beta_{0_{\mathrm{PET}}}
+</me>
         </p>
         <p>
           The formula for the PEESE method is very similar. The only difference is that we use the <alert>squared</alert> standard error as the predictor (i.e. the effect size variance <m>s_k^2</m>):
         </p>
         <p>
           <me>
-            \theta<em>k =  \beta</em>0 + \beta<em>1SE</em>{\theta_k}^2
-          </me>
+\theta_k =  \beta_0 + \beta_1SE_{\theta_k}^2
+</me>
         </p>
         <p>
           While the formula for the study weights <m>w_k</m> remains the same. The idea behind squaring the standard error is that small studies are particularly prone to reporting <alert>highly</alert> over-estimated effects. This problem, it is assumed, is far less pronounced for studies with high statistical power. 
@@ -827,15 +825,22 @@ title("Funnel Plot (Trim &amp; Fill Method) - Outliers Removed")
           Whether PET or PEESE is used depends on the size of the intercept calculated by the PET method. When <m>\beta_{0_{\text{PET}}}</m> is significantly larger than zero in a one-sided test with <m>\alpha</m> = 0.05, we use the intercept of PEESE as the true effect size estimate. If PET's intercept is not significantly larger than zero, we remain with the PET estimate. 
         </p>
         <p>
-          In most implementations of regression models in <em>R</em>, it is conventional to test the significance of coefficients using a two-sided test (i.e. we test if a <m>\beta</m> weight significantly differs from zero, no matter the direction). To assume a one-sided test with <m>\alpha</m> = 0.05, we already regard the intercept as significant when <m>p</m>  0) only applies if positive effect sizes represent favorable outcomes (e.g. positive effect sizes mean that the intervention was effective). When negative effect sizes (e.g. SMD = -0.5) represent favorable outcomes, our one-side test should be in the other direction. This means that PEESE is used when the <m>p</m>-value of PET's intercept is smaller than 0.1, and when the intercept estimate is <alert>smaller</alert> than zero.].
+          In most implementations of regression models in <em>R</em>, it is conventional to test the significance of coefficients using a two-sided test (i.e. we test if a <m>\beta</m> weight significantly differs from zero, no matter the direction). To assume a one-sided test with <m>\alpha</m> = 0.05, we already regard the intercept as significant when <m>p &lt; 0.1), and when the estimate of <m>\beta_0</m> is larger than zero<fn>The latter condition (<m>\hat{\beta}_0</m> &gt; 0) only applies if positive effect sizes represent favourable outcomes
+(e.g., positive effect sizes mean that the intervention was effective).
+When negative eggect sizes (e.g., SMD = -0.5) represent favourable outcomes, our one-side test should be in the other direction.
+This means that PEESE is used when the <m>p</m>-value of PET's intercept is smaller than 0.1, and when the intercept estimate is smaller than zero.
+</fn>.
         </p>
         <p>
           The rule to obtain the true effect size as estimated by PET-PEESE, therefore, looks like this:  
         </p>
         <p>
           <me>
-            \hat\theta<em>{\text{PET-PEESE}}=\begin{cases}     \mathrm{P}(\beta</em>{0<em>{\text{PET}}} = 0) &lt;0.1~\mathrm{and}~\hat\beta</em>{0<em>{\text{PET}}} &gt; 0: &amp; \hat\beta</em>{0<em>{\text{PEESE}}}\     \text{else}: &amp; \hat\beta</em>{0_{\text{PET}}}.   \end{cases}
-          </me>
+  \hat\theta_{\text{PET-PEESE}}=\begin{cases}
+    \mathrm{P}(\beta_{0_{\text{PET}}} = 0) &lt;0.1~\mathrm{and}~\hat\beta_{0_{\text{PET}}} &gt; 0: &amp; \hat\beta_{0_{\text{PEESE}}}\\
+    \text{else}: &amp; \hat\beta_{0_{\text{PET}}}.
+  \end{cases}
+</me>
         </p>
         <p>
           It is somewhat difficult to wrap one's head around this if-else logic, but a hands-on example may help to clarify things. Using our <c>m.gen</c> meta-analysis object, let us see what PET-PEESE's estimate of the true effect size is.
@@ -890,12 +895,26 @@ dat.petpeese$w_k &lt;- 1/dat.petpeese$seTE_c^2
 # PET
 pet &lt;- lm(TE ~ seTE_c, weights = w_k, data = dat.petpeese)
 summary(pet)$coefficients
+          </code>
+        </program>
 
+<pre>
+##              Estimate Std. Error   t value     Pr(&gt;|t|)
+## (Intercept) -1.353476   0.443164 -3.054119 0.0075732464
+## seTE_c      11.190288   2.566719  4.359764 0.0004862409
+</pre>
+        <program language="r">
+          <code>
 # PEESE
 peese &lt;- lm(TE ~ seTE_c2, weights = w_k, data = dat.petpeese)
 summary(peese)$coefficients
           </code>
         </program>
+<pre>
+##               Estimate Std. Error   t value     Pr(&gt;|t|)
+## (Intercept) -0.4366495  0.2229352 -1.958639 0.0678222117
+## seTE_c2     33.3609862  7.1784369  4.647389 0.0002683009
+</pre>
         <p>
           To determine if PET or PEESE should be used, we first need to have a look at the results of the PET method. We see that the limit estimate is <m>g</m> = -1.35. This effect is significant (<m>p</m> &lt; 0.10), but considerably smaller than zero, indicating that the PET estimate should be used. 
         </p>
@@ -952,7 +971,7 @@ summary(peese)$coefficients
         </p>
         <p>
           <me>
-            \hat\theta<em>k = \mu + \epsilon</em>k+\zeta_k
+            \hat\theta_k = \mu + \epsilon_k+\zeta_k
           </me>
         </p>
         <p>
@@ -963,8 +982,8 @@ summary(peese)$coefficients
         </p>
         <p>
           <me>
-            \hat\theta<em>k = \mu</em>* + \theta<em>{\text{Bias}}(\epsilon</em>k+\zeta_k)
-          </me>
+\hat\theta_k = \mu_* + \theta_{\text{Bias}}(\epsilon_k+\zeta_k)
+</me>
         </p>
         <p>
           It is important to note that in this formula, <m>\mu_*</m> does not represent the overall true effect size anymore, but a global mean that has no direct equivalent in a "standard" random-effects meta-analysis (unless <m>\theta_{\text{Bias}}=</m> 0). 
@@ -974,24 +993,23 @@ summary(peese)$coefficients
         </p>
         <p>
           <me>
-            \mathrm{E}(\hat\theta<em>k) \rightarrow \mu</em>{*} + \theta<em>{\text{Bias}}\zeta</em>k ~ ~ ~ ~ \text{as} ~ ~ ~ ~ \epsilon_k \rightarrow 0.
-          </me>
+\mathrm{E}(\hat\theta_k) \rightarrow \mu_{*} + \theta_{\text{Bias}}\zeta_k ~ ~ ~ ~ \text{as} ~ ~ ~ ~ \epsilon_k \rightarrow 0.</me>
         </p>
         <p>
           In this formula, <m>\mathrm{E}(\hat\theta_k)</m> stands for the <alert>expected value</alert> of <m>\hat\theta_k</m> as <m>\epsilon_k</m> approaches zero. The formula we just created is the one of a "limit meta-analysis". It provides us with an adjusted estimate of the effect when removing the distorting influence of studies with a large standard error. Since <m>\zeta_k</m> is usually expressed by the between-study heterogeneity variance <m>\tau^2</m> (or its square root, the standard deviation <m>\tau</m>), we can use it to replace <m>\zeta_k</m> in the equation, which leaves us with this formula:
         </p>
         <p>
           <me>
-            \hat\theta<em>{*} =  \mu</em>* + \theta_{\mathrm{Bias}}\tau
-          </me>
+\hat\theta_{*} =  \mu_* + \theta_{\mathrm{Bias}}\tau
+</me>
         </p>
         <p>
           Where <m>\hat\theta_*</m> stands for the estimate of the <alert>pooled</alert> effect size after adjusting for small-study effects. Rücker's method uses maximum likelihood  to estimate the parameters in this formula, including the "shrunken" estimate of the true effect size <m>\hat\theta_*</m>. Furthermore, it is also possible to obtain a shrunken effect size estimate <m>\hat\theta_{{*}_k}</m> for each individual study <m>k</m>, using this formula:
         </p>
         <p>
           <me>
-            \hat\theta<em>{{*}</em>k} =  \mu<em>* + \sqrt{\dfrac{\tau^2}{SE^2</em>k + \tau^2}}(\hat\theta<em>k - \mu</em>*)
-          </me>
+\hat\theta_{{*}_k} =  \mu_* + \sqrt{\dfrac{\tau^2}{SE^2_k + \tau^2}}(\hat\theta_k - \mu_*)
+</me>
         </p>
         <p>
           in which <m>SE^2_k</m> stands for the squared standard error (i.e. the observed variance) of <m>k</m>, and with <m>\hat\theta_k</m> being the originally observed effect size<fn>This formula can be derived from a less simplified version of equation 9.11. A technical description of how to do this can be found in Rücker and colleagues <xref ref="rucker2011treatment"/>, equations 2.4 to 2.6.</fn>. 
@@ -1074,6 +1092,9 @@ funnel.limitmeta(lmeta, xlim = c(-0.5, 2))
 funnel.limitmeta(lmeta, xlim = c(-0.5, 2), shrunken = TRUE)
           </code>
         </program>
+        <figure>
+          <image source="images/unnamed-chunk-238-1.png"/>
+        </figure>
         <p>
           Note that <c>limitmeta</c> can not only be applied to meta-analyses which use the standardized mean difference–any kind of <alert>{meta}</alert> meta-analysis object can be used. To exemplify this, let us check the adjusted effect size of <c>m.bin</c>, which used the risk ratio as the summary measure.
         </p>
@@ -1137,6 +1158,10 @@ limitmeta(m.bin)
       <p>
         To illustrate this, we simulated the results of nine meta-analyses. To make patterns clearly visible, each of these imaginary meta-analyses contains the huge number of <m>K=</m> 10<m>^{\text{5}}</m> studies. In each of the nine simulations, we assumed different sample sizes for each individual study (ranging from <m>n=</m> 20 to <m>n=</m> 100), and a different true effect size (ranging from <m>\theta=</m> 0 to 0.5). We assumed that all studies in a meta-analysis share one true effect size, meaning effects follow the fixed-effect model. Then, we took the <m>p</m>-value of all significant effect sizes in our simulations and created a histogram. The results can be seen in the plot below.
       </p>
+        <figure>
+<caption>P-curves for varying study sample size and true effect.</caption>
+          <image source="images/pcurve-1.png"/>
+        </figure>
       <p>
         The first row displays the distribution of significant <m>p</m>-values when there is no true effect. We see that the pattern is identical in all simulations, no matter how large the sample size of the individual studies. The <m>p</m>-values in all three examples seem to be evenly distributed: a barely significant value of <m>p=</m> 0.04 seems to be just as likely as <m>p=</m> 0.01. Such a flat <m>p</m>-curve emerges when there is no underlying effect in our data, i.e. when the <alert>null hypothesis</alert> of <m>\theta = 0</m> is true. 
       </p>
@@ -1165,7 +1190,7 @@ limitmeta(m.bin)
           To evaluate the presence of evidential value, p-curve uses two types of tests: a <alert>test for right-skewness</alert>, and a <alert>test for 33% power</alert> (the latter can be seen as a test for flatness of the <m>p</m>-curve). We begin with the test for right-skewness. As we learned, the right-skewness of the <m>p</m>-curve is a function of studies' sample sizes and their true underlying effect. Therefore, a test which allows us to confirm that the <m>p</m>-curve of our meta-analysis is significantly right-skewed is very helpful. When we find a significant right-skew in our distribution of significant <m>p</m>-values, this would indicate that our results are indeed driven by a true effect. 
         </p>
         <p>
-          ##### Test for Right-Skewness
+          <alert>Test for Right-Skewness</alert>
         </p>
         <p>
           <idx><h>Binomial Test</h></idx>
@@ -1191,6 +1216,9 @@ p &lt;- 0.5 # assumed probability of k (null hypothesis)
 binom.test(k, n, p, alternative = "greater")$p.value
           </code>
         </program>
+<pre>
+## [1] 0.03515625
+</pre>
         <p>
           We see that the binomial test is significant (<m>p&lt;</m> 0.05). This means there are significantly more high than low <m>p</m>-values in our example. Overall, this indicates that the <m>p</m>-curve is right-skewed, and that there is a true effect.
         </p>
@@ -1211,8 +1239,8 @@ binom.test(k, n, p, alternative = "greater")$p.value
         </p>
         <p>
           <me>
-            \chi^2<em>{2K} = -2 \sum^K</em>{k=1} \log(pp_k)
-          </me>
+\chi^2_{2K} = -2 \sum^K_{k=1} \log(pp_k)
+</me>
         </p>
         <p>
           Let us try out Fisher's method in a brief example. Imagine that our <m>p</m>-curve contains five <m>p</m>-values: <m>p=</m> 0.001, 0.002, 0.003, 0.004 and 0.03. To test for right-skewness, we first have to transform these <m>p</m>-values into the <m>pp</m>-value:
@@ -1226,6 +1254,9 @@ pp &lt;- p*20
 pp
           </code>
         </program>
+<pre>
+## [1] 0.02 0.04 0.06 0.08 0.60
+</pre>
         <p>
           Using equation 9.15, we can calculate the value of <m>\chi^2</m> using this code:
         </p>
@@ -1235,6 +1266,9 @@ chi2 &lt;- -2*sum(log(pp))
 chi2
           </code>
         </program>
+<pre>
+## [1] 25.96173
+</pre>
         <p>
           This results in <m>\chi^2=</m> 25.96. Since five studies were included, the degrees of freedom are <m>\text{d.f.}=2\times5=10</m>. We can use this information to check how likely our data are under the null hypothesis of no effect/no right-skewness. This can be done in <em>R</em> using the <c>pchisq</c> function, which we have to provide with our value of <m>\chi^2</m> as well as the number of d.f.:
         </p>
@@ -1247,7 +1281,7 @@ pchisq(26.96, df = 10, lower.tail = FALSE)
           This gives us a <m>p</m>-value of 0.0026. This means that the null hypothesis is very unlikely, and therefore rejected. The significant value of the <m>\chi^2</m> test tells us that, in this example, the <m>p</m>-values are indeed right-skewed. This can be seen as evidence for the assumption that there is evidential value behind our data. 
         </p>
         <p>
-          ##### Test for Flatness
+          <alert>Test for Flatness</alert>
         </p>
         <p>
           <idx><h>Power</h></idx>
@@ -1279,7 +1313,7 @@ pchisq(26.96, df = 10, lower.tail = FALSE)
         <p>
           The only difference now is that we are not particularly keen on rejecting the null hypothesis: this would mean that we reject the notion that at least a small effect exists in our data. We would be forced to say that there is either an effect small enough to be negligible–or that there is no effect at all. 
         </p>
-        
+        <p><alert>Interpretation of P-Curve Results</alert></p>
         <p>
           We have now covered several tests that allow to analyze an empirical <m>p</m>-curve. Do not worry too much if you found some of the statistical concepts difficult to understand. It takes some time to get a grasp of the methodology behind p-curve, and the following hands-on example will certainly be helpful in this respect. The most important part is to understand the <alert>idea</alert> behind the p-curve tests, and how their results can be interpreted. In this section, we will now focus on the latter.
         </p>
@@ -1325,7 +1359,7 @@ pchisq(26.96, df = 10, lower.tail = FALSE)
           </p>
         </note>
         <p>
-          ##### P-Curve Analysis in <em>R</em>
+          <alert>P-Curve Analysis in <em>R</em></alert>
         </p>
         <p>
           By now, we have learned a lot about the theory behind p-curve analysis, so it is high time we start applying the technique in a real-world example. Luckily, Simonsohn, Simmons and Nelson, the inventors of p-curve, have developed an application which automatically conducts all the tests we previously discussed, and returns the relevant results. This <alert>p-curve app</alert> can also be found <url href="http://p-curve.com/">online</url>.  To use p-curve in <em>R</em>, we can resort to the <c>pcurve</c> function. This function emulates the behavior of the app and was designed specifically for meta-analysis objects created with the <alert>{meta}</alert> package. 
@@ -1404,6 +1438,9 @@ pcurve(m.gen_update)
 ## - Evidential value absent/inadequate: no
           </code>
         </program>
+        <figure>
+          <image source="images/unnamed-chunk-247-1.png"/>
+        </figure>
         <p>
           We see that running the <c>pcurve</c> function results in two outputs: our p-curve analysis results, and a plot of the observed <m>p</m>-curve. 
         </p>
@@ -1411,7 +1448,7 @@ pcurve(m.gen_update)
           The output tells us that the meta-analysis contained <m>k=</m> 9 significant effects that were included in the <m>p</m>-curve. Most of these studies (<m>k=</m> 8) had highly significant results (i.e. <m>p&lt;</m> 0.025). The <c>Results</c> section contains the main outcomes of the analysis. We see that all three right-skewness tests are significant: the binomial test (<c>pBinom</c>; <m>p=</m> 0.02), the full <m>p</m>-curve <m>pp</m>-value test (<c>pFull</c>; <m>p&lt;</m> 0.001) and the test based on the half <m>p</m>-curve (<c>pHalf</c>; <m>p=</m> 0.003)<fn>In the output, we also see that the test statistic associated with the full and half <m>p</m> curve test is a <m>z</m> score. This is because the <c>pcurve</c> function uses Stouffer's instead Fisher's method to aggregate the results. As we mentioned in footnote 6 in this chapter, both methods are closely related.</fn>. 
         </p>
         <p>
-          Applying the criteria we set up in <xref provisional="interpretation-p-curve-results"/>, this indicates that our data contains evidential value. In the next line, we see that the three flatness tests are <alert>not</alert> significant, with <m>p</m>s ranging from 0.938 to 1. This, quite logically, tells us that evidential value is neither absent nor inadequate. The same interpretation is provided for us in the <c>Evidential value</c> section of the output. 
+          Applying the criteria we set up when Interpreting P Results, this indicates that our data contains evidential value. In the next line, we see that the three flatness tests are <alert>not</alert> significant, with <m>p</m>s ranging from 0.938 to 1. This, quite logically, tells us that evidential value is neither absent nor inadequate. The same interpretation is provided for us in the <c>Evidential value</c> section of the output. 
         </p>
         <p>
           The <m>p</m>-curve plot produced by the function contains three lines: a solid one, representing the empirical <m>p</m>-curve based on our data; a dashed line showing the expected <m>p</m>-value distribution assuming 33% power; and a dotted line, which shows the uniform distribution we would expect when there is no effect. The solid line is visibly right-skewed, just as we would expect when the studies measure a true effect. 
@@ -1451,6 +1488,9 @@ pcurve(m.gen_update)
         <p>
           The graph below illustrates this behavior. On the left, we see a central <m>t</m>-distribution, for which <m>\delta=</m> 0. To the right, a non-central <m>t</m>-distribution with <m>\delta=</m> 5 is displayed. We see that the right curve is less symmetrical, and that it peaks around 5, whereas the center of the symmetrical, central <m>t</m>-distribution is zero.
         </p>
+        <figure>
+          <image source="images/unnamed-chunk-248-1.png"/>
+        </figure>
         <p>
           While the left central distribution shows the expected <m>t</m>-values when the null hypothesis is true, the right one shows the expected <m>t</m>-values when the <alert>alternative hypothesis</alert> is correct. 
         </p>
@@ -1480,16 +1520,16 @@ pcurve(m.gen_update)
         </p>
         <p>
           <me>
-            t<em>{\text{d.f.}}= \frac{\text{MD}</em>{\text{between}}}{SE<em>{\text{MD}</em>{\text{between}}}}
-          </me>
+t_{\text{d.f.}}= \frac{\text{MD}_{\text{between}}}{SE_{\text{MD}_{\text{between}}}}
+</me>
         </p>
         <p>
           When we insert the formula for the between-group mean difference and standard error (see equation 3.14 and 3.15 in <xref ref="b-group-md"/>), we get the following formula:
         </p>
         <p>
           <me>
-            t<em>{n</em>{1}+n<em>{2}-2} = \frac{\hat\mu</em>{1}-\hat\mu<em>{2}}{s</em>{\text{pooled}}\sqrt{\dfrac{1}{n<em>1}+\dfrac{1}{n</em>2}}}
-          </me>
+t_{n_{1}+n_{2}-2} = \frac{\hat\mu_{1}-\hat\mu_{2}}{s_{\text{pooled}}\sqrt{\dfrac{1}{n_1}+\dfrac{1}{n_2}}}
+</me>
         </p>
         <p>
           We see in the equation that the degrees of freedom of <m>t</m> are defined as the combined sample size (<m>n_1+n_2</m>) of both groups minus 2. 
@@ -1515,6 +1555,9 @@ se &lt;- s_pooled*sqrt((n1+n2)/(n1*n2))
 md/se
           </code>
         </program>
+<pre>
+## [1] 2.078461
+</pre>
         <p>
           The result is <m>t_{48}=</m> 2.078. Does this result support the null hypothesis that both means are identical and that there is no effect? 
         </p>
@@ -1526,6 +1569,9 @@ md/se
 pt(2.078, df = 48, lower.tail = F)
           </code>
         </program>
+<pre>
+## [1] 0.0215403
+</pre>
         <p>
           The result is <m>p=</m> 0.02, which means that the test is significant. Therefore, we reject the null hypothesis that the effect of the experimental group is zero (or negative). As a consequence, we accept the alternative hypothesis: there is a positive effect favoring the experimental groups (assuming that higher scores represent better outcomes). 
         </p>
@@ -1537,8 +1583,8 @@ pt(2.078, df = 48, lower.tail = F)
         </p>
         <p>
           <me>
-            \delta = \frac{\theta}{\sqrt{\dfrac{n<em>{1}+n</em>{2}}{n<em>{1}n</em>{2}}}}
-          </me>
+\delta = \frac{\theta}{\sqrt{\dfrac{n_{1}+n_{2}}{n_{1}n_{2}}}}
+</me>
         </p>
         <p>
           Where <m>n_1</m> and <m>n_2</m> are the sample sizes in both groups. In our example, we can calculate the non-centrality parameter <m>\delta</m> using this code:
@@ -1552,6 +1598,9 @@ delta &lt;- theta/sqrt((n1+n2)/(n1*n2))
 delta
           </code>
         </program>
+<pre>
+## [1] 2.078461
+</pre>
         <p>
           To see how a non-central <m>t</m>-distribution with <m>\delta=</m> 2.078 looks like, let us do a little simulation. Using the <c>rt</c> function we draw one million random <m>t</m>-values with 48 degrees of freedom, twice: once when assuming a non-centrality parameter of zero (which is equal to the null of no effect), and once using the value of <m>\delta</m> that we just calculated (meaning that the true effect is SMD = 0.6). 
         </p>
@@ -1581,6 +1630,9 @@ rt(n = 1e6, df = 48, ncp = delta) %&gt;%
         <p>
           This is the resulting plot:
         </p>
+   <figure>
+      <image source="images/unnamed-chunk-253-1.png"/>
+    </figure>
         <p>
           In it, we see the central <m>t</m>-distribution (no effect) on the left, and the non-central distribution (<m>\theta=</m> 0.6) to the right. Because we already have a moderately sized sample (<m>N=</m> 50), the non-central distribution looks less right-skewed than in the previous visualization. Nevertheless, it is clearly visible that the distribution of our assumed alternative hypothesis is shifted to the right, and peaks at the value of <m>\delta</m>. 
         </p>
@@ -1593,6 +1645,9 @@ rt(n = 1e6, df = 48, ncp = delta) %&gt;%
 pt(2.078, df = 48, ncp = delta, lower.tail = FALSE)
           </code>
         </program>
+<pre>
+## [1] 0.5044537
+</pre>
         <p>
           We see that the probability of obtaining a value greater than our result under the specified alternative hypothesis is roughly 50%. This means that about half of the values are expected to be higher, and the other half lower than the <m>t</m>-value we found. All in all, this indicates that a non-central <m>t</m>-distribution assuming 48 degrees of freedom and a true effect of 0.6 approximates our finding very well. It seems very likely that the true population effect of the study is SMD = 0.6.
         </p>
@@ -1666,6 +1721,9 @@ pcurve(m.gen_update,
 ## P-curve's estimate of the true effect size: d=0.389  
           </code>
         </program>
+   <figure>
+      <image source="images/unnamed-chunk-256-1.png"/>
+    </figure>
         <p>
           The output now contains two new elements: an estimate of the true effect size, as well as a plot showing results of the effect size search. In the plot, the candidate effect sizes form a smooth, V-shaped gradient, which peaks at an effect size of <m>d=</m> 0.389. At this point, the difference between the calculated <m>pp</m> distribution and a uniform distribution (represented by the value of <m>D</m> on the y-axis) is minimal, which means that it represents the best estimate of the true effect. 
         </p>
@@ -1682,6 +1740,60 @@ pcurve(m.gen_update,
           <p>
             When we report the results of a p-curve analysis, it is a good idea to at least include the <m>p</m>-values of the three right-skewness and flatness tests, as well as how these results are interpreted. When the true effect size was estimated, this should also be included. All of these results can be combined in a table that looks somewhat like this:
           </p>
+<table xml:id="table-curve-analysis">
+  <title>Full Curve and Half Curve Analysis</title>
+  <tabular halign="center">
+    <col halign="left"/>
+    <col halign="right"/>
+    <col halign="right"/>
+    <col halign="right"/>
+    <col halign="right"/>
+    <col halign="right"/>
+    <col halign="center"/>
+    <col halign="center"/>
+    <col halign="right"/>
+    <row header="yes">
+      <cell></cell>
+      <cell colspan="3">Full Curve</cell>
+      <cell colspan="2">Half Curve</cell>
+      <cell colspan="2">Evidential Value</cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell></cell>
+      <cell><m>p</m> Binomial</cell>
+      <cell><m>z</m> Full</cell>
+      <cell><m>p</m> Full</cell>
+      <cell><m>z</m> Half</cell>
+      <cell><m>p</m> Half</cell>
+      <cell>present</cell>
+      <cell>absent</cell>
+      <cell><m>\hat{d}</m></cell>
+    </row>
+    <row>
+      <cell>Right-Skewness Test</cell>
+      <cell>0.020</cell>
+      <cell>-3.80</cell>
+      <cell><m>&lt;</m>0.001</cell>
+      <cell>-2.74</cell>
+      <cell>0.003</cell>
+      <cell>yes</cell>
+      <cell>no</cell>
+      <cell>0.39</cell>
+    </row>
+    <row>
+      <cell>Flatness Test</cell>
+      <cell>0.952</cell>
+      <cell>1.54</cell>
+      <cell>0.938</cell>
+      <cell>3.42</cell>
+      <cell><m>&gt;</m>0.999</cell>
+      <cell></cell>
+      <cell></cell>
+      <cell>0.39</cell>
+    </row>
+  </tabular>
+</table>
         </note>
         <note>
           <p>
@@ -1750,8 +1862,8 @@ pcurve(m.gen_update,
         </p>
         <p>
           <me>
-            f^*(x<em>k) = \frac{w(p</em>k)f(x<em>k)}{\int w(p</em>k) f(x<em>k) dx</em>k}
-          </me>
+f^*(x_k) = \frac{w(p_k)f(x_k)}{\int w(p_k) f(x_k) dx_k}
+</me>
         </p>
         <p>
           Where the denominator in the fraction stands for the integral of <m>w(p_k) f(x_k)</m>. The weight function <m>w(p_k)</m> in this equation represents our assumed selection model. 
@@ -1767,8 +1879,13 @@ pcurve(m.gen_update,
         </p>
         <p>
           <me>
-            w(p<em>k) =\begin{cases}     \omega</em>1~~~\text{if}~~~0 \leq p<em>k \leq a</em>1 \     \omega<em>2~~~\text{if}~~~a</em>1 \leq p<em>k \leq a</em>2 \     \omega<em>3~~~\text{if}~~~a</em>2 \leq p<em>k \leq a</em>3 \     \omega<em>4~~~\text{if}~~~a</em>3 \leq p<em>k \leq a</em>4~~~(\text{where}~~~a_4=1).   \end{cases}
-          </me>
+  w(p_k) =\begin{cases}
+    \omega_1~~~\text{if}~~~0 \leq p_k \leq a_1 \\
+    \omega_2~~~\text{if}~~~a_1 \leq p_k \leq a_2 \\
+    \omega_3~~~\text{if}~~~a_2 \leq p_k \leq a_3 \\
+    \omega_4~~~\text{if}~~~a_3 \leq p_k \leq a_4~~~(\text{where}~~~a_4=1).
+  \end{cases}
+</me>
         </p>
         <p>
           We see that for any value of <m>p</m>, the function above returns a specific selection probability <m>\omega</m>, based on the <m>p</m>-value interval into which our value falls. To make this more concrete, we now define a selection model with actual values filled in for the cut-points <m>a_i</m> and selection probabilities <m>\omega_i</m>. 
@@ -1802,7 +1919,7 @@ pcurve(m.gen_update,
           Unfortunately, most meta-analyses only contain a small number of studies. This means that only simple selection models with very few cut-points can be applied. One variant of such a simple model the <alert>three-parameter selection model</alert>, which we will discuss next. This model has the advantage of being applicable even when the number of included studies is small (e.g. <m>K=</m> 15–20). 
         </p>
         <p>
-          ##### Three-Parameter Selection Model {#three-param-selmodel}
+          <alert>Three-Parameter Selection Model</alert>
         </p>
         <p>
           The three-parameter model is a selection model with only one cut-point <xref ref="mcshane2016adjusting"/>. It is called a <alert>three-parameter</alert> model because only three parameters need to be estimated: the true effect <m>\mu</m>, the between-study heterogeneity variance <m>\tau^2</m>, and the relative likelihood of the second interval <m>\omega_2</m><fn>It is not necessary to estimate <m>\omega_1</m>, since this interval serves as the reference category with a selection likelihood fixed at 1.</fn>.
@@ -1873,6 +1990,9 @@ selmodel(m.rma,
         <p>
           Under <c>Selection Model Results</c>, we can see an estimate of the relative selection likelihood in both bins. We see that, with <m>\omega_2=</m> 1.15, the selection probability in the second segment is actually slightly higher than in the first one. In case of substantial publication bias, we would expect just the opposite: that the relative selection likelihood of a non-significant result is considerably <alert>lower</alert> compared to significant findings.
         </p>
+    <figure>
+      <image source="images/unnamed-chunk-264-1.png"/>
+    </figure>
         <p>
           As a sensitivity analysis, we can change <m>a_1</m> from 0.025 to 0.05, and then re-run the analysis. Setting the cut-point to 0.05 means that we assume that a two-sided <m>p</m>-value between 0.05 and 0.10 is just as "publishable" as one below 0.05. It could be, for example, that results which are significant on a "trend level" are still likely to be selected–or that some of the original studies used a one-sided test to evaluate if the study groups differ. Let us see if this altered cut-point changes the results:
         </p>
@@ -1912,7 +2032,7 @@ selmodel(m.rma,
           This indicates that our pooled effect may have been slightly distorted by selective reporting–particularly because studies with <alert>clearly</alert> non-significant results landed in the file-drawer.
         </p>
         <p>
-          ##### Fixed Weights Selection Model {#fixed-weights-selmodel}
+          <alert>Fixed Weights Selection Model</alert>
         </p>
         <p>
           In the three-parameter selection model we just discussed, only a single cut-point <m>a_1</m> is specified, while the selection likelihood is freely estimated by the model. As we mentioned, the fact that three-parameter models only use one cut-point makes them applicable even to meta-analyses with relatively few studies. This is because there is a lower chance that the model will "run out of studies" in some of the bins. 
