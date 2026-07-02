@@ -264,40 +264,43 @@
       <p>
         To illustrate the model formula <xref ref="schwarzer2015meta"/>, imagine that our network meta-analysis consists of <m>K=</m> 5 studies. Each study contains a unique treatment comparison (i.e. <m>K=M</m>). These comparisons are A <m>-</m> B, A <m>-</m> C, A <m>-</m> D, B <m>-</m> C, and B <m>-</m> D. This results in a vector of (observed) comparisons <m>\boldsymbol{\hat\theta} = (\hat\theta_{1\text{,A,B}}, \hat\theta_{2\text{,A,C}}, \hat\theta_{4\text{,A,D}}, \hat\theta_{4\text{,B,C}}, \hat\theta_{5\text{,B,D}})^\top</m>. Our aim is to estimate the true effect size of all four conditions included in our network, <m>\boldsymbol{\theta}_{\text{treat}} = (\theta_{\text{A}}, \theta_{\text{B}}, \theta_{\text{C}}, \theta_{\text{D}})^\top</m>. If we plug these parameters into our model formula, we get the following equation:
       </p>
-        <me>
-  \boldsymbol{\hat\theta} &amp;= \boldsymbol{X} \boldsymbol{\theta}_{\text{treat}} + \boldsymbol{\epsilon}
-        </me>
-        <me>
-\begin{bmatrix}
-\hat\theta_{1\text{,A,B}} \\
-\hat\theta_{2\text{,A,C}} \\
-\hat\theta_{3\text{,A,D}} \\
-\hat\theta_{4\text{,B,C}} \\
-\hat\theta_{5\text{,B,D}} \\
-\end{bmatrix}
-&amp;=
-\begin{bmatrix}
-1 &amp; -1 &amp; 0 &amp; 0 \\
-1 &amp; 0 &amp; -1 &amp; 0 \\
-1 &amp; 0 &amp; 0 &amp; -1 \\
-0 &amp; 1 &amp; -1 &amp; 0 \\
-0 &amp; 1 &amp; 0 &amp; -1 \\
-\end{bmatrix}
-\begin{bmatrix}
-\theta_{\text{A}} \\
-\theta_{\text{B}} \\
-\theta_{\text{C}} \\
-\theta_{\text{D}} \\
-\end{bmatrix}
-+
-\begin{bmatrix}
-\epsilon_{1} \\
-\epsilon_{2} \\
-\epsilon_{3} \\
-\epsilon_{4} \\
-\epsilon_{5} \\
-        </me>
-      <p>
+<md>
+  <mrow>
+    \boldsymbol{\hat\theta} \amp= \boldsymbol{X} \boldsymbol{\theta}_{\text{treat}} + \boldsymbol{\epsilon}
+  </mrow>
+  <mrow>
+    \begin{bmatrix}
+    \hat\theta_{1\text{,A,B}} \\
+    \hat\theta_{2\text{,A,C}} \\
+    \hat\theta_{3\text{,A,D}} \\
+    \hat\theta_{4\text{,B,C}} \\
+    \hat\theta_{5\text{,B,D}} \\
+    \end{bmatrix}
+    \amp=
+    \begin{bmatrix}
+    1 \amp -1 \amp 0 \amp 0 \\
+    1 \amp 0 \amp -1 \amp 0 \\
+    1 \amp 0 \amp 0 \amp -1 \\
+    0 \amp 1 \amp -1 \amp 0 \\
+    0 \amp 1 \amp 0 \amp -1 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+    \theta_{\text{A}} \\
+    \theta_{\text{B}} \\
+    \theta_{\text{C}} \\
+    \theta_{\text{D}} \\
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+    \epsilon_{1} \\
+    \epsilon_{2} \\
+    \epsilon_{3} \\
+    \epsilon_{4} \\
+    \epsilon_{5} \\
+    \end{bmatrix}
+  </mrow>
+</md>
+<p>
         It is of note that in its current form, this model formula is problematic from a mathematical standpoint. Right now, the model is <alert>overparameterized</alert>. There are too many parameters <m>\boldsymbol{\theta}_{\text{treat}}</m> in our model to be estimated based on the information at hand. 
       </p>
       <p>
@@ -1209,10 +1212,10 @@ funnel(m.netmeta,
         </p>
         <p>
           <me>
-\hat\theta_{k \text{,A,B}} &amp;\sim \mathcal{N}(\theta_{k \text{,A,B}},\sigma_k^2)
+\hat\theta_{k \text{,A,B}} \sim \mathcal{N}(\theta_{k \text{,A,B}},\sigma_k^2)
           </me>
           <me>
-\theta_{k \text{,A,B}} &amp;\sim \mathcal{N}(\theta_{\text{A,B}},\tau^2)
+\theta_{k \text{,A,B}} \sim \mathcal{N}(\theta_{\text{A,B}},\tau^2)
           </me>
         </p>
         <p>
@@ -1224,33 +1227,34 @@ funnel(m.netmeta,
         <p>
           Imagine that a multi-arm study <m>k</m> examined a total of <m>n=</m> 5 treatments: A, B, C, D, and E. When we choose E as the reference treatment, this leads to <m>n</m> - 1 = 4 treatment effects. Using a Bayesian hierarchical model, we assume that these observed treatment effects are draws from a multivariate normal distribution of the following form<fn>In practice, it is usually assumed that the between-study heterogeneity variances <m>\tau^2</m> in multi-arm trials are <alert>homogeneous</alert> (i.e. identical) across the comparisons. This allows us define all covariances in the matrix as <m>\tau^2/2</m>.</fn>: 
         </p>
-        <p>
-          <me>
-\begin{bmatrix}
-\hat\theta_{k\text{,A,E}} \\
-\hat\theta_{k\text{,B,E}} \\
-\hat\theta_{k\text{,C,E}} \\
-\hat\theta_{k\text{,D,E}}
-\end{bmatrix}
-&amp;=
-\mathcal{N}\left(
-\begin{bmatrix}
-\theta_{\text{A,E}} \\
-\theta_{\text{B,E}} \\
-\theta_{\text{C,E}} \\
-\theta_{\text{D,E}}
-\end{bmatrix}
-,
-\begin{bmatrix}
-\tau^2 &amp; \tau^2/2 &amp; \tau^2/2 &amp; \tau^2/2 \\
-\tau^2/2 &amp; \tau^2 &amp; \tau^2/2 &amp; \tau^2/2 \\
-\tau^2/2 &amp; \tau^2/2 &amp; \tau^2 &amp; \tau^2/2 \\
-\tau^2/2 &amp; \tau^2/2 &amp; \tau^2/2 &amp; \tau^2
-\end{bmatrix}
-\right).
-</me>
-        </p>
-      </subsubsection>
+<p>
+  <md>
+    <mrow>
+      \begin{bmatrix}
+      \hat\theta_{k\text{,A,E}} \\
+      \hat\theta_{k\text{,B,E}} \\
+      \hat\theta_{k\text{,C,E}} \\
+      \hat\theta_{k\text{,D,E}}
+      \end{bmatrix}
+      \amp=
+      \mathcal{N}\left(
+      \begin{bmatrix}
+      \theta_{\text{A,E}} \\
+      \theta_{\text{B,E}} \\
+      \theta_{\text{C,E}} \\
+      \theta_{\text{D,E}}
+      \end{bmatrix}
+      ,
+      \begin{bmatrix}
+      \tau^2 \amp \tau^2/2 \amp \tau^2/2 \amp \tau^2/2 \\
+      \tau^2/2 \amp \tau^2 \amp \tau^2/2 \amp \tau^2/2 \\
+      \tau^2/2 \amp \tau^2/2 \amp \tau^2 \amp \tau^2/2 \\
+      \tau^2/2 \amp \tau^2/2 \amp \tau^2/2 \amp \tau^2
+      \end{bmatrix}
+      \right).
+    </mrow>
+  </md>
+</p>      </subsubsection>
 
     </subsection>
 
