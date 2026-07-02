@@ -266,8 +266,8 @@
       </p>
       <p>
         <me>
-  \boldsymbol{\hat\theta} &amp;= \boldsymbol{X} \boldsymbol{\theta}_{\text{treat}} + \boldsymbol{\epsilon} \notag \\
-        <\me>
+  \boldsymbol{\hat\theta} &amp;= \boldsymbol{X} \boldsymbol{\theta}_{\text{treat}} + \boldsymbol{\epsilon}
+        </me>
         <me>
 \begin{bmatrix}
 \hat\theta_{1\text{,A,B}} \\
