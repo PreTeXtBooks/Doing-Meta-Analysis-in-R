@@ -339,6 +339,9 @@ library(esc)
 convert_z2r(0.52)
         </code>
       </program>
+<pre>
+## [1] 0.4777
+</pre>
       <p>
         We see that this leads to a correlation of approximately <m>r \approx</m> 0.48. This can be considered large. There seems to be a substantial association between mutation rates and exposure to radiation from Chernobyl. 
       </p>
@@ -636,7 +639,6 @@ fit compared to a two-level model with level 3 heterogeneity constrained to zero
       <p>
         <me>
           \boldsymbol{T}_{j}=\boldsymbol{X}_{j}\boldsymbol{\beta} + \boldsymbol{u}_j +\boldsymbol{e}_j
-          \boldsymbol{T}_{j}=\boldsymbol{X}_{j}\boldsymbol{\beta} + \boldsymbol{u}_j +\boldsymbol{e}_j
         </me>
       </p>
       <p>
@@ -647,7 +649,12 @@ fit compared to a two-level model with level 3 heterogeneity constrained to zero
       </p>
       <p>
         <me>
-          \boldsymbol{X}_j = \begin{bmatrix}  x_{1,1}    &amp; \cdots &amp; x_{1,p}    \   \vdots     &amp; \ddots &amp; \vdots     \  x_{n_j,1}  &amp; \cdots &amp; x_{n_j,p} \end{bmatrix}
+\boldsymbol{X}_j =
+\begin{bmatrix}
+x_{1,1}    &amp; \cdots &amp; x_{1,p}    \\
+\vdots     &amp; \ddots &amp; \vdots     \\
+x_{n_j,1}  &amp; \cdots &amp; x_{n_j,p}
+\end{bmatrix}
         </me>
       </p>
       <p>
@@ -658,7 +665,34 @@ fit compared to a two-level model with level 3 heterogeneity constrained to zero
       </p>
       <p>
         <me>
-          \begin{bmatrix}  \boldsymbol{T}_1 \  \boldsymbol{T}_2 \  \vdots \  \boldsymbol{T}_J \end{bmatrix} = \begin{bmatrix}  \boldsymbol{X}_1 \  \boldsymbol{X}_2 \  \vdots \  \boldsymbol{X}_J \end{bmatrix} \boldsymbol{\beta} + \begin{bmatrix}  \boldsymbol{u}_1 \  \boldsymbol{u}_2 \  \vdots \  \boldsymbol{u}_J \end{bmatrix} + \begin{bmatrix}  \boldsymbol{e}_1 \  \boldsymbol{e}_2 \  \vdots \  \boldsymbol{e}_J  \end{bmatrix}.
+\begin{bmatrix}
+\boldsymbol{T}_1 \\
+\boldsymbol{T}_2 \\
+\vdots \\
+\boldsymbol{T}_J
+\end{bmatrix}
+=
+\begin{bmatrix}
+\boldsymbol{X}_1 \\
+\boldsymbol{X}_2 \\
+\vdots \\
+\boldsymbol{X}_J
+\end{bmatrix}
+\boldsymbol{\beta}
++
+\begin{bmatrix}
+\boldsymbol{u}_1 \\
+\boldsymbol{u}_2 \\
+\vdots \\
+\boldsymbol{u}_J
+\end{bmatrix}
++
+\begin{bmatrix}
+\boldsymbol{e}_1 \\
+\boldsymbol{e}_2 \\
+\vdots \\
+\boldsymbol{e}_J
+\end{bmatrix}
         </me>
       </p>
       <p>
@@ -951,9 +985,9 @@ plot(cw.boot,
      alpha = 0.5)
       </code>
     </program>
-    <p>
-      \qed
-    </p>
+    <figure>
+      <image source="images/unnamed-chunk-299-1.png"/>
+    </figure>
   </section>
 
   <section xml:id="multilevel-ma-questions-answers">
