@@ -18,12 +18,6 @@
     <p>
       While its background is slightly more involved, we will see that Bayesian meta-analysis essentially aims to do the same thing as any "conventional" meta-analysis: it pools observed effect sizes into one overall (true) effect. Using a Bayesian model, however, also comes with several practical advantages compared to frequentist approaches. This makes it worthwhile to learn how we can implement such models using <em>R</em>. 
     </p>
-    <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="netwma"/> and then continue with <xref ref="power"/>.
-    </p>
-    <p>
-      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
-    </p>
   </introduction>
 
   <section xml:id="bayes-hierarchical-model">
@@ -46,8 +40,10 @@
     </p>
     <p>
       <me>
-        \hat\theta<em>k &amp;\sim \mathcal{N}(\theta</em>k,\sigma<em>k^2) \notag \ \theta</em>k &amp;\sim \mathcal{N}(\mu,\tau^2)
-      </me>
+\hat\theta_k &amp;\sim \mathcal{N}(\theta_k,\sigma_k^2)
+</me><me>
+\theta_k &amp;\sim \mathcal{N}(\mu,\tau^2)
+</me>
     </p>
     <p>
       Here, we use <m>\mathcal{N}</m> to indicate that parameters to the left were sampled from a <alert>normal</alert> distribution. Some may argue that this is an unnecessarily strict assumption for the second equation <xref ref="higgins2009re"/>, but the formulation as shown here is the one that is used most of the time. As covered before, the fixed-effect model is simply a special case of this model in which we assume that <m>\tau^2 = 0</m>, meaning that there is no between-study heterogeneity, and that all studies share one single true effect size (i.e. that for all studies <m>k</m>: <m>\theta_k = \mu</m>). 
@@ -57,16 +53,19 @@
     </p>
     <p>
       <me>
-        \hat\theta<em>k  \sim \mathcal{N}(\mu,\sigma</em>k^2 + \tau^2)
-      </me>
+\hat\theta_k  \sim \mathcal{N}(\mu,\sigma_k^2 + \tau^2)
+</me>
     </p>
     <p>
       You may have already detected that these formulas look a lot like the ones we defined when discussing the random-effects (<xref ref="rem"/>) and three-level meta-analysis (<xref ref="multilevel-nature"/>) model. Indeed, there is nothing particularly "Bayesian" about this formulation. This changes, however, when we add the following equations <xref ref="williams2018bayesian"/>:
     </p>
     <p>
       <me>
-        (\mu, \tau^2) &amp;\sim p(.) \notag \ \tau^2 &amp;&gt; 0
-      </me>
+(\mu, \tau^2) &amp;\sim p(.)
+</me>
+<me>
+\tau^2 &> 0
+</me>
     </p>
     <p>
       <idx><h>Prior Distribution</h></idx>
@@ -143,6 +142,9 @@
     <p>
       The Half-Cauchy distribution typically has rather heavy tails, which makes it particularly useful as a prior distribution for <m>\tau</m>. The heavy tails ensure that we still give very high values of <m>\tau</m> <alert>some</alert> probability, while at the same time assuming that lower values are more likely. 
     </p>
+      <figure>
+        <image source="images/unnamed-chunk-432-1.png"/>
+      </figure>
     <p>
       In many meta-analyses, <m>\tau</m> (the square root of <m>\tau^2</m>) lies somewhere around 0.3, or at least in the same ballpark. To specify the Half-Cauchy prior, we may therefore use <m>s=</m> 0.3. This ensures that a value of less than <m>\tau=</m> 0.3 has a 50% probability <xref ref="williams2018bayesian"/>. We can confirm this using the Half-Cauchy distribution function implemented in the <c>phcauchy</c> function of the <alert>{extraDistr}</alert> package <xref ref="extradistr"/>.
     </p>
@@ -155,6 +157,9 @@ library(extraDistr)
 phcauchy(0.3, sigma = 0.3)
       </code>
     </program>
+<pre>
+## [1] 0.5
+</pre>
     <p>
       However, this is already a quite specific assumption concerning the true value of <m>\tau</m>. A more conservative approach, which we will follow in our hands-on example, is to set <m>s</m> to 0.5; this makes the distribution flatter. In general, it is advised to always conduct sensitivity analyses with different prior specifications to check if they affect the results substantially. Using <m>s=</m> 0.5 as our parameter of the Half-Cauchy distribution, we can write down our <m>\tau</m> prior like this:
     </p>
@@ -168,8 +173,17 @@ phcauchy(0.3, sigma = 0.3)
     </p>
     <p>
       <me>
-        \hat\theta<em>k &amp;\sim \mathcal{N}(\theta</em>k,\sigma<em>k^2) \notag \ \theta</em>k &amp;\sim \mathcal{N}(\mu,\tau^2) \notag \ \mu &amp;\sim \mathcal{N}(0,1) \notag \ \tau &amp;\sim \mathcal{HC}(0,0.5)
+\hat\theta_k &amp;\sim \mathcal{N}(\theta_k,\sigma_k^2)
       </me>
+      <me>
+\theta_k &amp;\sim \mathcal{N}(\mu,\tau^2)
+      </me>
+      <me>
+\mu &amp;\sim \mathcal{N}(0,1)
+      </me>
+      <me>
+\tau &amp;\sim \mathcal{HC}(0,0.5)
+</me>
     </p>
   </section>
 
@@ -294,14 +308,13 @@ pp_check(m.brm)
       <p>
         <idx><h>Potential Scale Reduction Factor</h></idx>
       </p>
+      <figure>
+        <image source="generated/ppcheck_sep.png"/>
+      </figure>
     </subsection>
 
     <subsection xml:id="interpreting-the-results">
       <title>Interpreting the Results</title>
-
-      <figure>
-        <image source="generated/ppcheck_sep.png"/>
-      </figure>
       <p>
         We can begin to interpret the results by looking at the <c>Group-Level Effects</c> in our summary output first. This section is reserved for the random effect we defined in our formula. Since we fitted a random-effects meta-analysis model, the variable <c>~Author</c>, signifying the individual studies, has been modeled with a random intercept. As we described before, this represents our assumption on level 2 that each study has its own "true" effect size, which has been sampled from an overarching distribution of true effect sizes. We also see that our group-level effect has 18 levels, corresponding with the <m>K=</m> 18 studies in our data. 
       </p>
