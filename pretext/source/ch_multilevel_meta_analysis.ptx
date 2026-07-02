@@ -576,7 +576,15 @@ summary(mod.model)
       </p>
       <blockquote>
         <p>
-          <em>"The pooled correlation based on the three-level meta-analytic model was <m>r=</m> 0.48 (95%CI: 0.25-0.66; <m>p</m> &lt; 0.001). The estimated variance components were <m>\tau^2_{\text{Level 3}}= 0.179</m> and <m>\tau^2_{\text{Level 2}}= 0.119</m>. This means that <m>I^2_{\text{Level 3}}=</m> 58.22% of the total variation can be attributed to between-cluster, and <m>I^2_{\text{Level 2}}=</m> 31.86% to within-cluster heterogeneity. We found that the three-level model provided a significantly better fit compared to a two-level model with level 3 heterogeneity constrained to zero (<m>\chi^2_1 = 16.10; p&lt; 0.001</m>)."_
+          <em>The pooled correlation based on the three-level meta-analytic model was 
+<m>r= 0.48 </m> (95%CI: 0.25-0.66; <m>p &lt; 0.001</m>).
+The estimated variance components were <m>\tau^2_{\text{Level 3}}= 0.179</m> and
+<m>\tau^2_{\text{Level 2}}= 0.119</m>.
+This means that <m>I^2_{\text{Level 3}}=</m> 58.22% of the total variation can be
+attributed to between-cluster, and <m>I^2_{\text{Level 2}}=</m> 31.86% to within-cluster
+heterogeneity. We found that the three-level model provided a significantly better
+fit compared to a two-level model with level 3 heterogeneity constrained to zero
+(<m>\chi^2_1 = 16.10; p&lt; 0.001</m>).</em>
         </p>
       </blockquote>
     </note>
@@ -627,6 +635,7 @@ summary(mod.model)
       </p>
       <p>
         <me>
+          \boldsymbol{T}_{j}=\boldsymbol{X}_{j}\boldsymbol{\beta} + \boldsymbol{u}_j +\boldsymbol{e}_j
           \boldsymbol{T}_{j}=\boldsymbol{X}_{j}\boldsymbol{\beta} + \boldsymbol{u}_j +\boldsymbol{e}_j
         </me>
       </p>
