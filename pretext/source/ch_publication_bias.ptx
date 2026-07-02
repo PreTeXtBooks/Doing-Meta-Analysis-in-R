@@ -824,13 +824,20 @@ w_k = \frac{1}{s_k^2}
         <p>
           Whether PET or PEESE is used depends on the size of the intercept calculated by the PET method. When <m>\beta_{0_{\text{PET}}}</m> is significantly larger than zero in a one-sided test with <m>\alpha</m> = 0.05, we use the intercept of PEESE as the true effect size estimate. If PET's intercept is not significantly larger than zero, we remain with the PET estimate. 
         </p>
-        <p>
-          In most implementations of regression models in <em>R</em>, it is conventional to test the significance of coefficients using a two-sided test (i.e. we test if a <m>\beta</m> weight significantly differs from zero, no matter the direction). To assume a one-sided test with <m>\alpha</m> = 0.05, we already regard the intercept as significant when <m>p &lt; 0.1), and when the estimate of <m>\beta_0</m> is larger than zero<fn>The latter condition (<m>\hat{\beta}_0</m> &gt; 0) only applies if positive effect sizes represent favourable outcomes
-(e.g., positive effect sizes mean that the intervention was effective).
-When negative eggect sizes (e.g., SMD = -0.5) represent favourable outcomes, our one-side test should be in the other direction.
-This means that PEESE is used when the <m>p</m>-value of PET's intercept is smaller than 0.1, and when the intercept estimate is smaller than zero.
-</fn>.
-        </p>
+<p>
+  In most implementations of regression models in <em>R</em>, it is conventional to 
+  test the significance of coefficients using a two-sided test (i.e. we test if a 
+  <m>\beta</m> weight significantly differs from zero, no matter the direction). To 
+  assume a one-sided test with <m>\alpha</m> = 0.05, we already regard the intercept 
+  as significant when <m>p &lt; 0.1</m>), and when the estimate of <m>\beta_0</m> is 
+  larger than zero<fn>The latter condition (<m>\hat{\beta}_0</m> &gt; 0) only applies 
+  if positive effect sizes represent favourable outcomes (e.g., positive effect sizes 
+  mean that the intervention was effective). When negative effect sizes (e.g., SMD = 
+  -0.5) represent favourable outcomes, our one-sided test should be in the other 
+  direction. This means that PEESE is used when the <m>p</m>-value of PET's intercept 
+  is smaller than 0.1, and when the intercept estimate is smaller than zero.
+  </fn>.
+</p>
         <p>
           The rule to obtain the true effect size as estimated by PET-PEESE, therefore, looks like this:  
         </p>
