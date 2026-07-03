@@ -990,7 +990,7 @@ plot(cw.boot,
     </figure>
   </section>
 
-  <section xml:id="multilevel-ma-questions-answers">
+  <exercises xml:id="multilevel-ma-questions-answers">
     <title>Questions &amp; Answers</title>
 
     <exercise>
@@ -1028,7 +1028,7 @@ plot(cw.boot,
         <alert>Answers to these questions are listed in <url href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/qanda.html#qanda10">Appendix A</url> at the end of this book.</alert>
       </p>
     </exercise>
-  </section>
+  </exercises>
 
   <section xml:id="multilevel-ma-summary">
     <title>Summary</title>
