@@ -358,7 +358,7 @@ drapery(m.gen,
     </p>
   </section>
 
-  <section xml:id="forest-questions-answers">
+  <exercises xml:id="forest-questions-answers">
     <title>Questions &amp; Answers</title>
 
     <exercise>
@@ -386,7 +386,7 @@ drapery(m.gen,
         <alert>Answers to these questions are listed in <url href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/qanda.html#qanda6">Appendix A</url> at the end of this book.</alert>
       </p>
     </exercise>
-  </section>
+  </exercises>
 
   <section xml:id="forest-summary">
     <title>Summary</title>
