@@ -34,12 +34,7 @@
     <titlepage-items/>
   </titlepage>
 
-  <abstract>
-    <p>
-      This guide provides a practical introduction to conducting meta-analyses in R, from foundational concepts to advanced methods.
-    </p>
-  </abstract>
-
+  <xi:include href="./fm_preface-ptx-version.ptx" />
   <xi:include href="./fm_welcome.ptx" />
   <xi:include href="./fm_preface.ptx" />
   <xi:include href="./fm_about_authors.ptx" />
