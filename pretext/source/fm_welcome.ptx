@@ -4,7 +4,7 @@
 
   <image source="images/cover.png"/>
   <p>
-    Welcome to the online version of <url href="https://www.routledge.com/Doing-Meta-Analysis-with-R-A-Hands-On-Guide/Harrer-Cuijpers-Furukawa-Ebert/p/book/9780367610074"><alert>"Doing Meta-Analysis with R: A Hands-On Guide"</alert></url>.
+    Welcome to the online PreTeXt version of <url href="https://www.routledge.com/Doing-Meta-Analysis-with-R-A-Hands-On-Guide/Harrer-Cuijpers-Furukawa-Ebert/p/book/9780367610074"><alert>"Doing Meta-Analysis with R: A Hands-On Guide"</alert></url>.
   </p>
   <p>
     This book serves as an accessible introduction into how meta-analyses can be conducted in <em>R</em>. Essential steps for meta-analysis are covered, including pooling of outcome measures, forest plots, heterogeneity diagnostics, subgroup analyses, meta-regression, methods to control for publication bias, risk of bias assessments and plotting tools.
@@ -20,8 +20,9 @@
     <title>Open Source Repository</title>
 
     <p>
-      This book has been built using <url href="https://rmarkdown.rstudio.com/docs/"><alert>{rmarkdown}</alert></url> and <url href="https://bookdown.org/"><alert>{bookdown}</alert></url>. Formulas are rendered using <url href="http://docs.mathjax.org/en/latest/index.html">MathJax</url>. All materials and source code we used to compile the guide can be found on <alert>GitHub</alert>. You are free to fork, share and reuse contents. However, the repository is intended to be mainly "read-only"; PRs will generally not be considered (see section below &amp; preface for ways to contact us).
+      The original version of this book has been built using <url href="https://rmarkdown.rstudio.com/docs/"><alert>{rmarkdown}</alert></url> and <url href="https://bookdown.org/"><alert>{bookdown}</alert></url>. Formulas are rendered using <url href="http://docs.mathjax.org/en/latest/index.html">MathJax</url>. All materials and source code we used to compile the guide can be found on <alert>GitHub</alert>. You are free to fork, share and reuse contents. However, the repository is intended to be mainly "read-only"; PRs will generally not be considered (see section below &amp; preface for ways to contact us).
     </p>
+<p>To see specifics on how this book was build, see <xref ref = "preface-ptx-version">Note on This PreTeXt Edition</xref>.</p>
     <p>
       <url href="https://github.com/MathiasHarrer/Doing-Meta-Analysis-in-R">View the repository on GitHub</url>.
     </p>
@@ -43,7 +44,7 @@
       This guide is an open source project, and we owe special thanks to our expert contributors who provided additional content in some of the sections of this guide.
     </p>
     <p>
-      <url href="https://twitter.com/mcguinlu"><alert>Luke A. McGuinness</alert></url>, University of Bristol: <xref ref="risk-of-bias-plots">Chapter 15</xref>, Risk of Bias Plots.
+      <url href="https://twitter.com/mcguinlu"><alert>Luke A. McGuinness</alert></url>, University of Bristol: <xref ref="risk-of-bias-plots"/>, Risk of Bias Plots.
     </p>
     <p>
       Want to contribute to this guide yourself? Feel free to send <alert>Mathias</alert> (mathias.harrer@fau.de) an E-mail and tell us about your proposed additions.
