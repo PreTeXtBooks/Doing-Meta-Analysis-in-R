@@ -470,7 +470,7 @@ update(m.gen, subgroup = RiskOfBias, tau.common = TRUE)
     </note>
   </section>
 
-  <section xml:id="subgroup-questions-answers">
+  <exercises xml:id="subgroup-questions-answers">
     <title>Questions &amp; Answers</title>
 
     <exercise>
@@ -508,7 +508,7 @@ update(m.gen, subgroup = RiskOfBias, tau.common = TRUE)
         <alert>Answers to these questions are listed in <url href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/qanda.html#qanda7">Appendix A</url> at the end of this book.</alert>
       </p>
     </exercise>
-  </section>
+  </exercises>
 
   <section xml:id="subgroup-summary">
     <title>Summary</title>
