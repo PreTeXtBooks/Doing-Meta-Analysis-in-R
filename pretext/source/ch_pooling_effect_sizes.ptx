@@ -342,11 +342,12 @@ pooled_effect
           Even though it is conventional to use the random-effects model a priori, this approach is not undisputed. The random-effects model pays more attention to small studies when calculating the overall effect of a meta-analysis <xref ref="schwarzer2015meta"/>. Yet, small studies in particular are often fraught with biases (see <xref ref="small-study-effects"/>). This is why some have argued that the fixed-effect model is (sometimes) preferable <xref ref="poole1999random"/>, <xref ref="furukawa2003low"/>. Stanley, Doucouliagos, and Ioannidis <xref ref="stanley2022beyond"/> make a similar point and argue that, in some disciplines, a so-called "unrestricted weighted least squares" (UWLS) model should be used instead of the random-effects model.
         </p>
       </note>
-      <subsubsection xml:id="tau-estimators">
       <figure xml:id="fig-random">
         <caption>Illustration of parameters of the random-effects model.</caption>
         <image source="generated/rem_sep2.png"/>
       </figure>
+
+      <subsubsection xml:id="tau-estimators">
         <title>Estimators of the Between-Study Heterogeneity</title>
 
         <p>
