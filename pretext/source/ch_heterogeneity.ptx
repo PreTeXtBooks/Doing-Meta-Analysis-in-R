@@ -825,7 +825,7 @@ plot(m.gen.inf, "influence")
           We see that the plot displays, for each study, the value of different influence measures. These measures are used to characterize which studies fit well into our meta-analysis model, and which do not. To understand what the diagnostics mean, let us briefly go through them from left to right, top to bottom.
         </p>
         <p>
-          ##### Externally Standardized Residuals
+          <alert>Externally Standardized Residuals</alert>
         </p>
         <p>
           <idx><h>Leave-One-Out Method</h></idx>
@@ -851,7 +851,7 @@ plot(m.gen.inf, "influence")
           If a study does <alert>not</alert> fit into the overall population, we can assume that the residual will be <alert>larger</alert> than expected from the three variance terms alone. This leads to higher values of <m>t_k</m>, which indicate that the study is an influential case that does not "fit in". 
         </p>
         <p>
-          ##### <m>\mathrm{DFFITS}</m> Value
+          <alert><m>\mathrm{DFFITS}</m> Value</alert>
         </p>
         <p>
           The computation of the <m>\mathrm{DFFITS}</m> metric is similar to the one of the externally standardized residuals. The pattern of DFFITS and <m>t_k</m> values is therefore often comparable across studies. This is the formula:
@@ -868,7 +868,7 @@ plot(m.gen.inf, "influence")
           In general, the <m>\mathrm{DFFITS}</m> value indicates how much the pooled effect changes when a study <m>k</m> is removed, expressed in standard deviations. Again, higher values indicate that a study may be an influential case because its impact on the average effect is larger.
         </p>
         <p>
-          ##### Cook's Distance
+          <alert>Cook's Distance</alert>
         </p>
         <p>
           <idx><h>Cook's Distance</h></idx>
@@ -885,7 +885,7 @@ plot(m.gen.inf, "influence")
           </me>
         </p>
         <p>
-          ##### Covariance Ratio
+          <alert>Covariance Ratio</alert>
         </p>
         <p>
           The covariance ratio of a study <m>k</m> can be calculated by dividing the variance of the pooled effect (i.e. its squared standard error) without <m>k</m> by the variance of the initial average effect.
@@ -899,7 +899,7 @@ plot(m.gen.inf, "influence")
           A <m>\mathrm{CovRatio}_k</m> value below 1 indicates that removing study <m>k</m> results in a more precise estimate of the pooled effect size <m>\hat\mu</m>.
         </p>
         <p>
-          ##### Leave-One-Out <m>\tau^2</m> and <m>Q</m> Values
+          <alert>Leave-One-Out <m>\tau^2</m> and <m>Q</m> Values</alert>
         </p>
         <p>
           <idx><h>Cochran's \textit{Q}</h></idx>
@@ -908,7 +908,7 @@ plot(m.gen.inf, "influence")
           The values in this row are quite easy to interpret: they simply display the estimated heterogeneity as measured by <m>\tau^2</m> and Cochran's <m>Q</m>, if study <m>k</m> is removed. Lower values of <m>Q</m>, but particularly of <m>\tau^2</m> are desirable, since this indicates lower heterogeneity.
         </p>
         <p>
-          ##### Hat Value and Study Weight
+          <alert>Hat Value and Study Weight</alert>
         </p>
         <p>
           In the last row, we see the study weight and hat value of each study. We already covered the calculation and meaning of study weights extensively in <xref ref="fem"/>, so this measure does not need much more explanation. The hat value, on the other hand, is simply another metric that is equivalent to the study weight. The pattern of the hat values and weights will therefore be identical in our influence analyses. 
@@ -963,15 +963,15 @@ plot(m.gen.inf, "es")
 plot(m.gen.inf, "i2")
           </code>
         </program>
+        <figure>
+          <image source="generated/forestesi2_col_sep.png"/>
+        </figure>
         <p>
           In these two forest plots, we see the recalculated pooled effects, with one study omitted each time. In both plots, there is a shaded area with a dashed line in its center. This represents the 95% confidence interval of the original pooled effect size, and the estimated pooled effect itself.
         </p>
         <p>
           The first plot is ordered by effect size (low to high). Here, we see how the overall effect estimate changes when different studies are removed. Since the two outlying and influential studies "DanitzOrsillo" and "Shapiro et al." have very high effect sizes, we find that the overall effect is smallest when they are removed.
         </p>
-        <figure>
-          <image source="generated/forestesi2_col_sep.png"/>
-        </figure>
         <p>
           The second plot is ordered by heterogeneity (low to high), as measured by <m>I^2</m>. This plot illustrates that the lowest <m>I^2</m> heterogeneity is reached by omitting the studies "DanitzOrsillo" and "Shapiro et al.". This corroborates our finding that these two studies were the main "culprits" for the between-study heterogeneity we found in the meta-analysis.
         </p>
@@ -1108,6 +1108,21 @@ res.gosh.diag &lt;- gosh.diagnostics(res.gosh,
 res.gosh.diag
         </code>
       </program>
+<pre>
+## GOSH Diagnostics 
+## ================================ 
+## 
+##  - Number of K-means clusters detected: 2
+##  - Number of DBSCAN clusters detected: 4
+##  - Number of GMM clusters detected: 7
+## 
+##  Identification of potential outliers 
+##  --------------------------------- 
+## 
+##  - K-means: Study 3, Study 16
+##  - DBSCAN: Study 3, Study 4, Study 16
+##  - Gaussian Mixture Model: Study 3, Study 4, Study 11, Study 16
+</pre>
       <p>
         In the output, we see the number of clusters that each algorithm has detected. Because each approach uses a different mathematical strategy to segment the data, it is normal that the number of clusters is not identical. 
       </p>
@@ -1210,12 +1225,45 @@ update(m.gen, exclude = c(3, 4, 16)) %&gt;%
         <p>
           It is also important to specify which studies were removed as influential cases, so that others understand on which data the new results are based. Below is an example of how such a table looks like for our <c>m.gen</c> meta-analysis from before:
         </p>
-        <p>
-          Analysis                               | <m>g</m>    | 95%CI      | <m>p</m>     | 95%PI       | <m>I^2</m>  | 95%CI  | -------------------------------------- | ------ | ---------- | ------- | ----------- | ------ | ------ | Main Analysis                          | 0.58   | 0.38-0.78  | 1 | 0.48   | 0.36-0.60  | &lt;0.001  | 0.36-0.61   | 5%     | 0-56   |
-        </p>
-        <p>
-          1Removed as outliers: DanitzOrsillo, de Vibe, Shapiro.
-        </p>
+<table xml:id="table-main-analysis-results">
+  <title>Main Analysis and Influence Analysis Results</title>
+  <tabular halign="center">
+    <col halign="left"/>
+    <col halign="right"/>
+    <col halign="left"/>
+    <col halign="right"/>
+    <col halign="left"/>
+    <col halign="right"/>
+    <col halign="left"/>
+    <row header="yes">
+      <cell>Analysis</cell>
+      <cell><m>g</m></cell>
+      <cell>95% CI</cell>
+      <cell><m>p</m></cell>
+      <cell>95% PI</cell>
+      <cell><m>I^2</m></cell>
+      <cell>95% CI</cell>
+    </row>
+    <row>
+      <cell>Main Analysis</cell>
+      <cell>0.58</cell>
+      <cell>0.38<ndash/>0.78</cell>
+      <cell><m>&lt;</m>0.001</cell>
+      <cell>-0.06<ndash/>1.22</cell>
+      <cell>63%</cell>
+      <cell>39<ndash/>78</cell>
+    </row>
+    <row>
+      <cell>Infl. Cases Removed<fn>Removed as outliers: DanitzOrsillo, de Vibe, Shapiro.</fn></cell>
+      <cell>0.48</cell>
+      <cell>0.36<ndash/>0.60</cell>
+      <cell><m>&lt;</m>0.001</cell>
+      <cell>0.36<ndash/>0.61</cell>
+      <cell>5%</cell>
+      <cell>0<ndash/>56</cell>
+    </row>
+  </tabular>
+</table>
         <p>
           This type of table is very convenient because we can also add further rows with results of other sensitivity analyses. For example, if we conduct an analysis in which only studies with a low risk of bias (<xref ref="data-extraction"/>) were considered, we could report the results in a third row.
         </p>
@@ -1224,7 +1272,7 @@ update(m.gen, exclude = c(3, 4, 16)) %&gt;%
 
   </section>
 
-  <section xml:id="heterogeneity-questions-answers">
+  <exercises xml:id="heterogeneity-questions-answers">
     <title>Questions &amp; Answers</title>
 
     <exercise>
@@ -1267,7 +1315,7 @@ update(m.gen, exclude = c(3, 4, 16)) %&gt;%
         <alert>Answers to these questions are listed in <url href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/qanda.html#qanda5">Appendix A</url> at the end of this book.</alert>
       </p>
     </exercise>
-  </section>
+  </exercises>
 
   <section xml:id="heterogeneity-summary">
     <title>Summary</title>
