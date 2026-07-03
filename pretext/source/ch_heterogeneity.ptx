@@ -205,6 +205,9 @@ lines(seq(0, 100, 0.01), dchisq(seq(0, 100, 0.01), df = df),
       <p>
         These are the plots that <em>R</em> draws for us:
       </p>
+    <figure>
+      <image source="images/unnamed-chunk-127-1.png"/>
+    </figure>
       <p>
         If you find the code we used to generate the plots difficult to understand, do not worry. We only used it for this simulation, and these are not plots one would produce as part of an actual meta-analysis.
       </p>
@@ -286,6 +289,10 @@ k &lt;- 40
 (Q_fixed[10] - (k-1))/Q_fixed[10]
         </code>
       </program>
+<pre>
+## [1] 35.85787
+## [1] -0.08762746
+</pre>
       <p>
         Since the result is negative, we round up to zero, resulting in <m>I^2</m> = 0%. This value tells us that zero percent of the variation in effect sizes is due to between-study heterogeneity. This is in line with the settings used for our simulation.
       </p>
@@ -297,6 +304,9 @@ k &lt;- 40
 (Q_random[10] - (k-1))/Q_random[10]
         </code>
       </program>
+<pre>
+## [1] 0.5692061
+</pre>
       <p>
         We see that the <m>I^2</m> value of this simulation is approximately 50%, meaning that about half of the variation is due to between-study heterogeneity. This is also in line with our expectations since the variation in this example is based, in equal parts, on the simulated sampling error and between-study heterogeneity.
       </p>
@@ -365,6 +375,10 @@ m.gen$TE.random
 m.gen$tau
         </code>
       </program>
+<pre>
+## [1] 0.5771158
+## [1] 0.2863311
+</pre>
       <p>
         We see that <m>g=</m> 0.58 and <m>\tau=</m> 0.29. Based on this data, we can calculate the lower and upper bound of the 95% true effect size confidence interval: 0.58 <m>-</m> 1.96 <m>\times</m> 0.29 = 0.01 and 0.58 <m>+</m> 1.96 <m>\times</m> 0.29 = 1.15.
       </p>
@@ -453,11 +467,12 @@ m.gen$tau
     <p>
       The formula for 95% prediction intervals looks like this:
     </p>
-    <p>
       <me>
-        \hat\mu &amp;\pm t_{K-1, 0.975}\sqrt{SE_{\hat\mu}^2+\hat\tau^2} \notag \ \hat\mu &amp;\pm t_{K-1, 0.975}SD_{\text{PI}}
+        \hat\mu \pm t_{K-1, 0.975}\sqrt{SE_{\hat\mu}^2+\hat\tau^2}
       </me>
-    </p>
+      <me>
+\hat\mu \pm t_{K-1, 0.975}SD_{\text{PI}}
+      </me>
     <p>
       All of <alert>{meta}</alert>'s functions can provide us with a prediction interval around the pooled effect, but they do not do so by default. When running a meta-analysis, we have to add the argument <c>prediction = TRUE</c> so that prediction intervals appear in the output.
     </p>
