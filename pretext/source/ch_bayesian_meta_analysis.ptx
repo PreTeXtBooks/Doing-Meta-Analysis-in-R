@@ -560,10 +560,10 @@ ggplot(aes(b_Intercept,
 
   </section>
 
-  <section xml:id="bayesian-ma-questions-answers">
+  <exercises xml:id="bayesian-ma-questions-answers">
     <title>Questions &amp; Answers</title>
 
-    <note>
+    <exercise>
       <p>
         <alert>Test your knowledge!</alert>
       </p>
@@ -597,8 +597,8 @@ ggplot(aes(b_Intercept,
       <p>
         <alert>Answers to these questions are listed in <url href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/qanda.html#qanda13">Appendix A</url> at the end of this book.</alert>
       </p>
-    </note>
-  </section>
+    </exercise>
+  </exercises>
 
   <section xml:id="bayesian-ma-summary">
     <title>Summary</title>
