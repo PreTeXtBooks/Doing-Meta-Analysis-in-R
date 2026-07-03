@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<appendix xml:id="appendix" xmlns:xi="http://www.w3.org/2001/XInclude">
+<appendix xml:id="appendix">
   <title>Appendix</title>
 
-  <section xml:id="qanda1">
+  <section xml:id="qanda">
+    <title>Questions &amp; Answers</title>
+
+    <subsection xml:id="qanda1">
     <title>Chapter 1: Introduction</title>
 
     <p>
@@ -39,7 +42,7 @@
       <alert>6. Name a few important sources that can be used to search studies.</alert>
     </p>
     <p>
-      Review articles, references in studies, "forward search" (searching for studies that have cited a relevant article), searching relevant journals, bibliographic database search. 
+      Review articles, references in studies, "forward search" (searching for studies that have cited a relevant article), searching relevant journals, bibliographic database search.
     </p>
     <p>
       <alert>7. Describe the difference between "study quality" and "risk of bias" in one or two sentences.</alert>
@@ -47,9 +50,9 @@
     <p>
       A study can fulfill all study quality criteria that are considered important in a research field and still have a high risk of bias (e.g. because bias is difficult to avoid for this type of study or research topic).
     </p>
-  </section>
+    </subsection>
 
-  <section xml:id="qanda2">
+    <subsection xml:id="qanda2">
     <title>Chapter 2: Discovering R</title>
 
     <p>
@@ -106,16 +109,16 @@ data %&gt;%
     exp()
       </code>
     </program>
-  </section>
+    </subsection>
 
-  <section xml:id="qanda3">
+    <subsection xml:id="qanda3">
     <title>Chapter 3: Effect Sizes</title>
 
     <p>
       <alert>1. Is there a clear definition of the term "effect size"? What do people refer to when they speak of effect sizes?</alert>
     </p>
     <p>
-      No, there is no universally accepted definition. Some reserve the term "effect size" for differences between intervention and control groups. Others use a more liberal definition, and only exclude "one-variable" measures (e.g. means and proportions). 
+      No, there is no universally accepted definition. Some reserve the term "effect size" for differences between intervention and control groups. Others use a more liberal definition, and only exclude "one-variable" measures (e.g. means and proportions).
     </p>
     <p>
       <alert>2. Name a primary reason why observed effect sizes deviate from the true effect size of the population. How can it be quantified?</alert>
@@ -159,9 +162,9 @@ data %&gt;%
     <p>
       When effect sizes in our data set are correlated (for example because they are part of the same study). The unit-of-analysis problem can be (partly or fully) avoided by (1) splitting the sample size of the shared group, (2) removing comparisons, (3) combining groups, or (4) using models that account for the effect size dependencies (e.g. three-level models).
     </p>
-  </section>
+    </subsection>
 
-  <section xml:id="qanda4">
+    <subsection xml:id="qanda4">
     <title>Chapter 4: Pooling Effect Sizes</title>
 
     <p>
@@ -186,7 +189,7 @@ data %&gt;%
       <alert>4. Which distribution is the Knapp-Hartung adjustment based on? What effect does it have?</alert>
     </p>
     <p>
-      It is based on a <m>t</m>-distribution. The Knapp-Hartung adjustment usually leads to more conservative (i.e. wider) confidence intervals. 
+      It is based on a <m>t</m>-distribution. The Knapp-Hartung adjustment usually leads to more conservative (i.e. wider) confidence intervals.
     </p>
     <p>
       <alert>5. What does "inverse-variance" pooling mean? When is this method not the best solution?</alert>
@@ -204,11 +207,11 @@ data %&gt;%
       <alert>7. For which outcome measures can GLMMs be used?</alert>
     </p>
     <p>
-      Proportions. It is also possible to use them for other binary outcome measures, but not generally recommended. 
+      Proportions. It is also possible to use them for other binary outcome measures, but not generally recommended.
     </p>
-  </section>
+    </subsection>
 
-  <section xml:id="qanda5">
+    <subsection xml:id="qanda5">
     <title>Chapter 5: Between-Study Heterogeneity</title>
 
     <p>
@@ -247,9 +250,9 @@ data %&gt;%
     <p>
       GOSH plots can be used to explore patterns of heterogeneity in our data, and which studies contribute to them.
     </p>
-  </section>
+    </subsection>
 
-  <section xml:id="qanda6">
+    <subsection xml:id="qanda6">
     <title>Chapter 6: Forest Plots</title>
 
     <p>
@@ -270,9 +273,9 @@ data %&gt;%
     <p>
       Forest plots can only show the confidence intervals of effects assuming a fixed significance threshold (usually <m>\alpha</m> = 0.05). Drapery plots can be used to show the confidence intervals (and thus the significance) of effect sizes for varying <m>p</m>-values.
     </p>
-  </section>
+    </subsection>
 
-  <section xml:id="qanda7">
+    <subsection xml:id="qanda7">
     <title>Chapter 7: Subgroup Analyses</title>
 
     <p>
@@ -291,7 +294,7 @@ data %&gt;%
       <alert>3. As part of your meta-analysis, you want to examine if the effect of an educational training program differs depending on the school district in which it was delivered. Is a subgroup analysis using the fixed-effects (plural) model appropriate to answer this question?</alert>
     </p>
     <p>
-      Probably not. It makes more sense to assume that the school districts represent draws from a larger population of districts, not all school districts there are. 
+      Probably not. It makes more sense to assume that the school districts represent draws from a larger population of districts, not all school districts there are.
     </p>
     <p>
       <alert>4. A friend of yours conducted a meta-analysis containing a total of nine studies. Five of these studies fall into one subgroup, four into the other. She asks you if it makes sense to perform a subgroup analysis. What would you recommend?</alert>
@@ -305,9 +308,9 @@ data %&gt;%
     <p>
       The finding is based a subgroup variable that has been created using aggregated study data. This may introduce ecological bias, and the results are therefore questionable.
     </p>
-  </section>
+    </subsection>
 
-  <section xml:id="qanda8">
+    <subsection xml:id="qanda8">
     <title>Chapter 8: Meta-Regression</title>
 
     <p>
@@ -352,9 +355,9 @@ data %&gt;%
     <p>
       We can conduct a permutation test or use multi-model inference.
     </p>
-  </section>
+    </subsection>
 
-  <section xml:id="qanda9">
+    <subsection xml:id="qanda9">
     <title>Chapter 9: Publication Bias</title>
 
     <p>
@@ -385,7 +388,7 @@ data %&gt;%
       <alert>5. When we find out that our data displays small-study effects, does this automatically mean that there is publication bias?</alert>
     </p>
     <p>
-      No. There are several other explanations why we find small-study effects, including between-study heterogeneity, effects of co-variates (e.g. treatment fidelity is higher in smaller studies), or chance. 
+      No. There are several other explanations why we find small-study effects, including between-study heterogeneity, effects of co-variates (e.g. treatment fidelity is higher in smaller studies), or chance.
     </p>
     <p>
       <alert>6. What does p-curve estimate: the true effect of all studies included in our meta-analysis, or just the true effect of all <em>significant</em> effect sizes?</alert>
@@ -399,16 +402,16 @@ data %&gt;%
     <p>
       No publication bias method consistently outperforms all the others. Therefore, it is helpful to apply several methods, and see if their results coalign.
     </p>
-  </section>
+    </subsection>
 
-  <section xml:id="qanda10">
+    <subsection xml:id="qanda10">
     <title>Chapter 10: "Multilevel" Meta-Analysis</title>
 
     <p>
       <alert>1. Why is it more accurate to speak of "three-level" instead of "multilevel" models?</alert>
     </p>
     <p>
-      Because the "conventional" random-effects model is already a multilevel model. It assumes that participants are nested within studies, and that the studies themselves are drawn from a population of true effect sizes. 
+      Because the "conventional" random-effects model is already a multilevel model. It assumes that participants are nested within studies, and that the studies themselves are drawn from a population of true effect sizes.
     </p>
     <p>
       <alert>2. When are three-level meta-analysis models useful?</alert>
@@ -434,9 +437,9 @@ data %&gt;%
     <p>
       By integrating a fixed-effect term to the model formula.
     </p>
-  </section>
+    </subsection>
 
-  <section xml:id="qanda11">
+    <subsection xml:id="qanda11">
     <title>Chapter 11: Structural Equation Modeling Meta-Analysis</title>
 
     <p>
@@ -449,7 +452,7 @@ data %&gt;%
       <alert>2. What are the two ways through which SEM can be represented?</alert>
     </p>
     <p>
-      SEM can be represented graphically or through matrices. 
+      SEM can be represented graphically or through matrices.
     </p>
     <p>
       <alert>3. Describe a random-effects meta-analysis from a SEM perspective.</alert>
@@ -461,17 +464,17 @@ data %&gt;%
       <alert>4. What is a multivariate meta-analysis, and when is it useful?</alert>
     </p>
     <p>
-      Multivariate meta-analysis allows to simultaneously pool two (or more) outcomes of studies. An asset of jointly estimating the two outcome variables is that the correlation between outcomes can be taken into account. 
+      Multivariate meta-analysis allows to simultaneously pool two (or more) outcomes of studies. An asset of jointly estimating the two outcome variables is that the correlation between outcomes can be taken into account.
     </p>
     <p>
       <alert>5. When we find that our proposed meta-analytic SEM fits the data well, does this automatically mean that this model is the "correct" one?</alert>
     </p>
     <p>
-      No. Frequently, there is more than one model that fits the data well. 
+      No. Frequently, there is more than one model that fits the data well.
     </p>
-  </section>
+    </subsection>
 
-  <section xml:id="qanda12">
+    <subsection xml:id="qanda12">
     <title>Chapter 12: Network Meta-Analysis</title>
 
     <p>
@@ -484,7 +487,7 @@ data %&gt;%
       <alert>2. What is the difference between direct and indirect evidence in a treatment network? How can direct evidence be used to generate indirect evidence?</alert>
     </p>
     <p>
-      Direct evidence is information provided by comparisons that have actually been investigated in the included studies. Indirect evidence is derived from direct evidence by subtracting the effect of one (directly observed) comparison from the one of a related comparison (e.g. a comparison that used the same control group). 
+      Direct evidence is information provided by comparisons that have actually been investigated in the included studies. Indirect evidence is derived from direct evidence by subtracting the effect of one (directly observed) comparison from the one of a related comparison (e.g. a comparison that used the same control group).
     </p>
     <p>
       <alert>3. What is the main idea behind the assumption of transitivity in network meta-analyses?</alert>
@@ -514,11 +517,11 @@ data %&gt;%
       <alert>7. What do we have to keep in mind when interpreting the P- or SUCRA score of different treatments?</alert>
     </p>
     <p>
-      That the effect estimates of different treatments often overlap. This means that P-/SUCRA scores should always be interpreted with some caution. 
+      That the effect estimates of different treatments often overlap. This means that P-/SUCRA scores should always be interpreted with some caution.
     </p>
-  </section>
+    </subsection>
 
-  <section xml:id="qanda13">
+    <subsection xml:id="qanda13">
     <title>Chapter 13: Bayesian Meta-Analysis</title>
 
     <p>
@@ -537,7 +540,7 @@ data %&gt;%
       <alert>3. Explain the difference between a weakly informative and non-informative prior.</alert>
     </p>
     <p>
-      Non-informative priors assume that all or a range of possible values are equally likely. Weakly informative priors represent a <alert>weak</alert> belief that some values are more probable than others. 
+      Non-informative priors assume that all or a range of possible values are equally likely. Weakly informative priors represent a <alert>weak</alert> belief that some values are more probable than others.
     </p>
     <p>
       <alert>4. What is a Half-Cauchy distribution, and why is it useful for Bayesian meta-analysis?</alert>
@@ -549,37 +552,369 @@ data %&gt;%
       <alert>5. What is an ECDF, and how can it be used in Bayesian meta-analyses?</alert>
     </p>
     <p>
-      ECDF stands for <alert>empirical cumulative distribution function</alert>. ECDFs based on the posterior distribution of <m>\mu</m> (or <m>\tau</m>) can be used to determine the (cumulative) probability that the estimated parameter is below or above some specified threshold. 
+      ECDF stands for <alert>empirical cumulative distribution function</alert>. ECDFs based on the posterior distribution of <m>\mu</m> (or <m>\tau</m>) can be used to determine the (cumulative) probability that the estimated parameter is below or above some specified threshold.
     </p>
+    </subsection>
+
+  </section>
+
+  <section xml:id="formula">
+    <title>Effect Size Formulas</title>
+
+    <table xml:id="tab-effect-size-formulas">
+      <title>Effect size formulas used throughout this book.</title>
+      <tabular>
+        <row header="yes">
+          <cell/>
+          <cell>Effect Size (<m>\hat\theta</m>)</cell>
+          <cell>Standard Error (SE)</cell>
+          <cell>Function</cell>
+        </row>
+        <row>
+          <cell><xref ref="means">Arithmetic Mean</xref></cell>
+          <cell><m>\bar{x} = \dfrac{\sum^{n}_{i=1}x_i}{n}</m></cell>
+          <cell><m>\text{SE}_{\bar{x}} = \dfrac{s}{\sqrt{n}}</m></cell>
+          <cell><c>mean</c></cell>
+        </row>
+        <row>
+          <cell><xref ref="props">Proportion</xref></cell>
+          <cell><m>p = \dfrac{k}{n}</m></cell>
+          <cell><m>\text{SE}_{p} = \sqrt{\dfrac{p(1-p)}{n}}</m></cell>
+          <cell/>
+        </row>
+        <row>
+          <cell><xref ref="props">Proportion</xref></cell>
+          <cell><m>p_{\text{logit}} = \log_{e}\left(\dfrac{p}{1-p}\right)</m></cell>
+          <cell><m>\text{SE}_{p_{\text{logit}}} = \sqrt{\dfrac{1}{np}+\dfrac{1}{n(1-p)}}</m></cell>
+          <cell/>
+        </row>
+        <row>
+          <cell colspan="4"><alert>Correlation</alert></cell>
+        </row>
+        <row>
+          <cell><xref ref="pearson-cors">Product-Moment Correlation</xref></cell>
+          <cell><m>r_{xy} = \dfrac{\sigma^{2}_{xy}}{\sigma_x \sigma_y}</m></cell>
+          <cell><m>SE_{r_{xy}} = \frac{1-r_{xy}^2}{\sqrt{n-2}}</m></cell>
+          <cell><c>cor</c></cell>
+        </row>
+        <row>
+          <cell><xref ref="pearson-cors">Product-Moment Correlation</xref></cell>
+          <cell><m>z = 0.5\log_{e}\left(\dfrac{1+r}{1-r}\right)</m></cell>
+          <cell><m>\text{SE}_{z} = \dfrac{1}{\sqrt{n-3}}</m></cell>
+          <cell/>
+        </row>
+        <row>
+          <cell><xref ref="pb-cors">Point-Biserial Correlation</xref></cell>
+          <cell><m>{r_{\text{pb}}}= \dfrac{(\bar{y_1}-\bar{y_2})\sqrt{\dfrac{n_1}{N}\left(1-\dfrac{n_1}{N}\right)}}{s_y}</m></cell>
+          <cell/>
+          <cell><c>cor</c></cell>
+        </row>
+        <row>
+          <cell colspan="4"><alert>(Standardized) Mean Difference</alert></cell>
+        </row>
+        <row>
+          <cell><xref ref="b-group-md">Between-Group Mean Difference</xref></cell>
+          <cell><m>\text{MD} = \bar{x}_1 - \bar{x}_2</m></cell>
+          <cell><m>\text{SE}_{\text{MD}} = {s_{\text{pooled}}}^*\sqrt{\dfrac{1}{n_1}+\dfrac{1}{n_2}}</m></cell>
+          <cell/>
+        </row>
+        <row>
+          <cell><xref ref="b-group-smd">Between-Group Standardized Mean Difference</xref></cell>
+          <cell><m>\text{SMD} = \dfrac{\bar{x}_1 - \bar{x}_2}{{s_{\text{pooled}}}^*}</m></cell>
+          <cell><m>\text{SE}_{\text{SMD}} = \sqrt{\dfrac{n_1+n_2}{n_1n_2} + \dfrac{\text{SMD}^2_{\text{between}}}{2(n_1+n_2)}}</m></cell>
+          <cell><c>esc_mean_sd</c></cell>
+        </row>
+        <row>
+          <cell><xref ref="w-group-smd">Within-Group Mean Difference</xref></cell>
+          <cell><m>\text{MD} = \bar{x}_{t_2} - \bar{x}_{t_1}</m></cell>
+          <cell><m>SE_{\text{MD}}=\sqrt{\dfrac{s^2_{\text{t}_{\text{2}}}+s^2_{\text{t}_{\text{1}}}-(2r_{\text{t}_{\text{1}}\text{t}_{\text{2}}}s_{\text{t}_{\text{1}}}s_{\text{t}_{\text{2}}})}{n}}</m></cell>
+          <cell/>
+        </row>
+        <row>
+          <cell><xref ref="w-group-smd">Within-Group Standardized Mean Difference</xref></cell>
+          <cell><m>\text{SMD}= \dfrac{\bar{x}_{t_2} - \bar{x}_{t_1}}{s_{\text{t}_1}}</m></cell>
+          <cell><m>\text{SE}_{\text{SMD}} = \sqrt{\dfrac{2(1-r_{t_1t_2})}{n}+\dfrac{\text{SMD}^2_{\text{within}}}{2n}}</m></cell>
+          <cell/>
+        </row>
+        <row>
+          <cell colspan="4"><alert>Binary Outcome Effect Size</alert></cell>
+        </row>
+        <row>
+          <cell><xref ref="rr">Risk Ratio</xref></cell>
+          <cell><m>{p_{e}}_{\text{treat}} =\dfrac{a}{n_{\text{treat}}}</m></cell>
+          <cell><m>\text{SE}_{\log \text{RR}} = \sqrt{\dfrac{1}{a}+\dfrac{1}{c} - \dfrac{1}{a+b} - \dfrac{1}{c+d}}</m></cell>
+          <cell/>
+        </row>
+        <row>
+          <cell><xref ref="rr">Risk Ratio</xref></cell>
+          <cell><m>{p_{e}}_{\text{control}} = \dfrac{c}{n_{\text{control}}}</m></cell>
+          <cell/>
+          <cell/>
+        </row>
+        <row>
+          <cell><xref ref="rr">Risk Ratio</xref></cell>
+          <cell><m>\text{RR} = \dfrac{{p_{e}}_{\text{treat}}}{{p_{e}}_{\text{control}}}</m></cell>
+          <cell/>
+          <cell/>
+        </row>
+        <row>
+          <cell><xref ref="rr">Risk Ratio</xref></cell>
+          <cell><m>\log \text{RR}  = \log_{e}(\text{RR})</m></cell>
+          <cell/>
+          <cell/>
+        </row>
+        <row>
+          <cell><xref ref="or">Odds Ratio</xref></cell>
+          <cell><m>\text{Odds}_{\text{treat}} = \dfrac{a}{b}</m></cell>
+          <cell><m>\text{SE}_{\log \text{OR}}  = \sqrt{\dfrac{1}{a}+\dfrac{1}{b}+\dfrac{1}{c}+\dfrac{1}{d}}</m></cell>
+          <cell><c>esc_2x2</c></cell>
+        </row>
+        <row>
+          <cell><xref ref="or">Odds Ratio</xref></cell>
+          <cell><m>\text{Odds}_{\text{control}} = \dfrac{c}{d}</m></cell>
+          <cell/>
+          <cell/>
+        </row>
+        <row>
+          <cell><xref ref="or">Odds Ratio</xref></cell>
+          <cell><m>\text{OR} = \dfrac{a/b}{c/d}</m></cell>
+          <cell/>
+          <cell/>
+        </row>
+        <row>
+          <cell><xref ref="or">Odds Ratio</xref></cell>
+          <cell><m>\log \text{OR}  = \log_{e}(\text{OR})</m></cell>
+          <cell/>
+          <cell/>
+        </row>
+        <row>
+          <cell><xref ref="irr">Incidence Rate Ratio</xref></cell>
+          <cell><m>\text{IRR} = \dfrac{ E_{\text{treat}}/T_{\text{treat}} }{E_{\text{control}}/T_{\text{control}}}</m></cell>
+          <cell><m>\text{SE}_{\log \text{IRR}} = \sqrt{\dfrac{1}{E_{\text{treat}}}+\dfrac{1}{E_{\text{control}}}}</m></cell>
+          <cell/>
+        </row>
+        <row>
+          <cell><xref ref="irr">Incidence Rate Ratio</xref></cell>
+          <cell><m>\log \text{IRR} = \log_{e}(\text{IRR})</m></cell>
+          <cell/>
+          <cell/>
+        </row>
+        <row>
+          <cell colspan="4"><alert>Effect Size Correction</alert></cell>
+        </row>
+        <row>
+          <cell><xref ref="hedges-g">Small Sample Bias</xref></cell>
+          <cell><m>g = \text{SMD} \times \left(1-\dfrac{3}{4n-9}\right)</m></cell>
+          <cell/>
+          <cell><c>hedges_g</c></cell>
+        </row>
+        <row>
+          <cell><xref ref="unrealiable">Unreliability</xref></cell>
+          <cell><m>{r_{xy}}_{c} = \dfrac{r_{xy}}{\sqrt{r_{xx}}}</m></cell>
+          <cell><m>\text{SE}_c = \dfrac{\text{SE}}{\sqrt{r_{xx}}}</m></cell>
+          <cell/>
+        </row>
+        <row>
+          <cell><xref ref="unrealiable">Unreliability</xref></cell>
+          <cell><m>{r_{xy}}_{c} = \dfrac{r_{xy}}{\sqrt{r_{xx}}\sqrt{r_{yy}}}</m></cell>
+          <cell><m>\text{SE}_c = \dfrac{\text{SE}}{\sqrt{r_{xx}}\sqrt{r_{yy}}}</m></cell>
+          <cell/>
+        </row>
+        <row>
+          <cell><xref ref="unrealiable">Unreliability</xref></cell>
+          <cell><m>\text{SMD}_c = \dfrac{\text{SMD}}{\sqrt{r_{xx}}}</m></cell>
+          <cell/>
+          <cell/>
+        </row>
+        <row>
+          <cell><xref ref="range">Range Restriction</xref></cell>
+          <cell><m>\text{U} =  \dfrac{s_{\text{unrestricted}}}{s_{\text{restricted}}}</m></cell>
+          <cell><m>\text{SE}_{{r_{xy}}_c} = \dfrac{{r_{xy}}_c}{r_{xy}}\text{SE}_{r_{xy}}</m></cell>
+          <cell/>
+        </row>
+        <row>
+          <cell><xref ref="range">Range Restriction</xref></cell>
+          <cell><m>{r_{xy}}_c = \dfrac{\text{U}\times r_{xy}}{\sqrt{(\text{U}^2-1)r_{xy}^2+1}}</m></cell>
+          <cell/>
+          <cell/>
+        </row>
+        <row>
+          <cell><xref ref="range">Range Restriction</xref></cell>
+          <cell><m>\text{SMD}_c = \dfrac{\text{U}\times \text{SMD}}{\sqrt{(\text{U}^2-1)\text{SMD}^2+1}}</m></cell>
+          <cell><m>\text{SE}_{{\text{SMD}}_c} = \dfrac{{\text{SMD}}_c}{\text{SMD}}\text{SE}_{\text{SMD}}</m></cell>
+          <cell/>
+        </row>
+      </tabular>
+    </table>
     <p>
-      \qed
+      Point-biserial correlations may be converted to SMDs for meta-analysis (see <xref ref="pb-cors"/>). The pooled standard deviation used for the between-group mean difference and standardized mean difference is defined as <m>s_{\text{pooled}} = \sqrt{\dfrac{(n_1-1)s^2_1+(n_2-1)s^2_2}{(n_1-1)+(n_2-1)}}</m>.
     </p>
+  </section>
+
+  <section xml:id="symbollist">
+    <title>List of Symbols</title>
+
     <p>
-      \renewcommand{\arraystretch}{2}
+      The following symbols and abbreviations are used throughout this book.
     </p>
-    <p>
-      \renewcommand{\arraystretch}{1}
-    </p>
+
+    <table xml:id="tab-symbols">
+      <title>Symbols and abbreviations used throughout this book.</title>
+      <tabular>
+        <row header="yes">
+          <cell>Symbol</cell>
+          <cell>Meaning</cell>
+          <cell>Symbol</cell>
+          <cell>Meaning</cell>
+        </row>
+        <row>
+          <cell><m>a,b,c,d</m></cell>
+          <cell>Events in the treatment group, non-events in the treatment group, events in the control group, non-events in the control group.</cell>
+          <cell><m>\beta_0, \beta_1, \beta</m></cell>
+          <cell>Regression intercept, regression coefficient, Type II error rate.</cell>
+        </row>
+        <row>
+          <cell><m>c_{\alpha}</m></cell>
+          <cell>Critical value assumed for the Type I error rate <m>\alpha</m> (typically 1.96).</cell>
+          <cell><m>\mathcal{HC}(x_0,s)</m></cell>
+          <cell>Half-Cauchy distribution with location parameter <m>x_0</m> and scaling parameter <m>s</m>.</cell>
+        </row>
+        <row>
+          <cell><m>\chi^2</m></cell>
+          <cell>Chi-squared statistic.</cell>
+          <cell><m>\text{Cov}(x,y)</m></cell>
+          <cell>Covariance of <m>x</m> and <m>y</m>.</cell>
+        </row>
+        <row>
+          <cell><m>d</m></cell>
+          <cell>Cohen's <m>d</m> (standardized mean difference).</cell>
+          <cell><m>D_g</m></cell>
+          <cell>Regression dummy.</cell>
+        </row>
+        <row>
+          <cell><m>\delta</m></cell>
+          <cell>Non-centrality parameter (non-central <m>t</m> distribution).</cell>
+          <cell>d.f.</cell>
+          <cell>Degrees of freedom.</cell>
+        </row>
+        <row>
+          <cell><m>\epsilon</m></cell>
+          <cell>Sampling error.</cell>
+          <cell><m>F</m></cell>
+          <cell>Snedecor's <m>F</m> statistic (used by the <m>F</m>-tests in ANOVAs).</cell>
+        </row>
+        <row>
+          <cell><m>g</m></cell>
+          <cell>Small sample bias-corrected standardized mean difference (Hedges' <m>g</m>).</cell>
+          <cell><m>I^2</m></cell>
+          <cell>Higgins' and Thompson's <m>I^2</m> measure of heterogeneity (percentage of variation not attributable to sampling error).</cell>
+        </row>
+        <row>
+          <cell><m>\int f(x) dx</m></cell>
+          <cell>Integral of <m>f(x)</m>.</cell>
+          <cell><m>k,K</m></cell>
+          <cell>Some study in a meta-analysis, total number of studies in a meta-analysis.</cell>
+        </row>
+        <row>
+          <cell><m>\kappa</m></cell>
+          <cell>True effect of an effect size cluster.</cell>
+          <cell><m>MD</m>, <m>SMD</m></cell>
+          <cell>(Standardized) mean difference (Cohen's <m>d</m>).</cell>
+        </row>
+        <row>
+          <cell><m>\bar{x}</m></cell>
+          <cell>Arithmetic mean (based on an observed sample), identical to <m>m</m>.</cell>
+          <cell><m>\mu, m</m></cell>
+          <cell>(True) population mean, sample mean.</cell>
+        </row>
+        <row>
+          <cell><m>n,N</m></cell>
+          <cell>(Total) sample size of a study.</cell>
+          <cell><m>\mathcal{N}(\mu, \sigma^2)</m></cell>
+          <cell>Normal distribution with population mean <m>\mu</m> and variance <m>\sigma^2</m>.</cell>
+        </row>
+        <row>
+          <cell><m>\Phi(z)</m></cell>
+          <cell>Cumulative distribution function (CDF), where <m>z</m> follows a standard normal distribution.</cell>
+          <cell><m>\pi, p</m></cell>
+          <cell>True population proportion, proportion based on an observed sample.</cell>
+        </row>
+        <row>
+          <cell><m>P(\text{X}|\text{Y})</m></cell>
+          <cell>Conditional probability of X given Y.</cell>
+          <cell><m>\hat\psi</m></cell>
+          <cell>(Estimate of) Peto's odds ratio, or some other binary effect size.</cell>
+        </row>
+        <row>
+          <cell><m>Q</m></cell>
+          <cell>Cochran's <m>Q</m> measure of heterogeneity.</cell>
+          <cell><m>RR</m>, <m>OR</m>, <m>IRR</m></cell>
+          <cell>Risk ratio, odds ratio, incidence rate ratio.</cell>
+        </row>
+        <row>
+          <cell><m>\hat{R}</m></cell>
+          <cell>R-hat value in Bayesian modeling.</cell>
+          <cell><m>R^2_*</m></cell>
+          <cell><m>R^2</m> (explained variance) analog for meta-regression models.</cell>
+        </row>
+        <row>
+          <cell><m>\rho, r</m></cell>
+          <cell>True population correlation, observed correlation.</cell>
+          <cell><m>SE</m></cell>
+          <cell>Standard error</cell>
+        </row>
+        <row>
+          <cell><m>\sigma^2</m></cell>
+          <cell>(True) population variance.</cell>
+          <cell><m>t</m></cell>
+          <cell>Student's <m>t</m> statistic.</cell>
+        </row>
+        <row>
+          <cell><m>\tau^2, \tau</m></cell>
+          <cell>True heterogeneity variance and standard deviation.</cell>
+          <cell><m>\theta</m></cell>
+          <cell>A true effect size, or the true value of an outcome measure.</cell>
+        </row>
+        <row>
+          <cell><m>V</m>, <m>v</m>, <m>s^2</m>, <m>\widehat{\text{Var}}(x)</m></cell>
+          <cell>Sample variance (of <m>x</m>), where <m>s</m> is the standard deviation.</cell>
+          <cell><m>w</m>, <m>w^*</m>, <m>w(x)</m></cell>
+          <cell>(Inverse-variance) weight, random-effects weight of an effect size, function that assigns weights to <m>x</m>.</cell>
+        </row>
+        <row>
+          <cell><m>z</m></cell>
+          <cell>Fisher's <m>z</m> or <m>z</m>-score.</cell>
+          <cell><m>\zeta, u</m></cell>
+          <cell>"Error" due to between-study heterogeneity, random effect in (meta-)regression models.</cell>
+        </row>
+      </tabular>
+    </table>
+
     <p>
       <alert>Note.</alert> Vectors and matrices are written in <alert>bold</alert>. For example, we can denote all observed effect sizes in a meta-analysis with a vector <m>\boldsymbol{\hat\theta} = (\hat\theta_1, \hat\theta_2, \dots, \hat\theta_K)^\top</m>, where <m>K</m> is the total number of studies. The <m>\top</m> symbol indicates that the vector is <alert>transposed</alert>. This means that elements in the vector are arranged vertically instead of horizontally. This is sometimes necessary to do further operations with the vector, for example multiplying it with another matrix.
     </p>
+  </section>
+
+  <section xml:id="attr">
+    <title><em>R</em> &amp; Package Information</title>
+
     <p>
       This book was compiled using <em>R</em> version 4.2.0 ("Vigorous Calisthenics", 2022-04-22) running under macOS Catalina 10.15.4 (Apple Darwin 17.0 64-bit x86-64). The following package versions are used in the book:
     </p>
     <program language="r">
       <code>
 brms 2.18.0                 clubSandwich 0.5.6
-dmetar 0.0.9000             dplyr 1.0.10             
-esc 0.5.1                   extraDistr 1.9.1            
-forcats 0.5.1               gemtc 0.8-6                 
-ggplot2 3.3.5               ggridges 0.5.2              
-glue 1.4.1                  igraph 1.2.5                
-meta 6.1.0                  metafor 3.8.1              
-metaSEM 1.3.0               metasens 1.5.1              
-netmeta 2.1.0               openxlsx 4.2.5              
-osfr 0.2.8                  PerformanceAnalytics 2.0.4  
-rjags 4-10                  robvis 0.3.0                
-semPlot 1.1.5               stringr 1.4.0               
+dmetar 0.0.9000             dplyr 1.0.10
+esc 0.5.1                   extraDistr 1.9.1
+forcats 0.5.1               gemtc 0.8-6
+ggplot2 3.3.5               ggridges 0.5.2
+glue 1.4.1                  igraph 1.2.5
+meta 6.1.0                  metafor 3.8.1
+metaSEM 1.3.0               metasens 1.5.1
+netmeta 2.1.0               openxlsx 4.2.5
+osfr 0.2.8                  PerformanceAnalytics 2.0.4
+rjags 4-10                  robvis 0.3.0
+semPlot 1.1.5               stringr 1.4.0
 tidybayes 2.1.1             tidyverse 1.3.1
 wildmeta 0.1.0
       </code>
@@ -589,7 +924,7 @@ wildmeta 0.1.0
     </p>
     <program language="r">
       <code>
-base 4.2.0        datasets 4.2.0    graphics 4.2.0     
+base 4.2.0        datasets 4.2.0    graphics 4.2.0
 grDevices 4.2.0   methods 4.2.0     stats 4.2.0
 utils 4.2.0
       </code>
@@ -609,98 +944,98 @@ utils 4.2.0
       <alert>Attributions</alert>
     </p>
     <p>
-      <xref ref="fig-eysenck"/>: Sirswindon at <url href="https://commons.wikimedia.org/wiki/File:Hans.Eysenck.jpg">English Wikipedia</url>, <url href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</url>, via Wikimedia Commons. Desaturated from original. 
+      <xref ref="fig-eysenck"/>: Sirswindon at <url href="https://commons.wikimedia.org/wiki/File:Hans.Eysenck.jpg">English Wikipedia</url>, <url href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</url>, via Wikimedia Commons. Desaturated from original.
     </p>
-    <note>
+  </section>
+
+  <section xml:id="corrections">
+    <title>Corrections &amp; Remarks</title>
+
+    <introduction>
+      <note>
+        <p>
+          Errata and remarks concerning the first edition print version of the book are displayed here.
+        </p>
+      </note>
       <p>
-        Errata and remarks concerning the first edition print version of the book are displayed here.
+        Last updated: <today/>.
       </p>
-    </note>
-    <p>
-      Last updated: <c>r format(Sys.time(), '%d %B, %Y')</c>.
-    </p>
-  </section>
+    </introduction>
 
-  <section xml:id="chapter-333">
-    <title>Chapter 3.3.3</title>
+    <subsection xml:id="chapter-333">
+      <title>Chapter 3.3.3</title>
 
-    <p>
-      In the imaginary experiment in Figure 3.4, four participants experience the event during the 10-year observation period. In the calculation example, however, we use <m>E=3</m> to calculate the incidence rate. In the online version, we have now corrected this so that <m>E=4</m>, like in the experiment.
-    </p>
-  </section>
+      <p>
+        In the imaginary experiment in Figure 3.4, four participants experience the event during the 10-year observation period. In the calculation example, however, we use <m>E=3</m> to calculate the incidence rate. In the online version, we have now corrected this so that <m>E=4</m>, like in the experiment.
+      </p>
+    </subsection>
 
-  <section xml:id="chapter-42">
-    <title>Chapter 4.2</title>
+    <subsection xml:id="chapter-42">
+      <title>Chapter 4.2</title>
 
-    <p>
-      A new version of <alert>{meta}</alert> (version 5.0-0) has recently been released. We adapted the code in this chapter accordingly to avoid deprecation messages:
-    </p>
-    <ul>
-      <li>
-        <p>
-          The <c>comb.fixed</c> and <c>comb.random</c> arguments are now called <c>fixed</c> and <c>random</c>, respectively.
-        </p>
-      </li>
-      <li>
-        <p>
-          To print all studies, one now has to use <c>summary</c> method for <alert>{meta}</alert> meta-analysis objects.
-        </p>
-      </li>
-    </ul>
-    <p>
-      In the latest version of <alert>{meta}</alert> (version 7.0-0), calls to <c>update.meta</c> now need to be replaced with <c>update</c>. If <c>meta</c> models have been fitted using the deprecated <c>hakn</c> argument, <c>update</c> will now produce an error message. We have therefore changed this to the new <c>method.random.ci</c> argument throughout the guide. This applies to all meta-analysis functions, e.g., <c>metagen</c>, <c>metabin</c>, <c>metacor</c>, etc.
-    </p>
-  </section>
+      <p>
+        A new version of <alert>{meta}</alert> (version 5.0-0) has recently been released. We adapted the code in this chapter accordingly to avoid deprecation messages:
+      </p>
+      <ul>
+        <li>
+          <p>
+            The <c>comb.fixed</c> and <c>comb.random</c> arguments are now called <c>fixed</c> and <c>random</c>, respectively.
+          </p>
+        </li>
+        <li>
+          <p>
+            To print all studies, one now has to use <c>summary</c> method for <alert>{meta}</alert> meta-analysis objects.
+          </p>
+        </li>
+      </ul>
+      <p>
+        In the latest version of <alert>{meta}</alert> (version 7.0-0), calls to <c>update.meta</c> now need to be replaced with <c>update</c>. If <c>meta</c> models have been fitted using the deprecated <c>hakn</c> argument, <c>update</c> will now produce an error message. We have therefore changed this to the new <c>method.random.ci</c> argument throughout the guide. This applies to all meta-analysis functions, e.g., <c>metagen</c>, <c>metabin</c>, <c>metacor</c>, etc.
+      </p>
+    </subsection>
 
-  <section xml:id="chapter-73">
-    <title>Chapter 7.3</title>
+    <subsection xml:id="chapter-73">
+      <title>Chapter 7.3</title>
 
-    <p>
-      A new version of <alert>{meta}</alert> (version 5.0-0) has recently been released. We adapted the code in this chapter accordingly to avoid deprecation messages:
-    </p>
-    <ul>
-      <li>
-        <p>
-          The <c>byvar</c> argument is now called <c>subgroup</c>.
-        </p>
-      </li>
-      <li>
-        <p>
-          To print all studies, one now has to use <c>summary</c> method for <alert>{meta}</alert> meta-analysis objects.
-        </p>
-      </li>
-    </ul>
-  </section>
+      <p>
+        A new version of <alert>{meta}</alert> (version 5.0-0) has recently been released. We adapted the code in this chapter accordingly to avoid deprecation messages:
+      </p>
+      <ul>
+        <li>
+          <p>
+            The <c>byvar</c> argument is now called <c>subgroup</c>.
+          </p>
+        </li>
+        <li>
+          <p>
+            To print all studies, one now has to use <c>summary</c> method for <alert>{meta}</alert> meta-analysis objects.
+          </p>
+        </li>
+      </ul>
+    </subsection>
 
-  <section xml:id="chapter-1221">
-    <title>Chapter 12.2.1</title>
+    <subsection xml:id="chapter-1221">
+      <title>Chapter 12.2.1</title>
 
-    <p>
-      The print version contains a factual error concerning the definition of full rank in non-square (rectangular) matrices. It is stated that a "matrix is not of full rank when its rows are not all independent". This, however, only applies to square matrices and non-square matrices with less rows than columns (<m>m &lt; n</m>). In our example, there are more rows than columns; this means that <m>\boldsymbol{X}</m> is not full rank because its <alert>columns</alert> are not all independent (in <m>m > n</m> matrices, rows are always linearly dependent). This erratum has been corrected in the online version. 
-    </p>
-  </section>
+      <p>
+        The print version contains a factual error concerning the definition of full rank in non-square (rectangular) matrices. It is stated that a "matrix is not of full rank when its rows are not all independent". This, however, only applies to square matrices and non-square matrices with less rows than columns (<m>m &lt; n</m>). In our example, there are more rows than columns; this means that <m>\boldsymbol{X}</m> is not full rank because its <alert>columns</alert> are not all independent (in <m>m > n</m> matrices, rows are always linearly dependent). This erratum has been corrected in the online version.
+      </p>
+    </subsection>
 
-  <section xml:id="chapter-1222">
-    <title>Chapter 12.2.2</title>
+    <subsection xml:id="chapter-1222">
+      <title>Chapter 12.2.2</title>
 
-    <p>
-      A new version of <alert>{netmeta}</alert> (version 2.0-0) has recently been released. We adapted the code in this chapter accordingly to avoid error messages:
-    </p>
-    <ul>
-      <li>
-        <p>
-          The latest version of <alert>{netmeta}</alert> resulted in non-convergence of the Fisher scoring algorithm implemented in <c>rma.mv</c>. This problem pertains to all versions of <alert>{dmetar}</alert> installed before 24-Oct-2021. To avoid the issue, simply <url href="https://dmetar.protectlab.org/#installation">reinstall the lastest version of <alert>{dmetar}</alert></url>.
-        </p>
-      </li>
-    </ul>
-  </section>
+      <p>
+        A new version of <alert>{netmeta}</alert> (version 2.0-0) has recently been released. We adapted the code in this chapter accordingly to avoid error messages:
+      </p>
+      <ul>
+        <li>
+          <p>
+            The latest version of <alert>{netmeta}</alert> resulted in non-convergence of the Fisher scoring algorithm implemented in <c>rma.mv</c>. This problem pertains to all versions of <alert>{dmetar}</alert> installed before 24-Oct-2021. To avoid the issue, simply <url href="https://dmetar.protectlab.org/#installation">reinstall the lastest version of <alert>{dmetar}</alert></url>.
+          </p>
+        </li>
+      </ul>
+    </subsection>
 
-
-  <section xml:id="symbollist">
-    <title>List of Symbols</title>
-    <p>
-      The following symbols and abbreviations are used throughout this book.
-    </p>
   </section>
 
 </appendix>

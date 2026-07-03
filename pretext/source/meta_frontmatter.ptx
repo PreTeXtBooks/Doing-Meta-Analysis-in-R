@@ -40,7 +40,7 @@
     </p>
   </abstract>
 
+  <xi:include href="./fm_welcome.ptx" />
   <xi:include href="./fm_preface.ptx" />
   <xi:include href="./fm_about_authors.ptx" />
-  <xi:include href="./fm_welcome.ptx" />
 </frontmatter>

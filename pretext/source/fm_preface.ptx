@@ -41,23 +41,15 @@
     <p>
       As it says in the title, our book focuses on the "doing" part of meta-analysis. Our guide aims to be an accessible resource which meets the needs of applied researchers, students and data scientists who want to get going with their analyses using <em>R</em>. Meta-analysis, however, is a vast and multi-faceted topic, so it is natural that not everything can be covered in this guide. For this book, limitations particularly pertain to three areas:
     </p>
-    <ul>
-      <li>
-        <p>
-          Although we provide a short primer on these topics, we do not cover <alert>in detail</alert> how to define research questions, systematically search and include studies for your meta-analysis, as well as how to assess their quality. Each of these topics merits books of their own, and luckily many helpful resources already exist. We therefore only give an overview of important considerations and pitfalls when collecting the data for your meta-analysis, and will refer you to adequate resources dealing with the nitty-gritty details.
-        </p>
-      </li>
-      <li>
-        <p>
-          The second limitation of this guide pertains to its level of technicality. This book is decidedly written for "mortals". We aim to show you when, how and why to apply certain meta-analytic techniques, along with their pitfalls. We also try to provide an easily accessible, conceptual understanding of the techniques we cover, resorting to more technical details only if it benefits this mission. Quite naturally, this means that some parts of the guide will not contain a deep dive into technicalities that expert-level meta-analysts and statisticians may desire. Nevertheless, we include references to more advanced resources and publications in each chapter for the interested reader.
-        </p>
-      </li>
-      <li>
-        <p>
-          Contents of a book will always to some extent reflect the background and experience of its authors. We are confident that the methods we cover here are applicable and relevant to a vast range of research areas and disciplines. Nevertheless, we wanted to disclose that the four authors of this book are primarily versed in current research in psychology, psychiatry, medicine, and intervention research. "Real-world" use cases and examples we cover in the book therefore concentrate on topics where we know our way around. The good news is that meta-analytic methods (provided some assumptions, which we will cover) are largely agnostic to the research field from which data stem from, and can be used for various types of outcome measures. Nonetheless, and despite our best intentions to make this guide as broadly applicable to as many applied research disciplines as possible, it may still be possible that some of the methods covered in this book are more relevant for some research areas than others.
-        </p>
-      </li>
-    </ul>
+    <p>
+      Although we provide a short primer on these topics, we do not cover <alert>in detail</alert> how to define research questions, systematically search and include studies for your meta-analysis, as well as how to assess their quality. Each of these topics merits books of their own, and luckily many helpful resources already exist. We therefore only give an overview of important considerations and pitfalls when collecting the data for your meta-analysis, and will refer you to adequate resources dealing with the nitty-gritty details.
+    </p>
+    <p>
+      The second limitation of this guide pertains to its level of technicality. This book is decidedly written for "mortals". We aim to show you when, how and why to apply certain meta-analytic techniques, along with their pitfalls. We also try to provide an easily accessible, conceptual understanding of the techniques we cover, resorting to more technical details only if it benefits this mission. Quite naturally, this means that some parts of the guide will not contain a deep dive into technicalities that expert-level meta-analysts and statisticians may desire. Nevertheless, we include references to more advanced resources and publications in each chapter for the interested reader.
+    </p>
+    <p>
+      Contents of a book will always to some extent reflect the background and experience of its authors. We are confident that the methods we cover here are applicable and relevant to a vast range of research areas and disciplines. Nevertheless, we wanted to disclose that the four authors of this book are primarily versed in current research in psychology, psychiatry, medicine, and intervention research. "Real-world" use cases and examples we cover in the book therefore concentrate on topics where we know our way around. The good news is that meta-analytic methods (provided some assumptions, which we will cover) are largely agnostic to the research field from which data stem from, and can be used for various types of outcome measures. Nonetheless, and despite our best intentions to make this guide as broadly applicable to as many applied research disciplines as possible, it may still be possible that some of the methods covered in this book are more relevant for some research areas than others.
+    </p>
   </paragraphs>
 
   <paragraphs xml:id="topics-covered-in-the-book">
@@ -66,67 +58,40 @@
     <p>
       Among other things, this guide will cover the following topics:
     </p>
-    <ul>
-      <li>
-        <p>
-          What a meta-analysis is, and why it was <alert>invented</alert>.
-        </p>
-      </li>
-      <li>
-        <p>
-          <alert>Advantages</alert> and <alert>common problems</alert> with meta-analysis.
-        </p>
-      </li>
-      <li>
-        <p>
-          How <alert>research questions</alert> for meta-analyses are specified, and how the <alert>search for studies</alert> can be conducted.
-        </p>
-      </li>
-      <li>
-        <p>
-          How you can set up <em>R</em>, and a <alert>computer program</alert> which allows you to use <em>R</em> in a convenient way.
-        </p>
-      </li>
-      <li>
-        <p>
-          How you can <alert>import</alert> your meta-analysis data into <em>R</em>, and how to <alert>manipulate</alert> it through code.
-        </p>
-      </li>
-      <li>
-        <p>
-          What <alert>effect sizes</alert> are, and how they are calculated.
-        </p>
-      </li>
-      <li>
-        <p>
-          How to <alert>pool effect sizes</alert> in fixed-effect and random-effects meta-analyses.
-        </p>
-      </li>
-      <li>
-        <p>
-          How to analyze the <alert>heterogeneity</alert> of your meta-analysis, and how to explore it using <alert>subgroup analyses</alert> and <alert>meta-regression</alert>.
-        </p>
-      </li>
-      <li>
-        <p>
-          Problems with <alert>selective outcome reporting</alert>, and how to tackle them.
-        </p>
-      </li>
-      <li>
-        <p>
-          How to perform <alert>advanced types</alert> of meta-analytic techniques, such as "multilevel" meta-analysis, meta-analytic structural equation modeling, network meta-analysis, or Bayesian meta-analysis.
-        </p>
-      </li>
-      <li>
-        <p>
-          How to <alert>report</alert> your meta-analysis results, and make them <alert>reproducible</alert>.
-        </p>
-      </li>
-    </ul>
+    <p>
+      What a meta-analysis is, and why it was <alert>invented</alert>.
+    </p>
+    <p>
+      <alert>Advantages</alert> and <alert>common problems</alert> with meta-analysis.
+    </p>
+    <p>
+      How <alert>research questions</alert> for meta-analyses are specified, and how the <alert>search for studies</alert> can be conducted.
+    </p>
+    <p>
+      How you can set up <em>R</em>, and a <alert>computer program</alert> which allows you to use <em>R</em> in a convenient way.
+    </p>
+    <p>
+      How you can <alert>import</alert> your meta-analysis data into <em>R</em>, and how to <alert>manipulate</alert> it through code.
+    </p>
+    <p>
+      What <alert>effect sizes</alert> are, and how they are calculated.
+    </p>
+    <p>
+      How to <alert>pool effect sizes</alert> in fixed-effect and random-effects meta-analyses.
+    </p>
+    <p>
+      How to analyze the <alert>heterogeneity</alert> of your meta-analysis, and how to explore it using <alert>subgroup analyses</alert> and <alert>meta-regression</alert>.
+    </p>
+    <p>
+      Problems with <alert>selective outcome reporting</alert>, and how to tackle them.
+    </p>
+    <p>
+      How to perform <alert>advanced types</alert> of meta-analytic techniques, such as "multilevel" meta-analysis, meta-analytic structural equation modeling, network meta-analysis, or Bayesian meta-analysis.
+    </p>
+    <p>
+      How to <alert>report</alert> your meta-analysis results, and make them <alert>reproducible</alert>.
+    </p>
   </paragraphs>
-
-  <paragraphs xml:id="how-to-use-this-book">
-    <title>How to Use This Book</title>
 
     <paragraphs xml:id="work-flow">
       <title>Work Flow</title>
@@ -162,49 +127,22 @@
       <p>
         Throughout the book, a set of text boxes is used.
       </p>
-      <note>
-        <p>
-          <alert>General Note</alert>
-        </p>
-        <p>
-          General notes contain relevant background information, insights, anecdotes, considerations or take-home messages pertaining to the covered topic.
-        </p>
-      </note>
-      <note>
-        <p>
-          <alert>Important Information</alert>
-        </p>
-        <p>
-          These boxes contain information on caveats, problems, drawbacks or pitfalls you have to keep in mind.
-        </p>
-      </note>
-      <exercise>
-        <p>
-          <alert>Questions</alert>
-        </p>
-        <p>
-          After each chapter, this box will contain a few questions through which you can test your knowledge. Answers to these questions can be found at the end of the book in <url href="#qanda">Appendix A</url>.
-        </p>
-      </exercise>
-      <note>
-        <p>
-          <alert>{dmetar} Note</alert>
-        </p>
-        <p>
-          The <alert>{dmetar}</alert> note boxes appear whenever functions or data sets contained in the companion <em>R</em> package are used. These boxes also contain URLs to the function code, or data set download links for readers who did not install the package.
-        </p>
-      </note>
-      <note>
-        <p>
-          <alert>How Can I Report This?</alert>
-        </p>
-        <p>
-          These boxes contain recommendations on how you can report <em>R</em> output in your thesis or research article.
-        </p>
-      </note>
+      <p>
+        <alert>General Note.</alert> General notes contain relevant background information, insights, anecdotes, considerations or take-home messages pertaining to the covered topic.
+      </p>
+      <p>
+        <alert>Important Information.</alert> These boxes contain information on caveats, problems, drawbacks or pitfalls you have to keep in mind.
+      </p>
+      <p>
+        <alert>Questions.</alert> After each chapter, this box will contain a few questions through which you can test your knowledge. Answers to these questions can be found at the end of the book in <xref ref="qanda">Appendix A</xref>.
+      </p>
+      <p>
+        <alert>{dmetar} Note.</alert> The <alert>{dmetar}</alert> note boxes appear whenever functions or data sets contained in the companion <em>R</em> package are used. These boxes also contain URLs to the function code, or data set download links for readers who did not install the package.
+      </p>
+      <p>
+        <alert>How Can I Report This?</alert> These boxes contain recommendations on how you can report <em>R</em> output in your thesis or research article.
+      </p>
     </paragraphs>
-
-  </paragraphs>
 
   <paragraphs xml:id="conventions">
     <title>Conventions</title>
@@ -212,28 +150,24 @@
     <p>
       A few conventions are followed throughout the book.
     </p>
-    <me>~</me>
     <p>
       <alert>{packages}</alert>
     </p>
     <p>
       All <em>R</em> packages are written in bold and are put into curly brackets. This is a common way to write package names in the <em>R</em> community.
     </p>
-    <me>~</me>
     <p>
       <c>R Code</c>
     </p>
     <p>
       All <em>R</em> code or objects we define in <em>R</em> are written in this monospace font.
     </p>
-    <me>~</me>
     <p>
       <c>## R Output</c>
     </p>
     <p>
       The same monospace font is used for the output we receive after running <em>R</em> code. However, we use two number signs (hashes) to differentiate it from <em>R</em> input.
     </p>
-    <me>~</me>
     <p>
       <m>Formula</m>
     </p>
@@ -251,7 +185,9 @@
     <p>
       If you are looking for something a little more practical than this motivational message: here are a few things you can do once you stumble upon things that this guide cannot answer.
     </p>
-    <paragraphs xml:id="do-not-panic">
+  </paragraphs>
+
+  <paragraphs xml:id="do-not-panic">
       <title>Do Not Panic</title>
 
       <p>
@@ -297,8 +233,6 @@
         If you have the feeling that your problem has something to do with this guide itself, you can also contact us. This particularly pertains to issues with the companion <em>R</em> package for this guide, <alert>{dmetar}</alert>. If you have trouble installing the package, or using some if its functions, you can go to our <url href="https://www.protectlab.org/meta-analysis-in-r">website</url>, where you can find ways to report your issue. When certain problems come up frequently, we usually try to have a look at them and search for fixes. Known issues will also be displayed in the Corrections &amp; Remarks section in the online version of the guide (see <alert>Work Flow</alert> section). Please do not be disappointed if we do not answer your question personally, or if takes long until we get back to you. We receive many questions related to meta-analysis and our package every day, so it is sometimes not possible to directly answer each and every one.
       </p>
     </paragraphs>
-
-  </paragraphs>
 
   <paragraphs xml:id="acknowledgments">
     <title>Acknowledgments</title>
