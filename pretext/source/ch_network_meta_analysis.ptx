@@ -2011,7 +2011,7 @@ summary(mcmc2)$DIC
 
   </section>
 
-  <section xml:id="netwma-questions-answers">
+  <exercises xml:id="netwma-questions-answers">
     <title>Questions &amp; Answers</title>
 
     <exercise>
@@ -2059,7 +2059,7 @@ summary(mcmc2)$DIC
         <alert>Answers to these questions are listed in <url href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/qanda.html#qanda12">Appendix A</url> at the end of this book.</alert>
       </p>
     </exercise>
-  </section>
+  </exercises>
 
   <section xml:id="netwma-summary">
     <title>Summary</title>
