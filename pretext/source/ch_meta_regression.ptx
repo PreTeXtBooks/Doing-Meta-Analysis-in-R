@@ -83,9 +83,12 @@
         Indeed, as mentioned before, subgroup analysis is nothing else than a meta-regression with a categorical predictor. Such categorical variables can be included through <alert>dummy-coding</alert>, e.g.:
       </p>
       <p>
-        <me>
-          D_g=\begin{cases}     0: &amp; \text{Subgroup A}\     1: &amp; \text{Subgroup B.}   \end{cases}
-        </me>
+<me>
+  D_g = \begin{cases}
+    0: \amp \text{Subgroup A}\\
+    1: \amp \text{Subgroup B.}
+  \end{cases}
+</me>
       </p>
       <p>
         To specify a subgroup analysis in the form of a meta-regression, we simply have to replace the covariate <m>x_k</m> with <m>D_g</m>:
@@ -105,9 +108,12 @@
         Because multiplying with zero gives zero, the <m>\beta D_g</m> term completely falls out of the equation when we are dealing with a study in subgroup A. When <m>D_g=1</m>, on the other hand, we multiply by 1, meaning that <m>\beta</m> remains in the equation and is added to <m>\theta</m>, which provides us with the overall effect size in subgroup B. Essentially, the dummy predictor is a way to integrate <alert>two</alert> formulas into <alert>one</alert>. We can easily see this when we write down the formula individually for each subgroup:
       </p>
       <p>
-        <me>
-          D_g=\begin{cases}     0: &amp; \text{$\hat\theta_k = \theta_A + \epsilon_k+\zeta_k<m>}\\     1: &amp; \text{</m>\hat\theta_k = \theta_A + \theta_{\Delta} +\epsilon_k+\zeta_k$}   \end{cases}
-        </me>
+<me>
+  D_g = \begin{cases}
+    0: \amp \hat\theta_k = \theta_A + \epsilon_k + \zeta_k\\
+    1: \amp \hat\theta_k = \theta_A + \theta_{\Delta} + \epsilon_k + \zeta_k
+  \end{cases}
+</me>
       </p>
       <p>
         Written this way, it becomes clearer that our formula actually contains two models, one for subgroup A, and one for subgroup B. The main difference between the models is that the effect of the second subgroup is "shifted" up or down, depending on the value of <m>\beta</m> (which we denote as <m>\theta_{\Delta}</m> in the formula above).
@@ -117,7 +123,7 @@
         <image source="generated/subgroups2_sep.png"/>
       </figure>
       <p>
-        This should make it clear that subgroup analyses work just like a normal regression: they use some variable <m>x</m> to predict the value of <m>y</m>, which, in our case, is the effect size of a study. The special thing is that <m>\beta x_k</m> is not continuous--it is a fixed value we add to the prediction, depending on whether a study belongs to a certain subgroup or not. This fixed value of <m>\beta</m> is the estimated difference in effect sizes between two subgroups.
+        This should make it clear that subgroup analyses work just like a normal regression: they use some variable <m>x</m> to predict the value of <m>y</m>, which, in our case, is the effect size of a study. The special thing is that <m>\beta x_k</m> is not continuous–it is a fixed value we add to the prediction, depending on whether a study belongs to a certain subgroup or not. This fixed value of <m>\beta</m> is the estimated difference in effect sizes between two subgroups.
       </p>
     </subsection>
 
@@ -136,13 +142,13 @@
       <p>
         The aim of the meta-regression model is to find values of <m>\theta</m> and <m>\beta</m> which minimize the difference between the <alert>predicted</alert> effect size, and the <alert>true</alert> effect size of studies (see <xref ref="fig-subgroups3"/>).
       </p>
-      <p>
-        Looking closely at the meta-regression formula, we see that it contains two types of terms. Some terms include a subscript <m>k</m>, while others do not. A subscript <m>k</m> indicates that a value <alert>varies</alert> from study to study. When a term does not include a subscript <m>k</m>, this means that it stays the same for all studies.
-      </p>
       <figure xml:id="fig-subgroups3">
         <caption>Meta-regression with a continuous predictor and four studies.</caption>
         <image source="generated/subgroups3_sep.png"/>
       </figure>
+      <p>
+        Looking closely at the meta-regression formula, we see that it contains two types of terms. Some terms include a subscript <m>k</m>, while others do not. A subscript <m>k</m> indicates that a value <alert>varies</alert> from study to study. When a term does not include a subscript <m>k</m>, this means that it stays the same for all studies.
+      </p>
       <figure>
         <image source="generated/metareg_form_sep.png"/>
       </figure>
@@ -169,12 +175,12 @@
       <p>
         Once the optimal solution is found, we can check if the newly added regression term explains parts of the effect size heterogeneity. If the meta-regression model fits the data well, the true effect sizes should deviate less from the regression line compared to the pooled effect <m>\hat\mu</m>. If this is the case, the predictor <m>x</m> <alert>explains</alert> some of the heterogeneity variance in our meta-analysis.
       </p>
-      <p>
-        The fit of the meta-regression model can therefore be assessed by checking how much of the heterogeneity variance it explains. The predictors included in the mixed-effects model should minimize the amount of the <alert>residual</alert>, or unexplained, heterogeneity variance, which we denote with <m>\tau^2_{\text{unexplained}}</m>. 
-      </p>
       <figure>
         <image source="generated/rem_mem_sep.png"/>
       </figure>
+      <p>
+        The fit of the meta-regression model can therefore be assessed by checking how much of the heterogeneity variance it explains. The predictors included in the mixed-effects model should minimize the amount of the <alert>residual</alert>, or unexplained, heterogeneity variance, which we denote with <m>\tau^2_{\text{unexplained}}</m>. 
+      </p>
       <p>
         In regression analyses, the <m>R^2</m> index is commonly used to quantify the percentage of variation explained by the model. An analogous index, <m>R^2_{*}</m>, can also be calculated for meta-regression. We add an asterisk here to indicate that the <m>R^2</m> in meta-regression is slightly different to the one used in conventional regressions, because we deal with <alert>true effect sizes</alert> instead of observed data points. The formula for <m>R^2_*</m> looks like this:
       </p>
@@ -271,7 +277,7 @@ m.gen.reg
 ## intrcpt   -36.15  11.98  -3.01  0.008  -61.551  -10.758  ** 
 ## year        0.01   0.00   3.06  0.007    0.005    0.031  ** 
 ## 
-## ---
+## –-
 ## Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
       </code>
     </program>
@@ -319,6 +325,9 @@ bubble(m.gen.reg, studlab = TRUE)
     <p>
       <idx><h>Risk of Bias</h></idx>
     </p>
+      <figure>
+        <image source="images/bubble-1.png"/>
+      </figure>
     <p>
       For the sake of completeness, we can also try to repeat our subgroup analysis from the previous chapter (<xref ref="subgroup-R"/>), but this time within a meta-regression framework. This means that we use the risk of bias assessment as a categorical predictor. Since the variable <c>RiskOfBias</c> is already included in the <c>ThirdWave</c> data set, we do not have to save this information in an additional object. It suffices to simply run the <c>metareg</c> function again, but this time, we use <c>RiskOfBias</c> as the second function argument.
     </p>
@@ -392,11 +401,13 @@ metareg(m.gen, RiskOfBias)
       <p>
         Imagine that we want to model two predictors and how they are associated with effect sizes: the publication year (<m>x_1</m>) and the quality (<m>x_2</m>) of a study. The study quality is coded like this:
       </p>
-      <p>
-        <me>
-          x_2=\begin{cases}     0: &amp; \text{low}\     1: &amp; \text{moderate}\     2: &amp; \text{high.}   \end{cases}
-        </me>
-      </p>
+<me>
+  x_2 = \begin{cases}
+    0: \amp \text{low}\\
+    1: \amp \text{moderate}\\
+    2: \amp \text{high.}
+  \end{cases}
+</me>
       <p>
         When we assume that there is no interaction between publication year and study quality, we can build a meta-regression model by giving both <m>x_1</m> and <m>x_2</m> a regression weight <m>\beta</m>, and <alert>adding</alert> the terms together in our formula:
       </p>
@@ -620,6 +631,16 @@ data(MVRegressionData)
 glimpse(MVRegressionData)
         </code>
       </program>
+<pre>
+## Rows: 36
+## Columns: 6
+## $ yi         <dbl> 0.09437543, 0.09981923, 0.16931607, 0.17511107, 0.27301641,…
+## $ sei        <dbl> 0.1959031, 0.1918510, 0.1193179, 0.1161592, 0.1646946, 0.17…
+## $ reputation <dbl> -11, 0, -11, 4, -10, -9, -8, -8, -8, 0, -5, -5, -4, -4, -3,…
+## $ quality    <dbl> 6, 9, 5, 9, 2, 10, 6, 3, 10, 3, 1, 5, 10, 2, 1, 2, 4, 1, 8,…
+## $ pubyear    <dbl> -0.85475360, -0.75277184, -0.66048349, -0.56304843, -0.4308…
+## $ continent  <fct> 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1,…
+</pre>
       <p>
         We see that there are six variables in our data set. The <c>yi</c> and <c>sei</c> columns store the effect size and standard error of a particular study. These columns correspond with the <c>TE</c> and <c>seTE</c> columns we used before. We have named the variables this way because this is the standard notation that <alert>{metafor}</alert> uses: <c>yi</c> represents the observed effect size <m>y_i</m> we want to predict in our (meta-)regression, while <c>sei</c> represents <m>SE_i</m>, the standard error of study <m>i</m>. 
       </p>
@@ -643,6 +664,12 @@ glimpse(MVRegressionData)
 MVRegressionData[,c("reputation", "quality", "pubyear")] %&gt;% cor()
           </code>
         </program>
+<pre>
+##            reputation    quality    pubyear
+## reputation  1.0000000  0.3015694  0.3346594
+## quality     0.3015694  1.0000000 -0.1551123
+## pubyear     0.3346594 -0.1551123  1.0000000
+</pre>
         <p>
           <idx><h>PerformanceAnalytics Package</h></idx>
         </p>
@@ -657,6 +684,9 @@ MVRegressionData[,c("reputation", "quality", "pubyear")] %&gt;%
   chart.Correlation()
           </code>
         </program>
+        <figure>
+          <image source="images/unnamed-chunk-199-1.png"/>
+        </figure>
         <p>
           We see that our variables are indeed correlated, but probably not to a degree that would warrant excluding one of them.
         </p>
@@ -746,7 +776,7 @@ m.qual
 ## intrcpt    0.3429  0.1354  2.5318  0.0161   0.0677  0.6181  * 
 ## quality    0.0356  0.0189  1.8796  0.0688  -0.0029  0.0740  . 
 ## 
-## ---
+## –-
 ## Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
           </code>
         </program>
@@ -791,7 +821,7 @@ m.qual.rep
 ## quality       0.0110  0.0151  0.7312  0.4698  -0.0197  0.0417      
 ## reputation    0.0343  0.0075  4.5435  &lt;.0001   0.0189  0.0496  *** 
 ## 
-## ---
+## –-
 ## Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
           </code>
         </program>
@@ -906,7 +936,7 @@ m.qual.rep.int
           This indicates that there is an increase in effect sizes in recent years, but that it is stronger in studies conducted in North America. We also see that the model we fitted explains <m>R^2_*</m> = 100% of our heterogeneity. 
         </p>
         <p>
-          This is because our data was simulated for illustrative purposes. In practice, you will hardly ever explain all of the heterogeneity in your data--in fact, one should rather be concerned if one finds such results in real-life data, as this might mean that we have overfitted our model.
+          This is because our data was simulated for illustrative purposes. In practice, you will hardly ever explain all of the heterogeneity in your data–in fact, one should rather be concerned if one finds such results in real-life data, as this might mean that we have overfitted our model.
         </p>
       </subsubsection>
 
@@ -954,7 +984,7 @@ permutest(m.qual.rep)
 ## quality       0.0130  0.0152  0.8531  0.3640  -0.0179  0.0438      
 ## reputation    0.0350  0.0076  4.5964  0.0010   0.0195  0.0505  *** 
 ## 
-## ---
+## –-
 ## Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
           </code>
         </program>
@@ -1072,7 +1102,7 @@ multimodel.inference(TE = "yi",
         <program language="r">
           <code>
 ## Multimodel Inference: Final Results
-## --------------------------
+## –––––––––––––
 ##  - Number of fitted models: 16
 ##  - Full formula: ~ pubyear + quality + reputation + continent
 ##  - Coefficient significance test: knha
@@ -1081,7 +1111,7 @@ multimodel.inference(TE = "yi",
 ## 
 ## 
 ## Best 5 Models
-## --------------------------
+## –––––––––––––
 ## [...]
 ##    (Intrc) cntnn  pubyr   qulty   rpttn df logLik AICc delta weight
 ## 12       +     + 0.3533         0.02160  5  2.981  6.0  0.00  0.536
@@ -1093,7 +1123,7 @@ multimodel.inference(TE = "yi",
 ## 
 ## 
 ## Multimodel Inference Coefficients
-## --------------------------
+## –––––––––––––
 ##                          Estimate  Std. Error   z value  Pr(&gt;|z|)
 ## intrcpt                0.38614661 0.106983583 3.6094006 0.0003069
 ## continentNorth America 0.24743836 0.083113174 2.9771256 0.0029096
@@ -1103,7 +1133,7 @@ multimodel.inference(TE = "yi",
 ## 
 ## 
 ## Predictor Importance
-## --------------------------
+## –––––––––––––
 ##        model importance
 ## 1    pubyear  0.9988339
 ## 2  continent  0.9621839
@@ -1163,10 +1193,10 @@ multimodel.inference(TE = "yi",
 
   </section>
 
-  <section xml:id="metareg-questions-answers">
+  <exercises xml:id="metareg-questions-answers">
     <title>Questions &amp; Answers</title>
 
-    <note>
+    <exercise>
       <p>
         <alert>Test your knowledge!</alert>
       </p>
@@ -1210,8 +1240,8 @@ multimodel.inference(TE = "yi",
       <p>
         <alert>Answers to these questions are listed in <url href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/qanda.html#qanda8">Appendix A</url> at the end of this book.</alert>
       </p>
-    </note>
-  </section>
+    </exercise>
+  </exercises>
 
   <section xml:id="metareg-summary">
     <title>Summary</title>
