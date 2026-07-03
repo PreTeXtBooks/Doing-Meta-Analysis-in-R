@@ -40,9 +40,9 @@
     </p>
     <p>
       <me>
-\hat\theta_k &amp;\sim \mathcal{N}(\theta_k,\sigma_k^2)
+\hat\theta_k \sim \mathcal{N}(\theta_k,\sigma_k^2)
 </me><me>
-\theta_k &amp;\sim \mathcal{N}(\mu,\tau^2)
+\theta_k \sim \mathcal{N}(\mu,\tau^2)
 </me>
     </p>
     <p>
@@ -61,7 +61,7 @@
     </p>
     <p>
       <me>
-(\mu, \tau^2) &amp;\sim p(.)
+(\mu, \tau^2) \sim p(.)
 </me>
 <me>
 \tau^2 &gt; 0
@@ -173,16 +173,16 @@ phcauchy(0.3, sigma = 0.3)
     </p>
     <p>
       <me>
-\hat\theta_k &amp;\sim \mathcal{N}(\theta_k,\sigma_k^2)
+\hat\theta_k \sim \mathcal{N}(\theta_k,\sigma_k^2)
       </me>
       <me>
-\theta_k &amp;\sim \mathcal{N}(\mu,\tau^2)
+\theta_k \sim \mathcal{N}(\mu,\tau^2)
       </me>
       <me>
-\mu &amp;\sim \mathcal{N}(0,1)
+\mu \sim \mathcal{N}(0,1)
       </me>
       <me>
-\tau &amp;\sim \mathcal{HC}(0,0.5)
+\tau \sim \mathcal{HC}(0,0.5)
 </me>
     </p>
   </section>
