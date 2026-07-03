@@ -123,7 +123,7 @@ mean(sample)
       <idx><h>Central Limit Theorem</h></idx>
     </p>
     <p>
-      We see that the mean is <m>\bar{x} =</m> 10.07, which is already very close to the true value in our population. The sampling distribution can now be created by repeating what we did here--taking a random sample and calculating its mean--<alert>countless times</alert>. To simulate this process for you, we conducted the steps from before 1000 times. 
+      We see that the mean is <m>\bar{x} =</m> 10.07, which is already very close to the true value in our population. The sampling distribution can now be created by repeating what we did here–taking a random sample and calculating its mean–<alert>countless times</alert>. To simulate this process for you, we conducted the steps from before 1000 times. 
     </p>
     <p>
       The histogram in <xref ref="fig-samplingdist"/> displays the results. We can see that the means of the samples closely resemble a normal distribution with a mean of 10. If we were to draw even more samples, the distribution of the means would get even closer to a normal distribution. This idea is expressed in one of the most fundamental tenets of statistics, the <alert>central limit theorem</alert> <xref ref="aronow2019foundations"/>.
@@ -136,7 +136,7 @@ mean(sample)
       The standard error is defined as the standard deviation of this sampling distribution. Therefore, we calculated the standard deviation of the 1000 simulated means to get an approximation of the standard error. The result is <m>SE =</m> 0.267. 
     </p>
     <p>
-      As we mentioned before, we cannot simply calculate the standard error in real life by simulating the true sampling distribution. However, there are formulas based on statistical theory which allow us to calculate an estimate of the standard error, even when we are limited to only one observed sample--which we usually are. The formula to calculate the standard error of the <alert>mean</alert> is defined like this:
+      As we mentioned before, we cannot simply calculate the standard error in real life by simulating the true sampling distribution. However, there are formulas based on statistical theory which allow us to calculate an estimate of the standard error, even when we are limited to only one observed sample–which we usually are. The formula to calculate the standard error of the <alert>mean</alert> is defined like this:
     </p>
     <me>
       SE = \frac{s}{\sqrt{n}}
@@ -293,6 +293,11 @@ p
 sqrt((p*(1-p))/n)
         </code>
       </program>
+<pre>
+## [1] 0.2
+
+## [1] 0.03577709
+</pre>
       <p>
         <idx><h>Odds</h></idx> <idx><h>Logit-Transformation</h></idx> <idx><h>Logarithm, Natural</h></idx>
       </p>
@@ -415,12 +420,21 @@ y &lt;- rnorm(20, 10, 3)
 # Calculate the correlation between x and y
 r &lt;- cor(x,y)
 r
-
+          </code>
+        </program>
+<pre>
+## [1] 0.2840509
+</pre>
+        <program language="r">
+          <code>
 # Calculate Fisher's z
 z &lt;- 0.5*log((1+r)/(1-r))
 z
           </code>
         </program>
+<pre>
+## [1] 0.2920831
+</pre>
         <p>
           Thankfully, we do not have to perform Fisher's <m>z</m> transformation manually when conducting a meta-analysis of correlations in <em>R</em>. The only columns we need in our data set are:
         </p>
@@ -824,13 +838,22 @@ md_within &lt;- x2 - x1
 # to standardize the mean difference
 smd_within &lt;- md_within/sd1
 smd_within
-
+          </code>
+        </program>
+<pre>
+## [1] 0.7692308
+</pre>
+        <program language="r">
+          <code>
 # Calculate standard error
 se_within &lt;- sqrt(((2*(1-r))/n) + 
               (smd_within^2/(2*n)))
 se_within
           </code>
         </program>
+<pre>
+## [1] 0.1272722
+</pre>
         <p>
           Meta-analyses of within-group (standardized) mean differences can only be performed in <em>R</em> using <alert>pre-calculated effect sizes</alert> (see <xref ref="es-formats-different"/>). The following columns are required in our data set:
         </p>
@@ -977,15 +1000,30 @@ p_contr &lt;- c/n_contr
 # Calculate the risk ratio
 rr &lt;- p_treat/p_contr
 rr
-
+          </code>
+        </program>
+<pre>
+## [1] 0.6046292
+</pre>
+        <program language="r">
+          <code>
 # Calculate the log-risk ratio and its standard error
 log_rr &lt;- log(rr)
 log_rr
-
+          </code>
+        </program>
+<pre>
+## [1] -0.5031398
+</pre>
+        <program language="r">
+          <code>
 se_log_rr &lt;- sqrt((1/a) + (1/c) - (1/n_treat) - (1/n_contr))
 se_log_rr
           </code>
         </program>
+<pre>
+## [1] 0.1634314
+</pre>
         <p>
           <idx><h>Zero Cell Problem</h></idx> <idx><h>Continuity Correction</h></idx> <idx><h>Mantel-Haenszel Method</h></idx>
         </p>
@@ -996,7 +1034,7 @@ se_log_rr
           This issue is often dealt with using a <alert>continuity correction</alert>. The most common continuity correction method is to add an increment of 0.5 in all cells that are zero <xref ref="gart1967bias"/>. When the sample sizes of the control group and treatment group are very uneven, we can also use the <alert>treatment arm continuity correction</alert> <xref ref="j2004add"/>. 
         </p>
         <p>
-          However, there is evidence that such corrections can lead to biased results <xref ref="efthimiou2018practical"/>. The (fixed-effect) <alert>Mantel-Haenszel</alert> method, a meta-analytic pooling technique we will discover in <xref provisional="mantel-haenszel"/>, can handle zero cells <alert>without</alert> correction, unless they exist in <alert>every study</alert> in our meta-analysis. It may therefore be advisable to avoid continuity corrections unless the latter scenario applies. 
+          However, there is evidence that such corrections can lead to biased results <xref ref="efthimiou2018practical"/>. The (fixed-effect) <alert>Mantel-Haenszel</alert> method, a meta-analytic pooling technique we will discover in Chapter 4, can handle zero cells <alert>without</alert> correction, unless they exist in <alert>every study</alert> in our meta-analysis. It may therefore be advisable to avoid continuity corrections unless the latter scenario applies. 
         </p>
         <p>
           A special form of the <alert>zero cell</alert> problem are <alert>double-zero studies</alert>. These are studies in which both <m>a</m> and <m>c</m> are zero. Intuitively, one might think that the results of such studies simply mean that the risk in the intervention and control group are similar, and that RR = 1. 
@@ -1096,13 +1134,39 @@ grp2no &lt;- 76   # non-events in the control group
 esc_2x2(grp1yes = grp1yes, grp1no = grp1no,
         grp2yes = grp2yes, grp2no = grp2no,
         es.type = "or")
-
+          </code>
+        </program>
+<pre>
+## Effect Size Calculation for Meta Analysis
+## 
+##      Conversion: 2x2 table (OR) coefficient to effect size odds ratio
+##     Effect Size:   0.5209
+##  Standard Error:   0.2460
+##        Variance:   0.0605
+##        Lower CI:   0.3216
+##        Upper CI:   0.8435
+##          Weight:  16.5263
+</pre>
+        <program language="r">
+          <code>
 # Calculate logOR by setting es.type to "logit"
 esc_2x2(grp1yes = grp1yes, grp1no = grp1no,
               grp2yes = grp2yes, grp2no = grp2no,
               es.type = "logit")
           </code>
         </program>
+<pre>
+## 
+## Effect Size Calculation for Meta Analysis
+## 
+##      Conversion: 2x2 table (OR) to effect size logits
+##     Effect Size:  -0.6523
+##  Standard Error:   0.2460
+##        Variance:   0.0605
+##        Lower CI:  -1.1344
+##        Upper CI:  -0.1701
+##          Weight:  16.5263
+</pre>
         <p>
           <idx><h>Zero Cell Problem</h></idx> <idx><h>Risk Ratio</h></idx>
         </p>
@@ -1238,7 +1302,13 @@ t_contr &lt;- 2380  # Person-time in the control group
 # Calculate IRR
 irr &lt;- (e_treat/t_treat)/(e_contr/t_contr)
 irr
-
+        </code>
+      </program>
+<pre>
+## [1] 0.7867769
+</pre>
+      <program language="r">
+        <code>
 # Calculate log-IRR
 log_irr &lt;- log(irr)
 
@@ -1355,7 +1425,7 @@ se_log_irr &lt;- sqrt((1/e_treat)+(1/e_contr))
         <idx><h>Hedges' \textit{g}</h></idx> <idx><h>Standardized Mean Difference</h></idx>
       </p>
       <p>
-        In <xref ref="s-md"/>, we covered standardized mean differences (SMDs), an effect size we can calculate when we have continuous outcome data of two groups. The standardized mean difference, however, has been found to have an <alert>upward bias</alert> when the sample size of a study is small, especially when <m>n \leq</m> 20 <xref ref="hedges1981distribution"/>. This small sample bias means that SMDs systematically overestimate the true effect size when the total sample size of a study is small--which is unfortunately often the case in practice. 
+        In <xref ref="s-md"/>, we covered standardized mean differences (SMDs), an effect size we can calculate when we have continuous outcome data of two groups. The standardized mean difference, however, has been found to have an <alert>upward bias</alert> when the sample size of a study is small, especially when <m>n \leq</m> 20 <xref ref="hedges1981distribution"/>. This small sample bias means that SMDs systematically overestimate the true effect size when the total sample size of a study is small–which is unfortunately often the case in practice. 
       </p>
       <p>
         It is therefore sensible to correct the standardized mean differences of all included studies for small-sample bias, which produces an effect size called Hedges' <m>g</m>. Hedges' <m>g</m> was named after Larry Hedges, the inventor of this correction. The formula to convert uncorrected SMDs/Cohen's <m>d</m> to Hedges' <m>g</m> looks like this:
@@ -1383,6 +1453,9 @@ g &lt;- hedges_g(SMD, n)
 g
         </code>
       </program>
+<pre>
+## [1] 0.4864865
+</pre>
       <p>
         As we can see in the output, Hedges' <m>g</m> is smaller than the uncorrected SMD. Hedges' <m>g</m> can never be larger than the uncorrected SMD, and the difference between the two metrics is larger when the sample size is smaller (see <xref ref="fig-dtog"/>).
       </p>
@@ -1467,18 +1540,39 @@ r_yy &lt;- 0.7
 # Correct SMD for unreliability in x
 smd_c &lt;- smd/sqrt(r_xx)
 smd_c
-
+        </code>
+      </program>
+<pre>
+## [1] 0.7267221
+</pre>
+      <program language="r">
+        <code>
 se_c &lt;- se_smd/sqrt(r_xx)
 se_c
-
+        </code>
+      </program>
+<pre>
+## [1] 0.2012461
+</pre>
+      <program language="r">
+        <code>
 # Correct correlation for unreliability in x and y
 r_xy_c &lt;- r_xy/(sqrt(r_xx)*sqrt(r_yy))
 r_xy_c
-
+        </code>
+      </program>
+<pre>
+## [1] 0.4543441
+</pre>
+      <program language="r">
+        <code>
 se_c &lt;- se<em>R</em>xy/(sqrt(r_xx)*sqrt(r_yy))
 se_c
         </code>
       </program>
+<pre>
+## [1] 0.1202676
+</pre>
       <p>
         Take a close look at the results in this example. We see that due to the correction, the correlation and SMD are larger than the initial uncorrected value. However, we also see that the standard errors increase. This result is intended; we correct the standard error so that it also incorporates the measurement error we assume for our data.
       </p>
@@ -1560,12 +1654,21 @@ U &lt;- sd_unrestricted/sd_restricted
 # Correct the correlation
 r_xy_c &lt;- (U*r_xy)/sqrt((U^2-1)*r_xy^2+1)
 r_xy_c
-
+        </code>
+      </program>
+<pre>
+## [1] 0.5091754
+</pre>
+      <program language="r">
+        <code>
 # Correct the standard error
 se<em>R</em>xy_c &lt;- (r_xy_c/r_xy)*se<em>R</em>xy
 se<em>R</em>xy_c
         </code>
       </program>
+<pre>
+## [1] 0.1347817
+</pre>
       <p>
         Like other Hunter and Schmidt adjustments, corrections of range restriction are more commonly found in some research areas than in others. When we decide to apply a correction for range restriction, it is important that the correction is performed for <alert>all</alert> effect sizes in our meta-analysis. It is technically possible to correct for range restriction in every meta-analysis, but often, this is not necessary. 
       </p>
@@ -1696,7 +1799,7 @@ se<em>R</em>xy_c
 
   </section>
 
-  <section xml:id="effects-questions-answers">
+  <exercises xml:id="effects-questions-answers">
     <title>Questions &amp; Answers</title>
 
     <exercise>
@@ -1749,7 +1852,7 @@ se<em>R</em>xy_c
         <alert>Answers to these questions are listed in <url href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/qanda.html#qanda3">Appendix A</url> at the end of this book.</alert>
       </p>
     </exercise>
-  </section>
+  </exercises>
 
   <section xml:id="effects-summary">
     <title>Summary</title>
