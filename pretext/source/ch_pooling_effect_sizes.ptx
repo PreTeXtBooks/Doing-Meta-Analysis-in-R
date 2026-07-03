@@ -368,12 +368,12 @@ pooled_effect
           <idx><h>Inverse-Variance Weighting</h></idx>
         </p>
         <p>
-          Using the adjusted random-effects weights, we then calculate the pooled effect size using the inverse variance method, just like we did using the fixed-effect model:
+          Using the adjusfted random-effects weights, we then calculate the pooled effect size using the inverse variance method, just like we did using the fixed-effect model:
         </p>
         <p>
           <me>
-            \hat\theta = \frac{\sum^{K}_{k=1} \hat\theta_kw^__k}{\sum^{K}_{k=1} w^__k}
-          </me>
+\hat\theta = \frac{\sum^{K}_{k=1} \hat\theta_kw^*_k}{\sum^{K}_{k=1} w^*_k}
+</me>
         </p>
         <p>
           There are several  methods to estimate <m>\tau^2</m>, most of which are too complicated to do by hand. Luckily, however, these estimators are implemented in the functions of the <alert>{meta}</alert> package, which does the calculations automatically for us. Here is a list of the most common estimators, and the code by which they are referenced in <alert>{meta}</alert>:
@@ -525,16 +525,16 @@ pooled_effect
     <p>
       We call effect size data "pre-calculated", on the other hand, when they already contain the final effect size of each study, as well as the standard error. If we want to use a corrected version of an effect metric (such as Hedges' <m>g</m>, <xref ref="hedges-g"/>), it is necessary that this correction has already been applied to pre-calculated effect size data before we start the pooling. 
     </p>
+    <figure xml:id="fig-metaflow">
+      <caption>Conceptual overview of meta-analysis functions.</caption>
+      <image source="generated/meta_flow_sep.png"/>
+    </figure>
     <p>
       If possible, it is preferable to use raw data in our meta-analysis. This makes it easier for others to understand how we calculated the effect sizes, and replicate the results. Yet, using raw data is often not possible in practice, because studies often report their results in a different way (<xref ref="es-formats-different"/>). 
     </p>
     <p>
       This leaves us no other choice than to pre-calculate the desired effect size for each study right away so that all have the same format. <xref ref="es-calc"/> in the “Helpful Tools” part of this book presents a few formulas which can help you to convert a reported effect size into the desired metric.
     </p>
-    <figure xml:id="fig-metaflow">
-      <caption>Conceptual overview of meta-analysis functions.</caption>
-      <image source="generated/meta_flow_sep.png"/>
-    </figure>
     <p>
       The function of choice for pre-calculated effect sizes is <c>metagen</c>. Its name stands for <alert>gen</alert>eric inverse variance meta-analysis. If we use <c>metagen</c> with binary data (e.g. proportions, risk ratios, odds ratios), it is important, as we covered in <xref ref="ratios"/>, that the effect sizes are log-transformed before the function is used. 
     </p>
@@ -651,6 +651,18 @@ data(ThirdWave)
 glimpse(ThirdWave)
         </code>
       </program>
+<pre>
+## Rows: 18
+## Columns: 8
+## $ Author               &lt;chr&gt; "Call et al.", "Cavanagh et al.", "DanitzOrsillo"…
+## $ TE                   &lt;dbl&gt; 0.7091362, 0.3548641, 1.7911700, 0.1824552, 0.421…
+## $ seTE                 &lt;dbl&gt; 0.2608202, 0.1963624, 0.3455692, 0.1177874, 0.144…
+## $ RiskOfBias           &lt;chr&gt; "high", "low", "high", "low", "low", "low", "high…
+## $ TypeControlGroup     &lt;chr&gt; "WLC", "WLC", "WLC", "no intervention", "informat…
+## $ InterventionDuration &lt;chr&gt; "short", "short", "short", "short", "short", "sho…
+## $ InterventionType     &lt;chr&gt; "mindfulness", "mindfulness", "ACT", "mindfulness…
+## $ ModeOfDelivery       &lt;chr&gt; "group", "online", "group", "group", "online", "g…
+</pre>
       <p>
         We see that the data set has eight columns, the most important of which are <c>Author</c>, <c>TE</c> and <c>seTE</c>. The <c>TE</c> column contains the <m>g</m> value of each study, and <c>seTE</c> is the standard error of <m>g</m>. The other columns represent variables describing the subgroup categories that each study falls into. These variables are not relevant for now.
       </p>
@@ -787,6 +799,9 @@ summary(m.gen)
 m.gen$TE.random
         </code>
       </program>
+<pre>
+## [1] 0.5771158
+</pre>
       <p>
         <idx><h>Fixed-Effect Model</h></idx>
       </p>
@@ -798,6 +813,9 @@ m.gen$TE.random
 m.gen$TE.fixed
         </code>
       </program>
+<pre>
+## [1] 0.4805045
+</pre>
       <p>
         We see that this estimate deviates considerably from the random-effects model result.
       </p>
@@ -815,6 +833,10 @@ m.gen_update$TE.random
 m.gen_update$tau2
         </code>
       </program>
+<pre>
+## [1] 0.5873544
+## [1] 0.1104957
+</pre>
       <p>
         We see that while the pooled effect does not differ much, the Paule-Mandel estimator gives us a somewhat larger approximation of <m>\tau^2</m>.
       </p>
@@ -919,6 +941,42 @@ m.cont &lt;- metacont(n.e = n.e,
 summary(m.cont)
         </code>
       </program>
+<pre>
+## Review:     Suicide Prevention
+## 
+##                     SMD             95%-CI %W(random)
+## Berry et al.    -0.1428 [-0.4315;  0.1459]       15.6
+## DeVries et al.  -0.6077 [-0.9402; -0.2752]       12.3
+## Fleming et al.  -0.1112 [-0.6177;  0.3953]        5.7
+## Hunt & Burke    -0.1270 [-0.4725;  0.2185]       11.5
+## McCarthy et al. -0.3925 [-0.7884;  0.0034]        9.0
+## Meijer et al.   -0.2676 [-0.5331; -0.0021]       17.9
+## Rivera et al.    0.0124 [-0.3454;  0.3703]       10.8
+## Watkins et al.  -0.2448 [-0.6848;  0.1952]        7.4
+## Zaytsev et al.  -0.1265 [-0.5062;  0.2533]        9.7
+## 
+## Number of studies: k = 9
+## Number of observations: o = 1147 (o.e = 571, o.c = 576)
+## 
+##                          SMD             95%-CI     t p-value
+## Random effects model -0.2304 [-0.3734; -0.0874] -3.71  0.0059
+## 
+## Quantifying heterogeneity (with 95%-CIs):
+##  tau^2 = 0.0044 [0.0000; 0.0924]; tau = 0.0661 [0.0000; 0.3040]
+##  I^2 = 7.4% [0.0%; 67.4%]; H = 1.04 [1.00; 1.75]
+## 
+## Test of heterogeneity:
+##     Q d.f. p-value
+##  8.64    8  0.3738
+## 
+## Details of meta-analysis methods:
+## - Inverse variance method
+## - Restricted maximum-likelihood estimator for tau^2
+## - Q-Profile method for confidence interval of tau^2 and tau
+## - Calculation of I^2 based on Q
+## - Hartung-Knapp adjustment for random effects model (df = 8)
+## - Hedges' g (bias corrected standardised mean difference; using exact formulae)
+</pre>
       <p>
         Looking at the output and comparing it to the one we received in <xref ref="pre-calculated-es"/>, we already see one of <alert>{meta}</alert>'s greatest assets. Although <c>metagen</c> and <c>metacont</c> are different functions requiring different data types, the structure of the output looks nearly identical. This makes interpreting the results quite easy. We see that the pooled effect according to the random-effects model is <m>g=</m> -0.23, with the 95% confidence interval ranging from -0.09 to -0.37. The effect is significant (<m>p=</m> 0.006). 
       </p>
@@ -951,7 +1009,7 @@ summary(m.cont)
         <p>
           However, this approach is suboptimal for binary outcome data <xref ref="higgins2019cochrane"/>. When we are dealing with <alert>sparse</alert> data, meaning that the number of events or the total sample size of a study is small, the calculated standard error may not be a good estimator of the precision of the binary effect size.
         </p>
-        
+        <p><alert>The Mantel-Haenszel Method</alert></p>
         <p>
           <idx><h>Mantel-Haenszel Method</h></idx>
         </p>
@@ -981,7 +1039,7 @@ summary(m.cont)
           <idx><h>Peto Method</h></idx> <idx><h>Peto Odds Ratio</h></idx>
         </p>
         <p>
-          ##### The Peto Method
+          <alert>The Peto Method</alert>
         </p>
         <p>
           A second approach is the <alert>Peto</alert> method <xref ref="yusuf1985beta"/>. In its essence, this approach is based on the inverse variance principle we already know. However, it uses a special kind of effect size, the <alert>Peto odds ratio</alert>, which we will denote with <m>\hat\psi_k</m>. 
@@ -1013,7 +1071,7 @@ summary(m.cont)
           The inverse of the variance of <m>\log\hat\psi_k</m> is then used as the weight when pooling the effect sizes<fn>The variance of the log Peto odds ratio <m>\log\hat\psi_k</m> is defined as <m>\text{SE}_{\log\hat\psi_k}^2 = \widehat{\text{Var}}(\log\hat\psi_k)=V_k^{-1}</m>, so that the pooling weight using the Peto method is defined as <m>w^{\text{(Peto)}}_k=\widehat{\text{Var}}(\log\hat\psi_k)^{-1}</m>.</fn>.
         </p>
         <p>
-          ##### The Bakbergenuly-Sample Size Method
+          <alert>The Bakbergenuly-Sample Size Method</alert>
         </p>
         <p>
           Recently, Bakbergenuly and colleagues <xref ref="bakbergenuly2020methods"/> proposed another method in which the weight of effects is only determined by a study's sample size, and showed that this approach may be preferable to the one by Mantel and Haenszel. We will call this the <alert>sample size method</alert>. The formula for this approach is fairly easy. We only need to know the sample size <m>n_{\text{treat}_k}</m> and <m>n_{\text{control}_k}</m> in the treatment and control group, respectively.
@@ -1052,7 +1110,7 @@ summary(m.cont)
             It is also important to keep in mind that these alternative methods are primarily relevant for the <alert>fixed-effect model</alert>. Pooled estimates using the random-effects model will still essentially be based on the (generic) inverse-variance method. For example, even if the Mantel-Haenszel method is specified in <c>metabin</c>, the pooled effect is still derived using the same weighting approach we discussed in <xref ref="tau-estimators"/>. For the Peto method, the inverse-variance approach will be applied using the variance of the Peto log-odds ratio. 
           </p>
         </note>
-        
+        <p><alert>Pooling Binary Effect Sizes in <em>R</em></alert></p>
         <p>
           There are eight important function-specific arguments in <c>metabin</c>:
         </p>
@@ -1125,6 +1183,16 @@ data(DepressionMortality)
 glimpse(DepressionMortality)
           </code>
         </program>
+<pre>
+## Rows: 18
+## Columns: 6
+## $ author  &lt;chr&gt; "Aaroma et al., 1994", "Black et al., 1998", "Bruce et al., 19…
+## $ event.e &lt;dbl&gt; 25, 65, 5, 26, 32, 1, 24, 15, 15, 173, 37, 41, 29, 61, 15, 21,…
+## $ n.e     &lt;dbl&gt; 215, 588, 46, 67, 407, 44, 60, 61, 29, 1015, 105, 120, 258, 38…
+## $ event.c &lt;dbl&gt; 171, 120, 107, 1168, 269, 87, 200, 437, 227, 250, 66, 9, 24, 3…
+## $ n.c     &lt;dbl&gt; 3088, 1901, 2479, 3493, 6256, 1520, 882, 2603, 853, 3375, 409,…
+## $ country &lt;chr&gt; "Finland", "USA", "USA", "USA", "Sweden", "USA", "Canada", "Ne…
+</pre>
         <p>
           <idx><h>Paule-Mandel Estimator</h></idx> <idx><h>Mantel-Haenszel Method</h></idx>
         </p>
@@ -1232,6 +1300,9 @@ m.bin_update &lt;- update(m.bin, method.tau = "REML")
 exp(m.bin_update$TE.random)
           </code>
         </program>
+<pre>
+## [1] 2.02365
+</pre>
         <p>
           We see that the pooled effect using the restricted maximum likelihood estimator is virtually identical. Now, let us see the estimate of <m>\tau^2</m>:
         </p>
@@ -1240,6 +1311,9 @@ exp(m.bin_update$TE.random)
 m.bin_update$tau2
           </code>
         </program>
+<pre>
+## [1] 0.1647315
+</pre>
         <p>
           This value deviates somewhat, but not to a degree that should make us worry about the validity of our initial results.
         </p>
@@ -1280,6 +1354,7 @@ m.bin_or
 ## - Hartung-Knapp adjustment for random effects model (df = 17)
           </code>
         </program>
+<p><alert>Pooling Pre-Calculated Binary Effect Sizes</alert></p>
         <p>
           In the output, we see that the pooled effect using odds ratios is OR = 2.29. 
         </p>
@@ -1465,6 +1540,15 @@ data(EatingDisorderPrevention)
 glimpse(EatingDisorderPrevention)
           </code>
         </program>
+<pre>
+## Rows: 5
+## Columns: 5
+## $ Author  &lt;chr&gt; "Stice et al., 2013", "Stice et al., 2017a", "Stice et al., 20…
+## $ event.e &lt;dbl&gt; 6, 22, 6, 8, 22
+## $ time.e  &lt;dbl&gt; 362, 235, 394, 224, 160
+## $ event.c &lt;dbl&gt; 16, 8, 9, 13, 29
+## $ time.c  &lt;dbl&gt; 356, 74, 215, 221, 159
+</pre>
         <p>
           <idx><h>Mantel-Haenszel Method</h></idx> <idx><h>Paule-Mandel Estimator</h></idx>
         </p>
@@ -1490,6 +1574,39 @@ m.inc &lt;- metainc(event.e = event.e,
 summary(m.inc)
           </code>
         </program>
+<pre>
+## Review:     Eating Disorder Prevention
+## 
+##                        IRR           95%-CI %W(common) %W(random)
+## Stice et al., 2013  0.3688 [0.1443; 0.9424]       19.6       13.9
+## Stice et al., 2017a 0.8660 [0.3855; 1.9450]       14.8       18.7
+## Stice et al., 2017b 0.3638 [0.1295; 1.0221]       14.2       11.5
+## Taylor et al., 2006 0.6071 [0.2516; 1.4648]       15.9       15.8
+## Taylor et al., 2016 0.7539 [0.4332; 1.3121]       35.4       40.0
+## 
+## Number of studies: k = 5
+## Number of events: e = 139
+## 
+##                         IRR           95%-CI   z|t p-value
+## Common effect model  0.6161 [0.4359; 0.8709] -2.74  0.0061
+## Random effects model 0.6223 [0.3955; 0.9791] -2.91  0.0439
+## 
+## Quantifying heterogeneity (with 95%-CIs):
+##  tau^2 = 0 [0.0000; 1.1300]; tau = 0 [0.0000; 1.0630]
+##  I^2 = 0.0% [0.0%; 79.2%]; H = 1.00 [1.00; 2.19]
+## 
+## Test of heterogeneity:
+##     Q d.f. p-value
+##  3.34    4  0.5033
+## 
+## Details of meta-analysis methods:
+## - Mantel-Haenszel method (common effect model)
+## - Inverse variance method (random effects model)
+## - Paule-Mandel estimator for tau^2
+## - Q-Profile method for confidence interval of tau^2 and tau
+## - Calculation of I^2 based on Q
+## - Hartung-Knapp adjustment for random effects model (df = 4)
+</pre>
         <p>
           We see that the pooled effect using the random-effects model is IRR = 0.62. This effect is significant (<m>p=</m> 0.04), albeit being somewhat closer to the conventional significance threshold than in the previous examples. Based on the pooled effect, we can say that the preventive interventions reduced the incidence of eating disorders within one year by 38%. Lastly, we see that the estimate of the heterogeneity variance <m>\tau^2</m> is zero.
         </p>
@@ -1548,6 +1665,15 @@ data(HealthWellbeing)
 glimpse(HealthWellbeing)
         </code>
       </program>
+<pre>
+## Rows: 29
+## Columns: 5
+## $ author     &lt;chr&gt; "An, 2008", "Angner, 2013", "Barger, 2009", "Doherty, 2013"…
+## $ cor        &lt;dbl&gt; 0.620, 0.372, 0.290, 0.333, 0.730, 0.405, 0.292, 0.388, 0.3…
+## $ n          &lt;dbl&gt; 121, 383, 350000, 1764, 42331, 112, 899, 870, 70, 67, 246, …
+## $ population &lt;chr&gt; "general population", "chronic condition", "general populat…
+## $ country    &lt;chr&gt; "South Korea", "USA", "USA", "Ireland", "Poland", "Australi…
+</pre>
       <p>
         <idx><h>Restricted Maximum Likelihood Estimator</h></idx>
       </p>
@@ -1669,6 +1795,14 @@ data(BdiScores)
 glimpse(BdiScores[,1:4])
         </code>
       </program>
+<pre>
+## Rows: 6
+## Columns: 4
+## $ author &lt;chr&gt; "DeRubeis, 2005", "Dimidjian, 2006", "Dozois, 2009", "Lesperanc…
+## $ n      &lt;dbl&gt; 180, 145, 48, 142, 301, 104
+## $ mean   &lt;dbl&gt; 32.6, 31.9, 28.6, 30.3, 31.9, 29.8
+## $ sd     &lt;dbl&gt; 9.4, 7.4, 9.9, 9.1, 9.2, 8.6
+</pre>
       <p>
         Our goal is to calculate the overall mean depression score based on this collection of studies. We will use a random-effects model and the restricted maximum-likelihood estimator to pool the raw means in our data set. We save the results in an object called <c>m.mean</c>. 
       </p>
@@ -1688,6 +1822,39 @@ m.mean &lt;- metamean(n = n,
 summary(m.mean)
         </code>
       </program>
+<pre>
+## Review:     BDI-II Scores
+## 
+##                     mean             95%-CI %W(random)
+## DeRubeis, 2005   32.6000 [31.2268; 33.9732]       18.0
+## Dimidjian, 2006  31.9000 [30.6955; 33.1045]       19.4
+## Dozois, 2009     28.6000 [25.7993; 31.4007]        9.1
+## Lesperance, 2007 30.3000 [28.8033; 31.7967]       17.0
+## McBride, 2007    31.9000 [30.8607; 32.9393]       20.7
+## Quilty, 2014     29.8000 [28.1472; 31.4528]       15.8
+## 
+## Number of studies: k = 6
+## Number of observations: o = 920
+## 
+##                         mean             95%-CI
+## Random effects model 31.1221 [29.6656; 32.5786]
+## 
+## Quantifying heterogeneity (with 95%-CIs):
+##  tau^2 = 1.0937 [0.0603; 12.9913]; tau = 1.0458 [0.2456; 3.6043]
+##  I^2 = 64.3% [13.8%; 85.2%]; H = 1.67 [1.08; 2.60]
+## 
+## Test of heterogeneity:
+##      Q d.f. p-value
+##  14.00    5  0.0156
+## 
+## Details of meta-analysis methods:
+## - Inverse variance method
+## - Restricted maximum-likelihood estimator for tau^2
+## - Q-Profile method for confidence interval of tau^2 and tau
+## - Calculation of I^2 based on Q
+## - Hartung-Knapp adjustment for random effects model (df = 5)
+## - Untransformed (raw) means
+</pre>
       <p>
         The pooled mean assuming a random-effects model is <m>m</m> = 31.12. We also see that the between-study heterogeneity variance <m>\tau^2</m> in this meta-analysis is significantly greater than zero.
       </p>
@@ -1796,6 +1963,13 @@ data(OpioidMisuse)
 glimpse(OpioidMisuse)
         </code>
       </program>
+<pre>
+## Rows: 15
+## Columns: 3
+## $ author &lt;chr&gt; "Becker, 2008", "Boyd, 2009", "Boyd, 2007", "Cerda, 2014", "Fie…
+## $ event  &lt;dbl&gt; 2186, 91, 126, 543, 6496, 10850, 86, 668, 843, 647, 11521, 1111…
+## $ n      &lt;dbl&gt; 21826, 912, 1084, 7646, 55215, 114783, 527, 9403, 11274, 8888, …
+</pre>
       <p>
         We pool the prevalence data using a GLMM and logit-transformed proportions.
       </p>
@@ -1859,7 +2033,7 @@ summary(m.prop)
 
   </section>
 
-  <section xml:id="pooling-es-questions-answers">
+  <exercises xml:id="pooling-es-questions-answers">
     <title>Questions &amp; Answers</title>
 
     <exercise>
@@ -1907,7 +2081,7 @@ summary(m.prop)
         <alert>Answers to these questions are listed in <url href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/qanda.html#qanda4">Appendix A</url> at the end of this book.</alert>
       </p>
     </exercise>
-  </section>
+  </exercises>
 
   <section xml:id="pooling-es-summary">
     <title>Summary</title>
