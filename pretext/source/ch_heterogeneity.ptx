@@ -30,12 +30,6 @@
     <p>
       In this chapter, we will have a closer look at different ways to measure heterogeneity, and how they can be interpreted. We will also cover a few tools which allow us to detect studies that contribute to the heterogeneity in our data. Lastly, we discuss ways to address large amounts of heterogeneity in "real-world" meta-analyses. 
     </p>
-    <p>
-      To follow the same sequence as the <em>Rmd</em> version of this book, you can revisit <xref ref="pooling-es"/> and then continue with <xref ref="forest"/>.
-    </p>
-    <p>
-      For external standards and reporting guidance, see the <url href="https://training.cochrane.org/handbook">Cochrane Handbook</url> and the <url href="https://www.prisma-statement.org/">PRISMA Statement website</url>. Bibliographic files and citation exports are listed in <xref ref="references"/> and <xref ref="citing-this-guide"/>.
-    </p>
   </introduction>
 
   <section xml:id="het-measures">
@@ -70,7 +64,7 @@
       </p>
       <p>
         <me>
-          Q = \sum^K<em>{k=1}w</em>k(\hat\theta_k-\hat\theta)^2
+          Q = \sum^K_{k=1}w_k(\hat\theta_k-\hat\theta)^2
         </me>
       </p>
       <p>
@@ -389,7 +383,7 @@ m.gen$tau
         </p>
         <p>
           <me>
-            Q<em>{\text{gen}} = \sum</em>{k=1}^{K} w^*<em>k (\hat\theta</em>k-\hat\mu)^2
+            Q_{\text{gen}} = \sum_{k=1}^{K} w^*_k (\hat\theta_k-\hat\mu)^2
           </me>
         </p>
         <p>
@@ -397,7 +391,7 @@ m.gen$tau
         </p>
         <p>
           <me>
-            w^*<em>k = \frac{1}{s^2</em>k+\tau^2}
+            w^*_k = \frac{1}{s^2_k+\tau^2}
           </me>
         </p>
         <p>
@@ -461,7 +455,7 @@ m.gen$tau
     </p>
     <p>
       <me>
-        \hat\mu &amp;\pm t<em>{K-1, 0.975}\sqrt{SE</em>{\hat\mu}^2+\hat\tau^2} \notag \ \hat\mu &amp;\pm t<em>{K-1, 0.975}SD</em>{\text{PI}}
+        \hat\mu &amp;\pm t_{K-1, 0.975}\sqrt{SE_{\hat\mu}^2+\hat\tau^2} \notag \ \hat\mu &amp;\pm t_{K-1, 0.975}SD_{\text{PI}}
       </me>
     </p>
     <p>
@@ -829,7 +823,7 @@ plot(m.gen.inf, "influence")
         </p>
         <p>
           <me>
-            t<em>{k} = \frac{\hat\theta</em>{k}-\hat\mu<em>{\setminus k}}{\sqrt{\mathrm{Var}(\hat\mu</em>{\setminus k})+\hat\tau^2<em>{\setminus k}+s^2</em>k}}
+            t_{k} = \frac{\hat\theta_{k}-\hat\mu_{\setminus k}}{\sqrt{\mathrm{Var}(\hat\mu_{\setminus k})+\hat\tau^2_{\setminus k}+s^2_k}}
           </me>
         </p>
         <p>
@@ -849,7 +843,7 @@ plot(m.gen.inf, "influence")
         </p>
         <p>
           <me>
-            \mathrm{DFFITS}<em>k =  \dfrac{\hat\mu-\hat\mu</em>{\setminus k}}{\sqrt{\dfrac{w<em>k^{(*)}}{\sum^{K}</em>{k=1}w<em>k^{(*)}}(s^2</em>k+\hat\tau^2_{\setminus k})}}
+            \mathrm{DFFITS}_k =  \dfrac{\hat\mu-\hat\mu_{\setminus k}}{\sqrt{\dfrac{w_k^{(*)}}{\sum^{K}_{k=1}w_k^{(*)}}(s^2_k+\hat\tau^2_{\setminus k})}}
           </me>
         </p>
         <p>
@@ -872,7 +866,7 @@ plot(m.gen.inf, "influence")
         </p>
         <p>
           <me>
-            D<em>k =  \frac{(\hat\mu-\hat\mu</em>{\setminus k})^2}{\sqrt{s^2_k+\hat\tau^2}}.
+            D_k =  \frac{(\hat\mu-\hat\mu_{\setminus k})^2}{\sqrt{s^2_k+\hat\tau^2}}.
           </me>
         </p>
         <p>
@@ -883,7 +877,7 @@ plot(m.gen.inf, "influence")
         </p>
         <p>
           <me>
-            \mathrm{CovRatio}<em>k = \frac{\mathrm{Var}(\hat\mu</em>{\setminus k})}{\mathrm{Var}(\hat\mu)}
+            \mathrm{CovRatio}_k = \frac{\mathrm{Var}(\hat\mu_{\setminus k})}{\mathrm{Var}(\hat\mu)}
           </me>
         </p>
         <p>
