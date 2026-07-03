@@ -491,7 +491,7 @@
         In conclusion, we want to stress that searching bibliographic databases is an art in and of itself, and that this paragraph only barely scratches the surface. A much more detailed discussion of this topic can be found in Cuijpers <xref ref="cuijpers2016meta"/> and Bramer and colleagues <xref ref="bramer2018systematic"/>.
       </p>
       <table xml:id="tab-bibdatabases">
-        <title>Database Descriptions</title>
+        <title>A selection of relevant bibliographical databases.</title>
         <tabular>
           <row>
             <cell><alert>Database</alert></cell>
@@ -502,11 +502,11 @@
             <cell/>
           </row>
           <row>
-            <cell>PubMed</cell>
+            <cell><url href = "https://www.ncbi.nlm.nih.gov/pubmed">PubMed</url></cell>
             <cell>Openly accessible database of the US National Library of Medicine. Primarily contains biomedical research.</cell>
           </row>
           <row>
-            <cell>PsycInfo</cell>
+            <cell><url href = "https://www.apa.org/pubs/databases/psycinfo">PsycInfo</url></cell>
             <cell>Database of the American Psychological Association. Primarily covers research in the social and behavioral sciences. Allows for a 30-day free trial.</cell>
           </row>
           <row>
@@ -514,11 +514,11 @@
             <cell>Openly accessible database of the Cochrane Collaboration. Primarily covers health-related topics.</cell>
           </row>
           <row>
-            <cell>Embase</cell>
+            <cell><url href = "https://www.elsevier.com/solutions/embase-biomedica%20%3C/td%3E%20%3Ctd%20style=%22text-align:left;%22%3E%20-research">Embase</url></cell>
             <cell>Database of biomedical research maintained by the large scientific publisher Elsevier. Requires a license.</cell>
           </row>
           <row>
-            <cell>ProQuest International Bibliography of the Social Sciences</cell>
+            <cell><url href = "https://www.about.proquest.com/products-services/ibss-set-c.html">ProQuest International Bibliography of the Social Sciences</url></cell>
             <cell>Database of social science research. Requires a license.</cell>
           </row>
           <row>
@@ -530,15 +530,15 @@
             <cell/>
           </row>
           <row>
-            <cell>Web of Science</cell>
+            <cell><url href = "https://www.webofknowledge.com/">Web of Science</url></cell>
             <cell>Interdisciplinary citation database maintained by Clarivate Analytics. Requires a license.</cell>
           </row>
           <row>
-            <cell>Scopus</cell>
+            <cell><url href = "https://www.scopus.com/">Scopus</url></cell>
             <cell>Interdisciplinary citation database maintained by Elsevier. Requires a license.</cell>
           </row>
           <row>
-            <cell>Google Scholar</cell>
+            <cell><url href = "https://www.scholar.google.com/">Google Scholar</url></cell>
             <cell>Openly accessible citation database maintained by Google. Has only limited search and reference retrieval functionality.</cell>
           </row>
           <row>
@@ -546,7 +546,7 @@
             <cell/>
           </row>
           <row>
-            <cell>ProQuest Dissertations</cell>
+            <cell><url href = "https://www.about.proquest.com/prod%20%3C/td%3E%20%3Ctd%20style=%22text-align:left;%22%3E%20cts-services/dissertations/">ProQuest Dissertations</url></cell>
             <cell>Database of dissertations. Requires a license.</cell>
           </row>
           <row>
@@ -554,11 +554,11 @@
             <cell/>
           </row>
           <row>
-            <cell>WHO International Clinical Trials Registry Platform (ICTRP)</cell>
+            <cell><url href = "https://www.www.who.int/ictrp">WHO International Clinical Trials Registry Platform (ICTRP)</url></cell>
             <cell>Openly accessible database of clinical trial registrations worldwide. Can be used to identify studies that have not (yet) been published.</cell>
           </row>
           <row>
-            <cell>OSF Registries</cell>
+            <cell><url href = "https://www.osf.io/registries">OSF Registries</url></cell>
             <cell>Openly accessible interdisciplinary database of study registrations. Can be used to identify studies that have not (yet) been published.</cell>
           </row>
         </tabular>
