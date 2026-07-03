@@ -1067,7 +1067,7 @@ semPaths(cfa.plot,
 
   </section>
 
-  <section xml:id="sem-questions-answers">
+  <exercises xml:id="sem-questions-answers">
     <title>Questions &amp; Answers</title>
 
     <exercise>
@@ -1105,7 +1105,7 @@ semPaths(cfa.plot,
         <alert>Answers to these questions are listed in <url href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/qanda.html#qanda11">Appendix A</url> at the end of this book.</alert>
       </p>
     </exercise>
-  </section>
+  </exercises>
 
   <section xml:id="sem-summary">
     <title>Summary</title>
