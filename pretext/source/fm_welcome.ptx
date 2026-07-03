@@ -33,7 +33,7 @@
     <p>
       This tutorial provides a brief introduction to the guide and how to use it for your own meta-analysis project.
     </p>
-    <video xml:id="welcome-video" youtube="i1b5c-dVfkU" width="580"/>
+    <video xml:id="welcome-video" youtube="i1b5c-dVfkU"/>
   </paragraphs>
 
   <paragraphs xml:id="contributing">
