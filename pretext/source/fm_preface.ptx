@@ -27,13 +27,13 @@
     </p>
 
   <paragraphs xml:id="this-book-is-for-mortals">
-    <title>This Book Is for Mortals</title>
+    <p><alert>This Book Is for Mortals</alert></p>
 
     <p>
       This guide was not written for meta-analysis experts or statisticians. We do not assume that you have any special background knowledge on meta-analytic methods. Only basic knowledge of fundamental mathematical and statistical concepts is needed. For example, we assume that you have heard before what things like a "mean", "standard deviation", "correlation", "regression", "<m>p</m>-value" or a "normal distribution" are. If these terms ring a bell, you should be good to go. If you are really starting from scratch, you may want to first have a look at Robert Stinerock's statistics beginner's guide <xref ref="stinerock2018statistics"/> for a thorough introduction including hands-on examples in <em>R</em> -- or some other introductory statistics textbook of your choice.
     </p>
     <p>
-      Although we tried to keep it as minimal as possible, we will use mathematical formulas and statistical notation at times. But do not panic. Formulas and greek letters can seem confusing at first glance, but they are often a very good way to precisely describe the idea behind some meta-analysis methods. Having seen those formulas, and knowing what they represent, will also make it easier for you to understand more advanced texts you may want to read further down the line. And of course, we tried our best to always explain in detail what certain symbols or letters stand for, and what a specific formula <alert>wants to tell us</alert>. In appendix <xref ref="symbollist"/> of this book, you can find a list of the symbols we use, and what they stand for. In later chapters, especially the Advanced Methods section, we need to become a little more technical to explain the idea behind some of the applied techniques. Nevertheless, we made sure to always include some background information on the mathematical and statistical concepts used in these sections.
+      Although we tried to keep it as minimal as possible, we will use mathematical formulas and statistical notation at times. But do not panic. Formulas and greek letters can seem confusing at first glance, but they are often a very good way to precisely describe the idea behind some meta-analysis methods. Having seen those formulas, and knowing what they represent, will also make it easier for you to understand more advanced texts you may want to read further down the line. And of course, we tried our best to always explain in detail what certain symbols or letters stand for, and what a specific formula <alert>wants to tell us</alert>. In appendix <xref ref="symbollist">C</xref> of this book, you can find a list of the symbols we use, and what they stand for. In later chapters, especially the Advanced Methods section, we need to become a little more technical to explain the idea behind some of the applied techniques. Nevertheless, we made sure to always include some background information on the mathematical and statistical concepts used in these sections.
     </p>
     <p>
       No prior knowledge of <em>R</em> (or programming in general) is required. In the guide, we try to provide a gentle introduction into basic <em>R</em> skills you need to code your own meta-analysis. We also provide references to adequate resources to keep on learning. Furthermore, we will show you how you can set up a free computer program which allows you use <em>R</em> conveniently on your PC or Mac.
@@ -53,48 +53,50 @@
   </paragraphs>
 
   <paragraphs xml:id="topics-covered-in-the-book">
-    <title>Topics Covered in the Book</title>
+    <p><alert>Topics Covered in the Book</alert></p>
 
     <p>
       Among other things, this guide will cover the following topics:
-    </p>
-    <p>
+<ul>
+<li>
       What a meta-analysis is, and why it was <alert>invented</alert>.
-    </p>
-    <p>
+    </li>
+    <li>
       <alert>Advantages</alert> and <alert>common problems</alert> with meta-analysis.
-    </p>
-    <p>
+    </li>
+    <li>
       How <alert>research questions</alert> for meta-analyses are specified, and how the <alert>search for studies</alert> can be conducted.
-    </p>
-    <p>
+    </li>
+    <li>
       How you can set up <em>R</em>, and a <alert>computer program</alert> which allows you to use <em>R</em> in a convenient way.
-    </p>
-    <p>
+    </li>
+    <li>
       How you can <alert>import</alert> your meta-analysis data into <em>R</em>, and how to <alert>manipulate</alert> it through code.
-    </p>
-    <p>
+    </li>
+    <li>
       What <alert>effect sizes</alert> are, and how they are calculated.
-    </p>
-    <p>
+    </li>
+    <li>
       How to <alert>pool effect sizes</alert> in fixed-effect and random-effects meta-analyses.
-    </p>
-    <p>
+    </li>
+    <li>
       How to analyze the <alert>heterogeneity</alert> of your meta-analysis, and how to explore it using <alert>subgroup analyses</alert> and <alert>meta-regression</alert>.
-    </p>
-    <p>
+    </li>
+    <li>
       Problems with <alert>selective outcome reporting</alert>, and how to tackle them.
-    </p>
-    <p>
+    </li>
+    <li>
       How to perform <alert>advanced types</alert> of meta-analytic techniques, such as "multilevel" meta-analysis, meta-analytic structural equation modeling, network meta-analysis, or Bayesian meta-analysis.
-    </p>
-    <p>
+    </li>
+    <li>
       How to <alert>report</alert> your meta-analysis results, and make them <alert>reproducible</alert>.
-    </p>
+    </li>
+</ul>
+</p>
   </paragraphs>
 
     <paragraphs xml:id="work-flow">
-      <title>Work Flow</title>
+      <p><alert>Work Flow</alert></p>
 
       <p>
         This book is intended to be read in a "linear" fashion. We recommend that you start with the first chapters on meta-analysis and <em>R</em> basics, and then keep on working yourself through the book one chapter after another. Jumping straight to the hands-on chapters may be tempting, but it is not generally recommended. Teaching students and researchers how to perform their first meta-analyses, we found that a basic familiarity with this technique, as well as the R Studio environment, is a necessary evil to avoid frustrations later on. This is particularly true if you have no previous experience with meta-analysis <alert>and</alert> <em>R</em> programming. Experienced <em>R</em> users may skip <xref ref="discovering-R"/>, which introduces <em>R</em> and R Studio. However, it will certainly do no harm to work through the chapter anyway as a quick refresher.
@@ -108,7 +110,7 @@
     </paragraphs>
 
     <paragraphs xml:id="companion-r-package">
-      <title>Companion <em>R</em> Package</title>
+      <p><alert>Companion <em>R</em> Package</alert></p>
 
       <p>
         This book comes with a companion <em>R</em> package called <alert>{dmetar}</alert>. This package mainly serves two functions. First, it aims to make your life easier. Although there are fantastic <em>R</em> packages for meta-analysis out there with a vast range of functionality, there are still a few things which are currently not easy to implement in <em>R</em>, at least for beginners. 
@@ -121,31 +123,8 @@
       </p>
     </paragraphs>
 
-    <paragraphs xml:id="text-boxes">
-      <title>Text Boxes</title>
-
-      <p>
-        Throughout the book, a set of text boxes is used.
-      </p>
-      <p>
-        <alert>General Note.</alert> General notes contain relevant background information, insights, anecdotes, considerations or take-home messages pertaining to the covered topic.
-      </p>
-      <p>
-        <alert>Important Information.</alert> These boxes contain information on caveats, problems, drawbacks or pitfalls you have to keep in mind.
-      </p>
-      <p>
-        <alert>Questions.</alert> After each chapter, this box will contain a few questions through which you can test your knowledge. Answers to these questions can be found at the end of the book in <xref ref="qanda">Appendix A</xref>.
-      </p>
-      <p>
-        <alert>{dmetar} Note.</alert> The <alert>{dmetar}</alert> note boxes appear whenever functions or data sets contained in the companion <em>R</em> package are used. These boxes also contain URLs to the function code, or data set download links for readers who did not install the package.
-      </p>
-      <p>
-        <alert>How Can I Report This?</alert> These boxes contain recommendations on how you can report <em>R</em> output in your thesis or research article.
-      </p>
-    </paragraphs>
-
   <paragraphs xml:id="conventions">
-    <title>Conventions</title>
+    <p><alert>Conventions</alert></p>
 
     <p>
       A few conventions are followed throughout the book.
@@ -177,7 +156,7 @@
   </paragraphs>
 
   <paragraphs xml:id="what-to-do-when-you-are-stuck">
-    <title>What to Do When You Are Stuck</title>
+    <p><alert>What to Do When You Are Stuck</alert></p>
 
     <p>
       Undeniably, the road to doing meta-analyses in <em>R</em> can be a rocky path at times. Although we think this is sometimes exaggerated, <em>R</em>'s learning curve <alert>is</alert> steep. Statistics <alert>is</alert> hard. We did our best to make your experience of learning how to perform meta-analyses using <em>R</em> as painless as possible. Nevertheless, this will not shield you from being frustrated sometimes. This is all but natural. We all had to start from scratch somewhere down the line. From our own experience, we can assure you that we have never met anyone who was <alert>not</alert> able to learn <em>R</em>, or how to do a meta-analysis. It only takes practice, and the understanding that there will be no point in time when you are "done" learning. We believe in you. 
@@ -188,7 +167,7 @@
   </paragraphs>
 
   <paragraphs xml:id="do-not-panic">
-      <title>Do Not Panic</title>
+      <p><alert>Do Not Panic</alert></p>
 
       <p>
         Making their first steps in <em>R</em>, many people are terrified when the first red error messages start popping up. That is not necessary. <alert>Everyone</alert> gets error messages <alert>all the time</alert>. Instead of becoming panicky or throwing your computer out the window, take a deep breath and take a closer look at the error message. Very often, it only takes a few tweaks to make the error messages disappear. Have you misspelled something in your code? Have you forgotten to close a bracket, or to put something into quotation marks? 
@@ -199,7 +178,7 @@
     </paragraphs>
 
     <paragraphs xml:id="google">
-      <title>Google</title>
+      <p><alert>Google</alert></p>
 
       <p>
         A software developer friend once told the first author this joke about his profession: "A programmer is someone who can google better than Average Joe". This observation certainly also applies to <em>R</em> programming. If you find yourself in a situation in which you cannot make sense out of an error or warning message you receive, do not hesitate to simply copy and paste it, and do a Google search. Adding "R" to your search is often helpful to improve the results. Another great option is <url href="https://rseek.org/">rseek.org</url>, which allows you to run a Google search in which non-<em>R</em> hits are automatically filtered out. Most content on the Internet is in English; so if your error message in <em>R</em> is in another language, run <c>Sys.setenv(LANGUAGE = "en")</c> and then rerun your code again. 
@@ -210,7 +189,7 @@
     </paragraphs>
 
     <paragraphs xml:id="stackoverflow-crossvalidated">
-      <title><em>StackOverflow</em> &amp; <em>CrossValidated</em></title>
+      <p><alert><em>StackOverflow</em> &amp; <em>CrossValidated</em></alert></p>
 
       <p>
         When searching for <em>R</em>-related questions on Google, you will soon find out that many of the first hits will link you to a website called <url href="https://stackoverflow.com/">StackOverflow</url>. StackOverflow is a large community-based forum for questions related to programming in general. On StackOverflow, everyone (including you) can ask and answer questions. 
@@ -227,7 +206,7 @@
     </paragraphs>
 
     <paragraphs xml:id="contact-us">
-      <title>Contact Us</title>
+      <p><alert>Contact Us</alert></p>
 
       <p>
         If you have the feeling that your problem has something to do with this guide itself, you can also contact us. This particularly pertains to issues with the companion <em>R</em> package for this guide, <alert>{dmetar}</alert>. If you have trouble installing the package, or using some if its functions, you can go to our <url href="https://www.protectlab.org/meta-analysis-in-r">website</url>, where you can find ways to report your issue. When certain problems come up frequently, we usually try to have a look at them and search for fixes. Known issues will also be displayed in the Corrections &amp; Remarks section in the online version of the guide (see <alert>Work Flow</alert> section). Please do not be disappointed if we do not answer your question personally, or if takes long until we get back to you. We receive many questions related to meta-analysis and our package every day, so it is sometimes not possible to directly answer each and every one.
@@ -235,7 +214,7 @@
     </paragraphs>
 
   <paragraphs xml:id="acknowledgments">
-    <title>Acknowledgments</title>
+    <p><alert>Acknowledgments</alert></p>
 
     <p>
       We would like to thank David Grubbs and Chapmann &amp; Hall/CRC Press for approaching us with the wonderful idea of turning our online guide into the printed book you are reading right now, and for their invaluable editorial support.
@@ -259,19 +238,38 @@
       Mathias, Pim, Toshi &amp; David
     </p>
   </paragraphs>
+</preface>
 
-  <paragraphs xml:id="note-pretext-edition">
+  <preface xml:id="preface-ptx-version">
     <title>Note on This PreTeXt Edition</title>
-
     <p>
-      This is a <url href="https://pretextbook.org/">PreTeXt</url> conversion of <em>Doing Meta-Analysis with R: A Hands-On Guide</em>, originally written by <url href="https://www.mharrer.dev">Mathias Harrer</url>, <url href="https://www.pimcuijpers.com/blog/">Pim Cuijpers</url>, <url href="http://ebmh.med.kyoto-u.ac.jp/professor.html">Toshi A. Furukawa</url>, and <url href="https://www.protectlab.org/en/author/prof.-dr.-david-daniel-ebert/">David D. Ebert</url>. The original work is available online at <url href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/">bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R</url> and was published by Chapman &amp; Hall/CRC Press. The original GitHub repository for the book source is at <url href="https://github.com/MathiasHarrer/Doing-Meta-Analysis-in-R">github.com/MathiasHarrer/Doing-Meta-Analysis-in-R</url>.
+      This is a <url href="https://pretextbook.org/">PreTeXt</url> conversion of
+      <em>Doing Meta-Analysis with R: A Hands-On Guide</em>, originally written by 
+      <url href="https://www.mharrer.dev">Mathias Harrer</url>, 
+      <url href="https://www.pimcuijpers.com/blog/">Pim Cuijpers</url>, 
+      <url href="http://ebmh.med.kyoto-u.ac.jp/professor.html">Toshi A. Furukawa</url>, 
+      and <url href="https://www.protectlab.org/en/author/prof.-dr.-david-daniel-ebert/">
+      David D. Ebert</url>. 
+      The original work is available online at 
+      <url href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/">bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R</url> 
+      and was published by Chapman &amp; Hall/CRC Press. 
+      The original GitHub repository for the book source is at 
+      <url href="https://github.com/MathiasHarrer/Doing-Meta-Analysis-in-R">github.com/MathiasHarrer/Doing-Meta-Analysis-in-R</url>.
     </p>
     <p>
-      This PreTeXt edition was prepared by <url href="https://github.com/PreTeXtBooks/Doing-Meta-Analysis-in-R">the PreTeXtBooks project</url> to make the content available in the PreTeXt format, enabling accessible and structured output in HTML, PDF, and other formats. All prose, code examples, figures, and mathematical content are intended to be faithful reproductions of the original work, though occasional typographical errors may have been introduced in the conversion process. Report any issues to our <url href="https://github.com/PreTeXtBooks/Doing-Meta-Analysis-in-R/issues">GitHub Issues Page</url>.
+      This PreTeXt edition was prepared by 
+      <url href="https://github.com/PreTeXtBooks/Doing-Meta-Analysis-in-R">the 
+      PreTeXtBooks project</url> to make the content available in the PreTeXt format, 
+      enabling accessible and structured output in HTML, PDF, and other formats. 
+      All prose, code examples, figures, and mathematical content are intended to be 
+      faithful reproductions of the original work, though occasional typographical 
+      errors may have been introduced in the conversion process. Report any issues 
+      to our <url href="https://github.com/PreTeXtBooks/Doing-Meta-Analysis-in-R/issues">GitHub 
+      Issues Page</url>.
     </p>
     <p>
-      The original work by Mathias Harrer, Pim Cuijpers, Toshi A. Furukawa, and David D. Ebert is licensed under a <url href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0 1.0 Universal License</url>.
+      The original work by Mathias Harrer, Pim Cuijpers, Toshi A. Furukawa, and David D. 
+      Ebert is licensed under a <url href="https://creativecommons.org/publicdomain/zero/1.0/">
+      Creative Commons CC0 1.0 Universal License</url>.
     </p>
-  </paragraphs>
-
 </preface>
