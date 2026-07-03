@@ -2203,7 +2203,7 @@ selmodel(m.rma, type = "stepfun", steps = a, delta = w.severe)
     </p>
   </section>
 
-  <section xml:id="pub-bias-questions-answers">
+  <exercises xml:id="pub-bias-questions-answers">
     <title>Questions &amp; Answers</title>
 
     <exercise>
@@ -2251,7 +2251,7 @@ selmodel(m.rma, type = "stepfun", steps = a, delta = w.severe)
         <alert>Answers to these questions are listed in <url href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/qanda.html#qanda9">Appendix A</url> at the end of this book.</alert>
       </p>
     </exercise>
-  </section>
+  </exercises>
 
   <section xml:id="pub-bias-summary">
     <title>Summary</title>
