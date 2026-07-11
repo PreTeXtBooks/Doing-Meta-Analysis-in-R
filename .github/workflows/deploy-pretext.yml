@@ -54,7 +54,11 @@ jobs:
             echo "Build failed: output/web directory not created"
             exit 1
           fi
-          
+
+      - name: Add canonical links to original chapters
+        run: |
+          python3 add_canonical_links.py
+
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
